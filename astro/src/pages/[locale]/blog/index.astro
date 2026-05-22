@@ -1,0 +1,477 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { getAllPosts } from '../../../lib/blog';
+import { t } from '../../../lib/i18n';
+import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+const { locale } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const pageTitle = t(locale, 'blog.meta.title');
+const pageDescription = t(locale, 'blog.meta.description');
+const canonical = `${resolveBaseUrl()}/${locale}/blog`;
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: t(locale, 'nav.blog') },
+]);
+
+const posts = await getAllPosts(locale);
+const categories = Array.from(new Set(posts.map((post) => post.category).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+const initialVisibleCount = 6;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.href ? `${resolveBaseUrl()}${item.href}` : canonical,
+  })),
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  inLanguage: locale,
+};
+
+const uiText = {
+  searchClear: t(locale, 'blog.search.clear'),
+  searchPlaceholder: t(locale, 'blog.search.placeholder'),
+  filterAll: t(locale, 'blog.filters.all'),
+  filtersLabel: t(locale, 'blog.filters.label'),
+  clearFilters: t(locale, 'blog.filters.clear'),
+  resetFilters: t(locale, 'blog.filters.reset'),
+  emptyTitle: t(locale, 'blog.filters.emptyTitle'),
+  emptyDescription: t(locale, 'blog.filters.emptyDescription'),
+  featuredLabel: t(locale, 'blog.featured.label'),
+  featuredTitle: t(locale, 'blog.featured.title'),
+  featuredCta: t(locale, 'blog.featured.cta'),
+  gridLabel: t(locale, 'blog.grid.label'),
+  gridTitle: t(locale, 'blog.grid.title'),
+  gridCta: t(locale, 'blog.grid.cta'),
+  loadMore: t(locale, 'blog.loadMore'),
+  resultsTemplate: t(locale, 'blog.results.template'),
+  resultSingular: t(locale, 'blog.results.resultSingular'),
+  resultPlural: t(locale, 'blog.results.resultPlural'),
+  resultsFor: t(locale, 'blog.results.for'),
+  resultsIn: t(locale, 'blog.results.in'),
+  postAuthorLabel: t(locale, 'blog.post.authorLabel'),
+  noImage: t(locale, 'blog.common.noImage'),
+  heroKicker: t(locale, 'blog.hero.kicker'),
+  heroTitle: t(locale, 'blog.hero.title'),
+  heroDescription: t(locale, 'blog.hero.description'),
+  introKicker: t(locale, 'blog.intro.kicker'),
+  introTitle: t(locale, 'blog.intro.title'),
+  introDescription: t(locale, 'blog.intro.description'),
+  emptyArchiveKicker: t(locale, 'blog.emptyArchive.kicker'),
+  emptyArchiveTitle: t(locale, 'blog.emptyArchive.title'),
+  emptyArchiveDescription: t(locale, 'blog.emptyArchive.description'),
+};
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  </Fragment>
+
+  <div class="space-y-48">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950 px-8 py-12 text-white shadow-2xl md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(196,181,253,0.18),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
+      <div class="relative">
+        <div>
+          <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+          <div class="mt-8 max-w-3xl">
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-200">{uiText.heroKicker}</div>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight md:text-5xl">{uiText.heroTitle}</h1>
+            <p class="mt-5 text-lg leading-relaxed text-slate-200">
+              {uiText.heroDescription}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8" id="blog-archive">
+      <div>
+        <div>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{uiText.introKicker}</div>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+            {uiText.introTitle}
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-slate-700">
+            {uiText.introDescription}
+          </p>
+        </div>
+      </div>
+
+      {posts.length === 0 ? (
+        <section class="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{uiText.emptyArchiveKicker}</div>
+          <h3 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{uiText.emptyArchiveTitle}</h3>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+            {uiText.emptyArchiveDescription}
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={`/${locale}/contact`}>
+              {t(locale, 'blog.post.ctaPrimary')}
+            </a>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/services`}>
+              {t(locale, 'blog.post.ctaSecondary')}
+            </a>
+          </div>
+        </section>
+      ) : (
+        <div
+          class="space-y-8"
+          id="blog-discovery"
+          data-initial-visible-count={initialVisibleCount}
+          data-ui={JSON.stringify(uiText)}
+        >
+          <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
+            <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <label class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" for="blog-search">
+                  {t(locale, 'blog.search.label')}
+                </label>
+                <div class="relative mt-3">
+                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                    <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 3.473 9.765l2.63 2.631a.75.75 0 1 0 1.06-1.061l-2.63-2.63A5.5 5.5 0 0 0 9 3.5ZM5 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <input
+                    id="blog-search"
+                    type="search"
+                    placeholder={uiText.searchPlaceholder}
+                    class="w-full rounded-[1.25rem] border border-slate-300 bg-slate-50 py-3 pl-12 pr-24 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white"
+                  />
+                  <button
+                    id="blog-search-clear"
+                    type="button"
+                    class="absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-2xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
+                    aria-label="Clear search"
+                  >
+                    {uiText.searchClear}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <div class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{uiText.filtersLabel}</div>
+              <div class="mt-3 flex flex-wrap gap-2" id="blog-category-filters">
+                <button
+                  type="button"
+                  data-category="All"
+                  class="blog-filter-chip rounded-2xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  {uiText.filterAll}
+                </button>
+                {categories.map((category) => (
+                  <button
+                    type="button"
+                    data-category={category}
+                    class="blog-filter-chip rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div id="blog-active-summary" class="mt-6 hidden items-center justify-between gap-4 rounded-[1.25rem] bg-violet-50 px-4 py-3 text-sm text-slate-700 md:flex">
+              <div id="blog-active-summary-text"></div>
+              <button id="blog-clear-filters" type="button" class="font-semibold text-violet-700 transition hover:text-violet-900">
+                {uiText.clearFilters}
+              </button>
+            </div>
+          </div>
+
+          <section class="space-y-6" id="blog-featured-section">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{uiText.featuredLabel}</div>
+                <h3 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">{uiText.featuredTitle}</h3>
+              </div>
+            </div>
+            <div id="blog-featured-container"></div>
+          </section>
+
+          <section class="space-y-6">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{uiText.gridLabel}</div>
+                <h3 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">{uiText.gridTitle}</h3>
+              </div>
+            </div>
+            <div id="blog-regular-grid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          </section>
+
+          <section id="blog-empty-state" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
+            <h3 class="text-3xl font-bold tracking-tight text-slate-900">{uiText.emptyTitle}</h3>
+            <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+              {uiText.emptyDescription}
+            </p>
+            <button id="blog-reset-empty" type="button" class="mt-6 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
+              {uiText.resetFilters}
+            </button>
+          </section>
+
+          <div class="flex justify-center" id="blog-load-more-wrap">
+            <button id="blog-load-more" type="button" class="inline-flex items-center rounded-2xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-violet-700">
+              {uiText.loadMore}
+            </button>
+          </div>
+
+          <div id="blog-results-summary" class="text-center text-sm text-slate-600"></div>
+        </div>
+      )}
+    </section>
+  </div>
+
+  {posts.length ? (
+    <>
+      <script type="application/json" id="blog-posts-data" set:html={JSON.stringify(posts)} />
+      <script is:inline>
+        (() => {
+          const dataScript = document.getElementById('blog-posts-data');
+          const root = document.getElementById('blog-discovery');
+          if (!dataScript || !root) return;
+
+          const posts = JSON.parse(dataScript.textContent || '[]');
+          const ui = JSON.parse(root.dataset.ui || '{}');
+          const searchInput = document.getElementById('blog-search');
+          const clearSearchButton = document.getElementById('blog-search-clear');
+          const filterWrap = document.getElementById('blog-category-filters');
+          const activeSummary = document.getElementById('blog-active-summary');
+          const activeSummaryText = document.getElementById('blog-active-summary-text');
+          const clearFiltersButton = document.getElementById('blog-clear-filters');
+          const featuredSection = document.getElementById('blog-featured-section');
+          const featuredContainer = document.getElementById('blog-featured-container');
+          const regularGrid = document.getElementById('blog-regular-grid');
+          const emptyState = document.getElementById('blog-empty-state');
+          const emptyResetButton = document.getElementById('blog-reset-empty');
+          const loadMoreWrap = document.getElementById('blog-load-more-wrap');
+          const loadMoreButton = document.getElementById('blog-load-more');
+          const resultsSummary = document.getElementById('blog-results-summary');
+          const initialVisibleCount = Number(root.dataset.initialVisibleCount || '6');
+
+          let searchTerm = '';
+          let activeCategory = 'All';
+          let visibleCount = initialVisibleCount;
+
+          const escapeHtml = (value) =>
+            String(value ?? '')
+              .replaceAll('&', '&amp;')
+              .replaceAll('<', '&lt;')
+              .replaceAll('>', '&gt;')
+              .replaceAll('"', '&quot;')
+              .replaceAll("'", '&#39;');
+
+          const createMetaRow = (post) => {
+            const parts = [];
+            if (post.category) {
+              parts.push('<span class="rounded-2xl bg-slate-100 px-3 py-1 font-medium text-slate-700">' + escapeHtml(post.category) + '</span>');
+            }
+            if (post.readTime) {
+              parts.push('<span class="rounded-2xl bg-slate-100 px-3 py-1 text-slate-700">' + escapeHtml(post.readTime) + '</span>');
+            }
+            if (post.date) {
+              parts.push('<span class="ml-auto text-slate-500">' + escapeHtml(post.date) + '</span>');
+            }
+            return parts.join('');
+          };
+
+          const createAuthor = (post) => {
+            const avatar = post.authorAvatar
+              ? '<img src="' + escapeHtml(post.authorAvatar) + '" alt="' + escapeHtml(post.author) + '" loading="lazy" class="h-10 w-10 rounded-2xl object-cover" />'
+              : '<span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-200 text-sm font-semibold text-slate-700">' + escapeHtml((post.author || 'I').slice(0, 1)) + '</span>';
+
+            return (
+              '<div class="mt-6 flex items-center gap-3">' +
+              avatar +
+              '<div>' +
+              '<div class="text-sm font-semibold text-slate-900">' + escapeHtml(post.author || 'iShine Team') + '</div>' +
+              '<div class="text-xs text-slate-500">' + escapeHtml(ui.postAuthorLabel || 'Article author') + '</div>' +
+              '</div>' +
+              '</div>'
+            );
+          };
+
+          const imageMarkup = (post, aspectClass) => {
+            if (post.image) {
+              return (
+                '<div class="' + aspectClass + ' bg-slate-100">' +
+                '<img src="' + escapeHtml(post.image) + '" alt="' + escapeHtml(post.title) + '" loading="lazy" class="h-full w-full object-cover" />' +
+                '</div>'
+              );
+            }
+
+            return (
+              '<div class="flex ' + aspectClass + ' items-end bg-gradient-to-br from-slate-100 to-slate-200 p-6">' +
+              '<div class="rounded-2xl bg-white/85 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">' + escapeHtml(ui.noImage || 'No Image') + '</div>' +
+              '</div>'
+            );
+          };
+
+          const renderFeatured = (post) => {
+            if (!post) {
+              featuredSection.classList.add('hidden');
+              featuredContainer.innerHTML = '';
+              return;
+            }
+
+            featuredSection.classList.remove('hidden');
+            featuredContainer.innerHTML =
+              '<a class="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg lg:grid-cols-[1.05fr_0.95fr]" href="' + escapeHtml(post.href) + '">' +
+                imageMarkup(post, 'aspect-[16/10] lg:aspect-auto lg:h-full') +
+                '<div class="flex flex-col justify-between p-8">' +
+                  '<div>' +
+                    '<div class="flex flex-wrap items-center gap-2 text-xs text-slate-600">' + createMetaRow(post) + '</div>' +
+                    '<h4 class="mt-5 text-3xl font-bold tracking-tight text-slate-900">' + escapeHtml(post.title) + '</h4>' +
+                    '<p class="mt-4 text-base leading-relaxed text-slate-700">' + escapeHtml(post.excerpt) + '</p>' +
+                    createAuthor(post) +
+                  '</div>' +
+                  '<div class="mt-8 inline-flex items-center text-sm font-semibold text-slate-900">' + escapeHtml(ui.featuredCta || 'Read featured article →') + '</div>' +
+                '</div>' +
+              '</a>';
+          };
+
+          const renderGrid = (items) => {
+            regularGrid.innerHTML = items
+              .map((post) =>
+                '<a class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg" href="' + escapeHtml(post.href) + '">' +
+                  imageMarkup(post, 'aspect-[16/10]') +
+                  '<div class="space-y-4 p-6">' +
+                    '<div class="flex flex-wrap items-center gap-2 text-xs text-slate-600">' + createMetaRow(post) + '</div>' +
+                    '<h4 class="text-xl font-semibold tracking-tight text-slate-900">' + escapeHtml(post.title) + '</h4>' +
+                    '<p class="text-sm leading-relaxed text-slate-700">' + escapeHtml(post.excerpt) + '</p>' +
+                    '<div class="flex items-center justify-between gap-3">' +
+                      '<div class="text-sm font-medium text-slate-900">' + escapeHtml(ui.gridCta || 'Read article →') + '</div>' +
+                      '<div class="text-xs text-slate-500">' + escapeHtml(post.author || 'iShine Team') + '</div>' +
+                    '</div>' +
+                  '</div>' +
+                '</a>'
+              )
+              .join('');
+          };
+
+          const updateFilterChipState = () => {
+            filterWrap.querySelectorAll('[data-category]').forEach((button) => {
+              const isActive = button.dataset.category === activeCategory;
+              button.className = isActive
+                ? 'blog-filter-chip rounded-2xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800'
+                : 'blog-filter-chip rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900';
+            });
+          };
+
+          const applyFilters = () => {
+            const query = searchTerm.trim().toLowerCase();
+            const filtered = posts.filter((post) => {
+              const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+              const searchBlob = [post.title, post.category, post.excerpt, post.author].filter(Boolean).join(' ').toLowerCase();
+              const matchesSearch = !query || searchBlob.includes(query);
+              return matchesCategory && matchesSearch;
+            });
+
+            const featured = filtered[0] || null;
+            const regular = filtered.slice(1);
+            const visibleRegular = regular.slice(0, visibleCount);
+            const activeFilterCount = Number(Boolean(searchTerm.trim())) + Number(activeCategory !== 'All');
+
+            renderFeatured(featured);
+            renderGrid(visibleRegular);
+            updateFilterChipState();
+
+            if (searchInput) {
+              searchInput.value = searchTerm;
+            }
+
+            clearSearchButton.classList.toggle('hidden', !searchTerm.trim());
+            activeSummary.classList.toggle('hidden', activeFilterCount === 0);
+
+            if (activeFilterCount > 0) {
+              const parts = [];
+              const resultWord = filtered.length === 1 ? (ui.resultSingular || 'result') : (ui.resultPlural || 'results');
+              parts.push(filtered.length + ' ' + resultWord);
+              if (searchTerm.trim()) {
+                parts.push((ui.resultsFor || 'for') + ' "' + searchTerm.trim() + '"');
+              }
+              if (activeCategory !== 'All') {
+                parts.push((ui.resultsIn || 'in') + ' ' + activeCategory);
+              }
+              activeSummaryText.textContent = parts.join(' ');
+            }
+
+            const hasResults = filtered.length > 0;
+            emptyState.classList.toggle('hidden', hasResults);
+            featuredSection.classList.toggle('hidden', !hasResults);
+            regularGrid.classList.toggle('hidden', !hasResults && regular.length === 0);
+            loadMoreWrap.classList.toggle('hidden', !hasResults || visibleCount >= regular.length);
+
+            if (hasResults) {
+              const shownCount = Math.min(filtered.length, 1 + visibleRegular.length);
+              const template = ui.resultsTemplate || 'Showing {shown} of {total} articles';
+              resultsSummary.textContent = template.replace('{shown}', String(shownCount)).replace('{total}', String(filtered.length));
+            } else {
+              const template = ui.resultsTemplate || 'Showing {shown} of {total} articles';
+              resultsSummary.textContent = template.replace('{shown}', '0').replace('{total}', '0');
+            }
+          };
+
+          const resetFilters = () => {
+            searchTerm = '';
+            activeCategory = 'All';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          };
+
+          searchInput?.addEventListener('input', (event) => {
+            searchTerm = event.currentTarget.value;
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          });
+
+          clearSearchButton?.addEventListener('click', () => {
+            searchTerm = '';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+            searchInput?.focus();
+          });
+
+          filterWrap?.addEventListener('click', (event) => {
+            const target = event.target instanceof HTMLElement ? event.target.closest('[data-category]') : null;
+            if (!target) return;
+            activeCategory = target.dataset.category || 'All';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          });
+
+          clearFiltersButton?.addEventListener('click', resetFilters);
+          emptyResetButton?.addEventListener('click', resetFilters);
+
+          loadMoreButton?.addEventListener('click', () => {
+            visibleCount += initialVisibleCount;
+            applyFilters();
+          });
+
+          applyFilters();
+        })();
+      </script>
+    </>
+  ) : null}
+</BaseLayout>

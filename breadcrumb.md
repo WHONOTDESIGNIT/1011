@@ -1,0 +1,11 @@
+-  `Home` as the root
+-  `IPL Products` as a first-level item， only link, no sub-items under it
+-  `IPL Components` as a first-level item
+-  `Catalogue` as a first-level item
+-  `IPL products's sub-items` as a sub-item under `Catalogue`
+-  `Service & Support` as a first-level item
+-  four sub-items under `Service & Support`
+-  `About` as a first-level item
+-  `Contact` as a first-level item
+-  `Clients` under `About` as a sub-item
+-  `FAQ` under `About` as a sub-item

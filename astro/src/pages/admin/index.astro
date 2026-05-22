@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdminPostForm from '../../components/react/AdminPostForm';
+---
+
+<BaseLayout title="Admin" lang="en">
+  <div class="space-y-8">
+    <div class="space-y-2">
+      <h1 class="text-3xl font-bold text-slate-900">Admin</h1>
+      <p class="text-slate-600">Publish a new post via Netlify Functions.</p>
+    </div>
+    <AdminPostForm client:load />
+  </div>
+</BaseLayout>

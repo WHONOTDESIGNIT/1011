@@ -1,0 +1,287 @@
+# ============================================================
+# iShine Technology — robots.txt
+# AI Crawler Whitelist — Comprehensive
+# ============================================================
+
+# --- OpenAI / ChatGPT ---
+User-Agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Google / Gemini ---
+User-Agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Gemini-Deep-Research
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Google-CloudVertexBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# --- Microsoft / Bing / Copilot ---
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: MicrosoftWebbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# --- Anthropic / Claude ---
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Perplexity AI ---
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Perplexity-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- DeepSeek AI ---
+User-Agent: DeepSeekBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- ByteDance / TikTok ---
+User-Agent: Bytespider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Meta / Facebook / Llama ---
+User-Agent: Meta-ExternalAgent
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: Meta-WebIndexer
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Apple ---
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Amazon ---
+User-Agent: Amazonbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Cohere ---
+User-Agent: cohere-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Mistral AI ---
+User-Agent: MistralAI-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- DuckDuckGo ---
+User-Agent: DuckAssistBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Common Crawl ---
+User-Agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Diffbot ---
+User-Agent: Diffbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Webz.io ---
+User-Agent: webzio
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- NICT Japan ---
+User-Agent: ICC-Crawler
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Allen Institute ---
+User-Agent: AI2Bot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- xAI / Grok ---
+User-Agent: GrokBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Huawei ---
+User-Agent: HuaweiBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- You.com ---
+User-Agent: YouBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Chinese AI Platforms ---
+User-Agent: ZhipuAI
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: BaiChuanBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+User-Agent: TansuoBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# --- Yandex ---
+User-Agent: YandexBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# --- General catch-all ---
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json
+
+# -----------------------------------------------------------
+Host: https://iplmanufacturer.com
+Sitemap: https://iplmanufacturer.com/sitemap.xml

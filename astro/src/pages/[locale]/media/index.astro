@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MediaLibrary from '../../../components/react/MediaLibrary';
+import { t } from '../../../lib/i18n';
+import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+const { locale } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+const pageTitle = t(locale, 'nav.media');
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: pageTitle },
+]);
+---
+
+<BaseLayout title={pageTitle} lang={locale}>
+  <div class="space-y-30">
+    <section class="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 px-8 py-12 text-white shadow-lg">
+      <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+      <div class="mt-6 max-w-3xl">
+        <h1 class="text-4xl font-bold tracking-tight">{pageTitle}</h1>
+        <p class="mt-4 text-lg text-slate-200">
+          Browse every uploaded blob image with an instant preview, open the asset directly, and copy the public URL without leaving the page.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition hover:bg-slate-100" href={`/${locale}/upload`}>
+          Upload New Image
+        </a>
+        <a class="rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10" href="/.netlify/functions/list-images" target="_blank" rel="noreferrer">
+          Open JSON Feed
+        </a>
+      </div>
+    </section>
+
+    <MediaLibrary client:load />
+  </div>
+</BaseLayout>
