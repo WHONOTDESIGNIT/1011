@@ -116,5 +116,5 @@ const products = isEn ? [
 ## 六、一键提交命令
 
 ```bash
-git add -A && git commit -m "Update: all current project changes" && git push origin master --force && git push origin master:main --force
+git add -A && git commit -m "Update: all current project changes" && git push origin master --force && git push origin master:main --force git@github.com:WHONOTDESIGNIT/1011.git
 ```
