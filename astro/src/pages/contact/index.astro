@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { t } from '../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { Zap, Lock, Headphones } from '@lucide/astro';
+
+const locale = 'en';
+
+const isEn = true;
+
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const pageTitle = t(locale, 'contact.title');
+const pageDescription = t(locale, 'contact.description');
+const canonical = `${resolveBaseUrl()}/${locale}/contact`;
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: pageTitle },
+]);
+
+const benefits = isEn ? [
+  { title: 'Fast Response', icon: Zap, description: 'Share your project brief and our team typically responds within 24-48 hours with the right next step.' },
+  { title: 'Confidential', icon: Lock, description: 'Your sourcing plan, customization goals, and market strategy are handled with care and kept private.' },
+  { title: 'Expert Support', icon: Headphones, description: 'Speak with a team that understands OEM and ODM workflows, compliance planning, and launch requirements.' },
+] : [
+  { title: 'Respuesta Rápida', icon: Zap, description: 'Comparte tu resumen del proyecto y nuestro equipo generalmente responde dentro de 24-48 horas con el siguiente paso adecuado.' },
+  { title: 'Confidencial', icon: Lock, description: 'Tu plan de abastecimiento, objetivos de personalización y estrategia de mercado se manejan con cuidado y se mantienen privados.' },
+  { title: 'Soporte Experto', icon: Headphones, description: 'Habla con un equipo que comprende los flujos de trabajo OEM y ODM, la planificación de cumplimiento y los requisitos de lanzamiento.' },
+];
+
+const contactCards = [
+  { label: isEn ? 'Email' : 'Correo', title: 'service@ishineco.com', description: isEn ? 'Best for RFQs, sample requests, and project briefs.' : 'Ideal para RFQ, solicitudes de muestras y resúmenes de proyectos.', href: 'mailto:service@ishineco.com' },
+  { label: isEn ? 'Phone' : 'Teléfono', title: '+86 138 2350 8753', description: isEn ? 'Eric, sales support for active manufacturing inquiries.' : 'Eric, soporte de ventas para consultas activas de fabricación.', href: 'tel:+8613823508753' },
+  { label: isEn ? 'Phone' : 'Teléfono', title: '+86 150 1289 1148', description: isEn ? 'Maurice, support for project follow-up and coordination.' : 'Maurice, soporte para seguimiento y coordinación de proyectos.', href: 'tel:+8615012891148' },
+  { label: isEn ? 'Address' : 'Dirección', title: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street", description: isEn ? 'Shenzhen, Guangdong, China' : 'Shenzhen, Guangdong, China' },
+];
+
+const selectOptions = isEn ? {
+  product: ['IPL Hair Removal Devices', 'Custom OEM/ODM Project', 'IPL Components Only', 'Skin Rejuvenation Device', 'Not sure yet'],
+  quantity: ['100 - 500 units', '500 - 1,000 units', '1,000 - 5,000 units', '5,000+ units', 'Still planning'],
+  timeline: ['As soon as possible', '1 - 3 months', '3 - 6 months', '6 - 12 months', 'Researching only'],
+} : {
+  product: ['Dispositivos de Depilación IPL', 'Proyecto OEM/ODM Personalizado', 'Solo Componentes IPL', 'Dispositivo de Rejuvenecimiento Cutáneo', 'Aún no estoy seguro'],
+  quantity: ['100 - 500 unidades', '500 - 1,000 unidades', '1,000 - 5,000 unidades', '5,000+ unidades', 'Todavía planificando'],
+  timeline: ['Lo antes posible', '1 - 3 meses', '3 - 6 meses', '6 - 12 meses', 'Solo investigando'],
+};
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+
+  <div class="space-y-48">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950 px-8 py-12 text-white shadow-2xl md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(196,181,253,0.18),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
+      <div class="relative">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl font-bold tracking-tight md:text-5xl">Let's Talk</h1>
+          <p class="mt-5 text-lg leading-relaxed text-slate-200">
+            {isEn ? 'Tell us about your OEM/ODM project. We typically respond within 24-48 hours with next-step guidance.' : 'Cuéntenos sobre su proyecto OEM/ODM. Generalmente respondemos dentro de 24-48 horas.'}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm lg:sticky lg:top-24 lg:self-start">
+        <div class="relative aspect-[4/3] bg-slate-100">
+          <img
+            src="/images/home/themis-ice-feeling-ipl-device.jpg"
+            alt="iShine IPL Device"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <section id="inquiry-form" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-xl md:p-10">
+        <div class="rounded-[1.5rem] bg-gradient-to-r from-violet-600 to-fuchsia-600 p-5 text-white">
+          <h2 class="text-2xl font-bold">Let's get in touch!</h2>
+        </div>
+
+        <form
+          name="contact"
+          method="POST"
+          action="/__forms"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="mt-8 space-y-6"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="locale" value={locale} />
+          <input type="hidden" name="page" value="contact" />
+          <p class="hidden">
+            <label>
+              Do not fill this field:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Full Name</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="text" name="name" required />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Email</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="email" name="email" required />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Company Name</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="text" name="company" />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Phone Number</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="tel" name="phone" />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Product Interest</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="product">
+                {selectOptions.product.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Expected Quantity</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="quantity">
+                {selectOptions.quantity.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2 md:col-span-2">
+              <span class="text-sm font-medium text-slate-900">Project Timeline</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="timeline">
+                {selectOptions.timeline.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2 md:col-span-2">
+              <span class="text-sm font-medium text-slate-900">Project Details</span>
+              <textarea
+                class="min-h-[180px] w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white"
+                name="message"
+                placeholder={t(locale, 'contact.form.messagePlaceholder')}
+                required
+              />
+            </label>
+          </div>
+
+          <div class="flex justify-end">
+            <button class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" type="submit">
+              Send
+            </button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </div>
+</BaseLayout>
+

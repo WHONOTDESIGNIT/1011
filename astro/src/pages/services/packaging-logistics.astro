@@ -1,0 +1,376 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+);
+}
+
+const heroImage =
+  'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1600';
+
+const packagingServices = [
+  {
+    title: 'Custom Packaging Design',
+    description:
+      'Bespoke packaging solutions that protect your products while reinforcing your brand identity.',
+    features: ['Brand-aligned Design', 'Protective Engineering', 'Sustainable Materials', 'Unboxing Experience'],
+    gradient: 'from-orange-500 to-red-500',
+  },
+  {
+    title: 'Product Protection',
+    description:
+      'Advanced protective packaging ensuring your IPL devices arrive in perfect condition worldwide.',
+    features: ['Shock Absorption', 'Moisture Protection', 'Temperature Control', 'Anti-static Materials'],
+    gradient: 'from-sky-500 to-cyan-500',
+  },
+  {
+    title: 'Global Logistics',
+    description:
+      'Comprehensive logistics solutions covering warehousing, distribution, and international shipping.',
+    features: ['Worldwide Shipping', 'Customs Clearance', 'Inventory Management', 'Real-time Tracking'],
+    gradient: 'from-emerald-500 to-green-500',
+  },
+  {
+    title: 'Supply Chain Optimization',
+    description:
+      'Data-driven supply chain management to reduce costs and improve delivery performance.',
+    features: ['Route Optimization', 'Cost Analysis', 'Performance Metrics', 'Continuous Improvement'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
+];
+
+const packagingTypes = [
+  {
+    type: 'Retail Packaging',
+    description:
+      'Eye-catching retail packaging designed to attract customers and communicate product value.',
+    applications: ['Consumer Electronics Stores', 'Online Marketplaces', 'Beauty Retailers', 'Department Stores'],
+    features: ['Premium Materials', 'Brand Storytelling', 'Product Visibility', 'Shelf Appeal'],
+  },
+  {
+    type: 'E-commerce Packaging',
+    description:
+      'Optimized packaging for online sales with focus on protection and memorable unboxing experience.',
+    applications: ['Amazon FBA', 'Direct-to-Consumer', 'Online Beauty Stores', 'Subscription Boxes'],
+    features: ['Compact Design', 'Easy Opening', 'Damage Prevention', 'Brand Experience'],
+  },
+  {
+    type: 'B2B Packaging',
+    description:
+      'Efficient bulk packaging solutions for wholesale and distribution partners.',
+    applications: ['Distributor Shipments', 'Bulk Orders', 'Trade Shows', 'Professional Channels'],
+    features: ['Cost Efficiency', 'Space Optimization', 'Easy Handling', 'Quantity Flexibility'],
+  },
+];
+
+const logisticsNetwork = [
+  {
+    region: 'North America',
+    coverage: 'USA, Canada, Mexico',
+    hubs: ['Los Angeles', 'New York', 'Toronto'],
+    deliveryTime: '2–5 business days',
+    services: ['Express Shipping', 'Ground Delivery', 'White Glove Service'],
+  },
+  {
+    region: 'Europe',
+    coverage: 'EU, UK, Switzerland, Norway',
+    hubs: ['Frankfurt', 'London', 'Amsterdam'],
+    deliveryTime: '1–4 business days',
+    services: ['Next Day Delivery', 'Standard Shipping', 'Customs Handling'],
+  },
+  {
+    region: 'Asia Pacific',
+    coverage: 'China, Japan, Australia, Southeast Asia',
+    hubs: ['Hong Kong', 'Singapore', 'Sydney'],
+    deliveryTime: '2–7 business days',
+    services: ['Air Freight', 'Sea Freight', 'Regional Distribution'],
+  },
+  {
+    region: 'Rest of World',
+    coverage: 'Middle East, Africa, South America',
+    hubs: ['Dubai', 'São Paulo', 'Johannesburg'],
+    deliveryTime: '5–14 business days',
+    services: ['International Express', 'Economy Shipping', 'Door-to-Door'],
+  },
+];
+
+const packagingProcess = [
+  {
+    step: '01',
+    title: 'Design Consultation',
+    description:
+      'Understanding your brand, product requirements, and target market to create the perfect packaging strategy.',
+    deliverables: ['Brand Analysis', 'Market Research', 'Design Brief', 'Material Recommendations'],
+  },
+  {
+    step: '02',
+    title: 'Concept Development',
+    description:
+      'Creating innovative packaging concepts that balance protection, aesthetics, and cost-effectiveness.',
+    deliverables: ['Design Concepts', '3D Visualizations', 'Material Samples', 'Cost Estimates'],
+  },
+  {
+    step: '03',
+    title: 'Prototyping & Testing',
+    description:
+      'Developing prototypes and conducting rigorous testing to ensure optimal protection and user experience.',
+    deliverables: ['Physical Prototypes', 'Drop Testing', 'User Testing', 'Design Refinements'],
+  },
+  {
+    step: '04',
+    title: 'Production & Fulfillment',
+    description:
+      'Scaling to full production and integrating with our global logistics network for seamless delivery.',
+    deliverables: ['Mass Production', 'Quality Control', 'Inventory Management', 'Global Distribution'],
+  },
+];
+
+const sustainabilityFeatures = [
+  {
+    title: 'Eco-Friendly Materials',
+    description:
+      'Sustainable packaging materials that reduce environmental impact without compromising protection.',
+    examples: ['Recycled Cardboard', 'Biodegradable Foam', 'Plant-based Plastics', 'Minimal Packaging'],
+  },
+  {
+    title: 'Circular Design',
+    description:
+      'Packaging designed for reuse, recycling, or composting to support circular economy principles.',
+    examples: ['Reusable Containers', 'Recyclable Components', 'Compostable Materials', 'Modular Design'],
+  },
+  {
+    title: 'Carbon Footprint Reduction',
+    description:
+      'Optimized logistics and packaging to minimize carbon emissions throughout the supply chain.',
+    examples: ['Route Optimization', 'Consolidated Shipping', 'Local Sourcing', 'Efficient Packaging'],
+  },
+];
+
+const performanceMetrics = [
+  { metric: '99.8%', label: 'On-Time Delivery' },
+  { metric: '0.02%', label: 'Damage Rate' },
+  { metric: '50+', label: 'Countries Served' },
+  { metric: '24/7', label: 'Tracking Support' },
+];
+---
+
+<BaseLayout title="Packaging & Logistics" lang={locale} description="IPL device packaging and logistics: custom retail packaging, e-commerce packaging, global shipping, customs clearance, and supply chain optimization.">
+  <div class="space-y-60">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 px-8 py-16">
+      <div class="pointer-events-none absolute inset-0 opacity-10" style={`background-image:url(${heroImage});background-size:cover;background-position:center;`} />
+      <div class="relative mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+            From Design to
+            <span class="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Doorstep</span>
+          </h1>
+          <p class="mt-6 text-xl leading-relaxed text-slate-700">
+            Complete packaging and logistics solutions that protect your IPL products, enhance your brand, and deliver exceptional customer experiences worldwide.
+          </p>
+          <div class="mt-10 flex gap-3">
+            <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
+            <a class="rounded border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3]">
+            <img
+              src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Packaging and logistics"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What packaging and logistics services do we offer?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          From custom packaging design to worldwide delivery, we build a dependable path from factory to customer.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {packagingServices.map((s) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class={`mb-6 h-16 w-16 rounded-2xl bg-gradient-to-r ${s.gradient}`} />
+            <h3 class="text-2xl font-bold text-slate-900">{s.title}</h3>
+            <p class="mt-4 text-slate-700">{s.description}</p>
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              {s.features.map((f) => (
+                <div class="flex items-center gap-2 text-sm text-slate-700">
+                  <span class="h-2 w-2 rounded-2xl bg-emerald-500" />
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Packaging Types</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Tailored packaging strategies for retail, e-commerce, and B2B channels.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 lg:grid-cols-3">
+        {packagingTypes.map((p) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{p.type}</h3>
+            <p class="mt-3 text-slate-700">{p.description}</p>
+            <div class="mt-6">
+              <div class="text-sm font-semibold text-slate-900">Applications</div>
+              <ul class="mt-3 space-y-2 text-sm text-slate-700">
+                {p.applications.map((a) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-orange-600" />
+                    <span>{a}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6">
+              <div class="text-sm font-semibold text-slate-900">Features</div>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {p.features.map((f) => (
+                  <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{f}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What is our global logistics network coverage?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Coverage, hubs, and services designed for predictable delivery and clear handoffs.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {logisticsNetwork.map((n) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h3 class="text-xl font-bold text-slate-900">{n.region}</h3>
+              <span class="rounded-2xl bg-slate-100 px-3 py-1 text-xs text-slate-700">{n.deliveryTime}</span>
+            </div>
+            <div class="mt-3 text-slate-700">{n.coverage}</div>
+            <div class="mt-6">
+              <div class="text-sm font-semibold text-slate-900">Hubs</div>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {n.hubs.map((h) => (
+                  <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{h}</span>
+                ))}
+              </div>
+            </div>
+            <div class="mt-6">
+              <div class="text-sm font-semibold text-slate-900">Services</div>
+              <ul class="mt-3 space-y-2 text-sm text-slate-700">
+                {n.services.map((s) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-emerald-500" />
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Packaging Process</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          A repeatable workflow from design to fulfillment that keeps quality and timelines predictable.
+        </p>
+      </div>
+      <div class="mt-12 space-y-6">
+        {packagingProcess.map((step) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="grid gap-6 lg:grid-cols-[260px_1fr]">
+              <div class="flex items-center gap-6">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-orange-600 to-red-600">
+                  <span class="text-xl font-bold text-white">{step.step}</span>
+                </div>
+                <div>
+                  <div class="text-xl font-bold text-slate-900">{step.title}</div>
+                </div>
+              </div>
+              <div>
+                <p class="text-slate-700">{step.description}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {step.deliverables.map((d) => (
+                    <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{d}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Sustainability</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Practical sustainability options that improve material efficiency and reduce logistics impact.
+        </p>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-3">
+        {sustainabilityFeatures.map((s) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{s.title}</h3>
+            <p class="mt-3 text-slate-700">{s.description}</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              {s.examples.map((e) => (
+                <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{e}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Performance</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Metrics that reflect consistent delivery and low-damage handling.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {performanceMetrics.map((m) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg">
+            <div class="text-4xl font-bold text-orange-600">{m.metric}</div>
+            <div class="mt-2 font-medium text-slate-700">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold md:text-4xl">Ready to Ship Globally with Confidence?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
+          Get a packaging and logistics plan aligned to your channels, regions, and delivery timelines.
+        </p>
+        <div class="mt-10 flex justify-center gap-3">
+          <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

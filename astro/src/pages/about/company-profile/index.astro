@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+const locale = 'en';
+
+const heroBackgroundImage =
+  'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
+
+const facilityBullets = [
+  '10,000 m² production facility with 6 dedicated IPL assembly lines',
+  'Monthly capacity of 50,000+ IPL devices',
+  'Advanced injection molding and precision assembly equipment',
+  'ISO Class 8 clean rooms for optical component assembly',
+];
+
+const rndCards = [
+  {
+    title: 'In-house Design Team',
+    description: '20+ engineers and designers specialized in IPL technology and beauty device development',
+  },
+  {
+    title: '3D Modeling & Prototyping',
+    description: 'Advanced CAD/CAM systems and rapid prototyping for fast concept visualization',
+  },
+  {
+    title: 'Rapid Development',
+    description: 'Functional prototypes in as little as 3–4 weeks from concept approval',
+  },
+  {
+    title: 'Technology Innovation',
+    description: 'Continuous development of new IPL technologies including cooling systems and skin sensors',
+  },
+];
+
+const processSteps = [
+  {
+    title: 'Component Sourcing',
+    description:
+      'Careful selection of premium components from trusted suppliers with strict quality verification',
+  },
+  {
+    title: 'Assembly & Integration',
+    description:
+      'Precision assembly of optical, electronic, and mechanical components with continuous quality checks',
+  },
+  {
+    title: 'Testing & Calibration',
+    description:
+      'Comprehensive performance testing and calibration of each device for optimal safety and efficacy',
+  },
+  {
+    title: 'Packaging & Shipping',
+    description:
+      'Custom packaging solutions and efficient logistics coordination for global distribution',
+  },
+];
+
+const qcTests = [
+  'Electrical safety testing to international standards',
+  'Lamp life testing for 100,000+ flashes',
+  'Skin safety verification with thermal imaging',
+  'Drop testing and environmental stress testing',
+];
+
+const qcCerts = [
+  'ISO 9001:2015 Quality Management System',
+  'CE Certification for European markets',
+  'FDA Clearance for US market access',
+  'MDR certification in progress — ensuring readiness for EU market expansion',
+];
+
+const customizationCards = [
+  {
+    title: 'Device Design',
+    bullets: [
+      'Custom housing shapes and colors',
+      'Ergonomic handle designs',
+      'Custom button layouts and UI',
+      'Size and weight optimization',
+    ],
+  },
+  {
+    title: 'Branding & Packaging',
+    bullets: [
+      'Custom logo placement',
+      'Retail-ready packaging design',
+      'Instruction manuals and inserts',
+      'Gift box and display options',
+    ],
+  },
+  {
+    title: 'Feature Add-ons',
+    bullets: [
+      'Ice cooling technology',
+      'App connectivity and smart features',
+      'Skin tone sensors',
+      'Multiple treatment modes',
+    ],
+  },
+];
+
+const certifications = [
+  'CE marking for European Economic Area',
+  'FDA clearance for US market',
+  'Health Canada approval',
+  'Australia TGA registration',
+];
+
+const standards = [
+  'IEC 60601 Medical electrical equipment safety',
+  'IEC 60335 Household appliances safety',
+  'IEC 62471 Photobiological safety',
+  'EMC standards for electromagnetic compatibility',
+];
+
+const logisticsBullets = [
+  'Partnerships with leading global shipping and freight providers',
+  'Flexible shipping options including air freight, sea freight, and express delivery',
+  'Complete export documentation and customs clearance support',
+  '98% on-time delivery record for all shipments',
+  'Real-time shipment tracking and status updates',
+];
+const pageTitle = t(locale, 'nav.companyProfile');
+const pageDescription = 'iShine Technology Ltd: 10,000m² Shenzhen facility, 50,000+ monthly IPL device capacity, ISO 9001 certified OEM/ODM manufacturer with FDA, CE, MDSAP compliance.';
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: pageTitle },
+]);
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
+  <div class="space-y-48">
+    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
+      <div class="pointer-events-none absolute inset-0 bg-black/40" />
+      <div class="relative">
+        <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+        <h1 class="mt-6 text-4xl font-bold tracking-tight md:text-5xl">{pageTitle}</h1>
+        <p class="mt-4 max-w-3xl text-lg text-slate-200">
+          Advanced facilities and expertise for world-class IPL device production
+        </p>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-bold text-slate-900">Manufacturing Excellence</h2>
+      <p class="text-xl leading-relaxed text-slate-700">
+        At iShine, we combine advanced facilities, skilled teams, and strict quality systems to deliver IPL devices that meet global standards. From design to delivery, our capabilities ensure your project's success.
+      </p>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Facilities &amp; Equipment</h2>
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-slate-700">
+            Our state-of-the-art manufacturing facility in Shenzhen combines precision technology with efficient workflows to deliver exceptional IPL devices at scale.
+          </p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            {facilityBullets.map((b) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3]">
+            <img
+              src="https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="iShine Manufacturing Facility"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 p-8">
+      <div class="grid gap-8 lg:grid-cols-[80px_1fr] lg:items-start">
+        <div class="hidden lg:block">
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm">
+            <span class="text-2xl font-bold text-sky-700">R&amp;D</span>
+          </div>
+        </div>
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">R&amp;D and Prototyping</h2>
+            <p class="mt-3 text-slate-700">
+              Our dedicated R&amp;D team transforms concepts into market-ready IPL devices with speed and precision, supporting your innovation goals.
+            </p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2">
+            {rndCards.map((card) => (
+              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div class="text-xl font-semibold text-slate-900">{card.title}</div>
+                <div class="mt-2 text-slate-700">{card.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Production Process</h2>
+      <p class="text-slate-700">
+        Our streamlined manufacturing process ensures consistent quality and efficiency from component sourcing to final packaging:
+      </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        {processSteps.map((step, idx) => (
+          <div class="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl bg-sky-600 text-sm font-bold text-white">
+              {idx + 1}
+            </div>
+            <div>
+              <div class="text-lg font-semibold text-slate-900">{step.title}</div>
+              <div class="mt-2 text-sm text-slate-700">{step.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Quality Control</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div class="text-xl font-semibold text-slate-900">Rigorous Testing</div>
+          <p class="mt-3 text-slate-700">Our rigorous testing procedures ensure every device meets the highest standards:</p>
+          <ul class="mt-5 space-y-3 text-slate-700">
+            {qcTests.map((b) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div class="text-xl font-semibold text-slate-900">Certifications</div>
+          <p class="mt-3 text-slate-700">Our quality management system is backed by key certifications:</p>
+          <ul class="mt-5 space-y-3 text-slate-700">
+            {qcCerts.map((b) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="text-slate-700">
+        Our multi-stage inspection system includes incoming QC, in-process checks, and final inspection, with 100% functional testing of every device before shipment.
+      </p>
+    </section>
+
+    <section class="rounded-2xl border border-sky-100 bg-sky-50 p-8">
+      <h2 class="text-3xl font-bold text-slate-900">Customization Capabilities</h2>
+      <p class="mt-3 text-slate-700">
+        As an OEM/ODM partner, we offer extensive customization options to make your IPL device unique:
+      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {customizationCards.map((card) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-xl font-semibold text-slate-900">{card.title}</div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              {card.bullets.map((b) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Compliance &amp; Standards</h2>
+      <p class="text-slate-700">
+        We ensure your IPL devices meet all regulatory requirements for global market access:
+      </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl bg-slate-50 p-6">
+          <div class="text-xl font-semibold text-slate-900">Global Certifications</div>
+          <ul class="mt-5 space-y-3 text-slate-700">
+            {certifications.map((c) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-6">
+          <div class="text-xl font-semibold text-slate-900">Technical Standards</div>
+          <ul class="mt-5 space-y-3 text-slate-700">
+            {standards.map((s) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="rounded-lg border-l-4 border-sky-600 bg-sky-50 p-4 text-sky-900">
+        MDR certification in progress — ensuring readiness for EU market expansion under the new Medical Device Regulation.
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Logistics &amp; Delivery</h2>
+      <div class="grid gap-8 md:grid-cols-[2fr_1fr] md:items-start">
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <p class="text-slate-700">
+            Our global logistics expertise ensures your products reach their destination efficiently and securely:
+          </p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            {logisticsBullets.map((b) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-6">
+          <div class="text-xl font-semibold text-sky-700">Global Reach</div>
+          <p class="mt-3 text-slate-700">
+            We ship to over 30 countries worldwide with expertise in navigating international shipping regulations and requirements.
+          </p>
+          <p class="mt-3 text-slate-700">
+            Our logistics team ensures your products arrive safely and on schedule, whether you're in North America, Europe, Asia, or beyond.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-sky-600 p-8 text-center text-white">
+      <h2 class="text-2xl font-bold">Partner with iShine</h2>
+      <p class="mx-auto mt-3 max-w-3xl text-lg text-sky-100">
+        Partner with iShine to turn your IPL concept into a market-ready product. Contact us to discuss your project today.
+      </p>
+      <div class="mt-8 flex justify-center gap-3">
+        <a class="rounded bg-white px-5 py-3 text-sm font-medium text-sky-700" href={getLocalizedPath(locale, '/contact')}>Contact Us Today</a>
+        <a class="rounded border border-white/30 px-5 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/about')}>Back to About</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
