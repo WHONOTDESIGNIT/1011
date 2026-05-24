@@ -1,12 +1,10 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
 const locale = 'en'; const { slug } = Astro.params;
-);
-}
 
 interface ProductData {
   name: string;
