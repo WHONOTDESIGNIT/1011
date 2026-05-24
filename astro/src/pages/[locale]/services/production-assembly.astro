@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -122,7 +122,7 @@ const testingProcedures = [
 ];
 ---
 
-<BaseLayout title="Production & Assembly" lang={locale}>
+<BaseLayout title="Production & Assembly" lang={locale} description="IPL device production and assembly: advanced manufacturing, quality assurance, scalable production, and process optimization for OEM/ODM projects.">
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">

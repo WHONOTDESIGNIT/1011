@@ -4,7 +4,7 @@ import { getAllPosts } from '../../lib/blog';
 import CornerMarker from '../../components/CornerMarker.astro';
 import { Award, Package, FileText, Megaphone, ScanFace, Snowflake, Smartphone, Zap, SlidersHorizontal, Layers } from '@lucide/astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 
 if (locale !== 'en' && locale !== 'es') {
   return new Response('Not found', { status: 404 });

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -67,7 +67,7 @@ const testimonials = [
 ];
 ---
 
-<BaseLayout title="Our Clients" lang={locale}>
+<BaseLayout title="Our Clients" lang={locale} description="Trusted IPL manufacturing partners: Costco Canada, RoseSkinCo USA, KU2 Cosmetics Germany, and global beauty brands powered by iShine OEM/ODM solutions.">
   <div class="space-y-48">
     <section class="rounded-2xl bg-slate-50 px-8 py-12">
       <h1 class="text-4xl font-bold tracking-tight">Our Clients</h1>

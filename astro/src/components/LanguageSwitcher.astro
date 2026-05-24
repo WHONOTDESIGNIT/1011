@@ -96,10 +96,26 @@ const currentConfig = LANGUAGE_CONFIG.find(l => l.code === currentLang);
         body: JSON.stringify({ language: lang }),
       });
       if (!response.ok) throw new Error("Failed to set language");
-      const newPath = window.location.pathname.replace(
-        new RegExp(`^/(${SUPPORTED.join("|")})`),
-        `/${lang}`
-      );
+
+      const currentPath = window.location.pathname;
+      const langRegex = new RegExp(`^/(${SUPPORTED.join("|")})(/|$)`);
+      const match = currentPath.match(langRegex);
+
+      let newPath;
+      if (match) {
+        if (lang === "en") {
+          newPath = currentPath.replace(langRegex, "/");
+        } else {
+          newPath = currentPath.replace(langRegex, `/${lang}$2`);
+        }
+      } else {
+        if (lang === "en") {
+          newPath = currentPath;
+        } else {
+          newPath = `/${lang}${currentPath}`;
+        }
+      }
+
       window.location.href = newPath;
     } catch (error) {
       console.error("Error changing language:", error);

@@ -4,7 +4,7 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
 import { t } from '../../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../../lib/breadcrumbs';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -43,6 +43,7 @@ const reasons = [
   'Global shipping and logistics expertise',
 ];
 const pageTitle = t(locale, 'nav.manufacturing');
+const pageDescription = 'Explore iShine\'s advanced IPL manufacturing facilities: injection molding, precision assembly, clean rooms, rapid prototyping, and scalable production for global beauty brands.';
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
@@ -50,7 +51,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={pageTitle} lang={locale}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
@@ -64,7 +65,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class="space-y-6">
-      <h2 class="text-3xl font-bold text-slate-900">{pageTitle}</h2>
+      <h2 class="text-3xl font-bold text-slate-900">Our Facilities &amp; Equipment</h2>
       <p class="text-lg text-slate-700">
         Explore our advanced manufacturing facilities and production capabilities
       </p>

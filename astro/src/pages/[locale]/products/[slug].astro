@@ -4,7 +4,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
-const { locale, slug } = Astro.params;
+const { locale = 'en', slug } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }

@@ -6,7 +6,7 @@ import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
 export const prerender = false;
 
-const { locale, slug } = Astro.params;
+const { locale = 'en', slug } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -377,7 +377,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={data.title} lang={locale}>
+<BaseLayout title={data.title} lang={locale} description={data.subtitle}>
   <div class="space-y-48">
     <section class={`relative overflow-hidden rounded-2xl bg-gradient-to-r ${data.theme.heroGradient} px-8 py-14 text-white`} style={heroStyle}>
       <div class="pointer-events-none absolute inset-0 bg-black/30" />

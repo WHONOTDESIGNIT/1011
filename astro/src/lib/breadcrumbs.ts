@@ -10,6 +10,10 @@ type BreadcrumbInput = {
 };
 
 export function getLocalizedPath(locale: string, path = '/'): string {
+  if (locale === 'en') {
+    return path || '/';
+  }
+
   if (!path || path === '/') {
     return `/${locale}`;
   }

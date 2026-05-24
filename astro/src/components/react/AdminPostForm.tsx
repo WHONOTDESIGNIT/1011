@@ -164,7 +164,7 @@ export default function AdminPostForm() {
           >
             {status === 'submitting' ? 'Publishing...' : 'Publish'}
           </button>
-          <a className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="/en/blog">
+          <a className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="/blog">
             View Blog
           </a>
         </div>

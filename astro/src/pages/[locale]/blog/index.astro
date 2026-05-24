@@ -5,7 +5,7 @@ import { getAllPosts } from '../../../lib/blog';
 import { t } from '../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -129,7 +129,7 @@ const uiText = {
             <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={`/${locale}/contact`}>
               {t(locale, 'blog.post.ctaPrimary')}
             </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/services`}>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/products`}>
               {t(locale, 'blog.post.ctaSecondary')}
             </a>
           </div>

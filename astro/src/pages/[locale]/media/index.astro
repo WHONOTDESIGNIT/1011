@@ -5,7 +5,7 @@ import MediaLibrary from '../../../components/react/MediaLibrary';
 import { t } from '../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -17,7 +17,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={pageTitle} lang={locale}>
+<BaseLayout title={pageTitle} lang={locale} description="iShine media library: browse, preview, and access uploaded product images and marketing assets for IPL device manufacturing partners.">
   <div class="space-y-30">
     <section class="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 px-8 py-12 text-white shadow-lg">
       <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />

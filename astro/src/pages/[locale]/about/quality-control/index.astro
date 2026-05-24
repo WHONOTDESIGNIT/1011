@@ -4,7 +4,7 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
 import { t } from '../../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../../lib/breadcrumbs';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -35,6 +35,7 @@ const certifications = [
   'MDR certification in progress — ensuring readiness for EU market expansion',
 ];
 const pageTitle = t(locale, 'nav.quality');
+const pageDescription = 'Multi-stage quality control for IPL devices: incoming inspection, in-process checks, functional testing, and pre-shipment audit. ISO 9001, CE, FDA certified.';
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
@@ -42,7 +43,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={pageTitle} lang={locale}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -109,7 +109,7 @@ const partnerBenefits = [
 ];
 ---
 
-<BaseLayout title="OEM/ODM Solutions" lang={locale}>
+<BaseLayout title="OEM/ODM Solutions" lang={locale} description="iShine OEM and ODM manufacturing for IPL devices: concept development, engineering, prototyping, FDA/CE compliance, private labeling, and turnkey production.">
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">

@@ -4,7 +4,7 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
 import { t } from '../../../../lib/i18n';
 import { buildBreadcrumbs } from '../../../../lib/breadcrumbs';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -127,6 +127,7 @@ const logisticsBullets = [
   'Real-time shipment tracking and status updates',
 ];
 const pageTitle = t(locale, 'nav.companyProfile');
+const pageDescription = 'iShine Technology Ltd: 10,000m² Shenzhen facility, 50,000+ monthly IPL device capacity, ISO 9001 certified OEM/ODM manufacturer with FDA, CE, MDSAP compliance.';
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
@@ -134,7 +135,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={pageTitle} lang={locale}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />

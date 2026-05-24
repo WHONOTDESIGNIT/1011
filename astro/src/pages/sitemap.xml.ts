@@ -20,7 +20,8 @@ export async function GET() {
   const urls: string[] = [];
 
   for (const locale of SUPPORTED_LOCALES) {
-    const root = `${base}/${locale}`;
+    const prefix = locale === 'en' ? '' : `/${locale}`;
+    const root = `${base}${prefix}`;
 
     const staticPaths = [
       '',

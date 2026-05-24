@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
 }
@@ -115,7 +115,7 @@ const caseStudies = [
 ];
 ---
 
-<BaseLayout title="Product Design" lang={locale}>
+<BaseLayout title="Product Design" lang={locale} description="IPL device product design services: industrial design, UI/UX, user research, and innovation consulting. From concept to market-ready beauty devices.">
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-sky-50 to-cyan-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const { locale } = Astro.params;
+const { locale = 'en' } = Astro.params;
 
 if (locale !== 'en') {
   return new Response('Not found', { status: 404 });
