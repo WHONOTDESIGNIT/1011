@@ -1,3 +1,5 @@
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 export type BreadcrumbItem = {
   label: string;
   href?: string;
@@ -10,16 +12,8 @@ type BreadcrumbInput = {
 };
 
 export function getLocalizedPath(locale: string, path = '/'): string {
-  if (locale === 'en') {
-    return path || '/';
-  }
-
-  if (!path || path === '/') {
-    return `/${locale}`;
-  }
-
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return `/${locale}${normalizedPath}`;
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+  return getRelativeLocaleUrl(locale, normalizedPath);
 }
 
 export function buildBreadcrumbs(locale: string, items: BreadcrumbInput[]): BreadcrumbItem[] {

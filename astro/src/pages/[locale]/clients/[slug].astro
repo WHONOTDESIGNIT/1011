@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
-import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
 export const prerender = false;
 
@@ -389,8 +389,8 @@ const breadcrumbs = buildBreadcrumbs(locale, [
             <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{data.title}</h1>
             <p class={`mt-5 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.subtitle}</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a class="rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={`/${locale}/contact`}>{data.cta.button}</a>
-              <a class="rounded border border-white/30 px-4 py-2 text-sm font-medium text-white" href={`/${locale}/clients`}>Back to clients</a>
+              <a class="rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
+              <a class="rounded border border-white/30 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/clients')}>Back to clients</a>
             </div>
           </div>
 
@@ -521,7 +521,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
       <h2 class="text-3xl font-bold">{data.cta.title}</h2>
       <p class={`mt-4 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.cta.description}</p>
       <div class="mt-8">
-        <a class="inline-flex rounded bg-white px-5 py-3 text-sm font-medium text-slate-900" href={`/${locale}/contact`}>{data.cta.button}</a>
+        <a class="inline-flex rounded bg-white px-5 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
       </div>
     </section>
   </div>

@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { getPostBySlug, getRelatedPosts } from '../../../lib/blog';
 import { t } from '../../../lib/i18n';
-import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
 const { locale = 'en', slug } = Astro.params;
 if (locale !== 'en') {
@@ -157,13 +157,13 @@ const articleSchema = {
           <div class="mt-6 flex flex-wrap justify-center gap-3">
             <a
               class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-              href={`/${locale}/contact`}
+              href={getLocalizedPath(locale, '/contact')}
             >
               {t(locale, 'blog.post.ctaPrimary')}
             </a>
             <a
               class="rounded-2xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              href={`/${locale}/products`}
+              href={getLocalizedPath(locale, '/products')}
             >
               {t(locale, 'blog.post.ctaSecondary')}
             </a>
@@ -182,7 +182,7 @@ const articleSchema = {
             </div>
             <a
               class="hidden flex-shrink-0 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 md:inline-flex"
-              href={`/${locale}/blog#blog-archive`}
+              href={getLocalizedPath(locale, '/blog#blog-archive')}
             >
               {t(locale, 'blog.post.viewAllArticles')}
             </a>

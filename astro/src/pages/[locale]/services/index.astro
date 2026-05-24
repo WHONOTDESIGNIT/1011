@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
-import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 import { Factory, PenTool, Cog, Truck, Clock, Globe, RefreshCw, ShieldCheck } from '@lucide/astro';
 
 const { locale = 'en' } = Astro.params;
@@ -27,7 +27,7 @@ const services = [
       t(locale, 'servicesPage.core.oem.features.2'),
       t(locale, 'servicesPage.core.oem.features.3'),
     ],
-    href: `/${locale}/services/oem-odm`,
+    href: getLocalizedPath(locale, '/services/oem-odm'),
     accent: 'from-violet-500 to-fuchsia-500',
     badge: 'OEM/ODM',
   },
@@ -41,7 +41,7 @@ const services = [
       t(locale, 'servicesPage.core.design.features.2'),
       t(locale, 'servicesPage.core.design.features.3'),
     ],
-    href: `/${locale}/services/product-design`,
+    href: getLocalizedPath(locale, '/services/product-design'),
     accent: 'from-sky-500 to-cyan-500',
     badge: 'Design',
   },
@@ -55,7 +55,7 @@ const services = [
       t(locale, 'servicesPage.core.production.features.2'),
       t(locale, 'servicesPage.core.production.features.3'),
     ],
-    href: `/${locale}/services/production-assembly`,
+    href: getLocalizedPath(locale, '/services/production-assembly'),
     accent: 'from-emerald-500 to-teal-500',
     badge: 'Production',
   },
@@ -69,7 +69,7 @@ const services = [
       t(locale, 'servicesPage.core.packaging.features.2'),
       t(locale, 'servicesPage.core.packaging.features.3'),
     ],
-    href: `/${locale}/services/packaging-logistics`,
+    href: getLocalizedPath(locale, '/services/packaging-logistics'),
     accent: 'from-orange-500 to-rose-500',
     badge: 'Fulfillment',
   },
@@ -136,13 +136,13 @@ const trustedBrands = [
             </p>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={`/${locale}/contact`}>
+            <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
               {t(locale, 'servicesPage.hero.cta')}
             </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/clients`}>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/clients')}>
               View Case Studies
             </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/products`}>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/products')}>
               Request Sample
             </a>
           </div>
@@ -306,13 +306,13 @@ const trustedBrands = [
         <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{t(locale, 'servicesPage.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-200">{t(locale, 'servicesPage.cta.description')}</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={`/${locale}/contact`}>
+          <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/contact')}>
             {t(locale, 'servicesPage.cta.button')}
           </a>
-          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={`/${locale}/clients`}>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/clients')}>
             View Case Studies
           </a>
-          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={`/${locale}/products`}>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>
             Request Sample
           </a>
         </div>

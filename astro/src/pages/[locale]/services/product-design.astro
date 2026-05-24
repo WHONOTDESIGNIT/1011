@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -127,7 +128,7 @@ const caseStudies = [
           Transform your IPL device concepts into market-leading products through innovative design, user-centered thinking, and technical excellence.
         </p>
         <div class="mt-10 flex justify-center">
-          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={`/${locale}/contact`}>Start Design Project</a>
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
         </div>
       </div>
     </section>
@@ -256,8 +257,8 @@ const caseStudies = [
                 </ul>
               </div>
               <div class="flex flex-wrap gap-3 pt-2">
-                <a class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700" href={`/${locale}/contact`}>Start Design Project</a>
-                <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={`/${locale}/services`}>Back to Services</a>
+                <a class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+                <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
               </div>
             </div>
           </div>
@@ -272,8 +273,8 @@ const caseStudies = [
           Bring your device vision to life with design that balances aesthetics, usability, and manufacturability.
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={`/${locale}/contact`}>Start Design Project</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={`/${locale}/services`}>Back to Services</a>
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
         </div>
       </div>
     </section>

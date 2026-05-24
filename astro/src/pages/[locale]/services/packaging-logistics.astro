@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -169,8 +170,8 @@ const performanceMetrics = [
             Complete packaging and logistics solutions that protect your IPL products, enhance your brand, and deliver exceptional customer experiences worldwide.
           </p>
           <div class="mt-10 flex gap-3">
-            <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={`/${locale}/contact`}>Get Logistics Quote</a>
-            <a class="rounded border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900" href={`/${locale}/services`}>Back to Services</a>
+            <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
+            <a class="rounded border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
           </div>
         </div>
         <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -366,8 +367,8 @@ const performanceMetrics = [
           Get a packaging and logistics plan aligned to your channels, regions, and delivery timelines.
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={`/${locale}/contact`}>Get Logistics Quote</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={`/${locale}/services`}>Back to Services</a>
+          <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
         </div>
       </div>
     </section>

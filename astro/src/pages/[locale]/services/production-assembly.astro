@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -134,7 +135,7 @@ const testingProcedures = [
           State-of-the-art production facilities and rigorous quality control systems ensure every IPL device meets the highest standards of performance and safety.
         </p>
         <div class="mt-10 flex justify-center">
-          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={`/${locale}/contact`}>Discuss Production Needs</a>
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
         </div>
       </div>
     </section>
@@ -270,8 +271,8 @@ const testingProcedures = [
           Talk to our production team about capacity, quality standards, and delivery schedules for your next run.
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={`/${locale}/contact`}>Discuss Production Needs</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={`/${locale}/services`}>Back to Services</a>
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
         </div>
       </div>
     </section>

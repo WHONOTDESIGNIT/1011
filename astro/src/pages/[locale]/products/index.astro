@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../lib/i18n';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -41,7 +42,7 @@ const products = [
       {products.map((product) => (
         <a
           class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
-          href={`/${locale}/products/${product.slug}`}
+          href={getLocalizedPath(locale, '/products/' + product.slug)}
         >
           <div class="relative bg-slate-100" style="aspect-ratio:1000/806">
             <img

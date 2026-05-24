@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
-import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
 const { locale = 'en', slug } = Astro.params;
 if (locale !== 'en') {
@@ -485,8 +485,8 @@ const productSchema = {
       <h2 class="text-3xl font-bold md:text-4xl">Interested in {product.name}?</h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">Contact our team to discuss customization options, MOQ, pricing, and sample requests for your brand.</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a class="rounded-lg bg-white px-8 py-3 font-semibold text-sky-700 transition hover:bg-sky-50" href={`/${locale}/contact`}>Request Samples</a>
-        <a class="rounded-lg border border-white/30 px-8 py-3 font-semibold text-white transition hover:bg-white/10" href={`/${locale}/products`}>View All Products</a>
+        <a class="rounded-lg bg-white px-8 py-3 font-semibold text-sky-700 transition hover:bg-sky-50" href={getLocalizedPath(locale, '/contact')}>Request Samples</a>
+        <a class="rounded-lg border border-white/30 px-8 py-3 font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>View All Products</a>
       </div>
     </section>
   </div>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -121,7 +122,7 @@ const partnerBenefits = [
           Complete OEM/ODM solutions for IPL hair removal devices. From initial concept to market-ready products, we transform your ideas into successful businesses.
         </p>
         <div class="mt-10 flex justify-center">
-          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={`/${locale}/contact`}>Start Your Project</a>
+          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={getLocalizedPath(locale, '/contact')}>Start Your Project</a>
         </div>
       </div>
     </section>
@@ -254,8 +255,8 @@ const partnerBenefits = [
           Let's discuss your project requirements and explore how our OEM/ODM solutions can help you succeed in the IPL market.
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={`/${locale}/contact`}>Start Your Project</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={`/${locale}/services`}>Back to Services</a>
+          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={getLocalizedPath(locale, '/contact')}>Start Your Project</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
         </div>
       </div>
     </section>

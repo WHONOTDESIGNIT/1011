@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import MediaLibrary from '../../../components/react/MediaLibrary';
 import { t } from '../../../lib/i18n';
-import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 if (locale !== 'en') {
@@ -28,7 +28,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         </p>
       </div>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a class="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition hover:bg-slate-100" href={`/${locale}/upload`}>
+        <a class="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/upload')}>
           Upload New Image
         </a>
         <a class="rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10" href="/.netlify/functions/list-images" target="_blank" rel="noreferrer">

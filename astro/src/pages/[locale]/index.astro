@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllPosts } from '../../lib/blog';
 import CornerMarker from '../../components/CornerMarker.astro';
 import { Award, Package, FileText, Megaphone, ScanFace, Snowflake, Smartphone, Zap, SlidersHorizontal, Layers } from '@lucide/astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
 
 const { locale = 'en' } = Astro.params;
 
@@ -42,13 +43,13 @@ const whoWeAre = isEn ? [
 ];
 
 const productCards = [
-  { name: 'Lumi 2', tagline: isEn ? 'Smart Skin Sensor' : 'Sensor de Piel Inteligente', href: `/${locale}/products/lumi-2`, image: '/images/products/lumi-2/Lumi2_Gallery_Hero_1.webp', hoverImage: '/images/products/lumi-2/Lumi2_Gallery_Hero_2.webp' },
-  { name: 'Lumi', tagline: isEn ? 'Smart App Control' : 'Control por App', href: `/${locale}/products/lumi`, image: '/images/products/lumi/lumi_ipl_device_2.jpg', hoverImage: '/images/products/lumi/lumi_ipl_device_1.jpg' },
-  { name: 'Sapphire', tagline: isEn ? 'Premium Ice Cooling' : 'Enfriamiento de Hielo Premium', href: `/${locale}/products/sapphire`, image: '/images/products/sapphire-ipl-white.webp', hoverImage: '/images/products/using-sapphire-ipl.webp' },
-  { name: 'Eirene', tagline: isEn ? 'Professional Grade' : 'Grado Profesional', href: `/${locale}/products/eirene`, image: '/images/products/eirene/eirene_ipl_device.jpg', hoverImage: '/images/products/eirene/eirene_ipl_device_black_white_gold.webp' },
-  { name: 'Golden', tagline: isEn ? 'Luxury Edition' : 'Edición de Lujo', href: `/${locale}/products/wooden`, image: '/images/products/luxury/luxury-ipl-device-front-view.png.webp', hoverImage: '/images/products/luxury/luxury-ipl-device-white.webp' },
-  { name: 'Hebe', tagline: isEn ? 'AI Skin Sensor' : 'Sensor de Piel con IA', href: `/${locale}/products/hebe`, image: '/images/products/Hebe/Hebe-ipl-device-front-view.webp', hoverImage: '/images/products/Hebe/Hebe-ipl-device-front-view-1.webp' },
-  { name: 'Themis', tagline: isEn ? 'Dual Lamp System' : 'Sistema de Lámpara Dual', href: `/${locale}/products/themis`, image: '/images/products/themis/themis_handheld_ipl_hair_removal_front_view.webp', hoverImage: '/images/products/themis/themis_handheld_ipl_hair_removal_side_view.webp' },
+  { name: 'Lumi 2', tagline: isEn ? 'Smart Skin Sensor' : 'Sensor de Piel Inteligente', href: getLocalizedPath(locale, '/products/lumi-2'), image: '/images/products/lumi-2/Lumi2_Gallery_Hero_1.webp', hoverImage: '/images/products/lumi-2/Lumi2_Gallery_Hero_2.webp' },
+  { name: 'Lumi', tagline: isEn ? 'Smart App Control' : 'Control por App', href: getLocalizedPath(locale, '/products/lumi'), image: '/images/products/lumi/lumi_ipl_device_2.jpg', hoverImage: '/images/products/lumi/lumi_ipl_device_1.jpg' },
+  { name: 'Sapphire', tagline: isEn ? 'Premium Ice Cooling' : 'Enfriamiento de Hielo Premium', href: getLocalizedPath(locale, '/products/sapphire'), image: '/images/products/sapphire-ipl-white.webp', hoverImage: '/images/products/using-sapphire-ipl.webp' },
+  { name: 'Eirene', tagline: isEn ? 'Professional Grade' : 'Grado Profesional', href: getLocalizedPath(locale, '/products/eirene'), image: '/images/products/eirene/eirene_ipl_device.jpg', hoverImage: '/images/products/eirene/eirene_ipl_device_black_white_gold.webp' },
+  { name: 'Golden', tagline: isEn ? 'Luxury Edition' : 'Edición de Lujo', href: getLocalizedPath(locale, '/products/wooden'), image: '/images/products/luxury/luxury-ipl-device-front-view.png.webp', hoverImage: '/images/products/luxury/luxury-ipl-device-white.webp' },
+  { name: 'Hebe', tagline: isEn ? 'AI Skin Sensor' : 'Sensor de Piel con IA', href: getLocalizedPath(locale, '/products/hebe'), image: '/images/products/Hebe/Hebe-ipl-device-front-view.webp', hoverImage: '/images/products/Hebe/Hebe-ipl-device-front-view-1.webp' },
+  { name: 'Themis', tagline: isEn ? 'Dual Lamp System' : 'Sistema de Lámpara Dual', href: getLocalizedPath(locale, '/products/themis'), image: '/images/products/themis/themis_handheld_ipl_hair_removal_front_view.webp', hoverImage: '/images/products/themis/themis_handheld_ipl_hair_removal_side_view.webp' },
 ];
 
 const testimonials = isEn ? [
@@ -69,10 +70,10 @@ const partners = [
 ];
 
 const caseStudies = [
-  { title: isEn ? 'RoseSkin - IPL Case Study' : 'RoseSkin - Caso de Estudio IPL', description: isEn ? 'Transforming beauty routines with premium sapphire cooling technology.' : 'Transformando rutinas de belleza con tecnología de enfriamiento de zafiro premium.', href: `/${locale}/clients/roseskin-ipl`, size: 'md:col-span-2' },
-  { title: isEn ? 'Costco - IPL Case Study' : 'Costco - Caso de Estudio IPL', description: isEn ? 'Delivering retail excellence with smart app-controlled IPL devices.' : 'Excelencia minorista con dispositivos IPL controlados por app.', href: `/${locale}/clients/costco-canada-ipl` },
-  { title: isEn ? 'KU2 - IPL Case Study' : 'KU2 - Caso de Estudio IPL', description: isEn ? 'European market success through innovative dual-lamp technology.' : 'Éxito en el mercado europeo con tecnología innovadora de lámpara dual.', href: `/${locale}/clients/ku2-ipl` },
-  { title: isEn ? 'HappySkinCo - IPL Case Study' : 'HappySkinCo - Caso de Estudio IPL', description: isEn ? 'Luxury aesthetics meeting advanced IPL performance standards.' : 'Estética de lujo combinada con estándares avanzados de rendimiento IPL.', href: `/${locale}/clients/happyskinco-ipl`, size: 'md:col-span-2' },
+  { title: isEn ? 'RoseSkin - IPL Case Study' : 'RoseSkin - Caso de Estudio IPL', description: isEn ? 'Transforming beauty routines with premium sapphire cooling technology.' : 'Transformando rutinas de belleza con tecnología de enfriamiento de zafiro premium.', href: getLocalizedPath(locale, '/clients/roseskin-ipl'), size: 'md:col-span-2' },
+  { title: isEn ? 'Costco - IPL Case Study' : 'Costco - Caso de Estudio IPL', description: isEn ? 'Delivering retail excellence with smart app-controlled IPL devices.' : 'Excelencia minorista con dispositivos IPL controlados por app.', href: getLocalizedPath(locale, '/clients/costco-canada-ipl') },
+  { title: isEn ? 'KU2 - IPL Case Study' : 'KU2 - Caso de Estudio IPL', description: isEn ? 'European market success through innovative dual-lamp technology.' : 'Éxito en el mercado europeo con tecnología innovadora de lámpara dual.', href: getLocalizedPath(locale, '/clients/ku2-ipl') },
+  { title: isEn ? 'HappySkinCo - IPL Case Study' : 'HappySkinCo - Caso de Estudio IPL', description: isEn ? 'Luxury aesthetics meeting advanced IPL performance standards.' : 'Estética de lujo combinada con estándares avanzados de rendimiento IPL.', href: getLocalizedPath(locale, '/clients/happyskinco-ipl'), size: 'md:col-span-2' },
 ];
 
 const capabilityList = isEn ? [
@@ -105,7 +106,7 @@ const technologyCards = [
   title,
   icon,
   description: isEn ? 'Cutting-edge modules that help brands differentiate on performance, comfort, and user experience.' : 'Módulos de vanguardia que ayudan a las marcas a diferenciarse en rendimiento, comodidad y experiencia de usuario.',
-  href: `/${locale}/components`,
+  href: getLocalizedPath(locale, '/components'),
 }));
 
 const qualityItems = isEn ? [
@@ -144,7 +145,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'Smart IPL Devices: The App-Connected Revolution',
     excerpt: 'Discover how app connectivity is transforming the IPL user experience with personalized treatment plans and progress tracking.',
     category: 'TECHNOLOGY',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.jpg',
     readTime: '6 min read',
     date: '',
@@ -153,7 +154,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'Latest Advances in IPL Research',
     excerpt: 'Explore cutting-edge IPL technologies including AI-powered skin detection and next-generation cooling systems.',
     category: 'INNOVATION',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.jpg',
     readTime: '5 min read',
     date: '',
@@ -162,7 +163,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'OEM vs ODM: Choosing the Right Manufacturing Model',
     excerpt: 'Understanding the difference between OEM and ODM services and choosing the best approach for your brand.',
     category: 'GUIDE',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.jpg',
     readTime: '7 min read',
     date: '',
@@ -172,7 +173,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'Dispositivos IPL Inteligentes: La Revolución Conectada',
     excerpt: 'Descubre cómo la conectividad de aplicaciones está transformando la experiencia del usuario IPL con planes de tratamiento personalizados.',
     category: 'TECNOLOGÍA',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.jpg',
     readTime: '6 min',
     date: '',
@@ -181,7 +182,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'Últimos Avances en Investigación IPL',
     excerpt: 'Explora tecnologías IPL de vanguardia, incluyendo detección de piel con IA y sistemas de enfriamiento de próxima generación.',
     category: 'INNOVACIÓN',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.jpg',
     readTime: '5 min',
     date: '',
@@ -190,7 +191,7 @@ const fallbackBlogPosts = isEn ? [
     title: 'OEM vs ODM: Cómo Elegir el Modelo de Fabricación Correcto',
     excerpt: 'Comprende la diferencia entre servicios OEM y ODM y elige el mejor enfoque para tu marca.',
     category: 'GUÍA',
-    href: `/${locale}/blog`,
+    href: getLocalizedPath(locale, '/blog'),
     image: '/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.jpg',
     readTime: '7 min',
     date: '',
@@ -219,7 +220,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           Custom design and production for major chains, global retailers, and beauty brands. From idea to market, we help you build certified, premium, retail-ready IPL products.
         </p>
         <div class="mt-5 md:mt-6 lg:mt-8 xl:mt-10">
-          <a class="inline-flex rounded-xl bg-white font-semibold text-slate-950 transition hover:bg-slate-100" style="padding:clamp(0.375rem,1.2vw,0.75rem) clamp(1rem,3vw,2rem);font-size:clamp(0.72rem,1.1vw,0.875rem);border-radius:clamp(0.5rem,0.8vw,0.75rem)" href={`/${locale}/contact`}>
+          <a class="inline-flex rounded-xl bg-white font-semibold text-slate-950 transition hover:bg-slate-100" style="padding:clamp(0.375rem,1.2vw,0.75rem) clamp(1rem,3vw,2rem);font-size:clamp(0.72rem,1.1vw,0.875rem);border-radius:clamp(0.5rem,0.8vw,0.75rem)" href={getLocalizedPath(locale, '/contact')}>
             {isEn ? 'Get a Free Quote' : 'Solicita un Presupuesto Gratuito'}
           </a>
         </div>
@@ -263,7 +264,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           ))}
         </div>
         <div class="mt-8">
-          <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={`/${locale}/about`}>
+          <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/about')}>
             {isEn ? 'Learn About iShine' : 'Conoce a iShine'}
           </a>
         </div>
@@ -328,7 +329,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
         class="absolute inset-0 h-full w-full object-cover"
       />
       <div class="relative z-10" style="transform:translateX(50%)">
-        <a class="inline-flex rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 shadow-md" href={`/${locale}/services`}>
+        <a class="inline-flex rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 shadow-md" href={getLocalizedPath(locale, '/services')}>
           View B2B Custom Package
         </a>
       </div>
@@ -377,7 +378,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
             <div class="font-semibold">{testimonials[0].person}</div>
             <div class="text-sm text-violet-200">{testimonials[0].role}</div>
           </div>
-          <a class="rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10" href={`/${locale}/clients`}>
+          <a class="rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/clients')}>
             See all case studies
           </a>
         </div>
@@ -441,7 +442,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
             ))}
           </div>
           <div class="mt-8">
-            <a class="inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100" href={`/${locale}/services`}>
+            <a class="inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/services')}>
               {isEn ? 'Learn More About Our Services' : 'Más Información Sobre Nuestros Servicios'}
             </a>
           </div>
@@ -498,7 +499,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           ))}
         </div>
         <div class="mt-8">
-          <a class="inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={`/${locale}/about/quality-control`}>
+          <a class="inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/about/quality-control')}>
             {isEn ? 'Learn About Our Quality Process' : 'Conoce Nuestro Proceso de Calidad'}
           </a>
         </div>
@@ -555,7 +556,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
             {isEn ? 'Stay informed with the latest trends, technologies, and best practices in IPL manufacturing.' : 'Mantente informado con las últimas tendencias, tecnologías y mejores prácticas en la fabricación IPL.'}
           </p>
         </div>
-        <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={`/${locale}/blog`}>
+        <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/blog')}>
           {isEn ? 'View All Articles' : 'Ver Todos los Artículos'}
         </a>
       </div>
