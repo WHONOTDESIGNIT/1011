@@ -39,3 +39,125 @@
   for = "/*.html"
   [headers.values]
     Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
+
+# 将旧的 /en/* 链接 301 永久跳转到无前缀版本
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# 小语种用户访问根路径时根据浏览器语言自动跳转
+[[redirects]]
+  from = "/"
+  to = "/ja"
+  status = 302
+  conditions = {Language = ["ja"]}
+
+[[redirects]]
+  from = "/"
+  to = "/es"
+  status = 302
+  conditions = {Language = ["es"]}
+
+[[redirects]]
+  from = "/"
+  to = "/fr"
+  status = 302
+  conditions = {Language = ["fr"]}
+
+[[redirects]]
+  from = "/"
+  to = "/de"
+  status = 302
+  conditions = {Language = ["de"]}
+
+[[redirects]]
+  from = "/"
+  to = "/he"
+  status = 302
+  conditions = {Language = ["he"]}
+
+[[redirects]]
+  from = "/"
+  to = "/ru"
+  status = 302
+  conditions = {Language = ["ru"]}
+
+[[redirects]]
+  from = "/"
+  to = "/tr"
+  status = 302
+  conditions = {Language = ["tr"]}
+
+[[redirects]]
+  from = "/"
+  to = "/ar"
+  status = 302
+  conditions = {Language = ["ar"]}
+
+[[redirects]]
+  from = "/"
+  to = "/ko"
+  status = 302
+  conditions = {Language = ["ko"]}
+
+[[redirects]]
+  from = "/"
+  to = "/pt"
+  status = 302
+  conditions = {Language = ["pt"]}
+
+[[redirects]]
+  from = "/"
+  to = "/it"
+  status = 302
+  conditions = {Language = ["it"]}
+
+[[redirects]]
+  from = "/"
+  to = "/nl"
+  status = 302
+  conditions = {Language = ["nl"]}
+
+[[redirects]]
+  from = "/"
+  to = "/th"
+  status = 302
+  conditions = {Language = ["th"]}
+
+[[redirects]]
+  from = "/"
+  to = "/fa"
+  status = 302
+  conditions = {Language = ["fa"]}
+
+[[redirects]]
+  from = "/"
+  to = "/pl"
+  status = 302
+  conditions = {Language = ["pl"]}
+
+[[redirects]]
+  from = "/"
+  to = "/el"
+  status = 302
+  conditions = {Language = ["el"]}
+
+[[redirects]]
+  from = "/"
+  to = "/ro"
+  status = 302
+  conditions = {Language = ["ro"]}
+
+[[redirects]]
+  from = "/"
+  to = "/id"
+  status = 302
+  conditions = {Language = ["id"]}
+
+[[redirects]]
+  from = "/"
+  to = "/hi"
+  status = 302
+  conditions = {Language = ["hi"]}
