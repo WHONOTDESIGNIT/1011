@@ -39,9 +39,3 @@
   for = "/*.html"
   [headers.values]
     Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
-
-[[redirects]]
-  from = "/en/*"
-  to = "/:splat"
-  status = 301
-  force = true
