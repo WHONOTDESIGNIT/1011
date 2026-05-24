@@ -47,9 +47,8 @@
   status = 301
   force = true
 
-# SSR fallback: 将所有未匹配的请求发送给 SSR 函数
+# SSR fallback: 不加 force，静态文件会在到达此规则前被 CDN 直接处理
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/ssr"
   status = 200
-  force = true
