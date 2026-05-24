@@ -40,8 +40,16 @@
   [headers.values]
     Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
 
-# SSR fallback: 不加 force，静态文件会在到达此规则前被 CDN 直接处理
+# /en/* 301 跳转到无前缀版本（兼容旧链接）
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# SSR fallback（必须最后）
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/ssr"
   status = 200
+  force = true

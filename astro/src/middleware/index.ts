@@ -8,12 +8,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const currentUrl = new URL(request.url);
   const currentPath = currentUrl.pathname;
 
-  // Check if path has a locale prefix by examining the actual URL
+  // Check if URL has a locale prefix
   const localeMatch = currentPath.match(LOCALE_PREFIX_REGEX);
   const pathLocale = localeMatch ? localeMatch[1] as SupportedLanguage : null;
 
   if (pathLocale) {
-    // URL has a locale prefix → set cookie if missing, then pass through
+    // Has prefix → set cookie if missing, then pass through
     const cookieLang = cookies.get("language")?.value as SupportedLanguage | undefined;
     if (!cookieLang) {
       cookies.set("language", pathLocale, {
@@ -27,35 +27,45 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  // URL has NO locale prefix → detect language and redirect
+  // No prefix → check cookie or Accept-Language
   const cookieLang = cookies.get("language")?.value as SupportedLanguage | undefined;
 
-  if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang)) {
-    if (cookieLang === "en") {
-      // English cookie → redirect to /en/...
-      currentUrl.pathname = `/en${currentPath === "/" ? "" : currentPath}`;
-    } else {
-      currentUrl.pathname = `/${cookieLang}${currentPath === "/" ? "" : currentPath}`;
-    }
+  if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang) && cookieLang !== "en") {
+    // Non-English cookie → redirect to prefixed path
+    currentUrl.pathname = `/${cookieLang}${currentPath}`;
     return Response.redirect(currentUrl.toString(), 302);
   }
 
-  // No cookie → check Accept-Language
+  // Check Accept-Language
   const acceptLanguage = request.headers.get("accept-language") || "";
   if (acceptLanguage) {
     const preferred = parseAcceptLanguage(acceptLanguage);
     for (const lang of preferred) {
+      if (lang.startsWith("en")) break; // English → stay on root
       const match = SUPPORTED_LANGUAGES.find((l) => lang.startsWith(l));
-      if (match) {
-        currentUrl.pathname = `/${match}${currentPath === "/" ? "" : currentPath}`;
+      if (match && match !== "en") {
+        currentUrl.pathname = `/${match}${currentPath}`;
+        cookies.set("language", match, {
+          path: "/",
+          secure: true,
+          httpOnly: true,
+          sameSite: "strict",
+          expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+        });
         return Response.redirect(currentUrl.toString(), 302);
       }
     }
   }
 
-  // Default → redirect to /en
-  currentUrl.pathname = `/en${currentPath === "/" ? "" : currentPath}`;
-  return Response.redirect(currentUrl.toString(), 302);
+  // Default → pass through (root English page)
+  cookies.set("language", "en", {
+    path: "/",
+    secure: true,
+    httpOnly: true,
+    sameSite: "strict",
+    expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+  });
+  return next();
 });
 
 function parseAcceptLanguage(header: string): string[] {
