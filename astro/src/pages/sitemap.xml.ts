@@ -1,6 +1,7 @@
 import { getAllPosts } from '../lib/blog';
+import { SUPPORTED_LANGUAGES } from '../config/i18n';
 
-const SUPPORTED_LOCALES = ['en', 'de', 'es'];
+const SUPPORTED_LOCALES = SUPPORTED_LANGUAGES;
 
 function escapeXml(value: string) {
   return value
@@ -20,7 +21,7 @@ export async function GET() {
   const urls: string[] = [];
 
   for (const locale of SUPPORTED_LOCALES) {
-    const prefix = locale === 'en' ? '' : `/${locale}`;
+    const prefix = `/${locale}`;
     const root = `${base}${prefix}`;
 
     const staticPaths = [

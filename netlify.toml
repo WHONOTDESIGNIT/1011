@@ -40,13 +40,6 @@
   [headers.values]
     Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
 
-# 将旧的 /en/* 链接 301 永久跳转到无前缀版本
-[[redirects]]
-  from = "/en/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
 # SSR fallback: 不加 force，静态文件会在到达此规则前被 CDN 直接处理
 [[redirects]]
   from = "/*"

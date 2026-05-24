@@ -1,62 +1,71 @@
 import { defineMiddleware } from "astro:middleware";
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "../config/i18n.ts";
-import { getCurrentLanguage } from "../utils/i18n.ts";
+
+const LOCALE_PREFIX_REGEX = new RegExp(`^/(${SUPPORTED_LANGUAGES.join("|")})(/|$)`);
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const { cookies } = context;
-  const currentLanguage = cookies.get("language")?.value as SupportedLanguage | undefined;
-
-  const currentUrl = new URL(context.request.url);
+  const { cookies, request } = context;
+  const currentUrl = new URL(request.url);
   const currentPath = currentUrl.pathname;
-  const pathLanguage = getCurrentLanguage(currentPath);
 
-  // No cookie and no path language → root English page, just pass through
-  if (!currentLanguage && !pathLanguage) {
+  // Check if path has a locale prefix by examining the actual URL
+  const localeMatch = currentPath.match(LOCALE_PREFIX_REGEX);
+  const pathLocale = localeMatch ? localeMatch[1] as SupportedLanguage : null;
+
+  if (pathLocale) {
+    // URL has a locale prefix → set cookie if missing, then pass through
+    const cookieLang = cookies.get("language")?.value as SupportedLanguage | undefined;
+    if (!cookieLang) {
+      cookies.set("language", pathLocale, {
+        path: "/",
+        secure: true,
+        httpOnly: true,
+        sameSite: "strict",
+        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+      });
+    }
     return next();
   }
 
-  // Cookie exists but path has no language prefix
-  if (currentLanguage && !pathLanguage) {
-    // If cookie says English and no prefix → that's correct, pass through
-    if (currentLanguage === "en") {
-      return next();
-    }
-    // Non-English cookie, no prefix → redirect to add prefix
-    currentUrl.pathname = `/${currentLanguage}${currentPath}`;
-    return Response.redirect(currentUrl.toString(), 302);
-  }
+  // URL has NO locale prefix → detect language and redirect
+  const cookieLang = cookies.get("language")?.value as SupportedLanguage | undefined;
 
-  // Both cookie and path language exist but mismatch
-  if (currentLanguage && pathLanguage && currentLanguage !== pathLanguage) {
-    if (pathLanguage === "en") {
-      // Path has English but cookie says non-English → redirect to non-English prefix
-      const cleanPath = currentPath.replace(/^\/en(\/|$)/, "/");
-      currentUrl.pathname = `/${currentLanguage}${cleanPath}`;
-    } else if (currentLanguage === "en") {
-      // Cookie says English but path has non-English prefix → strip prefix
-      const cleanPath = currentPath.replace(
-        new RegExp(`^/(${SUPPORTED_LANGUAGES.join("|")})`),
-        ""
-      );
-      currentUrl.pathname = cleanPath || "/";
+  if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang)) {
+    if (cookieLang === "en") {
+      // English cookie → redirect to /en/...
+      currentUrl.pathname = `/en${currentPath === "/" ? "" : currentPath}`;
     } else {
-      // Both non-English but different → replace prefix
-      const cleanPath = currentPath.replace(/^\/[^\/]+/, "");
-      currentUrl.pathname = `/${currentLanguage}${cleanPath}`;
+      currentUrl.pathname = `/${cookieLang}${currentPath === "/" ? "" : currentPath}`;
     }
     return Response.redirect(currentUrl.toString(), 302);
   }
 
-  // Path has non-English prefix but no cookie yet → set cookie and pass through
-  if (pathLanguage && !currentLanguage && pathLanguage !== "en") {
-    cookies.set("language", pathLanguage, {
-      path: "/",
-      secure: true,
-      httpOnly: true,
-      sameSite: "strict",
-      expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-    });
+  // No cookie → check Accept-Language
+  const acceptLanguage = request.headers.get("accept-language") || "";
+  if (acceptLanguage) {
+    const preferred = parseAcceptLanguage(acceptLanguage);
+    for (const lang of preferred) {
+      const match = SUPPORTED_LANGUAGES.find((l) => lang.startsWith(l));
+      if (match) {
+        currentUrl.pathname = `/${match}${currentPath === "/" ? "" : currentPath}`;
+        return Response.redirect(currentUrl.toString(), 302);
+      }
+    }
   }
 
-  return next();
+  // Default → redirect to /en
+  currentUrl.pathname = `/en${currentPath === "/" ? "" : currentPath}`;
+  return Response.redirect(currentUrl.toString(), 302);
 });
+
+function parseAcceptLanguage(header: string): string[] {
+  return header
+    .split(",")
+    .map((entry) => {
+      const [lang, q = "q=1"] = entry.trim().split(";");
+      const quality = parseFloat(q.split("=")[1] || "1");
+      return { lang: lang.trim(), quality };
+    })
+    .sort((a, b) => b.quality - a.quality)
+    .map((entry) => entry.lang);
+}

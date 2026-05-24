@@ -103,17 +103,9 @@ const currentConfig = LANGUAGE_CONFIG.find(l => l.code === currentLang);
 
       let newPath;
       if (match) {
-        if (lang === "en") {
-          newPath = currentPath.replace(langRegex, "/");
-        } else {
-          newPath = currentPath.replace(langRegex, `/${lang}$2`);
-        }
+        newPath = currentPath.replace(langRegex, `/${lang}$2`);
       } else {
-        if (lang === "en") {
-          newPath = currentPath;
-        } else {
-          newPath = `/${lang}${currentPath}`;
-        }
+        newPath = `/${lang}${currentPath}`;
       }
 
       window.location.href = newPath;
