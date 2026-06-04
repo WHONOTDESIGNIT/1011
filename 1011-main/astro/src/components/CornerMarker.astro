@@ -1,0 +1,70 @@
+---
+import { ChevronDown } from '@lucide/astro';
+const { class: className } = Astro.props;
+---
+
+<div class={`corner-marker-wrapper ${className || ''}`} aria-hidden="true">
+  <div class="corner-marker">
+    <ChevronDown size={32} strokeWidth={1.5} class="chevron" />
+  </div>
+</div>
+
+<style>
+  .corner-marker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+    padding: 9rem 0;
+  }
+
+  .corner-marker-wrapper.compact {
+    padding: 4rem 0;
+  }
+
+  .chevron {
+    color: #999999;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
+  .corner-marker.animate .chevron {
+    animation: slideFade 1.2s linear infinite;
+  }
+
+  @keyframes slideFade {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(1px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.corner-marker').forEach((el) => observer.observe(el));
+  });
+</script>

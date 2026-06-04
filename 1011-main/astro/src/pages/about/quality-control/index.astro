@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+const locale = 'en';
+const heroBackgroundImage =
+  'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
+
+const qcFlow = [
+  { title: 'Incoming Material Inspection', description: 'Verify key components and materials before production starts.' },
+  { title: 'In-Process Checks', description: 'Quality checkpoints during assembly to catch variation early.' },
+  { title: 'Functional & Safety Testing', description: 'Performance verification, safety compliance, and calibration.' },
+  { title: 'Cosmetic Inspection', description: 'Appearance inspection aligned with retail expectations and standards.' },
+  { title: 'Pre-Shipment Audit', description: 'Final review, packaging checks, and documentation alignment before shipment.' },
+];
+
+const tests = [
+  'Electrical safety testing to international standards',
+  'Lamp life testing for 100,000+ flashes',
+  'Skin safety verification with thermal imaging',
+  'Drop testing and environmental stress testing',
+  '100% functional testing before shipment',
+];
+
+const certifications = [
+  'ISO 9001:2015 Quality Management System',
+  'CE Certification for European markets',
+  'FDA Clearance for US market access',
+  'MDR certification in progress — ensuring readiness for EU market expansion',
+];
+const pageTitle = t(locale, 'nav.quality');
+const pageDescription = 'Multi-stage quality control for IPL devices: incoming inspection, in-process checks, functional testing, and pre-shipment audit. ISO 9001, CE, FDA certified.';
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: pageTitle },
+]);
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
+  <div class="space-y-48">
+    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
+      <div class="pointer-events-none absolute inset-0 bg-black/40" />
+      <div class="relative">
+        <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+        <h1 class="mt-6 text-4xl font-bold tracking-tight md:text-5xl">{pageTitle}</h1>
+        <p class="mt-4 max-w-3xl text-lg text-slate-200">
+          Multi-stage inspection and testing to keep every batch stable, compliant, and retail-ready.
+        </p>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-bold text-slate-900">Our QC Philosophy</h2>
+      <p class="text-lg text-slate-700">
+        Quality is built into every step, not inspected at the end. Our process combines incoming inspection, in-process verification, functional testing, and a final pre-shipment audit to reduce variation and improve consistency across batches.
+      </p>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold text-slate-900">Typical QC Flow</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        {qcFlow.map((step, idx) => (
+          <div class="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl bg-sky-600 text-sm font-bold text-white">
+              {idx + 1}
+            </div>
+            <div>
+              <div class="text-lg font-semibold text-slate-900">{step.title}</div>
+              <div class="mt-2 text-sm text-slate-700">{step.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900">Testing Coverage</h2>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          {tests.map((t) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900">Certifications</h2>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          {certifications.map((c) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+              <span>{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 p-8">
+      <h2 class="text-2xl font-bold text-slate-900">How QC Supports OEM/ODM</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        QC is not only about passing checks — it reduces rework, stabilizes yields, and helps keep your delivery schedule predictable. For OEM/ODM projects, we align test checkpoints and acceptance criteria with your product positioning and target markets.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/contact')}>Talk to Our Team</a>
+        <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/about')}>Back to About</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

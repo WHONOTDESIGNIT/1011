@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../../lib/breadcrumbs';
+
+const { locale = 'en' } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+const serviceTypes = [
+  {
+    type: 'OEM',
+    title: 'Original Equipment Manufacturing',
+    description:
+      'We manufacture IPL devices based on your specifications and designs, allowing you to focus on marketing and sales.',
+    features: ['Your brand, your design', 'Custom specifications', 'Private labeling', 'Flexible MOQ'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    type: 'ODM',
+    title: 'Original Design Manufacturing',
+    description:
+      'Complete product development from concept to market, including design, engineering, and manufacturing.',
+    features: ['Full product development', 'Design & engineering', 'Market research', 'Turnkey solutions'],
+    gradient: 'from-sky-500 to-cyan-500',
+  },
+];
+
+const capabilities = [
+  {
+    title: 'Concept Development',
+    description: 'Transform your ideas into viable product concepts with market research and feasibility analysis.',
+    details: ['Market Analysis', 'Concept Validation', 'Technical Feasibility', 'Cost Estimation'],
+  },
+  {
+    title: 'Product Engineering',
+    description: 'Advanced engineering solutions for IPL technology, safety systems, and user interface design.',
+    details: ['IPL Technology', 'Safety Systems', 'UI/UX Design', 'Performance Optimization'],
+  },
+  {
+    title: 'Prototyping',
+    description: 'Rapid prototyping services to validate design concepts and functionality before mass production.',
+    details: ['3D Printing', 'Functional Testing', 'Design Validation', 'User Testing'],
+  },
+  {
+    title: 'Quality Assurance',
+    description: 'Comprehensive quality control systems ensuring products meet international standards.',
+    details: ['FDA Clearance', 'CE Certification', 'ISO Standards', 'Safety Testing'],
+  },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Requirements Analysis',
+    description: 'Deep dive into your market needs, target audience, and technical requirements.',
+    duration: '1–2 weeks',
+    deliverables: ['Market Research Report', 'Technical Specifications', 'Project Timeline'],
+  },
+  {
+    step: '02',
+    title: 'Design & Development',
+    description: 'Create detailed designs, develop prototypes, and conduct thorough testing.',
+    duration: '4–8 weeks',
+    deliverables: ['Design Concepts', 'Working Prototype', 'Test Reports'],
+  },
+  {
+    step: '03',
+    title: 'Production Planning',
+    description: 'Setup production lines, source materials, and establish quality control systems.',
+    duration: '2–4 weeks',
+    deliverables: ['Production Plan', 'Quality Manual', 'Supply Chain Setup'],
+  },
+  {
+    step: '04',
+    title: 'Mass Production',
+    description: 'Scale up to full production with continuous quality monitoring and delivery.',
+    duration: '4–12 weeks',
+    deliverables: ['Finished Products', 'Quality Certificates', 'Packaging & Shipping'],
+  },
+];
+
+const successMetrics = [
+  { metric: '500+', label: 'Products Developed' },
+  { metric: '50+', label: 'Brand Partners' },
+  { metric: '98%', label: 'Client Satisfaction' },
+];
+
+const partnerBenefits = [
+  {
+    title: 'Faster Time-to-Market',
+    description:
+      'Accelerate your product launch with our streamlined development process and manufacturing expertise.',
+  },
+  {
+    title: 'Cost Optimization',
+    description:
+      'Reduce development costs through our efficient processes and established supply chain relationships.',
+  },
+  {
+    title: 'Risk Mitigation',
+    description:
+      'Minimize technical and market risks with our proven development methodology and market insights.',
+  },
+  {
+    title: 'Global Reach',
+    description:
+      'Access international markets with products that meet global regulatory standards and certifications.',
+  },
+];
+---
+
+<BaseLayout title="OEM/ODM Solutions" lang={locale} description="iShine OEM and ODM manufacturing for IPL devices: concept development, engineering, prototyping, FDA/CE compliance, private labeling, and turnkey production.">
+  <div class="space-y-60">
+    <section class="rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 px-8 py-16">
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Your Vision,
+          <span class="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Our Expertise</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+          Complete OEM/ODM solutions for IPL hair removal devices. From initial concept to market-ready products, we transform your ideas into successful businesses.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={getLocalizedPath(locale, '/contact')}>Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What OEM/ODM partnership model is right for you?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Whether you have a complete design or just an idea, we have the right manufacturing solution to bring your IPL products to market.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {serviceTypes.map((s) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
+            <div class={`mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r ${s.gradient}`}>
+              <span class="text-2xl font-bold text-white">{s.type}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">{s.title}</h3>
+            <p class="mt-4 text-slate-700">{s.description}</p>
+            <div class="mt-6 space-y-3">
+              {s.features.map((f) => (
+                <div class="flex items-center gap-3 text-slate-700">
+                  <span class="h-2 w-2 rounded-2xl bg-emerald-500" />
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What are our core OEM/ODM capabilities?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Comprehensive manufacturing capabilities covering every aspect of IPL device development and production.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 md:grid-cols-2">
+        {capabilities.map((c) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{c.title}</h3>
+            <p class="mt-3 text-slate-700">{c.description}</p>
+            <div class="mt-6 grid grid-cols-2 gap-2">
+              {c.details.map((d) => (
+                <div class="flex items-center gap-2 text-sm text-slate-700">
+                  <span class="h-2 w-2 rounded-2xl bg-purple-400" />
+                  <span>{d}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">How does the OEM/ODM development process work?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          A proven methodology that ensures quality, efficiency, and successful product launches for our partners.
+        </p>
+      </div>
+      <div class="space-y-6">
+        {processSteps.map((step) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg">
+            <div class="grid gap-6 lg:grid-cols-[240px_1fr] lg:items-start">
+              <div class="flex items-center gap-6">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600">
+                  <span class="text-xl font-bold text-white">{step.step}</span>
+                </div>
+                <div>
+                  <div class="text-xl font-bold text-slate-900">{step.title}</div>
+                  <div class="mt-1 font-medium text-purple-600">{step.duration}</div>
+                </div>
+              </div>
+              <div>
+                <p class="text-slate-700">{step.description}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {step.deliverables.map((d) => (
+                    <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{d}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What results have our OEM/ODM partners achieved?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Our success is measured by the success of our partners. Here's what we've achieved together over the years.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {successMetrics.map((m) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg">
+            <div class="text-4xl font-bold text-purple-600">{m.metric}</div>
+            <div class="mt-2 font-medium text-slate-700">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Why Partner with iShine?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Beyond manufacturing, we provide strategic advantages that help your business succeed in the competitive IPL market.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {partnerBenefits.map((b) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{b.title}</h3>
+            <p class="mt-3 text-slate-700">{b.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold md:text-4xl">Ready to Bring Your IPL Product to Market?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
+          Let's discuss your project requirements and explore how our OEM/ODM solutions can help you succeed in the IPL market.
+        </p>
+        <div class="mt-10 flex justify-center gap-3">
+          <a class="rounded bg-purple-600 px-6 py-3 text-sm font-medium text-white hover:bg-purple-700" href={getLocalizedPath(locale, '/contact')}>Start Your Project</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

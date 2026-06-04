@@ -1,0 +1,528 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+export const prerender = false;
+
+const { locale = 'en', slug } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+type Theme = {
+  heroGradient: string;
+  heroTextAccent: string;
+  accentBg: string;
+  accentText: string;
+  softBg: string;
+};
+
+type Metric = { title: string; description: string };
+type Step = { title: string; description: string };
+type Card = { title: string; description: string; bullets?: string[] };
+type Quote = { title?: string; quote: string; cite: string };
+
+type CaseStudy = {
+  title: string;
+  subtitle: string;
+  heroBackgroundImage?: string;
+  snapshot: Array<{ label: string; value: string }>;
+  metrics: Metric[];
+  challengeIntro: string;
+  challengeBullets: string[];
+  challengeAside: Quote;
+  delivered: Card[];
+  approach: Step[];
+  technology: Array<{ title: string; bullets: string[] }>;
+  results: Metric[];
+  testimonial: Quote;
+  cta: { title: string; description: string; button: string };
+  theme: Theme;
+};
+
+const caseStudies: Record<string, CaseStudy> = {
+  'roseskin-ipl': {
+    title: 'RoseSkinCo × iShine: Exclusive IPL Partnership in the USA',
+    subtitle:
+      "How we became the exclusive IPL supplier for America's leading beauty brand, delivering FDA-cleared devices that strengthened their market dominance.",
+    heroBackgroundImage:
+      'https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    snapshot: [
+      { label: 'Category', value: 'Beauty Consumer Products (IPL)' },
+      { label: 'Market', value: 'USA (Retail & E-commerce)' },
+      { label: 'Model', value: 'Exclusive IPL Supplier' },
+      { label: 'Timeline', value: 'Discovery to Full Rollout' },
+    ],
+    metrics: [
+      { title: 'Exclusive IPL Positioning', description: 'Secured exclusive supplier status in competitive USA market' },
+      { title: 'Faster Time-to-Market', description: 'Reduced product launch timeline with streamlined processes' },
+      { title: 'Enhanced Customer Trust', description: 'FDA-cleared devices boosted consumer confidence and sales' },
+      { title: 'Retail-Ready Compliance', description: 'Compliance with USA retail and e-commerce standards' },
+    ],
+    challengeIntro:
+      "RoseSkinCo, one of the leading beauty brands in the USA, needed a trusted IPL supplier to maintain their leadership position in the competitive U.S. beauty market. As specialists in the IPL hair removal device niche, they faced several critical challenges:",
+    challengeBullets: [
+      'Required FDA-cleared, retail-ready devices that met strict U.S. regulatory standards',
+      'Needed significant differentiation in an increasingly competitive IPL niche',
+      'Sought an exclusive partnership to ensure supply chain reliability and market advantage',
+    ],
+    challengeAside: {
+      title: 'Market Context',
+      quote:
+        'We needed an exclusive partnership to protect our supply chain reliability, product quality, and brand differentiation in a fast-moving market.',
+      cite: 'USA Beauty Market Team',
+    },
+    delivered: [
+      {
+        title: 'FDA-Cleared IPL Devices',
+        description:
+          "Delivered fully compliant IPL devices tailored specifically for RoseSkinCo's brand requirements and market positioning.",
+      },
+      {
+        title: 'Complete Custom Branding',
+        description: 'Seamless brand identity integration across device, packaging, and documentation.',
+        bullets: ['Custom packaging design and materials', 'Branded shell colors and logo integration', 'Tailored user manuals and documentation'],
+      },
+      {
+        title: 'Advanced IPL Features',
+        description: 'Feature set aligned to performance and consumer expectations.',
+        bullets: ['Dual-lamp technology for enhanced performance', 'Smart skin tone sensor for safety', 'Advanced ice cooling system'],
+      },
+      {
+        title: 'Flexible Operations',
+        description: 'Operational flexibility to de-risk launch and scale distribution.',
+        bullets: ['Low MOQ pilot runs for market testing', 'Global shipping via FedEx/UPS/DHL/Aramex'],
+      },
+    ],
+    approach: [
+      { title: 'Discovery & Consultation', description: "Deep dive into RoseSkinCo's market position, customer needs, and competitive landscape." },
+      { title: 'Prototyping & Compliance', description: 'Rapid prototyping with simultaneous FDA compliance validation to ensure market readiness.' },
+      { title: 'Custom Branding Integration', description: "Seamless integration of RoseSkinCo's brand identity across all device components and packaging." },
+      { title: 'Pilot Launch → Full Rollout', description: 'Strategic market testing followed by scaled production and nationwide distribution.' },
+    ],
+    technology: [
+      { title: 'Advanced IPL Technology', bullets: ['Precision energy control', 'Dual-lamp systems', 'Smart cooling integration', 'Intelligent skin sensors'] },
+      { title: 'Consulting Expertise', bullets: ['Engineering optimization', 'Structural design', 'Patent risk assessment', 'Regulatory guidance'] },
+      { title: 'Business Flexibility', bullets: ['80/20 payment terms', 'Low MOQ options', 'Global logistics', 'Scalable production'] },
+    ],
+    results: [
+      { title: 'Market Leadership Strengthened', description: 'Reinforced leadership through exclusive partnership and innovative device features.' },
+      { title: 'Expanded Product Portfolio', description: 'Launched devices featuring advanced cooling and sensor technology.' },
+      { title: 'Enhanced Consumer Trust', description: 'FDA-cleared devices and premium branding increased confidence and loyalty.' },
+      { title: 'Improved Retail Positioning', description: 'Achieved stronger retail and e-commerce positioning with market-ready products.' },
+    ],
+    testimonial: {
+      quote:
+        "Partnering with iShine has been transformative for our business. Their expertise in IPL technology, combined with their understanding of the U.S. market requirements, helped us maintain our leadership position while expanding our product capabilities. The FDA-cleared devices and custom branding exceeded our expectations.",
+      cite: 'VP of Product Development, RoseSkinCo',
+    },
+    cta: {
+      title: 'Ready to Dominate Your Niche with Exclusive IPL Solutions?',
+      description: "Partner with us to deliver innovation, compliance, and speed to market. Let's build your competitive advantage together.",
+      button: 'Start Your Partnership',
+    },
+    theme: {
+      heroGradient: 'from-rose-600 to-pink-600',
+      heroTextAccent: 'text-rose-100',
+      accentBg: 'bg-rose-600',
+      accentText: 'text-rose-600',
+      softBg: 'bg-rose-50',
+    },
+  },
+  'ku2-ipl': {
+    title: 'KU‑2 Cosmetics × iShine: Empowering IPL Success in Germany',
+    subtitle:
+      "How we became KU‑2 Cosmetics' exclusive IPL supplier, delivering FDA-cleared devices with dual-lamp technology and custom branding for the German beauty market.",
+    snapshot: [
+      { label: 'Category', value: 'Beauty Consumer Products (IPL)' },
+      { label: 'Market', value: 'Germany (Retail & E-commerce)' },
+      { label: 'Model', value: 'Exclusive IPL Supplier' },
+      { label: 'Timeline', value: 'Discovery to Rollout' },
+    ],
+    metrics: [
+      { title: 'Faster Time-to-Market', description: 'Accelerated launch with low MOQ pilot runs and streamlined processes' },
+      { title: 'Exclusive IPL Positioning', description: 'Only German beauty brand with exclusive IPL supplier partnership' },
+      { title: 'Improved Customer Trust', description: 'FDA-cleared devices with CE compliance for European market confidence' },
+      { title: 'Retail-Ready Compliance', description: 'Certification and packaging solutions for immediate market entry' },
+    ],
+    challengeIntro: '',
+    challengeBullets: [
+      "KU‑2 Cosmetics was seeking innovative IPL solutions to expand their product portfolio and capture market share in Germany's competitive beauty industry.",
+      'They needed a trusted partner with deep expertise in compliance, customization, and logistics to navigate European regulations.',
+      'Differentiation was crucial in a market saturated with generic IPL devices—they needed unique features and branding.',
+    ],
+    challengeAside: {
+      title: 'Market Context',
+      quote:
+        "We needed more than just a supplier—we needed a strategic partner who understood both technology and market requirements.",
+      cite: 'Germany Beauty Market',
+    },
+    delivered: [
+      { title: 'FDA-Cleared Devices', description: 'Retail-ready IPL devices with full FDA clearance and CE compliance for European market entry.' },
+      { title: 'Custom Design & Branding', description: "Tailored packaging, shell colors, logo placement, and manuals aligned with KU‑2's brand identity." },
+      { title: 'Advanced Features', description: 'Dual-lamp technology, skin tone sensors, and ice cooling systems for performance and safety.' },
+      { title: 'Low MOQ Pilot Runs', description: 'Flexible minimum order quantities for market testing before full-scale production commitment.' },
+      { title: 'Global Shipping', description: 'Reliable logistics with flexible shipping options and comprehensive supply chain management.' },
+      { title: 'Quality Assurance', description: 'Rigorous testing protocols and third-party validation ensuring consistent product quality.' },
+    ],
+    approach: [
+      { title: 'Discovery & Consultation', description: "Requirements alignment and market understanding for Germany's regulatory environment." },
+      { title: 'Prototyping & Validation', description: 'Prototyping and compliance validation to ensure regulatory readiness.' },
+      { title: 'Brand Customization', description: "Customization aligned with KU‑2's positioning and retail requirements." },
+      { title: 'Pilot to Rollout', description: 'Pilot runs for market testing followed by scalable production.' },
+    ],
+    technology: [
+      {
+        title: 'Advanced IPL Technology',
+        bullets: ['Energy control systems with precise output regulation', 'Dual-lamp technology for extended lifespan', 'Advanced cooling systems for comfort', 'Smart skin tone sensors for safety'],
+      },
+      {
+        title: 'Consulting Expertise',
+        bullets: ['Engineering and structural design consultation', 'Patent risk assessment and mitigation', 'Regulatory compliance guidance', 'Payment flexibility with 80/20 terms'],
+      },
+    ],
+    results: [
+      {
+        title: 'Market Leadership',
+        description:
+          'KU‑2 became the only German beauty brand with an exclusive IPL supplier partnership, setting them apart from competitors.',
+      },
+      { title: 'Product Line Expansion', description: 'Expanded portfolio with innovative IPL devices and new revenue streams.' },
+      { title: 'Enhanced Trust', description: 'Improved consumer trust and retail positioning through FDA-cleared solutions.' },
+    ],
+    testimonial: {
+      quote:
+        "iShine didn't just supply us with IPL devices—they became our strategic partner in innovation. Their expertise in compliance, customization, and market understanding helped us achieve something unique in the German beauty market. The exclusive partnership model gave us the competitive edge we needed.",
+      cite: 'KU‑2 Cosmetics Product Development Team',
+    },
+    cta: {
+      title: 'Ready to Expand Your Beauty Portfolio?',
+      description:
+        'Looking to expand your beauty portfolio with exclusive IPL solutions? Partner with us to deliver innovation, compliance, and speed to market.',
+      button: 'Start Your Partnership',
+    },
+    theme: {
+      heroGradient: 'from-purple-600 to-indigo-600',
+      heroTextAccent: 'text-purple-100',
+      accentBg: 'bg-blue-600',
+      accentText: 'text-blue-600',
+      softBg: 'bg-blue-50',
+    },
+  },
+  'happyskinco-ipl': {
+    title: "HappySkinCo × iShine: Building Australia's IPL Success Story",
+    subtitle:
+      "How we became HappySkinCo's exclusive IPL supplier, helping them maintain leadership in Australia's competitive beauty market and establish themselves as the industry benchmark.",
+    snapshot: [
+      { label: 'Category', value: 'Beauty Consumer Products (IPL)' },
+      { label: 'Market', value: 'Australia (Retail & E-commerce)' },
+      { label: 'Model', value: 'Exclusive IPL Supplier' },
+      { label: 'Timeline', value: 'Discovery to Nationwide Rollout' },
+    ],
+    metrics: [
+      { title: 'Exclusive IPL Positioning', description: "Maintained leadership with an exclusive supplier partnership in Australia's IPL niche" },
+      { title: 'Faster Time-to-Market', description: 'Accelerated product launches with low MOQ pilot runs and streamlined processes' },
+      { title: 'Improved Customer Trust', description: 'Enhanced confidence with FDA-cleared, retail-ready IPL devices' },
+      { title: 'Retail-Ready Compliance', description: 'Certification and packaging solutions for immediate market deployment' },
+    ],
+    challengeIntro: '',
+    challengeBullets: [
+      "HappySkinCo needed a trusted IPL supplier to maintain their leadership position in Australia's competitive beauty market.",
+      'They required FDA-cleared, retail-ready devices that met strict Australian regulatory standards and consumer expectations.',
+      'Differentiation was crucial in the competitive IPL niche to maintain their reputation as industry leaders.',
+    ],
+    challengeAside: {
+      title: 'Market Leadership',
+      quote:
+        'Founded by Dylan, HappySkinCo has nurtured and cultivated IPL hair removal brands, earning recognition as the "Huangpu Military Academy" of the IPL hair removal field—a training ground and benchmark for the entire industry.',
+      cite: 'Australia Market Context',
+    },
+    delivered: [
+      { title: 'FDA-Cleared IPL Devices', description: "Retail-ready devices with full FDA clearance, tailored for HappySkinCo's quality standards." },
+      { title: 'Custom Branding Solutions', description: 'Packaging design, shell colors, logo placement, and instruction manuals.' },
+      { title: 'Advanced IPL Features', description: 'Dual-lamp technology, intelligent skin tone sensors, and advanced ice cooling systems.' },
+      { title: 'Low MOQ Pilot Runs', description: 'Flexible MOQs enabling market testing before full-scale production commitment.' },
+      { title: 'Global Shipping Network', description: 'Reliable logistics with FedEx, UPS, DHL, and Aramex for Australia-wide distribution.' },
+      { title: 'Quality Assurance', description: 'Rigorous testing protocols and QC measures ensuring consistent product excellence.' },
+    ],
+    approach: [
+      { title: 'Discovery & Consultation', description: 'In-depth consultation with Dylan and the HappySkinCo team to understand vision and requirements.' },
+      { title: 'Prototyping & Validation', description: 'Prototyping and compliance validation to ensure regulatory approval and market readiness.' },
+      { title: 'Brand Customization', description: "Customization aligned with HappySkinCo's brand identity and positioning." },
+      { title: 'Pilot to Full Rollout', description: 'Strategic pilot launch followed by nationwide rollout across Australia.' },
+    ],
+    technology: [
+      {
+        title: 'Advanced IPL Technology',
+        bullets: ['Precision energy control systems with regulated output', 'Dual-lamp technology for extended device lifespan', 'Advanced ice cooling systems for comfort', 'Smart skin tone sensors for safety'],
+      },
+      {
+        title: 'Consulting Expertise',
+        bullets: ['Engineering and structural design consultation', 'Patent risk assessment and mitigation strategies', 'Regulatory compliance guidance and support', 'Flexible payment terms with 80/20 structure'],
+      },
+    ],
+    results: [
+      { title: 'Market Leadership Strengthened', description: "Reinforced position as Australia's leading IPL brand with innovative offerings." },
+      { title: 'Expanded Product Portfolio', description: 'Expanded product line with cutting-edge IPL devices and new revenue streams.' },
+      {
+        title: 'Industry Benchmark Status',
+        description:
+          'Solidified reputation as the "Huangpu Military Academy" of IPL hair removal—the industry benchmark others aspire to reach.',
+      },
+    ],
+    testimonial: {
+      quote:
+        "iShine has been instrumental in maintaining our leadership position in Australia's IPL market. Their commitment to quality, innovation, and partnership has enabled us to continue setting industry standards. As the exclusive supplier relationship, they understand our vision of nurturing the IPL industry and being the benchmark others aspire to reach.",
+      cite: 'Dylan, Founder of HappySkinCo',
+    },
+    cta: {
+      title: 'Looking to Dominate Your Niche with Exclusive IPL Solutions?',
+      description:
+        "Partner with us to deliver innovation, compliance, and speed to market. Join the ranks of industry leaders who trust iShine for their IPL success.",
+      button: 'Start Your Partnership',
+    },
+    theme: {
+      heroGradient: 'from-orange-500 to-pink-600',
+      heroTextAccent: 'text-orange-100',
+      accentBg: 'bg-orange-600',
+      accentText: 'text-orange-600',
+      softBg: 'bg-orange-50',
+    },
+  },
+  'costco-canada-ipl': {
+    title: 'Costco × iShine: Retail-Scale IPL Supply in Canada',
+    subtitle:
+      'How we support retail-scale supply with consistent quality gates, reliable packaging standards, and predictable delivery for nationwide distribution.',
+    snapshot: [
+      { label: 'Category', value: 'Retail IPL Devices' },
+      { label: 'Market', value: 'Canada' },
+      { label: 'Model', value: 'Retail supply partnership' },
+      { label: 'Timeline', value: 'Ongoing supply cycles' },
+    ],
+    metrics: [
+      { title: 'Retail Readiness', description: 'Packaging, labeling, and documentation aligned for retail channels' },
+      { title: 'Quality Consistency', description: 'Defined QC checkpoints to reduce batch variation' },
+      { title: 'Supply Reliability', description: 'Stable output planning with predictable lead times' },
+      { title: 'Operational Execution', description: 'Logistics coordination to support distribution schedules' },
+    ],
+    challengeIntro:
+      'Retail-scale distribution requires consistent product quality, clear documentation, and stable fulfillment. The primary constraints are speed, repeatability, and predictability.',
+    challengeBullets: [
+      'Keep batch-to-batch quality consistent under scale',
+      'Meet retail packaging and documentation expectations',
+      'Maintain predictable lead times and delivery schedules',
+    ],
+    challengeAside: {
+      title: 'Retail Context',
+      quote:
+        'Retail channels reward consistent quality and dependable fulfillment. Our focus is a repeatable manufacturing system that scales without surprises.',
+      cite: 'iShine Operations',
+    },
+    delivered: [
+      { title: 'Production Checkpoints', description: 'Incoming inspection → in-process checks → functional testing → pre-shipment audit.' },
+      { title: 'Retail Packaging Alignment', description: 'Packaging and labeling specifications aligned with retail handling and shelf requirements.' },
+      { title: 'Quality Assurance', description: 'Sampling plans and functional testing to keep performance consistent across runs.' },
+      { title: 'Logistics Coordination', description: 'Shipping coordination for stable supply cycles and distribution planning.' },
+    ],
+    approach: [
+      { title: 'Requirement Alignment', description: 'Confirm channel expectations on packaging, labeling, and documentation.' },
+      { title: 'Process Control Setup', description: 'Define QC gates and work instructions for stable output.' },
+      { title: 'Scale Planning', description: 'Capacity and lead-time planning to support distribution schedules.' },
+      { title: 'Continuous Improvement', description: 'Tune processes to improve yield and reduce rework over time.' },
+    ],
+    technology: [
+      { title: 'Manufacturing Discipline', bullets: ['Defined work instructions', 'Calibration routines', 'Functional testing', 'Pre-shipment audits'] },
+      { title: 'Retail Operations', bullets: ['Packaging standards', 'Documentation alignment', 'Batch traceability', 'Fulfillment planning'] },
+    ],
+    results: [
+      { title: 'More Predictable Supply', description: 'Improved delivery predictability and smoother replenishment cycles.' },
+      { title: 'Stable Quality Output', description: 'Reduced variation through consistent checkpoints and testing.' },
+      { title: 'Retail-Ready Execution', description: 'Packaging and documentation aligned for channel operations.' },
+    ],
+    testimonial: {
+      quote:
+        'Consistent quality and predictable delivery are the foundation of retail distribution. The team maintained disciplined execution across production and fulfillment.',
+      cite: 'Retail Program Team',
+    },
+    cta: {
+      title: 'Need Retail-Ready Manufacturing at Scale?',
+      description: 'Partner with iShine to build repeatable production, reliable QC, and predictable delivery for your retail channels.',
+      button: 'Talk to our team',
+    },
+    theme: {
+      heroGradient: 'from-slate-700 to-sky-700',
+      heroTextAccent: 'text-slate-100',
+      accentBg: 'bg-sky-600',
+      accentText: 'text-sky-700',
+      softBg: 'bg-slate-50',
+    },
+  },
+};
+
+const data = caseStudies[slug];
+if (!data) {
+  return new Response('Not found', { status: 404 });
+}
+
+const heroStyle = data.heroBackgroundImage
+  ? `background-image:url(${data.heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`
+  : '';
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: t(locale, 'nav.clients'), path: '/clients' },
+  { label: data.title },
+]);
+---
+
+<BaseLayout title={data.title} lang={locale} description={data.subtitle}>
+  <div class="space-y-48">
+    <section class={`relative overflow-hidden rounded-2xl bg-gradient-to-r ${data.theme.heroGradient} px-8 py-14 text-white`} style={heroStyle}>
+      <div class="pointer-events-none absolute inset-0 bg-black/30" />
+      <div class="relative">
+        <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+
+        <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{data.title}</h1>
+            <p class={`mt-5 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.subtitle}</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a class="rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
+              <a class="rounded border border-white/30 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/clients')}>Back to clients</a>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm">
+            <h2 class="text-xl font-semibold">Project Snapshot</h2>
+            <dl class="mt-5 space-y-3 text-sm">
+              {data.snapshot.map((row) => (
+                <div class="flex items-start justify-between gap-4">
+                  <dt class="text-white/80">{row.label}:</dt>
+                  <dd class="text-right font-medium text-white">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-center text-3xl font-bold text-slate-900">Key Results & Highlights</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {data.metrics.map((metric) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <div class="text-lg font-semibold text-slate-900">{metric.title}</div>
+            <div class="mt-2 text-sm text-slate-700">{metric.description}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900">The Challenge</h2>
+          {data.challengeIntro && <p class="mt-4 text-slate-700">{data.challengeIntro}</p>}
+          <ul class="mt-6 space-y-3 text-slate-700">
+            {data.challengeBullets.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class={`mt-2 h-2 w-2 flex-shrink-0 rounded-2xl ${data.theme.accentBg}`} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
+          {data.challengeAside.title && <div class="text-lg font-semibold text-slate-900">{data.challengeAside.title}</div>}
+          <blockquote class="mt-4 text-slate-700">
+            <div class="text-base leading-relaxed">"{data.challengeAside.quote}"</div>
+            <div class="mt-4 text-sm font-medium text-slate-600">— {data.challengeAside.cite}</div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-center text-3xl font-bold text-slate-900">What We Delivered</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {data.delivered.map((item) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-slate-900">{item.title}</div>
+            <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+            {item.bullets?.length && (
+              <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                {item.bullets.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <h2 class="text-center text-3xl font-bold text-slate-900">Our Approach</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        {data.approach.map((step, idx) => (
+          <div class="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white ${data.theme.accentBg}`}>
+              {idx + 1}
+            </div>
+            <div>
+              <div class="text-lg font-semibold text-slate-900">{step.title}</div>
+              <div class="mt-2 text-sm text-slate-700">{step.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-center text-3xl font-bold text-slate-900">Technology & Capabilities</h2>
+      <div class={`grid gap-6 ${data.technology.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+        {data.technology.map((block) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-slate-900">{block.title}</div>
+            <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
+              {block.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
+      <h2 class="text-3xl font-bold text-slate-900">Results</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {data.results.map((r) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-slate-900">{r.title}</div>
+            <div class="mt-2 text-sm text-slate-700">{r.description}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
+      <h2 class="text-center text-3xl font-bold text-slate-900">Client Perspective</h2>
+      <div class="mx-auto mt-8 max-w-4xl rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+        <blockquote class="text-lg italic leading-relaxed text-slate-700">"{data.testimonial.quote}"</blockquote>
+        <div class="mt-6 text-sm font-medium text-slate-600">— {data.testimonial.cite}</div>
+      </div>
+    </section>
+
+    <section class={`rounded-2xl bg-gradient-to-r ${data.theme.heroGradient} px-8 py-12 text-white`}>
+      <h2 class="text-3xl font-bold">{data.cta.title}</h2>
+      <p class={`mt-4 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.cta.description}</p>
+      <div class="mt-8">
+        <a class="inline-flex rounded bg-white px-5 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

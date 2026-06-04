@@ -1,0 +1,154 @@
+---
+import type { BreadcrumbItem } from '../lib/breadcrumbs';
+import { getSubNavigation } from '../lib/navigation-data';
+
+type Props = {
+  items: BreadcrumbItem[];
+  variant?: 'light' | 'dark';
+  locale?: string;
+  class?: string;
+};
+
+const { items, variant = 'light', locale = 'en', class: className = '' } = Astro.props as Props;
+const id = `bc-${Math.random().toString(16).slice(2)}`;
+const lastLinked = [...items].reverse().find((item) => item.href)?.href ?? '';
+const subNavigation = lastLinked ? getSubNavigation(locale, lastLinked) : [];
+const currentLabel = items[items.length - 1]?.label ?? '';
+
+const ancestorClass = variant === 'dark'
+  ? 'text-white/60 transition hover:text-white/90'
+  : 'text-slate-500 transition hover:text-slate-800';
+
+const currentClass = variant === 'dark'
+  ? 'font-semibold text-white/95'
+  : 'font-semibold text-slate-900';
+
+const separatorClass = variant === 'dark'
+  ? 'mx-2 text-white/30'
+  : 'mx-2 text-slate-300';
+
+const mobileButtonClass = variant === 'dark'
+  ? 'flex w-full items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white/80 backdrop-blur'
+  : 'flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm';
+
+const panelClass = variant === 'dark'
+  ? 'rounded-2xl border border-white/10 bg-slate-950 p-5 text-white shadow-2xl backdrop-blur'
+  : 'rounded-2xl border border-slate-200 bg-white p-5 text-slate-900 shadow-2xl';
+
+const subLinkClass = variant === 'dark'
+  ? 'block rounded-xl px-3 py-2.5 text-sm text-white/80 transition hover:bg-white/10 hover:text-white'
+  : 'block rounded-xl px-3 py-2.5 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900';
+---
+
+<nav aria-label="Breadcrumb" data-bc-root={id} class={`${className}`.trim()}>
+  <ol class="hidden items-center gap-0 overflow-x-auto whitespace-nowrap text-sm md:flex">
+    {items.map((item, index) => (
+      <li class="flex items-center">
+        {item.href && index < items.length - 1
+          ? (
+            <a href={item.href} class={`inline-flex items-center gap-1.5 ${ancestorClass}`.trim()}>
+              {item.label}
+            </a>
+          )
+          : (
+            <span aria-current={index === items.length - 1 ? 'page' : undefined} class={currentClass}>
+              {item.label}
+            </span>
+          )}
+        {index < items.length - 1
+          ? <span aria-hidden="true" class={`select-none ${separatorClass}`.trim()}>/</span>
+          : null}
+      </li>
+    ))}
+  </ol>
+
+  <div class="md:hidden">
+    <button type="button" data-bc-trigger={id} aria-haspopup="dialog" aria-expanded="false" class={mobileButtonClass}>
+      <span class="truncate">{currentLabel}</span>
+      <svg class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+    </button>
+  </div>
+
+  <div class="fixed inset-0 z-50 hidden" data-bc-overlay={id} aria-hidden="true">
+    <div class="absolute inset-0 bg-black/60" data-bc-backdrop={id}></div>
+    <div class="absolute left-0 right-0 top-0 flex justify-center px-4 pt-8">
+      <div class={`w-full max-w-sm ${panelClass}`.trim()}>
+        <div class="mb-4 flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Breadcrumb</span>
+          <button type="button" data-bc-close={id} class={variant === 'dark' ? 'rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-white' : 'rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700'}>
+            Close
+          </button>
+        </div>
+
+        <div class="space-y-0.5">
+          {items.map((item, index) =>
+            item.href && index < items.length - 1
+              ? (
+                <a href={item.href} class={subLinkClass}>{item.label}</a>
+              )
+              : (
+                <div class={variant === 'dark' ? 'rounded-xl bg-white/10 px-3 py-2.5 text-sm font-semibold text-white' : 'rounded-xl bg-slate-900 px-3 py-2.5 text-sm font-semibold text-white'}>
+                  {item.label}
+                </div>
+              )
+          )}
+        </div>
+
+        {subNavigation.length
+          ? (
+            <div class="mt-5 border-t border-slate-200 pt-4">
+              <span class="mb-3 block px-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Explore
+              </span>
+              <div class="space-y-0.5">
+                {subNavigation.map((link) => (
+                  <a href={link.href} class={subLinkClass}>{link.label}</a>
+                ))}
+              </div>
+            </div>
+          )
+          : null}
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    {`
+      (() => {
+        var root = document.querySelector('[data-bc-root="${id}"]');
+        if (!root) return;
+        var trigger = root.querySelector('[data-bc-trigger="${id}"]');
+        var overlay = root.querySelector('[data-bc-overlay="${id}"]');
+        var backdrop = root.querySelector('[data-bc-backdrop="${id}"]');
+        var close = root.querySelector('[data-bc-close="${id}"]');
+        if (!trigger || !overlay) return;
+
+        function open() {
+          overlay.classList.remove('hidden');
+          overlay.setAttribute('aria-hidden', 'false');
+          trigger.setAttribute('aria-expanded', 'true');
+          document.documentElement.style.overflow = 'hidden';
+        }
+
+        function hide() {
+          overlay.classList.add('hidden');
+          overlay.setAttribute('aria-hidden', 'true');
+          trigger.setAttribute('aria-expanded', 'false');
+          document.documentElement.style.overflow = '';
+        }
+
+        trigger.addEventListener('click', function () {
+          var open_ = overlay.getAttribute('aria-hidden') === 'false';
+          if (open_) hide(); else open();
+        });
+        if (close) close.addEventListener('click', hide);
+        if (backdrop) backdrop.addEventListener('click', hide);
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== 'Escape') return;
+          if (overlay.getAttribute('aria-hidden') !== 'false') return;
+          hide();
+        });
+      })();
+    `}
+  </script>
+</nav>
