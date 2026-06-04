@@ -21,7 +21,7 @@ export function getSubNavigation(locale: string, href: string): NavigationLink[]
     const items = [
       { path: '/products', label: t(locale, 'nav.products') },
       { path: '/products/lumi-2', label: t(locale, 'nav.lumi2') },
-      { path: '/products/sapphire', label: t(locale, 'nav.sapphire') },
+      { path: '/products/venus', label: t(locale, 'nav.venus') },
       { path: '/products/hestia', label: t(locale, 'nav.hestia') },
       { path: '/products/alpha', label: t(locale, 'nav.alpha') },
       { path: '/products/emerald', label: t(locale, 'nav.emerald') },

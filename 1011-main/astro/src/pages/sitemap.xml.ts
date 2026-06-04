@@ -36,7 +36,7 @@ export async function GET() {
       '/services/production-assembly',
       '/services/packaging-logistics',
       '/products',
-      '/products/sapphire',
+      '/products/venus',
       '/products/hestia',
       '/products/alpha',
       '/products/hebe',
