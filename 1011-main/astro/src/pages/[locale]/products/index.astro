@@ -22,6 +22,9 @@ const products = [
   { slug: 'eirene', nameKey: 'nav.eirene', tagline: 'Gentle Care for Sensitive Skin', firstImage: '/images/products/eirene/eirene_ipl_device.jpg' },
   { slug: 'wooden', nameKey: 'nav.wooden', tagline: 'Luxury Collection with Wooden Finish', firstImage: '/images/products/luxury/luxury-ipl-device-white.webp' },
 ];
+
+// Keep data intact but filter out Lumi-2 from display
+const visibleProducts = products.filter(p => p.slug !== 'lumi-2');
 ---
 
 <BaseLayout title="Products" lang={locale} description="iShine IPL product range: Lumi, Venus, Hestia, Themis, Hebe, Eirene, Emerald, Euno, and Alpha devices available for OEM and ODM customization.">
@@ -42,7 +45,7 @@ const products = [
     </section>
 
     <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {products.map((product) => (
+      {visibleProducts.map((product) => (
         <a
           class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
           href={getLocalizedPath(locale, '/products/' + product.slug)}

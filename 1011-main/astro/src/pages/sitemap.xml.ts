@@ -42,7 +42,6 @@ export async function GET() {
       '/products/hebe',
       '/products/emerald',
       '/products/themis',
-      '/products/lumi-2',
       '/products/eirene',
       '/products/euno',
       '/products/wooden',

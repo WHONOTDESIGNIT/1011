@@ -68,7 +68,6 @@ const { title, lang = 'en', description, canonical, type = 'website', showCorner
 const canonicalUrl = canonical || new URL(Astro.request.url).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const productLinks = [
-  { href: getLocalizedPath(lang, '/products/lumi-2'), label: t(lang, 'nav.lumi2') },
   { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
   { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
   { href: getLocalizedPath(lang, '/products/eirene'), label: t(lang, 'nav.eirene') },
@@ -121,7 +120,6 @@ const footerSections = [
     title: t(lang, 'nav.products'),
     links: [
       { href: getLocalizedPath(lang, '/products'), label: t(lang, 'nav.products') },
-      { href: getLocalizedPath(lang, '/products/lumi-2'), label: t(lang, 'nav.lumi2') },
       { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
       { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
       { href: getLocalizedPath(lang, '/products/wooden'), label: t(lang, 'nav.wooden') },
