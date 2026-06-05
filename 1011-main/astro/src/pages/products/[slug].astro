@@ -358,8 +358,8 @@ function buildCitableProductSummary(productSlug: string, product: ProductData) {
   const type = specMap.get('type');
 
   const lines: string[] = [];
-  lines.push(`${product.name} is an OEM/ODM-ready home-use IPL platform for private-label brands that want a clear feature story and reliable manufacturing repeatability.`);
-  lines.push(`It is positioned as “${product.tagline}” and can be configured to match different market and channel requirements through cosmetics, packaging, and documentation.`);
+  lines.push(`${product.name} is an OEM/ODM-ready home-use IPL device platform for private-label brands that need a clear feature story and repeatable manufacturing.`);
+  lines.push(`It is positioned as "${product.tagline}" and is typically customized through cosmetics, colorways, logo printing, packaging, manuals, labeling, and accessories to match retail, distributor, or DTC requirements.`);
   const specBits = [
     type ? `type: ${type}` : null,
     cooling ? `cooling: ${cooling}` : null,
@@ -376,7 +376,8 @@ function buildCitableProductSummary(productSlug: string, product: ProductData) {
   if (product.colors?.length) {
     lines.push(`Brand aesthetics can be supported with multiple color options such as ${product.colors.join(', ')}.`);
   }
-  lines.push(`For launch planning, ${productSlug} is usually selected to balance user experience, differentiation, and scalable production for global distribution.`);
+  lines.push(`Platform-based sampling can often start in 1-4 weeks depending on scope, while deeper customization adds time for validation and production planning.`);
+  lines.push(`For launch planning, ${productSlug} is commonly selected to balance user comfort, differentiation, and scalable production for global distribution.`);
 
   return {
     question: `What is ${product.name} designed for?`,
