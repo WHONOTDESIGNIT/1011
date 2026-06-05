@@ -1,6 +1,6 @@
 import { getAllPosts } from '../lib/blog';
 
-const SUPPORTED_LOCALES = ['en', 'de', 'es'];
+const SUPPORTED_LOCALES = ['en'];
 
 function escapeXml(value: string) {
   return value
@@ -37,6 +37,7 @@ export async function GET() {
       '/services/packaging-logistics',
       '/products',
       '/products/venus',
+      '/products/lumi-2',
       '/products/hestia',
       '/products/alpha',
       '/products/hebe',
@@ -54,7 +55,6 @@ export async function GET() {
       '/faq',
       '/contact',
       '/media',
-      '/upload',
       '/blog',
     ];
 
@@ -77,4 +77,3 @@ export async function GET() {
     },
   });
 }
-
