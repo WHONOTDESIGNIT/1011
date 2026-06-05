@@ -24,7 +24,7 @@ function organizationJsonLd(lang: string) {
       height: 60,
     },
     description: SITE_DESCRIPTION,
-    foundingDate: '2010',
+    foundingDate: '2008',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Shenzhen',
@@ -199,14 +199,6 @@ const footerUtilityLinks = [
       description: SITE_DESCRIPTION,
       inLanguage: lang,
       publisher: { '@id': 'https://iplmanufacturer.com/#organization' },
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: 'https://iplmanufacturer.com/' + lang + '/search?q={search_term_string}',
-        },
-        'query-input': 'required name=search_term_string',
-      },
     })}></script>
     <meta property="og:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
     <meta name="twitter:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
