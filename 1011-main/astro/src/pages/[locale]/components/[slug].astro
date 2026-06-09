@@ -25,8 +25,14 @@ if (!ns) return new Response('Not found', { status: 404 });
 const title = t(locale, `${ns}.header.title`);
 const description = t(locale, `${ns}.header.description`);
 
-const backgroundImage =
-  'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
+const heroImageBySlug: Record<string, string> = {
+  'lamp-cartridges': '/images/components/lamp-cartridge-closeup.jpg',
+  'optical-filters': '/images/components/optical-filter-closeup.jpg',
+  'cooling-system': '/images/components/cooling-system-closeup.jpg',
+  'power-supply': '/images/components/power-supply.jpg',
+};
+const heroImage = heroImageBySlug[slug] ?? '/images/components/ipl-device-diagram.jpg';
+const backgroundImage = heroImage;
 
 const specsRows =
   ns === 'componentsCooling' || ns === 'componentsFilter' || ns === 'componentsLamp'
@@ -85,6 +91,14 @@ const breadcrumbs = buildBreadcrumbs(locale, [
                   : t(locale, 'componentsPower.cta.button')}
           </a>
           <a class="rounded border border-white/30 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/components')}>Back to components</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="aspect-[16/9] bg-slate-100">
+          <img src={heroImage} alt={title} loading="lazy" class="h-full w-full object-cover" />
         </div>
       </div>
     </section>
