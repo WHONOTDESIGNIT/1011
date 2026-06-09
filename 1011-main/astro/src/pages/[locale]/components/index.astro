@@ -36,7 +36,7 @@ const core = [
     title: t(locale, 'componentsPower.core.filter.title'),
     description: t(locale, 'componentsPower.core.filter.description'),
     paragraph: t(locale, 'componentsPower.core.filter.paragraph'),
-    image: '/images/components/optical-filter.jpg',
+    image: '/images/components/Optical%20Filters.jpg',
     imageAlt: t(locale, 'componentsPower.core.filter.imageAlt'),
     cta: t(locale, 'componentsPower.core.filter.cta'),
     specs: [
@@ -201,6 +201,16 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
       <div class="text-center">
         <h2 class="text-3xl font-bold text-slate-900">{qualityTitle}</h2>
         <p class="mx-auto mt-3 max-w-2xl text-slate-700">{qualityPartnership}</p>
+      </div>
+      <div class="mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="aspect-[16/9] bg-slate-100">
+          <img
+            src="/images/components/Component%20Quality%20Determines%20Device%20Performance.webp"
+            alt="Component Quality Determines Device Performance"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {qualityBlocks.map((b) => (
