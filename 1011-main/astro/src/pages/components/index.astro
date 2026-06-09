@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
-import { Image } from 'astro:assets';
 
 const locale = 'en';
 const headerTitle = t(locale, 'componentsPower.header.title');
@@ -17,7 +16,7 @@ const core = [
     title: t(locale, 'componentsPower.core.lamp.title'),
     description: t(locale, 'componentsPower.core.lamp.description'),
     paragraph: t(locale, 'componentsPower.core.lamp.paragraph'),
-    image: '/images/components/lamp-cartridge.jpg',
+    image: 'https://source.unsplash.com/u31s74TWOvc/1200x900',
     imageAlt: t(locale, 'componentsPower.core.lamp.imageAlt'),
     cta: t(locale, 'componentsPower.core.lamp.cta'),
     specs: [
@@ -32,7 +31,7 @@ const core = [
     title: t(locale, 'componentsPower.core.filter.title'),
     description: t(locale, 'componentsPower.core.filter.description'),
     paragraph: t(locale, 'componentsPower.core.filter.paragraph'),
-    image: '/images/components/optical-filters.jpg',
+    image: 'https://source.unsplash.com/9wYdW55NbnY/1200x900',
     imageAlt: t(locale, 'componentsPower.core.filter.imageAlt'),
     cta: t(locale, 'componentsPower.core.filter.cta'),
     specs: [
@@ -47,7 +46,7 @@ const core = [
     title: t(locale, 'componentsPower.core.cooling.title'),
     description: t(locale, 'componentsPower.core.cooling.description'),
     paragraph: t(locale, 'componentsPower.core.cooling.paragraph'),
-    image: '/images/components/cooling-system.jpg',
+    image: 'https://source.unsplash.com/OYW8EUAYokM/1200x900',
     imageAlt: t(locale, 'componentsPower.core.cooling.imageAlt'),
     cta: t(locale, 'componentsPower.core.cooling.cta'),
     specs: [
@@ -62,7 +61,7 @@ const core = [
     title: t(locale, 'componentsPower.core.power.title'),
     description: t(locale, 'componentsPower.core.power.description'),
     paragraph: t(locale, 'componentsPower.core.power.paragraph'),
-    image: '/images/components/power-supply.jpg',
+    image: 'https://source.unsplash.com/mrTVz_fosMY/1200x900',
     imageAlt: t(locale, 'componentsPower.core.power.imageAlt'),
     cta: t(locale, 'componentsPower.core.power.cta'),
     specs: [
@@ -105,7 +104,7 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
 <BaseLayout title={headerTitle} lang={locale} description={headerDescription || 'Explore iShine\'s IPL device components: lamp cartridges, optical filters, cooling systems, and power supplies for OEM and ODM manufacturing.'}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
-      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(/images/components/ipl-cooling-integration.jpg);background-size:cover;background-position:center;`} />
+      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(https://source.unsplash.com/OWHh5XOF3Nc/1600x900);background-size:cover;background-position:center;`} />
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{headerTitle}</h1>
@@ -121,14 +120,7 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
 
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="aspect-[16/9]">
-          <Image
-            src="/images/components/ipl-device-diagram.jpg"
-            alt={t(locale, 'componentsPower.diagram.alt')}
-            loading="lazy"
-            class="h-full w-full object-cover"
-            width={1600}
-            height={900}
-          />
+          <img src="https://source.unsplash.com/IYgYQxx_FYU/1600x900" alt={t(locale, 'componentsPower.diagram.alt')} loading="lazy" class="h-full w-full object-cover" />
         </div>
       </div>
     </section>
@@ -201,7 +193,7 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
       <div class="mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="aspect-[16/9] bg-slate-100">
           <img
-            src="/images/components/component-quality-determines-device-performance.webp"
+            src="https://source.unsplash.com/76wMkjguUEA/1600x900"
             alt="Component Quality Determines Device Performance"
             loading="lazy"
             class="h-full w-full object-cover"
