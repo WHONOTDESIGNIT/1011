@@ -21,8 +21,8 @@ interface ProductData {
 const products: Record<string, ProductData> = {
   'lumi': {
     name: 'Lumi IPL',
-    tagline: 'Smart App Control',
-    description: 'The Lumi IPL device combines smart app connectivity with effective hair removal technology, giving users precise control over their treatment schedule and progress tracking.',
+    tagline: "RoseSkinCo's Top Selling",
+    description: "Lumi IPL is a custom iShine-built device created for RoseSkinCo. It is designed, engineered, and manufactured as a next-generation Lumi that differentiates from RoseSkinCo's earlier OG model and competes in the premium US IPL category.",
     heroImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp',
     gallery: [
       '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp',
@@ -50,11 +50,7 @@ const products: Record<string, ProductData> = {
       { label: 'Lamp material', value: 'Quartz' },
       { label: 'Lamp configuration', value: 'Single lamp' },
       { label: 'Warranty', value: '2 years global warranty' },
-      { label: 'Max optical power density', value: '500 W/cm²' },
       { label: 'Wavelength', value: '510-1100 nm' },
-      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
-      { label: 'Net weight', value: '275 g' },
-      { label: 'Bulk MOQ (device)', value: '500 units' },
     ],
     features: [
       { title: 'Smart App Control', description: 'Connect via Bluetooth 5.0 to plan treatments, track progress, and receive personalized skin insights.' },
@@ -62,7 +58,7 @@ const products: Record<string, ProductData> = {
       { title: 'Rapid Treatment', description: '3.3 cm² treatment window supports efficient coverage for at-home sessions.' },
       { title: 'Long-Lasting Lamp', description: 'Delivers 999,999 flashes for long-term use.' },
     ],
-    colors: ['White'],
+    colors: ['White', 'Pink'],
   },
   'lumi-2': {
     name: 'Lumi 2 IPL',
@@ -380,13 +376,13 @@ const products: Record<string, ProductData> = {
     name: 'Hebe IPL',
     tagline: 'AI-Powered Skin Detection',
     description: 'Hebe IPL uses AI-powered real-time skin detection to automatically adjust energy levels for optimal safety and efficacy across all skin tones.',
-    heroImage: '/images/products/Hebe/Hebe-ipl-device-front-view.webp',
+    heroImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp',
     gallery: [
-      '/images/products/Hebe/Hebe-ipl-device-front-view.webp',
-      '/images/products/Hebe/Hebe-ipl-device-front-view-1.webp',
-      '/images/products/Hebe/Hebe-ipl-device-held-view.webp',
-      '/images/products/Hebe/Hebe-ipl-device-lay-view.webp',
-      '/images/products/Hebe/Hebe-ipl-device-black-white.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20holding.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20gold%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20black%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20gold%20and%20black%20color.webp',
     ],
     specs: [
       { label: 'Type', value: 'AI-powered auto-adjustment' },
@@ -488,6 +484,13 @@ const products: Record<string, ProductData> = {
 };
 
 function buildCitableProductSummary(productSlug: string, product: ProductData) {
+  if (productSlug === 'lumi') {
+    return {
+      question: `What is ${product.name} designed for?`,
+      answer: `${product.name} is a RoseSkinCo-specific product built by iShine, designed as a differentiated upgrade from the earlier OG Lumi. It is positioned for premium US DTC performance and is known for competing alongside top consumer IPL brands such as Nood, Philips, and Braun. For OEM/ODM discussions, Lumi is most relevant as a reference for end-to-end execution: industrial design, cosmetics, packaging, documentation, and repeatable manufacturing at scale.`,
+    };
+  }
+
   const specMap = new Map(product.specs.map((s) => [s.label.toLowerCase(), s.value]));
   const energy = specMap.get('energy');
   const flashes = specMap.get('lamp');
@@ -532,6 +535,8 @@ if (!product) {
 }
 
 const citable = buildCitableProductSummary(slug, product);
+const hiddenSpecLabels = new Set(['max optical power density', 'device size', 'net weight', 'bulk moq (device)']);
+const displayedSpecs = product.specs.filter((spec) => !hiddenSpecLabels.has(spec.label.trim().toLowerCase()));
 
 const pageTitle = product.name;
 const pageDescription = product.description;
@@ -589,6 +594,7 @@ const productSchema = {
         <div class="space-y-4">
           <div class="overflow-hidden rounded-2xl bg-slate-100">
             <img
+              id="product-hero-image"
               src={product.heroImage}
               alt={product.name}
               class="h-full w-full object-cover"
@@ -599,17 +605,38 @@ const productSchema = {
           {product.gallery.length > 1 && (
             <div class="flex gap-3 overflow-x-auto pb-2">
               {product.gallery.map((img) => (
-                <div class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                <button
+                  type="button"
+                  class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100"
+                  data-product-gallery-thumb
+                  data-img={img}
+                  aria-label={`View ${product.name} image`}
+                >
                   <img
                     src={img}
                     alt={`${product.name} gallery`}
                     class="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </button>
               ))}
             </div>
           )}
+          <script is:inline>
+            {`
+              (() => {
+                const hero = document.getElementById('product-hero-image');
+                const thumbs = document.querySelectorAll('[data-product-gallery-thumb][data-img]');
+                if (!hero || !thumbs.length) return;
+                thumbs.forEach((thumb) => {
+                  thumb.addEventListener('click', () => {
+                    const src = thumb.getAttribute('data-img');
+                    if (src) hero.setAttribute('src', src);
+                  });
+                });
+              })();
+            `}
+          </script>
         </div>
 
         <div class="space-y-6">
@@ -632,7 +659,7 @@ const productSchema = {
           <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 class="text-lg font-semibold text-slate-900">Specifications</h2>
             <dl class="mt-4 divide-y divide-slate-100">
-              {product.specs.map((spec) => (
+              {displayedSpecs.map((spec) => (
                 <div class="flex justify-between py-3 text-sm">
                   <dt class="text-slate-600">{spec.label}</dt>
                   <dd class="font-medium text-slate-900 text-right ml-4">{spec.value}</dd>
