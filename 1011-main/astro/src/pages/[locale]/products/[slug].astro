@@ -626,25 +626,23 @@ const productSchema = {
             </div>
           )}
           <script is:inline>
-            {`
-              (() => {
-                const root = document.querySelector('[data-product-gallery]');
-                if (!root) return;
-                const hero = root.querySelector('#product-hero-image');
-                if (!hero) return;
+            (() => {
+              const root = document.querySelector('[data-product-gallery]');
+              if (!root) return;
+              const hero = root.querySelector('#product-hero-image');
+              if (!hero) return;
 
-                root.addEventListener('click', (event) => {
-                  const target = event.target;
-                  if (!(target instanceof Element)) return;
-                  const thumb = target.closest('[data-product-gallery-thumb][data-img]');
-                  if (!thumb || !root.contains(thumb)) return;
-                  const src = thumb.getAttribute('data-img');
-                  if (!src) return;
-                  hero.setAttribute('src', src);
-                  hero.removeAttribute('srcset');
-                });
-              })();
-            `}
+              root.addEventListener('click', (event) => {
+                const target = event.target;
+                if (!(target instanceof Element)) return;
+                const thumb = target.closest('[data-product-gallery-thumb][data-img]');
+                if (!thumb || !root.contains(thumb)) return;
+                const src = thumb.getAttribute('data-img');
+                if (!src) return;
+                hero.setAttribute('src', src);
+                hero.removeAttribute('srcset');
+              });
+            })();
           </script>
         </div>
 
