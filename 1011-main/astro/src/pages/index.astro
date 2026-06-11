@@ -196,14 +196,17 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription} showCornerMarkers={false}>
   <main>
     <section class="hero-section relative w-screen left-1/2 -translate-x-1/2 overflow-hidden text-center text-white -mt-[160px]" style="height:calc(80vh + 160px);display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:160px">
-      <Image
-        src="/images/home/hero-section-sapphire-ipl-device-white-color.webp"
-        alt=""
-        loading="eager"
-        class="absolute inset-0 h-full w-full object-cover"
-        width={1920}
-        height={1280}
-      />
+      <picture class="absolute inset-0 h-full w-full">
+        <source media="(max-width: 737px)" srcset="/images/home/hero-section-ipl-device-mobile.webp" type="image/webp" />
+        <Image
+          src="/images/home/hero-section-sapphire-ipl-device-white-color.webp"
+          alt=""
+          loading="eager"
+          class="h-full w-full object-cover"
+          width={1920}
+          height={1280}
+        />
+      </picture>
       <div class="absolute inset-0" style="background:linear-gradient(rgba(140,113,114,0.35),rgba(140,113,114,0.35))"></div>
       <div class="hero-content relative z-10 text-center px-4">
         <h1 class="hero-title font-bold tracking-tight">
