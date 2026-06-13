@@ -50,7 +50,7 @@
   status = 301
   force = true
 
-# SSR fallback（不加 force，现有静态文件由 CDN 直接提供）
+# SSR fallback（不加 force，现有静态文件由 CDN 提供）
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/ssr"
