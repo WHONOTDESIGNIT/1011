@@ -46,7 +46,7 @@
 # /en/* 301 跳转到无前缀版本（兼容旧链接）
 [[redirects]]
   from = "/en/*"
-  to = "/:splat"
+  to = "/:splat/"
   status = 301
   force = true
 

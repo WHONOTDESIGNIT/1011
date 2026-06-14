@@ -65,7 +65,18 @@ type Props = {
 };
 
 const { title, lang = 'en', description, canonical, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
-const canonicalUrl = canonical || new URL(Astro.request.url).href;
+function ensureTrailingSlash(url: string): string {
+  try {
+    const u = new URL(url);
+    if (!u.pathname.endsWith('/') && !u.pathname.includes('.')) {
+      u.pathname = u.pathname + '/';
+    }
+    return u.href;
+  } catch {
+    return url;
+  }
+}
+const canonicalUrl = ensureTrailingSlash(canonical || new URL(Astro.request.url).href);
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const productLinks = [
   { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },

@@ -6,6 +6,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'server',
+  trailingSlash: 'always',
   adapter: netlify({
     imageCDN: true,
   }),
