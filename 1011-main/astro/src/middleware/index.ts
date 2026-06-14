@@ -3,12 +3,19 @@ import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "../config/i18n.ts";
 import { ensureTrailingSlash, needsTrailingSlash } from "../lib/url";
 
 const LOCALE_PREFIX_REGEX = new RegExp(`^/(${SUPPORTED_LANGUAGES.join("|")})(/|$)`);
+const FILE_REQUEST_REGEX = /\/[^/]+\.[^/]+$/;
+const INTERNAL_PATH_PREFIXES = ["/_astro/", "/.netlify/", "/images/", "/fonts/"];
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { cookies, request } = context;
   const currentUrl = new URL(request.url);
   const currentPath = currentUrl.pathname;
   const normalizedPath = ensureTrailingSlash(currentPath);
+
+  // Static assets and framework internals must never be locale-redirected.
+  if (isBypassPath(currentPath)) {
+    return next();
+  }
 
   // Check if URL has a locale prefix
   const localeMatch = currentPath.match(LOCALE_PREFIX_REGEX);
@@ -80,6 +87,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   return next();
 });
+
+function isBypassPath(pathname: string): boolean {
+  if (!pathname) {
+    return false;
+  }
+
+  if (INTERNAL_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
+    return true;
+  }
+
+  return FILE_REQUEST_REGEX.test(pathname);
+}
 
 function parseAcceptLanguage(header: string): string[] {
   return header
