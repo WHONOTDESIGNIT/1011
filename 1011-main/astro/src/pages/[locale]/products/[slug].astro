@@ -1,0 +1,717 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { toAbsoluteUrl } from '../../../lib/url';
+
+const { locale = 'en', slug } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+interface ProductData {
+  name: string;
+  tagline: string;
+  description: string;
+  heroImage: string;
+  gallery: string[];
+  specs: { label: string; value: string }[];
+  features: { title: string; description: string }[];
+  badge?: string;
+  colors: string[];
+}
+
+const products: Record<string, ProductData> = {
+  'lumi': {
+    name: 'Lumi IPL',
+    tagline: "RoseSkinCo's Top Selling",
+    description: "Lumi IPL is a custom iShine-built device created for RoseSkinCo. It is designed, engineered, and manufactured as a next-generation Lumi that differentiates from RoseSkinCo's earlier OG model and competes in the premium US IPL category.",
+    heroImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp',
+    gallery: [
+      '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp',
+      '/images/products/lumi/ROSE_SKIN_features.webp',
+      '/images/products/lumi/ROSE_SKIN_results.webp',
+      '/images/products/lumi/ROSE_SKIN_0468_2.webp',
+      '/images/products/lumi/ROSE_SKIN_0373_8_copy.webp',
+      '/images/products/lumi/ROSESKIN_0436_4.webp',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '1.5-5 J/cm²' },
+      { label: 'Energy settings', value: '6 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '0.6-3 ms' },
+      { label: 'Total energy range', value: '4-15 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 3000mA (36W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'Yes' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+    ],
+    features: [
+      { title: 'Smart App Control', description: 'Connect via Bluetooth 5.0 to plan treatments, track progress, and receive personalized skin insights.' },
+      { title: 'Precision Targeting', description: 'Smart skin sensor reads skin tone and adjusts energy output for safe, effective treatment every time.' },
+      { title: 'Rapid Treatment', description: '3.3 cm² treatment window supports efficient coverage for at-home sessions.' },
+      { title: 'Long-Lasting Lamp', description: 'Delivers 999,999 flashes for long-term use.' },
+    ],
+    colors: ['White', 'Pink'],
+  },
+  'lumi-2': {
+    name: 'Lumi 2 IPL',
+    tagline: 'Smart Skin Sensor + Chills Skin to 10°C',
+    description: 'The next-generation Lumi 2 IPL device combines advanced skin sensing technology with active cooling for a comfortable, effective hair removal experience.',
+    heroImage: '/images/products/lumi-2/Lumi2_Gallery_Hero_1.webp',
+    gallery: [
+      '/images/products/lumi-2/Lumi2_Gallery_Hero_1.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Hero_2.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Hero_3.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Hero_4.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Hero_5.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Skintone.webp',
+      '/images/products/lumi-2/Lumi2_Gallery_Smart_skin_sensor.webp',
+    ],
+    specs: [
+      { label: 'Type', value: 'Smart app-connected' },
+      { label: 'Cooling', value: 'Standard + Chills skin to 10°C' },
+      { label: 'Skin detection', value: 'Smart sensor' },
+      { label: 'Energy', value: '5-9 J/cm²' },
+      { label: 'Lamp', value: '999,000 flashes' },
+      { label: 'Window', value: '4.5 cm²' },
+      { label: 'Wavelength', value: '550-1200nm' },
+      { label: 'Connectivity', value: 'Bluetooth 5.0 app' },
+    ],
+    features: [
+      { title: 'Skin Cooling Technology', description: 'Active cooling system chills skin to 10°C before each flash for a nearly painless treatment experience.' },
+      { title: 'Smart Skin Sensor', description: 'Real-time skin tone detection automatically adjusts energy output for safety across all skin types.' },
+      { title: 'App-Connected Precision', description: 'Track sessions, view treatment history, and receive guidance through the companion mobile app.' },
+      { title: 'High Flash Capacity', description: '999,000 flash lamp delivers years of treatments, making it ideal for long-term use.' },
+    ],
+    colors: ['White'],
+  },
+  'venus': {
+    name: 'Venus IPL',
+    tagline: 'Ice Feeling + Quartz Lamp',
+    description: 'The Venus IPL device features advanced ice plate cooling technology, providing a comfortable, nearly painless hair removal experience.',
+    heroImage: '/images/products/Venus/purple-venus-sapphire-ipl.webp',
+    gallery: [
+      '/images/products/Venus/purple-venus-sapphire-ipl.webp',
+      '/images/products/Venus/venus-sapphire-ipl-white.webp',
+      '/images/products/Venus/different-colors-venus-sapphire-ipl.webp',
+      '/images/products/Venus/venus-sapphire-ipl-collections.webp',
+      '/images/products/Venus/using-venus-sapphire-ipl.webp',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.0 cm²' },
+      { label: 'Energy', value: '2-6 J/cm²' },
+      { label: 'Energy settings', value: '5 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3.5 ms' },
+      { label: 'Cooling temperature', value: '5°C (ambient 25°C)' },
+      { label: 'Time to cooling temperature', value: '1 minute' },
+      { label: 'Total energy range', value: '4-18 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 4000mA (48W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'Ice Plate Cooling', description: 'Advanced ice plate cooling technology keeps skin comfortable during treatment, minimizing discomfort.' },
+      { title: 'Energy Density Range', description: '2-6 J/cm² energy density range with 5 settings for flexible treatment programs.' },
+      { title: 'Multiple Color Options', description: 'Available in Pearl White, Violet, Blush Pink, and Midnight Black to match any brand aesthetic.' },
+      { title: 'Proven Performance', description: 'Best-selling IPL device trusted by brands and consumers worldwide for reliable results.' },
+    ],
+    badge: 'Best Seller',
+    colors: ['Pearl White', 'Violet', 'Blush Pink', 'Midnight Black'],
+  },
+  'hestia': {
+    name: 'Hestia IPL',
+    tagline: 'Smart App-Connected Hair Removal',
+    description: 'Hestia IPL combines smart app connectivity with advanced hair removal technology for a personalized treatment experience.',
+    heroImage: '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-2.png',
+    gallery: [
+      '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-2.png',
+      '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-1.png',
+      '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-3.png',
+      '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-4.png',
+      '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-5.png',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'N/A' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '2-5 J/cm²' },
+      { label: 'Energy settings', value: '5 levels' },
+      { label: 'Lamp', value: 'Delivers 999,000 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3 ms' },
+      { label: 'Total energy range', value: '5-16 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 3000mA (36W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'App-Connected Scheduling', description: 'Plan and track your treatment schedule through the mobile app for consistent results.' },
+      { title: 'Progress Tracking', description: 'Monitor your treatment history and skin improvements over time with detailed analytics.' },
+      { title: 'Multi-Color Design', description: 'Available in White, Black, Beige, and Teal for flexible brand customization.' },
+      { title: 'Data-Driven Results', description: 'Treatment data helps users stick to their schedule and achieve optimal results faster.' },
+    ],
+    badge: 'Smart App Control',
+    colors: ['White', 'Black', 'Beige', 'Teal'],
+  },
+  'alpha': {
+    name: 'Alpha IPL',
+    tagline: 'High-Efficiency IPL Device',
+    description: 'The Alpha IPL device is designed for efficient at-home sessions with sapphire ice feeling cooling support and stable, repeatable energy delivery for private-label programs.',
+    heroImage: '/images/products/Alpha/alpha-ipl-device-front-view.jpg',
+    gallery: [
+      '/images/products/Alpha/alpha-ipl-device-front-view.jpg',
+      '/images/products/Alpha/alpha-ipl-deviceside-view.jpg',
+      '/images/products/Alpha/alpha-ipl-device-3.jpg',
+      '/images/products/Alpha/alpha-ipl-device-two-set-view.jpg',
+      '/images/products/Alpha/alpha-ipl-device-output-view.jpg',
+      '/images/products/Alpha/alpha-ipl-device-under-shine.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '2-5 J/cm²' },
+      { label: 'Energy settings', value: '5 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3.5 ms' },
+      { label: 'Cooling temperature', value: '5°C (ambient 25°C)' },
+      { label: 'Time to cooling temperature', value: '1 minute' },
+      { label: 'Total energy range', value: '5-16 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 4000mA (48W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'Efficient Output', description: '2-5 J/cm² energy density range with 5 settings for flexible treatment programs.' },
+      { title: 'Sapphire Ice Feeling Cooling', description: 'Cooling support helps improve comfort, with a typical 5°C target at 25°C ambient conditions.' },
+      { title: 'Long-Lasting Lamp', description: 'Quartz single lamp designed to deliver up to 999,999 flashes.' },
+      { title: 'Private-Label Ready', description: 'Supports UV filtering and an integrated safety system for OEM/ODM programs.' },
+    ],
+    badge: 'Professional',
+    colors: ['Stealth Black', 'Silver', 'Navy Blue'],
+  },
+  'emerald': {
+    name: 'Emerald IPL',
+    tagline: 'Advanced Cooling for Sensitive Skin',
+    description: 'Emerald IPL is designed for sensitive-skin positioning with sapphire ice feeling cooling support and a gentle energy density range.',
+    heroImage: '/images/products/Emerald/emerald%20ipl%20white%20color.webp',
+    gallery: [
+      '/images/products/Emerald/emerald%20ipl%20white%20color.webp',
+      '/images/products/Emerald/emerald%20ipl%20white.webp',
+      '/images/products/Emerald/emerald%20ipl%20black.webp',
+      '/images/products/Emerald/emerald%20ipl%20green.webp',
+      '/images/products/Emerald/emerald%20ipl%20holding.webp',
+      '/images/products/Emerald/emerald%20ipl%20packaging.jpg',
+      '/images/products/Emerald/emerald%20ipl%20application%20area.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '2-5 J/cm²' },
+      { label: 'Energy settings', value: '5 levels' },
+      { label: 'Lamp', value: 'Delivers 999,000 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3 ms' },
+      { label: 'Total energy range', value: '5-16 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 3000mA (36W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'Sapphire Ice Feeling Cooling', description: 'Cooling support helps improve comfort during treatment sessions.' },
+      { title: 'Gentle Energy Density', description: '2-5 J/cm² energy density range with 5 settings for sensitive-skin positioning.' },
+      { title: 'Elegant Color Options', description: 'Available in Emerald Green, Pearl White, and Silver for a premium look.' },
+      { title: 'Safety-First Design', description: 'Built-in safety features ensure gentle treatment even on delicate areas.' },
+    ],
+    badge: 'Sensitive Skin',
+    colors: ['Emerald Green', 'Pearl White', 'Silver'],
+  },
+  'euno': {
+    name: 'Euno IPL',
+    tagline: 'Compact & Portable Design',
+    description: 'Euno IPL is a compact, travel-friendly device designed for convenient at-home use without compromising on performance.',
+    heroImage: '/images/products/Euno/euno%20ipl%20white%20color.webp',
+    gallery: [
+      '/images/products/Euno/euno%20ipl%20white%20color.webp',
+      '/images/products/Euno/euno%20ipl%20pink%20color.webp',
+      '/images/products/Euno/euno%20ipl%20pink%20and%20white%20color.webp',
+      '/images/products/Euno/euno%20ipl%20pink%20color%20option.webp',
+      '/images/products/Euno/euno%20ipl%20white%20color%20in%20pink%20background.webp',
+      '/images/products/Euno/euno%20ipl%20white%20color%20holdinbg.png',
+      '/images/products/Euno/euno%20ipl%20using.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'N/A' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '2-4.5 J/cm²' },
+      { label: 'Energy settings', value: '9 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '0.8-3 ms' },
+      { label: 'Total energy range', value: '5-14.5 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 3000mA (36W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Power', value: 'Corded' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'True Portability', description: 'Compact form factor and 275 g net weight support travel-friendly positioning.' },
+      { title: 'Corded Power', description: 'Corded configuration supports stable power delivery during sessions.' },
+      { title: 'Compact Yet Effective', description: '2-4.5 J/cm² energy density range with 9 settings for flexible routines.' },
+      { title: 'Fresh Color Options', description: 'Available in Travel White, Blush Pink, and Mint for a stylish look.' },
+    ],
+    badge: 'Portable',
+    colors: ['Travel White', 'Blush Pink', 'Mint'],
+  },
+  'themis': {
+    name: 'Themis IPL',
+    tagline: 'Ice Feeling Professional Treatment',
+    description: 'Themis IPL delivers professional-grade ice feeling technology for salon-quality results in the comfort of home.',
+    heroImage: '/images/products/Themis/golden-luxury-front-view.jpg',
+    gallery: [
+      '/images/products/Themis/golden-luxury-front-view.jpg',
+      '/images/products/Themis/golden-luxury-2.jpg',
+      '/images/products/Themis/golden-luxury-3.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Home-use IPL (single quartz lamp)' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.3 cm²' },
+      { label: 'Energy', value: '1.5-5.5 J/cm²' },
+      { label: 'Energy settings', value: '9 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3.5 ms' },
+      { label: 'Cooling temperature', value: '5°C (ambient 25°C)' },
+      { label: 'Time to cooling temperature', value: '1 minute' },
+      { label: 'Total energy range', value: '5-18 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 4000mA (48W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'Ice Feeling Technology', description: 'Professional-grade cooling system delivers a soothing sensation during treatment, minimizing discomfort.' },
+      { title: 'Energy Density Range', description: '1.5-5.5 J/cm² energy density range with 9 settings for flexible treatment programs.' },
+      { title: 'Salon-Grade Results', description: 'Engineered to match professional salon performance for premium at-home treatments.' },
+      { title: 'Premium Design', description: 'Available in Stealth Black, Silver, and Navy Blue for a sophisticated aesthetic.' },
+    ],
+    badge: 'Pro Choice',
+    colors: ['Stealth Black', 'Silver', 'Navy Blue'],
+  },
+  'hebe': {
+    name: 'Hebe IPL',
+    tagline: 'AI-Powered Skin Detection',
+    description: 'Hebe IPL uses AI-powered real-time skin detection to automatically adjust energy levels for optimal safety and efficacy across all skin tones.',
+    heroImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp',
+    gallery: [
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20holding.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20gold%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20black%20color.webp',
+      '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20gold%20and%20black%20color.webp',
+    ],
+    specs: [
+      { label: 'Type', value: 'AI-powered auto-adjustment' },
+      { label: 'Cooling', value: 'Standard' },
+      { label: 'Skin detection', value: 'AI sensor (real-time)' },
+      { label: 'Energy', value: 'Auto (5 levels)' },
+      { label: 'Lamp', value: '999,000 flashes' },
+      { label: 'Window', value: '4.5 cm²' },
+      { label: 'Wavelength', value: '550-1200nm' },
+    ],
+    features: [
+      { title: 'AI-Powered Detection', description: 'Real-time AI sensor reads skin tone and automatically selects the optimal energy level for safe treatment.' },
+      { title: '5-Level Auto Adjustment', description: 'Intelligent system adjusts between 5 energy levels based on skin detection data.' },
+      { title: 'Universal Skin Tone Support', description: 'AI-driven safety makes it suitable for a wider range of skin tones compared to standard IPL devices.' },
+      { title: 'Futuristic Design', description: 'Available in Tech Black, Future Silver, and Cosmic Blue with a sleek modern aesthetic.' },
+    ],
+    badge: 'AI Powered',
+    colors: ['Tech Black', 'Future Silver', 'Cosmic Blue'],
+  },
+  'eirene': {
+    name: 'Eirene IPL',
+    tagline: 'Gentle Care for Sensitive Skin',
+    description: 'Eirene IPL is purpose-built for hypersensitive skin with a gentle energy profile and enhanced UV-cut filter for maximum safety.',
+    heroImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg',
+    gallery: [
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg',
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg',
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20output.jpg',
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20plug%20in.jpg',
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20with%20charger.jpg',
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20holding.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Hypersensitive skin' },
+      { label: 'Cooling', value: 'Standard' },
+      { label: 'Energy', value: '5-7 J/cm²' },
+      { label: 'Lamp', value: '800,000 flashes' },
+      { label: 'Window', value: '4.0 cm²' },
+      { label: 'Wavelength', value: '570-1200nm' },
+      { label: 'UV-cut filter', value: 'Enhanced' },
+    ],
+    features: [
+      { title: 'Hypersensitive Skin Focus', description: 'Purpose-built for those with reactive or sensitive skin, with gradual intensity ramp-up for comfort.' },
+      { title: 'Enhanced UV Protection', description: 'Advanced UV-cut filter provides extra protection for delicate skin during treatment.' },
+      { title: 'Gentle Energy Profile', description: 'Optimized 5-7 J/cm² with 570nm cut-off for gentle yet effective hair reduction.' },
+      { title: 'Soft Color Palette', description: 'Available in Soft Pink, Pearl White, and Lavender for a gentle, calming aesthetic.' },
+    ],
+    badge: 'Gentle',
+    colors: ['Soft Pink', 'Pearl White', 'Lavender'],
+  },
+  'wooden': {
+    name: 'Golden Luxury IPL (Wooden)',
+    tagline: 'Luxury Collection with Wooden Finish',
+    description: 'The Golden Luxury IPL device combines premium aesthetics with advanced sapphire cooling technology for a truly luxurious hair removal experience.',
+    heroImage: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp',
+    gallery: [
+      '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp',
+      '/images/products/Wooden/wooden%20ipl%20white%20color%20detail.webp',
+      '/images/products/Wooden/wooden%20ipl%20holding.jpg',
+      '/images/products/Wooden/wooden%20ipl%20pink%20color.webp',
+      '/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp',
+      '/images/products/Wooden/wooden%20ipl%20pink%20men%20using.jpg',
+    ],
+    specs: [
+      { label: 'Type', value: 'Luxury aesthetics' },
+      { label: 'Cooling', value: 'Support, sapphire ice feeling tech' },
+      { label: 'Window', value: '3.0 cm²' },
+      { label: 'Energy', value: '1-5 J/cm²' },
+      { label: 'Energy settings', value: '9 levels' },
+      { label: 'Lamp', value: 'Delivers 999,999 flashes' },
+      { label: 'Auto-flash', value: 'Support' },
+      { label: 'Pulse duration (FWHM)', value: '1-3.5 ms' },
+      { label: 'Cooling temperature', value: '8°C (ambient 25°C)' },
+      { label: 'Time to cooling temperature', value: '2 minutes' },
+      { label: 'Total energy range', value: '4-15 J' },
+      { label: 'Input voltage', value: '100-240 V' },
+      { label: 'Adapter', value: '12V / 3000mA (36W)' },
+      { label: 'UV filter', value: 'Yes' },
+      { label: 'Integrated safety system', value: 'Yes' },
+      { label: 'Skin tone sensor', value: 'No' },
+      { label: 'Lamp material', value: 'Quartz' },
+      { label: 'Lamp configuration', value: 'Single lamp' },
+      { label: 'Warranty', value: '2 years global warranty' },
+      { label: 'Max optical power density', value: '500 W/cm²' },
+      { label: 'Wavelength', value: '510-1100 nm' },
+      { label: 'Device size', value: '169 × 69.3 × 38.8 mm' },
+      { label: 'Net weight', value: '275 g' },
+      { label: 'Bulk MOQ (device)', value: '500 units' },
+    ],
+    features: [
+      { title: 'Luxury Aesthetics', description: 'Premium wooden finish and gold accents create an unboxing experience that rivals luxury beauty brands.' },
+      { title: 'Sapphire Ice Cooling', description: 'Advanced sapphire ice plate technology ensures comfortable, pain-free treatments every time.' },
+      { title: 'Premium Unboxing', description: 'Designed for high-end retail with luxurious packaging and presentation that elevates brand perception.' },
+      { title: 'Exclusive Color Selection', description: 'Available in Gold, Rose Gold, and Champagne for a truly premium appearance.' },
+    ],
+    badge: 'Luxury',
+    colors: ['Gold', 'Rose Gold', 'Champagne'],
+  },
+};
+
+function buildCitableProductSummary(productSlug: string, product: ProductData) {
+  if (productSlug === 'lumi') {
+    return {
+      question: `What is ${product.name} designed for?`,
+      answer: `${product.name} is a RoseSkinCo-specific product built by iShine, designed as a differentiated upgrade from the earlier OG Lumi. It is positioned for premium US DTC performance and is known for competing alongside top consumer IPL brands such as Nood, Philips, and Braun. For OEM/ODM discussions, Lumi is most relevant as a reference for end-to-end execution: industrial design, cosmetics, packaging, documentation, and repeatable manufacturing at scale.`,
+    };
+  }
+
+  const specMap = new Map(product.specs.map((s) => [s.label.toLowerCase(), s.value]));
+  const energy = specMap.get('energy');
+  const flashes = specMap.get('lamp');
+  const window = specMap.get('window');
+  const wavelength = specMap.get('wavelength');
+  const cooling = specMap.get('cooling');
+  const connectivity = specMap.get('connectivity');
+  const skinDetection = specMap.get('skin detection');
+  const type = specMap.get('type');
+
+  const lines: string[] = [];
+  lines.push(`${product.name} is an OEM/ODM-ready home-use IPL device platform for private-label brands that need a clear feature story and repeatable manufacturing.`);
+  lines.push(`It is positioned as "${product.tagline}" and is typically customized through cosmetics, colorways, logo printing, packaging, manuals, labeling, and accessories to match retail, distributor, or DTC requirements.`);
+  const specBits = [
+    type ? `type: ${type}` : null,
+    cooling ? `cooling: ${cooling}` : null,
+    skinDetection ? `skin detection: ${skinDetection}` : null,
+    connectivity ? `connectivity: ${connectivity}` : null,
+    energy ? `energy: ${energy}` : null,
+    flashes ? `flash count: ${flashes}` : null,
+    window ? `treatment window: ${window}` : null,
+    wavelength ? `wavelength band: ${wavelength}` : null,
+  ].filter(Boolean);
+  if (specBits.length) {
+    lines.push(`Typical configuration points include ${specBits.join(', ')}.`);
+  }
+  if (product.colors?.length) {
+    lines.push(`Brand aesthetics can be supported with multiple color options such as ${product.colors.join(', ')}.`);
+  }
+  lines.push(`Platform-based sampling can often start in 1-4 weeks depending on scope, while deeper customization adds time for validation and production planning.`);
+  lines.push(`For launch planning, ${productSlug} is commonly selected to balance user comfort, differentiation, and scalable production for global distribution.`);
+
+  return {
+    question: `What is ${product.name} designed for?`,
+    answer: lines.join(' '),
+  };
+}
+
+const product = products[slug];
+if (!product) {
+  return new Response('Not found', { status: 404 });
+}
+
+const citable = buildCitableProductSummary(slug, product);
+const hiddenSpecLabels = new Set(['max optical power density', 'device size', 'net weight', 'bulk moq (device)']);
+const displayedSpecs = product.specs.filter((spec) => !hiddenSpecLabels.has(spec.label.trim().toLowerCase()));
+
+const pageTitle = product.name;
+const pageDescription = product.description;
+const canonical = toAbsoluteUrl(getLocalizedPath(locale, `/products/${slug}`));
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.products'), path: '/products' },
+  { label: pageTitle },
+]);
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.href ? toAbsoluteUrl(item.href) : canonical,
+  })),
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.description,
+  image: product.gallery.map((img) => `https://iplmanufacturer.com${img}`),
+  brand: {
+    '@type': 'Brand',
+    name: 'iShine',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+  },
+  ...(product.badge ? { award: product.badge } : {}),
+};
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+
+  <div class="space-y-48">
+    <section class="space-y-8">
+      <div class="px-6 pt-6">
+        <Breadcrumb items={breadcrumbs} locale={locale} />
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div class="space-y-4" data-product-gallery>
+          <div class="overflow-hidden rounded-2xl bg-slate-100">
+            <img
+              id="product-hero-image"
+              src={product.heroImage}
+              alt={product.name}
+              class="h-full w-full object-cover"
+              style="aspect-ratio:1/1;max-height:500px;"
+              loading="eager"
+            />
+          </div>
+          {product.gallery.length > 1 && (
+            <div class="flex gap-3 overflow-x-auto pb-2">
+              {product.gallery.map((img) => (
+                <button
+                  type="button"
+                  class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100"
+                  data-product-gallery-thumb
+                  data-img={img}
+                  aria-label={`View ${product.name} image`}
+                >
+                  <img
+                    src={img}
+                    alt={`${product.name} gallery`}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+          <script is:inline>
+            (() => {
+              const root = document.querySelector('[data-product-gallery]');
+              if (!root) return;
+              const hero = root.querySelector('#product-hero-image');
+              if (!hero) return;
+
+              root.addEventListener('click', (event) => {
+                const target = event.target;
+                if (!(target instanceof Element)) return;
+                const thumb = target.closest('[data-product-gallery-thumb][data-img]');
+                if (!thumb || !root.contains(thumb)) return;
+                const src = thumb.getAttribute('data-img');
+                if (!src) return;
+                hero.setAttribute('src', src);
+                hero.removeAttribute('srcset');
+              });
+            })();
+          </script>
+        </div>
+
+        <div class="space-y-6">
+          <div class="space-y-3">
+            {product.badge && (
+              <span class="inline-block rounded-full bg-sky-600 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                {product.badge}
+              </span>
+            )}
+            <h1 class="text-4xl font-bold text-slate-900 md:text-5xl">{product.name}</h1>
+            <p class="text-xl text-sky-600 font-medium">{product.tagline}</p>
+            <p class="text-base leading-relaxed text-slate-700">{product.description}</p>
+          </div>
+
+          <section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-slate-900">{citable.question}</h2>
+            <p class="mt-3 text-slate-700">{citable.answer}</p>
+          </section>
+
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-slate-900">Specifications</h2>
+            <dl class="mt-4 divide-y divide-slate-100">
+              {displayedSpecs.map((spec) => (
+                <div class="flex justify-between py-3 text-sm">
+                  <dt class="text-slate-600">{spec.label}</dt>
+                  <dd class="font-medium text-slate-900 text-right ml-4">{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {product.colors.length > 0 && (
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 class="text-lg font-semibold text-slate-900">Available Colors</h2>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {product.colors.map((color) => (
+                  <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm text-slate-700">{color}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Key Features</h2>
+        <p class="mt-3 text-lg text-slate-700">What makes {product.name} the right choice for your brand.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {product.features.map((feature) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">{feature.title}</h3>
+            <p class="mt-3 text-slate-700">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
+      <h2 class="text-3xl font-bold md:text-4xl">Interested in {product.name}?</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">Contact our team to discuss customization options, MOQ, pricing, and sample requests for your brand.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a class="rounded-lg bg-white px-8 py-3 font-semibold text-sky-700 transition hover:bg-sky-50" href={getLocalizedPath(locale, '/contact')}>Request Free Sample</a>
+        <a class="rounded-lg border border-white/30 px-8 py-3 font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>View All Products</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

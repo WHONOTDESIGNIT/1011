@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+const productionCapabilities = [
+  {
+    title: 'Advanced Manufacturing',
+    description:
+      'State-of-the-art production facilities equipped with the latest technology for precision IPL device manufacturing.',
+    features: ['Automated Assembly Lines', 'Precision Tooling', 'Clean Room Environment', 'Real-time Monitoring'],
+    gradient: 'from-emerald-500 to-green-500',
+  },
+  {
+    title: 'Quality Assurance',
+    description:
+      'Comprehensive quality control systems ensuring every product meets international standards and regulations.',
+    features: ['ISO 13485 Certified', 'FDA Clearance Process', 'CE Marking Compliance', '100% Product Testing'],
+    gradient: 'from-sky-500 to-cyan-500',
+  },
+  {
+    title: 'Scalable Production',
+    description:
+      'Flexible manufacturing capacity that scales from prototype quantities to high-volume mass production.',
+    features: ['Flexible MOQ', 'Rapid Scale-up', 'Capacity Planning', 'Demand Forecasting'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    title: 'Process Optimization',
+    description:
+      'Continuous improvement methodologies to optimize efficiency, reduce costs, and enhance quality.',
+    features: ['Lean Manufacturing', 'Six Sigma Principles', 'Waste Reduction', 'Cycle Time Optimization'],
+    gradient: 'from-orange-500 to-red-500',
+  },
+];
+
+const productionStages = [
+  {
+    stage: '01',
+    title: 'Component Sourcing',
+    description: 'Strategic sourcing of high-quality components from certified suppliers worldwide.',
+    details: ['Supplier qualification and auditing', 'Component testing and validation', 'Supply chain risk management', 'Cost optimization strategies'],
+    duration: '2–4 weeks',
+  },
+  {
+    stage: '02',
+    title: 'Pre-Production Setup',
+    description: 'Comprehensive preparation including tooling, fixtures, and production line configuration.',
+    details: ['Production line setup', 'Tooling and fixture preparation', 'Quality control station setup', 'Staff training and certification'],
+    duration: '3–5 weeks',
+  },
+  {
+    stage: '03',
+    title: 'Pilot Production',
+    description: 'Small-batch production to validate processes, identify issues, and optimize workflows.',
+    details: ['Process validation', 'Quality system verification', 'Yield optimization', 'Documentation finalization'],
+    duration: '1–2 weeks',
+  },
+  {
+    stage: '04',
+    title: 'Mass Production',
+    description: 'Full-scale manufacturing with continuous monitoring and quality assurance.',
+    details: ['High-volume production', 'Real-time quality monitoring', 'Continuous improvement', 'Delivery scheduling'],
+    duration: 'Ongoing',
+  },
+];
+
+const qualityStandards = [
+  {
+    standard: 'ISO 13485',
+    title: 'Medical Device Quality Management',
+    description: 'Comprehensive quality management system specifically designed for medical device manufacturing.',
+    scope: 'Design, development, production, and post-market surveillance',
+  },
+  {
+    standard: 'FDA 510(k)',
+    title: 'FDA Clearance Process',
+    description: 'Regulatory pathway for medical devices that are substantially equivalent to existing approved devices.',
+    scope: 'Safety and effectiveness validation for US market',
+  },
+  {
+    standard: 'CE Marking',
+    title: 'European Conformity',
+    description: 'Certification indicating conformity with health, safety, and environmental protection standards.',
+    scope: 'European Economic Area market access',
+  },
+  {
+    standard: 'IEC 60601',
+    title: 'Medical Electrical Equipment',
+    description: 'International standard for safety and essential performance of medical electrical equipment.',
+    scope: 'Electrical safety and electromagnetic compatibility',
+  },
+];
+
+const productionMetrics = [
+  { metric: '50,000+', label: 'Units/Month Capacity', description: 'Maximum monthly production capacity' },
+  { metric: '99.5%', label: 'Quality Pass Rate', description: 'First-pass quality rate achievement' },
+  { metric: '24/7', label: 'Production Monitoring', description: 'Continuous production oversight' },
+  { metric: '15+', label: 'Years Experience', description: 'Manufacturing expertise in IPL devices' },
+];
+
+const testingProcedures = [
+  {
+    category: 'Electrical Testing',
+    tests: ['Power consumption verification', 'Electrical safety testing', 'EMC compliance testing', 'Insulation resistance testing'],
+  },
+  {
+    category: 'Optical Performance',
+    tests: ['Light output measurement', 'Wavelength verification', 'Pulse duration testing', 'Energy density calibration'],
+  },
+  {
+    category: 'Safety & Reliability',
+    tests: ['Skin contact safety testing', 'Temperature monitoring', 'Durability testing', 'Environmental testing'],
+  },
+  {
+    category: 'Functional Testing',
+    tests: ['User interface testing', 'Treatment mode verification', 'Sensor functionality', 'Overall system integration'],
+  },
+];
+---
+
+<BaseLayout title="Production & Assembly" lang={locale} description="IPL device production and assembly: advanced manufacturing, quality assurance, scalable production, and process optimization for OEM/ODM projects.">
+  <div class="space-y-60">
+    <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Precision Manufacturing
+          <span class="block bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">At Scale</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+          State-of-the-art production facilities and rigorous quality control systems ensure every IPL device meets the highest standards of performance and safety.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">How is an IPL device produced at scale for private-label?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        Scaled IPL device production for private-label typically follows a structured flow: verified component sourcing, pre-production line setup, pilot runs to validate yield and test stations, and then mass production with ongoing quality monitoring. Key checkpoints include electrical safety tests, optical output verification, pulse stability and energy calibration, temperature and cooling checks, and final functional tests of sensors and user interface. For target markets, documentation and traceability processes are maintained alongside production so batches remain consistent and auditable. iShine aligns production planning with the selected lamp, filter, cooling, and power subsystems to reduce variation between lots and support repeatable performance. This approach helps brands launch reliably, scale quantities, and maintain consistent customer experience across shipments.
+      </p>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What manufacturing capabilities do we offer for IPL devices?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Comprehensive manufacturing solutions that combine advanced technology with proven processes to deliver exceptional results.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {productionCapabilities.map((cap) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
+            <div class={`mb-6 h-16 w-16 rounded-2xl bg-gradient-to-r ${cap.gradient}`} />
+            <h3 class="text-2xl font-bold text-slate-900">{cap.title}</h3>
+            <p class="mt-4 text-slate-700">{cap.description}</p>
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              {cap.features.map((f) => (
+                <div class="flex items-center gap-2 text-sm text-slate-700">
+                  <span class="h-2 w-2 rounded-2xl bg-emerald-500" />
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">How does the IPL production process work?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          A systematic approach to manufacturing that ensures quality, efficiency, and scalability from prototype to mass production.
+        </p>
+      </div>
+      <div class="mt-12 space-y-6">
+        {productionStages.map((stage) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg">
+            <div class="grid gap-6 lg:grid-cols-[260px_1fr]">
+              <div class="flex items-center gap-6">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600">
+                  <span class="text-xl font-bold text-white">{stage.stage}</span>
+                </div>
+                <div>
+                  <div class="text-xl font-bold text-slate-900">{stage.title}</div>
+                  <div class="mt-1 font-medium text-emerald-600">{stage.duration}</div>
+                </div>
+              </div>
+              <div>
+                <p class="text-slate-700">{stage.description}</p>
+                <div class="mt-4 grid grid-cols-2 gap-2">
+                  {stage.details.map((d) => (
+                    <div class="flex items-center gap-2 text-sm text-slate-700">
+                      <span class="h-2 w-2 rounded-2xl bg-emerald-400" />
+                      <span>{d}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What quality standards and certifications do we meet?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Our commitment to quality is demonstrated through rigorous adherence to international standards and regulatory requirements.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {qualityStandards.map((s) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
+            <div class="inline-flex rounded-2xl border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700">{s.standard}</div>
+            <h3 class="mt-4 text-xl font-bold text-slate-900">{s.title}</h3>
+            <p class="mt-3 text-slate-700">{s.description}</p>
+            <div class="mt-4 text-sm text-slate-600"><span class="font-semibold text-slate-700">Scope:</span> {s.scope}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Production Excellence</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Key performance indicators that demonstrate our commitment to manufacturing excellence and operational efficiency.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {productionMetrics.map((m) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg">
+            <div class="text-4xl font-bold text-emerald-600">{m.metric}</div>
+            <div class="mt-2 font-semibold text-slate-900">{m.label}</div>
+            <div class="mt-2 text-sm text-slate-700">{m.description}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Comprehensive Testing Procedures</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Rigorous testing protocols ensure every IPL device meets performance specifications and safety requirements before shipment.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {testingProcedures.map((t) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{t.category}</h3>
+            <ul class="mt-5 space-y-2 text-slate-700">
+              {t.tests.map((x) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-emerald-500" />
+                  <span>{x}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold md:text-4xl">Ready to Scale Your IPL Production?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
+          Talk to our production team about capacity, quality standards, and delivery schedules for your next run.
+        </p>
+        <div class="mt-10 flex justify-center gap-3">
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

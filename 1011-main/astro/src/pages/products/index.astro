@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+import { toAbsoluteUrl } from '../../lib/url';
+import { Image } from 'astro:assets';
+
+const locale = 'en';
+const products = [
+  { slug: 'lumi', nameKey: 'nav.lumi', tagline: "RoseSkinCo's Top Selling", firstImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp' },
+  { slug: 'lumi-2', nameKey: 'nav.lumi2', tagline: 'Smart Skin Sensor + Chills Skin to 10℃', firstImage: '/images/products/lumi-2/Lumi2_Gallery_Hero_1.webp' },
+  { slug: 'venus', nameKey: 'nav.venus', tagline: 'Comfort Ice Feeling', firstImage: '/images/products/Venus/purple-venus-sapphire-ipl.webp' },
+  { slug: 'hestia', nameKey: 'nav.hestia', tagline: 'Smart App-Connected Hair Removal', firstImage: '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-2.png' },
+  { slug: 'alpha', nameKey: 'nav.alpha', tagline: 'Simple and Clean IPL', firstImage: '/images/products/Alpha/alpha-ipl-device-front-view.jpg' },
+  { slug: 'emerald', nameKey: 'nav.emerald', tagline: 'Be Bold--First Emerald Style IPL', firstImage: '/images/products/Emerald/emerald%20ipl%20white%20color.webp' },
+  { slug: 'euno', nameKey: 'nav.euno', tagline: 'Compact & Portable Design', firstImage: '/images/products/Euno/euno%20ipl%20white%20color.webp' },
+  { slug: 'themis', nameKey: 'nav.themis', tagline: 'Ice Feeling Professional Treatment', firstImage: '/images/products/Themis/golden-luxury-front-view.jpg' },
+  { slug: 'hebe', nameKey: 'nav.hebe', tagline: 'AI-Powered Skin Detection', firstImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp' },
+  { slug: 'eirene', nameKey: 'nav.eirene', tagline: 'Battery-build-in IPL, Cordless IPL', firstImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg' },
+  { slug: 'wooden', nameKey: 'nav.wooden', tagline: 'Natural design, inspired by Whynotdesign.', firstImage: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp' },
+];
+
+// Keep data intact but filter out Lumi-2 from display
+const visibleProducts = products.filter(p => p.slug !== 'lumi-2');
+const canonical = toAbsoluteUrl(getLocalizedPath(locale, '/products'));
+---
+
+<BaseLayout title="Products" lang={locale} description="iShine IPL product range: Lumi, Venus, Hestia, Themis, Hebe, Eirene, Emerald, Euno, and Alpha devices available for OEM and ODM customization." canonical={canonical}>
+  <div class="space-y-36">
+    <section class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-[160px] pt-[160px] min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+      <Image
+        src="/images/products/ipl-products-banner.webp"
+        alt="IPL Products"
+        loading="eager"
+        class="absolute inset-0 h-full w-full object-cover"
+        width={1920}
+        height={1080}
+      />
+      <div class="absolute inset-0 bg-black/20" />
+      <div class="relative z-10 flex h-full items-end px-6 pb-10 md:px-12">
+        <h1 class="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">IPL Products</h1>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What product types does iShine offer for private-label IPL?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        iShine offers a portfolio of home-use IPL device platforms that can be adapted for private-label launches across different price tiers and channel positioning. Product families commonly include app-connected models for guided routines and progress tracking, cooling-focused models with sapphire contact cooling for comfort, AI-enabled skin sensing configurations for safer energy selection, and premium cosmetics built for DTC or retail unboxing. Typical specification targets vary by platform, such as energy ranges around 5-9 J/cm², flash counts near 999,000 (or 500,000 on compact models), treatment windows around 4.5 cm² (with larger windows available on select platforms), and wavelength bands like 550-1200 nm or 570-1200 nm in supported configurations. Brands can customize cosmetics, colors, packaging, manuals, labeling, accessories, and bundle configuration to match channel requirements while keeping manufacturing repeatability. This catalog is used as a starting point for OEM/ODM discussions about sampling, MOQ, compliance documentation, and scale delivery.
+      </p>
+    </section>
+
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {visibleProducts.map((product) => (
+        <a
+          class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
+          href={getLocalizedPath(locale, '/products/' + product.slug)}
+        >
+          <div class="relative bg-slate-100" style="aspect-ratio:1000/806">
+            <img
+              class="h-full w-full object-cover"
+              src={product.firstImage}
+              alt={t(locale, product.nameKey)}
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900">{t(locale, product.nameKey)}</h2>
+              <p class="mt-1 text-sm text-slate-700">{product.tagline}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <div
+        class="w-full overflow-hidden rounded-2xl bg-slate-100"
+        style="background-image:url('/images/products/free_sample.jpg');background-size:contain;background-repeat:no-repeat;background-position:center;min-height:520px;"
+      />
+    </section>
+  </div>
+</BaseLayout>

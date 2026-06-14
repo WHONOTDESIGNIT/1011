@@ -1,0 +1,292 @@
+<div class="sticky-contact">
+  <div class="contact-part" data-type="email">
+    <div class="tooltip" data-tooltip>
+      <span>service@ishineco.com</span>
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="M22 4L12 13 2 4" />
+      </svg>
+    </div>
+  </div>
+  <div class="contact-part" data-type="phone">
+    <div class="tooltip" data-tooltip>
+      <span>+86-15900283962</span>
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+      </svg>
+    </div>
+  </div>
+  <div class="contact-part" data-type="wechat">
+    <div class="tooltip wechat-tooltip" data-tooltip>
+      <span>Chat on Wechat-Get reply within 10 minutes</span>
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 01-6 6l-2.5 1.5.5-2A5.5 5.5 0 1110.5 3h.5A6 6 0 0116 8z" />
+        <path d="M21 12.5A5.5 5.5 0 0115.5 18H15l-2 1 .5-1.5" opacity="0.6" />
+      </svg>
+    </div>
+  </div>
+  <div class="contact-part" data-type="whatsapp">
+    <div class="tooltip" data-tooltip>
+      <span>Chat on WhatsApp-Get reply within 10 minutes</span>
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.5 8.5 0 01-8.5 8.5H12l-4 2 1-3.5A8.5 8.5 0 1112 3h.5a8.5 8.5 0 018.5 8.5z" />
+        <path d="M15.5 14c-.3.7-1 1.2-1.8 1-1.5-.4-2.8-1.3-3.8-2.3s-1.9-2.3-2.3-3.8c-.2-.8.3-1.5 1-1.8l.7-.4c.4-.2.8 0 1 .4l.7 1.2c.2.3.1.7-.2 1l-.4.4c-.2.2-.2.5 0 .7.6.8 1.3 1.5 2.1 2 .3.2.5.2.7 0l.4-.4c.3-.3.7-.4 1-.2l1.2.7c.4.2.6.6.4 1z" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div id="wechat-overlay" class="overlay hidden">
+  <div class="overlay-backdrop"></div>
+  <div class="overlay-content">
+    <img src="/images/contacts/wechat_ishine_contact.jpeg" alt="WeChat QR Code" width="500" height="500" />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('wechat-overlay');
+    const wechatPart = document.querySelector('[data-type="wechat"]');
+
+    function openWechat() {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('visible');
+    }
+
+    function closeWechat() {
+      overlay.classList.remove('visible');
+      overlay.classList.add('hidden');
+    }
+
+    if (wechatPart) {
+      wechatPart.addEventListener('click', openWechat);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (!e.target.closest('.overlay-content')) {
+          closeWechat();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeWechat();
+    });
+  });
+</script>
+
+<style>
+  .sticky-contact {
+    position: fixed;
+    top: 56.6vh;
+    right: 16px;
+    bottom: 26vh;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    width: 44px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-part:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .contact-part:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+
+  .contact-part {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+  }
+
+  .contact-part:hover {
+    filter: brightness(0.85);
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: white;
+    pointer-events: none;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: white;
+    fill: none;
+  }
+
+  .tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    line-height: 1.4;
+  }
+
+  .wechat-tooltip {
+    pointer-events: auto;
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 6px solid var(--tooltip-bg, #09B83E);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+
+  .contact-part:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .contact-part[data-type="email"] .tooltip,
+  .contact-part[data-type="phone"] .tooltip {
+    --tooltip-bg: #2563EB;
+    background: #2563EB;
+    pointer-events: none;
+  }
+
+  .contact-part[data-type="wechat"] .tooltip {
+    --tooltip-bg: #09B83E;
+    background: #09B83E;
+  }
+
+  .contact-part[data-type="wechat"] .tooltip::before {
+    content: '';
+    position: absolute;
+    right: -18px;
+    top: -8px;
+    bottom: -8px;
+    width: 24px;
+  }
+
+  .contact-part[data-type="whatsapp"] .tooltip {
+    --tooltip-bg: #075E54;
+    background: #075E54;
+  }
+
+  .contact-part[data-type="wechat"]:hover .tooltip {
+    pointer-events: auto;
+  }
+
+  .contact-part[data-type="email"] {
+    background: #2563EB;
+  }
+  .contact-part[data-type="phone"] {
+    background: #2563EB;
+  }
+  .contact-part[data-type="wechat"] {
+    background: #2563EB;
+  }
+  .contact-part[data-type="whatsapp"] {
+    background: #2563EB;
+  }
+
+  .contact-part + .contact-part {
+    border-top: 1px solid #3B82F6;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay.hidden {
+    display: none;
+  }
+
+  .overlay.visible {
+    display: flex;
+  }
+
+  .overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    background: #666666;
+    opacity: 0.85;
+  }
+
+  .overlay-content {
+    position: relative;
+    z-index: 1;
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .overlay-content img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .sticky-contact {
+      right: 10px;
+      width: 38px;
+    }
+
+    .contact-part:first-child {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .contact-part:last-child {
+      border-radius: 0 0 10px 10px;
+    }
+
+    .tooltip {
+      font-size: 12px;
+      padding: 6px 10px;
+      right: calc(100% + 8px);
+    }
+
+    .overlay-content {
+      width: 320px;
+      height: 320px;
+    }
+  }
+</style>

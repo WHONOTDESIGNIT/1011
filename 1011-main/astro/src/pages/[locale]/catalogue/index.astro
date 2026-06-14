@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+
+const { locale = 'en' } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.catalogue') },
+]);
+
+interface CatalogueItem {
+  slug: string;
+  name: string;
+  badge?: string;
+  cooling: string;
+  lampType?: string;
+  energy?: string;
+  app?: string;
+  skinDetection?: string;
+  bestFor: string;
+}
+
+const catalogueItems: CatalogueItem[] = [
+  { slug: 'lumi-2', name: 'Lumi 2', badge: 'Smart', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Precision targeting, real-time skin analysis with app connectivity' },
+  { slug: 'lumi', name: 'Lumi', badge: 'Smart', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Smart app control, modern design, everyday convenience' },
+  { slug: 'venus', name: 'Venus', badge: 'Best Seller', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '7-9 J/cm²', bestFor: 'Painless cooling, sensitive areas, comfort-first users' },
+  { slug: 'eirene', name: 'Eirene', badge: 'Gentle', cooling: 'Standard', lampType: '800,000 flashes', energy: '5 Adjustable', bestFor: 'Hypersensitive skin, UV-cut filter, gradual ramp-up' },
+  { slug: 'wooden', name: 'Golden', badge: 'Luxury', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Premium aesthetics, luxury unboxing, high-end branding' },
+  { slug: 'hebe', name: 'Hebe', badge: 'AI Powered', cooling: 'Standard', skinDetection: 'AI Sensor', lampType: '999,000 flashes', energy: 'Auto (5 Levels)', bestFor: 'Auto intensity, AI-driven safety, all skin tones' },
+  { slug: 'hestia', name: 'Hestia', badge: 'Smart Choice', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'App tracking, treatment scheduling, data-driven users' },
+  { slug: 'euno', name: 'Euno', badge: 'Portable', cooling: 'Standard', lampType: '500,000 flashes', energy: '5 Adjustable', bestFor: 'Travel, cordless use, compact storage, lightweight design' },
+  { slug: 'emerald', name: 'Emerald', badge: 'Sensitive Skin', cooling: 'Active Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Sensitive skin, gentle treatment, reactive skin types' },
+  { slug: 'themis', name: 'Themis', badge: 'Pro Choice', cooling: 'Ice Feeling Tech', lampType: '999,000 flashes', energy: '8-12 J/cm²', bestFor: 'Salon-grade results, professional performance, enlarged window' },
+  { slug: 'alpha', name: 'Alpha', badge: 'Professional', cooling: 'Standard', lampType: '999,000 flashes (dual)', energy: '8-12 J/cm²', bestFor: 'Fast full-body treatment, dual-lamp efficiency, 6.2 cm² window' },
+];
+---
+
+<BaseLayout title="IPL Product Catalogue" lang={locale} description="Browse iShine's complete IPL hair removal device catalogue: ice plate cooling, AI skin sensor, smart app control, dual-lamp, portable, and luxury models for OEM/ODM.">
+  <div class="space-y-36">
+    <section class="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10">
+      <Breadcrumb items={breadcrumbs} locale={locale} />
+      <div class="mt-8 max-w-4xl">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">IPL Product Catalogue</h1>
+        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
+          Browse our complete lineup of IPL hair removal devices. Each model is engineered for a specific use case — from painless cooling and AI-powered detection to portable travel designs and luxury packaging programs.
+        </p>
+        <p class="mt-3 text-sm text-slate-500">
+          All models available for OEM/ODM customization. Minimum order quantities and lead times vary by model.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">How should brands use this IPL catalogue?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        This catalogue is a side-by-side comparison of iShine’s IPL device platforms to help private-label teams quickly shortlist a model for sampling and OEM/ODM discussion. It highlights practical differentiators such as cooling approach, lamp life, energy positioning, app connectivity, and skin detection features, plus “best for” use cases that align with market segments. Brands typically start by matching a product concept to a platform (for example, comfort-first cooling vs app-guided routines), then confirm required specifications, packaging style, and documentation needs for the target market. Once a platform is selected, the next steps are sample evaluation, defining customization scope, and planning MOQ, lead time, and compliance documentation for launch.
+      </p>
+    </section>
+
+    <section class="overflow-x-auto px-4 md:px-0">
+      <div class="min-w-[900px]">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-slate-200 bg-slate-200">
+          <div class="rounded-tl-2xl bg-slate-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Model</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">{item.badge ? <span class="mr-1.5 rounded-2xl bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700">{item.badge}</span> : null}{item.name}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Cooling</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.cooling}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Lamp Life</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.lampType}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Energy</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.energy}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">App Control</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.app || '—'}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Skin Detection</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.skinDetection || '—'}</div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+          <div class="rounded-bl-2xl bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Best For</div>
+          {catalogueItems.map((item) => (
+            <div class="bg-white p-4 text-center text-xs leading-relaxed text-slate-600">{item.bestFor}</div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">How to read this catalogue</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-700">
+          Each IPL model is designed for a specific market segment. The table above compares key specifications side by side to help you identify the best match for your brand requirements.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg font-bold text-sky-700">1</div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Compare specifications</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Use the comparison grid to evaluate cooling technology, energy output, lamp life, and smart features across all models.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg font-bold text-sky-700">2</div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Match to your market</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Consider your target audience, price point, and brand positioning. Sapphire cooling suits premium brands; portable models fit travel retail.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg font-bold text-sky-700">3</div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Request customization</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Every model is available for OEM/ODM customization. Contact us with your target model and volume for a tailored quote.</p>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a class="inline-flex rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+          Request Quote
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

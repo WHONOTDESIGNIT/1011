@@ -1,0 +1,619 @@
+---
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+import { ensureTrailingSlash } from '../lib/url';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import StickyContact from '../components/StickyContact.astro';
+import CornerMarker from '../components/CornerMarker.astro';
+import criticalCss from '../styles/critical.css?raw';
+import globalCssUrl from '../styles/global.css?url';
+
+const SITE_NAME = 'iShine - Professional IPL Hair Removal Device Manufacturer';
+const SITE_DESCRIPTION = 'iShine is an OEM and ODM IPL hair removal device manufacturer providing custom design, compliant production, packaging, and global delivery for beauty brands and retailers.';
+
+function organizationJsonLd(lang: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://iplmanufacturer.com/#organization',
+    name: 'iShine Technology Ltd',
+    url: 'https://iplmanufacturer.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://iplmanufacturer.com/images/logos/ishine-logo.png',
+      width: 600,
+      height: 60,
+    },
+    description: SITE_DESCRIPTION,
+    foundingDate: '2008',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Shenzhen',
+      addressCountry: 'CN',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-150-1289-1148',
+      contactType: 'sales',
+      email: 'service@ishineco.com',
+      availableLanguage: ['English', 'Chinese'],
+    },
+    areaServed: ['US', 'CA', 'DE', 'TR', 'AE', 'SA', 'GB', 'FR', 'ES', 'JP', 'KR'],
+    sameAs: [
+      'https://www.linkedin.com/company/ishine-technology',
+      'https://www.youtube.com/@ishinetech',
+      'https://www.facebook.com/ishinetech',
+      'https://twitter.com/ishinetech',
+      'https://www.instagram.com/ishinetech',
+    ],
+    knowsAbout: [
+      'IPL hair removal device manufacturing',
+      'OEM and ODM manufacturing services',
+      'Sapphire cooling technology',
+      'Beauty device design and production',
+    ],
+  };
+}
+
+type Props = {
+  title: string;
+  lang?: string;
+  description?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  showCornerMarkers?: boolean;
+  stickyNav?: boolean;
+};
+
+const { title, lang = 'en', description, canonical, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
+const canonicalUrl = ensureTrailingSlash(canonical || new URL(Astro.request.url).href);
+const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
+const productLinks = [
+  { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
+  { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
+  { href: getLocalizedPath(lang, '/products/eirene'), label: t(lang, 'nav.eirene') },
+  { href: getLocalizedPath(lang, '/products/wooden'), label: t(lang, 'nav.wooden') },
+  { href: getLocalizedPath(lang, '/products/hebe'), label: t(lang, 'nav.hebe') },
+  { href: getLocalizedPath(lang, '/products/hestia'), label: t(lang, 'nav.hestia') },
+  { href: getLocalizedPath(lang, '/products/euno'), label: t(lang, 'nav.euno') },
+  { href: getLocalizedPath(lang, '/products/emerald'), label: t(lang, 'nav.emerald') },
+  { href: getLocalizedPath(lang, '/products/themis'), label: t(lang, 'nav.themis') },
+  { href: getLocalizedPath(lang, '/products/alpha'), label: t(lang, 'nav.alpha') },
+];
+
+const componentsLinks = [
+  { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
+  { href: getLocalizedPath(lang, '/components/lamp-cartridges'), label: t(lang, 'nav.lampCartridges') },
+  { href: getLocalizedPath(lang, '/components/optical-filters'), label: t(lang, 'nav.opticalFilters') },
+  { href: getLocalizedPath(lang, '/components/cooling-system'), label: t(lang, 'nav.coolingSystem') },
+  { href: getLocalizedPath(lang, '/components/power-supply'), label: t(lang, 'nav.powerSupply') },
+];
+
+const servicesLinks = [
+  { href: getLocalizedPath(lang, '/services/oem-odm'), label: t(lang, 'nav.oemOdm') },
+  { href: getLocalizedPath(lang, '/services/product-design'), label: t(lang, 'nav.productDesign') },
+  { href: getLocalizedPath(lang, '/services/production-assembly'), label: t(lang, 'nav.production') },
+  { href: getLocalizedPath(lang, '/services/packaging-logistics'), label: t(lang, 'nav.packaging') },
+];
+
+const aboutDropdownLinks = [
+  { href: getLocalizedPath(lang, '/about/brand-story'), label: t(lang, 'nav.brandStory') },
+  { href: getLocalizedPath(lang, '/about/company-profile'), label: t(lang, 'nav.companyProfile') },
+  { href: getLocalizedPath(lang, '/about/manufacturing-capabilities'), label: t(lang, 'nav.manufacturing') },
+  { href: getLocalizedPath(lang, '/about/quality-control'), label: t(lang, 'nav.quality') },
+  { href: getLocalizedPath(lang, '/clients'), label: t(lang, 'nav.clients') },
+  { href: getLocalizedPath(lang, '/blog'), label: t(lang, 'nav.blog') },
+  { href: getLocalizedPath(lang, '/faq'), label: t(lang, 'nav.faq') },
+];
+
+const navItems = [
+  { href: getLocalizedPath(lang), label: t(lang, 'common.home') },
+  { href: getLocalizedPath(lang, '/products'), label: t(lang, 'nav.products') },
+  { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
+  { href: getLocalizedPath(lang, '/catalogue'), label: t(lang, 'nav.catalogue'), dropdown: productLinks },
+  { href: getLocalizedPath(lang, '/services'), label: t(lang, 'nav.serviceSupport'), dropdown: servicesLinks },
+  { href: getLocalizedPath(lang, '/about'), label: t(lang, 'nav.about'), dropdown: aboutDropdownLinks },
+  { href: getLocalizedPath(lang, '/contact'), label: t(lang, 'nav.contact') },
+];
+
+const footerSections = [
+  {
+    title: t(lang, 'nav.products'),
+    links: [
+      { href: getLocalizedPath(lang, '/products'), label: t(lang, 'nav.products') },
+      { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
+      { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
+      { href: getLocalizedPath(lang, '/products/wooden'), label: t(lang, 'nav.wooden') },
+      { href: getLocalizedPath(lang, '/products/hebe'), label: t(lang, 'nav.hebe') },
+      { href: getLocalizedPath(lang, '/products/alpha'), label: t(lang, 'nav.dualLamp') },
+    ],
+  },
+  {
+    title: t(lang, 'nav.iplComponentsCatalogue'),
+    links: [
+      { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
+      { href: getLocalizedPath(lang, '/components/lamp-cartridges'), label: t(lang, 'nav.lampCartridges') },
+      { href: getLocalizedPath(lang, '/components/optical-filters'), label: t(lang, 'nav.opticalFilters') },
+      { href: getLocalizedPath(lang, '/components/cooling-system'), label: t(lang, 'nav.coolingSystem') },
+      { href: getLocalizedPath(lang, '/components/power-supply'), label: t(lang, 'nav.powerSupply') },
+    ],
+  },
+  {
+    title: t(lang, 'nav.serviceSupport'),
+    links: [
+      { href: getLocalizedPath(lang, '/services'), label: t(lang, 'nav.serviceSupport') },
+      { href: getLocalizedPath(lang, '/services/oem-odm'), label: t(lang, 'nav.oemOdm') },
+      { href: getLocalizedPath(lang, '/services/product-design'), label: t(lang, 'nav.productDesign') },
+      { href: getLocalizedPath(lang, '/services/production-assembly'), label: t(lang, 'nav.production') },
+      { href: getLocalizedPath(lang, '/services/packaging-logistics'), label: t(lang, 'nav.packaging') },
+    ],
+  },
+  {
+    title: t(lang, 'nav.about'),
+    links: [
+      { href: getLocalizedPath(lang, '/about'), label: t(lang, 'nav.about') },
+      { href: getLocalizedPath(lang, '/about/brand-story'), label: t(lang, 'nav.brandStory') },
+      { href: getLocalizedPath(lang, '/about/company-profile'), label: t(lang, 'nav.companyProfile') },
+      { href: getLocalizedPath(lang, '/about/manufacturing-capabilities'), label: t(lang, 'nav.manufacturing') },
+      { href: getLocalizedPath(lang, '/about/quality-control'), label: t(lang, 'nav.quality') },
+      { href: getLocalizedPath(lang, '/clients'), label: t(lang, 'nav.clients') },
+      { href: getLocalizedPath(lang, '/blog'), label: t(lang, 'nav.blog') },
+      { href: getLocalizedPath(lang, '/faq'), label: t(lang, 'nav.faq') },
+    ],
+  },
+];
+
+const footerUtilityLinks = [
+  { href: getLocalizedPath(lang, '/contact'), label: 'Contact' },
+  { href: getLocalizedPath(lang, '/faq'), label: 'FAQ' },
+  { href: getLocalizedPath(lang, '/blog'), label: 'Blog' },
+  { href: '/sitemap.xml', label: 'Sitemap' },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description || SITE_DESCRIPTION} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description || SITE_DESCRIPTION} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd(lang))}></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': 'https://iplmanufacturer.com/#website',
+      url: 'https://iplmanufacturer.com',
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      inLanguage: lang,
+      publisher: { '@id': 'https://iplmanufacturer.com/#organization' },
+    })}></script>
+    <meta property="og:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
+    <meta name="twitter:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
+    <link rel="icon" type="image/svg+xml" href="/images/logos/LOGO-SVG.svg" />
+    <link rel="preconnect" href="https://images.pexels.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" />
+    <style is:inline set:html={criticalCss} />
+    <link rel="stylesheet" href={globalCssUrl} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={globalCssUrl} /></noscript>
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <section class:list={['top-0 z-40 flex items-start bg-transparent', stickyNav ? 'sticky' : '']}>
+      <div class="mx-auto flex w-full max-w-6xl items-center px-6" id="lang-bar-track">
+        <div id="lang-bar-anchor">
+          <LanguageSwitcher />
+        </div>
+      </div>
+      <script is:inline>
+      (function alignLangSwitcher() {
+        function position() {
+          var nav = document.querySelector('header nav');
+          var anchor = document.getElementById('lang-bar-anchor');
+          if (!nav || !anchor) return;
+          var links = nav.querySelectorAll('a');
+          var contact = links[links.length - 1];
+          if (!contact) return;
+          var contactRect = contact.getBoundingClientRect();
+          var track = document.getElementById('lang-bar-track');
+          if (!track) return;
+          var trackRect = track.getBoundingClientRect();
+          var offsetLeft = contactRect.right - trackRect.left + 4;
+          anchor.style.marginLeft = Math.max(0, offsetLeft) + 'px';
+        }
+        position();
+        window.addEventListener('resize', position);
+        var observer = new MutationObserver(position);
+        observer.observe(document.body, { childList: true, subtree: true, attributes: false });
+        setTimeout(position, 300);
+      })();
+      </script>
+    </section>
+    <header class:list={['top-0 z-30 border-b border-transparent', stickyNav ? 'sticky' : '']}>
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+        <a class="logo-link flex items-center gap-3" href={getLocalizedPath(lang)} aria-label="iShine IPL Manufacturing – Home">
+          <span class="flex items-center justify-center rounded-2xl bg-slate-900 font-bold text-white" style="width:clamp(1.75rem,3.2vw,2.5rem);height:clamp(1.75rem,3.2vw,2.5rem);font-size:clamp(0.65rem,1vw,0.875rem);border-radius:clamp(0.5rem,0.8vw,1rem)">IS</span>
+          <span>
+            <span class="block font-semibold uppercase tracking-[0.24em] text-sky-700" style="font-size:clamp(0.65rem,1vw,0.875rem)">iShine</span>
+            <span class="block text-slate-500" style="font-size:clamp(0.6rem,0.85vw,0.875rem)">IPL Manufacturing</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav: lg (1024px) and above -->
+        <div class="hidden lg:flex flex-1 items-center justify-end">
+          <nav class="flex flex-wrap items-center justify-center gap-1 rounded-2xl border border-slate-200/60 bg-white/70 px-3 py-2 text-sm shadow-sm backdrop-blur-md">
+            {navItems.map((item, index) =>
+              item.dropdown ? (
+                <div class="dropdown-container relative" data-dropdown>
+                  <a class="dropdown-trigger flex cursor-pointer items-center gap-1.5 rounded-2xl px-3 py-1.5 text-slate-700 transition hover:text-sky-600" href={item.href} data-dropdown-trigger>
+                    {item.label}
+                    <svg class="dropdown-chevron h-3 w-3 text-slate-400 opacity-0 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  </a>
+                  <div class="dropdown-panel pointer-events-none absolute left-1/2 z-50 -translate-x-1/2 scale-95 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 before:pointer-events-none before:absolute before:-top-[6px] before:left-1/2 before:-ml-[6px] before:h-3 before:w-3 before:rotate-45 before:border-l before:border-t before:border-slate-200 before:bg-white" style="top:calc(100% + 8px)" data-dropdown-panel>
+                    <div class="grid gap-0.5">
+                      {item.dropdown.map((sub) => (
+                        <a class="block rounded-xl px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50 hover:text-sky-600" href={sub.href}>{sub.label}</a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a class={`rounded-2xl px-3 py-1.5 transition hover:text-sky-600 ${index === 0 ? 'text-sky-600' : 'text-slate-700'}`} href={item.href}>
+                  {item.label}
+                </a>
+              )
+            )}
+          </nav>
+        </div>
+
+        <!-- Hamburger button: below lg (<1024px) -->
+        <button id="mobile-menu-btn" class="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm transition hover:bg-slate-50" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu overlay: below lg -->
+      <div id="mobile-menu-panel" class="lg:hidden fixed inset-0 z-50 hidden bg-white">
+        <div class="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+          <span class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">Menu</span>
+          <button id="mobile-menu-close" class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <nav class="overflow-y-auto px-6 py-6">
+          <ul class="space-y-1">
+            {navItems.map((item) => (
+              <li>
+                {item.dropdown ? (
+                  <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium text-slate-900 transition hover:bg-slate-50" data-mobile-dropdown-trigger>
+                      {item.label}
+                      <svg class="h-4 w-4 text-slate-400 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="mobile-dropdown-panel hidden pl-4">
+                      {item.dropdown.map((sub) => (
+                        <a class="block rounded-xl px-4 py-2.5 text-sm text-slate-700 transition hover:bg-sky-50 hover:text-sky-700" href={sub.href}>{sub.label}</a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a class="block rounded-xl px-4 py-3 text-base font-medium text-slate-900 transition hover:bg-slate-50" href={item.href}>{item.label}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Desktop dropdown JS (unchanged) -->
+<script is:inline>
+;(function initDropdowns() {
+  const containers = document.querySelectorAll('[data-dropdown]')
+  for (const container of containers) {
+    const trigger = container.querySelector('[data-dropdown-trigger]')
+    const panel = container.querySelector('[data-dropdown-panel]')
+    if (!trigger || !panel) continue
+
+    let hideTimer = null
+
+    function show() {
+      if (hideTimer) {
+        clearTimeout(hideTimer)
+        hideTimer = null
+      }
+      panel.classList.remove('pointer-events-none', 'opacity-0', 'scale-95')
+      panel.classList.add('pointer-events-auto', 'opacity-100', 'scale-100')
+      trigger.classList.add('text-sky-600')
+      const chevron = trigger.querySelector('.dropdown-chevron')
+      if (chevron) chevron.classList.add('opacity-100', 'rotate-180', 'text-sky-600')
+    }
+
+    function hide() {
+      hideTimer = setTimeout(function () {
+        panel.classList.add('pointer-events-none', 'opacity-0', 'scale-95')
+        panel.classList.remove('pointer-events-auto', 'opacity-100', 'scale-100')
+        trigger.classList.remove('text-sky-600')
+        const chevron = trigger.querySelector('.dropdown-chevron')
+        if (chevron) chevron.classList.remove('opacity-100', 'rotate-180', 'text-sky-600')
+      }, 80)
+    }
+
+    container.addEventListener('mouseenter', function () {
+      if (hideTimer) {
+        clearTimeout(hideTimer)
+        hideTimer = null
+      }
+      show()
+    })
+    container.addEventListener('mouseleave', hide)
+    panel.addEventListener('mouseenter', function () {
+      if (hideTimer) {
+        clearTimeout(hideTimer)
+        hideTimer = null
+      }
+    })
+    panel.addEventListener('mouseleave', hide)
+  }
+})()
+</script>
+
+      <!-- Mobile menu + accordion JS -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobile-menu-btn');
+  var panel = document.getElementById('mobile-menu-panel');
+  var close = document.getElementById('mobile-menu-close');
+  if (!btn || !panel) return;
+
+  function openMenu() {
+    panel.classList.remove('hidden');
+    panel.classList.add('flex', 'flex-col');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    panel.classList.add('hidden');
+    panel.classList.remove('flex', 'flex-col');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openMenu);
+  if (close) close.addEventListener('click', closeMenu);
+  panel.addEventListener('click', function(e) {
+    if (e.target === panel) closeMenu();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Mobile accordion dropdowns
+  panel.querySelectorAll('.mobile-dropdown-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var parent = trigger.closest('.mobile-dropdown');
+      var content = parent.querySelector('.mobile-dropdown-panel');
+      var chevron = trigger.querySelector('svg');
+      if (!content) return;
+      var isOpen = !content.classList.contains('hidden');
+      content.classList.toggle('hidden');
+      if (chevron) chevron.classList.toggle('rotate-180');
+    });
+  });
+});
+</script>
+
+    </header>
+    <div class="content-area mx-auto max-w-6xl px-6 pb-10">
+    <slot />
+    {showCornerMarkers && <CornerMarker />}
+    </div>
+    <footer class="border-t border-slate-200 bg-slate-50">
+      <section class="border-b border-sky-100 bg-gradient-to-br from-sky-50 via-slate-50 to-violet-50">
+        <div class="mx-auto max-w-6xl px-6 py-14">
+          <div class="hidden gap-8 md:grid md:grid-cols-2 xl:grid-cols-4">
+            {footerSections.map((section) => (
+              <div>
+                <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-800">{section.title}</h2>
+                <ul class="mt-5 space-y-3">
+                  {section.links.map((link) => (
+                    <li>
+                      <a class="text-sm text-slate-700 transition hover:text-slate-950" href={link.href}>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="space-y-4 md:hidden">
+            {footerSections.map((section, index) => (
+              <details class="overflow-hidden rounded-2xl border border-sky-100 bg-white/90 shadow-sm" open={index === 0}>
+                <summary class="cursor-pointer list-none px-5 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-sky-800">
+                  {section.title}
+                </summary>
+                <ul class="border-t border-slate-100 px-5 py-4">
+                  {section.links.map((link) => (
+                    <li class="py-2">
+                      <a class="text-sm text-slate-700 transition hover:text-slate-950" href={link.href}>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-slate-200 bg-white">
+        <div class="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-3">
+          <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.getInTouch')}</div>
+            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">Start your OEM / ODM inquiry</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              Reach out for RFQs, product customization, packaging, or manufacturing planning.
+            </p>
+            <a class="mt-5 inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(lang, '/contact')}>
+              {t(lang, 'footer.contactButton')}
+            </a>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.callUs')}</div>
+            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">+86 150 1289 1148</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              Speak with Maurice about project scope, timeline, and next-step requirements.
+            </p>
+            <a class="mt-5 inline-flex text-sm font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4" href="tel:+8615012891148">
+              Call now
+            </a>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.emailUs')}</div>
+            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">service@ishineco.com</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              Best for sample requests, quoting, documentation questions, and follow-up details.
+            </p>
+            <a class="mt-5 inline-flex text-sm font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4" href="mailto:service@ishineco.com">
+              Send email
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-slate-950 text-white">
+        <div class="mx-auto grid max-w-6xl gap-6 px-6 py-8 lg:grid-cols-[1fr_1.4fr_auto] lg:items-center">
+          <div>
+            <div class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-300">iShine</div>
+            <div class="mt-2 text-sm text-slate-300">IPL Manufacturing</div>
+          </div>
+
+          <div class="space-y-2 text-sm text-slate-300">
+            <p>{t(lang, 'footer.companyIntro')}</p>
+            <p>{t(lang, 'footer.companyRegistration')}</p>
+            <p>{t(lang, 'footer.copyright')}</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 lg:justify-end">
+            {footerUtilityLinks.map((link) => (
+              <a class="rounded-2xl border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/10" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="mx-auto max-w-6xl px-6 pt-4">
+          <a
+            href="https://dashboard.simpleanalytics.com/iplmanufacturer.com?utm_source=iplmanufacturer.com&utm_content=badge&affiliate=sokeb"
+            referrerpolicy="origin"
+            target="_blank"
+          >
+            <picture>
+              <source
+                srcset="https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=dark"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=light"
+                alt="Simple Analytics — Last month sessions"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                crossorigin="anonymous"
+              />
+            </picture>
+          </a>
+        </div>
+      </section>
+    </footer>
+    <StickyContact />
+
+    <button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 6L12 2L16 6"/>
+        <path d="M12 2V22"/>
+      </svg>
+    </button>
+
+    <script>
+      (function () {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) return;
+
+        let isVisible = false;
+
+        window.addEventListener('scroll', function () {
+          const scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY > 400 && !isVisible) {
+            btn.classList.add('visible');
+            isVisible = true;
+          } else if (scrollY <= 400 && isVisible) {
+            btn.classList.remove('visible');
+            isVisible = false;
+          }
+        });
+
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+    </script>
+
+    <style>
+      #back-to-top {
+        position: fixed;
+        bottom: 60px;
+        right: calc(39% - 400px);
+        width: 42px;
+        height: 42px;
+        border-radius: 9px;
+        background: #e6e6e6;
+        color: #454545;
+        border: none;
+        cursor: pointer;
+        z-index: 998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      #back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #back-to-top:hover {
+        background: #d4d4d4;
+      }
+
+      @media (max-width: 1024px) {
+        #back-to-top {
+          right: 20px;
+        }
+      }
+    </style>
+  </body>
+</html>

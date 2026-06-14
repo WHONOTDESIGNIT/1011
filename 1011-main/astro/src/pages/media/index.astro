@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MediaLibrary from '../../components/react/MediaLibrary';
+import { t } from '../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+const pageTitle = t(locale, 'nav.media');
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: pageTitle },
+]);
+---
+
+<BaseLayout title={pageTitle} lang={locale} description="iShine media library: browse, preview, and access uploaded product images and marketing assets for IPL device manufacturing partners.">
+  <div class="space-y-30">
+    <section class="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 px-8 py-12 text-white shadow-lg">
+      <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+      <div class="mt-6 max-w-3xl">
+        <h1 class="text-4xl font-bold tracking-tight">{pageTitle}</h1>
+        <p class="mt-4 text-lg text-slate-200">
+          Browse every uploaded blob image with an instant preview, open the asset directly, and copy the public URL without leaving the page.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/upload')}>
+          Upload New Image
+        </a>
+        <a class="rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10" href="/.netlify/functions/list-images" target="_blank" rel="noreferrer">
+          Open JSON Feed
+        </a>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is the iShine media library used for?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        The iShine media library provides a centralized place to browse, preview, and access uploaded product images and marketing assets used in private-label IPL programs. It is designed for teams preparing product pages, pitch decks, catalogues, or internal sourcing documentation who need consistent asset URLs and quick access without manual file exchanges. Each item can be opened directly and its public URL copied for use in websites, landing pages, or partner materials. For OEM/ODM workflows, a clean asset library helps keep product communication aligned across manufacturing, branding, and go-to-market teams.
+      </p>
+    </section>
+
+    <MediaLibrary client:load />
+  </div>
+</BaseLayout>

@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+const designServices = [
+  {
+    title: 'Industrial Design',
+    description:
+      'Aesthetic and functional design that combines beauty with ergonomics for optimal user experience.',
+    features: ['Ergonomic Design', 'Material Selection', 'Color & Finish', 'Form Factor Optimization'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    title: 'UI/UX Design',
+    description:
+      'Intuitive user interfaces and seamless user experiences that make IPL treatments simple and effective.',
+    features: ['Interface Design', 'User Journey Mapping', 'Interaction Design', 'Usability Testing'],
+    gradient: 'from-sky-500 to-cyan-500',
+  },
+  {
+    title: 'User Research',
+    description:
+      'Deep understanding of user needs, behaviors, and preferences to inform design decisions.',
+    features: ['Market Research', 'User Interviews', 'Persona Development', 'Competitive Analysis'],
+    gradient: 'from-emerald-500 to-green-500',
+  },
+  {
+    title: 'Innovation Consulting',
+    description:
+      'Strategic design thinking to identify opportunities and create breakthrough IPL products.',
+    features: ['Design Strategy', 'Innovation Workshops', 'Concept Development', 'Future Trends Analysis'],
+    gradient: 'from-orange-500 to-red-500',
+  },
+];
+
+const designProcess = [
+  {
+    phase: 'Research',
+    title: 'Discovery & Research',
+    description:
+      'Understanding market needs, user behaviors, and technical constraints to inform design strategy.',
+    activities: ['Market Analysis', 'User Research', 'Technical Requirements', 'Competitive Landscape'],
+    duration: '2–3 weeks',
+  },
+  {
+    phase: 'Ideation',
+    title: 'Concept Development',
+    description:
+      'Generating innovative design concepts that balance aesthetics, functionality, and manufacturability.',
+    activities: ['Brainstorming Sessions', 'Concept Sketching', 'Design Exploration', 'Feasibility Analysis'],
+    duration: '3–4 weeks',
+  },
+  {
+    phase: 'Design',
+    title: 'Detailed Design',
+    description:
+      'Developing comprehensive design specifications including 3D models, technical drawings, and prototypes.',
+    activities: ['3D Modeling', 'Technical Drawings', 'Material Specifications', 'Prototype Development'],
+    duration: '4–6 weeks',
+  },
+  {
+    phase: 'Validation',
+    title: 'Testing & Refinement',
+    description:
+      'Validating design concepts through user testing, technical validation, and iterative improvements.',
+    activities: ['User Testing', 'Design Validation', 'Performance Testing', 'Design Optimization'],
+    duration: '2–3 weeks',
+  },
+];
+
+const designPrinciples = [
+  {
+    title: 'User-Centered Design',
+    description:
+      'Every design decision is made with the end user in mind, ensuring intuitive and satisfying experiences.',
+    examples: ['Ergonomic grip design', 'Clear visual feedback', 'Simple operation flow'],
+  },
+  {
+    title: 'Functional Aesthetics',
+    description:
+      "Beautiful designs that don't compromise on functionality, creating products that perform as well as they look.",
+    examples: ['Streamlined form factors', 'Premium materials', 'Thoughtful details'],
+  },
+  {
+    title: 'Innovation Focus',
+    description:
+      'Pushing boundaries to create breakthrough products that set new standards in the IPL industry.',
+    examples: ['Advanced cooling systems', 'Smart skin sensors', 'Wireless connectivity'],
+  },
+];
+
+const caseStudies = [
+  {
+    title: 'Premium Home IPL Device',
+    challenge: 'Design a professional-grade IPL device for home use that rivals salon treatments.',
+    solution:
+      'Created an elegant, ergonomic design with advanced cooling technology and smart skin detection.',
+    results: ['40% improvement in user satisfaction', '25% faster treatment times', 'Premium market positioning achieved'],
+    image:
+      '/images/products/Venus/using-venus-sapphire-ipl.webp',
+  },
+  {
+    title: 'Compact Travel IPL',
+    challenge: 'Develop a portable IPL device without compromising on performance or safety.',
+    solution:
+      'Innovative compact design with foldable handle and optimized internal component layout.',
+    results: ['60% size reduction vs competitors', 'Maintained full IPL effectiveness', 'Strong market differentiation'],
+    image:
+      '/images/products/Eirene/battery-built-in%20ipl%20device%20holding.jpg',
+  },
+];
+---
+
+<BaseLayout title="Product Design" lang={locale} description="IPL device product design services: industrial design, UI/UX, user research, and innovation consulting. From concept to market-ready beauty devices.">
+  <div class="space-y-60">
+    <section class="rounded-2xl bg-gradient-to-br from-sky-50 to-cyan-50 px-8 py-16">
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Design That
+          <span class="block bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Inspires &amp; Performs</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+          Transform your IPL device concepts into market-leading products through innovative design, user-centered thinking, and technical excellence.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What does IPL product design include in an OEM/ODM project?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        IPL product design in an OEM/ODM project covers both aesthetics and engineering decisions that affect usability, safety, manufacturability, and brand positioning. It typically includes industrial design for ergonomics and premium look-and-feel, UI/UX for controls and indicators, and component-level planning such as cooling approach, treatment window sizing, and sensor integration. Design work also considers packaging and unboxing so the product matches retail or DTC expectations. A strong design phase reduces later production risk by aligning materials, tolerances, and assembly constraints early, which improves consistency at scale. iShine supports design programs from concept exploration through 3D modeling, prototyping, testing, and iterative refinement, so the final device can be produced repeatably and documented for target markets.
+      </p>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What IPL product design services do we offer?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          From initial concept to final product, we provide end-to-end design services that bring your IPL device vision to life.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        {designServices.map((service) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class={`mb-6 h-16 w-16 rounded-2xl bg-gradient-to-r ${service.gradient}`} />
+            <h3 class="text-2xl font-bold text-slate-900">{service.title}</h3>
+            <p class="mt-4 text-slate-700">{service.description}</p>
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              {service.features.map((f) => (
+                <div class="flex items-center gap-2 text-sm text-slate-700">
+                  <span class="h-2 w-2 rounded-2xl bg-emerald-500" />
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">How does the IPL product design process work?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          A structured approach that balances market insights, creativity, and manufacturability.
+        </p>
+      </div>
+      <div class="mt-12 space-y-6">
+        {designProcess.map((p, idx) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="grid gap-6 lg:grid-cols-[240px_1fr]">
+              <div class="flex items-center gap-6">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-sky-600 to-cyan-600">
+                  <span class="text-xl font-bold text-white">{String(idx + 1).padStart(2, '0')}</span>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-sky-700">{p.phase}</div>
+                  <div class="text-xl font-bold text-slate-900">{p.title}</div>
+                  <div class="mt-1 text-sm font-medium text-slate-600">{p.duration}</div>
+                </div>
+              </div>
+              <div>
+                <p class="text-slate-700">{p.description}</p>
+                <div class="mt-4 grid grid-cols-2 gap-2">
+                  {p.activities.map((a) => (
+                    <div class="flex items-center gap-2 text-sm text-slate-700">
+                      <span class="h-2 w-2 rounded-2xl bg-sky-400" />
+                      <span>{a}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Design Principles</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Principles that guide our design decisions across form, usability, and performance.
+        </p>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-3">
+        {designPrinciples.map((p) => (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900">{p.title}</h3>
+            <p class="mt-3 text-slate-700">{p.description}</p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-700">
+              {p.examples.map((e) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-sky-600" />
+                  <span>{e}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Case Studies</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+          Examples of how design translates into market outcomes and user experience gains.
+        </p>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {caseStudies.map((c) => (
+          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="aspect-[4/3]">
+              <img src={c.image} alt={c.title} loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <div class="space-y-4 p-8">
+              <h3 class="text-2xl font-bold text-slate-900">{c.title}</h3>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Challenge</div>
+                <div class="mt-1 text-slate-700">{c.challenge}</div>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Solution</div>
+                <div class="mt-1 text-slate-700">{c.solution}</div>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Results</div>
+                <ul class="mt-2 space-y-2 text-slate-700">
+                  {c.results.map((r) => (
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-emerald-500" />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="flex flex-wrap gap-3 pt-2">
+                <a class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+                <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold md:text-4xl">Ready to Design Your Next IPL Product?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
+          Bring your device vision to life with design that balances aesthetics, usability, and manufacturability.
+        </p>
+        <div class="mt-10 flex justify-center gap-3">
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

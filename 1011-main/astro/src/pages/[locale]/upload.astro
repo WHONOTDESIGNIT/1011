@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import UploadForm from '../../components/react/UploadForm';
+
+const { locale = 'en' } = Astro.params;
+---
+
+<BaseLayout title="Upload Image" lang={locale}>
+  <div class="space-y-8">
+    <div class="space-y-2">
+      <h1 class="text-3xl font-bold text-slate-900">Upload Image</h1>
+      <p class="text-slate-600">Upload images to the media library.</p>
+    </div>
+    <UploadForm client:load />
+  </div>
+</BaseLayout>

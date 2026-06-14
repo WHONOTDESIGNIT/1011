@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { t } from '../../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { Factory, PenTool, Cog, Truck, Clock, Globe, RefreshCw, ShieldCheck } from '@lucide/astro';
+
+const { locale = 'en' } = Astro.params;
+if (locale !== 'en') {
+  return new Response('Not found', { status: 404 });
+}
+
+const pageTitle = 'Professional IPL Manufacturing Services | iShine';
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.serviceSupport') },
+]);
+
+const services = [
+  {
+    title: t(locale, 'servicesPage.core.oem.title'),
+    icon: Factory,
+    description: t(locale, 'servicesPage.core.oem.description'),
+    features: [
+      t(locale, 'servicesPage.core.oem.features.0'),
+      t(locale, 'servicesPage.core.oem.features.1'),
+      t(locale, 'servicesPage.core.oem.features.2'),
+      t(locale, 'servicesPage.core.oem.features.3'),
+    ],
+    href: getLocalizedPath(locale, '/services/oem-odm'),
+    accent: 'from-violet-500 to-fuchsia-500',
+    badge: 'OEM/ODM',
+  },
+  {
+    title: t(locale, 'servicesPage.core.design.title'),
+    icon: PenTool,
+    description: t(locale, 'servicesPage.core.design.description'),
+    features: [
+      t(locale, 'servicesPage.core.design.features.0'),
+      t(locale, 'servicesPage.core.design.features.1'),
+      t(locale, 'servicesPage.core.design.features.2'),
+      t(locale, 'servicesPage.core.design.features.3'),
+    ],
+    href: getLocalizedPath(locale, '/services/product-design'),
+    accent: 'from-sky-500 to-cyan-500',
+    badge: 'Design',
+  },
+  {
+    title: t(locale, 'servicesPage.core.production.title'),
+    icon: Cog,
+    description: t(locale, 'servicesPage.core.production.description'),
+    features: [
+      t(locale, 'servicesPage.core.production.features.0'),
+      t(locale, 'servicesPage.core.production.features.1'),
+      t(locale, 'servicesPage.core.production.features.2'),
+      t(locale, 'servicesPage.core.production.features.3'),
+    ],
+    href: getLocalizedPath(locale, '/services/production-assembly'),
+    accent: 'from-emerald-500 to-teal-500',
+    badge: 'Production',
+  },
+  {
+    title: t(locale, 'servicesPage.core.packaging.title'),
+    icon: Truck,
+    description: t(locale, 'servicesPage.core.packaging.description'),
+    features: [
+      t(locale, 'servicesPage.core.packaging.features.0'),
+      t(locale, 'servicesPage.core.packaging.features.1'),
+      t(locale, 'servicesPage.core.packaging.features.2'),
+      t(locale, 'servicesPage.core.packaging.features.3'),
+    ],
+    href: getLocalizedPath(locale, '/services/packaging-logistics'),
+    accent: 'from-orange-500 to-rose-500',
+    badge: 'Fulfillment',
+  },
+];
+
+const advantages = [
+  {
+    title: t(locale, 'servicesPage.advantages.experience.title'),
+    icon: Clock,
+    description: t(locale, 'servicesPage.advantages.experience.description'),
+  },
+  {
+    title: t(locale, 'servicesPage.advantages.global.title'),
+    icon: Globe,
+    description: t(locale, 'servicesPage.advantages.global.description'),
+  },
+  {
+    title: t(locale, 'servicesPage.advantages.endToEnd.title'),
+    icon: RefreshCw,
+    description: t(locale, 'servicesPage.advantages.endToEnd.description'),
+  },
+  {
+    title: t(locale, 'servicesPage.advantages.quality.title'),
+    icon: ShieldCheck,
+    description: t(locale, 'servicesPage.advantages.quality.description'),
+  },
+];
+
+const processSteps = Array.from({ length: 4 }, (_, index) => ({
+  step: t(locale, `servicesPage.process.steps.${index}.step`),
+  title: t(locale, `servicesPage.process.steps.${index}.title`),
+  description: t(locale, `servicesPage.process.steps.${index}.description`),
+  duration: t(locale, `servicesPage.process.steps.${index}.duration`),
+}));
+
+const trustedStats = Array.from({ length: 3 }, (_, index) => ({
+  value: t(locale, `servicesPage.trusted.stats.${index}.value`),
+  label: t(locale, `servicesPage.trusted.stats.${index}.label`),
+}));
+
+const trustedBrands = [
+  { name: 'Costco Canada', logo: '/images/logos/costco-logo.svg' },
+  { name: 'ROSESKINCO USA', logo: '/images/logos/roseskin-logo.svg' },
+  { name: 'KU-2 Cosmetic Germany', logo: '/images/logos/ku2-logo.svg' },
+];
+---
+
+<BaseLayout title={pageTitle} lang={locale} description="Professional IPL manufacturing services: OEM/ODM, product design, production assembly, packaging and logistics. End-to-end solutions for global beauty brands.">
+  <div class="space-y-60">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-violet-50 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(168,85,247,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.12),_transparent_30%)]" />
+      <div class="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <Breadcrumb items={breadcrumbs} locale={locale} />
+          <div class="mt-8 max-w-3xl">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+              {t(locale, 'servicesPage.hero.title1')}
+              <span class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+                {t(locale, 'servicesPage.hero.title2')}
+              </span>
+            </h1>
+            <p class="mt-5 text-lg leading-relaxed text-slate-700">
+              {t(locale, 'servicesPage.hero.description')}
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+              {t(locale, 'servicesPage.hero.cta')}
+            </a>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/clients')}>
+              View Case Studies
+            </a>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/products')}>
+              Request Sample
+            </a>
+          </div>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+            <div class="aspect-[4/3] bg-slate-100">
+              <img
+                src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="IPL manufacturing services"
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+              <div class="text-sm uppercase tracking-[0.18em] text-slate-500">Scope</div>
+              <div class="mt-3 text-2xl font-bold text-slate-900">4 Core Services</div>
+              <div class="mt-2 text-sm text-slate-600">Design, production, packaging, and logistics aligned in one workflow.</div>
+            </div>
+            <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+              <div class="text-sm uppercase tracking-[0.18em] text-slate-500">Lead Focus</div>
+              <div class="mt-3 text-2xl font-bold text-slate-900">OEM / ODM</div>
+              <div class="mt-2 text-sm text-slate-600">Built for brand owners, sourcing teams, and retail buyers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is included in iShine's IPL manufacturing services?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        iShine provides end-to-end IPL manufacturing services for private-label programs, covering OEM/ODM development, product design, production and assembly, packaging, and export logistics. A typical engagement starts with requirements and positioning, then moves into engineering decisions such as cooling approach (including premium sapphire contact cooling targeting ~10°C in supported configurations), energy range, flash window sizing, wavelength filtering, and safety interlocks. Platform-based prototype sampling can often begin in 1-4 weeks depending on scope, while programs involving tooling, electronics, firmware, or compliance work add time for validation, documentation, and production planning. Packaging support includes branded cartons, inserts, manuals, labeling, and accessory selection aligned to retail, distributor, or e-commerce channels, with options such as manual localization and channel-ready labeling. Delivery support includes export documents and shipping coordination (FOB Shenzhen, with CIF options) by sea, air, or courier based on timeline and destination requirements.
+      </p>
+    </section>
+
+    <section class="space-y-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Core Services</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          {t(locale, 'servicesPage.core.title')}
+        </h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.core.description')}</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {services.map((service) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-start justify-between gap-4">
+              <div class={`inline-flex rounded-2xl bg-gradient-to-r ${service.accent} px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white`}>
+                {service.badge}
+              </div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                <service.icon size={22} strokeWidth={1.5} />
+              </div>
+            </div>
+            <h3 class="mt-6 text-2xl font-semibold tracking-tight text-slate-900">{service.title}</h3>
+            <p class="mt-3 text-slate-700">{service.description}</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-700">
+              {service.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-2xl bg-violet-500" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-8">
+              <a class="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={service.href}>
+                Learn More
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-950 px-8 py-12 text-white shadow-2xl md:px-10">
+      <div class="text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">Why Choose iShine</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{t(locale, 'servicesPage.why.title')}</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-300">{t(locale, 'servicesPage.why.description')}</p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {advantages.map((item) => (
+          <div class="rounded-[1.5rem] border border-white/10 bg-white/8 p-6 backdrop-blur">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-slate-900">
+              <item.icon size={22} strokeWidth={1.5} />
+            </div>
+            <h3 class="mt-5 text-xl font-semibold">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Process Timeline</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{t(locale, 'servicesPage.process.title')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.process.description')}</p>
+      </div>
+      <div class="relative grid gap-6 lg:grid-cols-4">
+        {processSteps.map((step, index) => (
+          <article class="relative rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+            {index < processSteps.length - 1 && (
+              <div class="absolute left-full top-10 hidden h-px w-6 bg-gradient-to-r from-violet-300 to-sky-300 lg:block" />
+            )}
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-lg font-bold text-white">
+              {step.step}
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-slate-900">{step.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{step.description}</p>
+            <div class="mt-6 inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+              {step.duration}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trusted by Leading Brands</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{t(locale, 'servicesPage.trusted.title')}</h2>
+        <p class="mt-4 max-w-2xl text-lg text-slate-700">{t(locale, 'servicesPage.trusted.description')}</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          {trustedStats.map((stat) => (
+            <div class="rounded-[1.5rem] bg-slate-50 p-5 text-center">
+              <div class="text-4xl font-bold text-slate-900">{stat.value}</div>
+              <div class="mt-2 text-sm text-slate-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+        <blockquote class="mt-8 rounded-[1.5rem] bg-gradient-to-br from-violet-50 to-sky-50 p-6 text-slate-800">
+          <p class="text-lg leading-relaxed">
+            "iShine's comprehensive approach and attention to detail have been instrumental in bringing our IPL products to market successfully across multiple regions."
+          </p>
+          <footer class="mt-4 text-sm font-medium text-slate-600">Operations Team, Multi-region Beauty Brand</footer>
+        </blockquote>
+      </div>
+
+      <div class="space-y-6">
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3] bg-slate-100">
+            <img
+              src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Manufacturing and packaging workflow"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {trustedBrands.map((brand) => (
+            <div class="flex min-h-[120px] items-center justify-center rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" class="max-h-12 w-auto object-contain" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-slate-900 px-8 py-14 text-white shadow-2xl">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Ready to Start?</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{t(locale, 'servicesPage.cta.title')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-200">{t(locale, 'servicesPage.cta.description')}</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/contact')}>
+            {t(locale, 'servicesPage.cta.button')}
+          </a>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/clients')}>
+            View Case Studies
+          </a>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>
+            Request Sample
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
