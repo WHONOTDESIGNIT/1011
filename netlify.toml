@@ -50,30 +50,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/products"
-  to = "/products/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/products/:slug"
-  to = "/products/:slug/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:locale/products"
-  to = "/:locale/products/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:locale/products/:slug"
-  to = "/:locale/products/:slug/"
-  status = 301
-  force = true
-
 # SSR fallback（不加 force，现有静态文件由 CDN 提供）
 [[redirects]]
   from = "/*"
