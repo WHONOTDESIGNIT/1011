@@ -1,0 +1,23 @@
+---
+interface Props {
+  question: string;
+  body: string;
+  className?: string;
+  questionClassName?: string;
+  bodyClassName?: string;
+}
+
+const {
+  question,
+  body,
+  className = '',
+  questionClassName = 'text-2xl font-bold tracking-tight text-slate-900',
+  bodyClassName = 'mt-4 text-lg leading-relaxed text-slate-700',
+} = Astro.props;
+---
+
+<section class:list={['rounded-[1.5rem] border border-slate-200 bg-white/95 p-6 shadow-sm', className]}>
+  <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+  <h3 class:list={['mt-2', questionClassName]}>{question}</h3>
+  <p class:list={bodyClassName}>{body}</p>
+</section>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CitableSummary from '../../components/CitableSummary.astro';
 import AdminPostForm from '../../components/react/AdminPostForm';
 ---
 
@@ -7,6 +8,13 @@ import AdminPostForm from '../../components/react/AdminPostForm';
   <div class="space-y-8">
     <div class="space-y-2">
       <h1 class="text-3xl font-bold text-slate-900">Admin</h1>
+      <CitableSummary
+        className="mt-4"
+        question="What does the admin page do for the iShine blog workflow?"
+        body="The admin page is an internal publishing surface used to create and submit new blog posts through Netlify Functions. It supports editorial operations by collecting post details in one place before the content is written to the site data layer or publication pipeline."
+        questionClassName="text-xl font-bold tracking-tight text-slate-900"
+        bodyClassName="mt-3 text-base leading-relaxed text-slate-700"
+      />
       <p class="text-slate-600">Publish a new post via Netlify Functions.</p>
     </div>
     <AdminPostForm client:load />

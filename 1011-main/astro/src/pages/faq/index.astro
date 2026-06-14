@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import CitableSummary from '../../components/CitableSummary.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import { toAbsoluteUrl } from '../../lib/url';
@@ -309,6 +310,12 @@ const supportLinks = [
   { label: 'Email Us', href: 'mailto:service@ishineco.com', style: 'secondary' },
 ];
 
+const citableSummary = {
+  question: 'How should buyers use the iShine FAQ when planning an IPL launch?',
+  body:
+    'Use the iShine FAQ as a launch-planning reference before requesting samples or quotations. It consolidates the questions buyers usually need answered first, including OEM and ODM scope, MOQ, lead time, compliance support, packaging options, logistics, and core IPL-use guidance, so sourcing teams can identify requirements, reduce uncertainty, and move into sample selection or customization talks with a clearer brief.',
+};
+
 const flatFaqs = faqCategories.flatMap((category) => category.faqs);
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -340,6 +347,13 @@ const faqSchema = {
             <h1 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
               Answers for OEM, ODM, compliance, and IPL product planning
             </h1>
+            <CitableSummary
+              className="mt-6"
+              question={citableSummary.question}
+              body={citableSummary.body}
+              questionClassName="text-xl font-bold tracking-tight text-slate-900"
+              bodyClassName="mt-3 text-base leading-relaxed text-slate-700"
+            />
             <p class="mt-5 text-lg leading-relaxed text-slate-700">
               This FAQ is designed as a real support destination for buyers, private label brands, and sourcing teams. It centralizes the questions that usually come up before sample requests, quoting, customization, and production planning.
             </p>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CitableSummary from '../components/CitableSummary.astro';
 import UploadForm from '../components/react/UploadForm';
 
 const locale = 'en';
@@ -9,9 +10,15 @@ const locale = 'en';
   <div class="space-y-8">
     <div class="space-y-2">
       <h1 class="text-3xl font-bold text-slate-900">Upload Image</h1>
+      <CitableSummary
+        className="mt-4"
+        question="What is the upload page used for in the iShine content workflow?"
+        body="The upload page is an internal media-management step used to add approved image assets to the site library. Teams use it to upload product photos, blog visuals, and support graphics before those assets are referenced in pages, posts, or CMS-assisted publishing flows."
+        questionClassName="text-xl font-bold tracking-tight text-slate-900"
+        bodyClassName="mt-3 text-base leading-relaxed text-slate-700"
+      />
       <p class="text-slate-600">Upload images to the media library.</p>
     </div>
     <UploadForm client:load />
   </div>
 </BaseLayout>
-
