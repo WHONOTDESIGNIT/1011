@@ -1,50 +1,12 @@
-export const SUPPORTED_LANGUAGES = ["en", "ja", "es", "fr", "de", "he", "ru", "tr", "ar", "ko", "pt", "it", "nl", "th", "fa", "pl", "el", "ro", "id", "hi"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "es"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export const LANGUAGE_CONFIG = [
   { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "ja", label: "日本語", flag: "🇯🇵" },
   { code: "es", label: "Español", flag: "🇪🇸" },
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "de", label: "Deutsch", flag: "🇩🇪" },
-  { code: "he", label: "עברית", flag: "🇮🇱" },
-  { code: "ru", label: "Русский", flag: "🇷🇺" },
-  { code: "tr", label: "Türkçe", flag: "🇹🇷" },
-  { code: "ar", label: "العربية", flag: "🇸🇦" },
-  { code: "ko", label: "한국어", flag: "🇰🇷" },
-  { code: "pt", label: "Português", flag: "🇵🇹" },
-  { code: "it", label: "Italiano", flag: "🇮🇹" },
-  { code: "nl", label: "Nederlands", flag: "🇳🇱" },
-  { code: "th", label: "ไทย", flag: "🇹🇭" },
-  { code: "fa", label: "فارسی", flag: "🇮🇷" },
-  { code: "pl", label: "Polski", flag: "🇵🇱" },
-  { code: "el", label: "Ελληνικά", flag: "🇬🇷" },
-  { code: "ro", label: "Română", flag: "🇷🇴" },
-  { code: "id", label: "Bahasa Indonesia", flag: "🇮🇩" },
-  { code: "hi", label: "हिन्दी", flag: "🇮🇳" },
 ] as const;
 
 export const COUNTRY_LANGUAGE_MAP: Record<string, SupportedLanguage> = {
-  JP: "ja",
   ES: "es",
-  FR: "fr",
-  DE: "de",
-  IL: "he",
-  RU: "ru",
-  TR: "tr",
-  SA: "ar",
-  AE: "ar",
-  EG: "ar",
-  KR: "ko",
-  BR: "pt",
-  PT: "pt",
-  IT: "it",
-  NL: "nl",
-  TH: "th",
-  IR: "fa",
-  PL: "pl",
-  GR: "el",
-  RO: "ro",
-  ID: "id",
-  IN: "hi",
+  MX: "es",
 };
