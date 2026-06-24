@@ -707,12 +707,12 @@ const productSchema = {
       </div>
     </section>
 
-    <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
-      <h2 class="text-3xl font-bold md:text-4xl">Interested in {product.name}?</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">Contact our team to discuss customization options, MOQ, pricing, and sample requests for your brand.</p>
+    <section class="rounded-2xl px-8 py-14 text-center" style="background: linear-gradient(135deg, #fac5a5, #f5dfc5);">
+      <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Interested in {product.name}?</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">Contact our team to discuss customization options, MOQ, pricing, and sample requests for your brand.</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a class="rounded-lg bg-white px-8 py-3 font-semibold text-sky-700 transition hover:bg-sky-50" href={getLocalizedPath(locale, '/contact')}>Request Free Sample</a>
-        <a class="rounded-lg border border-white/30 px-8 py-3 font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>View All Products</a>
+        <a class="rounded-lg bg-slate-900 px-8 py-3 font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>Request Free Sample</a>
+        <a class="rounded-lg border border-slate-900/20 px-8 py-3 font-semibold text-slate-900 transition hover:bg-white/40" href={getLocalizedPath(locale, '/products')}>View All Products</a>
       </div>
     </section>
 
