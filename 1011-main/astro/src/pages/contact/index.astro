@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import { Image } from 'astro:assets';
 import { Zap, Lock, Headphones } from '@lucide/astro';
 
 const locale = 'en';
-const isEn = true;
 
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
@@ -15,37 +13,29 @@ function resolveBaseUrl() {
 
 const pageTitle = t(locale, 'contact.title');
 const pageDescription = t(locale, 'contact.description');
-const canonical = `${resolveBaseUrl()}/${locale}/contact`;
+const canonical = `${resolveBaseUrl()}/contact`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: pageTitle },
 ]);
 
-const benefits = isEn ? [
+const benefits = [
   { title: 'Fast Response', icon: Zap, description: 'Share your project brief and our team typically responds within 24-48 hours with the right next step.' },
   { title: 'Confidential', icon: Lock, description: 'Your sourcing plan, customization goals, and market strategy are handled with care and kept private.' },
   { title: 'Expert Support', icon: Headphones, description: 'Speak with a team that understands OEM and ODM workflows, compliance planning, and launch requirements.' },
-] : [
-  { title: 'Respuesta Rápida', icon: Zap, description: 'Comparte tu resumen del proyecto y nuestro equipo generalmente responde dentro de 24-48 horas con el siguiente paso adecuado.' },
-  { title: 'Confidencial', icon: Lock, description: 'Tu plan de abastecimiento, objetivos de personalización y estrategia de mercado se manejan con cuidado y se mantienen privados.' },
-  { title: 'Soporte Experto', icon: Headphones, description: 'Habla con un equipo que comprende los flujos de trabajo OEM y ODM, la planificación de cumplimiento y los requisitos de lanzamiento.' },
 ];
 
 const contactCards = [
-  { label: isEn ? 'Email' : 'Correo', title: 'service@ishineco.com', description: isEn ? 'Best for RFQs, sample requests, and project briefs.' : 'Ideal para RFQ, solicitudes de muestras y resúmenes de proyectos.', href: 'mailto:service@ishineco.com' },
-  { label: isEn ? 'Phone' : 'Teléfono', title: '+86 138 2350 8753', description: isEn ? 'Eric, sales support for active manufacturing inquiries.' : 'Eric, soporte de ventas para consultas activas de fabricación.', href: 'tel:+8613823508753' },
-  { label: isEn ? 'Phone' : 'Teléfono', title: '+86 150 1289 1148', description: isEn ? 'Maurice, support for project follow-up and coordination.' : 'Maurice, soporte para seguimiento y coordinación de proyectos.', href: 'tel:+8615012891148' },
-  { label: isEn ? 'Address' : 'Dirección', title: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street", description: isEn ? 'Shenzhen, Guangdong, China' : 'Shenzhen, Guangdong, China' },
+  { label: 'Email', title: 'service@ishineco.com', description: 'Best for RFQs, sample requests, and project briefs.', href: 'mailto:service@ishineco.com' },
+  { label: 'Phone', title: '+86 138 2350 8753', description: 'Eric, sales support for active manufacturing inquiries.', href: 'tel:+8613823508753' },
+  { label: 'Phone', title: '+86 150 1289 1148', description: 'Maurice, support for project follow-up and coordination.', href: 'tel:+8615012891148' },
+  { label: 'Address', title: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street", description: 'Shenzhen, Guangdong, China' },
 ];
 
-const selectOptions = isEn ? {
+const selectOptions = {
   product: ['IPL Hair Removal Devices', 'Custom OEM/ODM Project', 'IPL Components Only', 'Skin Rejuvenation Device', 'Not sure yet'],
   quantity: ['100 - 500 units', '500 - 1,000 units', '1,000 - 5,000 units', '5,000+ units', 'Still planning'],
   timeline: ['As soon as possible', '1 - 3 months', '3 - 6 months', '6 - 12 months', 'Researching only'],
-} : {
-  product: ['Dispositivos de Depilación IPL', 'Proyecto OEM/ODM Personalizado', 'Solo Componentes IPL', 'Dispositivo de Rejuvenecimiento Cutáneo', 'Aún no estoy seguro'],
-  quantity: ['100 - 500 unidades', '500 - 1,000 unidades', '1,000 - 5,000 unidades', '5,000+ unidades', 'Todavía planificando'],
-  timeline: ['Lo antes posible', '1 - 3 meses', '3 - 6 meses', '6 - 12 meses', 'Solo investigando'],
 };
 ---
 
@@ -58,7 +48,7 @@ const selectOptions = isEn ? {
         <div class="max-w-3xl">
           <h1 class="text-4xl font-bold tracking-tight md:text-5xl">Let's Talk</h1>
           <p class="mt-5 text-lg leading-relaxed text-slate-200">
-            {isEn ? 'Tell us about your OEM/ODM project. We typically respond within 24-48 hours with next-step guidance.' : 'Cuéntenos sobre su proyecto OEM/ODM. Generalmente respondemos dentro de 24-48 horas.'}
+            Tell us about your OEM/ODM project. We typically respond within 24-48 hours with next-step guidance.
           </p>
         </div>
       </div>

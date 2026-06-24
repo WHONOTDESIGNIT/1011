@@ -34,7 +34,7 @@ type BlogMdxModule = {
   default: unknown;
 };
 
-const SUPPORTED_LOCALES = ['en', 'de', 'es'];
+const SUPPORTED_LOCALES = ['en'];
 
 const allPostModules = import.meta.glob<BlogMdxModule>('../../../src/content/blog/**/*.mdx');
 
@@ -44,6 +44,7 @@ function extractLocaleFromPath(path: string): string | null {
 }
 
 function normalizeSummary(locale: string, fm: BlogFrontmatter): BlogPostSummary {
+  void locale;
   return {
     title: fm.title ?? fm.slug,
     excerpt: fm.excerpt ?? '',
@@ -53,7 +54,7 @@ function normalizeSummary(locale: string, fm: BlogFrontmatter): BlogPostSummary 
     category: fm.category ?? '',
     image: fm.image ?? '',
     slug: fm.slug,
-    href: `/${locale}/blog/${fm.canonicalSlug || fm.slug}`,
+    href: `/blog/${fm.canonicalSlug || fm.slug}`,
     readTime: fm.readTime ?? '',
   };
 }

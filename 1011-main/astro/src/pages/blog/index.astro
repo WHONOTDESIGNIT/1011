@@ -12,7 +12,7 @@ function resolveBaseUrl() {
 
 const pageTitle = t(locale, 'blog.meta.title');
 const pageDescription = t(locale, 'blog.meta.description');
-const canonical = `${resolveBaseUrl()}/${locale}/blog`;
+const canonical = `${resolveBaseUrl()}/blog`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
