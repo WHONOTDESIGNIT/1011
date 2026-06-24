@@ -33,7 +33,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang) && cookieLang !== "en") {
     // Non-English cookie → redirect to prefixed path
     currentUrl.pathname = `/${cookieLang}${currentPath}`;
-    return Response.redirect(currentUrl.toString(), 302);
+    return redirectWithStatus(currentUrl.toString(), 302);
   }
 
   // Check Accept-Language
@@ -52,7 +52,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
           sameSite: "strict",
           expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
         });
-        return Response.redirect(currentUrl.toString(), 302);
+        return redirectWithStatus(currentUrl.toString(), 302);
       }
     }
   }
@@ -67,6 +67,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
   });
   return next();
 });
+
+function redirectWithStatus(location: string, status: 301 | 302 | 307 | 308) {
+  return new Response(null, {
+    status,
+    headers: {
+      Location: location,
+    },
+  });
+}
 
 function parseAcceptLanguage(header: string): string[] {
   return header
