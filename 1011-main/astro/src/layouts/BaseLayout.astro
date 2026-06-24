@@ -554,9 +554,9 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 42px;
         height: 42px;
         border-radius: 9px;
-        background: #e6e6e6;
-        color: #454545;
-        border: none;
+        background: var(--section-bg, #F9FAFB);
+        color: var(--text-color, #333333);
+        border: 1px solid var(--border-color, #E5E5E5);
         cursor: pointer;
         z-index: 998;
         display: flex;
@@ -574,7 +574,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       #back-to-top:hover {
-        background: #d4d4d4;
+        background: var(--primary-color, #F58C28);
+        color: var(--color-white, #FFFFFF);
+        border-color: var(--primary-color, #F58C28);
       }
 
       @media (max-width: 1024px) {

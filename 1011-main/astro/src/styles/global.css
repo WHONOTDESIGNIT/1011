@@ -2,6 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #F58C28;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --border-color: #E5E5E5;
+  --text-color: #333333;
+  --lighter-text-color: #7B7B7B;
+  --section-bg: #F9FAFB;
+
+  --blog-author-name-color: #111827;
+  --blog-author-body-color: #374151;
+  --blog-author-role-text-color: #6b7280;
+  --blog-author-role-bg-color: #f3f4f6;
+  --blog-share-bg-color: #f7f7f7;
+  --blog-share-icon-color: #5c5c5c;
+  --blog-nav-link-color: #9ca3af;
+  --blog-all-articles-text-color: #334155;
+  --blog-all-articles-border-color: #e5e7eb;
+  --blog-nav-hover-color: #0f172a;
+
+  --divider-color: #eeeeee;
+}
+
+html,
+body {
+  background: var(--section-bg);
+  color: var(--text-color);
+}
+
+.bg-slate-50 {
+  background-color: var(--section-bg) !important;
+}
+
+.bg-slate-100 {
+  background-color: var(--blog-author-role-bg-color) !important;
+}
+
+.bg-slate-900,
+.bg-slate-950 {
+  background-color: var(--color-black) !important;
+}
+
+.text-slate-900,
+.text-slate-950 {
+  color: var(--color-black) !important;
+}
+
+.text-slate-700 {
+  color: var(--text-color) !important;
+}
+
+.text-slate-800 {
+  color: var(--blog-author-name-color) !important;
+}
+
+.text-slate-600,
+.text-slate-500 {
+  color: var(--lighter-text-color) !important;
+}
+
+.text-slate-400 {
+  color: var(--blog-author-role-text-color) !important;
+}
+
+.border-slate-200,
+.border-slate-300 {
+  border-color: var(--border-color) !important;
+}
+
+.text-sky-700,
+.text-sky-600,
+.text-violet-700 {
+  color: var(--primary-color) !important;
+}
+
+.hover\:text-sky-600:hover,
+.hover\:text-sky-700:hover,
+.hover\:text-violet-700:hover {
+  color: var(--primary-color) !important;
+}
+
+.focus\:border-violet-500:focus {
+  border-color: var(--primary-color) !important;
+}
+
+.hover\:bg-slate-800:hover {
+  background-color: var(--primary-color) !important;
+}
+
 section:has(> h2[class*="tracking-[0.22em]"][class*="text-slate-600"][class*="uppercase"][class*="font-semibold"][class*="text-sm"]) {
   position: absolute;
   width: 1px;

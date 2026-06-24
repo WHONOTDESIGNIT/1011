@@ -25,7 +25,7 @@ const { class: className } = Astro.props;
   }
 
   .chevron {
-    color: #999999;
+    color: var(--lighter-text-color, #7B7B7B);
     opacity: 0;
     will-change: opacity, transform;
   }
