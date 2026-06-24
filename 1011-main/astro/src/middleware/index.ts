@@ -1,15 +1,32 @@
 import { defineMiddleware } from "astro:middleware";
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "../config/i18n.ts";
 
-const LOCALE_PREFIX_REGEX = new RegExp(`^/(${SUPPORTED_LANGUAGES.join("|")})(/|$)`);
+const ROUTE_LANGUAGES = ["en", "es"] as const satisfies ReadonlyArray<SupportedLanguage>;
+const ROUTE_LOCALE_PREFIX_REGEX = new RegExp(`^/(${ROUTE_LANGUAGES.join("|")})(/|$)`);
+const SUPPORTED_LOCALE_PREFIX_REGEX = new RegExp(`^/(${SUPPORTED_LANGUAGES.join("|")})(/|$)`);
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { cookies, request } = context;
   const currentUrl = new URL(request.url);
   const currentPath = currentUrl.pathname;
 
+  const anyLocaleMatch = currentPath.match(SUPPORTED_LOCALE_PREFIX_REGEX);
+  const anyPathLocale = anyLocaleMatch ? (anyLocaleMatch[1] as SupportedLanguage) : null;
+  if (anyPathLocale && !ROUTE_LANGUAGES.includes(anyPathLocale)) {
+    const withoutPrefix = currentPath.replace(new RegExp(`^/${anyPathLocale}`), "") || "/";
+    currentUrl.pathname = withoutPrefix;
+    cookies.set("language", "en", {
+      path: "/",
+      secure: true,
+      httpOnly: true,
+      sameSite: "strict",
+      expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+    });
+    return redirectWithStatus(currentUrl.toString(), 302);
+  }
+
   // Check if URL has a locale prefix
-  const localeMatch = currentPath.match(LOCALE_PREFIX_REGEX);
+  const localeMatch = currentPath.match(ROUTE_LOCALE_PREFIX_REGEX);
   const pathLocale = localeMatch ? localeMatch[1] as SupportedLanguage : null;
 
   if (pathLocale) {
@@ -30,7 +47,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // No prefix → check cookie or Accept-Language
   const cookieLang = cookies.get("language")?.value as SupportedLanguage | undefined;
 
-  if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang) && cookieLang !== "en") {
+  if (cookieLang && ROUTE_LANGUAGES.includes(cookieLang) && cookieLang !== "en") {
     // Non-English cookie → redirect to prefixed path
     currentUrl.pathname = `/${cookieLang}${currentPath}`;
     return redirectWithStatus(currentUrl.toString(), 302);
@@ -43,7 +60,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     for (const lang of preferred) {
       if (lang.startsWith("en")) break; // English → stay on root
       const match = SUPPORTED_LANGUAGES.find((l) => lang.startsWith(l));
-      if (match && match !== "en") {
+      if (match && match !== "en" && ROUTE_LANGUAGES.includes(match)) {
         currentUrl.pathname = `/${match}${currentPath}`;
         cookies.set("language", match, {
           path: "/",
