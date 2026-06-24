@@ -165,7 +165,7 @@
     right: -6px;
     top: 50%;
     transform: translateY(-50%);
-    border-left: 6px solid var(--tooltip-bg, #09B83E);
+    border-left: 6px solid var(--tooltip-bg, var(--color-black, #000000));
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
   }
@@ -177,14 +177,14 @@
 
   .contact-part[data-type="email"] .tooltip,
   .contact-part[data-type="phone"] .tooltip {
-    --tooltip-bg: #2563EB;
-    background: #2563EB;
+    --tooltip-bg: var(--color-black, #000000);
+    background: var(--color-black, #000000);
     pointer-events: none;
   }
 
   .contact-part[data-type="wechat"] .tooltip {
-    --tooltip-bg: #09B83E;
-    background: #09B83E;
+    --tooltip-bg: var(--color-black, #000000);
+    background: var(--color-black, #000000);
   }
 
   .contact-part[data-type="wechat"] .tooltip::before {
@@ -197,8 +197,8 @@
   }
 
   .contact-part[data-type="whatsapp"] .tooltip {
-    --tooltip-bg: #075E54;
-    background: #075E54;
+    --tooltip-bg: var(--color-black, #000000);
+    background: var(--color-black, #000000);
   }
 
   .contact-part[data-type="wechat"]:hover .tooltip {
@@ -206,16 +206,16 @@
   }
 
   .contact-part[data-type="email"] {
-    background: #2563EB;
+    background: var(--color-black, #000000);
   }
   .contact-part[data-type="phone"] {
-    background: #2563EB;
+    background: var(--color-black, #000000);
   }
   .contact-part[data-type="wechat"] {
-    background: #2563EB;
+    background: var(--color-black, #000000);
   }
   .contact-part[data-type="whatsapp"] {
-    background: #2563EB;
+    background: var(--color-black, #000000);
   }
 
   .contact-part + .contact-part {
