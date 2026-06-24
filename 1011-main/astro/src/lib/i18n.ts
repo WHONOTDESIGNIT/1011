@@ -1,13 +1,9 @@
 import en from '../../../messages/en.json';
-import es from '../../../messages/es.json';
-import de from '../../../messages/de.json';
 
 type Messages = Record<string, unknown>;
 
 const messagesByLocale: Record<string, Messages> = {
   en: en as Messages,
-  es: es as Messages,
-  de: de as Messages,
 };
 
 function getValue(obj: unknown, key: string): unknown {

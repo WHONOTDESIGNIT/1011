@@ -1,7 +1,6 @@
 ---
 import { t } from '../lib/i18n';
 import { getLocalizedPath } from '../lib/breadcrumbs';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
 import criticalCss from '../styles/critical.css?raw';
@@ -214,36 +213,6 @@ const footerUtilityLinks = [
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
-    <section class:list={['top-0 z-40 flex items-start bg-transparent', stickyNav ? 'sticky' : '']}>
-      <div class="mx-auto flex w-full max-w-6xl items-center px-6" id="lang-bar-track">
-        <div id="lang-bar-anchor">
-          <LanguageSwitcher />
-        </div>
-      </div>
-      <script is:inline>
-      (function alignLangSwitcher() {
-        function position() {
-          var nav = document.querySelector('header nav');
-          var anchor = document.getElementById('lang-bar-anchor');
-          if (!nav || !anchor) return;
-          var links = nav.querySelectorAll('a');
-          var contact = links[links.length - 1];
-          if (!contact) return;
-          var contactRect = contact.getBoundingClientRect();
-          var track = document.getElementById('lang-bar-track');
-          if (!track) return;
-          var trackRect = track.getBoundingClientRect();
-          var offsetLeft = contactRect.right - trackRect.left + 4;
-          anchor.style.marginLeft = Math.max(0, offsetLeft) + 'px';
-        }
-        position();
-        window.addEventListener('resize', position);
-        var observer = new MutationObserver(position);
-        observer.observe(document.body, { childList: true, subtree: true, attributes: false });
-        setTimeout(position, 300);
-      })();
-      </script>
-    </section>
     <header class:list={['top-0 z-30 border-b border-transparent', stickyNav ? 'sticky' : '']}>
       <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
         <a class="logo-link flex items-center gap-3" href={getLocalizedPath(lang)} aria-label="iShine IPL Manufacturing – Home">

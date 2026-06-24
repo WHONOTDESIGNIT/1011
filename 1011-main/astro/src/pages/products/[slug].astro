@@ -540,7 +540,7 @@ const displayedSpecs = product.specs.filter((spec) => !hiddenSpecLabels.has(spec
 
 const pageTitle = product.name;
 const pageDescription = product.description;
-const canonical = `https://iplmanufacturer.com/${locale}/products/${slug}`;
+const canonical = `https://iplmanufacturer.com/products/${slug}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.products'), path: '/products' },
