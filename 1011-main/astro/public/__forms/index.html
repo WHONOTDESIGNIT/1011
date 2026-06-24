@@ -40,5 +40,53 @@
       </select>
       <textarea name="message"></textarea>
     </form>
+
+    <form name="product-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="product-inquiry" />
+      <p>
+        <label>Do not fill this field: <input name="bot-field" /></label>
+      </p>
+      <input type="hidden" name="locale" value="en" />
+      <input type="hidden" name="page" value="products" />
+      <input type="hidden" name="productSlug" value="" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="tel" name="phone" />
+      <select name="product">
+        <option value="IPL Hair Removal Devices">IPL Hair Removal Devices</option>
+        <option value="Custom OEM/ODM Project">Custom OEM/ODM Project</option>
+        <option value="IPL Components Only">IPL Components Only</option>
+        <option value="Skin Rejuvenation Device">Skin Rejuvenation Device</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+      <select name="quantity">
+        <option value="100 - 500 units">100 - 500 units</option>
+        <option value="500 - 1,000 units">500 - 1,000 units</option>
+        <option value="1,000 - 5,000 units">1,000 - 5,000 units</option>
+        <option value="5,000+ units">5,000+ units</option>
+        <option value="Still planning">Still planning</option>
+      </select>
+      <select name="timeline">
+        <option value="As soon as possible">As soon as possible</option>
+        <option value="1 - 3 months">1 - 3 months</option>
+        <option value="3 - 6 months">3 - 6 months</option>
+        <option value="6 - 12 months">6 - 12 months</option>
+        <option value="Researching only">Researching only</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="blog-comment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="blog-comment" />
+      <p>
+        <label>Do not fill this field: <input name="bot-field" /></label>
+      </p>
+      <input type="hidden" name="slug" value="" />
+      <input type="hidden" name="url" value="" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>

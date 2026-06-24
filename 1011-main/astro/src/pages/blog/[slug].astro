@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { getPostBySlug, getRelatedPosts } from '../../lib/blog';
+import { getAllPosts, getPostBySlug, getRelatedPosts } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
@@ -17,6 +17,10 @@ function resolveBaseUrl() {
 }
 
 const Content = post.Content as any;
+const allPosts = await getAllPosts(locale);
+const currentIndex = allPosts.findIndex((p) => p.slug === post.meta.slug);
+const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+const olderPost = currentIndex >= 0 && currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 const related = await getRelatedPosts(locale, post.meta.slug, post.meta.category, 3);
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -28,6 +32,11 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
+const shareUrl = encodeURIComponent(canonical);
+const shareTitle = encodeURIComponent(post.meta.title);
+const facebookShareHref = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+const xShareHref = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`;
+const emailShareHref = `mailto:?subject=${shareTitle}&body=${shareUrl}`;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -85,160 +94,719 @@ const articleSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </Fragment>
 
-  <article class="mx-auto max-w-5xl space-y-42">
-    <header class="space-y-6">
+  <article class="blog-layout">
+    <div class="container--narrow blog-breadcrumbs">
       <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
+    </div>
 
-      <div class="space-y-2">
-        <div class="flex flex-wrap items-center gap-3 text-sm text-slate-600">
-          {post.meta.category
-            ? <span class="rounded-2xl border border-slate-200 bg-white px-3 py-1 font-medium text-slate-700">{post.meta.category}</span>
-            : null}
-        </div>
-        <h1 class="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl lg:text-6xl">{post.meta.title}</h1>
-        {pageDescription
-          ? <p class="max-w-3xl text-lg leading-relaxed text-slate-600">{pageDescription}</p>
-          : null}
+    <header class="container--narrow blog-article-header">
+      <div class="article-tags">
+        {post.meta.category ? <span class="article-tag">{post.meta.category}</span> : null}
       </div>
-
-      <div class="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-6 text-sm text-slate-500">
-        <div class="flex items-center gap-3">
-          {post.meta.authorAvatar
-            ? (
-              <img
-                src={post.meta.authorAvatar}
-                alt={post.meta.author}
-                class="h-10 w-10 rounded-2xl object-cover"
-                loading="lazy"
-              />
-            )
-            : (
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-500">
-                {(post.meta.author || 'I').slice(0, 1)}
-              </span>
-            )}
-          <div class="leading-tight">
-            <span class="block text-xs uppercase tracking-[0.18em] text-slate-400">{t(locale, 'blog.post.authorLabel')}</span>
-            <span class="block font-semibold text-slate-800">{post.meta.author}</span>
+      <h1 class="article-title">{post.meta.title}</h1>
+      {pageDescription ? <p class="article-subtitle">{pageDescription}</p> : null}
+      <div class="article-meta">
+        <div class="article-meta__author">
+          {post.meta.authorAvatar ? (
+            <img
+              src={post.meta.authorAvatar}
+              alt={post.meta.author}
+              class="article-meta__avatar"
+              loading="lazy"
+              width="56"
+              height="56"
+            />
+          ) : (
+            <span class="article-meta__avatar article-meta__avatar--fallback">
+              {(post.meta.author || 'I').slice(0, 1)}
+            </span>
+          )}
+          <div class="article-meta__byline">
+            <span class="article-meta__label">{t(locale, 'blog.post.authorLabel')}</span>
+            <span class="article-meta__name">{post.meta.author}</span>
           </div>
         </div>
-        {post.meta.date ? <time class="ml-auto">{post.meta.date}</time> : null}
+        <div class="article-meta__details">
+          {post.meta.readTime ? <span>{post.meta.readTime}</span> : null}
+          {post.meta.date ? <time>{post.meta.date}</time> : null}
+        </div>
       </div>
     </header>
 
-    <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is this article about?</h3>
-      <p class="mt-4 text-lg leading-relaxed text-slate-700">
-        This article explains {post.meta.title} for teams evaluating or building private-label IPL hair removal products. It covers practical considerations for OEM/ODM execution, including how manufacturing choices can influence product experience, compliance planning, and launch readiness. The goal is to provide a self-contained overview that readers can reference when comparing options, preparing RFQs, or aligning internal stakeholders on requirements. Where relevant, the discussion connects component-level decisions (such as cooling, filters, lamp cartridges, sensors, and power design) with end-user comfort and repeatable production outcomes. The key takeaway is a clearer set of decision criteria you can use to reduce risk and move from concept to scalable manufacturing with fewer iterations.
-      </p>
-    </section>
-
-    {post.meta.image
-      ? (
-        <figure class="-mx-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm sm:mx-0">
-          <div class="aspect-[16/9]">
+    <section class="container--narrow">
+      {post.meta.image ? (
+        <figure class="article-hero">
+          <div class="article-hero__media">
             <img
               src={post.meta.image}
               alt={post.meta.title}
               loading="eager"
-              class="h-full w-full object-cover"
+              class="article-hero__img"
             />
           </div>
         </figure>
-      )
-      : null}
+      ) : null}
 
-    <div class="mx-auto max-w-3xl">
       <div class="blog-content">
         <Content />
       </div>
+    </section>
 
-      <div class="mt-14 rounded-2xl bg-slate-950 px-8 py-10 text-white">
-        <div class="mx-auto max-w-xl text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'blog.post.ctaTitle')}</p>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight">{t(locale, 'blog.post.ctaHeading')}</h2>
-          <p class="mt-4 text-sm leading-relaxed text-slate-300">{t(locale, 'blog.post.ctaDescription')}</p>
-          <div class="mt-6 flex flex-wrap justify-center gap-3">
-            <a
-              class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-              href={getLocalizedPath(locale, '/contact')}
-            >
-              {t(locale, 'blog.post.ctaPrimary')}
+    {related.length ? (
+      <section class="container--medium blog-related">
+        <div class="blog-section-header">
+          <h2 class="blog-section-title">Recent Posts</h2>
+        </div>
+        <div class="related-grid">
+          {related.map((p) => (
+            <a class="article-card-mini" href={p.href}>
+              <div class="article-card-mini__image-wrapper">
+                {p.image ? (
+                  <img class="article-card-mini__image" src={p.image} alt={p.title} loading="lazy" />
+                ) : (
+                  <div class="article-card-mini__image-placeholder">{t(locale, 'blog.common.noImage')}</div>
+                )}
+              </div>
+              <div class="article-card-mini__body">
+                <h3 class="article-card-mini__title">{p.title}</h3>
+                <p class="article-card-mini__excerpt">{p.excerpt}</p>
+                {p.date ? <time class="article-card-mini__date">{p.date}</time> : null}
+              </div>
             </a>
-            <a
-              class="rounded-2xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              href={getLocalizedPath(locale, '/products')}
-            >
-              {t(locale, 'blog.post.ctaSecondary')}
-            </a>
-          </div>
+          ))}
+        </div>
+      </section>
+    ) : null}
+
+    <section class="container--medium blog-author">
+      <div class="author-bio-card">
+        <div class="author-bio-card__left">
+          {post.meta.authorAvatar ? (
+            <img
+              src={post.meta.authorAvatar}
+              alt={post.meta.author}
+              class="author-bio-card__image"
+              loading="lazy"
+              width="120"
+              height="120"
+            />
+          ) : (
+            <div class="author-bio-card__image author-bio-card__image--fallback">{(post.meta.author || 'I').slice(0, 1)}</div>
+          )}
+        </div>
+        <div class="author-bio-card__content">
+          <div class="author-bio-card__name">{post.meta.author}</div>
+          <div class="author-bio-card__role">Contributor</div>
+          <p class="author-bio-card__bio">
+            iShine publishes practical guidance for brands and sourcing teams building private-label IPL hair removal products, focused on OEM/ODM execution, component decisions, and launch readiness.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    {related.length
-      ? (
-        <section class="space-y-8">
-          <div class="flex items-end justify-between gap-4 border-b border-slate-200 pb-6">
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">{t(locale, 'blog.post.relatedTitle')}</p>
-              <h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-900">{t(locale, 'blog.post.continueReadingTitle')}</h2>
-            </div>
-            <a
-              class="hidden flex-shrink-0 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 md:inline-flex"
-              href={getLocalizedPath(locale, '/blog#blog-archive')}
-            >
-              {t(locale, 'blog.post.viewAllArticles')}
-            </a>
-          </div>
-          <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {related.map((p) => (
-              <a
-                class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                href={p.href}
-              >
-                {p.image
-                  ? (
-                    <div class="aspect-[16/10] overflow-hidden bg-slate-100">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        loading="lazy"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  )
-                  : (
-                    <div class="flex aspect-[16/10] items-end bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-                      <span class="rounded-2xl bg-white/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-                        {t(locale, 'blog.common.noImage')}
-                      </span>
-                    </div>
-                  )}
-                <div class="space-y-3 p-5">
-                  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                    {p.category
-                      ? <span class="rounded-2xl bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600">{p.category}</span>
-                      : null}
-                  </div>
-                  <h3 class="text-lg font-semibold leading-snug tracking-tight text-slate-900">{p.title}</h3>
-                  <p class="text-sm leading-relaxed text-slate-600">{p.excerpt}</p>
-                  <span class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 transition group-hover:gap-2">
-                    {t(locale, 'blog.post.relatedCta')}
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )
-      : null}
+    <section class="container--narrow blog-share">
+      <div class="blog-section-header">
+        <h2 class="blog-section-title">Share this article</h2>
+      </div>
+      <div class="share-buttons">
+        <a class="share-buttons__link" href={facebookShareHref} target="_blank" rel="noreferrer">Facebook</a>
+        <a class="share-buttons__link" href={xShareHref} target="_blank" rel="noreferrer">X</a>
+        <a class="share-buttons__link" href={emailShareHref}>Email</a>
+      </div>
+    </section>
+
+    <nav class="container--narrow blog-article-nav" aria-label="Article navigation">
+      <div class="article-nav__inner">
+        {olderPost ? (
+          <a class="article-nav__back" href={olderPost.href} aria-label="Previous article">
+            ← Previous
+          </a>
+        ) : (
+          <span></span>
+        )}
+        <a class="article-nav__all" href={getLocalizedPath(locale, '/blog#blog-archive')}>
+          All Articles
+        </a>
+        {newerPost ? (
+          <a class="article-nav__next" href={newerPost.href} aria-label="Next article">
+            Next →
+          </a>
+        ) : (
+          <span></span>
+        )}
+      </div>
+    </nav>
+
+    <section class="container--narrow blog-comments">
+      <div class="blog-section-header">
+        <h2 class="blog-section-title">Leave a comment</h2>
+      </div>
+      <form
+        name="blog-comment"
+        method="POST"
+        action="/__forms/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        class="comment-form"
+      >
+        <input type="hidden" name="form-name" value="blog-comment" />
+        <input type="hidden" name="slug" value={post.meta.slug} />
+        <input type="hidden" name="url" value={canonical} />
+        <p class="comment-form__honeypot">
+          <label>
+            Do not fill this field:
+            <input name="bot-field" />
+          </label>
+        </p>
+        <div class="comment-form__row">
+          <label class="comment-form__field">
+            <span>Name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label class="comment-form__field">
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+        </div>
+        <label class="comment-form__field">
+          <span>Message</span>
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <button class="comment-form__submit" type="submit">Post Comment</button>
+      </form>
+    </section>
   </article>
 </BaseLayout>
 
 <style is:global>
+  .blog-layout {
+    padding: 3rem 0 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .container--narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .container--medium {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .blog-breadcrumbs {
+    padding-bottom: 0.25rem;
+  }
+
+  .blog-article-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .article-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+    color: var(--blog-author-role-text-color, #6b7280);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .article-title {
+    font-size: 42px;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    color: var(--color-black, #000000);
+    margin: 0;
+  }
+
+  .article-subtitle {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--lighter-text-color, #7B7B7B);
+    max-width: 60ch;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-color, #E5E5E5);
+    padding-bottom: 18px;
+    margin-top: 8px;
+  }
+
+  .article-meta__author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .article-meta__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border: 4px solid var(--color-white, #FFFFFF);
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+  }
+
+  .article-meta__avatar--fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--blog-author-name-color, #111827);
+  }
+
+  .article-meta__byline {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .article-meta__label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blog-nav-link-color, #9ca3af);
+  }
+
+  .article-meta__name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blog-author-name-color, #111827);
+  }
+
+  .article-meta__details {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--lighter-text-color, #7B7B7B);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .article-hero {
+    margin: 0 auto 2.5rem;
+    max-width: 760px;
+  }
+
+  .article-hero__media {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+  }
+
+  .article-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-content img {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-section-header {
+    border-top: 1px solid var(--divider-color, #eeeeee);
+    padding-top: 22px;
+    margin-bottom: 18px;
+  }
+
+  .blog-section-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-black, #000000);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .article-card-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .article-card-mini__image-wrapper {
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .article-card-mini__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .article-card-mini:hover .article-card-mini__image {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+  .article-card-mini__image-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--blog-nav-link-color, #9ca3af);
+  }
+
+  .article-card-mini__body {
+    display: grid;
+    gap: 8px;
+  }
+
+  .article-card-mini__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    min-height: calc(1.1rem * 1.4 * 3);
+    color: var(--color-black, #000000);
+    margin: 0;
+  }
+
+  .article-card-mini__excerpt {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--blog-author-body-color, #374151);
+    margin: 0;
+  }
+
+  .article-card-mini__date {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blog-nav-link-color, #9ca3af);
+  }
+
+  .author-bio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 24px;
+    background: var(--color-white, #FFFFFF);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .author-bio-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--blog-author-name-color, #111827) 0%, var(--blog-author-body-color, #374151) 100%);
+  }
+
+  .author-bio-card__left {
+    padding-left: 8px;
+  }
+
+  .author-bio-card__image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--color-white, #FFFFFF);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    object-fit: cover;
+    display: block;
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+    color: var(--blog-author-name-color, #111827);
+  }
+
+  .author-bio-card__image--fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 38px;
+  }
+
+  .author-bio-card__content {
+    display: grid;
+    gap: 10px;
+    padding-left: 12px;
+  }
+
+  .author-bio-card__name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--blog-author-name-color, #111827);
+  }
+
+  .author-bio-card__role {
+    display: inline-flex;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blog-author-role-text-color, #6b7280);
+    background: var(--blog-author-role-bg-color, #f3f4f6);
+    border-radius: 999px;
+    padding: 6px 10px;
+  }
+
+  .author-bio-card__bio {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--blog-author-body-color, #374151);
+  }
+
+  .share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .share-buttons__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--blog-share-bg-color, #f7f7f7);
+    color: var(--blog-share-icon-color, #5c5c5c);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  }
+
+  .share-buttons__link:hover {
+    background: var(--blog-nav-hover-color, #0f172a);
+    color: var(--color-white, #FFFFFF);
+    transform: translateY(-2px);
+  }
+
+  .article-nav__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 32px;
+    border-top: 1px solid var(--divider-color, #eeeeee);
+    padding-top: 22px;
+  }
+
+  .article-nav__back,
+  .article-nav__next {
+    min-width: 190px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blog-all-articles-border-color, #e5e7eb);
+    border-radius: 999px;
+    background: var(--color-white, #FFFFFF);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blog-all-articles-text-color, #334155);
+    text-decoration: none;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+
+  .article-nav__back:hover,
+  .article-nav__next:hover {
+    background: var(--blog-nav-hover-color, #0f172a);
+    border-color: var(--blog-nav-hover-color, #0f172a);
+    color: var(--color-white, #FFFFFF);
+  }
+
+  .article-nav__next {
+    justify-self: end;
+  }
+
+  .article-nav__all {
+    min-width: 190px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blog-all-articles-border-color, #e5e7eb);
+    border-radius: 999px;
+    background: var(--color-white, #FFFFFF);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blog-all-articles-text-color, #334155);
+    text-decoration: none;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+
+  .article-nav__all:hover {
+    background: var(--blog-nav-hover-color, #0f172a);
+    border-color: var(--blog-nav-hover-color, #0f172a);
+    color: var(--color-white, #FFFFFF);
+  }
+
+  .comment-form {
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    background: var(--color-white, #FFFFFF);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+
+  .comment-form__honeypot {
+    display: none;
+  }
+
+  .comment-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .comment-form__field {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--blog-author-name-color, #111827);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .comment-form__field input,
+  .comment-form__field textarea {
+    width: 100%;
+    border: 1px solid var(--border-color, #E5E5E5);
+    border-radius: 18px;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--text-color, #333333);
+    background: var(--section-bg, #F9FAFB);
+    outline: none;
+  }
+
+  .comment-form__field input:focus,
+  .comment-form__field textarea:focus {
+    border-color: var(--primary-color, #F58C28);
+    background: var(--color-white, #FFFFFF);
+  }
+
+  .comment-form__submit {
+    height: 54px;
+    border-radius: 999px;
+    border: 1px solid var(--color-black, #000000);
+    background: var(--color-black, #000000);
+    color: var(--color-white, #FFFFFF);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .comment-form__submit:hover {
+    background: var(--blog-nav-hover-color, #0f172a);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 34px;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-nav__inner {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .article-nav__next {
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .author-bio-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .author-bio-card__left {
+      padding-left: 0;
+    }
+
+    .author-bio-card__content {
+      padding-left: 0;
+      justify-items: center;
+    }
+
+    .comment-form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .blog-content {
     font-size: 1.0625rem;
     line-height: 1.8;
