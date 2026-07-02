@@ -52,9 +52,11 @@ export async function GET() {
       '/components/cooling-system',
       '/components/power-supply',
       '/clients',
+      '/catalogue',
       '/faq',
       '/contact',
       '/media',
+      '/privacy-policy',
       '/blog',
     ];
 

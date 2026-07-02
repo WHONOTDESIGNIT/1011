@@ -58,12 +58,13 @@ type Props = {
   lang?: string;
   description?: string;
   canonical?: string;
+  image?: string;
   type?: 'website' | 'article';
   showCornerMarkers?: boolean;
   stickyNav?: boolean;
 };
 
-const { title, lang = 'en', description, canonical, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
 const canonicalUrl = canonical || new URL(Astro.request.url).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const productLinks = [
@@ -165,6 +166,7 @@ const footerUtilityLinks = [
   { href: getLocalizedPath(lang, '/contact'), label: 'Contact' },
   { href: getLocalizedPath(lang, '/faq'), label: 'FAQ' },
   { href: getLocalizedPath(lang, '/blog'), label: 'Blog' },
+  { href: getLocalizedPath(lang, '/privacy-policy'), label: 'Privacy Policy' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ];
 ---
@@ -199,8 +201,8 @@ const footerUtilityLinks = [
       inLanguage: lang,
       publisher: { '@id': 'https://iplmanufacturer.com/#organization' },
     })}></script>
-    <meta property="og:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
-    <meta name="twitter:image" content="/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png" />
+    <meta property="og:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
+    <meta name="twitter:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
     <link rel="icon" type="image/svg+xml" href="/images/logos/LOGO-SVG.svg" />
     <link rel="preconnect" href="https://images.pexels.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
