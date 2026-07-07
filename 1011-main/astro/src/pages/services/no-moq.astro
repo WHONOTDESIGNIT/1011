@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+const highlights = [
+  {
+    title: 'Lower risk launch',
+    description: 'Validate positioning, pricing, and channel fit without committing to large inventory.',
+    items: ['Small trial runs', 'Mix-SKU pilot orders', 'Faster iteration loops', 'Data-driven next batch'],
+  },
+  {
+    title: 'Repeatable scale-up',
+    description: 'A predictable replenishment flow so you can grow volume without chaos.',
+    items: ['Forecast-based planning', 'Capacity reservation options', 'Stable BOM control', 'On-time dispatch routines'],
+  },
+  {
+    title: 'Brand-ready from day one',
+    description: 'Even small orders can be professionally branded and channel-compliant.',
+    items: ['Logo and labeling', 'Box and inserts', 'Manual customization', 'Accessory selection'],
+  },
+];
+---
+
+<BaseLayout title="No MOQ Branding Support | iShine" lang={locale} description="No MOQ support for IPL private-label launches: start small, validate demand, then scale with repeatable replenishment and brand-ready packaging.">
+  <div class="space-y-60">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-violet-50 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(168,85,247,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.12),_transparent_30%)]" />
+      <div class="relative mx-auto max-w-5xl">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          No MOQ,
+          <span class="block bg-gradient-to-r from-violet-600 to-sky-600 bg-clip-text text-transparent">A Smarter Way to Start</span>
+        </h1>
+        <p class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+          Launch your branded IPL device without forcing large inventory bets. Start with a small pilot batch, learn fast, then scale with a stable replenishment workflow.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+            Talk to a Specialist
+          </a>
+          <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services')}>
+            Back to Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What does “No MOQ” mean for a private-label IPL launch?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        “No MOQ” means you can start a branded IPL program with a smaller pilot quantity to validate your channel and messaging, then scale production through repeat orders instead of committing to large upfront inventory. A practical No MOQ setup includes clear branding requirements, defined packaging and manual content, stable bill of materials control, and a replenishment plan that supports predictable lead times as volume grows. The goal is to reduce launch risk while preserving a professional brand presentation.
+      </p>
+    </section>
+
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Highlights</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">What you get with No MOQ support</h2>
+        <p class="mt-4 text-lg text-slate-700">Designed for brand owners who want speed, flexibility, and a clean path to scale.</p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        {highlights.map((card) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-xl font-semibold tracking-tight text-slate-900">{card.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{card.description}</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-700">
+              {card.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-2xl bg-violet-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
