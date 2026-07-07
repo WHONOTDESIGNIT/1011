@@ -15,7 +15,6 @@ const pageDescription =
 const canonical = `${resolveBaseUrl()}/faq`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
-  { label: t(locale, 'nav.about'), path: '/about' },
   { label: t(locale, 'nav.faq') },
 ]);
 
@@ -24,26 +23,48 @@ const faqCategories = [
     id: 'general-about-ishine',
     title: 'General About iShine',
     description: 'High-level answers for sourcing teams, brand founders, and retail buyers evaluating iShine as a manufacturing partner.',
+    relatedLinks: [
+      { label: 'Explore Services', href: getLocalizedPath(locale, '/services') },
+      { label: 'Compare IPL Models', href: getLocalizedPath(locale, '/catalogue') },
+      { label: 'View Products', href: getLocalizedPath(locale, '/products') },
+      { label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') },
+    ],
     faqs: [
       {
         question: 'What does iShine specialize in?',
         answer:
           'iShine specializes in OEM and ODM manufacturing for IPL beauty devices, with capabilities spanning concept development, engineering, production, packaging, and export support for global beauty brands.',
+        links: [
+          { label: 'OEM / ODM Services', href: getLocalizedPath(locale, '/services/oem-odm') },
+          { label: 'Manufacturing Capabilities', href: getLocalizedPath(locale, '/about/manufacturing-capabilities') },
+        ],
       },
       {
         question: 'Who do you typically work with?',
         answer:
           'We commonly support beauty brands, private label startups, distributors, sourcing teams, retailers, and market expansion teams that need reliable IPL product development and manufacturing support.',
+        links: [
+          { label: 'View Clients', href: getLocalizedPath(locale, '/clients') },
+          { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'Do you support both consumer and professional product lines?',
         answer:
           'Yes. We manufacture home-use IPL devices, salon-oriented systems, and configurable product families that can be adapted to different positioning, channels, and market requirements.',
+        links: [
+          { label: 'Browse Products', href: getLocalizedPath(locale, '/products') },
+          { label: 'Compare Models', href: getLocalizedPath(locale, '/catalogue') },
+        ],
       },
       {
         question: 'What makes iShine a fit for long-term manufacturing partnerships?',
         answer:
           'Our value is in combining engineering, quality systems, manufacturing execution, and export coordination in one workflow, which helps brands reduce handoff risk and scale more predictably.',
+        links: [
+          { label: 'Quality Control', href: getLocalizedPath(locale, '/about/quality-control') },
+          { label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
     ],
   },
@@ -51,26 +72,44 @@ const faqCategories = [
     id: 'oem-odm-services',
     title: 'OEM / ODM Services',
     description: 'Questions about manufacturing models, customization scope, and project setup for branded device programs.',
+    relatedLinks: [
+      { label: 'OEM / ODM Overview', href: getLocalizedPath(locale, '/services/oem-odm') },
+      { label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') },
+      { label: 'Product Design', href: getLocalizedPath(locale, '/services/product-design') },
+      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: 'Get a Quote', href: getLocalizedPath(locale, '/contact') },
+    ],
     faqs: [
       {
         question: 'What is the difference between OEM and ODM services?',
         answer:
           'OEM (Original Equipment Manufacturing) means we manufacture products based on your exact design specifications. ODM (Original Design Manufacturing) means we provide both design and manufacturing - you can select from our existing designs and customize them with your branding. Both options offer full customization of packaging, colors, and features.',
+        links: [{ label: 'Learn about OEM/ODM', href: getLocalizedPath(locale, '/services/oem-odm') }],
       },
       {
         question: 'What is the minimum order quantity (MOQ)?',
         answer:
           'Our standard MOQ starts at 500 units for most products. For early-stage brands or pilot programs, we can discuss sample orders, validation runs, or phased launch planning based on project scope.',
+        links: [{ label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') }],
       },
       {
         question: 'Can you customize the device design and features?',
         answer:
           'Absolutely. We offer full customization including industrial design, color schemes, logo printing, custom packaging, firmware modifications, app integration, and feature customization such as energy levels, flash modes, and cooling systems. Our R&D team works closely with you to bring your vision to life.',
+        links: [
+          { label: 'Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') },
+          { label: 'Box Customization', href: getLocalizedPath(locale, '/services/box-custom') },
+          { label: 'User Manual Custom', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+        ],
       },
       {
         question: 'How long does the OEM/ODM process take from concept to delivery?',
         answer:
           'Typical timelines range from 8-16 weeks depending on the level of customization. Simple branding projects can move faster, while projects involving industrial design changes, tooling, electronics, firmware, or compliance work require a longer schedule.',
+        links: [
+          { label: 'Production & Assembly', href: getLocalizedPath(locale, '/services/production-assembly') },
+          { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
     ],
   },
@@ -78,26 +117,39 @@ const faqCategories = [
     id: 'product-customization',
     title: 'Product Customization & IPL Basics',
     description: 'Practical answers on features, treatment positioning, and product-use education that supports both sales and launch readiness.',
+    relatedLinks: [
+      { label: 'Compare Models in Catalogue', href: getLocalizedPath(locale, '/catalogue') },
+      { label: 'View Products', href: getLocalizedPath(locale, '/products') },
+      { label: 'Branding Services', href: getLocalizedPath(locale, '/services') },
+      { label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') },
+    ],
     faqs: [
       {
         question: 'What types of IPL devices does iShine manufacture?',
         answer:
           'We manufacture IPL devices for hair removal, skin rejuvenation, and acne-care positioning. Programs can range from ready-to-brand models to more customized private label product platforms.',
+        links: [
+          { label: 'Explore Products', href: getLocalizedPath(locale, '/products') },
+          { label: 'Compare Models', href: getLocalizedPath(locale, '/catalogue') },
+        ],
       },
       {
         question: 'What is the difference between sapphire cooling and standard IPL systems?',
         answer:
           'Sapphire cooling helps manage skin-contact comfort during treatment and can improve the perceived user experience. Standard IPL platforms may offer strong performance as well, but sapphire-based systems are often chosen for premium positioning and comfort-led marketing.',
+        links: [{ label: 'See Cooling Models in Catalogue', href: getLocalizedPath(locale, '/catalogue') }],
       },
       {
         question: 'Are your IPL devices suitable for all skin tones?',
         answer:
           "Most models are suitable for Fitzpatrick skin types I-V, depending on device configuration and safety settings. Compatibility should always be confirmed at the product level before launch claims or market rollout.",
+        links: [{ label: 'Read Fitzpatrick Skin Types Guide', href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick') }],
       },
       {
         question: 'Can you help us shape the product story for our market?',
         answer:
           'Yes. We can support positioning discussions around feature sets, user comfort, treatment areas, packaging direction, and documentation so the final product aligns with your target customer and channel expectations.',
+        links: [{ label: 'Explore Services', href: getLocalizedPath(locale, '/services') }],
       },
     ],
   },
@@ -105,16 +157,28 @@ const faqCategories = [
     id: 'ipl-education-safety',
     title: 'IPL Education & Safety (Consumer FAQs)',
     description: 'Customer-facing questions about how IPL works, typical usage patterns, comfort, and safety precautions. Useful for FAQ pages, manuals, and launch-ready support content.',
+    relatedLinks: [
+      { label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+      { label: 'Compare IPL Models', href: getLocalizedPath(locale, '/catalogue') },
+      { label: 'Fitzpatrick Safety Guide', href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick') },
+      { label: 'Explore Services', href: getLocalizedPath(locale, '/services') },
+      { label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') },
+    ],
     faqs: [
       {
         question: 'What is IPL and how does an IPL handset reduce hair growth?',
         answer:
           'IPL stands for Intense Pulsed Light. The handset emits pulses of filtered light that are absorbed by pigment in the hair. That energy converts to heat near the follicle, which can reduce hair regrowth over repeated sessions. With consistent use, many users see slower regrowth and finer hair density over time.',
+        links: [{ label: 'Browse IPL Devices', href: getLocalizedPath(locale, '/products') }],
       },
       {
         question: 'Is IPL hair removal safe? Can IPL cause cancer?',
         answer:
           'IPL is widely used for hair reduction in both consumer and professional settings. Standard IPL hair removal devices use filtered light and are designed to minimize UV exposure; there is no good evidence that properly used IPL hair removal causes cancer. For safety, follow the instructions, avoid treating broken or irritated skin, and consult a clinician if you have a medical condition or take photosensitizing medication.',
+        links: [
+          { label: 'Fitzpatrick Safety Guide', href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick') },
+          { label: 'Compare Models', href: getLocalizedPath(locale, '/catalogue') },
+        ],
       },
       {
         question: 'Does IPL treatment hurt?',
@@ -140,11 +204,16 @@ const faqCategories = [
         question: 'Does IPL work for my skin tone and hair color?',
         answer:
           'IPL works best when there is contrast between hair pigment and skin tone, because the light targets melanin in the hair. It may be less effective on very light blonde, red, or grey hair. Very dark or recently sunburned skin may carry a higher burn risk. Always follow the skin tone compatibility chart and guidance for the specific device configuration.',
+        links: [
+          { label: 'Fitzpatrick Safety Guide', href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick') },
+          { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'Will an IPL handset work in my country (voltage and plug type)?',
         answer:
           'Most modern IPL handsets are designed for global use with dual-voltage power supplies (commonly 110V–240V). Plug types and adapters depend on the destination country and the final packaging configuration. Confirm the exact power spec and included plug type for the model you plan to launch.',
+        links: [{ label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') }],
       },
       {
         question: 'Do I need to shave before using IPL? What other hair removal methods are compatible?',
@@ -207,26 +276,45 @@ const faqCategories = [
     id: 'compliance-quality',
     title: 'Certification, Compliance & Quality',
     description: 'Answers focused on testing, documentation, certifications, and manufacturing control for regulated or quality-sensitive markets.',
+    relatedLinks: [
+      { label: 'Quality Control', href: getLocalizedPath(locale, '/about/quality-control') },
+      { label: 'Manufacturing Capabilities', href: getLocalizedPath(locale, '/about/manufacturing-capabilities') },
+      { label: 'Company Profile', href: getLocalizedPath(locale, '/about/company-profile') },
+      { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+    ],
     faqs: [
       {
         question: 'What certifications do your products have?',
         answer:
           'Product certifications depend on the model and market. Common support areas include CE, FDA-related documentation pathways, IEC safety standards, and quality-system documentation required for target-region review.',
+        links: [
+          { label: 'Quality Control', href: getLocalizedPath(locale, '/about/quality-control') },
+          { label: 'Contact for Market Requirements', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'Can you help with regulatory compliance in our destination market?',
         answer:
           'Yes. We support documentation preparation, test coordination, and compliance communication for many common market-entry requirements. Final regulatory strategy should always be confirmed against your local legal and certification needs.',
+        links: [
+          { label: 'Quality Control', href: getLocalizedPath(locale, '/about/quality-control') },
+          { label: 'Start Compliance Discussion', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'What quality control measures do you have in place?',
         answer:
           'Our process includes incoming material inspection, in-process checks, functional testing, safety verification, cosmetic inspection, and pre-shipment review. This helps reduce variability before products reach your warehouse or channel partner.',
+        links: [
+          { label: 'Quality Control', href: getLocalizedPath(locale, '/about/quality-control') },
+          { label: 'Manufacturing Capabilities', href: getLocalizedPath(locale, '/about/manufacturing-capabilities') },
+        ],
       },
       {
         question: 'Do you provide after-sales and warranty support?',
         answer:
           'Yes. We support after-sales coordination with troubleshooting guidance, spare parts planning, and warranty process discussion so your customer experience and internal service workflow remain manageable after launch.',
+        links: [{ label: 'Contact Support', href: getLocalizedPath(locale, '/contact') }],
       },
     ],
   },
@@ -234,26 +322,42 @@ const faqCategories = [
     id: 'moq-lead-time-logistics',
     title: 'MOQ, Lead Time, Packaging & Logistics',
     description: 'Commercial and fulfillment topics covering sample requests, production timing, packaging, and international delivery planning.',
+    relatedLinks: [
+      { label: 'Request a Sample', href: getLocalizedPath(locale, '/contact') },
+      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: 'Dropshipping', href: getLocalizedPath(locale, '/services/dropshipping') },
+      { label: 'Production & Assembly', href: getLocalizedPath(locale, '/services/production-assembly') },
+    ],
     faqs: [
       {
         question: 'How do I request a sample?',
         answer:
           'You can request a sample through our contact page or by emailing service@ishineco.com. Sample planning usually starts with your target market, desired positioning, and whether you need a standard or customized configuration.',
+        links: [{ label: 'Request a Sample', href: getLocalizedPath(locale, '/contact') }],
       },
       {
         question: 'What is the typical production lead time for bulk orders?',
         answer:
           'Production lead time depends on order size, bill of materials, packaging complexity, and certification status. Standard runs often move faster, while custom projects need additional time for validation, sourcing, and approvals.',
+        links: [
+          { label: 'Production & Assembly', href: getLocalizedPath(locale, '/services/production-assembly') },
+          { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'Can you customize packaging, manuals, and accessories?',
         answer:
           'Yes. We can support branded cartons, inserts, manuals, labeling, and accessory selections to match your retail, e-commerce, or distributor requirements.',
+        links: [
+          { label: 'Box Customization', href: getLocalizedPath(locale, '/services/box-custom') },
+          { label: 'User Manual Custom', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+        ],
       },
       {
         question: 'Do you ship internationally?',
         answer:
           'Yes. We support export documentation and can coordinate shipment planning by air, sea, or courier based on timeline, order size, and destination requirements.',
+        links: [{ label: 'Shipping & Export Planning', href: getLocalizedPath(locale, '/services/packaging-logistics') }],
       },
     ],
   },
@@ -261,26 +365,42 @@ const faqCategories = [
     id: 'next-steps-support',
     title: 'Next Steps & Commercial Support',
     description: 'Helpful direction for teams that are comparing suppliers, validating requirements, or preparing a launch timeline.',
+    relatedLinks: [
+      { label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') },
+      { label: 'Explore Services', href: getLocalizedPath(locale, '/services') },
+      { label: 'Compare Models', href: getLocalizedPath(locale, '/catalogue') },
+      { label: 'View Products', href: getLocalizedPath(locale, '/products') },
+    ],
     faqs: [
       {
         question: 'What should I prepare before contacting your team?',
         answer:
           'It helps to share your target market, expected volume, desired device positioning, certification needs, packaging direction, and target launch window. Even a rough brief helps us guide the next step faster.',
+        links: [{ label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') }],
       },
       {
         question: 'Can you support startup brands as well as established buyers?',
         answer:
           'Yes. We work with both emerging and established brands. The recommended path may differ based on your budget, launch stage, customization needs, and supply-chain readiness.',
+        links: [
+          { label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') },
+          { label: 'Talk to a Specialist', href: getLocalizedPath(locale, '/contact') },
+        ],
       },
       {
         question: 'How do we decide between a standard model and a fully customized program?',
         answer:
           'That decision usually depends on speed, budget, channel strategy, and differentiation needs. A standard platform can accelerate launch, while a deeper custom program can create stronger market separation over time.',
+        links: [
+          { label: 'Compare Models', href: getLocalizedPath(locale, '/catalogue') },
+          { label: 'Product Design Service', href: getLocalizedPath(locale, '/services/product-design') },
+        ],
       },
       {
         question: 'What is the best next step if we still have unanswered questions?',
         answer:
           'The fastest next step is a direct conversation with our team. We can review your product brief, recommend a suitable development path, and clarify MOQ, timeline, compliance, and packaging considerations.',
+        links: [{ label: 'Contact Our Team', href: getLocalizedPath(locale, '/contact') }],
       },
     ],
   },
@@ -429,6 +549,18 @@ const faqSchema = {
             <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ Category</div>
             <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{category.title}</h2>
             <p class="mt-4 text-lg leading-relaxed text-slate-700">{category.description}</p>
+            {category.relatedLinks && category.relatedLinks.length > 0 ? (
+              <div class="mt-6 flex flex-wrap gap-2">
+                {category.relatedLinks.map((link) => (
+                  <a
+                    class="rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-50"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
           <div class="rounded-2xl bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">
             {category.faqs.length} answers
@@ -445,6 +577,18 @@ const faqSchema = {
                 </span>
               </summary>
               <p class="mt-4 max-w-4xl text-sm leading-7 text-slate-700">{faq.answer}</p>
+              {faq.links && faq.links.length > 0 ? (
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {faq.links.map((link) => (
+                    <a
+                      class="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </details>
           ))}
         </div>
