@@ -13,7 +13,6 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 interface CatalogueItem {
   slug: string;
   name: string;
-  badge?: string;
   cooling: string;
   lampType?: string;
   energy?: string;
@@ -23,17 +22,17 @@ interface CatalogueItem {
 }
 
 const catalogueItems: CatalogueItem[] = [
-  { slug: 'lumi-2', name: 'Lumi 2', badge: 'Smart', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Precision targeting, real-time skin analysis with app connectivity' },
-  { slug: 'lumi', name: 'Lumi', badge: 'Smart', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Smart app control, modern design, everyday convenience' },
-  { slug: 'venus', name: 'Venus', badge: 'Best Seller', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '7-9 J/cm²', bestFor: 'Painless cooling, sensitive areas, comfort-first users' },
-  { slug: 'eirene', name: 'Eirene', badge: 'Gentle', cooling: 'Standard', lampType: '800,000 flashes', energy: '5 Adjustable', bestFor: 'Hypersensitive skin, UV-cut filter, gradual ramp-up' },
-  { slug: 'wooden', name: 'Golden', badge: 'Luxury', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Premium aesthetics, luxury unboxing, high-end branding' },
-  { slug: 'hebe', name: 'Hebe', badge: 'AI Powered', cooling: 'Standard', skinDetection: 'AI Sensor', lampType: '999,000 flashes', energy: 'Auto (5 Levels)', bestFor: 'Auto intensity, AI-driven safety, all skin tones' },
-  { slug: 'hestia', name: 'Hestia', badge: 'Smart Choice', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'App tracking, treatment scheduling, data-driven users' },
-  { slug: 'euno', name: 'Euno', badge: 'Portable', cooling: 'Standard', lampType: '500,000 flashes', energy: '5 Adjustable', bestFor: 'Travel, cordless use, compact storage, lightweight design' },
-  { slug: 'emerald', name: 'Emerald', badge: 'Sensitive Skin', cooling: 'Active Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Sensitive skin, gentle treatment, reactive skin types' },
-  { slug: 'themis', name: 'Themis', badge: 'Pro Choice', cooling: 'Ice Feeling Tech', lampType: '999,000 flashes', energy: '8-12 J/cm²', bestFor: 'Salon-grade results, professional performance, enlarged window' },
-  { slug: 'alpha', name: 'Alpha', badge: 'Professional', cooling: 'Standard', lampType: '999,000 flashes (dual)', energy: '8-12 J/cm²', bestFor: 'Fast full-body treatment, dual-lamp efficiency, 6.2 cm² window' },
+  { slug: 'lumi-2', name: 'Lumi 2', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Precision targeting, real-time skin analysis with app connectivity' },
+  { slug: 'lumi', name: 'Lumi', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Smart app control, modern design, everyday convenience' },
+  { slug: 'venus', name: 'Venus', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '7-9 J/cm²', bestFor: 'Painless cooling, sensitive areas, comfort-first users' },
+  { slug: 'eirene', name: 'Eirene', cooling: 'Standard', lampType: '800,000 flashes', energy: '5 Adjustable', bestFor: 'Hypersensitive skin, UV-cut filter, gradual ramp-up' },
+  { slug: 'wooden', name: 'Golden', cooling: 'Ice Plate Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Premium aesthetics, luxury unboxing, high-end branding' },
+  { slug: 'hebe', name: 'Hebe', cooling: 'Standard', skinDetection: 'AI Sensor', lampType: '999,000 flashes', energy: 'Auto (5 Levels)', bestFor: 'Auto intensity, AI-driven safety, all skin tones' },
+  { slug: 'hestia', name: 'Hestia', cooling: 'Standard', app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'App tracking, treatment scheduling, data-driven users' },
+  { slug: 'euno', name: 'Euno', cooling: 'Standard', lampType: '500,000 flashes', energy: '5 Adjustable', bestFor: 'Travel, cordless use, compact storage, lightweight design' },
+  { slug: 'emerald', name: 'Emerald', cooling: 'Active Cooling', lampType: '999,000 flashes', energy: '5 Adjustable', bestFor: 'Sensitive skin, gentle treatment, reactive skin types' },
+  { slug: 'themis', name: 'Themis', cooling: 'Ice Feeling Tech', lampType: '999,000 flashes', energy: '8-12 J/cm²', bestFor: 'Salon-grade results, professional performance, enlarged window' },
+  { slug: 'alpha', name: 'Alpha', cooling: 'Standard', lampType: '999,000 flashes (dual)', energy: '8-12 J/cm²', bestFor: 'Fast full-body treatment, dual-lamp efficiency, 6.2 cm² window' },
 ];
 ---
 
@@ -65,7 +64,7 @@ const catalogueItems: CatalogueItem[] = [
         <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-slate-200 bg-slate-200">
           <div class="rounded-tl-2xl bg-slate-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Model</div>
           {catalogueItems.map((item) => (
-            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">{item.badge ? <span class="mr-1.5 rounded-2xl bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700">{item.badge}</span> : null}{item.name}</div>
+            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">{item.name}</div>
           ))}
         </div>
 
