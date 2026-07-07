@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+const packagingAreas = [
+  {
+    title: 'Retail carton & artwork',
+    description: 'Brand-forward packaging designed for shelf and unboxing.',
+    points: ['Dielines and layout setup', 'Print-ready artwork checks', 'Color and finish recommendations', 'Barcode and compliance labels'],
+  },
+  {
+    title: 'Internal protection',
+    description: 'Protection engineering to reduce transit damage and returns.',
+    points: ['EVA inserts', 'Blister and vacuum trays', 'Molded pulp options', 'Drop-test oriented improvements'],
+  },
+  {
+    title: 'Master carton optimization',
+    description: 'Reduce freight costs with smarter carton sizing and packing plans.',
+    points: ['Carton dimension planning', 'Pallet-friendly configurations', 'Container utilization focus', 'Outer labeling standards'],
+  },
+];
+---
+
+<BaseLayout title="Box Customization | iShine" lang={locale} description="Box customization for IPL private-label programs: custom cartons, inserts, protection engineering, barcode labels, and freight-optimized master cartons.">
+  <div class="space-y-60">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-slate-100 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(15,23,42,0.10),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.10),_transparent_34%)]" />
+      <div class="relative mx-auto max-w-5xl">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Box Customization
+          <span class="block bg-gradient-to-r from-slate-900 to-sky-600 bg-clip-text text-transparent">Built for Conversion and Shipping</span>
+        </h1>
+        <p class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+          Your box is your first physical brand touch. We help you create packaging that looks premium, protects the device, and ships efficiently across channels.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+            Start a Packaging Project
+          </a>
+          <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services')}>
+            Back to Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
+      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is included in box customization for an IPL brand?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        Box customization for an IPL brand typically includes custom carton dielines, print-ready artwork setup, insert design for protection, and channel requirements such as barcodes and labeling. A complete packaging program also considers transit durability, unboxing experience, and master-carton optimization to reduce freight cost and damage rate. The goal is packaging that sells, protects, and scales reliably.
+      </p>
+    </section>
+
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Scope</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Box customization scope</h2>
+        <p class="mt-4 text-lg text-slate-700">From artwork to protection engineering and freight efficiency.</p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        {packagingAreas.map((card) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-xl font-semibold tracking-tight text-slate-900">{card.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{card.description}</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-700">
+              {card.points.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-2xl bg-violet-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
