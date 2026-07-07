@@ -6,11 +6,44 @@ import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import { PenTool, Cog, Truck, Clock, Globe, RefreshCw, ShieldCheck } from '@lucide/astro';
 
 const locale = 'en';
-const pageTitle = 'Professional IPL Manufacturing Services | iShine';
+const pageTitle = 'IPL Private Label & OEM/ODM Services | iShine';
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.serviceSupport') },
 ]);
+
+const pickYourPath = [
+  {
+    title: 'Start a Brand',
+    description: 'Launch with less risk, validate demand, then scale with repeatable replenishment.',
+    links: [
+      { label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') },
+      { label: 'Choose a Platform from the Catalogue', href: getLocalizedPath(locale, '/catalogue') },
+      { label: 'Request a Sample Plan', href: getLocalizedPath(locale, '/contact') },
+      { label: 'See OEM/ODM Options', href: getLocalizedPath(locale, '/services/oem-odm') },
+    ],
+  },
+  {
+    title: 'Upgrade Branding',
+    description: 'Turn a factory-ready SKU into a brand-ready product with channel-compliant assets.',
+    links: [
+      { label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') },
+      { label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') },
+      { label: 'Create a User Manual & Quick Start Guide', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+      { label: 'Packaging & Export Logistics Support', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+    ],
+  },
+  {
+    title: 'Scale Fulfillment',
+    description: 'Build a clean shipping workflow for predictable lead times and fewer support issues.',
+    links: [
+      { label: 'Set Up Dropshipping', href: getLocalizedPath(locale, '/services/dropshipping') },
+      { label: 'Plan Warehousing & Replenishment', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: 'Talk to a Fulfillment Specialist', href: getLocalizedPath(locale, '/contact') },
+      { label: 'Read Our FAQ', href: getLocalizedPath(locale, '/faq') },
+    ],
+  },
+];
 
 const brandingServices = [
   {
@@ -24,6 +57,7 @@ const brandingServices = [
       'Repeatable replenishment workflow',
     ],
     href: getLocalizedPath(locale, '/services/no-moq'),
+    linkLabel: 'Launch with a Pilot Order',
     accent: 'from-sky-600 to-violet-600',
     badge: 'Start Small',
   },
@@ -38,6 +72,7 @@ const brandingServices = [
       'Rub and adhesion durability checks',
     ],
     href: getLocalizedPath(locale, '/services/logo-printing'),
+    linkLabel: 'Make Your Device Look Premium',
     accent: 'from-violet-600 to-fuchsia-600',
     badge: 'Branding',
   },
@@ -52,6 +87,7 @@ const brandingServices = [
       'Master carton optimization for freight',
     ],
     href: getLocalizedPath(locale, '/services/box-custom'),
+    linkLabel: 'Reduce Damage with Better Inserts',
     accent: 'from-slate-900 to-sky-600',
     badge: 'Packaging',
   },
@@ -66,6 +102,7 @@ const brandingServices = [
       'QR codes to video tutorials and FAQ',
     ],
     href: getLocalizedPath(locale, '/services/user-manual-guide-custom'),
+    linkLabel: 'Reduce Returns with Clear Instructions',
     accent: 'from-violet-700 to-slate-900',
     badge: 'Documentation',
   },
@@ -80,6 +117,7 @@ const brandingServices = [
       'FOB Shenzhen with CIF options',
     ],
     href: getLocalizedPath(locale, '/services/packaging-logistics'),
+    linkLabel: 'Export Shipping Support (FOB/CIF)',
     accent: 'from-sky-600 to-slate-900',
     badge: 'Fulfillment',
   },
@@ -94,6 +132,7 @@ const brandingServices = [
       'Exceptions and returns handling process',
     ],
     href: getLocalizedPath(locale, '/services/dropshipping'),
+    linkLabel: 'Ship Directly to Customers',
     accent: 'from-violet-600 to-sky-600',
     badge: 'DTC Ready',
   },
@@ -122,12 +161,107 @@ const advantages = [
   },
 ];
 
-const processSteps = Array.from({ length: 4 }, (_, index) => ({
-  step: t(locale, `servicesPage.process.steps.${index}.step`),
-  title: t(locale, `servicesPage.process.steps.${index}.title`),
-  description: t(locale, `servicesPage.process.steps.${index}.description`),
-  duration: t(locale, `servicesPage.process.steps.${index}.duration`),
-}));
+const processSteps = [
+  {
+    step: '01',
+    title: 'Shortlist a platform',
+    description: 'Match your concept to a proven device platform based on cooling, energy positioning, and use case.',
+    duration: '1–2 days',
+    links: [{ label: 'Browse the Catalogue', href: getLocalizedPath(locale, '/catalogue') }],
+  },
+  {
+    step: '02',
+    title: 'Define customization scope',
+    description: 'Confirm specifications, branding scope, and compliance requirements for your target market.',
+    duration: '2–5 days',
+    links: [{ label: 'OEM/ODM Services', href: getLocalizedPath(locale, '/services/oem-odm') }],
+  },
+  {
+    step: '03',
+    title: 'Branding setup',
+    description: 'Lock in branding placements and finishes so every unit looks consistent and premium.',
+    duration: '3–7 days',
+    links: [{ label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') }],
+  },
+  {
+    step: '04',
+    title: 'Packaging & documentation',
+    description: 'Prepare retail-ready assets that reduce damage, reduce returns, and improve first-use success.',
+    duration: '1–2 weeks',
+    links: [
+      { label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') },
+      { label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+    ],
+  },
+  {
+    step: '05',
+    title: 'Production & QC',
+    description: 'Execute production with stable BOM control and quality checkpoints aligned to your channels.',
+    duration: '2–6 weeks',
+    links: [{ label: 'Production & Assembly', href: getLocalizedPath(locale, '/services/production-assembly') }],
+  },
+  {
+    step: '06',
+    title: 'Ship & fulfill',
+    description: 'Choose the shipping model that matches your timeline and operations—from pallets to parcels.',
+    duration: 'Ongoing',
+    links: [
+      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: 'Ship Directly to Customers', href: getLocalizedPath(locale, '/services/dropshipping') },
+    ],
+  },
+];
+
+const serviceFaq = [
+  {
+    question: 'Do you offer No MOQ for private-label IPL programs?',
+    answer:
+      'Yes. Many programs can start with smaller pilot orders so you can validate positioning and demand before scaling. For details, see No MOQ support.',
+    links: [{ label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') }],
+  },
+  {
+    question: 'Can you print our logo on the device and accessories?',
+    answer:
+      'Yes. We support production-ready logo application methods and help confirm placement and durability expectations before mass production.',
+    links: [{ label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') }],
+  },
+  {
+    question: 'Can you customize the box, inserts, and barcodes for retail channels?',
+    answer:
+      'Yes. We can customize cartons, internal protection inserts, and channel labeling requirements, including barcode placement and master carton planning.',
+    links: [{ label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') }],
+  },
+  {
+    question: 'Do you provide multilingual user manuals and quick-start guides?',
+    answer:
+      'Yes. We can customize manuals and quick-start guides with clear diagrams, warnings, and localization support to reduce returns and support load.',
+    links: [{ label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') }],
+  },
+  {
+    question: 'Do you support packaging and export logistics?',
+    answer:
+      'Yes. We support kitting, labeling, export documents, and shipping coordination for sea, air, or courier based on destination requirements.',
+    links: [{ label: 'Packaging & Export Logistics Support', href: getLocalizedPath(locale, '/services/packaging-logistics') }],
+  },
+  {
+    question: 'Do you support dropshipping directly to customers?',
+    answer:
+      'Yes. We can support direct-to-customer dispatch with defined packaging rules, order handling workflows, and tracking synchronization.',
+    links: [{ label: 'Ship Directly to Customers', href: getLocalizedPath(locale, '/services/dropshipping') }],
+  },
+  {
+    question: 'How do we choose the best IPL model for our market?',
+    answer:
+      'Start by matching your target segment to a platform: cooling comfort, energy positioning, app connectivity, portability, and packaging goals. Then confirm the customization scope and compliance needs.',
+    links: [{ label: 'Compare IPL Models', href: getLocalizedPath(locale, '/catalogue') }],
+  },
+  {
+    question: 'What are the next steps after we choose a model?',
+    answer:
+      'Typical next steps are: confirm requirements, sample evaluation, finalize branding and packaging assets, then plan production and shipping.',
+    links: [{ label: 'Get a Quote', href: getLocalizedPath(locale, '/contact') }],
+  },
+];
 
 const trustedStats = Array.from({ length: 3 }, (_, index) => ({
   value: t(locale, `servicesPage.trusted.stats.${index}.value`),
@@ -141,7 +275,11 @@ const trustedBrands = [
 ];
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description="Professional IPL manufacturing services: OEM/ODM, product design, production assembly, packaging and logistics. End-to-end solutions for global beauty brands.">
+<BaseLayout
+  title={pageTitle}
+  lang={locale}
+  description="IPL private label and OEM/ODM services: model selection, sampling, logo printing, box customization, user manual customization, packaging & logistics, and dropshipping support."
+>
   <div class="space-y-60">
     <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-violet-50 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(168,85,247,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.12),_transparent_30%)]" />
@@ -150,24 +288,24 @@ const trustedBrands = [
           <Breadcrumb items={breadcrumbs} locale={locale} />
           <div class="mt-8 max-w-3xl">
             <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-              {t(locale, 'servicesPage.hero.title1')}
-              <span class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
-                {t(locale, 'servicesPage.hero.title2')}
+              IPL Private Label & OEM/ODM Services
+              <span class="block bg-gradient-to-r from-violet-600 to-sky-600 bg-clip-text text-transparent">
+                From Platform Selection to Fulfillment
               </span>
             </h1>
             <p class="mt-5 text-lg leading-relaxed text-slate-700">
-              {t(locale, 'servicesPage.hero.description')}
+              Build a brand-ready IPL program with a proven manufacturing workflow: model selection, sampling, branding, packaging, documentation, and global delivery support.
             </p>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
-              {t(locale, 'servicesPage.hero.cta')}
+              Get a Quote
+            </a>
+            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/catalogue')}>
+              Compare IPL Models
             </a>
             <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/clients')}>
               View Case Studies
-            </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/products')}>
-              Request Sample
             </a>
           </div>
         </div>
@@ -186,13 +324,13 @@ const trustedBrands = [
           <div class="grid gap-4 sm:grid-cols-2">
             <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
               <div class="text-sm uppercase tracking-[0.18em] text-slate-500">Scope</div>
-              <div class="mt-3 text-2xl font-bold text-slate-900">4 Core Services</div>
-              <div class="mt-2 text-sm text-slate-600">Design, production, packaging, and logistics aligned in one workflow.</div>
+              <div class="mt-3 text-2xl font-bold text-slate-900">End-to-End</div>
+              <div class="mt-2 text-sm text-slate-600">From model selection and branding to packaging and fulfillment.</div>
             </div>
             <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
               <div class="text-sm uppercase tracking-[0.18em] text-slate-500">Lead Focus</div>
               <div class="mt-3 text-2xl font-bold text-slate-900">OEM / ODM</div>
-              <div class="mt-2 text-sm text-slate-600">Built for brand owners, sourcing teams, and retail buyers.</div>
+              <div class="mt-2 text-sm text-slate-600">Built for brand owners, sourcing teams, and retail channels.</div>
             </div>
           </div>
         </div>
@@ -207,9 +345,37 @@ const trustedBrands = [
       </p>
     </section>
 
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Pick Your Path</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Start, Brand, or Scale—Choose Your Workflow</h2>
+        <p class="mt-4 text-lg text-slate-700">
+          Use the paths below to jump straight to the services and pages that match your current stage.
+        </p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+        {pickYourPath.map((path) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-semibold tracking-tight text-slate-900">{path.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{path.description}</p>
+            <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
+              {path.links.map((link) => (
+                <li>
+                  <a class="inline-flex items-center gap-2 text-slate-900 transition hover:text-violet-700" href={link.href}>
+                    <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
+                    <span>{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Branding Custom Services</div>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Services Map</div>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">WHAT branding custom services do we offer?</h2>
         <p class="mt-4 text-lg text-slate-700">
           From low-risk launches to channel-ready packaging, we help you turn a factory-ready SKU into a brand-ready product.
@@ -237,6 +403,9 @@ const trustedBrands = [
               ))}
             </ul>
             <div class="mt-8">
+              <a class="mb-3 inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={service.href}>
+                {service.linkLabel}
+              </a>
               <a class="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={service.href}>
                 Learn More
               </a>
@@ -265,25 +434,70 @@ const trustedBrands = [
       </div>
     </section>
 
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trust Signals</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Proof That Supports Long-Term Partnerships</h2>
+        <p class="mt-4 text-lg text-slate-700">These pages explain how we reduce operational risk, not just how we manufacture.</p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Quality Control</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Build stability with clear production steps and quality checkpoints.</p>
+          <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/production-assembly')}>
+            Production & Assembly
+          </a>
+        </article>
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Compliance</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Understand safety considerations and how to plan documentation early.</p>
+          <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/faq')}>
+            Read Our FAQ
+          </a>
+        </article>
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Customization</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">From logo and packaging to manuals—make the product feel like your brand.</p>
+          <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services')}>
+            Branding Custom Services
+          </a>
+        </article>
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Contact</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Get a clear scope, lead time, and a plan that fits your channel.</p>
+          <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/contact')}>
+            Talk to our team
+          </a>
+        </article>
+      </div>
+    </section>
+
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Process Timeline</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{t(locale, 'servicesPage.process.title')}</h2>
-        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.process.description')}</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Process</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">From concept to delivery: a practical workflow</h2>
+        <p class="mt-4 text-lg text-slate-700">
+          Follow a repeatable sequence that reduces rework, shortens decision cycles, and improves on-time delivery.
+        </p>
       </div>
-      <div class="relative grid gap-6 lg:grid-cols-4">
-        {processSteps.map((step, index) => (
-          <article class="relative rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-            {index < processSteps.length - 1 && (
-              <div class="absolute left-full top-10 hidden h-px w-6 bg-gradient-to-r from-violet-300 to-sky-300 lg:block" />
-            )}
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-lg font-bold text-white">
-              {step.step}
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {processSteps.map((step) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-sky-600 text-lg font-bold text-white">
+                {step.step}
+              </div>
+              <div class="inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">{step.duration}</div>
             </div>
             <h3 class="mt-5 text-xl font-semibold text-slate-900">{step.title}</h3>
             <p class="mt-3 text-sm leading-relaxed text-slate-700">{step.description}</p>
-            <div class="mt-6 inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
-              {step.duration}
+            <div class="mt-6 flex flex-col gap-2">
+              {step.links.map((link) => (
+                <a class="inline-flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={link.href}>
+                  <span>{link.label}</span>
+                  <span class="text-slate-500">→</span>
+                </a>
+              ))}
             </div>
           </article>
         ))}
@@ -332,6 +546,36 @@ const trustedBrands = [
       </div>
     </section>
 
+    <section class="space-y-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Questions brands ask before placing an order</h2>
+        <p class="mt-4 text-lg text-slate-700">Short answers with direct links to the relevant service pages.</p>
+      </div>
+      <div class="mx-auto grid max-w-4xl gap-4">
+        {serviceFaq.map((item) => (
+          <details class="group rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <span>{item.question}</span>
+                <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
+              </div>
+            </summary>
+            <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate-700">
+              <p>{item.answer}</p>
+              <div class="flex flex-wrap gap-3">
+                {item.links.map((link) => (
+                  <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
     <section class="rounded-2xl bg-slate-900 px-8 py-14 text-white shadow-2xl">
       <div class="mx-auto max-w-4xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Ready to Start?</div>
@@ -344,8 +588,8 @@ const trustedBrands = [
           <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/clients')}>
             View Case Studies
           </a>
-          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/products')}>
-            Request Sample
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/catalogue')}>
+            Compare IPL Models
           </a>
         </div>
       </div>
