@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { t } from '../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const pageTitle = 'Why IPL Hair Removal Is Safe | Evidence, FDA, Skin Types & Device Safety';
+const pageDescription =
+  'A safety-first pillar page for IPL hair removal: clinical evidence, FDA context, safe at-home protocol, Fitzpatrick skin types, UV filtering, sensors, side effects, contraindications, and aftercare. Includes direct links to product platforms and deep-dive guides.';
+const canonical = `${resolveBaseUrl()}/ipl-hair-removal-is-safe`;
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: 'Why IPL Hair Removal Is Safe' },
+]);
+
+const pillarCtas = [
+  { label: 'Explore IPL Device Platforms', href: getLocalizedPath(locale, '/products'), style: 'primary' },
+  { label: 'Compare All Models', href: getLocalizedPath(locale, '/catalogue'), style: 'secondary' },
+  { label: 'Request a Quote', href: getLocalizedPath(locale, '/contact'), style: 'secondary' },
+];
+
+const safetyTopics = [
+  {
+    id: 'clinical-data',
+    title: 'Clinical data on IPL safety',
+    anchor: 'Clinical data on IPL safety',
+    description: 'How research describes typical skin reactions, severity, and why most side effects are mild and temporary when used correctly.',
+    href: getLocalizedPath(locale, '/blog/28-clinical-data-why-ipl-hair-removal-is-safe'),
+  },
+  {
+    id: 'fda-context',
+    title: 'FDA context: what “FDA cleared” actually means',
+    anchor: 'FDA verification (what “FDA cleared” means)',
+    description: 'How to interpret FDA language and why it supports safety claims without overstating what regulators guarantee.',
+    href: getLocalizedPath(locale, '/blog/14-fda-cleared-ipl-device-manufacturer-guide'),
+  },
+  {
+    id: 'at-home-protocol',
+    title: 'Safe at-home IPL protocol (frequency, patch test, settings)',
+    anchor: 'Safe at-home IPL protocol (frequency, patch test, settings)',
+    description: 'The practical usage rules that keep risk low: patch testing, gradual ramp-up, spacing sessions, and avoiding repeat flashes.',
+    href: getLocalizedPath(locale, '/blog/29-safe-ipl-hair-removal-at-home-protocol'),
+  },
+  {
+    id: 'fitzpatrick',
+    title: 'Fitzpatrick skin types & IPL safety limits',
+    anchor: 'Fitzpatrick skin types & IPL safety limits',
+    description: 'Why skin tone affects risk (physics, not discrimination) and how brands should communicate compatibility responsibly.',
+    href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick'),
+  },
+  {
+    id: 'ipl-vs-laser',
+    title: 'IPL vs laser: safety comparison (and who each is for)',
+    anchor: 'IPL vs laser: safety comparison',
+    description: 'A balanced comparison: device class, energy delivery, common risks, and why “safer” depends on skin type and protocol.',
+    href: getLocalizedPath(locale, '/blog/30-ipl-vs-laser-which-is-safer'),
+  },
+  {
+    id: 'uv-filtering',
+    title: 'UV filtering & wavelength control (why IPL is not UV tanning)',
+    anchor: 'UV filtering & wavelength control',
+    description: 'How filters and wavelength design reduce unwanted radiation and improve safety margins during treatment.',
+    href: getLocalizedPath(locale, '/blog/31-uv-filtering-wavelengths-why-ipl-is-safe'),
+  },
+  {
+    id: 'safety-sensors',
+    title: 'Safety sensors: skin tone detection & contact sensors',
+    anchor: 'Safety sensors (skin tone detection & contact sensors)',
+    description: 'How skin tone sensing and contact interlocks reduce misuse risk—especially in higher Fitzpatrick skin types.',
+    href: getLocalizedPath(locale, '/blog/15-skin-tone-detection-ipl-safety-guide'),
+  },
+  {
+    id: 'side-effects',
+    title: 'IPL side effects explained (what’s normal vs not)',
+    anchor: 'IPL side effects explained (what’s normal vs not)',
+    description: 'What mild redness means, what burns look like, and the decision tree for pausing, lowering settings, or seeking help.',
+    href: getLocalizedPath(locale, '/blog/32-ipl-hair-removal-side-effects-what-is-normal'),
+  },
+  {
+    id: 'contraindications',
+    title: 'Who should not use IPL (contraindications & risk factors)',
+    anchor: 'Who should not use IPL (contraindications)',
+    description: 'Medication, sun exposure, tattoos, skin conditions, and other situations where IPL should be avoided or delayed.',
+    href: getLocalizedPath(locale, '/blog/33-who-should-not-use-ipl-hair-removal-contraindications'),
+  },
+  {
+    id: 'before-after-care',
+    title: 'Before/after care: how to reduce irritation and risk',
+    anchor: 'Before/after care to reduce IPL risks',
+    description: 'Simple pre- and post-care steps that lower inflammation and help avoid pigment issues after sessions.',
+    href: getLocalizedPath(locale, '/blog/34-ipl-hair-removal-before-and-aftercare-for-safety'),
+  },
+];
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+  <div class="space-y-36">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.12),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(168,85,247,0.10),_transparent_30%)]" />
+      <div class="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <Breadcrumb items={breadcrumbs} locale={locale} />
+          <div class="mt-8 max-w-3xl">
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">Safety Pillar</div>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+              Why IPL hair removal is safe (when used correctly)
+            </h1>
+            <p class="mt-5 text-lg leading-relaxed text-slate-700">
+              This is a safety-first hub built for brands, sourcing teams, and retail buyers. It links the most searched safety questions to practical answers,
+              evidence-based context, and device design features that reduce risk.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            {pillarCtas.map((cta) => (
+              <a
+                class={cta.style === 'primary'
+                  ? 'rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800'
+                  : 'rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50'}
+                href={cta.href}
+              >
+                {cta.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">How to Use This Page</div>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">Read in the same order your buyers do</h2>
+          <ol class="mt-5 space-y-3 text-sm text-slate-700">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-sm font-semibold text-white">
+                1
+              </span>
+              <span>Start with evidence and FDA context to ground the “safe” claim responsibly.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-sm font-semibold text-white">
+                2
+              </span>
+              <span>Confirm skin-type limits and the protocol that keeps risk low for home use.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-sm font-semibold text-white">
+                3
+              </span>
+              <span>Then shortlist platforms in Products and compare models in Catalogue.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Topic Map</div>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">10 safety topics (deep links)</h2>
+        <p class="mt-3 text-slate-700">
+          Each topic below links to a dedicated guide. Use these exact anchors on supporting pages to reinforce relevance.
+        </p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {safetyTopics.map((topic) => (
+          <a
+            class="group rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg"
+            href={topic.href}
+          >
+            <div class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Guide</div>
+            <h3 class="mt-4 text-xl font-semibold tracking-tight text-slate-900 group-hover:text-violet-700">{topic.anchor}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{topic.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Pillar Sections</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Evidence + protocol + device design</h2>
+        <p class="mt-4 text-lg text-slate-700">
+          Use this structure as the long-form answer page, and the linked guides as cluster content that supports it.
+        </p>
+      </div>
+
+      <div class="mx-auto grid max-w-5xl gap-6">
+        {safetyTopics.map((topic) => (
+          <section id={topic.id} class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+            <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div class="max-w-3xl">
+                <h3 class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">{topic.title}</h3>
+                <p class="mt-4 text-lg leading-relaxed text-slate-700">{topic.description}</p>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={topic.href}>
+                  Read the guide
+                </a>
+                <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/products')}>
+                  Explore Products
+                </a>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-14 text-white shadow-2xl">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Ready to shortlist a model?</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Compare all platforms, then pick the right safety stack</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-200">
+          Use the Products page to open platform details and the Catalogue to compare cooling, app control, and safety sensing across models.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/products')}>
+            Explore IPL Device Platforms
+          </a>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/catalogue')}>
+            Compare All Models
+          </a>
+          <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/contact')}>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
