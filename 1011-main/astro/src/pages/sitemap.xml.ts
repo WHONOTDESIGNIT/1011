@@ -58,6 +58,7 @@ export async function GET() {
       '/components/power-supply',
       '/clients',
       '/catalogue',
+      '/ipl-hair-removal-is-safe',
       '/faq',
       '/contact',
       '/media',
