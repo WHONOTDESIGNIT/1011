@@ -34,9 +34,99 @@ const catalogueItems: CatalogueItem[] = [
   { slug: 'themis', name: 'Themis', cooling: 'Ice Feeling Tech', lampType: '999,000 flashes', energy: '8-12 J/cm²', bestFor: 'Salon-grade results, professional performance, enlarged window' },
   { slug: 'alpha', name: 'Alpha', cooling: 'Standard', lampType: '999,000 flashes (dual)', energy: '8-12 J/cm²', bestFor: 'Fast full-body treatment, dual-lamp efficiency, 6.2 cm² window' },
 ];
+
+const recommendationTracks = [
+  {
+    title: 'Comfort-first cooling',
+    description: 'Best for brands selling “painless” positioning and sensitive-area comfort.',
+    links: [
+      { label: 'Venus (Ice Plate Cooling)', href: getLocalizedPath(locale, '/products/venus') },
+      { label: 'Lumi 2 (Cooling to 10°C)', href: getLocalizedPath(locale, '/products/lumi-2') },
+    ],
+  },
+  {
+    title: 'Smart app-guided routines',
+    description: 'Best for retention-driven brands that use app workflows and scheduling.',
+    links: [
+      { label: 'Hestia (App tracking)', href: getLocalizedPath(locale, '/products/hestia') },
+      { label: 'Lumi (Smart app control)', href: getLocalizedPath(locale, '/products/lumi') },
+    ],
+  },
+  {
+    title: 'Portable / travel',
+    description: 'Best for compact positioning and lightweight bundles.',
+    links: [{ label: 'Euno (Portable)', href: getLocalizedPath(locale, '/products/euno') }],
+  },
+  {
+    title: 'Luxury unboxing',
+    description: 'Best for premium packaging and giftable positioning.',
+    links: [{ label: 'Golden (Wooden luxury)', href: getLocalizedPath(locale, '/products/wooden') }],
+  },
+  {
+    title: 'Professional performance',
+    description: 'Best for high-output positioning and faster full-body routines.',
+    links: [
+      { label: 'Themis (Salon-grade)', href: getLocalizedPath(locale, '/products/themis') },
+      { label: 'Alpha (Dual-lamp efficiency)', href: getLocalizedPath(locale, '/products/alpha') },
+    ],
+  },
+];
+
+const catalogueFaq = [
+  {
+    question: 'How should brands use this IPL catalogue?',
+    answer:
+      'Use the table to shortlist platforms by cooling, lamp life, energy positioning, app control, and skin detection. Then open the model detail page to confirm specifications, branding scope, and packaging requirements before sampling.',
+    links: [
+      { label: 'Explore Services', href: getLocalizedPath(locale, '/services') },
+      { label: 'Get a Quote', href: getLocalizedPath(locale, '/contact') },
+    ],
+  },
+  {
+    question: 'What matters most for “painless” positioning?',
+    answer:
+      'Cooling approach and thermal design. If your brand positioning is comfort-first, prioritize models with ice plate / sapphire cooling and validate performance in sampling.',
+    links: [{ label: 'See Venus (Cooling)', href: getLocalizedPath(locale, '/products/venus') }],
+  },
+  {
+    question: 'Do app-controlled models improve retention?',
+    answer:
+      'For many brands, yes. App workflows can support treatment schedules, reminders, and progress tracking, which improves consistency and customer satisfaction.',
+    links: [{ label: 'See Hestia (App tracking)', href: getLocalizedPath(locale, '/products/hestia') }],
+  },
+  {
+    question: 'What should we customize first: device logo, box, or manual?',
+    answer:
+      'Start with the brand elements that customers see first (logo and box), then ensure the manual reduces misuse and support tickets. Align these with your channel requirements.',
+    links: [
+      { label: 'Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') },
+      { label: 'Box Customization', href: getLocalizedPath(locale, '/services/box-custom') },
+      { label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+    ],
+  },
+  {
+    question: 'Can we start with a small pilot order?',
+    answer:
+      'Yes. Many private-label programs can start with a smaller pilot order to validate demand and positioning, then scale with predictable replenishment.',
+    links: [{ label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') }],
+  },
+  {
+    question: 'Do you support dropshipping and export logistics?',
+    answer:
+      'Yes. We support packaging, labeling, export documents, shipping coordination, and dropshipping workflows depending on your channel and destination.',
+    links: [
+      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: 'Dropshipping', href: getLocalizedPath(locale, '/services/dropshipping') },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="IPL Product Catalogue" lang={locale} description="Browse iShine's complete IPL hair removal device catalogue: ice plate cooling, AI skin sensor, smart app control, dual-lamp, portable, and luxury models for OEM/ODM.">
+<BaseLayout
+  title="IPL Product Catalogue & Comparison | iShine"
+  lang={locale}
+  description="Compare IPL device platforms side by side: cooling, lamp life, energy positioning, app control, skin detection, and best-for use cases. Built for private label and OEM/ODM selection."
+>
   <div class="space-y-36">
     <section class="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10">
       <Breadcrumb items={breadcrumbs} locale={locale} />
@@ -45,9 +135,48 @@ const catalogueItems: CatalogueItem[] = [
         <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
           Browse our complete lineup of IPL hair removal devices. Each model is engineered for a specific use case — from painless cooling and AI-powered detection to portable travel designs and luxury packaging programs.
         </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+            Get a Quote
+          </a>
+          <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/no-moq')}>
+            Start with No MOQ
+          </a>
+          <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services')}>
+            Explore Services
+          </a>
+        </div>
         <p class="mt-3 text-sm text-slate-500">
           All models available for OEM/ODM customization. Minimum order quantities and lead times vary by model.
         </p>
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">How to Choose</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Pick a track, then shortlist models</h2>
+        <p class="mt-4 text-lg text-slate-700">
+          Start with your positioning and channel. Use the links below to open the recommended model pages.
+        </p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {recommendationTracks.map((track) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-semibold tracking-tight text-slate-900">{track.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{track.description}</p>
+            <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
+              {track.links.map((link) => (
+                <li>
+                  <a class="inline-flex items-center gap-2 text-slate-900 transition hover:text-violet-700" href={link.href}>
+                    <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
+                    <span>{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </div>
     </section>
 
@@ -64,7 +193,14 @@ const catalogueItems: CatalogueItem[] = [
         <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-slate-200 bg-slate-200">
           <div class="rounded-tl-2xl bg-slate-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Model</div>
           {catalogueItems.map((item) => (
-            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">{item.name}</div>
+            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">
+              <a class="transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>{item.name}</a>
+              <div class="mt-2">
+                <a class="text-xs font-semibold text-slate-600 transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
+                  See details →
+                </a>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -112,6 +248,45 @@ const catalogueItems: CatalogueItem[] = [
       </div>
     </section>
 
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Models</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Explore models in detail</h2>
+        <p class="mt-4 text-lg text-slate-700">Open a model page to validate specifications, positioning, and customization scope.</p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {catalogueItems.map((item) => (
+          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Model</div>
+            <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">{item.name}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{item.bestFor}</p>
+            <dl class="mt-6 grid gap-3 text-sm text-slate-700">
+              <div class="flex items-center justify-between gap-4">
+                <dt class="text-slate-500">Cooling</dt>
+                <dd class="font-semibold text-slate-900">{item.cooling}</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="text-slate-500">Energy</dt>
+                <dd class="font-semibold text-slate-900">{item.energy || '—'}</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="text-slate-500">App</dt>
+                <dd class="font-semibold text-slate-900">{item.app || '—'}</dd>
+              </div>
+            </dl>
+            <div class="mt-8 grid gap-3">
+              <a class="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
+                See {item.name} details
+              </a>
+              <a class="inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/contact')}>
+                Request a quote for {item.name}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
       <div class="text-center">
         <h2 class="text-3xl font-bold tracking-tight text-slate-900">How to read this catalogue</h2>
@@ -137,9 +312,47 @@ const catalogueItems: CatalogueItem[] = [
         </div>
       </div>
       <div class="mt-10 text-center">
-        <a class="inline-flex rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
-          Request Quote
-        </a>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a class="inline-flex rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+            Get a Quote
+          </a>
+          <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/box-custom')}>
+            Customize Your Box & Inserts
+          </a>
+          <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
+            Ship Directly to Customers
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Questions brands ask before shortlisting a model</h2>
+        <p class="mt-4 text-lg text-slate-700">Short answers with direct links to the relevant pages.</p>
+      </div>
+      <div class="mx-auto grid max-w-4xl gap-4">
+        {catalogueFaq.map((item) => (
+          <details class="group rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <span>{item.question}</span>
+                <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
+              </div>
+            </summary>
+            <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate-700">
+              <p>{item.answer}</p>
+              <div class="flex flex-wrap gap-3">
+                {item.links.map((link) => (
+                  <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
   </div>
