@@ -40,13 +40,13 @@ const whoWeAre = isEn ? [
 ];
 
 const productCards = [
-  { name: 'Lumi', tagline: isEn ? 'Smart App Control' : 'Control por App', href: getLocalizedPath(locale, '/products/lumi'), image: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp', hoverImage: '/images/products/lumi/ROSE_SKIN_features.webp' },
   { name: 'Venus', tagline: isEn ? 'Premium Ice Cooling' : 'Enfriamiento de Hielo Premium', href: getLocalizedPath(locale, '/products/venus'), image: '/images/products/Venus/purple-venus-sapphire-ipl.webp', hoverImage: '/images/products/Venus/using-venus-sapphire-ipl.webp' },
+  { name: 'Lumi', tagline: isEn ? 'Smart App Control' : 'Control por App', href: getLocalizedPath(locale, '/products/lumi'), image: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp', hoverImage: '/images/products/lumi/ROSE_SKIN_features.webp' },
+  { name: 'Themis', tagline: isEn ? 'Dual Lamp System' : 'Sistema de Lámpara Dual', href: getLocalizedPath(locale, '/products/themis'), image: '/images/products/Themis/golden-luxury-front-view.jpg', hoverImage: '/images/products/Themis/golden-luxury-2.jpg' },
+  { name: 'Emerald', tagline: isEn ? 'Sensitive-Skin Cooling' : 'Enfriamiento para Piel Sensible', href: getLocalizedPath(locale, '/products/emerald'), image: '/images/products/Emerald/emerald%20ipl%20white%20color.webp', hoverImage: '/images/products/Emerald/emerald%20ipl%20black.webp' },
   { name: 'Eirene', tagline: isEn ? 'Professional Grade' : 'Grado Profesional', href: getLocalizedPath(locale, '/products/eirene'), image: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg', hoverImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20holding.jpg' },
   { name: 'Golden', tagline: isEn ? 'Luxury Edition' : 'Edición de Lujo', href: getLocalizedPath(locale, '/products/wooden'), image: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp', hoverImage: '/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp' },
   { name: 'Hebe', tagline: isEn ? 'AI Skin Sensor' : 'Sensor de Piel con IA', href: getLocalizedPath(locale, '/products/hebe'), image: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp', hoverImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20holding.webp' },
-  { name: 'Themis', tagline: isEn ? 'Dual Lamp System' : 'Sistema de Lámpara Dual', href: getLocalizedPath(locale, '/products/themis'), image: '/images/products/Themis/golden-luxury-front-view.jpg', hoverImage: '/images/products/Themis/golden-luxury-2.jpg' },
-  { name: 'Emerald', tagline: isEn ? 'Sensitive-Skin Cooling' : 'Enfriamiento para Piel Sensible', href: getLocalizedPath(locale, '/products/emerald'), image: '/images/products/Emerald/emerald%20ipl%20white%20color.webp', hoverImage: '/images/products/Emerald/emerald%20ipl%20black.webp' },
 ];
 
 const testimonials = isEn ? [
@@ -253,9 +253,24 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 
       /* Stage 4: <738px — lock at same sizes, no further shrinking */
       @media (max-width: 737px) {
-        .hero-title { font-size: 4.5rem; word-break: normal; overflow-wrap: break-word; }
+        .hero-title { font-size: 2.5rem; word-break: normal; overflow-wrap: break-word; }
         .hero-subtitle { font-size: 1.125rem; }
         .hero-content { width: 90vw; max-width: 90vw; }
+      }
+
+      @media (max-width: 737px) {
+        :global(.sticky-contact) {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateX(12px);
+          transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        :global(.sticky-contact.home-sticky-visible) {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateX(0);
+        }
       }
     </style>
 
@@ -282,7 +297,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 
     <CornerMarker />
 
-    <section class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="home-who-we-are" class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="relative h-full bg-slate-100 min-h-[300px]">
           <Image
@@ -312,6 +327,38 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
         </div>
       </div>
     </section>
+
+    <script is:inline>
+      (() => {
+        if (!window.matchMedia || !window.matchMedia('(max-width: 737px)').matches) return;
+        const sticky = document.querySelector('.sticky-contact');
+        const target = document.getElementById('home-who-we-are');
+        if (!(sticky instanceof HTMLElement) || !(target instanceof HTMLElement)) return;
+
+        sticky.classList.remove('home-sticky-visible');
+
+        const rect = target.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.85) {
+          sticky.classList.add('home-sticky-visible');
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                sticky.classList.add('home-sticky-visible');
+                observer.disconnect();
+                break;
+              }
+            }
+          },
+          { threshold: 0.15 }
+        );
+
+        observer.observe(target);
+      })();
+    </script>
 
     <CornerMarker />
 
@@ -735,10 +782,17 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
     aspect-ratio: 1000 / 1240;
     flex: 0 0 calc((100% - 62.4px) / 3.6);
     min-width: 0;
+    min-height: 0;
   }
   .product-card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 737px) {
+    .product-card {
+      flex: 0 0 80%;
+    }
   }
 </style>
