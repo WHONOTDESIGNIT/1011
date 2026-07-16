@@ -213,12 +213,12 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
         <h1 class="hero-title font-bold tracking-tight">
           {isEn ? 'Building High-Performing IPL Devices' : 'Construyendo Dispositivos IPL de Alto Rendimiento'}
         </h1>
-        <p class="hero-subtitle mx-auto mt-4 leading-relaxed text-white text-lg">
+        <p class="hero-subtitle mx-auto mt-4 leading-relaxed text-white/80 text-lg">
           Custom design and production for major chains, global retailers, and beauty brands. From idea to market, we help you build certified, premium, retail-ready IPL products.
         </p>
         <div class="mt-8">
           <a class="hero-btn inline-flex rounded-xl bg-white font-semibold text-slate-950 transition hover:bg-slate-100" style="padding:0.625rem 1.75rem;font-size:0.875rem;border-radius:0.75rem" href={getLocalizedPath(locale, '/contact')}>
-            {isEn ? 'Get a Free Quote' : 'Solicita un Presupuesto Gratuito'}
+            {isEn ? 'Get a Free Sample' : 'Solicita una Muestra Gratuita'}
           </a>
         </div>
       </div>
@@ -263,14 +263,12 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
         :global(.sticky-contact) {
           opacity: 0;
           pointer-events: none;
-          transform: translateX(12px);
-          transition: opacity 0.2s ease, transform 0.2s ease;
+          transition: opacity 0.2s ease;
         }
 
         :global(.sticky-contact.home-sticky-visible) {
           opacity: 1;
           pointer-events: auto;
-          transform: translateX(0);
         }
       }
     </style>
