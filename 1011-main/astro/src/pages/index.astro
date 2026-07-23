@@ -211,7 +211,12 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
       <div class="absolute inset-0" style="background:linear-gradient(rgba(140,113,114,0.35),rgba(140,113,114,0.35))"></div>
       <div class="hero-content relative z-10 text-center px-4">
         <h1 class="hero-title font-bold tracking-tight">
-          {isEn ? 'Building High-Performing IPL Devices' : 'Construyendo Dispositivos IPL de Alto Rendimiento'}
+          <span class="hero-title-desktop">
+            {isEn ? 'Building High-Performing IPL Devices' : 'Construyendo Dispositivos IPL de Alto Rendimiento'}
+          </span>
+          <span class="hero-title-mobile">
+            {isEn ? 'Build premium IPL hair removal device' : 'Construye un dispositivo IPL premium para depilacion'}
+          </span>
         </h1>
         <p class="hero-subtitle mx-auto mt-4 leading-relaxed text-white/80 text-lg">
           Custom design and production for major chains, global retailers, and beauty brands. From idea to market, we help you build certified, premium, retail-ready IPL products.
@@ -228,7 +233,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
       /* Stage 1: ≥2470px — h1 at 4.5rem, subtitle & btn unchanged, upper-third */
       @media (min-width: 2470px) {
         .hero-section { justify-content: flex-start !important; }
-        .hero-section .hero-content { margin-top: calc(80vh / 6); }
+        .hero-section .hero-content { margin-top: calc(80vh / 6 + 50px); }
         .hero-title { font-size: 4.5rem; }
         .hero-subtitle { font-size: 1.125rem; max-width: 42rem; }
         .hero-content { width: 90vw; }
@@ -237,7 +242,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
       /* Stage 2: 1800px–2469px — same font sizes, content shifts to upper-third visually */
       @media (min-width: 1800px) and (max-width: 2469px) {
         .hero-section { justify-content: flex-start !important; }
-        .hero-section .hero-content { margin-top: calc(80vh / 6); }
+        .hero-section .hero-content { margin-top: calc(80vh / 6 + 50px); }
         .hero-title { font-size: 4.5rem; }
         .hero-subtitle { font-size: 1.125rem; max-width: 42rem; }
         .hero-content { width: 90vw; }
@@ -246,7 +251,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
       /* Stage 3: 738px–1799px — fixed sizes, 90vw container, natural wrapping, upper-third */
       @media (min-width: 738px) and (max-width: 1799px) {
         .hero-section { justify-content: flex-start !important; }
-        .hero-section .hero-content { margin-top: calc(80vh / 6); }
+        .hero-section .hero-content { margin-top: calc(80vh / 6 + 50px); }
         .hero-title { font-size: 4.5rem; word-break: normal; overflow-wrap: break-word; }
         .hero-subtitle { font-size: 1.125rem; }
         .hero-content { width: 90vw; max-width: 90vw; }
@@ -255,8 +260,15 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
       /* Stage 4: <738px — lock at same sizes, no further shrinking */
       @media (max-width: 737px) {
         .hero-title { font-size: 2.5rem; word-break: normal; overflow-wrap: break-word; }
-        .hero-subtitle { font-size: 1.125rem; }
+        .hero-title-desktop { display: none; }
+        .hero-title-mobile { display: inline; }
+        .hero-subtitle { display: none; }
         .hero-content { width: 90vw; max-width: 90vw; }
+      }
+
+      @media (min-width: 738px) {
+        .hero-title-desktop { display: inline; }
+        .hero-title-mobile { display: none; }
       }
 
       @media (max-width: 737px) {
