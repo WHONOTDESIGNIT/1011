@@ -5,6 +5,23 @@ import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { Image } from 'astro:assets';
 
 const locale = 'en';
+
+function netlifyImage(path: string, width: number, format: 'avif' | 'webp', quality = 80) {
+  return `/.netlify/images?url=${encodeURIComponent(path)}&w=${width}&fm=${format}&q=${quality}`;
+}
+
+function buildSrcSet(path: string, widths: number[], format: 'avif' | 'webp', quality = 80) {
+  return widths.map((width) => `${netlifyImage(path, width, format, quality)} ${width}w`).join(', ');
+}
+
+function responsiveImageSources(path: string, widths = [400, 800, 1200], defaultWidth = 800) {
+  return {
+    src: netlifyImage(path, defaultWidth, 'webp'),
+    webpSrcSet: buildSrcSet(path, widths, 'webp'),
+    avifSrcSet: buildSrcSet(path, widths, 'avif'),
+  };
+}
+
 const products = [
   { slug: 'lumi', nameKey: 'nav.lumi', tagline: "RoseSkinCo's Top Selling", firstImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp' },
   { slug: 'lumi-2', nameKey: 'nav.lumi2', tagline: 'Smart Skin Sensor + Chills Skin to 10℃', firstImage: '/images/products/lumi-2/lumi-2-images (1).jpg' },
@@ -17,7 +34,11 @@ const products = [
   { slug: 'hebe', nameKey: 'nav.hebe', tagline: 'AI-Powered Skin Detection', firstImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp' },
   { slug: 'eirene', nameKey: 'nav.eirene', tagline: 'Battery-build-in IPL, Cordless IPL', firstImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg' },
   { slug: 'wooden', nameKey: 'nav.wooden', tagline: 'Natural design, inspired by Whynotdesign.', firstImage: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp' },
-];
+].map((product) => ({
+  ...product,
+  imageSources: responsiveImageSources(product.firstImage),
+}));
+const freeSampleImage = responsiveImageSources('/images/products/free_sample.jpg', [400, 800, 1200], 1200);
 
 const platformTracks = [
   {
@@ -183,12 +204,29 @@ const safetyResources = [
           href={getLocalizedPath(locale, '/products/' + product.slug)}
         >
           <div class="relative bg-slate-100" style="aspect-ratio:1000/806">
-            <img
-              class="h-full w-full object-cover"
-              src={product.firstImage}
-              alt={t(locale, product.nameKey)}
-              loading="lazy"
-            />
+            <picture>
+              <source
+                srcset={product.imageSources.avifSrcSet}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                type="image/avif"
+              />
+              <source
+                srcset={product.imageSources.webpSrcSet}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                type="image/webp"
+              />
+              <img
+                class="h-full w-full object-cover"
+                src={product.imageSources.src}
+                srcset={product.imageSources.webpSrcSet}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                alt={t(locale, product.nameKey)}
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="806"
+              />
+            </picture>
           </div>
           <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
             <div>
@@ -294,10 +332,23 @@ const safetyResources = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <div
-        class="w-full overflow-hidden rounded-2xl bg-slate-100"
-        style="background-image:url('/images/products/free_sample.jpg');background-size:contain;background-repeat:no-repeat;background-position:center;min-height:520px;"
-      />
+      <div class="w-full overflow-hidden rounded-2xl bg-slate-100">
+        <picture>
+          <source srcset={freeSampleImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
+          <source srcset={freeSampleImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
+          <img
+            src={freeSampleImage.src}
+            srcset={freeSampleImage.webpSrcSet}
+            sizes="(min-width: 1024px) 72rem, 100vw"
+            alt="Free sample IPL product display"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="520"
+            class="h-auto w-full object-contain"
+          />
+        </picture>
+      </div>
     </section>
   </div>
 </BaseLayout>

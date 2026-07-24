@@ -6,6 +6,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import { Image } from 'astro:assets';
+import { netlifyImageUrl, responsiveImageSources } from '../../lib/netlify-images';
 
 
 
@@ -31,7 +32,9 @@ const heroImageBySlug: Record<string, string> = {
   'power-supply': '/images/components/power-supply.jpg',
 };
 const heroImage = heroImageBySlug[slug] ?? '/images/components/ipl-device-diagram.jpg';
-const backgroundImage = heroImage;
+const heroBackgroundImage = netlifyImageUrl(heroImage, { width: 1600, format: 'webp', quality: 80 });
+const heroImageSources = responsiveImageSources(heroImage, [400, 800, 1200, 1600], 1200);
+const componentsDiagramImage = responsiveImageSources('/images/components/ipl-device-diagram.jpg', [400, 800, 1200, 1600], 1200);
 
 const specsRows =
   ns === 'componentsCooling' || ns === 'componentsFilter' || ns === 'componentsLamp'
@@ -73,7 +76,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 <BaseLayout title={title} lang={locale} description={description}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
-      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(${backgroundImage});background-size:cover;background-position:center;`} />
+      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;`} />
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
@@ -97,7 +100,22 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     <section class="mx-auto max-w-6xl px-6">
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="aspect-[16/9] bg-slate-100">
-          <img src={heroImage} alt={title} loading="lazy" class="h-full w-full object-cover" />
+          <picture>
+            <source srcset={heroImageSources.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
+            <source srcset={heroImageSources.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
+            <img
+              src={heroImageSources.src}
+              srcset={heroImageSources.webpSrcSet}
+              sizes="(min-width: 1024px) 72rem, 100vw"
+              alt={title}
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="1600"
+              height="900"
+              class="h-full w-full object-cover"
+            />
+          </picture>
         </div>
       </div>
     </section>
@@ -152,14 +170,21 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         {ns === 'componentsPower' && (
           <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div class="aspect-[16/9]">
-              <img
-                src="/images/components/ipl-device-diagram.jpg"
-                alt={t(locale, 'componentsPower.diagram.alt')}
-                width={1600}
-                height={900}
-                loading="lazy"
-                class="h-full w-full object-cover"
-              />
+              <picture>
+                <source srcset={componentsDiagramImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
+                <source srcset={componentsDiagramImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
+                <img
+                  src={componentsDiagramImage.src}
+                  srcset={componentsDiagramImage.webpSrcSet}
+                  sizes="(min-width: 1024px) 72rem, 100vw"
+                  alt={t(locale, 'componentsPower.diagram.alt')}
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-cover"
+                />
+              </picture>
             </div>
           </div>
         )}

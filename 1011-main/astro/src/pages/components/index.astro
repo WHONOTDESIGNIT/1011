@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
+import { netlifyImageUrl, responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = 'en';
 const headerTitle = t(locale, 'componentsPower.header.title');
@@ -71,19 +72,31 @@ const core = [
       t(locale, 'componentsPower.core.power.specs.3'),
     ],
   },
-];
+].map((item) => ({
+  ...item,
+  imageSources: responsiveImageSources(item.image),
+}));
 
 const customizationTitle = t(locale, 'componentsPower.customization.title');
 const customizationDescription = t(locale, 'componentsPower.customization.description');
 const ctaTitle = t(locale, 'componentsPower.cta.title');
 const ctaDescription = t(locale, 'componentsPower.cta.description');
 const ctaButton = t(locale, 'componentsPower.cta.button');
+const heroBackgroundImage = netlifyImageUrl(
+  'https://images.pexels.com/photos/7285970/pexels-photo-7285970.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  { width: 1600, format: 'webp', quality: 80 },
+);
+const componentsDiagramImage = responsiveImageSources(
+  'https://images.pexels.com/photos/8237500/pexels-photo-8237500.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  [400, 800, 1200, 1600],
+  1200,
+);
 ---
 
 <BaseLayout title={headerTitle} lang={locale} description={headerDescription || 'Explore iShine\'s IPL device components: lamp cartridges, optical filters, cooling systems, and power supplies for OEM and ODM manufacturing.'}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
-      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(https://images.pexels.com/photos/7285970/pexels-photo-7285970.jpeg?auto=compress&cs=tinysrgb&w=1600);background-size:cover;background-position:center;`} />
+      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;`} />
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{headerTitle}</h1>
@@ -99,7 +112,21 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
 
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="aspect-[16/9]">
-          <img src="https://images.pexels.com/photos/8237500/pexels-photo-8237500.jpeg?auto=compress&cs=tinysrgb&w=1600" alt={t(locale, 'componentsPower.diagram.alt')} loading="lazy" class="h-full w-full object-cover" />
+          <picture>
+            <source srcset={componentsDiagramImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
+            <source srcset={componentsDiagramImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
+            <img
+              src={componentsDiagramImage.src}
+              srcset={componentsDiagramImage.webpSrcSet}
+              sizes="(min-width: 1024px) 72rem, 100vw"
+              alt={t(locale, 'componentsPower.diagram.alt')}
+              loading="lazy"
+              decoding="async"
+              width="1600"
+              height="900"
+              class="h-full w-full object-cover"
+            />
+          </picture>
         </div>
       </div>
     </section>
@@ -118,7 +145,21 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
         {core.map((item) => (
           <a class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md" href={getLocalizedPath(locale, '/components/' + item.slug)}>
             <div class="mb-4 overflow-hidden rounded-xl bg-slate-100" style="aspect-ratio:16/10">
-              <img src={item.image} alt={item.imageAlt} loading="lazy" class="h-full w-full object-cover" />
+              <picture>
+                <source srcset={item.imageSources.avifSrcSet} sizes="(min-width: 1024px) 18rem, (min-width: 768px) 22rem, 100vw" type="image/avif" />
+                <source srcset={item.imageSources.webpSrcSet} sizes="(min-width: 1024px) 18rem, (min-width: 768px) 22rem, 100vw" type="image/webp" />
+                <img
+                  src={item.imageSources.src}
+                  srcset={item.imageSources.webpSrcSet}
+                  sizes="(min-width: 1024px) 18rem, (min-width: 768px) 22rem, 100vw"
+                  alt={item.imageAlt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="750"
+                  class="h-full w-full object-cover"
+                />
+              </picture>
             </div>
             <div class="text-xl font-semibold">{item.title}</div>
             <div class="mt-2 text-sm text-slate-700">{item.description}</div>
@@ -139,7 +180,21 @@ const ctaButton = t(locale, 'componentsPower.cta.button');
           <div class={idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}>
             <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
-                <img src={item.image} alt={item.imageAlt} loading="lazy" class="h-full w-full object-cover" />
+                <picture>
+                  <source srcset={item.imageSources.avifSrcSet} sizes="(min-width: 768px) 50vw, 100vw" type="image/avif" />
+                  <source srcset={item.imageSources.webpSrcSet} sizes="(min-width: 768px) 50vw, 100vw" type="image/webp" />
+                  <img
+                    src={item.imageSources.src}
+                    srcset={item.imageSources.webpSrcSet}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    alt={item.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="900"
+                    class="h-full w-full object-cover"
+                  />
+                </picture>
               </div>
             </div>
           </div>

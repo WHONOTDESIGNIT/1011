@@ -51,20 +51,30 @@ const { class: className } = Astro.props;
 </style>
 
 <script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        } else {
-          entry.target.classList.remove('animate');
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+  const initCornerMarkers = () => {
+    const markers = document.querySelectorAll('.corner-marker');
+    if (!markers.length || !('IntersectionObserver' in window)) return;
 
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.corner-marker').forEach((el) => observer.observe(el));
-  });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          } else {
+            entry.target.classList.remove('animate');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    markers.forEach((el) => observer.observe(el));
+  };
+
+  const scheduleCornerMarkers =
+    'requestIdleCallback' in window
+      ? window.requestIdleCallback.bind(window)
+      : (callback) => window.setTimeout(callback, 1);
+
+  scheduleCornerMarkers(initCornerMarkers);
 </script>

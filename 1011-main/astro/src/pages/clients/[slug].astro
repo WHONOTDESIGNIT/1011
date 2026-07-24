@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { netlifyImageUrl } from '../../lib/netlify-images';
 
 
 
@@ -359,6 +360,16 @@ const caseStudies: Record<string, CaseStudy> = {
     },
   },
 };
+
+for (const caseStudy of Object.values(caseStudies)) {
+  if (caseStudy.heroBackgroundImage) {
+    caseStudy.heroBackgroundImage = netlifyImageUrl(caseStudy.heroBackgroundImage, {
+      width: 1600,
+      format: 'webp',
+      quality: 80,
+    });
+  }
+}
 
 const data = caseStudies[slug];
 if (!data) {

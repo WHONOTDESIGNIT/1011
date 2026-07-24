@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = 'en';
 const values = [
@@ -31,6 +32,9 @@ const milestones = [
 ];
 const pageTitle = 'About iShine';
 const pageDescription = 'iShine is an IPL hair removal device manufacturer providing OEM and ODM services for beauty brands, from product design to global delivery.';
+const aboutFacilityImage = responsiveImageSources(
+  'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
+);
 ---
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
@@ -81,12 +85,21 @@ const pageDescription = 'iShine is an IPL hair removal device manufacturer provi
         </div>
       </div>
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-        <img
-          src="https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          alt="iShine Manufacturing Facility"
-          loading="lazy"
-          class="h-full w-full object-cover"
-        />
+        <picture>
+          <source srcset={aboutFacilityImage.avifSrcSet} sizes="(min-width: 1024px) 50vw, 100vw" type="image/avif" />
+          <source srcset={aboutFacilityImage.webpSrcSet} sizes="(min-width: 1024px) 50vw, 100vw" type="image/webp" />
+          <img
+            src={aboutFacilityImage.src}
+            srcset={aboutFacilityImage.webpSrcSet}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            alt="iShine Manufacturing Facility"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="900"
+            class="h-full w-full object-cover"
+          />
+        </picture>
       </div>
     </section>
 

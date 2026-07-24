@@ -1,6 +1,7 @@
 ---
 import { t } from '../lib/i18n';
 import { getLocalizedPath } from '../lib/breadcrumbs';
+import { netlifyImageUrl } from '../lib/netlify-images';
 import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
 import criticalCss from '../styles/critical.css?raw';
@@ -75,6 +76,16 @@ const siteBaseUrl = (
 const canonicalUrl = canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
+const analyticsBadgeDark = netlifyImageUrl('https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=dark', {
+  width: 480,
+  format: 'webp',
+  quality: 80,
+});
+const analyticsBadgeLight = netlifyImageUrl('https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=light', {
+  width: 480,
+  format: 'webp',
+  quality: 80,
+});
 const productLinks = [
   { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
   { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
@@ -510,13 +521,16 @@ document.addEventListener('DOMContentLoaded', function() {
           >
             <picture>
               <source
-                srcset="https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=dark"
+                srcset={analyticsBadgeDark}
                 media="(prefers-color-scheme: dark)"
               />
               <img
-                src="https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=light"
+                src={analyticsBadgeLight}
                 alt="Simple Analytics — Last month sessions"
                 loading="lazy"
+                decoding="async"
+                width="480"
+                height="160"
                 referrerpolicy="no-referrer"
                 crossorigin="anonymous"
               />
@@ -535,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </button>
 
     <script>
-      (function () {
+      const initBackToTop = () => {
         const btn = document.getElementById('back-to-top');
         if (!btn) return;
 
@@ -555,7 +569,14 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function () {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-      })();
+      };
+
+      const scheduleBackToTop =
+        'requestIdleCallback' in window
+          ? window.requestIdleCallback.bind(window)
+          : (callback) => window.setTimeout(callback, 1);
+
+      scheduleBackToTop(initBackToTop);
     </script>
 
     <style>
