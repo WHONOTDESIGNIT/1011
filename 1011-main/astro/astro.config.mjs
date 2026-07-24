@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  output: 'server',
+  output: 'static',
   adapter: netlify({
     imageCDN: true,
   }),
