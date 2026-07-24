@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getAllPosts } from '../../lib/blog';
@@ -22,6 +24,11 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const posts = await getAllPosts(locale);
 const categories = Array.from(new Set(posts.map((post) => post.category).filter(Boolean))).sort((a, b) => a.localeCompare(b));
 const initialVisibleCount = 6;
+
+Astro.response.headers.set(
+  'Netlify-CDN-Cache-Control',
+  'public, durable, s-maxage=60, stale-while-revalidate=3600',
+);
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

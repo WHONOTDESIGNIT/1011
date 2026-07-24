@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getPostBySlug, getRelatedPosts } from '../../lib/blog';
@@ -28,6 +30,11 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
+
+Astro.response.headers.set(
+  'Netlify-CDN-Cache-Control',
+  'public, durable, s-maxage=300, stale-while-revalidate=604800',
+);
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

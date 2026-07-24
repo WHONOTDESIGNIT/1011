@@ -65,7 +65,14 @@ type Props = {
 };
 
 const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
-const canonicalUrl = canonical || new URL(Astro.request.url).href;
+const siteBaseUrl = (
+  Astro.site?.toString()
+  ?? process.env.URL
+  ?? process.env.DEPLOY_PRIME_URL
+  ?? process.env.SITE_URL
+  ?? 'https://iplmanufacturer.com'
+).replace(/\/$/, '');
+const canonicalUrl = canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const productLinks = [
   { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
