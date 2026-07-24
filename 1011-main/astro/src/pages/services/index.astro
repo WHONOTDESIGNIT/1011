@@ -3,9 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { responsiveImageSources } from '../../lib/netlify-images';
 import { PenTool, Cog, Truck, Clock, Globe, RefreshCw, ShieldCheck } from '@lucide/astro';
 
 const locale = 'en';
+
 const pageTitle = 'IPL Private Label & OEM/ODM Services | iShine';
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -272,7 +274,15 @@ const trustedBrands = [
   { name: 'Costco Canada', logo: '/images/logos/costco-logo.svg' },
   { name: 'ROSESKINCO USA', logo: '/images/logos/roseskin-logo.svg' },
   { name: 'KU-2 Cosmetic Germany', logo: '/images/logos/KU-2 logo.svg' },
-];
+].map((brand) => ({
+  ...brand,
+  logoSources: responsiveImageSources(brand.logo, [200, 400, 800], 400),
+}));
+
+const servicesHeroImage = responsiveImageSources('/images/service/service-ipl.jpg');
+const servicesWorkflowImage = responsiveImageSources(
+  'https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200',
+);
 ---
 
 <BaseLayout
@@ -313,12 +323,21 @@ const trustedBrands = [
         <div class="grid gap-4">
           <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
             <div class="aspect-[4/3] bg-slate-100">
-              <img
-                src="/images/service/service-ipl.jpg"
-                alt="IPL manufacturing services"
-                loading="lazy"
-                class="h-full w-full object-cover"
-              />
+              <picture>
+                <source srcset={servicesHeroImage.avifSrcSet} sizes="(min-width: 1024px) 33vw, 100vw" type="image/avif" />
+                <source srcset={servicesHeroImage.webpSrcSet} sizes="(min-width: 1024px) 33vw, 100vw" type="image/webp" />
+                <img
+                  src={servicesHeroImage.src}
+                  srcset={servicesHeroImage.webpSrcSet}
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  alt="IPL manufacturing services"
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="900"
+                  class="h-full w-full object-cover"
+                />
+              </picture>
             </div>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
@@ -528,18 +547,41 @@ const trustedBrands = [
       <div class="space-y-6">
         <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div class="aspect-[4/3] bg-slate-100">
-            <img
-              src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Manufacturing and packaging workflow"
-              loading="lazy"
-              class="h-full w-full object-cover"
-            />
+            <picture>
+              <source srcset={servicesWorkflowImage.avifSrcSet} sizes="(min-width: 1024px) 30vw, 100vw" type="image/avif" />
+              <source srcset={servicesWorkflowImage.webpSrcSet} sizes="(min-width: 1024px) 30vw, 100vw" type="image/webp" />
+              <img
+                src={servicesWorkflowImage.src}
+                srcset={servicesWorkflowImage.webpSrcSet}
+                sizes="(min-width: 1024px) 30vw, 100vw"
+                alt="Manufacturing and packaging workflow"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="900"
+                class="h-full w-full object-cover"
+              />
+            </picture>
           </div>
         </div>
         <div class="grid gap-4 sm:grid-cols-3">
           {trustedBrands.map((brand) => (
             <div class="flex min-h-[120px] items-center justify-center rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" class="max-h-12 w-auto object-contain" />
+              <picture>
+                <source srcset={brand.logoSources.avifSrcSet} sizes="140px" type="image/avif" />
+                <source srcset={brand.logoSources.webpSrcSet} sizes="140px" type="image/webp" />
+                <img
+                  src={brand.logoSources.src}
+                  srcset={brand.logoSources.webpSrcSet}
+                  sizes="140px"
+                  alt={`${brand.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  width="140"
+                  height="48"
+                  class="max-h-12 w-auto object-contain"
+                />
+              </picture>
             </div>
           ))}
         </div>
@@ -573,46 +615,6 @@ const trustedBrands = [
             </div>
           </details>
         ))}
-      </div>
-    </section>
-
-    <section class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-      <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
-        <div>
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Weight Loop</div>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Close the loop: model selection → branding → fulfillment</h2>
-          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
-            Start by shortlisting a platform in the catalogue, then choose the service modules that match your launch timeline and channel.
-          </p>
-          <div class="mt-8">
-            <a
-              class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              href={getLocalizedPath(locale, '/catalogue')}
-            >
-              Compare all models in Catalogue
-            </a>
-          </div>
-        </div>
-
-        <div class="rounded-[1.75rem] bg-slate-50 p-7">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Branding Services</div>
-          <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">Launch-ready shortcuts</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-700">Direct links to the most common packaging + documentation + fulfillment requests.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/no-moq')}>
-              No MOQ
-            </a>
-            <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/box-custom')}>
-              Box Custom
-            </a>
-            <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/user-manual-guide-custom')}>
-              Manual
-            </a>
-            <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
-              Dropshipping
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 

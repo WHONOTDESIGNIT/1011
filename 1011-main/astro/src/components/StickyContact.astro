@@ -52,9 +52,10 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const initStickyContactOverlay = () => {
     const overlay = document.getElementById('wechat-overlay');
     const wechatPart = document.querySelector('[data-type="wechat"]');
+    if (!(overlay instanceof HTMLElement) || !(wechatPart instanceof HTMLElement)) return;
 
     function openWechat() {
       overlay.classList.remove('hidden');
@@ -66,22 +67,25 @@
       overlay.classList.add('hidden');
     }
 
-    if (wechatPart) {
-      wechatPart.addEventListener('click', openWechat);
-    }
+    wechatPart.addEventListener('click', openWechat);
 
-    if (overlay) {
-      overlay.addEventListener('click', (e) => {
-        if (!e.target.closest('.overlay-content')) {
-          closeWechat();
-        }
-      });
-    }
+    overlay.addEventListener('click', (e) => {
+      if (!e.target.closest('.overlay-content')) {
+        closeWechat();
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeWechat();
     });
-  });
+  };
+
+  const scheduleStickyContactOverlay =
+    'requestIdleCallback' in window
+      ? window.requestIdleCallback.bind(window)
+      : (callback) => window.setTimeout(callback, 1);
+
+  scheduleStickyContactOverlay(initStickyContactOverlay);
 </script>
 
 <style>

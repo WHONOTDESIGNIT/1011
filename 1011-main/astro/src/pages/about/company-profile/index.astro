@@ -3,10 +3,15 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { netlifyImageUrl, responsiveImageSources } from '../../../lib/netlify-images';
 
 const locale = 'en';
 const heroBackgroundImage =
   'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
+const heroBackgroundImageUrl = netlifyImageUrl(heroBackgroundImage, { width: 1600, format: 'webp', quality: 80 });
+const companyProfileFacilityImage = responsiveImageSources(
+  'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
+);
 
 const facilityBullets = [
   '10,000 m² production facility with 6 dedicated IPL assembly lines',
@@ -133,7 +138,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
-    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
+    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImageUrl});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
@@ -177,12 +182,21 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         </div>
         <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div class="aspect-[4/3]">
-            <img
-              src="https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="iShine Manufacturing Facility"
-              loading="lazy"
-              class="h-full w-full object-cover"
-            />
+            <picture>
+              <source srcset={companyProfileFacilityImage.avifSrcSet} sizes="(min-width: 1024px) 33vw, 100vw" type="image/avif" />
+              <source srcset={companyProfileFacilityImage.webpSrcSet} sizes="(min-width: 1024px) 33vw, 100vw" type="image/webp" />
+              <img
+                src={companyProfileFacilityImage.src}
+                srcset={companyProfileFacilityImage.webpSrcSet}
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                alt="iShine Manufacturing Facility"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="900"
+                class="h-full w-full object-cover"
+              />
+            </picture>
           </div>
         </div>
       </div>

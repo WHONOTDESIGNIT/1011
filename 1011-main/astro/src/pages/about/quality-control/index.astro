@@ -3,10 +3,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { t } from '../../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { netlifyImageUrl } from '../../../lib/netlify-images';
 
 const locale = 'en';
 const heroBackgroundImage =
   'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
+const heroBackgroundImageUrl = netlifyImageUrl(heroBackgroundImage, { width: 1600, format: 'webp', quality: 80 });
 
 const qcFlow = [
   { title: 'Incoming Material Inspection', description: 'Verify key components and materials before production starts.' },
@@ -41,7 +43,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
-    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
+    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white" style={`background-image:url(${heroBackgroundImageUrl});background-size:cover;background-position:center;background-blend-mode:overlay;`}>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />

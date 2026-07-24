@@ -231,7 +231,10 @@ const fallbackBlogPosts = isEn ? [
 ];
 
 const latestPosts = await getAllPosts(locale);
-const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPosts;
+const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPosts).map((post) => ({
+  ...post,
+  imageSources: post.image ? responsiveImageSources(post.image) : null,
+}));
 ---
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription} showCornerMarkers={false}>
@@ -489,32 +492,6 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 
     <CornerMarker />
 
-    <section class="relative w-screen left-1/2 -translate-x-1/2 flex items-center justify-center">
-      <div class="relative overflow-hidden rounded-2xl flex items-end justify-start px-8 pb-8 md:px-10 md:pb-10 lg:px-12 lg:pb-12 w-full" style="min-height:400px;max-width:3661px;aspect-ratio:3872/1082">
-      <picture class="absolute inset-0 h-full w-full">
-        <source media="(max-width: 1023px)" srcset={fullStackMobileAvifSrcSet} sizes="100vw" type="image/avif" />
-        <source media="(max-width: 1023px)" srcset={fullStackMobileWebpSrcSet} sizes="100vw" type="image/webp" />
-        <source srcset={fullStackDesktopAvifSrcSet} sizes="100vw" type="image/avif" />
-        <img
-          src={fullStackDesktopWebpSrc}
-          srcset={fullStackDesktopWebpSrcSet}
-          sizes="100vw"
-          alt=""
-          loading="lazy"
-          decoding="async"
-          class="absolute inset-0 h-full w-full object-cover"
-          width="3872"
-          height="1082"
-        />
-      </picture>
-      <div class="relative z-10" style="transform:translateX(50%)">
-        <a class="inline-flex rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 shadow-md" href={getLocalizedPath(locale, '/services')}>
-          View B2B Custom Package
-        </a>
-      </div>
-    </div>
-    </section>
-
     <CornerMarker />
 
     <section class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -744,7 +721,29 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           <a class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg" href={post.href}>
             {post.image ? (
               <div class="aspect-[16/10] bg-slate-100">
-                <img src={post.image} alt={post.title} loading="lazy" class="h-full w-full object-cover" />
+                <picture>
+                  <source
+                    srcset={post.imageSources.avifSrcSet}
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset={post.imageSources.webpSrcSet}
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    type="image/webp"
+                  />
+                  <img
+                    src={post.imageSources.src}
+                    srcset={post.imageSources.webpSrcSet}
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    alt={post.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="750"
+                    class="h-full w-full object-cover"
+                  />
+                </picture>
               </div>
             ) : (
               <div class="flex aspect-[16/10] items-end bg-gradient-to-br from-slate-100 to-slate-200 p-6">
@@ -770,7 +769,7 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 </BaseLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const initHomeProductCarousel = () => {
     const track = document.getElementById('product-carousel-track');
     if (!track || track.children.length === 0) return;
 
@@ -781,10 +780,6 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
 
     function getCardWidth() {
       return cards[0]?.offsetWidth || 0;
-    }
-
-    function clampIndex(index) {
-      return Math.max(0, Math.min(index, totalCards - 1));
     }
 
     function updateCarousel(animate = true) {
@@ -874,7 +869,14 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
         preload.src = hoverSrc;
       }
     });
-  });
+  };
+
+  const scheduleHomeProductCarousel =
+    'requestIdleCallback' in window
+      ? window.requestIdleCallback.bind(window)
+      : (callback) => window.setTimeout(callback, 1);
+
+  scheduleHomeProductCarousel(initHomeProductCarousel);
 </script>
 
 <style is:global>
