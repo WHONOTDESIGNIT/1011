@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
-import { netlifyImageUrl, responsiveImageSources } from '../../lib/netlify-images';
+import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = 'en';
 const headerTitle = t(locale, 'componentsPower.header.title');
@@ -82,9 +82,10 @@ const customizationDescription = t(locale, 'componentsPower.customization.descri
 const ctaTitle = t(locale, 'componentsPower.cta.title');
 const ctaDescription = t(locale, 'componentsPower.cta.description');
 const ctaButton = t(locale, 'componentsPower.cta.button');
-const heroBackgroundImage = netlifyImageUrl(
+const heroBackgroundImageSources = responsiveImageSources(
   'https://images.pexels.com/photos/7285970/pexels-photo-7285970.jpeg?auto=compress&cs=tinysrgb&w=1600',
-  { width: 1600, format: 'webp', quality: 80 },
+  [800, 1200, 1600],
+  1600,
 );
 const componentsDiagramImage = responsiveImageSources(
   'https://images.pexels.com/photos/8237500/pexels-photo-8237500.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -96,7 +97,22 @@ const componentsDiagramImage = responsiveImageSources(
 <BaseLayout title={headerTitle} lang={locale} description={headerDescription || 'Explore iShine\'s IPL device components: lamp cartridges, optical filters, cooling systems, and power supplies for OEM and ODM manufacturing.'}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
-      <div class="pointer-events-none absolute inset-0 opacity-30" style={`background-image:url(${heroBackgroundImage});background-size:cover;background-position:center;`} />
+      <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-30" aria-hidden="true">
+        <source srcset={heroBackgroundImageSources.avifSrcSet} sizes="100vw" type="image/avif" />
+        <source srcset={heroBackgroundImageSources.webpSrcSet} sizes="100vw" type="image/webp" />
+        <img
+          src={heroBackgroundImageSources.src}
+          srcset={heroBackgroundImageSources.webpSrcSet}
+          sizes="100vw"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="1600"
+          height="900"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div class="pointer-events-none absolute inset-0 bg-black/40" />
       <div class="relative">
         <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{headerTitle}</h1>
