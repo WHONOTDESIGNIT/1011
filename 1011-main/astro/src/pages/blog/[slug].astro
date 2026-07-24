@@ -18,6 +18,14 @@ function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
 }
 
+function netlifyImage(path: string, width: number, format: 'avif' | 'webp', quality = 80) {
+  return `/.netlify/images?url=${encodeURIComponent(path)}&w=${width}&fm=${format}&q=${quality}`;
+}
+
+function buildSrcSet(path: string, widths: number[], format: 'avif' | 'webp', quality = 80) {
+  return widths.map((width) => `${netlifyImage(path, width, format, quality)} ${width}w`).join(', ');
+}
+
 const Content = post.Content as any;
 const related = await getRelatedPosts(locale, post.meta.slug, post.meta.category, 3);
 const breadcrumbs = buildBreadcrumbs(locale, [
@@ -30,6 +38,14 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
+const blogImageWidths = [400, 800, 1200];
+const articleHeroImage = post.meta.image
+  ? {
+      src: netlifyImage(post.meta.image, 800, 'webp'),
+      webpSrcSet: buildSrcSet(post.meta.image, blogImageWidths, 'webp'),
+      avifSrcSet: buildSrcSet(post.meta.image, blogImageWidths, 'avif'),
+    }
+  : null;
 
 Astro.response.headers.set(
   'Netlify-CDN-Cache-Control',
@@ -145,12 +161,22 @@ const articleSchema = {
       ? (
         <figure class="-mx-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm sm:mx-0">
           <div class="aspect-[16/9]">
-            <img
-              src={post.meta.image}
-              alt={post.meta.title}
-              loading="eager"
-              class="h-full w-full object-cover"
-            />
+            <picture>
+              <source srcset={articleHeroImage.avifSrcSet} sizes="(max-width: 1024px) 100vw, 1200px" type="image/avif" />
+              <source srcset={articleHeroImage.webpSrcSet} sizes="(max-width: 1024px) 100vw, 1200px" type="image/webp" />
+              <img
+                src={articleHeroImage.src}
+                srcset={articleHeroImage.webpSrcSet}
+                sizes="(max-width: 1024px) 100vw, 1200px"
+                alt={post.meta.title}
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                width="1200"
+                height="675"
+                class="h-full w-full object-cover"
+              />
+            </picture>
           </div>
         </figure>
       )
@@ -208,12 +234,21 @@ const articleSchema = {
                 {p.image
                   ? (
                     <div class="aspect-[16/10] overflow-hidden bg-slate-100">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        loading="lazy"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
+                      <picture>
+                        <source srcset={buildSrcSet(p.image, blogImageWidths, 'avif')} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/avif" />
+                        <source srcset={buildSrcSet(p.image, blogImageWidths, 'webp')} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/webp" />
+                        <img
+                          src={netlifyImage(p.image, 800, 'webp')}
+                          srcset={buildSrcSet(p.image, blogImageWidths, 'webp')}
+                          sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          alt={p.title}
+                          loading="lazy"
+                          decoding="async"
+                          width="1200"
+                          height="750"
+                          class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                      </picture>
                     </div>
                   )
                   : (

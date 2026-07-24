@@ -23,6 +23,14 @@ function buildSrcSet(path: string, widths: number[], format: 'avif' | 'webp', qu
   return widths.map((width) => `${netlifyImage(path, width, format, quality)} ${width}w`).join(', ');
 }
 
+function responsiveImageSources(path: string, widths = [400, 800, 1200], defaultWidth = 800) {
+  return {
+    src: netlifyImage(path, defaultWidth, 'webp'),
+    webpSrcSet: buildSrcSet(path, widths, 'webp'),
+    avifSrcSet: buildSrcSet(path, widths, 'avif'),
+  };
+}
+
 const heroDesktopImage = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
 const heroMobileImage = '/images/home/hero-section-ipl-device-mobile.webp';
 const heroDesktopWidths = [960, 1280, 1600, 1920];
@@ -76,7 +84,11 @@ const productCards = [
   { name: 'Eirene', tagline: isEn ? 'Professional Grade' : 'Grado Profesional', href: getLocalizedPath(locale, '/products/eirene'), image: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg', hoverImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20holding.jpg' },
   { name: 'Golden', tagline: isEn ? 'Luxury Edition' : 'Edición de Lujo', href: getLocalizedPath(locale, '/products/wooden'), image: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp', hoverImage: '/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp' },
   { name: 'Hebe', tagline: isEn ? 'AI Skin Sensor' : 'Sensor de Piel con IA', href: getLocalizedPath(locale, '/products/hebe'), image: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp', hoverImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20holding.webp' },
-];
+].map((card) => ({
+  ...card,
+  imageSources: responsiveImageSources(card.image),
+  hoverImageSources: responsiveImageSources(card.hoverImage),
+}));
 
 const testimonials = isEn ? [
   { company: 'Costco', person: 'Sarah Johnson', role: 'Procurement Manager', region: 'Canada', quote: "iShine's IPL devices have exceeded our expectations. The quality and reliability are outstanding, making them perfect for our retail customers.", logo: '/images/logos/costco-logo.svg' },
@@ -430,14 +442,37 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
             <a class="product-card flex-shrink-0 rounded-xl border-2 border-black bg-white shadow-sm overflow-hidden group transition-all" href={product.href}>
               <div class="flex h-full flex-col">
                 <div class="relative bg-slate-100" style="flex: 806 0 0%; min-height:0">
-                  <img
-                    class="product-card-image h-full w-full object-cover transition-opacity duration-300"
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    data-original-src={product.image}
-                    data-hover-src={product.hoverImage}
-                  />
+                  <picture>
+                    <source
+                      class="product-card-image-avif"
+                      srcset={product.imageSources.avifSrcSet}
+                      sizes="(max-width: 737px) 80vw, (max-width: 1279px) 30vw, 26vw"
+                      type="image/avif"
+                    />
+                    <source
+                      class="product-card-image-webp"
+                      srcset={product.imageSources.webpSrcSet}
+                      sizes="(max-width: 737px) 80vw, (max-width: 1279px) 30vw, 26vw"
+                      type="image/webp"
+                    />
+                    <img
+                      class="product-card-image h-full w-full object-cover transition-opacity duration-300"
+                      src={product.imageSources.src}
+                      srcset={product.imageSources.webpSrcSet}
+                      sizes="(max-width: 737px) 80vw, (max-width: 1279px) 30vw, 26vw"
+                      alt={product.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="1000"
+                      height="806"
+                      data-original-src={product.imageSources.src}
+                      data-original-srcset={product.imageSources.webpSrcSet}
+                      data-original-avif-srcset={product.imageSources.avifSrcSet}
+                      data-hover-src={product.hoverImageSources.src}
+                      data-hover-srcset={product.hoverImageSources.webpSrcSet}
+                      data-hover-avif-srcset={product.hoverImageSources.avifSrcSet}
+                    />
+                  </picture>
                 </div>
                 <div class="flex flex-col justify-end p-3" style="flex: 194 0 0%">
                   <div>
@@ -791,10 +826,16 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
     // Product card image hover switching - show second product image
     document.querySelectorAll('.product-card').forEach(card => {
       const img = card.querySelector('.product-card-image');
+      const avifSource = card.querySelector('.product-card-image-avif');
+      const webpSource = card.querySelector('.product-card-image-webp');
       if (!img) return;
 
       const originalSrc = img.getAttribute('data-original-src');
+      const originalSrcSet = img.getAttribute('data-original-srcset');
+      const originalAvifSrcSet = img.getAttribute('data-original-avif-srcset');
       const hoverSrc = img.getAttribute('data-hover-src');
+      const hoverSrcSet = img.getAttribute('data-hover-srcset');
+      const hoverAvifSrcSet = img.getAttribute('data-hover-avif-srcset');
 
       card.addEventListener('mouseenter', () => {
         if (hoverSrc && hoverSrc !== originalSrc) {
@@ -802,6 +843,9 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           img.style.opacity = '0';
           setTimeout(() => {
             img.src = hoverSrc;
+            if (hoverSrcSet) img.srcset = hoverSrcSet;
+            if (webpSource && hoverSrcSet) webpSource.srcset = hoverSrcSet;
+            if (avifSource && hoverAvifSrcSet) avifSource.srcset = hoverAvifSrcSet;
             img.style.opacity = '1';
           }, 200);
         }
@@ -813,6 +857,9 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
           img.style.opacity = '0';
           setTimeout(() => {
             img.src = originalSrc;
+            if (originalSrcSet) img.srcset = originalSrcSet;
+            if (webpSource && originalSrcSet) webpSource.srcset = originalSrcSet;
+            if (avifSource && originalAvifSrcSet) avifSource.srcset = originalAvifSrcSet;
             img.style.opacity = '1';
           }, 200);
         }
