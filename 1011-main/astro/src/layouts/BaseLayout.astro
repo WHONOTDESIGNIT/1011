@@ -222,7 +222,6 @@ const footerUtilityLinks = [
       <link rel="stylesheet" href={fontStylesheetUrl} />
       <link rel="stylesheet" href={globalCssUrl} />
     </noscript>
-    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
@@ -598,5 +597,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     </style>
+    <script defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>
 </html>

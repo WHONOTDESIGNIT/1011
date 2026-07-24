@@ -293,6 +293,14 @@ const uiText = {
               .replaceAll('"', '&quot;')
               .replaceAll("'", '&#39;');
 
+          const netlifyImage = (path, width, format = 'webp', quality = 80) =>
+            '/.netlify/images?url=' + encodeURIComponent(path) + '&w=' + width + '&fm=' + format + '&q=' + quality;
+
+          const buildSrcSet = (path, format) =>
+            [400, 800, 1200]
+              .map((width) => escapeHtml(netlifyImage(path, width, format)) + ' ' + width + 'w')
+              .join(', ');
+
           const createMetaRow = (post) => {
             const parts = [];
             if (post.category) {
@@ -320,11 +328,18 @@ const uiText = {
             );
           };
 
-          const imageMarkup = (post, aspectClass) => {
+          const imageMarkup = (post, aspectClass, sizes, width, height, loading = 'lazy') => {
             if (post.image) {
+              const avifSrcSet = buildSrcSet(post.image, 'avif');
+              const webpSrcSet = buildSrcSet(post.image, 'webp');
+              const fallbackSrc = escapeHtml(netlifyImage(post.image, 800, 'webp'));
               return (
                 '<div class="' + aspectClass + ' bg-slate-100">' +
-                '<img src="' + escapeHtml(post.image) + '" alt="' + escapeHtml(post.title) + '" loading="lazy" class="h-full w-full object-cover" />' +
+                '<picture>' +
+                '<source srcset="' + avifSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/avif" />' +
+                '<source srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/webp" />' +
+                '<img src="' + fallbackSrc + '" srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" alt="' + escapeHtml(post.title) + '" loading="' + escapeHtml(loading) + '" decoding="async" width="' + width + '" height="' + height + '" class="h-full w-full object-cover" />' +
+                '</picture>' +
                 '</div>'
               );
             }
@@ -346,7 +361,7 @@ const uiText = {
             featuredSection.classList.remove('hidden');
             featuredContainer.innerHTML =
               '<a class="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg lg:grid-cols-[1.05fr_0.95fr]" href="' + escapeHtml(post.href) + '">' +
-                imageMarkup(post, 'aspect-[16/10] lg:aspect-auto lg:h-full') +
+                imageMarkup(post, 'aspect-[16/10] lg:aspect-auto lg:h-full', '(min-width: 1024px) 50vw, 100vw', 1200, 750) +
                 '<div class="flex flex-col justify-between p-8">' +
                   '<div>' +
                     '<div class="flex flex-wrap items-center gap-2 text-xs text-slate-600">' + createMetaRow(post) + '</div>' +
@@ -363,7 +378,7 @@ const uiText = {
             regularGrid.innerHTML = items
               .map((post) =>
                 '<a class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg" href="' + escapeHtml(post.href) + '">' +
-                  imageMarkup(post, 'aspect-[16/10]') +
+                  imageMarkup(post, 'aspect-[16/10]', '(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw', 1200, 750) +
                   '<div class="space-y-4 p-6">' +
                     '<div class="flex flex-wrap items-center gap-2 text-xs text-slate-600">' + createMetaRow(post) + '</div>' +
                     '<h4 class="text-xl font-semibold tracking-tight text-slate-900">' + escapeHtml(post.title) + '</h4>' +
