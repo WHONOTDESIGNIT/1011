@@ -3,6 +3,10 @@ import { defineMiddleware } from "astro:middleware";
 const GENERIC_LOCALE_PREFIX_REGEX = /^\/([a-z]{2})(\/|$)/i;
 
 export const onRequest = defineMiddleware(async (context, next) => {
+  if (context.isPrerendered) {
+    return next();
+  }
+
   const { cookies, request } = context;
   const currentUrl = new URL(request.url);
   const currentPath = currentUrl.pathname;

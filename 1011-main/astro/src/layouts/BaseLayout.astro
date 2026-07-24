@@ -74,6 +74,7 @@ const siteBaseUrl = (
 ).replace(/\/$/, '');
 const canonicalUrl = canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
+const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
 const productLinks = [
   { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
   { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
@@ -211,13 +212,16 @@ const footerUtilityLinks = [
     <meta property="og:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
     <meta name="twitter:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
     <link rel="icon" type="image/svg+xml" href="/images/logos/LOGO-SVG.svg" />
-    <link rel="preconnect" href="https://images.pexels.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" />
+    <link rel="preload" href={fontStylesheetUrl} as="style" />
+    <link rel="stylesheet" href={fontStylesheetUrl} media="print" onload="this.media='all'" />
     <style is:inline set:html={criticalCss} />
     <link rel="stylesheet" href={globalCssUrl} media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href={globalCssUrl} /></noscript>
+    <noscript>
+      <link rel="stylesheet" href={fontStylesheetUrl} />
+      <link rel="stylesheet" href={globalCssUrl} />
+    </noscript>
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <slot name="head" />
   </head>
