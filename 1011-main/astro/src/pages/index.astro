@@ -15,6 +15,34 @@ const pageDescription = isEn
   ? 'iShine is an OEM and ODM IPL hair removal device manufacturer providing custom design, compliant production, packaging, and global delivery for beauty brands and retailers.'
   : 'iShine es un fabricante OEM y ODM de dispositivos de depilación IPL que ofrece diseño personalizado, producción certificada, empaque y entrega global para marcas de belleza y minoristas.';
 
+function netlifyImage(path: string, width: number, format: 'avif' | 'webp', quality = 80) {
+  return `/.netlify/images?url=${encodeURIComponent(path)}&w=${width}&fm=${format}&q=${quality}`;
+}
+
+function buildSrcSet(path: string, widths: number[], format: 'avif' | 'webp', quality = 80) {
+  return widths.map((width) => `${netlifyImage(path, width, format, quality)} ${width}w`).join(', ');
+}
+
+const heroDesktopImage = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
+const heroMobileImage = '/images/home/hero-section-ipl-device-mobile.webp';
+const heroDesktopWidths = [960, 1280, 1600, 1920];
+const heroMobileWidths = [480, 640, 750, 960];
+const heroDesktopWebpSrc = netlifyImage(heroDesktopImage, 1600, 'webp');
+const heroDesktopWebpSrcSet = buildSrcSet(heroDesktopImage, heroDesktopWidths, 'webp');
+const heroDesktopAvifSrcSet = buildSrcSet(heroDesktopImage, heroDesktopWidths, 'avif');
+const heroMobileWebpSrcSet = buildSrcSet(heroMobileImage, heroMobileWidths, 'webp');
+const heroMobileAvifSrcSet = buildSrcSet(heroMobileImage, heroMobileWidths, 'avif');
+
+const fullStackDesktopImage = '/images/home/PC-full-stack-factory.webp';
+const fullStackMobileImage = '/images/home/laptop-full-stack-factory.webp';
+const fullStackDesktopWidths = [1024, 1440, 1920];
+const fullStackMobileWidths = [640, 960, 1280];
+const fullStackDesktopWebpSrc = netlifyImage(fullStackDesktopImage, 1440, 'webp');
+const fullStackDesktopWebpSrcSet = buildSrcSet(fullStackDesktopImage, fullStackDesktopWidths, 'webp');
+const fullStackDesktopAvifSrcSet = buildSrcSet(fullStackDesktopImage, fullStackDesktopWidths, 'avif');
+const fullStackMobileWebpSrcSet = buildSrcSet(fullStackMobileImage, fullStackMobileWidths, 'webp');
+const fullStackMobileAvifSrcSet = buildSrcSet(fullStackMobileImage, fullStackMobileWidths, 'avif');
+
 const quickFeatures = isEn ? [
   { title: 'IPL Niche King', icon: Award, description: 'Custom wavelengths, skin sensors, FDA/CE docs.' },
   { title: 'Supply Chain Support', icon: Package, description: 'MOQ, lead time, quality control.' },
@@ -198,14 +226,20 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
   <main>
     <section class="hero-section relative w-screen left-1/2 -translate-x-1/2 overflow-hidden text-center text-white -mt-[160px]" style="height:calc(80vh + 160px);display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:160px">
       <picture class="absolute inset-0 h-full w-full">
-        <source media="(max-width: 737px)" srcset="/images/home/hero-section-ipl-device-mobile.webp" type="image/webp" />
-        <Image
-          src="/images/home/hero-section-sapphire-ipl-device-white-color.webp"
+        <source media="(max-width: 737px)" srcset={heroMobileAvifSrcSet} sizes="100vw" type="image/avif" />
+        <source media="(max-width: 737px)" srcset={heroMobileWebpSrcSet} sizes="100vw" type="image/webp" />
+        <source srcset={heroDesktopAvifSrcSet} sizes="100vw" type="image/avif" />
+        <img
+          src={heroDesktopWebpSrc}
+          srcset={heroDesktopWebpSrcSet}
+          sizes="100vw"
           alt=""
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
           class="h-full w-full object-cover"
-          width={1920}
-          height={1280}
+          width="1920"
+          height="1280"
         />
       </picture>
       <div class="absolute inset-0" style="background:linear-gradient(rgba(140,113,114,0.35),rgba(140,113,114,0.35))"></div>
@@ -423,11 +457,16 @@ const blogPosts = latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPos
     <section class="relative w-screen left-1/2 -translate-x-1/2 flex items-center justify-center">
       <div class="relative overflow-hidden rounded-2xl flex items-end justify-start px-8 pb-8 md:px-10 md:pb-10 lg:px-12 lg:pb-12 w-full" style="min-height:400px;max-width:3661px;aspect-ratio:3872/1082">
       <picture class="absolute inset-0 h-full w-full">
-        <source media="(max-width: 1023px)" srcset="/images/home/laptop-full-stack-factory.webp" type="image/webp" />
+        <source media="(max-width: 1023px)" srcset={fullStackMobileAvifSrcSet} sizes="100vw" type="image/avif" />
+        <source media="(max-width: 1023px)" srcset={fullStackMobileWebpSrcSet} sizes="100vw" type="image/webp" />
+        <source srcset={fullStackDesktopAvifSrcSet} sizes="100vw" type="image/avif" />
         <img
-          src="/images/home/PC-full-stack-factory.webp"
+          src={fullStackDesktopWebpSrc}
+          srcset={fullStackDesktopWebpSrcSet}
+          sizes="100vw"
           alt=""
           loading="lazy"
+          decoding="async"
           class="absolute inset-0 h-full w-full object-cover"
           width="3872"
           height="1082"
