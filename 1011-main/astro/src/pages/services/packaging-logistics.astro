@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
-import { netlifyImageUrl, responsiveImageSources } from '../../lib/netlify-images';
+import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = 'en';
 const heroImageSource =
   'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1600';
-const heroImage = netlifyImageUrl(heroImageSource, { width: 1600, format: 'webp', quality: 80 });
+const heroImageSources = responsiveImageSources(heroImageSource, [800, 1200, 1600], 1600);
 const packagingLogisticsImage = responsiveImageSources(
   'https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200',
 );
@@ -160,7 +160,22 @@ const performanceMetrics = [
 <BaseLayout title="Packaging & Logistics" lang={locale} description="IPL device packaging and logistics: custom retail packaging, e-commerce packaging, global shipping, customs clearance, and supply chain optimization.">
   <div class="space-y-60">
     <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 px-8 py-16">
-      <div class="pointer-events-none absolute inset-0 opacity-10" style={`background-image:url(${heroImage});background-size:cover;background-position:center;`} />
+      <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-10" aria-hidden="true">
+        <source srcset={heroImageSources.avifSrcSet} sizes="100vw" type="image/avif" />
+        <source srcset={heroImageSources.webpSrcSet} sizes="100vw" type="image/webp" />
+        <img
+          src={heroImageSources.src}
+          srcset={heroImageSources.webpSrcSet}
+          sizes="100vw"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="1600"
+          height="900"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div class="relative mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
