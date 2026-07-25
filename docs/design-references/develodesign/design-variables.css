@@ -1,0 +1,127 @@
+/* Develo Design System - CSS Variables */
+/* Generated from Figma Variables */
+/* Extracted from: https://www.develodesign.co.uk/design-components-static/variables.css */
+
+:root {
+  /* Colors - Brand - Primary Blue */
+  --color-brand-primary-blue: #563cfa;
+  --color-brand-primary-blue-100: #c6bff8;
+  --color-brand-primary-blue-50: #edebfc;
+
+  /* Colors - Brand - Blue */
+  --color-brand-blue-200: #a1ace3;
+  --color-brand-blue-400: #4a62d3;
+  --color-brand-blue-800: #1a2175;
+  --color-brand-bright-50: #e7eaf8;
+
+  /* Colors - Brand - Cream */
+  --color-brand-cream-100: #f0e0c3;
+  --color-brand-cream-50: #f8f2e8;
+
+  /* Colors - Neutral */
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #020303;
+  --color-neutral-grey-50: #f9fafb;
+  --color-neutral-grey-100: #f3f4f6;
+  --color-neutral-grey-200: #e5e7eb;
+  --color-neutral-grey-300: #d1d5db;
+  --color-neutral-grey-400: #9ca3af;
+  --color-neutral-grey-500: #6b7380;
+  --color-neutral-grey-600: #4b5563;
+  --color-neutral-grey-700: #374151;
+  --color-neutral-grey-800: #1f2937;
+  --color-neutral-grey-900: #111827;
+
+  /* Colors - Transparent */
+  --color-transparent-black-10: rgba(2, 3, 3, 0.10);
+  --color-transparent-black-90: rgba(2, 3, 3, 0.90);
+  --color-transparent-white-10: rgba(255, 255, 255, 0.10);
+  --color-transparent-white-90: rgba(255, 255, 255, 0.90);
+
+  /* Typography - Display (Syne) */
+  --font-d1-family: "Syne", sans-serif;
+  --font-d1-size: 96px;
+  --font-d1-weight: 400;
+  --font-d1-line-height: 102px;
+  --font-d1-letter-spacing: -0.61px;
+
+  --font-d2-family: "Syne", sans-serif;
+  --font-d2-size: 62px;
+  --font-d2-weight: 400;
+  --font-d2-line-height: 68px;
+  --font-d2-letter-spacing: -0.61px;
+
+  --font-d3-family: "Syne", sans-serif;
+  --font-d3-size: 48px;
+  --font-d3-weight: 400;
+  --font-d3-line-height: 56px;
+  --font-d3-letter-spacing: -0.61px;
+
+  /* Typography - Headings (Syne) */
+  --font-h1-family: "Syne", sans-serif;
+  --font-h1-size: 40px;
+  --font-h1-weight: 500;
+  --font-h1-line-height: 48px;
+  --font-h1-letter-spacing: -0.4px;
+
+  --font-h2-family: "Syne", sans-serif;
+  --font-h2-size: 32px;
+  --font-h2-weight: 500;
+  --font-h2-line-height: 39px;
+  --font-h2-letter-spacing: -0.4px;
+
+  --font-h3-family: "Syne", sans-serif;
+  --font-h3-size: 24px;
+  --font-h3-weight: 500;
+  --font-h3-line-height: 32px;
+  --font-h3-letter-spacing: 0px;
+
+  --font-h4-family: "Syne", sans-serif;
+  --font-h4-size: 20px;
+  --font-h4-weight: 600;
+  --font-h4-line-height: 26px;
+  --font-h4-letter-spacing: 0px;
+
+  --font-h5-family: "Syne", sans-serif;
+  --font-h5-size: 16px;
+  --font-h5-weight: 500;
+  --font-h5-line-height: 22px;
+  --font-h5-letter-spacing: 0.08px;
+
+  --font-h6-family: "Syne", sans-serif;
+  --font-h6-size: 14px;
+  --font-h6-weight: 500;
+  --font-h6-line-height: 20px;
+  --font-h6-letter-spacing: 0.08px;
+
+  /* Typography - Body (Manrope) */
+  --font-body-family: "Manrope", sans-serif;
+  --font-body-size: 16px;
+  --font-body-weight: 400;
+  --font-body-line-height: 24px;
+  --font-body-letter-spacing: 0px;
+
+  --font-body-bold-family: "Manrope", sans-serif;
+  --font-body-bold-size: 16px;
+  --font-body-bold-weight: 600;
+  --font-body-bold-line-height: 24px;
+  --font-body-bold-letter-spacing: 0px;
+
+  --font-body-large-family: "Manrope", sans-serif;
+  --font-body-large-size: 18px;
+  --font-body-large-weight: 400;
+  --font-body-large-line-height: 28px;
+  --font-body-large-letter-spacing: 0px;
+
+  --font-caption-family: "Manrope", sans-serif;
+  --font-caption-size: 14px;
+  --font-caption-weight: 400;
+  --font-caption-line-height: 20px;
+  --font-caption-letter-spacing: 0px;
+
+  --font-small-family: "Manrope", sans-serif;
+  --font-small-size: 12px;
+  --font-small-weight: 400;
+  --font-small-line-height: 16px;
+  --font-small-letter-spacing: 0px;
+}
