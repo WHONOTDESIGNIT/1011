@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
+import UspAccordion from '../components/UspAccordion.astro';
 import { getAllPosts } from '../lib/blog';
 import CornerMarker from '../components/CornerMarker.astro';
 import { Award, Package, FileText, Megaphone, ScanFace, Snowflake, Smartphone, Zap, SlidersHorizontal, Layers } from '@lucide/astro';
@@ -62,6 +63,18 @@ const quickFeatures = isEn ? [
   { title: 'Soporte de Cadena', icon: Package, description: 'MOQ, tiempo de entrega, control de calidad.' },
   { title: 'Marca Privada', icon: FileText, description: 'De la idea a la caja con marca en semanas, no meses.' },
   { title: 'Meta Friendly', icon: Megaphone, description: 'Ejecuta anuncios de Meta de alta conversión sin violaciones de políticas.' },
+];
+
+const uspItems = isEn ? [
+  { label: 'OEM & ODM Manufacturing', content: 'Custom IPL device manufacturing tailored to your brand specifications. We handle everything from component sourcing to final assembly, with flexible MOQ options for startups and enterprise clients alike.' },
+  { label: 'Product Design & Engineering', content: 'Expert industrial design and mechanical engineering for IPL devices. Our team creates 3D models, rapid prototypes, and production-ready designs that balance aesthetics, ergonomics, and performance.' },
+  { label: 'Compliance & Certification', content: 'Navigate global regulatory requirements with confidence. We provide full documentation support for FDA 510(k), CE marking, ISO 13485, and MDSAP certification pathways.' },
+  { label: 'Packaging & Logistics', content: 'End-to-end packaging design and global logistics management. From retail-ready packaging to FBA-compliant shipping, we ensure your products arrive on time and on budget.' },
+] : [
+  { label: 'Fabricación OEM y ODM', content: 'Fabricación personalizada de dispositivos IPL adaptada a las especificaciones de su marca. Nos encargamos de todo, desde el abastecimiento de componentes hasta el ensamblaje final.' },
+  { label: 'Diseño e Ingeniería de Producto', content: 'Diseño industrial experto e ingeniería mecánica para dispositivos IPL. Nuestro equipo crea modelos 3D, prototipos rápidos y diseños listos para producción.' },
+  { label: 'Cumplimiento y Certificación', content: 'Navegue por los requisitos regulatorios globales con confianza. Proporcionamos soporte completo de documentación para FDA 510(k), marcado CE, ISO 13485 y MDSAP.' },
+  { label: 'Embalaje y Logística', content: 'Diseño de embalaje de extremo a extremo y gestión logística global. Desde embalaje listo para retail hasta envío compatible con FBA.' },
 ];
 
 const whoWeAre = isEn ? [
@@ -275,19 +288,13 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     </section>
 
     <CornerMarker class="compact" />
-    <section class="features-grid grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-      {quickFeatures.map((feature) => (
-        <article class="feature-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="feature-icon flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
-            <feature.icon size={22} strokeWidth={1.5} />
-          </div>
-          <h2 class="feature-title mt-5 text-xl font-semibold text-slate-900">{feature.title}</h2>
-          <p class="feature-desc mt-3 text-sm leading-relaxed text-slate-700">{feature.description}</p>
-        </article>
-      ))}
-    </section>
 
-    <CornerMarker />
+    <UspAccordion
+      overline={isEn ? 'What We Do' : 'Lo Que Hacemos'}
+      heading={isEn ? 'Full-service IPL manufacturing for global beauty brands' : 'Fabricación IPL de servicio completo para marcas de belleza globales'}
+      description="From concept to delivery, we partner with you at every stage of product development."
+      items={uspItems}
+    />
 
     <section id="home-who-we-are" class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
