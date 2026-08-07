@@ -1,0 +1,119 @@
+{
+  "hero": {
+    "padding": "24px 100px",
+    "width": "1440px"
+  },
+  "wrapper": {
+    "display": "flex",
+    "flexDirection": "column",
+    "gap": "32px",
+    "maxWidth": "1280px",
+    "alignItems": "center"
+  },
+  "card": {
+    "width": "730px",
+    "maxWidth": "730px",
+    "marginTop": "148px",
+    "position": "relative"
+  },
+  "content": {
+    "padding": "32px"
+  },
+  "cardChildren": [
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "100%",
+        "height": "100%"
+      }
+    },
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "100%",
+        "height": "100%"
+      }
+    },
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "100%",
+        "height": "100%"
+      }
+    },
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "100%",
+        "height": "100%"
+      }
+    },
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "100%",
+        "height": "100%"
+      }
+    },
+    {
+      "tag": "svg",
+      "classes": {},
+      "computed": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "padding": "0px",
+        "width": "730px",
+        "height": "420px"
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "hero-content",
+      "computed": {
+        "position": "relative",
+        "zIndex": "1",
+        "padding": "32px",
+        "width": "730px",
+        "height": "420px"
+      }
+    }
+  ],
+  "h1": {
+    "text": "UK Magento Agency: Adobe | Hyvä",
+    "fontSize": "32px",
+    "fontWeight": "700",
+    "fontFamily": "Manrope, -apple-system, Roboto, Helvetica, sans-serif",
+    "color": "rgb(0, 0, 0)",
+    "lineHeight": "normal"
+  },
+  "h2": {
+    "text": "Building High-Performing eCommerce for Ambitious Brands",
+    "fontSize": "62px",
+    "fontWeight": "400",
+    "fontFamily": "Syne, sans-serif",
+    "lineHeight": "68px",
+    "letterSpacing": "-0.61px",
+    "color": "rgb(2, 3, 3)"
+  },
+  "innerHTML": "<svg _ngcontent-ng-c3075012974=\"\" viewBox=\"0 0 352 476\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" class=\"hero-shape hero-shape-mobile hero-shape-default\"><path _ngcontent-ng-c3075012974=\"\" d=\"M352 370.859C352 392.951 334.091 410.859 312 410.859H241.013C230.447 410.859 220.309 415.041 212.815 422.49L181.913 453.206C174.418 460.655 164.281 464.836 153.714 464.836H40C17.9086 464.836 0 446.927 0 424.836V40C0 17.9086 17.9086 0 40 0H312C334.091 0 352 17.9086 352 40V370.859Z\" fill=\"white\"></path></svg><svg _ngcontent-ng-c3075012974=\"\" viewBox=\"0 0 352 422\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" class=\"hero-shape hero-shape-mobile hero-shape-compact\"><path _ngcontent-ng-c3075012974=\"\" d=\"M352 316.859C352 338.951 3"
+}

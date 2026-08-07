@@ -1,0 +1,370 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+// Develo Design Services Page Clone
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>eCommerce Development Services | Develo Design</title>
+<meta name="description" content="Modern eCommerce Development for Brands That Want to Grow. Specialist Magento, Adobe Commerce &amp; Hyvä development agency in Birmingham, UK." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-100:#f3f4f6;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ═══ 1. TRUST BAR ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent}
+.trust-bar-inner{display:flex;align-items:center;justify-content:center;width:100%}
+.trust-slide{display:none;align-items:center;justify-content:center;gap:8px;padding:12px 24px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+.trust-slide.active{display:flex}
+.trust-slide img{flex-shrink:0}
+@media(max-width:767px){.trust-slide{padding:10px 16px;font-size:14px;line-height:21px}}
+
+/* ═══ 2. HEADER / NAV ═══ */
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .3s ease;will-change:top}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:40px}
+.header-logo{display:flex;align-items:center;flex-shrink:0}
+.header-logo svg{display:block}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+
+/* Desktop nav visibility */
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}}
+
+/* Header CTA */
+.header-cta{display:flex;align-items:center;gap:12px;margin-left:auto;margin-right:38px}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
+.btn-cta:hover{gap:12px;background:#374151}
+.btn-cta svg{width:16px;height:16px}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;background:transparent;color:#020303;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border:1px solid #020303;border-radius:100px;cursor:pointer;white-space:nowrap;text-decoration:none;transition:all .25s}
+.btn-outline:hover{border-color:#1f2937;background:rgba(2,3,3,.1)}
+@media(max-width:959px){.header-cta .btn-cta{display:none}}
+
+/* Nav collapse button */
+.nav-collapse-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:100px;background:#020303;border:none;cursor:pointer;margin-left:auto;margin-right:38px}
+.nav-collapse-btn svg{width:20px;height:20px}
+.nav-collapsed .desktop-nav,.nav-collapsed .header-cta{display:none}
+@media(max-width:959px){.desktop-nav{display:none !important}.header-cta{display:none !important}.nav-collapse-btn{display:flex !important}}
+
+@media(max-width:767px){
+  .site-header{top:66px;width:calc(100% - 32px)}
+  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
+}
+
+/* ═══ Mega Dropdown ═══ */
+.nav-dropdown-wrapper{position:relative}
+.nav-has-dropdown{gap:6px}
+.nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
+.nav-dropdown-wrapper.open .nav-dropdown-chevron{transform:rotate(180deg)}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.nav-dropdown-wrapper.open .mega-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mega-inner{display:flex;gap:80px;padding:40px}
+.mega-left{flex:1;display:flex;flex-direction:column}
+.mega-link-group{display:flex;flex-direction:column;gap:4px}
+.mega-link{display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;position:relative}
+.mega-link:hover{background:rgba(0,0,0,.04)}
+.mega-link-title{font-family:Manrope,sans-serif;font-size:18px;font-weight:500;line-height:26px;color:#020303}
+.mega-link-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280}
+.mega-link.has-plus{flex-direction:row;align-items:center;justify-content:space-between}
+.mega-link.has-plus .mega-link-title,.mega-link.has-plus .mega-link-desc{display:block}
+.mega-link.has-plus>div{display:flex;flex-direction:column;gap:4px}
+.mega-plus{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;color:#020303;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-right{flex-shrink:0;width:260px}
+.mega-card{background:var(--grey-50);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mega-card-heading{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0}
+.mega-card-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:0}
+.mega-card-btn{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);padding:10px 18px;border-radius:100px;background:transparent;transition:all .2s;align-self:flex-start;text-decoration:none}
+.mega-card-btn:hover{background:var(--blue);color:#fff;gap:12px}
+@media(max-width:959px){.mega-dropdown{display:none !important}}
+/* Desktop dropdown overlay */
+.nav-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);z-index:105;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility 0s .2s}
+.nav-overlay.show{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+/* Mobile menu panel */
+.nav-collapse-btn.open{background:#374151}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
+.mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+.mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:none;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mobile-menu-group{display:flex;flex-direction:column;border-bottom:1px solid #e5e7eb}
+.mobile-menu-group:last-of-type{border-bottom:none}
+.mobile-menu-toggle,.mobile-menu-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 12px;background:transparent;border:none;border-radius:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;text-align:left;cursor:pointer}
+.mobile-menu-toggle:hover,.mobile-menu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-menu-toggle-chevron{width:12px;height:7px;flex-shrink:0;transition:transform .25s ease}
+.mobile-menu-group.open .mobile-menu-toggle-chevron{transform:rotate(180deg)}
+.mobile-submenu{max-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:max-height .3s ease,padding-bottom .3s ease}
+.mobile-menu-group.open .mobile-submenu{max-height:480px;padding-bottom:12px}
+.mobile-submenu-link{display:flex;flex-direction:column;gap:4px;padding:10px 12px 10px 24px;border-radius:10px;text-decoration:none}
+.mobile-submenu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-submenu-title{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303}
+.mobile-submenu-desc{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280}
+.mobile-menu-cta{margin-top:8px}
+.mobile-menu-cta .btn-cta{width:100%;justify-content:center}
+@media(max-width:959px){.mobile-menu-panel{display:flex}}
+@media(max-width:767px){.mobile-menu-panel{top:130px;width:calc(100% - 32px);padding:18px}}
+
+
+
+/* ═══ Page Main ═══ */
+.page-main{margin-top:136px}
+.section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+
+/* ═══ HERO ═══ */
+.hero-section{padding:40px 0 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 14px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:13px;font-weight:500;color:var(--grey-500);margin-bottom:24px}
+.hero-title{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:56px;letter-spacing:-.47px;color:var(--black);max-width:680px;margin:0 0 32px}
+.hero-pills{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pill-link{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;font-family:Manrope,sans-serif;font-size:15px;font-weight:400;color:var(--black);line-height:22px;border:1px solid var(--grey-200);border-radius:100px;transition:all .2s}
+.pill-link:hover{border-color:var(--blue);color:var(--blue)}
+.pill-link-arrow{opacity:0;transition:opacity .2s;color:var(--blue)}
+.pill-link:hover .pill-link-arrow{opacity:1}
+
+/* ═══ SERVICE CARD ROW ═══ */
+.service-row{padding:80px 0}
+.service-row:nth-child(even){background:var(--grey-50)}
+.service-card{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.service-card-content{display:flex;flex-direction:column;gap:16px}
+.service-card-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+.service-card h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.service-card-desc{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text)}
+.service-card-links{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.service-card-links a{display:flex;align-items:center;gap:8px;padding:10px 0;font-family:Manrope,sans-serif;font-size:15px;font-weight:400;color:var(--grey-text);line-height:22px;border-bottom:1px solid var(--grey-200);transition:color .2s}
+.service-card-links a:last-child{border-bottom:none}
+.service-card-links a::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.service-card-links a:hover{color:var(--blue)}
+.service-card-visual{height:340px;border-radius:20px;overflow:hidden;background:var(--grey-200)}
+.service-card-visual img{width:100%;height:100%;object-fit:cover}
+
+/* ═══ TEAM CTA ═══ */
+.team-cta-section{padding:100px 0;background:var(--grey-50)}
+.team-cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.team-cta-text{display:flex;flex-direction:column;gap:16px}
+.team-cta-text h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.team-cta-text p{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text)}
+.team-cta-visual{height:420px;border-radius:20px;overflow:hidden;background:var(--grey-200)}
+.team-cta-visual img{width:100%;height:100%;object-fit:cover}
+
+/* ═══ CTA GRID ═══ */
+.cta-grid-section{padding:100px 0}
+.cta-grid-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.cta-grid-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.cta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cta-card{display:flex;flex-direction:column;gap:12px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
+.cta-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.cta-card h3{font-family:Syne,sans-serif;font-size:20px;font-weight:400;line-height:28px;color:var(--black);margin:0}
+.cta-card p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-500)}
+
+/* ═══ WORK ═══ */
+.work-section{padding:0 0 100px}
+.work-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
+.work-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.work-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text);max-width:440px}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:16px;border:1px solid var(--grey-200);background:var(--grey-50);transition:all .2s}
+.work-card:hover{border-color:var(--grey-400)}
+.work-tag{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--grey-500);text-transform:uppercase;letter-spacing:.5px}
+.work-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#020303;color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0}
+.footer-container{padding:0 100px;max-width:1536px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:rgba(255,255,255,.6);margin-top:16px;max-width:280px}
+.footer-col{display:flex;flex-direction:column}
+.footer-col h4{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:#fff;line-height:25px;margin-bottom:16px}
+.footer-col a{display:block;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:21px;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.footer-bottom span{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.5);line-height:21px}
+@media(max-width:1279px){.footer-container{padding:0 40px}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:767px){.footer{padding:80px 0}.footer-container{padding:0 24px}.footer-grid{grid-template-columns:1fr;gap:40px;margin-bottom:40px}.footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1279px){.section-container{padding:0 40px}.cta-grid{grid-template-columns:repeat(2,1fr)}.work-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:959px){.service-card,.team-cta-grid{grid-template-columns:1fr}}
+@media(max-width:767px){
+  .section-container{padding:0 24px}
+  .hero-title{font-size:34px;line-height:42px;letter-spacing:-.33px}
+  .service-card h2,.team-cta-text h2,.cta-grid-header h2,.work-header h2{font-size:26px;line-height:34px}
+  .service-row,.cta-grid-section,.team-cta-section{padding:60px 0}
+  .cta-grid,.work-grid{grid-template-columns:1fr}
+  .hero-pills{gap:8px}.pill-link{font-size:14px;padding:8px 14px}
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section">
+    <div class="section-container">
+      <div class="hero-badge">eCommerce Development</div>
+      <h1 class="hero-title">Modern eCommerce Development for Brands That Want to Grow</h1>
+      <div class="hero-pills">
+        <a class="pill-link" href="/services/maintain-or-fix-my-site">Maintain or Fix My Site <svg class="pill-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="pill-link" href="/services/find-a-technology-partner">Find a Technology Partner <svg class="pill-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="pill-link" href="/services/optimise-my-store">Optimise My Store <svg class="pill-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="pill-link" href="/services/build-a-new-site">Build a New Site <svg class="pill-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE 1: Maintain or Fix My Site ═══ -->
+  <section class="service-row">
+    <div class="section-container">
+      <div class="service-card">
+        <div class="service-card-content">
+          <span class="service-card-label">Maintain or Fix My Site</span>
+          <h2>Magento support &amp; website maintenance you can rely on</h2>
+          <p class="service-card-desc">Keeping your Magento or Adobe Commerce store secure and performing shouldn't feel stressful. Our website support and maintenance services give you dependable updates, bug fixes, performance optimisation and day-to-day development support. Whether you're facing slowdowns, stability issues or need urgent help, we'll steady your site and guide you toward the improvements that will make the biggest impact.</p>
+          <div class="service-card-links">
+            <a href="/services/maintain-or-fix-my-site">Maintain or Fix My Site</a>
+            <a href="/services/magento-support-packages">Magento Support Packages (SLAs)</a>
+            <a href="/services/magento-support-packages">Partnership Support Prices</a>
+            <a href="/services/magento-performance-optimisations">Performance Optimisations</a>
+            <a href="/services/magento-site-audits">Free Magento Audit</a>
+          </div>
+        </div>
+        <div class="service-card-visual"><img src="https://images.pexels.com/photos/7174683/pexels-photo-7174683.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Support and maintenance" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE 2: Find a Technology Partner ═══ -->
+  <section class="service-row">
+    <div class="section-container">
+      <div class="service-card">
+        <div class="service-card-content">
+          <span class="service-card-label">Find a Technology Partner</span>
+          <h2>Experts in Magento, Adobe Commerce &amp; Hyva development</h2>
+          <p class="service-card-desc">As a specialist eCommerce development agency, we build fast, scalable sites using Magento Open Source, Adobe Commerce and Hyva. These platforms give you the flexibility, integrations and long-term performance needed for complex builds, replatforming projects and continuous optimisation.</p>
+          <div class="service-card-links">
+            <a href="/services/find-a-technology-partner">Find a Technology Partner</a>
+            <a href="/services/magento-development">Magento Developers</a>
+            <a href="/services/adobe-commerce-development">Adobe Commerce Developers</a>
+            <a href="/services/hyva-themes">Hyva Theme Developers</a>
+            <a href="/services/b2b-commerce">B2B Websites</a>
+            <a href="/services/magento-migration-solutions">Upgrades and Migrations</a>
+          </div>
+        </div>
+        <div class="service-card-visual"><img src="https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Technology partner" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE 3: Optimise My Store ═══ -->
+  <section class="service-row">
+    <div class="section-container">
+      <div class="service-card">
+        <div class="service-card-content">
+          <span class="service-card-label">Optimise My Store</span>
+          <h2>Continuous optimisation for long-term results</h2>
+          <p class="service-card-desc">Launching a site is only the beginning. Through ongoing CRO, UX improvements, site speed optimisation and technical enhancements, we help your eCommerce store stay fast, stable and conversion-focused. Our approach blends data, design and development so your store keeps evolving as customer behaviour and business needs change.</p>
+          <div class="service-card-links">
+            <a href="/services/optimise-my-store">Optimise My Store</a>
+            <a href="/services/cro-services">CRO</a>
+            <a href="/services/ui-ux-design">UI/UX Design</a>
+            <a href="/services/magento-performance-optimisations">Data &amp; Analytics</a>
+          </div>
+        </div>
+        <div class="service-card-visual"><img src="https://images.pexels.com/photos/876453/pexels-photo-876453.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Store optimisation" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE 4: Build a New Site ═══ -->
+  <section class="service-row">
+    <div class="section-container">
+      <div class="service-card">
+        <div class="service-card-content">
+          <span class="service-card-label">Build a New Site</span>
+          <h2>Your new bespoke eCommerce site starts here</h2>
+          <p class="service-card-desc">If you're planning a new eCommerce website or a full rebuild, we guide you from discovery and UX design through to development and launch. Your new site is shaped around your goals, your customers and the systems your business relies on.</p>
+          <div class="service-card-links">
+            <a href="/services/build-a-new-site">Build a New Site</a>
+            <a href="/services/web-design">Web Design</a>
+            <a href="/services/find-a-technology-partner">Find a Technology Partner</a>
+          </div>
+        </div>
+        <div class="service-card-visual"><img src="https://images.pexels.com/photos/4910460/pexels-photo-4910460.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="New site build" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM CTA ═══ -->
+  <section class="team-cta-section">
+    <div class="section-container">
+      <div class="team-cta-grid">
+        <div class="team-cta-text">
+          <span class="service-card-label">Creative, technical &amp; strategic</span>
+          <h2>Your dedicated eCommerce team</h2>
+          <p>Our clients see us as an extension of their own team, and that's exactly how we work. You get direct access to designers, developers and specialists who understand your platform and communicate clearly at every step. We're collaborative, solution-focused and committed to helping your eCommerce store move forward with confidence.</p>
+          <a class="btn-outline" href="/about/meet-the-team" style="width:fit-content">Meet the team</a>
+        </div>
+        <div class="team-cta-visual"><img src="https://images.pexels.com/photos/8237500/pexels-photo-8237500.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="The eCommerce team" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA GRID ═══ -->
+  <section class="cta-grid-section">
+    <div class="section-container">
+      <div class="cta-grid-header">
+        <div>
+          <span class="service-card-label">Ready to grow your eCommerce store?</span>
+          <h2>Get expert guidance on your next step</h2>
+        </div>
+        <a class="btn-cta" href="/contact">Start a project <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="cta-grid">
+        <a class="cta-card" href="/about-us"><h3>About Develo</h3><p>Learn more about our team, values and approach to eCommerce development.</p></a>
+        <a class="cta-card" href="/services/magento-support-packages"><h3>Support Packages</h3><p>Flexible SLAs and ongoing maintenance plans for your Magento store.</p></a>
+        <a class="cta-card" href="/services/magento-site-audits"><h3>Free Magento Audit</h3><p>Get recommendations on page speed, accessibility and user experience.</p></a>
+        <a class="cta-card" href="/services/web-design"><h3>Website Design UI/UX</h3><p>Conversion-focused design that improves user journeys and grows revenue.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR WORK ═══ -->
+  <section class="work-section">
+    <div class="section-container">
+      <div class="work-header">
+        <div>
+          <span class="service-card-label">Our work</span>
+          <h2>Explore our client stories</h2>
+        </div>
+        <p>See how we help brands overcome technical challenges, scale globally and drive measurable eCommerce growth.</p>
+      </div>
+      <a class="btn-outline" href="/work" style="margin-bottom:32px">View all projects</a>
+      <div class="work-grid">
+        <a class="work-card" href="/work/daylesford"><span class="work-tag">Adobe Hyva Migration</span><h3>Daylesford</h3></a>
+        <a class="work-card" href="/work/bamford"><span class="work-tag">Adobe Hyva Migration</span><h3>Bamford</h3></a>
+        <a class="work-card" href="/work/brandalley"><span class="work-tag">Hyva Migration</span><h3>BrandAlley</h3></a>
+        <a class="work-card" href="/work/currys"><span class="work-tag">Magento Auction Portal</span><h3>Currys</h3></a>
+        <a class="work-card" href="/work/teague"><span class="work-tag">Hyva Migration</span><h3>Teague</h3></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ Footer ═══ -->
+<SiteFooter />
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+---
+// Develo Design — Develo Marketplace（复刻 https://www.develodesign.co.uk/develo-marketplace）
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iShine Marketplace | Dropshipping Extensions</title>
+<meta name="description" content="Explore our growing collection of high-quality dropshipping tools, Spocket." />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-weight:400}
+
+/* ═══ 首页同款全页渐变背景（top bar / header / hero 共享） ═══ */
+.gradient-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 20% 30%,rgba(0,56,255,.09) 0%,transparent 45%),
+    radial-gradient(ellipse at 70% 50%,rgba(55,127,255,.08) 0%,transparent 45%),
+    radial-gradient(ellipse at 15% 70%,rgba(127,48,255,.09) 0%,transparent 45%),
+    radial-gradient(ellipse at 80% 80%,rgba(242,80,110,.08) 0%,transparent 45%)}
+
+.page-main{margin-top:148px;position:relative;z-index:1}
+
+/* ═══ 通用按钮 ═══ */
+.btn-base{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.btn-base:hover{gap:16px}
+.btn-base .arrow-icon{width:16px;height:16px;display:block;flex-shrink:0}
+.btn-primary-dark{background:var(--blue);color:#fff}
+.btn-primary-light{background:#fff;color:var(--black)}
+
+/* ═══ HERO ═══ */
+.hero-content-simple-container{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100)}
+.content-col{max-width:1000px;display:flex;flex-direction:column;gap:16px}
+.small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
+.small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
+.hero-content-simple-container .small-title-text{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#020303}
+.hero-content-simple-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:#020303}
+.hero-content-simple-container .subheading{padding-top:16px;font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#374151}
+.button-group{display:flex;flex-direction:row;align-items:flex-start;gap:8px;padding-top:18px}
+
+/* ═══ 产品卡片 ═══ */
+.product-card-section{background:#fff;padding:60px 0}
+.section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.product-card-wrapper{display:flex;flex-direction:row;align-items:center;gap:40px;padding:0 40px 0 0;background:#fff}
+.product-image-col{display:block;flex-shrink:0}
+.product-image{width:330px;height:330px;object-fit:cover;display:block}
+.product-content-col{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:60px 0}
+.product-small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
+.product-small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
+.product-small-title .small-title-text{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:22px;color:#020303}
+.product-heading-link{display:block}
+.product-heading{font-family:Syne,sans-serif;font-size:32px;line-height:38px;letter-spacing:-.31px;color:#020303}
+.product-description{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#020303}
+.product-cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:18px}
+.product-link{display:inline-flex}
+
+/* ═══ 底部深色 CTA ═══ */
+.hero-content-links-wrapper{background:var(--black)}
+.hero-content-links-container{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:row;align-items:flex-start;gap:80px}
+.left-col{display:flex;flex-direction:column;gap:16px}
+.hero-content-links-container .small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
+.hero-content-links-container .small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
+.hero-content-links-container .small-title span{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#fff}
+.hero-content-links-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:#fff}
+.right-col{display:flex;flex-direction:column;max-width:520px;min-width:300px}
+/* 参考首页 What We Do 服务标题的交互与排版 */
+.mp-link{display:block;padding:12px 0}
+.mp-link-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#fff;display:inline-flex;align-items:center;position:relative;padding-bottom:4px;border-bottom:1px solid #fff;transition:padding-right .3s ease}
+.mp-link-arrow{position:absolute;top:50%;transform:translateY(-50%);right:0;width:16px;height:16px;opacity:0;transition:opacity .3s ease;pointer-events:none}
+.mp-link-arrow svg{width:16px;height:16px;display:block}
+.mp-link:hover .mp-link-title{padding-right:2em}
+.mp-link:hover .mp-link-arrow{opacity:1}
+
+/* ═══ BLOG ═══ */
+.blog-template{background:#fff}
+.blog-template .container{max-width:var(--max-w);margin:0 auto;padding:0}
+.content-wrapper{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:column;gap:24px}
+.blog-header{display:flex;flex-direction:column;gap:8px}
+.blog-header .small-title{display:flex;align-items:center;gap:12px;padding:3px 0;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303}
+.blog-header .diamond-icon{width:16px;height:16px;display:block;flex-shrink:0}
+.blog-header .heading{font-family:Syne,sans-serif;font-size:38px;line-height:44px;letter-spacing:-.37px;color:#020303}
+.blog-header .sub-heading{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#020303}
+.blog-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{display:flex;flex-direction:column;gap:12px}
+.card-image{aspect-ratio:16/9;overflow:hidden;background:#f3f4f6;border-radius:12px}
+.card-image img{width:100%;height:100%;object-fit:cover;display:block}
+.card-content{display:flex;flex-direction:column;gap:8px}
+.read-time{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#020303}
+.card-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#020303}
+.blog-cta{display:flex;padding:18px 0 0}
+
+/* ═══ 平板（≤1279px）：容器变窄 ═══ */
+@media(max-width:1279px){
+  .hero-content-simple-container{padding:80px 40px}
+  .section-container{padding:0 40px}
+  .hero-content-links-container{padding:120px 40px;gap:40px}
+  .content-wrapper{padding:40px}
+  .left-col{min-width:0;flex:1 1 auto}
+}
+/* ═══ 小平板（≤1024px）：产品卡片缩小 ═══ */
+@media(max-width:1024px){
+  .product-card-wrapper{gap:20px;padding:0 20px 0 0}
+  .product-image{width:265px;height:265px}
+  .product-content-col{padding:24px 0}
+  .product-heading{font-size:24px;line-height:30px}
+}
+/* ═══ 小屏（≤959px）：CTA 与 blog 转单列 ═══ */
+@media(max-width:959px){
+  .hero-content-links-container{flex-direction:column;gap:40px;padding:80px 40px}
+  .hero-content-links-container .heading{font-size:38px;line-height:44px}
+  .right-col{max-width:none;min-width:0}
+  .content-wrapper{padding:80px 40px}
+  .blog-cards{display:flex;flex-direction:column;gap:16px}
+}
+/* ═══ 移动（≤767px） ═══ */
+@media(max-width:767px){
+  .hero-content-simple-container{padding:60px 24px}
+  .hero-content-simple-container .heading{font-size:38px;line-height:44px}
+  .hero-content-simple-container .subheading{padding-top:12px;font-size:16px;line-height:25px}
+  .product-card-section .section-container{padding:0 24px}
+  .product-card-wrapper{flex-direction:column;align-items:center;gap:0;padding:0 0 24px}
+  .product-image-col{width:100%}
+  .product-image{width:100%;height:auto}
+  .product-content-col{padding:16px 0 0;align-items:flex-start}
+  .product-description{font-size:16px;line-height:25px}
+  .hero-content-links-container{padding:40px 24px}
+  .hero-content-links-container .heading{font-size:38px;line-height:44px}
+  .content-wrapper{padding:60px 24px}
+  .blog-header .heading{font-size:32px;line-height:38px}
+  .blog-header .sub-heading{font-size:16px;line-height:25px}
+}
+</style>
+</head>
+<body>
+
+<div class="gradient-bg"></div>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-content-simple-wrapper theme-transparent">
+    <div class="hero-content-simple-container">
+      <div class="content-col">
+        <div class="small-title">
+          <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M24 6C24 2.68629 21.3137 -1.44847e-07 18 0C14.6863 1.44847e-07 12 2.68629 12 6C12 2.68629 9.31371 3.7969e-07 6 5.24537e-07C2.68629 7.86805e-07 -2.62268e-07 2.68629 0 6C1.44847e-07 9.31371 2.68629 12 6 12C2.68629 12 3.7969e-07 14.6863 5.24537e-07 18C6.69384e-07 21.3137 2.68629 24 6 24C9.31371 24 12 21.3137 12 18C12 21.3137 14.6863 24 18 24C21.3137 24 24 21.3137 24 18C24 14.6871 21.315 12.0013 18.0024 12C21.315 11.9987 24 9.31292 24 6Z" fill="#020303"/></svg>
+          <h1 class="small-title-text">iShine Marketplace | Dropshipping Extensions</h1>
+        </div>
+        <h2 class="heading">Your Trusted Dropshipping Marketplace</h2>
+        <p class="subheading">Explore our growing collection of high-quality dropshipping tools, Spocket</p>
+        <div class="button-group">
+          <a class="btn-base btn-primary-dark with-icon" href="/contact"><span>Book a call</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 产品卡片 1：PunchOut Connection ═══ -->
+  <section class="product-card-section">
+    <div class="section-container">
+      <div class="product-card-wrapper">
+        <a class="product-image-col" href="/develo-marketplace/punchout-connection">
+          <img class="product-image" src="https://www.develodesign.co.uk/cf-builder-proxy/api/v1/image/assets%2F199e88006d9347f1a6444c6834fba481%2F2498672e26944dc59eca6154c87b8d3b?format=webp&amp;width=1600" alt="PunchOut Connection - Warehouse procurement system" loading="lazy" />
+        </a>
+        <div class="product-content-col">
+          <div class="product-small-title">
+            <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
+            <span class="small-title-text">PunchOut Connection</span>
+          </div>
+          <a class="product-heading-link" href="/develo-marketplace/punchout-connection"><h2 class="product-heading">Connect Magento to Enterprise Procurement</h2></a>
+          <p class="product-description">Make it easier for large B2B buyers to purchase from you through SAP Ariba, Coupa, Oracle and other procurement systems.</p>
+          <div class="product-cta">
+            <a class="product-link" href="/develo-marketplace/punchout-connection"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 产品卡片 2：Magento Microsites ═══ -->
+  <section class="product-card-section">
+    <div class="section-container">
+      <div class="product-card-wrapper">
+        <a class="product-image-col" href="/develo-marketplace/magento-microsite">
+          <img class="product-image" src="https://www.develodesign.co.uk/cf-builder-proxy/api/v1/image/assets%2F199e88006d9347f1a6444c6834fba481%2F2fa1a09f55e54573996ef524ce7a25a7?format=webp&amp;width=1600" alt="Magento Microsites - Fast storefront launches" loading="lazy" />
+        </a>
+        <div class="product-content-col">
+          <div class="product-small-title">
+            <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
+            <span class="small-title-text">Magento Microsites</span>
+          </div>
+          <a class="product-heading-link" href="/develo-marketplace/magento-microsite"><h2 class="product-heading">Launch focused storefronts without a rebuild</h2></a>
+          <p class="product-description">Launch focused storefronts without a full rebuild. Ideal for campaigns, new audiences, or testing ideas without committing to a complete site rebuild.</p>
+          <div class="product-cta">
+            <a class="product-link" href="/develo-marketplace/magento-microsite"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 产品卡片 3：Magento Codespaces ═══ -->
+  <section class="product-card-section">
+    <div class="section-container">
+      <div class="product-card-wrapper">
+        <a class="product-image-col" href="/develo-marketplace/magento-codespaces">
+          <img class="product-image" src="https://www.develodesign.co.uk/cf-builder-proxy/api/v1/image/assets%2F199e88006d9347f1a6444c6834fba481%2F2fa1a09f55e54573996ef524ce7a25a7?format=webp&amp;width=1600" alt="Magento Codespaces - AI-ready cloud development environment" loading="lazy" />
+        </a>
+        <div class="product-content-col">
+          <div class="product-small-title">
+            <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
+            <span class="small-title-text">Magento Codespaces</span>
+          </div>
+          <a class="product-heading-link" href="/develo-marketplace/magento-codespaces"><h2 class="product-heading">Turn your Magento GitHub repo into a working Codespace</h2></a>
+          <p class="product-description">We add the correct code, set up automated database and media fetching, and configure instance start. AI agent compatible, so you can develop with AI directly in Codespaces.</p>
+          <div class="product-cta">
+            <a class="product-link" href="/develo-marketplace/magento-codespaces"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 底部深色 CTA ═══ -->
+  <section class="hero-content-links-wrapper theme-dark">
+    <div class="hero-content-links-container">
+      <div class="left-col">
+        <div class="small-title">
+          <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#fff"/></svg>
+          <span>Need something custom built?</span>
+        </div>
+        <h2 class="heading">Speak to our development<br>team about your<br>requirements</h2>
+        <div class="button-group">
+          <a class="btn-base btn-primary-light with-icon" href="/contact"><span>Book a call</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="right-col">
+        <a class="mp-link" href="/services/private-label"><span class="mp-link-title">Private Label<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href="/services/find-a-technology-partner"><span class="mp-link-title">Find a IPL Technology Partner<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href="/services/build-a-new-ipl"><span class="mp-link-title">Build a New IPL<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href="/services/maintain-or-fix-ipl-project"><span class="mp-link-title">Maintain or Fix My IPL<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOG ═══ -->
+  <section class="blog-template">
+    <div class="section-outer">
+      <div class="container">
+        <div class="content-wrapper">
+          <div class="blog-header">
+            <div class="small-title">
+              <svg class="diamond-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00004 0L16.0001 8.00004L8.00004 16.0001L0 8.00004L8.00004 0Z" fill="currentColor"/></svg>
+              <span>Learn with us</span>
+            </div>
+            <h2 class="heading">eCommerce community</h2>
+            <p class="sub-heading">Useful articles about Magento, development, new tech and eCommerce.</p>
+          </div>
+          <div class="blog-cards">
+            <a class="blog-card" href="/learn/magento-ddl-recovery-log-error-errcode-28">
+              <div class="card-image"><img loading="lazy" src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/kJQITTxvsU97CaR9xw7I6Z6rDa4Oht791fWiRsZ6.png" alt="Behind the Bug: Magento Errcode 28" /></div>
+              <div class="card-content"><p class="read-time">7 min read</p><h3 class="card-title">Behind the Bug: Magento Errcode 28</h3></div>
+            </a>
+            <a class="blog-card" href="/learn/mastering-git-worktree">
+              <div class="card-image"><img loading="lazy" src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/dpuJQt0XIy36dHlkeaH5I7rTZf92Prsy8ve40Vnj.webp" alt="Mastering Git Worktree" /></div>
+              <div class="card-content"><p class="read-time">3 min read</p><h3 class="card-title">Mastering Git Worktree</h3></div>
+            </a>
+            <a class="blog-card" href="/learn/codespaces-claude-gemini-auto-login-error-fix">
+              <div class="card-image"><img loading="lazy" src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i7B0OHcn8CLX56TJO1jJ54Sgz02B6lVvWPzpn6fW.png" alt="Using Claude and Gemini in a codespaces environment" /></div>
+              <div class="card-content"><p class="read-time">1 min read</p><h3 class="card-title">Using Claude and Gemini in a codespaces environment</h3></div>
+            </a>
+          </div>
+          <div class="blog-cta">
+            <a class="btn-base btn-primary-dark with-icon" href="/develo-blog/"><span>Learn</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<SiteFooter />
+
+</body>
+</html>

@@ -1,0 +1,424 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+// Develo Design UI/UX Service Page Clone
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UI/UX Agency Services | Develo Design</title>
+<meta name="description" content="UX & UI Design that Improves Your eCommerce Performance. A Birmingham-based UX and eCommerce design agency focused on removing friction, improving journeys, and turning visitors into confident buyers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-100:#f3f4f6;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ═══ Shared: Trust Bar + Header ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent}
+.trust-bar-inner{display:flex;align-items:center}
+.trust-slide{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px}
+.trust-slide[aria-hidden="true"]{display:none}
+.trust-slide[aria-hidden="false"]{display:flex}
+.trust-text{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:40px}
+.header-logo{display:flex;align-items:center;flex-shrink:0}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{position:relative;display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;border:none;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+.header-cta{display:flex;align-items:center;gap:12px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s;text-decoration:none}
+.btn-primary:hover{gap:16px;background:#374151}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:transparent;color:var(--black);font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:1px solid var(--black);cursor:pointer;white-space:nowrap;transition:all .2s;text-decoration:none}
+.btn-outline:hover{background:var(--black);color:#fff}
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}.header-cta .btn-primary{display:none}}
+@media(max-width:767px){.site-header{top:66px;width:calc(100% - 32px)}.header-inner{height:56px;padding:0 24px 0 32px}}
+
+/* ═══ Page Main ═══ */
+.page-main{margin-top:136px}
+
+/* ═══ Section Shared ═══ */
+.section{width:100%;padding:80px 0}
+.section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.section-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.section-title{font-family:Syne,sans-serif;font-size:36px;font-weight:400;line-height:44px;color:var(--black);margin:0 0 16px}
+.section-desc{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:600px}
+
+/* ═══ HERO ═══ */
+.hero-section{padding:40px 0 80px}
+.hero-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:13px;font-weight:500;color:var(--grey-500);margin-bottom:24px}
+.hero-title{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:56px;letter-spacing:-.47px;color:var(--black);max-width:700px;margin:0 0 20px}
+.hero-desc{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:560px}
+
+/* ═══ DARK SECTION ═══ */
+.section-dark{background:var(--black);color:#fff}
+.section-dark .section-title{color:#fff}
+.section-dark .section-desc{color:rgba(255,255,255,.7)}
+.section-dark .section-label{color:rgba(255,255,255,.5)}
+
+/* ═══ Titled Content ═══ */
+.titled-content{padding:100px 0}
+.titled-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.titled-content-text{display:flex;flex-direction:column;gap:16px}
+.titled-content-text h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.titled-content-text p{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text)}
+.titled-content-visual{min-height:320px;border-radius:20px;background:var(--grey-200);display:flex;align-items:center;justify-content:center}
+
+/* ═══ PROVEN ═══ */
+.proven-section{background:var(--grey-50);padding:100px 0}
+.proven-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.proven-stats{display:flex;flex-direction:column;gap:24px}
+.stat-row{display:flex;gap:40px}
+.stat-item{display:flex;flex-direction:column;gap:4px}
+.stat-value{font-family:Syne,sans-serif;font-size:42px;font-weight:400;line-height:50px;color:var(--blue)}
+.stat-label{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:22px;color:var(--grey-500)}
+.proven-card{display:flex;flex-direction:column;gap:20px;padding:32px;background:var(--white);border-radius:16px;border:1px solid var(--grey-200)}
+.proven-card-tag{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:13px;font-weight:600;color:var(--blue);padding:2px 10px;border:1px solid var(--grey-200);border-radius:100px;width:fit-content}
+
+/* ═══ TRUSTED ═══ */
+.trusted-section{padding:80px 0}
+.trusted-logos{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trusted-logo{height:36px;width:auto;opacity:.6;transition:opacity .2s}
+.trusted-logo:hover{opacity:1}
+
+/* ═══ RESULTS ═══ */
+.results-section{padding:100px 0}
+.results-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.result-card{display:flex;flex-direction:column;gap:16px;padding:32px;border-radius:16px;border:1px solid var(--grey-200);transition:all .2s}
+.result-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
+.result-stat{font-family:Syne,sans-serif;font-size:28px;font-weight:400;line-height:36px;color:var(--blue)}
+.result-stat-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
+.result-link{display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue);margin-top:auto}
+.result-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:32px;font-family:Manrope,sans-serif;font-size:14px;color:var(--grey-500)}
+
+/* ═══ PROCESS ═══ */
+.process-section{background:var(--grey-50);padding:100px 0}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.process-card{display:flex;flex-direction:column;gap:16px;padding:32px 24px;background:var(--white);border-radius:16px;border:1px solid var(--grey-200);transition:all .2s}
+.process-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
+.process-num{font-family:Syne,sans-serif;font-size:14px;font-weight:400;color:var(--blue);line-height:20px}
+.process-card h3{font-family:Syne,sans-serif;font-size:20px;font-weight:400;line-height:28px;color:var(--black);margin:0}
+.process-card p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
+.process-card-link{display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue);margin-top:auto}
+
+/* ═══ AREAS ═══ */
+.areas-section{padding:100px 0}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.area-card{display:flex;flex-direction:column;gap:12px;padding:32px;border-radius:16px;border:1px solid var(--grey-200);transition:all .2s}
+.area-card:hover{border-color:var(--blue)}
+.area-card h3{font-family:Syne,sans-serif;font-size:20px;font-weight:400;line-height:28px;color:var(--black);margin:0}
+.area-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text)}
+
+/* ═══ CTA ═══ */
+.cta-section{padding:100px 0;background:var(--grey-50)}
+.cta-content{max-width:600px;display:flex;flex-direction:column;gap:16px}
+
+/* ═══ WORK ═══ */
+.work-section{padding:100px 0}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.work-card{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:16px;border:1px solid var(--grey-200);background:var(--grey-50);transition:all .2s}
+.work-card:hover{border-color:var(--grey-400)}
+.work-card-tag{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--grey-500);text-transform:uppercase;letter-spacing:.5px}
+.work-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0}
+
+/* ═══ FAQ ═══ */
+.faq-section{padding:0 0 100px}
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:800px}
+.faq-item{border-bottom:1px solid var(--grey-200)}
+.faq-item:first-child{border-top:1px solid var(--grey-200)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:24px 0;font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);background:transparent;border:none;cursor:pointer;text-align:left;transition:color .2s}
+.faq-question:hover{color:var(--blue)}
+.faq-toggle{flex-shrink:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--grey-200);transition:all .2s;margin-left:16px}
+.faq-question:hover .faq-toggle{border-color:var(--blue)}
+.faq-toggle svg{transition:transform .2s}
+.faq-item.open .faq-toggle svg{transform:rotate(45deg)}
+.faq-answer{padding:0 0 24px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--grey-text)}
+.faq-answer a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
+/* ═══ Responsive ═══ */
+@media(max-width:1279px){
+  .section-container,.hero-container{padding:0 40px}
+  .results-grid,.work-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .areas-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:959px){
+  .titled-content-grid,.proven-grid{grid-template-columns:1fr}
+  .results-grid,.work-grid{grid-template-columns:1fr}
+}
+@media(max-width:767px){
+  .section-container,.hero-container{padding:0 24px}
+  .hero-title{font-size:34px;line-height:42px;letter-spacing:-.33px}
+  .section-title{font-size:28px;line-height:36px}
+  .titled-content-text h2{font-size:26px;line-height:34px}
+  .stat-row{flex-direction:column;gap:16px}
+  .stat-value{font-size:34px;line-height:42px}
+  .process-grid,.areas-grid{grid-template-columns:1fr}
+  .section,.titled-content,.proven-section,.results-section,.process-section,.areas-section,.cta-section,.work-section{padding:60px 0}
+  .trusted-logos{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badge">UI/UX Agency Services</div>
+      <h1 class="hero-title">UX &amp; UI Design that Improves Your eCommerce Performance</h1>
+      <p class="hero-desc">A Birmingham-based UX and eCommerce design agency focused on removing friction, improving journeys, and turning visitors into confident buyers.</p>
+    </div>
+  </section>
+
+  <!-- ═══ COLLABORATIVE ═══ -->
+  <section class="titled-content">
+    <div class="section-container">
+      <div class="titled-content-grid">
+        <div class="titled-content-text">
+          <span class="section-label">Collaborative by design</span>
+          <h2>UX design shaped by insight &amp; experience</h2>
+          <p>We combine visual user testing, best practice reviews and data analysis to understand where customers hesitate, get stuck or lose confidence. By blending research with years of eCommerce experience, we design UX improvements that make your store easier to navigate and more enjoyable to shop.</p>
+        </div>
+        <div class="titled-content-visual"><span style="font-family:Syne,sans-serif;font-size:18px;color:var(--grey-400)">UX Design Process</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROVEN IMPROVEMENTS ═══ -->
+  <section class="proven-section">
+    <div class="section-container">
+      <span class="section-label">Proven Improvements</span>
+      <h2 class="section-title" style="margin-bottom:40px">Smarter UX &amp; design that improve eCommerce conversion</h2>
+      <div class="proven-grid">
+        <div class="proven-card">
+          <span class="proven-card-tag">CRO</span>
+          <p style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)">Before launching BrandAlley's Magento 2 site, we delivered a full programme of UX, UI and CRO improvements. By refining navigation, mobile layouts, search and site speed, we helped them achieve a 19 per cent increase in revenue and 14 per cent more transactions in 2023.</p>
+          <a href="/services/cro-services" style="display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue)">CRO <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="proven-stats">
+          <div class="stat-row">
+            <div class="stat-item"><span class="stat-value">+19%</span><span class="stat-label">Increase in revenue</span></div>
+            <div class="stat-item"><span class="stat-value">14%</span><span class="stat-label">Increase in transactions</span></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-item"><span class="stat-value">+9%</span><span class="stat-label">Increase in conversions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUSTED BY ═══ -->
+  <section class="trusted-section">
+    <div class="section-container">
+      <span class="section-label" style="text-align:center;display:block">Trusted by</span>
+      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:17px;color:var(--grey-text);margin-bottom:32px">Leading retail and lifestyle brands.</p>
+      <div class="trusted-logos">
+        <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">BRANDALLEY</span>
+        <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">BAMFORD</span>
+        <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">DAYLESFORD</span>
+        <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">CURRYS</span>
+        <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">TEAGUE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REAL RESULTS ═══ -->
+  <section class="results-section">
+    <div class="section-container">
+      <div class="results-header">
+        <div>
+          <span class="section-label">Real results</span>
+          <h2 class="section-title">Proven success for our clients</h2>
+          <p class="section-desc">Brands across Magento, Adobe Commerce and Hyva partner with us for UX and UI improvements because the impact is clear.</p>
+        </div>
+        <a href="/services/magento-performance-optimisations" class="btn-outline">Performance Optimisations</a>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-stat">+92%</span>
+          <span class="result-stat-desc">Increase in conversions since the site launch in 2025</span>
+          <a class="result-link" href="/work/bamford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="result-card">
+          <span class="result-stat">+47%</span>
+          <span class="result-stat-desc">Increase in conversions after a migration to Hyva in 2025</span>
+          <a class="result-link" href="/work/daylesford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="result-card">
+          <span class="result-stat">+19%</span>
+          <span class="result-stat-desc">Increase in revenue after a migration to Hyva</span>
+          <a class="result-link" href="/work/brandalley">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="result-card">
+          <span class="result-stat">41%</span>
+          <span class="result-stat-desc">Increase in Revenue after the Hyva migration</span>
+          <a class="result-link" href="/work/teague">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="result-card">
+          <span class="result-stat">+300%</span>
+          <span class="result-stat-desc">Increase in speed for placing bids on Currys Magento B2B auction platform</span>
+          <a class="result-link" href="/work/currys">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="result-pagination">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>1/5</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section class="process-section">
+    <div class="section-container">
+      <span class="section-label">OUR UI/UX Process</span>
+      <h2 class="section-title">A clear, structured approach to UX improvement</h2>
+      <div class="process-grid">
+        <div class="process-card">
+          <span class="process-num">01</span>
+          <h3>Audit &amp; insight</h3>
+          <p>Every project begins with understanding how people currently use your site. We combine GA4, Hotjar, user testing and hands-on UX reviews to identify friction in core journeys.</p>
+          <a class="process-card-link" href="/services/magento-site-audits">Get a Free Magento Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="process-card">
+          <span class="process-num">02</span>
+          <h3>Hypothesis &amp; prioritise</h3>
+          <p>We translate our findings into clear, actionable improvements. Each recommendation is prioritised using RICE scoring so your investment is focused on changes that will make the greatest impact first.</p>
+        </div>
+        <div class="process-card">
+          <span class="process-num">03</span>
+          <h3>Design &amp; validate</h3>
+          <p>Our UX and UI designers create visual solutions in Figma. Validation may include prototype reviews, usability testing or A/B testing depending on the scale of the update.</p>
+        </div>
+        <div class="process-card">
+          <span class="process-num">04</span>
+          <h3>Implement &amp; optimise</h3>
+          <p>Once designs are approved, our development team builds the updates. We monitor impact through analytics, heatmaps and user feedback, refining changes where needed.</p>
+          <a class="process-card-link" href="/contact">Speak to the team <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AREAS ═══ -->
+  <section class="areas-section">
+    <div class="section-container">
+      <span class="section-label">Where we start</span>
+      <h2 class="section-title">Common areas of UX &amp; UI improvement</h2>
+      <div class="areas-grid">
+        <div class="area-card">
+          <h3>Checkout &amp; basket</h3>
+          <p>Clearer layouts and stronger calls to action reduce hesitation and increase completed purchases.</p>
+        </div>
+        <div class="area-card">
+          <h3>Navigation &amp; discovery</h3>
+          <p>Simplified menus and improved product hierarchy help customers find what they need quickly and confidently.</p>
+        </div>
+        <div class="area-card">
+          <h3>Mobile experience</h3>
+          <p>Optimised layouts, touch targets and imagery give customers a smoother experience across every device.</p>
+        </div>
+        <div class="area-card">
+          <h3>Product interaction &amp; upsells</h3>
+          <p>Refined add to basket areas and meaningful upsells increase engagement and average order value.</p>
+        </div>
+        <div class="area-card">
+          <h3>Accessibility</h3>
+          <p>WCAG-aligned design improves usability, trust and Lighthouse scores while making the experience more inclusive.</p>
+        </div>
+        <div class="area-card">
+          <h3>Performance &amp; speed</h3>
+          <p>Faster pages create better sessions, stronger SEO signals and higher conversion rates.</p>
+        </div>
+      </div>
+      <div style="margin-top:32px"><a class="btn-outline" href="/contact">Book a call</a></div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-content">
+        <span class="section-label">Let's talk</span>
+        <h2 class="section-title" style="margin-bottom:8px">Ready to improve your store's shopping experience?</h2>
+        <p class="section-desc">Great UX is an investment that pays back quickly. If you want a clearer, faster and more polished user journey, our UX and UI team in Birmingham can help.</p>
+        <a class="btn-primary" href="/contact" style="width:fit-content;margin-top:8px">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR WORK ═══ -->
+  <section class="work-section">
+    <div class="section-container">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Explore our client stories</h2>
+      <p class="section-desc" style="margin-bottom:0">Helping overcome technical limitations and unlock growth with custom Magento and Hyva solutions.</p>
+      <div style="margin-top:12px"><a class="btn-outline" href="/work">View all projects</a></div>
+      <div class="work-grid">
+        <a class="work-card" href="/work/daylesford"><span class="work-card-tag">Adobe Hyva Migration</span><h3>Daylesford</h3></a>
+        <a class="work-card" href="/work/bamford"><span class="work-card-tag">Adobe Hyva Migration</span><h3>Bamford</h3></a>
+        <a class="work-card" href="/work/brandalley"><span class="work-card-tag">Hyva Migration</span><h3>BrandAlley</h3></a>
+        <a class="work-card" href="/work/currys"><span class="work-card-tag">Magento Auction Portal</span><h3>Currys</h3></a>
+        <a class="work-card" href="/work/teague"><span class="work-card-tag">Hyva Migration</span><h3>Teague</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="faq-section">
+    <div class="section-container">
+      <span class="section-label">FAQ's</span>
+      <div class="faq-list" style="margin-top:40px">
+        <div class="faq-item open">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is included in a UX improvement project?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer">As a Birmingham-based UX design agency, we begin with a review of user behaviour and site data to understand where your eCommerce experience can improve. From there, we design and test solutions that focus on usability, clarity, navigation and conversion.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do you decide which improvements to make first?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">Every opportunity is prioritised using RICE scoring so the most impactful changes are tackled early. This ensures quick wins that produce measurable results.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do you measure success?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">We compare metrics such as conversion rate, revenue per session and engagement before and after updates. This data-led approach lets us see what is working and continually refine your store experience.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can you support ongoing UX optimisation?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">Yes. Through our Magento support packages, we continue to improve UX, CRO and performance over time. Most clients treat us as a long-term partner for design and development improvements.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do you only work on Magento sites?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">Magento and Adobe Commerce are our core platforms, but our UX and UI process works across any eCommerce website. As a UX design agency in Birmingham, we combine design, development and data to improve performance on any platform.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What kind of ROI can we expect?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">While every store is different, most clients see noticeable improvements in conversion and revenue within the first few months. We prioritise changes that offer meaningful improvement quickly, giving you maximum return on your investment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ Footer ═══ -->
+<SiteFooter />
+
+
+</body>
+</html>

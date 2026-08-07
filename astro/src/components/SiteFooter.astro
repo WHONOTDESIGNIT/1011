@@ -1,0 +1,188 @@
+---
+// iShine 全站统一 Footer —— 与首页 (src/pages/index.astro) 完全一致
+// 用户要求"原样照抄"首页实现，含 CTA 列描述句现有配色
+---
+
+<style>
+  .site-footer {
+    background: #020303;
+    color: #fff;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 120px 0;
+  }
+  .footer-container {
+    padding: 0 100px;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+    gap: 60px;
+  }
+  .footer-col h4 {
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 27px;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 25px;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover {
+    color: #b4b4b4;
+  }
+  .footer-col-cta h4 {
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .footer-col-cta p {
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #020303;
+  }
+  .our-work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #563cfa;
+    background: transparent;
+    padding: 12px 20px;
+    border: 1px solid #563cfa;
+    border-radius: 100px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .our-work-link:hover {
+    background: #563cfa;
+    color: #fff;
+    gap: 12px;
+  }
+  .footer-contact-link {
+    display: block;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 25px;
+    padding: 6px 0;
+    text-decoration: underline;
+    text-decoration-color: #563cfa;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s;
+  }
+  .footer-contact-link:hover {
+    text-decoration-color: transparent;
+  }
+  .footer-contact-text {
+    display: block;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 25px;
+    padding: 6px 0;
+  }
+  .footer-company-info {
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .footer-col-info a {
+    font-size: 14px;
+    line-height: 21px;
+    padding: 2px 0;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #563cfa;
+    text-underline-offset: 3px;
+  }
+  .footer-col-info a:hover {
+    text-decoration-color: transparent;
+  }
+  @media (max-width: 959px) {
+    .site-footer {
+      padding: 60px 0;
+    }
+    .footer-container {
+      padding: 0 40px;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-col-cta h4 {
+      font-size: 30px;
+      line-height: 38px;
+    }
+  }
+  @media (max-width: 767px) {
+    .footer-container {
+      padding: 0 24px;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-col-cta h4 {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-cta">
+        <h4>Ready to start your IPL project?</h4>
+        <p>We'd love to help you bring your private-label IPL device to market.</p>
+        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer-col">
+        <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
+        <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
+        <span class="footer-contact-text">Shenzhen, China</span>
+        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
+      </div>
+      <div class="footer-col">
+        <a href="/products">Products</a>
+        <a href="/services">Services</a>
+        <a href="/clients">Work</a>
+        <a href="/about">About</a>
+        <a href="/blog">Learn</a>
+        <a href="/services/dropshipping">Dropshipping</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col footer-col-info">
+        <p class="footer-company-info">iShine is a one-stop IPL hair removal device manufacturer and OEM/ODM solution provider in the beauty tech field, founded in 2015. It is certified with FDA 510(k) clearance, ISO13485, and complies with international quality and safety standards.</p>
+        <p class="footer-company-info">The IPL devices we produce are suitable for various skin types and hair removal needs, including consumer home-use and professional salon applications. Recognized for delivering diamond cooling technologies, intelligent skin-sensing systems, and reliable manufacturing expertise to global brand partners.</p>
+        <p class="footer-company-info" style="margin-top:12px">© iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,620 @@
+---
+// iShine 全站统一头部 — 最新版 trust-bar + site-header（源自 index.astro 内联实现）
+// 保留 lang 传参（getLocalizedPath API 契约），导航结构与内容与首页最新版完全一致
+import { getLocalizedPath } from '../lib/breadcrumbs';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props as Props;
+const homeHref = getLocalizedPath(lang);
+const contactHref = getLocalizedPath(lang, '/contact');
+---
+
+<!-- ═══ 1. TRUST BAR ═══ -->
+<div class="trust-bar" id="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-slide" data-slide="shipping">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="trust-text">Global Shipping</span>
+    </div>
+    <div class="trust-slide" data-slide="private-label" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.42 0l8.58-8.58a1 1 0 0 0 0-1.42z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      <span class="trust-text">Private Label</span>
+    </div>
+    <div class="trust-slide" data-slide="chatgpt" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.7a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
+      <span class="trust-text">ChatGPT Top Collection</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 2. HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href={homeHref} aria-label="iShine Laser Epilator Supplier">
+      <img src="/images/logos/ishine-logo.png" alt="iShine Laser Epilator Supplier" />
+    </a>
+    <div class="header-main-nav">
+    <nav class="header-nav desktop-nav">
+      <div class="nav-dropdown-wrapper">
+        <a class="nav-item nav-has-dropdown" href="/products" data-dropdown="products">Products <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-dropdown mega-dropdown--wide" id="mega-products">
+          <div class="mega-inner mega-inner--products">
+            <div class="mega-left mega-left--products">
+              <div class="mega-products-grid">
+                <a class="mega-product-card" href="/products/lumi-2">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Lumi 2</span>
+                    <span class="mega-product-tagline">Smart Skin Sensor, cooling to 10°C</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images%20(1).jpg" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
+                </a>
+                <a class="mega-product-card" href="/products/lumi">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Lumi</span>
+                    <span class="mega-product-tagline">Smart App Control</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/venus">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Venus</span>
+                    <span class="mega-product-tagline">Premium Ice Cooling</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/themis">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Themis</span>
+                    <span class="mega-product-tagline">Dual Lamp System</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/emerald">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Emerald</span>
+                    <span class="mega-product-tagline">Sensitive-Skin Cooling</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/eirene">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Eirene</span>
+                    <span class="mega-product-tagline">Professional Grade</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt="Eirene" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/wooden">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Golden</span>
+                    <span class="mega-product-tagline">Luxury Edition</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="Golden" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
+                </a>
+                <a class="mega-product-card" href="/products/hebe">
+                  <span class="mega-product-info">
+                    <span class="mega-product-model">Hebe</span>
+                    <span class="mega-product-tagline">AI Skin Sensor</span>
+                  </span>
+                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                </a>
+              </div>
+              <div class="mega-divider-h" role="separator"></div>
+              <div class="mega-components">
+                <h4 class="mega-components-heading">ipl components</h4>
+                <div class="mega-components-grid">
+                  <a class="mega-component-card" href="/components/lamp-cartridges">
+                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt="Lamp Cartridges" loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
+                    <span class="mega-component-name">Lamp Cartridges</span>
+                  </a>
+                  <a class="mega-component-card" href="/components/optical-filters">
+                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt="Optical Filters" loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
+                    <span class="mega-component-name">Optical Filters</span>
+                  </a>
+                  <a class="mega-component-card" href="/components/cooling-system">
+                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt="Cooling System" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
+                    <span class="mega-component-name">Cooling System</span>
+                  </a>
+                  <a class="mega-component-card" href="/components/power-supply">
+                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt="Power Supply" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
+                    <span class="mega-component-name">Power Supply</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mega-divider" role="separator"></div>
+            <div class="mega-right">
+              <div class="mega-card">
+                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                <h4 class="mega-card-heading">Meet Best IPL</h4>
+                <p class="mega-card-desc">SmartSkin Sensor and Diamond Ice</p>
+                <a class="mega-card-btn" href="/products/lumi-2">Meet Lumi 2 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <a class="nav-item nav-has-dropdown" href="/services" data-dropdown="services">Services <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-dropdown" id="mega-services">
+          <div class="mega-inner">
+            <div class="mega-left">
+              <div class="mega-link-group">
+                <a class="mega-link has-plus" href="/services/private-label"><div><span class="mega-link-title">Private Label</span><span class="mega-link-desc">Logo Printing / Packaging &amp; Logistics / Custom</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href="/services/find-a-technology-partner"><div><span class="mega-link-title">Find a Technology Partner</span><span class="mega-link-desc">Diamond ice, Smart skin sensor, Dual-lamp</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href="/services/build-a-new-ipl"><div><span class="mega-link-title">Build a New IPL</span><span class="mega-link-desc">Product Design / Prototyping / At Scale</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href="/services/maintain-or-fix-ipl-project"><div><span class="mega-link-title">Maintain or Fix My IPL</span><span class="mega-link-desc">Energy, flash speed and upgrade</span></div><span class="mega-plus">+</span></a>
+              </div>
+            </div>
+            <div class="mega-right">
+              <div class="mega-services">
+                <span class="mega-services-heading">Manufacturing Services</span>
+                <div class="mega-link-group">
+                  <a class="mega-link" href="/services/oem-odm"><span class="mega-link-title">OEM &amp; ODM</span><span class="mega-link-desc">Factory production under your brand</span></a>
+                  <a class="mega-link" href="/services/product-design"><span class="mega-link-title">Product Design</span><span class="mega-link-desc">From concept to production design</span></a>
+                  <a class="mega-link" href="/services/production-assembly"><span class="mega-link-title">Production &amp; Assembly</span><span class="mega-link-desc">Mass production and assembly</span></a>
+                  <a class="mega-link" href="/services/packaging-logistics"><span class="mega-link-title">Packaging &amp; Logistics</span><span class="mega-link-desc">Custom packaging, global delivery</span></a>
+                  <a class="mega-link" href="/services/logo-printing"><span class="mega-link-title">Logo Printing</span><span class="mega-link-desc">Your branding on every device</span></a>
+                  <a class="mega-link" href="/services/box-custom"><span class="mega-link-title">Box Custom</span><span class="mega-link-desc">Custom retail and gift packaging</span></a>
+                  <a class="mega-link" href="/services/dropshipping"><span class="mega-link-title">Dropshipping</span><span class="mega-link-desc">Ship direct from our warehouse</span></a>
+                  <a class="mega-link" href="/services/no-moq"><span class="mega-link-title">No MOQ</span><span class="mega-link-desc">Start small, scale when ready</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <a class="nav-item nav-has-dropdown" href="/about" data-dropdown="about">About <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-dropdown" id="mega-about">
+          <div class="mega-inner">
+            <div class="mega-left">
+              <div class="mega-link-group">
+                <a class="mega-link" href="/about"><span class="mega-link-title">About iShine</span><span class="mega-link-desc">Who we are &amp; what we do</span></a>
+                <a class="mega-link" href="/about/brand-story"><span class="mega-link-title">Brand Story</span><span class="mega-link-desc">How iShine started</span></a>
+                <a class="mega-link" href="/about/company-profile"><span class="mega-link-title">Company Profile</span><span class="mega-link-desc">Capabilities, certifications and facilities</span></a>
+                <a class="mega-link" href="/about/manufacturing-capabilities"><span class="mega-link-title">Manufacturing Capabilities</span><span class="mega-link-desc">Factory, equipment and production scale</span></a>
+                <a class="mega-link" href="/about/quality-control"><span class="mega-link-title">Quality Control</span><span class="mega-link-desc">ISO 13485 processes and testing</span></a>
+                <a class="mega-link" href="/meet-the-team"><span class="mega-link-title">Meet the Team</span><span class="mega-link-desc">The people behind our work</span></a>
+                <a class="mega-link" href="/clients"><span class="mega-link-title">Client Testimonials</span><span class="mega-link-desc">Trusted by leading brands</span></a>
+              </div>
+            </div>
+            <div class="mega-right">
+              <div class="mega-card">
+                <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
+                <h4 class="mega-card-heading">Behind the projects</h4>
+                <p class="mega-card-desc">The people and skills behind the work.</p>
+                <a class="mega-card-btn" href="/meet-the-team">Meet the team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <a class="nav-item nav-has-dropdown" href="/blog" data-dropdown="resources">Resources <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-dropdown" id="mega-resources">
+          <div class="mega-inner">
+            <div class="mega-left">
+              <div class="mega-link-group">
+                <a class="mega-link" href="/blog"><span class="mega-link-title">Blog</span><span class="mega-link-desc">Insights and expert updates.</span></a>
+                <a class="mega-link" href="/faq"><span class="mega-link-title">FAQ &amp; Help</span><span class="mega-link-desc">Common questions, answered.</span></a>
+                <a class="mega-link" href="/contact"><span class="mega-link-title">Free IPL Device Audit</span><span class="mega-link-desc">Check energy, frequency and stability.</span></a>
+                <a class="mega-link has-plus" href="/services"><div><span class="mega-link-title">Free IPL Consult Service</span><span class="mega-link-desc">Check energy, speed and check the energy consumption, current flash speed, and the possibility of an upgrade.</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link" href="/ipl-hair-removal-is-safe"><span class="mega-link-title">IPL Safety</span><span class="mega-link-desc">Is IPL hair removal safe?</span></a>
+              </div>
+            </div>
+            <div class="mega-right">
+              <div class="mega-card">
+                <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
+                <h4 class="mega-card-heading">Get a free instant IPL audit</h4>
+                <p class="mega-card-desc">Recommendations on energy, frequency, and stability issues, and real user experience data</p>
+                <a class="mega-card-btn" href="/contact">Get my audit <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="nav-item" href="/clients">Work</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn-cta" href={contactHref}>Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    </div>
+    <button class="nav-collapse-btn" id="nav-collapse-btn" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+<div class="mobile-menu-panel" id="mobile-menu-panel" aria-hidden="true">
+  <div class="mobile-menu-group">
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false">
+      <span>Products</span>
+      <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a class="mobile-submenu-link" href="/catalogue"><span class="mobile-submenu-title">IPL Catalogue</span></a>
+      <a class="mobile-submenu-link" href="/products"><span class="mobile-submenu-title">All Products</span></a>
+      <a class="mobile-submenu-link" href="/products/lumi-2"><span class="mobile-submenu-title">Lumi 2</span></a>
+      <a class="mobile-submenu-link" href="/products/lumi"><span class="mobile-submenu-title">Lumi</span></a>
+      <a class="mobile-submenu-link" href="/products/venus"><span class="mobile-submenu-title">Venus</span></a>
+      <a class="mobile-submenu-link" href="/products/themis"><span class="mobile-submenu-title">Themis</span></a>
+      <a class="mobile-submenu-link" href="/products/emerald"><span class="mobile-submenu-title">Emerald</span></a>
+      <a class="mobile-submenu-link" href="/products/eirene"><span class="mobile-submenu-title">Eirene</span></a>
+      <a class="mobile-submenu-link" href="/products/wooden"><span class="mobile-submenu-title">Golden</span></a>
+      <a class="mobile-submenu-link" href="/products/hebe"><span class="mobile-submenu-title">Hebe</span></a>
+      <a class="mobile-submenu-link" href="/components"><span class="mobile-submenu-title">IPL Components</span></a>
+    </div>
+  </div>
+  <div class="mobile-menu-group">
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false">
+      <span>Services</span>
+      <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a class="mobile-submenu-link" href="/services/maintain-or-fix-ipl-project"><span class="mobile-submenu-title">Maintain or Fix My IPL</span><span class="mobile-submenu-desc">Energy, flash speed and upgrade</span></a>
+      <a class="mobile-submenu-link" href="/services/find-a-technology-partner"><span class="mobile-submenu-title">Find a Technology Partner</span><span class="mobile-submenu-desc">Diamond ice, Smart skin sensor, Dual-lamp</span></a>
+      <a class="mobile-submenu-link" href="/services/private-label"><span class="mobile-submenu-title">Private Label</span><span class="mobile-submenu-desc">Logo Printing / Packaging &amp; Logistics / Custom</span></a>
+      <a class="mobile-submenu-link" href="/services/build-a-new-ipl"><span class="mobile-submenu-title">Build a New IPL</span><span class="mobile-submenu-desc">Product Design / Prototyping / At Scale</span></a>
+      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">View all Services</span><span class="mobile-submenu-desc">See how we support your IPL project from launch to long-term growth.</span></a>
+    </div>
+  </div>
+  <div class="mobile-menu-group">
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false">
+      <span>About</span>
+      <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a class="mobile-submenu-link" href="/about"><span class="mobile-submenu-title">About iShine</span><span class="mobile-submenu-desc">Who we are &amp; what we do</span></a>
+      <a class="mobile-submenu-link" href="/about/brand-story"><span class="mobile-submenu-title">Brand Story</span><span class="mobile-submenu-desc">How iShine started</span></a>
+      <a class="mobile-submenu-link" href="/about/company-profile"><span class="mobile-submenu-title">Company Profile</span><span class="mobile-submenu-desc">Capabilities, certifications and facilities</span></a>
+      <a class="mobile-submenu-link" href="/about/manufacturing-capabilities"><span class="mobile-submenu-title">Manufacturing Capabilities</span><span class="mobile-submenu-desc">Factory, equipment and production scale</span></a>
+      <a class="mobile-submenu-link" href="/about/quality-control"><span class="mobile-submenu-title">Quality Control</span><span class="mobile-submenu-desc">ISO 13485 processes and testing</span></a>
+      <a class="mobile-submenu-link" href="/meet-the-team"><span class="mobile-submenu-title">Meet the Team</span><span class="mobile-submenu-desc">The people behind our work</span></a>
+      <a class="mobile-submenu-link" href="/clients"><span class="mobile-submenu-title">Client Testimonials</span><span class="mobile-submenu-desc">Trusted by leading brands</span></a>
+    </div>
+  </div>
+  <div class="mobile-menu-group">
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false">
+      <span>Resources</span>
+      <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a class="mobile-submenu-link" href="/blog"><span class="mobile-submenu-title">Blog</span><span class="mobile-submenu-desc">Insights and expert updates.</span></a>
+      <a class="mobile-submenu-link" href="/faq"><span class="mobile-submenu-title">FAQ &amp; Help</span><span class="mobile-submenu-desc">Common questions, answered.</span></a>
+      <a class="mobile-submenu-link" href="/contact"><span class="mobile-submenu-title">Free IPL Device Audit</span><span class="mobile-submenu-desc">Check energy, frequency and stability.</span></a>
+      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">Free IPL Consult Service</span><span class="mobile-submenu-desc">Check energy, speed and check the energy consumption, current flash speed, and the possibility of an upgrade.</span></a>
+      <a class="mobile-submenu-link" href="/ipl-hair-removal-is-safe"><span class="mobile-submenu-title">IPL Safety</span><span class="mobile-submenu-desc">Is IPL hair removal safe?</span></a>
+    </div>
+  </div>
+  <a class="mobile-menu-link" href="/clients"><span>Work</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <div class="mobile-menu-cta">
+    <a class="btn-cta" href={contactHref}>Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<!-- Trust carousel + top bar auto-hide on scroll -->
+<script>
+(function () {
+  var slides = document.querySelectorAll('.trust-slide');
+  var current = 0;
+  var total = slides.length;
+  function showSlide(index) {
+    slides.forEach(function (s, i) {
+      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+    });
+  }
+  if (total > 0) {
+    setInterval(function () {
+      current = (current + 1) % total;
+      showSlide(current);
+    }, 3000);
+  }
+
+  // Top bar auto-hide on scroll: shown only when the page is scrolled back to the top.
+  var trustBar = document.getElementById('trust-bar');
+  var topBarHeader = document.getElementById('site-header');
+  var topBarVisible = true;
+  var scrollDebounceTimer = null;
+  var lastScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+
+  function setTopBarVisible(visible) {
+    if (visible === topBarVisible) return;
+    topBarVisible = visible;
+    if (trustBar) trustBar.classList.toggle('trust-bar-hidden', !visible);
+    if (topBarHeader) topBarHeader.classList.toggle('site-header-top-hidden', !visible);
+  }
+
+  function handleTopBarScroll() {
+    var y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (y === 0) {
+      setTopBarVisible(true);
+    } else if (lastScrollY === 0) {
+      setTopBarVisible(false);
+    }
+    lastScrollY = y;
+  }
+
+  if (trustBar && topBarHeader) {
+    window.addEventListener('scroll', function () {
+      clearTimeout(scrollDebounceTimer);
+      scrollDebounceTimer = setTimeout(handleTopBarScroll, 100);
+    }, { passive: true });
+  }
+})();
+</script>
+
+<!-- Header nav mode (desktop <-> hamburger) + mobile menu open/close/accordion -->
+<script>
+(function () {
+  var siteHeader = document.getElementById('site-header');
+  var headerInner = siteHeader ? siteHeader.querySelector('.header-inner') : null;
+  var headerLogo = siteHeader ? siteHeader.querySelector('.header-logo') : null;
+  var headerMainNav = siteHeader ? siteHeader.querySelector('.header-main-nav') : null;
+  var desktopNav = siteHeader ? siteHeader.querySelector('.desktop-nav') : null;
+  var headerCta = siteHeader ? siteHeader.querySelector('.header-cta') : null;
+  var navBtn = document.getElementById('nav-collapse-btn');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  var panel = document.getElementById('mobile-menu-panel');
+  if (!siteHeader || !headerInner || !headerLogo || !headerMainNav || !desktopNav || !headerCta || !navBtn || !overlay || !panel) return;
+
+  var groups = panel.querySelectorAll('.mobile-menu-group');
+  var hamburger = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  var close = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  function closeGroups() {
+    groups.forEach(function (group) {
+      group.classList.remove('open');
+      var toggle = group.querySelector('.mobile-menu-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function closeMenu() {
+    panel.classList.remove('open');
+    overlay.classList.remove('open');
+    navBtn.classList.remove('open');
+    navBtn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    navBtn.innerHTML = hamburger;
+    document.body.style.overflow = '';
+    closeGroups();
+  }
+
+  function getNumericStyleValue(style, prop) {
+    var value = parseFloat(style.getPropertyValue(prop));
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  function updateHeaderNavMode() {
+    var wasMenuOnly = siteHeader.classList.contains('header-menu-only');
+    if (wasMenuOnly) siteHeader.classList.remove('header-menu-only');
+
+    var innerStyle = window.getComputedStyle(headerInner);
+    var navStyle = window.getComputedStyle(desktopNav);
+    var requiredWidth =
+      getNumericStyleValue(innerStyle, 'padding-left') +
+      getNumericStyleValue(innerStyle, 'padding-right') +
+      headerLogo.getBoundingClientRect().width +
+      getNumericStyleValue(navStyle, 'gap') +
+      headerMainNav.getBoundingClientRect().width;
+    var currentGap = headerMainNav.getBoundingClientRect().left - headerLogo.getBoundingClientRect().right;
+    var safeGap = getNumericStyleValue(navStyle, 'gap') || 8;
+    var availableWidth = headerInner.getBoundingClientRect().width;
+    var shouldCollapse = currentGap <= safeGap || availableWidth <= requiredWidth;
+
+    siteHeader.style.setProperty('--header-nav-min-width', Math.ceil(requiredWidth) + 'px');
+    siteHeader.style.setProperty('--header-nav-safe-gap', safeGap + 'px');
+    siteHeader.classList.toggle('header-menu-only', shouldCollapse);
+    navBtn.setAttribute('aria-hidden', shouldCollapse ? 'false' : 'true');
+    window.dispatchEvent(new CustomEvent('layout:header-metrics'));
+
+    if (!shouldCollapse) closeMenu();
+  }
+
+  function openMenu() {
+    panel.classList.add('open');
+    overlay.classList.add('open');
+    navBtn.classList.add('open');
+    navBtn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    navBtn.innerHTML = close;
+    document.body.style.overflow = 'hidden';
+  }
+
+  navBtn.setAttribute('aria-expanded', 'false');
+  navBtn.setAttribute('aria-controls', 'mobile-menu-panel');
+  navBtn.innerHTML = hamburger;
+  navBtn.setAttribute('aria-hidden', 'true');
+
+  updateHeaderNavMode();
+
+  navBtn.addEventListener('click', function () {
+    if (!siteHeader.classList.contains('header-menu-only')) return;
+    if (panel.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  groups.forEach(function (group) {
+    var toggle = group.querySelector('.mobile-menu-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      var willOpen = !group.classList.contains('open');
+      closeGroups();
+      if (willOpen) {
+        group.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  panel.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', updateHeaderNavMode);
+
+  if (typeof ResizeObserver !== 'undefined') {
+    var resizeObserver = new ResizeObserver(function () {
+      updateHeaderNavMode();
+    });
+    resizeObserver.observe(headerInner);
+    resizeObserver.observe(headerLogo);
+    resizeObserver.observe(headerMainNav);
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeMenu();
+  });
+})();
+</script>
+
+<style is:global>
+/* ═══ iShine 统一头部样式（源自 index.astro 最新版）═══ */
+.trust-bar,
+.site-header,
+.mobile-menu-panel {
+  --blue: #563cfa;
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+}
+
+/* ═══ 1. TRUST BAR ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent;pointer-events:none;transition:opacity .1s ease,transform .1s ease;will-change:opacity,transform}
+.trust-bar.trust-bar-hidden{opacity:0;transform:translateY(-100%);pointer-events:none}
+.trust-bar-inner{display:flex;align-items:center}
+.trust-slide{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;background:transparent;transition:opacity .2s ease}
+.trust-slide[aria-hidden="true"]{display:none}
+.trust-slide[aria-hidden="false"]{display:flex}
+.trust-icon{flex-shrink:0}
+.trust-text{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+@media(max-width:768px){.trust-slide{padding:10px 16px}.trust-text{font-size:14px;line-height:21px}}
+
+/* ═══ 2. HEADER / NAV ═══ */
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
+.site-header.site-header-top-hidden{top:0}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-logo{display:flex;align-items:center;flex:0 0 auto;height:calc(100% - 12px);max-width:100%;margin-right:0;min-width:0}
+.header-logo img{display:block;width:auto;height:100%;max-width:100%;object-fit:contain}
+.header-main-nav{display:flex;align-items:center;justify-content:flex-end;gap:38px;flex:0 0 auto;min-width:max-content;margin-left:auto;opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+.header-nav{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+
+/* Header CTA */
+.header-cta{display:flex;align-items:center;gap:12px;margin-left:0;flex:0 0 auto}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:1;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
+.btn-cta:hover{gap:12px;background:#374151}
+.btn-cta svg{width:16px;height:16px;display:block;flex-shrink:0}
+
+/* Nav collapse button */
+.nav-collapse-btn{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:40px;height:40px;min-width:40px;min-height:40px;max-width:40px;max-height:40px;border-radius:100px;background:var(--blue);border:none;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility 0s .2s,background .2s ease}
+.nav-collapse-btn svg{width:20px;height:20px}
+.site-header.header-menu-only .header-main-nav{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility 0s .18s}
+.site-header.header-menu-only .nav-collapse-btn{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s,background .2s ease}
+
+@media(max-width:767px){
+}
+@media(max-width:698px){
+  .site-header{top:66px;width:calc(100% - 32px)}
+  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
+}
+
+/* ═══ Mega Dropdown ═══ */
+.nav-dropdown-wrapper{position:relative}
+.nav-has-dropdown{gap:6px}
+.nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
+.nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.nav-dropdown-wrapper:hover .mega-dropdown,.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mega-inner{display:flex;gap:60px;padding:36px 40px}
+.mega-left{flex:1;display:flex;flex-direction:column}
+.mega-link-group{display:flex;flex-direction:column;gap:4px}
+.mega-link{display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;position:relative}
+.mega-link:hover{background:rgba(0,0,0,.04)}
+.mega-link-title{font-family:Manrope,sans-serif;font-size:18px;font-weight:500;line-height:26px;color:#020303}
+.mega-link-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280}
+.mega-link.has-plus{flex-direction:row;align-items:center;justify-content:space-between}
+.mega-link.has-plus .mega-link-title,.mega-link.has-plus .mega-link-desc{display:block}
+.mega-link.has-plus>div{display:flex;flex-direction:column;gap:4px}
+.mega-plus{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;color:#020303;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-right{flex-shrink:0;width:260px}
+.mega-card{background:var(--grey-50);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mega-card-heading{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0}
+.mega-card-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:0}
+.mega-card-btn{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);padding:10px 18px;border-radius:100px;background:transparent;transition:all .2s;align-self:flex-start;text-decoration:none}
+.mega-card-btn:hover{background:var(--blue);color:#fff;gap:12px}
+
+/* Two-column link grid (Products dropdown) */
+.mega-left--cols2{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;align-content:start}
+.mega-left--cols2 .mega-link{padding:10px 12px}
+
+/* Products dropdown: wider panel, product series + components zone + feature card */
+.mega-dropdown--wide{min-width:800px;left:0;transform:translateY(4px)}
+.nav-dropdown-wrapper:hover .mega-dropdown--wide,.mega-dropdown--wide.open{transform:translateY(0)}
+@media(max-width:1279px){.mega-dropdown--wide{min-width:720px}}
+@media(max-width:1099px){.mega-dropdown--wide{min-width:640px}}
+.mega-inner--products{gap:0;padding:24px 24px 24px 28px}
+.mega-left--products{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
+.mega-products-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;align-content:start;min-width:0}
+.mega-product-card{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s;min-width:0}
+.mega-product-card:hover{background:rgba(0,0,0,.04)}
+.mega-product-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.mega-product-model{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mega-product-tagline{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mega-product-img{width:60px;height:60px;object-fit:cover;border-radius:10px;flex-shrink:0;background:var(--grey-100)}
+.mega-divider-h{height:1px;background:var(--grey-200);margin:0}
+.mega-components-heading{font-family:Syne,sans-serif;font-size:13px;font-weight:400;color:#6b7280;letter-spacing:.5px;margin:0 0 8px}
+.mega-components-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mega-component-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:10px;text-decoration:none;transition:background .15s;min-width:0}
+.mega-component-card:hover{background:rgba(0,0,0,.04)}
+.mega-component-img{width:44px;height:44px;object-fit:cover;border-radius:8px;background:var(--grey-100)}
+.mega-component-name{font-family:Manrope,sans-serif;font-size:12px;font-weight:500;line-height:16px;color:#020303;text-align:center}
+.mega-divider{width:1px;align-self:stretch;background:var(--grey-200);margin:0 24px}
+.mega-products-card-img{width:100%;height:150px;object-fit:cover;border-radius:10px;background:var(--grey-100)}
+
+/* Compact link list (Services dropdown right column) */
+.mega-services{display:flex;flex-direction:column;gap:2px}
+.mega-services-heading{font-family:Syne,sans-serif;font-size:13px;font-weight:400;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;padding:0 14px 8px}
+.mega-services .mega-link{padding:6px 12px}
+.mega-services .mega-link-title{font-size:15px;line-height:21px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mega-services .mega-link-desc{font-size:13px;line-height:19px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+@media(max-width:959px){.mega-dropdown{display:none !important}}
+
+/* Header symbols hidden while preserving layout */
+.site-header .nav-dropdown-chevron,
+.site-header .mega-card-btn svg,
+.mobile-menu-panel .mobile-menu-toggle-chevron,
+.mobile-menu-panel .mobile-menu-link svg{visibility:hidden}
+.site-header .mega-plus{color:transparent}
+
+/* Mobile menu panel */
+.nav-collapse-btn.open{background:#374151}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
+.mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+.mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mobile-menu-panel{max-height:calc(100vh - 160px);overflow-y:auto}
+.mobile-menu-group{display:flex;flex-direction:column;border-bottom:1px solid #e5e7eb}
+.mobile-menu-group:last-of-type{border-bottom:none}
+.mobile-menu-toggle,.mobile-menu-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 12px;background:transparent;border:none;border-radius:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;text-align:left;cursor:pointer}
+.mobile-menu-toggle:hover,.mobile-menu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-menu-toggle-chevron{width:12px;height:7px;flex-shrink:0;transition:transform .25s ease}
+.mobile-menu-group.open .mobile-menu-toggle-chevron{transform:rotate(180deg)}
+.mobile-submenu{max-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:max-height .3s ease,padding-bottom .3s ease}
+.mobile-menu-group.open .mobile-submenu{max-height:560px;padding-bottom:12px}
+.mobile-submenu-link{display:flex;flex-direction:column;gap:4px;padding:10px 12px 10px 24px;border-radius:10px;text-decoration:none}
+.mobile-submenu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-submenu-title{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303}
+.mobile-submenu-desc{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280}
+.mobile-menu-cta{margin-top:8px}
+.mobile-menu-cta .btn-cta{width:100%;justify-content:center}
+@media(max-width:698px){.mobile-menu-panel{top:130px;width:calc(100% - 32px);padding:18px}}
+</style>

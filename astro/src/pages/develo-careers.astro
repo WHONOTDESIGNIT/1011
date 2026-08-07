@@ -1,0 +1,128 @@
+---
+// Develo Design — Careers（复刻 https://www.develodesign.co.uk/about/careers）
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Careers | Develo Design</title>
+<meta name="description" content="Join our growing team. We're always looking for talented developers, designers, and eCommerce specialists who care about doing great work." />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
+
+/* ═══ 首页同款全页渐变背景（header / top bar / hero 共享） ═══ */
+.gradient-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 20% 30%,rgba(0,56,255,.09) 0%,transparent 45%),
+    radial-gradient(ellipse at 70% 50%,rgba(55,127,255,.08) 0%,transparent 45%),
+    radial-gradient(ellipse at 15% 70%,rgba(127,48,255,.09) 0%,transparent 45%),
+    radial-gradient(ellipse at 80% 80%,rgba(242,80,110,.08) 0%,transparent 45%)}
+
+.page-main{margin-top:0;position:relative;z-index:1}
+
+/* ═══ HERO（透明背景，透出渐变） ═══ */
+.hero-section-content{max-width:var(--max-w);margin:148px auto 0;padding:120px var(--pad-100) 100px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.small-title-wrapper{display:flex;align-items:center;justify-content:center;gap:12px;padding:3px 0}
+.small-title-wrapper svg{width:16px;height:17px;display:block;flex-shrink:0}
+.small-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303}
+.main-heading{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:#020303;max-width:1080px;text-align:center;margin:0}
+.sub-heading{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;max-width:600px;text-align:center;margin:0}
+
+/* ═══ NO POSITIONS ═══ */
+.no-positions-section{background:#fff;padding:180px var(--pad-100)}
+.no-positions-container{max-width:var(--max-w);margin:0 auto}
+.content-block{display:flex;flex-direction:column;align-items:center;gap:8px}
+.content-heading{font-family:Syne,sans-serif;font-size:38px;font-weight:400;line-height:44px;letter-spacing:-.37px;color:#020303;text-align:center;margin:0}
+.content-description{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;max-width:600px;text-align:center;margin:0}
+.button-group{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 0 0}
+.primary-button{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.primary-button:hover{gap:16px}
+.primary-button svg{width:16px;height:16px;display:block;flex-shrink:0}
+
+/* ═══ 底部 CTA（黑底，与 work 页一致） ═══ */
+.footer-cta-section{background:var(--black);padding:120px 0 0}
+.footer-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.footer-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.footer-heading{font-family:Syne,sans-serif;font-size:38px;font-weight:400;line-height:44px;color:#fff;margin:0}
+.footer-description{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff;margin:0}
+.footer-button{display:inline-flex;align-items:center;gap:6px;margin-top:24px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.footer-button:hover{gap:16px}
+.footer-button svg{width:16px;height:16px;display:block;flex-shrink:0}
+
+/* ═══ 平板（≤1279px） ═══ */
+@media(max-width:1279px){
+  .hero-section-content{padding:120px 40px 100px}
+  .main-heading{font-size:52px;line-height:58px}
+  .no-positions-section{padding:180px 40px}
+  .content-heading{font-size:32px;line-height:38px}
+}
+/* ═══ 移动（≤767px） ═══ */
+@media(max-width:767px){
+  .hero-section-content{margin-top:134px;padding:60px 24px}
+  .small-title{font-size:18px;line-height:24px}
+  .main-heading{font-size:38px;line-height:44px}
+  .sub-heading{font-size:16px;line-height:25px}
+  .no-positions-section{padding:80px 24px}
+  .content-heading{font-size:28px;line-height:34px}
+  .content-description{font-size:16px;line-height:25px}
+  .footer-container{padding:0 24px}
+  .footer-heading{font-size:26px;line-height:34px}
+}
+</style>
+</head>
+<body>
+
+<div class="gradient-bg"></div>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section-wrapper">
+    <div class="hero-section-container">
+      <div class="hero-section-content">
+        <div class="small-title-wrapper"><svg width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg><span class="small-title">Careers</span></div>
+        <h1 class="main-heading">Join our growing team</h1>
+        <p class="sub-heading">We're always looking for talented developers, designers, and eCommerce specialists who care about doing great work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NO POSITIONS ═══ -->
+  <section class="no-positions-section">
+    <div class="no-positions-container">
+      <div class="content-block">
+        <h2 class="content-heading">Currently, we don't have any open positions</h2>
+        <p class="content-description">However, we're always interested in hearing from talented individuals. If you think you'd be a great fit for our team, please send us your CV and we'll reach out when opportunities become available.</p>
+        <div class="button-group">
+          <a class="primary-button" href="/contact">Send us your CV <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ 底部 CTA ═══ -->
+<section class="footer-cta-section">
+  <div class="footer-container">
+    <div class="footer-cta">
+      <h2 class="footer-heading">Ready to start your project?</h2>
+      <p class="footer-description">We'd love to help you make it fast, scalable, and beautiful.</p>
+      <a class="footer-button" href="/contact">Get in touch <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<SiteFooter />
+
+</body>
+</html>

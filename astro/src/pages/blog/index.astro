@@ -1,0 +1,519 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts } from '../../lib/blog';
+import { t } from '../../lib/i18n';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+
+const locale = 'en';
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const pageTitle = t(locale, 'blog.meta.title');
+const pageDescription = t(locale, 'blog.meta.description');
+const canonical = `${resolveBaseUrl()}/blog`;
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: t(locale, 'nav.blog') },
+]);
+
+const posts = await getAllPosts(locale);
+const categories = Array.from(new Set(posts.map((post) => post.category).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+const initialVisibleCount = 6;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.href ? `${resolveBaseUrl()}${item.href}` : canonical,
+  })),
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  inLanguage: locale,
+};
+
+const uiText = {
+  searchClear: t(locale, 'blog.search.clear'),
+  searchPlaceholder: t(locale, 'blog.search.placeholder'),
+  filterAll: t(locale, 'blog.filters.all'),
+  filtersLabel: t(locale, 'blog.filters.label'),
+  clearFilters: t(locale, 'blog.filters.clear'),
+  resetFilters: t(locale, 'blog.filters.reset'),
+  emptyTitle: t(locale, 'blog.filters.emptyTitle'),
+  emptyDescription: t(locale, 'blog.filters.emptyDescription'),
+  featuredLabel: t(locale, 'blog.featured.label'),
+  featuredTitle: t(locale, 'blog.featured.title'),
+  featuredCta: t(locale, 'blog.featured.cta'),
+  gridLabel: t(locale, 'blog.grid.label'),
+  gridTitle: t(locale, 'blog.grid.title'),
+  gridCta: t(locale, 'blog.grid.cta'),
+  loadMore: t(locale, 'blog.loadMore'),
+  resultsTemplate: t(locale, 'blog.results.template'),
+  resultSingular: t(locale, 'blog.results.resultSingular'),
+  resultPlural: t(locale, 'blog.results.resultPlural'),
+  resultsFor: t(locale, 'blog.results.for'),
+  resultsIn: t(locale, 'blog.results.in'),
+  postAuthorLabel: t(locale, 'blog.post.authorLabel'),
+  noImage: t(locale, 'blog.common.noImage'),
+  heroKicker: t(locale, 'blog.hero.kicker'),
+  heroTitle: t(locale, 'blog.hero.title'),
+  heroDescription: t(locale, 'blog.hero.description'),
+  emptyArchiveKicker: t(locale, 'blog.emptyArchive.kicker'),
+  emptyArchiveTitle: t(locale, 'blog.emptyArchive.title'),
+  emptyArchiveDescription: t(locale, 'blog.emptyArchive.description'),
+};
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  </Fragment>
+
+  <style is:inline>
+    /* ═══ iShine Blog — Develo Design 风格（对齐 develo-blog.astro） ═══ */
+    .blog-page{background:#fff;color:#020303;font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    .blog-page a{text-decoration:none;color:inherit}
+    .content-area{max-width:1536px;padding-left:0;padding-right:0}
+    @media(max-width:1279px){.content-area{max-width:100%}}
+    .hidden{display:none !important}
+
+    /* Hero */
+    .blog-hero{width:100%;max-width:1536px;margin:0 auto 24px;padding:0 100px}
+    .blog-hero-inner{display:flex;flex-direction:column;gap:8px}
+    .blog-hero-label{display:flex;align-items:center;gap:12px;padding:3px 12px;margin-bottom:16px}
+    .blog-hero-label svg{flex-shrink:0}
+    .blog-hero-label span{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;color:#020303;line-height:26px}
+    .blog-hero h1{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:#020303;margin:0}
+    .blog-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:#4b5563;max-width:600px}
+
+    /* Citable Summary */
+    .blog-summary{width:100%;max-width:1536px;margin:0 auto;padding:0 100px 48px}
+    .blog-summary-kicker{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#563cfa;text-transform:uppercase;letter-spacing:.5px}
+    .blog-summary-title{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:31px;color:#020303;margin:8px 0 0}
+    .blog-summary-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:900px;margin:12px 0 0}
+
+    /* Featured + Latest */
+    .featured-latest-section{background:#fff;padding:0 0 100px}
+    .featured-latest-container{width:100%;max-width:1536px;margin:0 auto;padding:0 100px;display:flex;gap:60px;align-items:flex-start}
+    .featured-col{flex:1;display:flex;flex-direction:column;gap:8px}
+    .featured-card{display:flex;flex-direction:column;gap:16px}
+    .blog-card-img{width:100%;overflow:hidden;background:#e5e7eb}
+    .blog-card-img img{width:100%;height:100%;object-fit:cover}
+    .blog-card-img-featured{border-radius:20px;aspect-ratio:16/10}
+    .blog-read-time{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:4px;background:#f3f4f6;width:fit-content}
+    .blog-cat-tag{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#563cfa;text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border:1px solid #9ca3af;border-radius:100px;width:fit-content}
+    .blog-no-image{display:inline-block;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,.85);font-family:Manrope,sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#6b7280}
+    .featured-card h2{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0;transition:color .2s}
+    .featured-card:hover h2{color:#563cfa}
+    .featured-card-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;margin:0}
+    .blog-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;color:#6b7280;line-height:21px}
+    .blog-meta-author{color:#020303}
+    .blog-meta-date{color:#6b7280}
+
+    /* Latest list */
+    .latest-col{width:590px;flex-shrink:0}
+    .latest-col h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0 0 24px}
+    .latest-list{display:flex;flex-direction:column;gap:24px;width:100%}
+    .latest-item{display:flex;flex-direction:column;gap:12px;padding:0 0 24px;border-bottom:1px solid #e5e7eb;width:100%}
+    .latest-item:last-child{border-bottom:none}
+    .latest-item h3{font-family:Syne,sans-serif;font-size:17px;font-weight:400;line-height:22px;color:#020303;margin:0;display:flex;align-items:center;gap:8px;transition:color .2s}
+    .latest-item:hover h3{color:#563cfa}
+    .latest-item h3 .title-arrow{flex-shrink:0;opacity:0;transition:opacity .2s,transform .2s;transform:translateX(-4px)}
+    .latest-item:hover h3 .title-arrow{opacity:1;transform:translateX(0)}
+
+    /* Browse all */
+    .browse-all-section{background:#f9fafb;padding:60px 0 80px}
+    .browse-all-container{width:100%;max-width:1536px;margin:0 auto;padding:0 100px}
+    .browse-all-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:24px}
+    .browse-all-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
+    .browse-categories{display:flex;gap:8px;flex-wrap:wrap}
+    .browse-cat-btn{padding:8px 16px;border-radius:100px;border:1px solid #020303;background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:#020303;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .browse-cat-btn.active,.browse-cat-btn:hover{background:#020303;color:#fff}
+
+    /* Search */
+    .blog-search-panel{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+    .blog-search-label{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.5px}
+    .blog-search-row{position:relative;display:flex;align-items:center}
+    #blog-search{width:100%;padding:14px 140px 14px 20px;border:1px solid #9ca3af;border-radius:100px;background:#fff;font-family:Manrope,sans-serif;font-size:16px;color:#020303;outline:none;transition:border-color .2s}
+    #blog-search:focus{border-color:#020303}
+    #blog-search::placeholder{color:#9ca3af}
+    #blog-search-clear{position:absolute;right:10px;padding:6px 14px;border:1px solid #020303;border-radius:100px;background:transparent;font-family:Manrope,sans-serif;font-size:14px;color:#020303;cursor:pointer;transition:all .2s}
+    #blog-search-clear:hover{background:#020303;color:#fff}
+
+    /* Active summary */
+    .blog-active-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;margin-bottom:32px;font-family:Manrope,sans-serif;font-size:14px;color:#4b5563}
+    #blog-clear-filters{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:#563cfa;background:none;border:none;cursor:pointer;transition:color .2s}
+    #blog-clear-filters:hover{color:#020303}
+
+    /* Grid */
+    .browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .blog-card-img-grid{border-radius:16px;aspect-ratio:16/9;margin-bottom:12px}
+    .browse-card{display:flex;flex-direction:column;transition:transform .2s}
+    .browse-card:hover{transform:translateY(-4px)}
+    .browse-card h3{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;margin:0;transition:color .2s}
+    .browse-card:hover h3{color:#563cfa}
+    .browse-card .blog-cat-tag{margin-bottom:8px}
+    .browse-card .blog-read-time{margin-bottom:4px}
+    .browse-card-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;color:#6b7280;line-height:21px;margin-top:8px}
+
+    /* Empty state */
+    .blog-empty-state{border:1px dashed #9ca3af;border-radius:20px;background:#fff;padding:60px 24px;text-align:center}
+    .blog-empty-state h3{font-family:Syne,sans-serif;font-size:28px;font-weight:400;line-height:34px;color:#020303;margin:0}
+    .blog-empty-state p{font-family:Manrope,sans-serif;font-size:16px;line-height:25px;color:#4b5563;max-width:560px;margin:12px auto 0}
+
+    /* Load more + results */
+    .blog-load-more-wrap{display:flex;justify-content:center;margin-top:60px}
+    .pagination-btn{display:flex;align-items:center;justify-content:center;padding:10px 24px;border-radius:100px;border:1px solid #020303;background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:#020303;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .pagination-btn:hover{background:#020303;color:#fff}
+    .blog-results-summary{text-align:center;margin-top:20px;font-family:Manrope,sans-serif;font-size:14px;color:#6b7280}
+
+    /* Responsive — 与 develo-blog.astro 断点一致 */
+    @media(max-width:1279px){
+      .blog-hero{padding:0 40px}
+      .blog-summary{padding:0 40px 40px}
+      .featured-latest-container{padding:0 40px;flex-direction:column;gap:40px}
+      .latest-col{width:100%}
+      .browse-all-container{padding:0 40px}
+      .browse-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:767px){
+      .blog-hero{padding:0 24px}
+      .blog-hero h1{font-size:38px;line-height:44px;letter-spacing:-.37px}
+      .blog-hero-desc{font-size:16px;line-height:25px}
+      .blog-summary{padding:0 24px 32px}
+      .blog-summary-title{font-size:20px;line-height:27px}
+      .featured-latest-container{padding:0 24px}
+      .featured-latest-section{padding:0 0 60px}
+      .browse-all-container{padding:0 24px}
+      .browse-grid{grid-template-columns:1fr}
+      .browse-all-header{flex-direction:column;align-items:flex-start;gap:16px}
+      .browse-all-section{padding:40px 0 60px}
+      #blog-search{padding:14px 20px}
+      #blog-search-clear{position:static;width:100%}
+      .blog-search-row{flex-direction:column;align-items:stretch;gap:8px}
+    }
+  </style>
+
+  <div
+    class="blog-page"
+    id="blog-discovery"
+    data-initial-visible-count={initialVisibleCount}
+    data-ui={JSON.stringify(uiText)}
+  >
+    <!-- ═══ HERO ═══ -->
+    <header class="blog-hero">
+      <div class="blog-hero-inner">
+        <div class="blog-hero-label">
+          <svg width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(#blogHeroShape)"><path d="M2.16 16.4999C0.7733 14.3158 0 11.465 0 8.49995C0 5.53493 0.7733 2.68405 2.16 0.5V16.4999Z" fill="#020303"/><path d="M16 16.5C13.8783 16.5 11.8434 15.6572 10.3431 14.1569C8.84286 12.6566 8 10.6217 8 8.50001C8 6.37827 8.84285 4.34344 10.3431 2.84314C11.8434 1.34284 13.8783 0.5 16 0.5V16.5Z" fill="#020303"/></g><defs><clipPath id="blogHeroShape"><rect fill="#fff" width="16" height="17"/></clipPath></defs></svg>
+          <span>{uiText.heroKicker}</span>
+        </div>
+        <h1>{uiText.heroTitle}</h1>
+        <p class="blog-hero-desc">{uiText.heroDescription}</p>
+      </div>
+    </header>
+
+    <!-- ═══ Citable Summary ═══ -->
+    <section class="blog-summary">
+      <div class="blog-summary-kicker">Citable Summary</div>
+      <h2 class="blog-summary-title">What topics does the iShine blog cover?</h2>
+      <p class="blog-summary-desc">
+        The iShine blog shares practical guidance for brands and sourcing teams building private-label IPL hair removal products. Articles typically cover OEM/ODM workflows, product positioning, manufacturing considerations, and how component choices like cooling systems, optical filters, or lamp cartridges affect user comfort and performance. The blog also discusses launch fundamentals such as packaging strategy, compliance planning for target markets, and what information to prepare for RFQs and sampling. The goal is to provide clear, self-contained explanations that help readers evaluate options and reduce risk when moving from concept to scalable production. For teams comparing manufacturers or planning new device lines, these posts are written to be referenced during internal decision-making and vendor discussions.
+      </p>
+    </section>
+
+    <!-- ═══ FEATURED + LATEST ═══ -->
+    <section class="featured-latest-section">
+      <div class="featured-latest-container">
+        <div class="featured-col" id="blog-featured-section">
+          <div id="blog-featured-container"></div>
+        </div>
+        <div class="latest-col">
+          <h2>{uiText.gridLabel}</h2>
+          <div class="latest-list" id="blog-latest-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BROWSE ALL ═══ -->
+    <section class="browse-all-section">
+      <div class="browse-all-container">
+        <div class="browse-all-header">
+          <h2>Browse all</h2>
+          <div class="browse-categories" id="blog-category-filters">
+            <button type="button" data-category="All" class="browse-cat-btn active">{uiText.filterAll}</button>
+            {categories.map((category) => (
+              <button type="button" data-category={category} class="browse-cat-btn">{category}</button>
+            ))}
+          </div>
+        </div>
+
+        <div class="blog-search-panel">
+          <label class="blog-search-label" for="blog-search">{t(locale, 'blog.search.label')}</label>
+          <div class="blog-search-row">
+            <input id="blog-search" type="search" placeholder={uiText.searchPlaceholder} />
+            <button id="blog-search-clear" type="button" class="hidden" aria-label="Clear search">{uiText.searchClear}</button>
+          </div>
+        </div>
+
+        <div id="blog-active-summary" class="blog-active-summary hidden">
+          <div id="blog-active-summary-text"></div>
+          <button id="blog-clear-filters" type="button">{uiText.clearFilters}</button>
+        </div>
+
+        <div id="blog-regular-grid" class="browse-grid"></div>
+
+        <section id="blog-empty-state" class="blog-empty-state hidden">
+          <h3>{uiText.emptyTitle}</h3>
+          <p>{uiText.emptyDescription}</p>
+          <button id="blog-reset-empty" type="button" class="pagination-btn">{uiText.resetFilters}</button>
+        </section>
+
+        <div class="blog-load-more-wrap" id="blog-load-more-wrap">
+          <button id="blog-load-more" type="button" class="pagination-btn">{uiText.loadMore}</button>
+        </div>
+
+        <div id="blog-results-summary" class="blog-results-summary"></div>
+      </div>
+    </section>
+  </div>
+
+  {posts.length ? (
+    <>
+      <script type="application/json" id="blog-posts-data" set:html={JSON.stringify(posts)} />
+      <script is:inline>
+        (() => {
+          const dataScript = document.getElementById('blog-posts-data');
+          const root = document.getElementById('blog-discovery');
+          if (!dataScript || !root) return;
+
+          const posts = JSON.parse(dataScript.textContent || '[]');
+          const ui = JSON.parse(root.dataset.ui || '{}');
+          const searchInput = document.getElementById('blog-search');
+          const clearSearchButton = document.getElementById('blog-search-clear');
+          const filterWrap = document.getElementById('blog-category-filters');
+          const activeSummary = document.getElementById('blog-active-summary');
+          const activeSummaryText = document.getElementById('blog-active-summary-text');
+          const clearFiltersButton = document.getElementById('blog-clear-filters');
+          const featuredSection = document.getElementById('blog-featured-section');
+          const featuredContainer = document.getElementById('blog-featured-container');
+          const latestList = document.getElementById('blog-latest-list');
+          const regularGrid = document.getElementById('blog-regular-grid');
+          const emptyState = document.getElementById('blog-empty-state');
+          const emptyResetButton = document.getElementById('blog-reset-empty');
+          const loadMoreWrap = document.getElementById('blog-load-more-wrap');
+          const loadMoreButton = document.getElementById('blog-load-more');
+          const resultsSummary = document.getElementById('blog-results-summary');
+          const initialVisibleCount = Number(root.dataset.initialVisibleCount || '6');
+
+          let searchTerm = '';
+          let activeCategory = 'All';
+          let visibleCount = initialVisibleCount;
+
+          const escapeHtml = (value) =>
+            String(value ?? '')
+              .replaceAll('&', '&amp;')
+              .replaceAll('<', '&lt;')
+              .replaceAll('>', '&gt;')
+              .replaceAll('"', '&quot;')
+              .replaceAll("'", '&#39;');
+
+          const netlifyImage = (path, width, format = 'webp', quality = 80) =>
+            '/.netlify/images?url=' + encodeURIComponent(path) + '&w=' + width + '&fm=' + format + '&q=' + quality;
+
+          const buildSrcSet = (path, format) =>
+            [400, 800, 1200]
+              .map((width) => escapeHtml(netlifyImage(path, width, format)) + ' ' + width + 'w')
+              .join(', ');
+
+          const readTimeLabel = (post) => escapeHtml(post.readTime || '5 min read');
+
+          const imageMarkup = (post, containerClass, sizes, width, height, loading = 'lazy') => {
+            if (post.image) {
+              const avifSrcSet = buildSrcSet(post.image, 'avif');
+              const webpSrcSet = buildSrcSet(post.image, 'webp');
+              const fallbackSrc = escapeHtml(netlifyImage(post.image, 800, 'webp'));
+              return (
+                '<div class="' + containerClass + '">' +
+                '<picture>' +
+                '<source srcset="' + avifSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/avif" />' +
+                '<source srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/webp" />' +
+                '<img src="' + fallbackSrc + '" srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" alt="' + escapeHtml(post.title) + '" loading="' + escapeHtml(loading) + '" decoding="async" width="' + width + '" height="' + height + '" class="h-full w-full object-cover" />' +
+                '</picture>' +
+                '</div>'
+              );
+            }
+
+            return (
+              '<div class="flex items-end ' + containerClass + '" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)">' +
+              '<span class="blog-no-image">' + escapeHtml(ui.noImage || 'No Image') + '</span>' +
+              '</div>'
+            );
+          };
+
+          const renderFeatured = (post) => {
+            if (!post) {
+              featuredSection.classList.add('hidden');
+              featuredContainer.innerHTML = '';
+              return;
+            }
+
+            featuredSection.classList.remove('hidden');
+            featuredContainer.innerHTML =
+              '<a class="featured-card" href="' + escapeHtml(post.href) + '">' +
+                imageMarkup(post, 'blog-card-img blog-card-img-featured', '(min-width: 1024px) 50vw, 100vw', 1200, 750, 'eager') +
+                '<span class="blog-read-time">' + readTimeLabel(post) + '</span>' +
+                (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
+                '<h2>' + escapeHtml(post.title) + '</h2>' +
+                (post.excerpt ? '<p class="featured-card-desc">' + escapeHtml(post.excerpt) + '</p>' : '') +
+                '<div class="blog-meta">' +
+                  '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
+                  '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
+                '</div>' +
+              '</a>';
+          };
+
+          const renderLatest = (items) => {
+            latestList.innerHTML = items
+              .map((post) =>
+                '<a class="latest-item" href="' + escapeHtml(post.href) + '">' +
+                  (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
+                  '<h3>' + escapeHtml(post.title) +
+                    '<svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+                  '</h3>' +
+                  '<div class="blog-meta">' +
+                    '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
+                    '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
+                  '</div>' +
+                '</a>'
+              )
+              .join('');
+          };
+
+          const renderGrid = (items) => {
+            regularGrid.innerHTML = items
+              .map((post) =>
+                '<a class="browse-card" href="' + escapeHtml(post.href) + '">' +
+                  imageMarkup(post, 'blog-card-img blog-card-img-grid', '(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw', 1200, 675) +
+                  '<span class="blog-read-time">' + readTimeLabel(post) + '</span>' +
+                  (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
+                  '<h3>' + escapeHtml(post.title) + '</h3>' +
+                  '<div class="browse-card-meta">' +
+                    '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
+                    '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
+                  '</div>' +
+                '</a>'
+              )
+              .join('');
+          };
+
+          const updateFilterChipState = () => {
+            filterWrap.querySelectorAll('[data-category]').forEach((button) => {
+              const isActive = button.dataset.category === activeCategory;
+              button.className = isActive ? 'browse-cat-btn active' : 'browse-cat-btn';
+            });
+          };
+
+          const applyFilters = () => {
+            const query = searchTerm.trim().toLowerCase();
+            const filtered = posts.filter((post) => {
+              const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+              const searchBlob = [post.title, post.category, post.excerpt, post.author].filter(Boolean).join(' ').toLowerCase();
+              const matchesSearch = !query || searchBlob.includes(query);
+              return matchesCategory && matchesSearch;
+            });
+
+            const featured = filtered[0] || null;
+            const latest = filtered.slice(1, 5);
+            const visibleRegular = filtered.slice(0, visibleCount);
+            const activeFilterCount = Number(Boolean(searchTerm.trim())) + Number(activeCategory !== 'All');
+
+            renderFeatured(featured);
+            renderLatest(latest);
+            renderGrid(visibleRegular);
+            updateFilterChipState();
+
+            if (searchInput) {
+              searchInput.value = searchTerm;
+            }
+
+            clearSearchButton.classList.toggle('hidden', !searchTerm.trim());
+            activeSummary.classList.toggle('hidden', activeFilterCount === 0);
+
+            if (activeFilterCount > 0) {
+              const parts = [];
+              const resultWord = filtered.length === 1 ? (ui.resultSingular || 'result') : (ui.resultPlural || 'results');
+              parts.push(filtered.length + ' ' + resultWord);
+              if (searchTerm.trim()) {
+                parts.push((ui.resultsFor || 'for') + ' "' + searchTerm.trim() + '"');
+              }
+              if (activeCategory !== 'All') {
+                parts.push((ui.resultsIn || 'in') + ' ' + activeCategory);
+              }
+              activeSummaryText.textContent = parts.join(' ');
+            }
+
+            const hasResults = filtered.length > 0;
+            emptyState.classList.toggle('hidden', hasResults);
+            featuredSection.classList.toggle('hidden', !hasResults);
+            regularGrid.classList.toggle('hidden', !hasResults);
+            loadMoreWrap.classList.toggle('hidden', !hasResults || visibleCount >= filtered.length);
+
+            const template = ui.resultsTemplate || 'Showing {shown} of {total} articles';
+            resultsSummary.textContent = hasResults
+              ? template.replace('{shown}', String(Math.min(filtered.length, visibleCount))).replace('{total}', String(filtered.length))
+              : template.replace('{shown}', '0').replace('{total}', '0');
+          };
+
+          const resetFilters = () => {
+            searchTerm = '';
+            activeCategory = 'All';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          };
+
+          searchInput?.addEventListener('input', (event) => {
+            searchTerm = event.currentTarget.value;
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          });
+
+          clearSearchButton?.addEventListener('click', () => {
+            searchTerm = '';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+            searchInput?.focus();
+          });
+
+          filterWrap?.addEventListener('click', (event) => {
+            const target = event.target instanceof HTMLElement ? event.target.closest('[data-category]') : null;
+            if (!target) return;
+            activeCategory = target.dataset.category || 'All';
+            visibleCount = initialVisibleCount;
+            applyFilters();
+          });
+
+          clearFiltersButton?.addEventListener('click', resetFilters);
+          emptyResetButton?.addEventListener('click', resetFilters);
+
+          loadMoreButton?.addEventListener('click', () => {
+            visibleCount += initialVisibleCount;
+            applyFilters();
+          });
+
+          applyFilters();
+        })();
+      </script>
+    </>
+  ) : null}
+</BaseLayout>

@@ -1,10 +1,8 @@
 ---
-import { t } from '../lib/i18n';
-import { getLocalizedPath } from '../lib/breadcrumbs';
-import { netlifyImageUrl } from '../lib/netlify-images';
 import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
-import Header from '../components/Header.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import Chat from '../components/react/Chat';
 import criticalCss from '../styles/critical.css?raw';
 import globalCssUrl from '../styles/global.css?url';
@@ -22,8 +20,8 @@ function organizationJsonLd(lang: string) {
     logo: {
       '@type': 'ImageObject',
       url: 'https://iplmanufacturer.com/images/logos/ishine-logo.png',
-      width: 600,
-      height: 60,
+      width: 1280,
+      height: 461,
     },
     description: SITE_DESCRIPTION,
     foundingDate: '2008',
@@ -78,118 +76,6 @@ const siteBaseUrl = (
 const canonicalUrl = canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap';
-const analyticsBadgeDark = netlifyImageUrl('https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=dark', {
-  width: 480,
-  format: 'webp',
-  quality: 80,
-});
-const analyticsBadgeLight = netlifyImageUrl('https://simpleanalyticsbadges.com/iplmanufacturer.com?mode=light', {
-  width: 480,
-  format: 'webp',
-  quality: 80,
-});
-const productLinks = [
-  { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
-  { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
-  { href: getLocalizedPath(lang, '/products/eirene'), label: t(lang, 'nav.eirene') },
-  { href: getLocalizedPath(lang, '/products/wooden'), label: t(lang, 'nav.wooden') },
-  { href: getLocalizedPath(lang, '/products/hebe'), label: t(lang, 'nav.hebe') },
-  { href: getLocalizedPath(lang, '/products/hestia'), label: t(lang, 'nav.hestia') },
-  { href: getLocalizedPath(lang, '/products/euno'), label: t(lang, 'nav.euno') },
-  { href: getLocalizedPath(lang, '/products/emerald'), label: t(lang, 'nav.emerald') },
-  { href: getLocalizedPath(lang, '/products/themis'), label: t(lang, 'nav.themis') },
-  { href: getLocalizedPath(lang, '/products/alpha'), label: t(lang, 'nav.alpha') },
-];
-
-const componentsLinks = [
-  { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
-  { href: getLocalizedPath(lang, '/components/lamp-cartridges'), label: t(lang, 'nav.lampCartridges') },
-  { href: getLocalizedPath(lang, '/components/optical-filters'), label: t(lang, 'nav.opticalFilters') },
-  { href: getLocalizedPath(lang, '/components/cooling-system'), label: t(lang, 'nav.coolingSystem') },
-  { href: getLocalizedPath(lang, '/components/power-supply'), label: t(lang, 'nav.powerSupply') },
-];
-
-const servicesLinks = [
-  { href: getLocalizedPath(lang, '/services/oem-odm'), label: t(lang, 'nav.oemOdm') },
-  { href: getLocalizedPath(lang, '/services/product-design'), label: t(lang, 'nav.productDesign') },
-  { href: getLocalizedPath(lang, '/services/production-assembly'), label: t(lang, 'nav.production') },
-  { href: getLocalizedPath(lang, '/services/packaging-logistics'), label: t(lang, 'nav.packaging') },
-];
-
-const aboutDropdownLinks = [
-  { href: getLocalizedPath(lang, '/about/brand-story'), label: t(lang, 'nav.brandStory') },
-  { href: getLocalizedPath(lang, '/about/company-profile'), label: t(lang, 'nav.companyProfile') },
-  { href: getLocalizedPath(lang, '/about/manufacturing-capabilities'), label: t(lang, 'nav.manufacturing') },
-  { href: getLocalizedPath(lang, '/about/quality-control'), label: t(lang, 'nav.quality') },
-  { href: getLocalizedPath(lang, '/clients'), label: t(lang, 'nav.clients') },
-  { href: getLocalizedPath(lang, '/blog'), label: t(lang, 'nav.blog') },
-  { href: getLocalizedPath(lang, '/faq'), label: t(lang, 'nav.faq') },
-];
-
-const navItems = [
-  { href: getLocalizedPath(lang), label: t(lang, 'common.home') },
-  { href: getLocalizedPath(lang, '/products'), label: t(lang, 'nav.products') },
-  { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
-  { href: getLocalizedPath(lang, '/catalogue'), label: t(lang, 'nav.catalogue'), dropdown: productLinks },
-  { href: getLocalizedPath(lang, '/services'), label: t(lang, 'nav.serviceSupport'), dropdown: servicesLinks },
-  { href: getLocalizedPath(lang, '/about'), label: t(lang, 'nav.about'), dropdown: aboutDropdownLinks },
-  { href: getLocalizedPath(lang, '/contact'), label: t(lang, 'nav.contact') },
-];
-
-const footerSections = [
-  {
-    title: t(lang, 'nav.products'),
-    links: [
-      { href: getLocalizedPath(lang, '/products'), label: t(lang, 'nav.products') },
-      { href: getLocalizedPath(lang, '/products/lumi'), label: t(lang, 'nav.lumi') },
-      { href: getLocalizedPath(lang, '/products/venus'), label: t(lang, 'nav.venus') },
-      { href: getLocalizedPath(lang, '/products/wooden'), label: t(lang, 'nav.wooden') },
-      { href: getLocalizedPath(lang, '/products/hebe'), label: t(lang, 'nav.hebe') },
-      { href: getLocalizedPath(lang, '/products/alpha'), label: t(lang, 'nav.dualLamp') },
-    ],
-  },
-  {
-    title: t(lang, 'nav.iplComponentsCatalogue'),
-    links: [
-      { href: getLocalizedPath(lang, '/components'), label: t(lang, 'nav.iplComponentsCatalogue') },
-      { href: getLocalizedPath(lang, '/components/lamp-cartridges'), label: t(lang, 'nav.lampCartridges') },
-      { href: getLocalizedPath(lang, '/components/optical-filters'), label: t(lang, 'nav.opticalFilters') },
-      { href: getLocalizedPath(lang, '/components/cooling-system'), label: t(lang, 'nav.coolingSystem') },
-      { href: getLocalizedPath(lang, '/components/power-supply'), label: t(lang, 'nav.powerSupply') },
-    ],
-  },
-  {
-    title: t(lang, 'nav.serviceSupport'),
-    links: [
-      { href: getLocalizedPath(lang, '/services'), label: t(lang, 'nav.serviceSupport') },
-      { href: getLocalizedPath(lang, '/services/oem-odm'), label: t(lang, 'nav.oemOdm') },
-      { href: getLocalizedPath(lang, '/services/product-design'), label: t(lang, 'nav.productDesign') },
-      { href: getLocalizedPath(lang, '/services/production-assembly'), label: t(lang, 'nav.production') },
-      { href: getLocalizedPath(lang, '/services/packaging-logistics'), label: t(lang, 'nav.packaging') },
-    ],
-  },
-  {
-    title: t(lang, 'nav.about'),
-    links: [
-      { href: getLocalizedPath(lang, '/about'), label: t(lang, 'nav.about') },
-      { href: getLocalizedPath(lang, '/about/brand-story'), label: t(lang, 'nav.brandStory') },
-      { href: getLocalizedPath(lang, '/about/company-profile'), label: t(lang, 'nav.companyProfile') },
-      { href: getLocalizedPath(lang, '/about/manufacturing-capabilities'), label: t(lang, 'nav.manufacturing') },
-      { href: getLocalizedPath(lang, '/about/quality-control'), label: t(lang, 'nav.quality') },
-      { href: getLocalizedPath(lang, '/clients'), label: t(lang, 'nav.clients') },
-      { href: getLocalizedPath(lang, '/blog'), label: t(lang, 'nav.blog') },
-      { href: getLocalizedPath(lang, '/faq'), label: t(lang, 'nav.faq') },
-    ],
-  },
-];
-
-const footerUtilityLinks = [
-  { href: getLocalizedPath(lang, '/contact'), label: 'Contact' },
-  { href: getLocalizedPath(lang, '/faq'), label: 'FAQ' },
-  { href: getLocalizedPath(lang, '/blog'), label: 'Blog' },
-  { href: getLocalizedPath(lang, '/privacy-policy'), label: 'Privacy Policy' },
-  { href: '/sitemap.xml', label: 'Sitemap' },
-];
 ---
 
 <!doctype html>
@@ -224,7 +110,7 @@ const footerUtilityLinks = [
     })}></script>
     <meta property="og:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
     <meta name="twitter:image" content={new URL(image || '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png', canonicalUrl).href} />
-    <link rel="icon" type="image/svg+xml" href="/images/logos/LOGO-SVG.svg" />
+    <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="preload" href={fontStylesheetUrl} as="style" />
@@ -238,136 +124,12 @@ const footerUtilityLinks = [
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
-    <Header navItems={navItems} lang={lang} stickyNav={stickyNav} />
+    <SiteHeader lang={lang} />
     <div class="content-area mx-auto max-w-6xl px-6 pb-10">
     <slot />
     {showCornerMarkers && <CornerMarker />}
     </div>
-    <footer class="border-t border-slate-200 bg-slate-50">
-      <section class="border-b border-sky-100 bg-gradient-to-br from-sky-50 via-slate-50 to-violet-50">
-        <div class="mx-auto max-w-6xl px-6 py-14">
-          <div class="hidden gap-8 md:grid md:grid-cols-2 xl:grid-cols-4">
-            {footerSections.map((section) => (
-              <div>
-                <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-800">{section.title}</h2>
-                <ul class="mt-5 space-y-3">
-                  {section.links.map((link) => (
-                    <li>
-                      <a class="text-sm text-slate-700 transition hover:text-slate-950" href={link.href}>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div class="space-y-4 md:hidden">
-            {footerSections.map((section, index) => (
-              <details class="overflow-hidden rounded-2xl border border-sky-100 bg-white/90 shadow-sm" open={index === 0}>
-                <summary class="cursor-pointer list-none px-5 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-sky-800">
-                  {section.title}
-                </summary>
-                <ul class="border-t border-slate-100 px-5 py-4">
-                  {section.links.map((link) => (
-                    <li class="py-2">
-                      <a class="text-sm text-slate-700 transition hover:text-slate-950" href={link.href}>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="border-b border-slate-200 bg-white">
-        <div class="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-3">
-          <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-sm">
-            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.getInTouch')}</div>
-            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">Start your OEM / ODM inquiry</h2>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">
-              Reach out for RFQs, product customization, packaging, or manufacturing planning.
-            </p>
-            <a class="mt-5 inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(lang, '/contact')}>
-              {t(lang, 'footer.contactButton')}
-            </a>
-          </div>
-
-          <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.callUs')}</div>
-            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">+86 150 1289 1148</h2>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">
-              Speak with Maurice about project scope, timeline, and next-step requirements.
-            </p>
-            <a class="mt-5 inline-flex text-sm font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4" href="tel:+8615012891148">
-              Call now
-            </a>
-          </div>
-
-          <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{t(lang, 'footer.emailUs')}</div>
-            <h2 class="mt-3 text-2xl font-bold tracking-tight text-slate-900">service@ishineco.com</h2>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">
-              Best for sample requests, quoting, documentation questions, and follow-up details.
-            </p>
-            <a class="mt-5 inline-flex text-sm font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4" href="mailto:service@ishineco.com">
-              Send email
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-slate-950 text-white">
-        <div class="mx-auto grid max-w-6xl gap-6 px-6 py-8 lg:grid-cols-[1fr_1.4fr_auto] lg:items-center">
-          <div>
-            <div class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-300">iShine</div>
-            <div class="mt-2 text-sm text-slate-300">IPL Manufacturing</div>
-          </div>
-
-          <div class="space-y-2 text-sm text-slate-300">
-            <p>{t(lang, 'footer.companyIntro')}</p>
-            <p>{t(lang, 'footer.companyRegistration')}</p>
-            <p>{t(lang, 'footer.copyright')}</p>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2 lg:justify-end">
-            {footerUtilityLinks.map((link) => (
-              <a class="rounded-2xl border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/10" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div class="mx-auto max-w-6xl px-6 pt-4">
-          <a
-            href="https://dashboard.simpleanalytics.com/iplmanufacturer.com?utm_source=iplmanufacturer.com&utm_content=badge&affiliate=sokeb"
-            referrerpolicy="origin"
-            target="_blank"
-          >
-            <picture>
-              <source
-                srcset={analyticsBadgeDark}
-                media="(prefers-color-scheme: dark)"
-              />
-              <img
-                src={analyticsBadgeLight}
-                alt="Simple Analytics — Last month sessions"
-                loading="lazy"
-                decoding="async"
-                width="480"
-                height="160"
-                referrerpolicy="no-referrer"
-                crossorigin="anonymous"
-              />
-            </picture>
-          </a>
-        </div>
-      </section>
-    </footer>
+    <SiteFooter />
     <StickyContact />
     <Chat client:idle />
 
@@ -445,6 +207,22 @@ const footerUtilityLinks = [
       @media (max-width: 1024px) {
         #back-to-top {
           right: 20px;
+        }
+      }
+    </style>
+    <style is:global>
+      /* 与首页最新版头部一致：隐藏的桌面导航仍占布局空间，需裁剪横向溢出，避免滚动抖动 */
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      /* 适配固定头部（trust-bar 60px + site-header 胶囊）占据的顶部空间 */
+      .content-area {
+        padding-top: 141px;
+      }
+      @media (max-width: 698px) {
+        .content-area {
+          padding-top: 130px;
         }
       }
     </style>

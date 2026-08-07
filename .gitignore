@@ -1,14 +1,95 @@
+# dependencies
 node_modules/
 .pnp
 .pnp.js
+
+# testing
 coverage/
+
+# production
 build/
 dist/
+
+# Astro
+astro/dist/
+astro/node_modules/
+
+# misc
 .DS_Store
 *.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local env files
 .env
 .env*.local
-.astro/
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== 仓库顶层散落笔记/临时文件（不入库）=====
+# 开发笔记
+ASTRO_BREADCRUMB_STRUCTURE.md
+BREADCRUMB_NAVIGATION.md
+IMAGE_STANDARD.md
+ISR_USAGE_GUIDE.md
+QA-IPL.md
+README.txt
+add-social-sharing-previews.md
+astro-i18n.md
+astro-info.md
+astro-international.md
+astro-on-netlify.md
+best-dropshipping.md
+blob-user-generated.md
+breadcrumb.md
+cache-overviewing.md
+chat-history-store.md
+chat-ui.md
+clients-reply.md
+code-1.md
+esbuild.md
+international-astro.md
+netlify-image-cdn.md
+official-On-demand-rendering-astro-pre.md
+product.md
+rag.md
+redirect.md
+speed-up-your-site.md
+
+# 本地截图 / 报价目录
+catalog_candidate_screenshot.png
+catalog_source.jpg
+*.xls
+*.xlsx
+
+# 工具缓存 / 文档目录
+.bolt/
+docs-mcp-main/
+astro/.trae/
+astro/CHAT_AI_SETUP.md
+
+# 嵌套旧站副本（构建不使用）
+1011-main/
+
+# 顶层旧项目残留（构建已迁移至 astro/ 子目录；顶层 package.json 无 build 脚本）
+/astro.config.mjs
+/package.json
+/package-lock.json
+/config.ts
+/components.json
+/robots.txt
+/scripts/

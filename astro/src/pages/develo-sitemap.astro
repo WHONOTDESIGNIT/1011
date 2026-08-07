@@ -1,0 +1,439 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+// Develo Design — Sitemap
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sitemap | Develo Design</title>
+<meta name="description" content="Browse all 251 pages on the Develo Design website." />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
+
+/* ═══ Shared ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent}
+.trust-bar-inner{display:flex;align-items:center}
+.trust-slide{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px}
+.trust-slide[aria-hidden="true"]{display:none}.trust-slide[aria-hidden="false"]{display:flex}
+.trust-text{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:40px}
+.header-logo{display:flex;align-items:center;flex-shrink:0}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;border:none;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+.header-cta{display:flex;align-items:center;gap:12px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s;text-decoration:none}
+.btn-primary:hover{gap:16px;background:#374151}
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}.header-cta .btn-primary{display:none}}
+@media(max-width:767px){.site-header{top:66px;width:calc(100% - 32px)}.header-inner{height:56px;padding:0 24px 0 32px}}
+
+/* ═══ Page ═══ */
+.page-main{margin-top:136px;padding-bottom:80px}
+.page-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+
+.sitemap-hero{padding:40px 0 48px}
+.sitemap-hero h1{font-family:Syne,sans-serif;font-size:44px;font-weight:400;line-height:52px;letter-spacing:-.43px;color:var(--black);margin:0 0 12px}
+.sitemap-subtitle{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text)}
+.sitemap-count{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:var(--blue);margin-bottom:8px}
+
+.sitemap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px;margin-top:8px}
+
+.sm-category{margin-bottom:0}
+.sm-category h2{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--grey-200)}
+.sm-category .sm-count{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:var(--grey-500);margin-left:4px}
+
+.sm-links{list-style:none;padding:0;margin:0}
+.sm-links li{margin-bottom:2px}
+.sm-links li a{display:block;padding:6px 0;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text);transition:color .2s}
+.sm-links li a:hover{color:var(--blue)}
+
+@media(max-width:959px){
+  .sitemap-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}
+}
+@media(max-width:767px){
+  .page-container{padding:0 24px}
+  .sitemap-hero h1{font-size:34px;line-height:42px;letter-spacing:-.33px}
+  .sitemap-subtitle{font-size:16px;line-height:26px}
+  .sitemap-grid{grid-template-columns:1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="page-main">
+  <div class="page-container">
+
+    <div class="sitemap-hero">
+      <h1>Sitemap</h1>
+      <p class="sitemap-count">251 pages</p>
+      <p class="sitemap-subtitle">Browse all pages on our website</p>
+    </div>
+
+    <div class="sitemap-grid">
+
+      <!-- Home -->
+      <div class="sm-category">
+        <h2>Home<span class="sm-count">1</span></h2>
+        <ul class="sm-links"><li><a href="/">Home</a></li></ul>
+      </div>
+
+      <!-- About -->
+      <div class="sm-category">
+        <h2>About<span class="sm-count">3</span></h2>
+        <ul class="sm-links">
+          <li><a href="/about/meet-the-team">Meet the Team</a></li>
+          <li><a href="/about/testimonials">Testimonials</a></li>
+          <li><a href="/about/careers">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="sm-category">
+        <h2>About Us<span class="sm-count">1</span></h2>
+        <ul class="sm-links"><li><a href="/about-us">About Develo</a></li></ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="sm-category">
+        <h2>Contact<span class="sm-count">1</span></h2>
+        <ul class="sm-links"><li><a href="/contact">Contact Us</a></li></ul>
+      </div>
+
+      <!-- Privacy -->
+      <div class="sm-category">
+        <h2>Privacy And Cookies Policy<span class="sm-count">1</span></h2>
+        <ul class="sm-links"><li><a href="/privacy-and-cookies-policy">Privacy Policy</a></li></ul>
+      </div>
+
+      <!-- Services -->
+      <div class="sm-category">
+        <h2>Services<span class="sm-count">17</span></h2>
+        <ul class="sm-links">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/services/maintain-or-fix-my-site">Maintain or Fix My Site</a></li>
+          <li><a href="/services/magento-support-and-maintenance">Magento Support &amp; Maintenance</a></li>
+          <li><a href="/services/magento-support-packages">Magento Support Packages</a></li>
+          <li><a href="/services/magento-performance-optimisations">Performance Optimisations</a></li>
+          <li><a href="/services/magento-site-audits">Magento Site Audits</a></li>
+          <li><a href="/services/find-a-technology-partner">Find a Technology Partner</a></li>
+          <li><a href="/services/hyva-themes">Hyva Themes Development</a></li>
+          <li><a href="/services/magento-development">Magento Development</a></li>
+          <li><a href="/services/adobe-commerce-development">Adobe Commerce Agency</a></li>
+          <li><a href="/services/b2b-commerce">B2B eCommerce</a></li>
+          <li><a href="/services/magento-migration-solutions">Migrations and Upgrades</a></li>
+          <li><a href="/services/magento-integrations">Magento Integrations</a></li>
+          <li><a href="/services/optimise-my-store">Optimise My Store</a></li>
+          <li><a href="/services/ui-ux-design">UI/UX Design</a></li>
+          <li><a href="/services/cro-services">Conversion Rate Optimisation (CRO)</a></li>
+          <li><a href="/services/web-design">Web Design</a></li>
+        </ul>
+      </div>
+
+      <!-- Work -->
+      <div class="sm-category">
+        <h2>Work<span class="sm-count">7</span></h2>
+        <ul class="sm-links">
+          <li><a href="/work">Our Work</a></li>
+          <li><a href="/work/brandalley">Case Study - BrandAlley</a></li>
+          <li><a href="/work/daylesford">Case Study - Daylesford</a></li>
+          <li><a href="/work/bamford">Case Study - Bamford</a></li>
+          <li><a href="/work/teague">Case Study - Teague</a></li>
+          <li><a href="/work/leonpaul">Case Study - Leon Paul</a></li>
+          <li><a href="/work/currys">Case Study - Currys</a></li>
+        </ul>
+      </div>
+
+      <!-- Migrations -->
+      <div class="sm-category">
+        <h2>Migrations<span class="sm-count">5</span></h2>
+        <ul class="sm-links">
+          <li><a href="/migrations/bigcommerce-magento-hyva">Migrate from BigCommerce to Magento + Hyva</a></li>
+          <li><a href="/migrations/salesforce-magento-hyva">Migrate from Salesforce Commerce Cloud to Magento + Hyva</a></li>
+          <li><a href="/migrations/prestashop-magento-hyva">Migrate from PrestaShop to Magento + Hyva</a></li>
+          <li><a href="/migrations/shopify-magento-hyva">Migrate from Shopify Plus to Magento + Hyva</a></li>
+          <li><a href="/migrations/woocommerce-magento-hyva">Migrate from WooCommerce to Magento + Hyva</a></li>
+        </ul>
+      </div>
+
+      <!-- Develo Marketplace -->
+      <div class="sm-category">
+        <h2>Develo Marketplace<span class="sm-count">2</span></h2>
+        <ul class="sm-links">
+          <li><a href="/marketplace">Develo Marketplace</a></li>
+          <li><a href="/marketplace/punchout-connection">PunchOut Connection</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Blog (full width, 3 cols) -->
+    <div class="sm-category" style="margin-top:48px">
+      <h2>Blog<span class="sm-count">134</span></h2>
+    </div>
+    <div class="sitemap-grid">
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/blog/hyva-checkout-benefits-for-conversion-and-stability">Hyva Checkout Benefits for Conversion and Stability</a></li>
+          <li><a href="/blog/improving-magento-site-speed">Magento Site Speed: What Actually Makes a Difference (and What Doesn't)</a></li>
+          <li><a href="/blog/core-web-vitals-guide-magento">Core Web Vitals: What Are They and Why Do They Matter for Your eCommerce Store</a></li>
+          <li><a href="/blog/magento-store-hierarchy-website-vs-store-vs-store-view">Magento Store Hierarchy: Website vs Store vs Store View Explained</a></li>
+          <li><a href="/blog/5-tips-for-managing-magento-extensions-and-plugins">5 Tips for Managing Magento Extensions and Plugins</a></li>
+          <li><a href="/blog/magento-patches-for-your-store-9-steps-for-business-owners">Magento Patches for Your Store: 9 Steps for Business Owners</a></li>
+          <li><a href="/blog/8-tips-to-optimise-magento-speed-and-performance">8 Tips to Optimise Magento Speed and Performance</a></li>
+          <li><a href="/blog/building-magento-the-hyva-way-with-hyva-ai-skills">Building Magento the Hyva Way: Why Hyva AI Skills Are a Positive Step Forward</a></li>
+          <li><a href="/blog/a-new-develo-website-and-a-better-way-of-building-it">A New Develo Website, and a Better Way of Building It</a></li>
+          <li><a href="/blog/how-to-optimise-a-hyva-website">How to Optimise a Hyva Website</a></li>
+          <li><a href="/blog/12-fashion-ecommerce-tips-for-stlylish-high-converting-sites">12 Fashion eCommerce Tips for Stylish, High-Converting Sites</a></li>
+          <li><a href="/blog/whats-the-average-ecommerce-conversion-rate-by-industry-in-2025">What's the Average eCommerce Conversion Rate by Industry in 2025?</a></li>
+          <li><a href="/blog/from-design-to-development-how-hyva-ui-2-5-streamlines-magento-ux">From Design to Development: How Hyva UI 2.5 Streamlines Magento UX</a></li>
+          <li><a href="/blog/hyva-themes-vs-hyva-commerce">Hyva Themes vs Hyva Commerce</a></li>
+          <li><a href="/blog/dynamics-365-business-central-magento-integration-benefits">Microsoft Dynamics 365 Business Central + Magento Integration: Boost E-Commerce ROI</a></li>
+          <li><a href="/blog/elevate-your-ecommerce-brand-imagery-with-generative-ai">Elevate your eCommerce Brand Imagery with Generative AI</a></li>
+          <li><a href="/blog/what-is-headless-commerce-pros-and-cons">What is Headless Commerce? Pros &amp; Cons</a></li>
+          <li><a href="/blog/what-is-adobe-commerce-is-it-the-same-as-magento">What is Adobe Commerce? Is it the Same as Magento?</a></li>
+          <li><a href="/blog/what-is-generative-ai-imagery-and-how-can-it-boost-your-brand">What is Generative AI Imagery and How Can It Boost Your Brand?</a></li>
+          <li><a href="/blog/what-is-magento-2-magento-1-vs-2-differences-and-benefit">What is Magento 2? Magento 1 vs 2 Differences &amp; Benefits</a></li>
+          <li><a href="/blog/6-reasons-why-black-friday-is-ruining-your-profitability">6 Reasons Why Black Friday is Ruining Your Profitability</a></li>
+          <li><a href="/blog/is-black-friday-hurting-your-brands-reputation">Is Black Friday Hurting Your Brand's Reputation?</a></li>
+          <li><a href="/blog/black-friday-should-your-business-participate-given-its-environmental-impact">Black Friday: Should Your Business Participate Given Its Environmental Impact?</a></li>
+          <li><a href="/blog/still-on-magento-1-8-reasons-why-its-time-to-migrate-to-magento-2">Still on Magento 1? - 8 Reasons why it's time to migrate to Magento 2</a></li>
+          <li><a href="/blog/our-strategic-partnership-with-hypernode-for-superior-magento-performance">Our Strategic Partnership with Hypernode for Superior Magento Performance</a></li>
+          <li><a href="/blog/comparing-hyva-checkout-a-comprehensive-analysis">Hyva vs. Luma vs. Fire - Magento Checkouts</a></li>
+          <li><a href="/blog/how-to-build-an-ecommerce-marketing-strategy">How to Build an eCommerce Marketing Strategy</a></li>
+          <li><a href="/blog/magento-open-source-owning-your-data">Magento Open Source: Why Owning your Data is Important</a></li>
+          <li><a href="/blog/ecommerce-website-builders-popular-choices-pros-and-cons">eCommerce Website Builders: Popular Choices, Pros &amp; Cons</a></li>
+          <li><a href="/blog/announcing-our-new-partnership-with-mage-os">Announcing Our New Partnership with Mage-OS</a></li>
+          <li><a href="/blog/introducing-howsafe-the-workwear-store">Introducing Howsafe, The Workwear Store</a></li>
+          <li><a href="/blog/ecommerce-seo-101-an-overview">eCommerce SEO 101: An Overview</a></li>
+          <li><a href="/blog/how-to-start-an-ecommerce-business-2024-guide">How to Start an eCommerce Business - 2024 Guide</a></li>
+          <li><a href="/blog/shopify-or-magento-a-comparison">Magento vs. Shopify: A Comparison</a></li>
+          <li><a href="/blog/7-things-to-look-for-in-a-web-design-agency">7 Things to Look for in a Web Design Agency</a></li>
+          <li><a href="/blog/how-to-choose-the-best-ecommerce-platform-for-your-business">How to Choose the Best eCommerce Platform for Your Business</a></li>
+          <li><a href="/blog/what-is-ui-ux-and-what-do-ux-designers-do">What is UI / UX &amp; What do UX Designers Do?</a></li>
+          <li><a href="/blog/what-is-magento-ecommerce">What is Magento eCommerce? With Your FAQs Answered</a></li>
+          <li><a href="/blog/what-is-shopify-our-honest-shopify-review">What is Shopify? Our Honest Shopify Review</a></li>
+          <li><a href="/blog/rubber-ducking-development">Rubber Ducking: The greatest tool of a development agency</a></li>
+          <li><a href="/blog/delivering-cro-and-the-bigger-omni-channel-picture">Delivering CRO and the bigger Omni-channel picture</a></li>
+          <li><a href="/blog/sustainability-in-ecommerce-2024">Sustainability in eCommerce 2024</a></li>
+          <li><a href="/blog/develo-is-a-hyva-silver-partner">Develo is a Hyva Silver Partner!</a></li>
+          <li><a href="/blog/what-is-cro-and-4-common-myths">What is Conversion Rate Optimisation? And 4 Common Myths</a></li>
+        </ul>
+      </div>
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/blog/the-develo-team-is-growing">The Develo Team is Growing: Meet Laura and Galahad</a></li>
+          <li><a href="/blog/why-are-white-label-services-a-game-changer-for-businesses">Why White Label Services are Game-Changers for Business</a></li>
+          <li><a href="/blog/are-magento-updates-really-that-important">Are Magento Updates Really That Important?</a></li>
+          <li><a href="/blog/what-is-punchout-and-how-does-it-work">What is PunchOut and how does it work?</a></li>
+          <li><a href="/blog/feefo-partnership">Feefo Partnership</a></li>
+          <li><a href="/blog/why-social-media-platforms-alone-cant-future-proof-your-business">Why social media platforms alone can't future-proof your business</a></li>
+          <li><a href="/blog/microsoft-clarity-vs-hotjar">Microsoft Clarity vs Hotjar</a></li>
+          <li><a href="/blog/black-friday-ux-ui-tips-optimising-shopping-experiences-to-maximise-conversions">Black Friday UX/UI Tips: Optimising Shopping Experiences to Maximise Conversions</a></li>
+          <li><a href="/blog/unlock-exclusive-black-friday-deals-on-hyva-magento-builds">Unlock Exclusive Black Friday Deals in 2023 on Hyva Magento Builds - Save Up to GBP5,000!</a></li>
+          <li><a href="/blog/how-to-prioritise-cro-tests">How to Prioritise your CRO Tests</a></li>
+          <li><a href="/blog/b2b-ecommerce-payments-bnpl-invoice-accounts-sprinque">The Develo and Sprinque Partnership</a></li>
+          <li><a href="/blog/5-cro-tips-for-beginners">5 CRO Tips for Beginners</a></li>
+          <li><a href="/blog/a-toast-to-teague">A Toast to Teague Chokes' New and Improved Hyva Site</a></li>
+          <li><a href="/blog/our-approach-to-conversion-rate-optimisation">Our Approach to Conversion Rate Optimisation</a></li>
+          <li><a href="/blog/hyva-enterprise">Hyva Enterprise: Elevating Adobe Commerce with Full Compatibility and Enhanced Capabilities</a></li>
+          <li><a href="/blog/weve-partnered-with-mollie">We've Partnered with Mollie!</a></li>
+          <li><a href="/blog/algolia-magento-ecommerce-case-study">Unlocking e-commerce potential with Algolia: a case study</a></li>
+          <li><a href="/blog/how-to-use-google-lighthouse-to-improve-performance-of-your-ecommerce-site">How to use Google Lighthouse to improve performance of your eCommerce site</a></li>
+          <li><a href="/blog/how-ai-can-be-used-to-benefit-ecommerce-stores">How AI can be used to benefit eCommerce stores</a></li>
+          <li><a href="/blog/unleash-the-power-of-hyva-checkout">Hyva Checkout for Magento 2</a></li>
+          <li><a href="/blog/enhancing-ecommerce-stores-with-integrated-blogs">Enhancing eCommerce Stores with Integrated Blogs</a></li>
+          <li><a href="/blog/converting-your-magento-2-store-to-hyva-themes">Converting your Magento 2 store to Hyva Themes</a></li>
+          <li><a href="/blog/integrating-etsy-into-your-magento-store">Integrating Etsy into your Magento Store</a></li>
+          <li><a href="/blog/how-much-does-a-hyva-magento-site-cost">How much does a Hyva Magento site cost?</a></li>
+          <li><a href="/blog/the-importance-of-category-pages-for-improving-conversions">The Importance of Category Pages for Improving Conversions</a></li>
+          <li><a href="/blog/using-punchout-to-win-lucrative-contracts">Using PunchOut to Win Lucrative Contracts</a></li>
+          <li><a href="/blog/making-modules-compatible-with-hyva-theme">Making modules compatible with Hyva Themes</a></li>
+          <li><a href="/blog/discover-the-health-of-your-magento-site">Discover the health of your Magento Site with our Free Audit</a></li>
+          <li><a href="/blog/hyva-vs-luma-performance-comparison">Hyva vs Luma: Performance Comparison</a></li>
+          <li><a href="/blog/ecommerce-glossary-terms-for-merchants">eCommerce Glossary - Common Terms for eCommerce Merchants</a></li>
+          <li><a href="/blog/a-guide-to-optimising-your-site-for-black-friday">A Guide to Optimising Your Site for Black Friday and Peak Seasonal Traffic</a></li>
+          <li><a href="/blog/dte-magento-site-with-b2b-punchout">DTE - Magento Store &amp; B2B Portals with SAP ERP integration and Develo PunchOut Connector</a></li>
+          <li><a href="/blog/the-benefits-of-onboarding-an-external-developer">The Benefits of Onboarding an External Developer</a></li>
+          <li><a href="/blog/currys-b2b-auction-portal">Currys B2B Auction Portal</a></li>
+          <li><a href="/blog/4-ways-to-humanise-your-business">4 Ways to Humanise Your Business</a></li>
+          <li><a href="/blog/why-is-user-generated-content-important">Why is User-Generated Content Important?</a></li>
+          <li><a href="/blog/guide-to-category-merchandising-magento">A Guide to Category Merchandising in Magento</a></li>
+          <li><a href="/blog/reviews-on-ecommerce-websites">Do You Need Reviews on Your eCommerce Website?</a></li>
+          <li><a href="/blog/the-strings-club-webflow-brochure-website">The Strings Club - Webflow Brochure Website</a></li>
+          <li><a href="/blog/what-is-hyva-themes">What is Hyva Themes?</a></li>
+          <li><a href="/blog/shopify-instant-quote-app-eo-distribution">Shopify Instant Quote App for EO Distribution</a></li>
+          <li><a href="/blog/leon-paul-site-launch">Leon Pauls Site Launch - Migrating 10x Multi language stores to Magento 2</a></li>
+          <li><a href="/blog/invest-in-photography">Why Should You Invest in Product Photography?</a></li>
+          <li><a href="/blog/ecommerce-trends-2022">6 eCommerce Trends of 2022 to Optimise Your Website!</a></li>
+          <li><a href="/blog/how-we-use-wireframes-and-prototyping">How we use Wireframes and Prototyping</a></li>
+        </ul>
+      </div>
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/blog/bys-youthbox-app">Case Study - About BYS Youthbox App</a></li>
+          <li><a href="/blog/live-commerce">Live Commerce - Is this the Future of Shopping?</a></li>
+          <li><a href="/blog/were-officially-an-adobe-solution-partner">We're Officially an Adobe Solution Partner</a></li>
+          <li><a href="/blog/hyva-the-new-theme-on-the-block-in-magento-2">Hyva - The New Theme on the Block in Magento 2</a></li>
+          <li><a href="/blog/lubricant-supplies-site-launch">Lubricant Supplies Site Launch - Magento 2, Hyva theme frontend</a></li>
+          <li><a href="/blog/case-study-laravel-5-reports">Case Study: Laravel 5 - Logging Actions and Generating Reports</a></li>
+          <li><a href="/blog/top-tips-for-keeping-secure-online">Top Tips For Keeping Secure Online</a></li>
+          <li><a href="/blog/develo-sponsor-bournville-girls-football-team">Develo Sponsor Bournville Girls Football team</a></li>
+          <li><a href="/blog/say-hello-to-selina">Say Hello To Selina!</a></li>
+          <li><a href="/blog/3-ways-to-increase-customer-spend-on-your-magento-website">3 Ways to Increase Customer Spending on your Magento Website</a></li>
+          <li><a href="/blog/gdpr-checklist-for-your-magento-ecommerce-store">GDPR Checklist for your Magento eCommerce store</a></li>
+          <li><a href="/blog/top-3-review-extensions-for-magento">Top 3 Review Extensions for Magento</a></li>
+          <li><a href="/blog/top-5-free-magento-extensions-for-your-website">Top 5 Free Magento Extensions For Your Website</a></li>
+          <li><a href="/blog/the-importance-of-branding-to-a-website">The Importance of Branding to a Website</a></li>
+          <li><a href="/blog/using-laravel-and-infyom-to-create-a-dynamic-navbar">Using Laravel and Infyom to create a dynamic navbar</a></li>
+          <li><a href="/blog/magento-gdpr-compliance-send-a-cow">Magento GDPR Compliance - Send a Cow</a></li>
+          <li><a href="/blog/benefits-of-e-commerce-websites-for-businesses">Benefits of E-Commerce Websites for Businesses</a></li>
+          <li><a href="/blog/magento-vs-shopify-which-e-commerce-platform-is-for-me">Magento Vs. Shopify - Which E-Commerce Platform is for Me?</a></li>
+          <li><a href="/blog/introduction-to-object-oriented-php-pt-1">Introduction to Object Oriented PHP - Pt. 1</a></li>
+          <li><a href="/blog/case-study-setting-up-magento-for-international-ecommerce">Case Study - Setting up Magento for International eCommerce</a></li>
+          <li><a href="/blog/3-awesome-viral-marketing-examples-is-it-easy-to-do">3 Awesome Viral Marketing Examples (Is It Easy To Do?)</a></li>
+          <li><a href="/blog/advice-on-passing-the-magento-certified-developer-exam">Advice on Passing the Magento Certified Developer Exam</a></li>
+          <li><a href="/blog/magento-custom-product-designer">Magento Custom Product Designer</a></li>
+          <li><a href="/blog/using-grunt-to-streamline-magento-development">Using Grunt To Streamline Magento Development</a></li>
+          <li><a href="/blog/how-to-install-orocrm-on-your-local-machine">How To Install OroCRM On Your Local Machine</a></li>
+          <li><a href="/blog/using-the-shopping-cart-total-in-magento-as-the-conversion-value-in-adwords">Using The Shopping Cart Total In Magento As The Conversion Value In Adwords</a></li>
+          <li><a href="/blog/case-study-responsive-magento-ecommerce-site">Case Study - Responsive Magento Ecommerce Site</a></li>
+          <li><a href="/blog/improving-magento-checkout-payment-and-shipping-sections">Improving Magento Checkout Payment and Shipping Sections</a></li>
+          <li><a href="/blog/magento-product-designer">Magento Product Designer</a></li>
+          <li><a href="/blog/magento-certified-developer-birmingham">Becoming the First Magento Certified Developer in Birmingham</a></li>
+          <li><a href="/blog/adding-images-to-magento-pages">Adding Images to Magento Pages</a></li>
+          <li><a href="/blog/layout-handles-in-magento-design">Layout handles in magento design</a></li>
+          <li><a href="/blog/bodycare-direct">Bodycare Direct</a></li>
+          <li><a href="/blog/magento-seo-advice">Magento SEO Advice</a></li>
+          <li><a href="/blog/the-factory-young-peoples-centre">The Factory Young Peoples Centre</a></li>
+          <li><a href="/blog/did-you-mean-search-suggestions-in-magento">Did you mean? Search suggestions in Magento</a></li>
+          <li><a href="/blog/showing-products-in-a-magento-mega-menu">Showing Products in a Magento Mega Menu</a></li>
+          <li><a href="/blog/oak-furniture-king">Oak Furniture King</a></li>
+          <li><a href="/blog/paypal-hosted-payments-pro-fix-for-magento">Paypal Hosted Payments Pro Fix for Magento</a></li>
+          <li><a href="/blog/appointment-management-system">Appointment Management System</a></li>
+          <li><a href="/blog/finding-out-about-alcohol">Finding out about alcohol</a></li>
+          <li><a href="/blog/cooke-rudling-chartered-surveyors">Cooke Rudling Chartered Surveyors</a></li>
+          <li><a href="/blog/im-officially-a-magento-wizard">I'm officially a Magento Wizard</a></li>
+          <li><a href="/blog/downgrading-magento-enterprise-to-community-edition">Downgrading Magento Enterprise to Community Edition</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Learn (full width) -->
+    <div class="sm-category" style="margin-top:48px">
+      <h2>Learn<span class="sm-count">79</span></h2>
+    </div>
+    <div class="sitemap-grid">
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/learn">Learning Resources</a></li>
+          <li><a href="/learn/mastering-git-worktree">Mastering Git Worktree</a></li>
+          <li><a href="/learn/codespaces-claude-gemini-auto-login-error-fix">Using Claude and Gemini in a codespaces environment</a></li>
+          <li><a href="/learn/how-to-change-paypal-button-styles-in-magento-2">How to Change PayPal Button Styles in Magento 2</a></li>
+          <li><a href="/learn/adobe-commerce-to-magento-migration-sidegrade">Why and How Merchants are Moving from Adobe Commerce to Magento Open Source</a></li>
+          <li><a href="/learn/magento2-upgrade-plan-comprehensive-guide">Action Plan for Magento 2 Platform Upgrade - A comprehensive guide</a></li>
+          <li><a href="/learn/five-ways-to-improve-magento-admin-security">5 Quick Ways to Improve Your Magento Admin Security</a></li>
+          <li><a href="/learn/ddev-my-favourite-for-local-development">DDEV: My favourite for Local Development</a></li>
+          <li><a href="/learn/magento2-builderio-headless-cms-cloudflare-workers">Magento Headless CMS with Builder.io</a></li>
+          <li><a href="/learn/what-is-laravel-a-comparison-to-magento">What is Laravel? - A Comparison to Magento</a></li>
+          <li><a href="/learn/creating-composer-patches-in-magento-2">Creating Composer Patches in Magento 2</a></li>
+          <li><a href="/learn/magento-2-indexer-performance-issues">Fixing Magento 2 Indexer Performance issues on 2.4.6</a></li>
+          <li><a href="/learn/how-to-set-up-click-tracking-with-google-tag-manager">How to set up click tracking with Google Tag Manager</a></li>
+          <li><a href="/learn/create-private-repo-magento-gitpod">Create a private version of the Magento Gitpod starter repository</a></li>
+          <li><a href="/learn/webflow-address-postcode-custom-lookup">Webflow Address Geolocation Lookup Solution</a></li>
+          <li><a href="/learn/laravel-cloud-development-with-gitpod">Laravel Cloud development with Gitpod</a></li>
+          <li><a href="/learn/open-and-close-the-minicart-in-hyva-on-demand-in-js">Open and Close the Minicart in Hyva on Demand in JS</a></li>
+          <li><a href="/learn/how-to-add-tooltips-that-will-improve-your-visitors-experience">How to add tooltips that will improve your visitor's experience</a></li>
+          <li><a href="/learn/how-to-create-slack-notifications-for-contact-forms-that-are-part-of-a-laravel-application">How to create Slack notifications for contact forms that are part of a Laravel Application</a></li>
+          <li><a href="/learn/automatic-developer-documenation-chatgpt4-napin">Creating Developer Documentation with ChatGPT4 on Napkin.io</a></li>
+          <li><a href="/learn/upgrade-laravel-9-to-laravel-10">Upgrade Laravel 9 to Laravel 10</a></li>
+          <li><a href="/learn/whats-new-in-laravel-10-upgrade">What's new in the Laravel 10 upgrade</a></li>
+          <li><a href="/learn/email-attachment-magento-2">How to add File Attachments in Email in Magento 2 (2.4.2-p1)</a></li>
+          <li><a href="/learn/writing-unit-test-in-magento-2">Writing a Unit Test for Magento 2</a></li>
+          <li><a href="/learn/adding-additional-sections-to-algolia-autocomplete-search-dropdown">Adding additional sections to Algolia autocomplete search dropdown, in Hyva</a></li>
+          <li><a href="/learn/collapsible-pills-in-javascript">Code snippet: Reducing the amount of visible Collapsible pills in JavaScript</a></li>
+          <li><a href="/learn/magento-2-hyva-compat-module">Creating a Hyva Compat module</a></li>
+        </ul>
+      </div>
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/learn/using-gitpod-on-existing-magento-project">Using Gitpod on an existing Magento 2 project</a></li>
+          <li><a href="/learn/gitpod-adobe-commerce-magento2-development">Magento 2 development on Gitpod</a></li>
+          <li><a href="/learn/how-to-get-price-ranges-for-configurable-bundle-products-in-magento-2">How to get Price Ranges for Configurable Bundle Products</a></li>
+          <li><a href="/learn/magento-2-4-4">What's New in Magento 2.4.4?</a></li>
+          <li><a href="/learn/upgrade-laravel-8-to-laravel-9">Upgrade Laravel 8 to Laravel 9</a></li>
+          <li><a href="/learn/magento-2-duplicate-entry-in-database">Magento 2 - Integrity constraint violation: 1062 Duplicate entry</a></li>
+          <li><a href="/learn/when-recaptcha-fails-protecting-your-inbox-with-a-honeypot">When ReCaptcha Fails - Protecting Your Inbox with a Honeypot</a></li>
+          <li><a href="/learn/how-accessible-is-your-website">How Accessible is Your Website ?</a></li>
+          <li><a href="/learn/magento-barcode-reader-module-shipping-develo">Magento Barcode Scanner</a></li>
+          <li><a href="/learn/debugging-a-slow-magento-site-troubleshooter-new-relic">Debugging a Randomly Slow Magento Site</a></li>
+          <li><a href="/learn/magento-migration-url-issue-duplicate-url-keys">Fixing Magento 2 URL Key issues after a Magento 1 migration</a></li>
+          <li><a href="/learn/hyva-missing-sites-in-production-build">Hyva - How not to Lose Your Head in the Purge</a></li>
+          <li><a href="/learn/how-to-format-numbers-to-price-in-magento-2">How to format numbers to prices in Magento 2</a></li>
+          <li><a href="/learn/magento-2-custom-widgets">Magento 2 Custom Widgets</a></li>
+          <li><a href="/learn/fixing-punchout-integration-with-magento-2-and-sap-ariba-issues">Fixing Magento 2 and SAP Ariba Punchout connection issues</a></li>
+          <li><a href="/learn/how-to-improve-cart-checkout-page-of-your-e-store-using-magento">How to Improve Cart &amp; Checkout Page of Your e-Store using Magento</a></li>
+          <li><a href="/learn/creating-a-basic-vue-storefront-module">Creating a basic Vue Storefront Module</a></li>
+          <li><a href="/learn/integrating-a-vue-component-with-vue-storefront">Integrating a Vue component with Vue Storefront</a></li>
+          <li><a href="/learn/creating-a-new-vue-storefront-theme">Creating a new Vue Storefront theme</a></li>
+          <li><a href="/learn/vue-storefront-and-wordpress-integration-module">Vue Storefront and WordPress integration module</a></li>
+          <li><a href="/learn/developing-a-vue-storefront-16-module">Developing a Vue Storefront 1.6 module</a></li>
+          <li><a href="/learn/clearing-thousands-of-old-magento-cache-files">Clearing Thousands of old Magento Cache files</a></li>
+          <li><a href="/learn/upgrading-magento-2-2-to-2-3">Upgrading Magento 2.2 to 2.3 - Easy step by step instructions</a></li>
+          <li><a href="/learn/magento-sagepay-error-unable-to-redirect-to-vendors-web-site-the-vendor-failed-to-provide-a-redirectionurl">Magento Sagepay Error: Unable to redirect to Vendor's web site.</a></li>
+          <li><a href="/learn/machine-learning-pt-1-linear-regression-and-gradient-descent">Machine Learning Pt. 1 - Linear Regression and Gradient Descent</a></li>
+          <li><a href="/learn/laravel-nova-tips-and-troubleshooting">Laravel Nova Tips and Troubleshooting</a></li>
+          <li><a href="/learn/laravel-nova-the-official-admin-panel-for-laravel">Laravel Nova - The official admin panel for Laravel</a></li>
+        </ul>
+      </div>
+      <div class="sm-category">
+        <ul class="sm-links">
+          <li><a href="/learn/a-beginners-guide-to-vuex">A beginners guide to Vuex</a></li>
+          <li><a href="/learn/using-mouse-events-in-vue-js-2">Using Mouse Events in Vue JS 2</a></li>
+          <li><a href="/learn/using-the-vue-slider-component-in-vue-2-part-2">Using the Vue Slider component in Vue 2 (Part 2)</a></li>
+          <li><a href="/learn/using-the-vue-slider-component-in-vue-2">Using the Vue Slider component in Vue 2</a></li>
+          <li><a href="/learn/magento-catalog-price-rules-not-applying-conditions-to-bundle-products-correctly">Magento catalog price rules not applying conditions to bundle products correctly</a></li>
+          <li><a href="/learn/laravel-traits-what-are-traits-and-how-to-create-one">Laravel Traits - What are Traits and how to create one</a></li>
+          <li><a href="/learn/vuejs-reactjs-quick-comparison">Vue.JS &amp; React.JS - Quick Comparison</a></li>
+          <li><a href="/learn/upgrade-to-newest-version-of-nodejs-mac-os-x">Upgrade to newest version of Node.js - Mac OS X</a></li>
+          <li><a href="/learn/magento-2-displaying-custom-product-attributes-in-the-storefront">Magento 2 - Displaying Custom Product Attributes in the Storefront</a></li>
+          <li><a href="/learn/exporting-a-laravel-database-table-to-an-excel-spreadsheet">Exporting a Laravel database table to an Excel spreadsheet</a></li>
+          <li><a href="/learn/what-is-e-commerce">What is E-Commerce?</a></li>
+          <li><a href="/learn/magento-1-spam-emails">Magento 1 spam emails</a></li>
+          <li><a href="/learn/magento-2-product-designer-tool">Magento 2 Product designer tool</a></li>
+          <li><a href="/learn/e-commerce-design-trends-of-2017">E-Commerce Design Trends of 2017</a></li>
+          <li><a href="/learn/displaying-magento-2-products-in-ionic-3-using-the-rest-api">Displaying Magento 2 products in Ionic 3 using the REST API</a></li>
+          <li><a href="/learn/ionic-app-portfolio-magento-e-commerce">Ionic App Portfolio: Magento E-Commerce</a></li>
+          <li><a href="/learn/ionic-app-portfolio-the-factory">Ionic App Portfolio: The Factory</a></li>
+          <li><a href="/learn/magento-2-add-new-column-to-the-sales-invoice-pdf">Magento 2 - add new Column to the sales Invoice PDF</a></li>
+          <li><a href="/learn/laravel-55-bundling-javascript-from-npm-modules">Laravel 5.5 - Bundling Javascript from NPM modules</a></li>
+          <li><a href="/learn/magento-2-a-fix-for-mcrypt-module-open-is-deprecated">Magento 2 - A fix for "mcrypt_module_open() is deprecated"</a></li>
+          <li><a href="/learn/using-mouse-events-in-angular-v4-6">Using Mouse Events in Angular v4-6</a></li>
+          <li><a href="/learn/using-infyoms-laravel-generator-to-efficiently-scaffold-an-events-system-part-2-crud">Using InfyOm's Laravel Generator - Part 2 CRUD</a></li>
+          <li><a href="/learn/laravel-commands-for-noobs">Laravel Commands for Noobs</a></li>
+          <li><a href="/learn/using-infyoms-laravel-generator-to-efficiently-scaffold-an-events-system-part-1-crud">Using InfyOm's Laravel Generator - Part 1 CRUD</a></li>
+          <li><a href="/learn/upgrading-from-angular-2-to-4">Upgrading from Angular 2 to 4</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ═══ Footer ═══ -->
+<style>.sf{background:#020303;color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0;margin-top:0}.fc{max-width:1536px;margin:0 auto;padding:0 100px}.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.fb p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:rgba(255,255,255,.6);margin-top:16px;max-width:280px}.fch4{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:#fff;line-height:25px;margin-bottom:16px}.fca{display:block;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:21px;padding:6px 0;transition:color .2s}.fca:hover{color:#fff}.fbot{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}.fbot span{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.5);line-height:21px}@media(max-width:767px){.fc{padding:0 24px}.sf{padding:60px 0}.fg{grid-template-columns:1fr;gap:32px}.fbot{flex-direction:column;gap:12px;text-align:center}}</style>
+<SiteFooter />
+</body>
+</html>
