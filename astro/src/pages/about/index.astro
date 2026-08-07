@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { responsiveImageSources } from '../../lib/netlify-images';
+
+const locale = 'en';
+const values = [
+  {
+    title: 'Mission Driven',
+    description: 'Empowering brands with innovative IPL solutions that transform the beauty industry.',
+  },
+  {
+    title: 'Customer Focused',
+    description: 'Building lasting partnerships through exceptional service and reliable delivery.',
+  },
+  {
+    title: 'Innovation First',
+    description: 'Continuously advancing IPL technology to meet evolving market demands.',
+  },
+  {
+    title: 'Quality Excellence',
+    description: 'Maintaining the highest standards in manufacturing and quality control.',
+  },
+];
+
+const milestones = [
+  { year: '2008', event: 'Founded in Guangzhou, China' },
+  { year: '2012', event: 'First international partnership' },
+  { year: '2015', event: 'FDA clearance achieved' },
+  { year: '2018', event: 'Partnership with Costco Canada' },
+  { year: '2020', event: '500,000 devices milestone' },
+  { year: '2023', event: 'Expanded smart IPL technology' },
+];
+const pageTitle = 'About iShine';
+const pageDescription = 'iShine is an IPL hair removal device manufacturer providing OEM and ODM services for beauty brands, from product design to global delivery.';
+const aboutFacilityImage = responsiveImageSources(
+  'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
+);
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
+  <style is:inline>
+    /* ═══ iShine About — Develo Design 风格（对齐 develo-blog.astro） ═══ */
+    .about-page{background:#fff;color:#020303;font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    .about-page a{text-decoration:none;color:inherit}
+    .content-area{max-width:1536px;padding-left:0;padding-right:0}
+    @media(max-width:1279px){.content-area{max-width:100%}}
+
+    /* Hero */
+    .about-hero{width:100%;max-width:1536px;margin:0 auto 24px;padding:0 100px}
+    .about-hero-inner{display:flex;flex-direction:column;gap:8px}
+    .about-hero-label{display:flex;align-items:center;gap:12px;padding:3px 12px;margin-bottom:16px}
+    .about-hero-label svg{flex-shrink:0}
+    .about-hero-label span{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;color:#020303;line-height:26px}
+    .about-hero h1{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:#020303;margin:0}
+    .about-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:#4b5563;max-width:600px}
+
+    /* Citable Summary */
+    .about-summary{width:100%;max-width:1536px;margin:0 auto;padding:0 100px 48px}
+    .about-summary-kicker{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#563cfa;text-transform:uppercase;letter-spacing:.5px}
+    .about-summary-title{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:31px;color:#020303;margin:8px 0 0}
+    .about-summary-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:900px;margin:12px 0 0}
+
+    /* Full-stack partner（左文右图） */
+    .about-partner-section{width:100%;max-width:1536px;margin:0 auto;padding:0 100px 100px;display:flex;gap:60px;align-items:flex-start}
+    .about-partner-text{flex:1}
+    .about-partner-text h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
+    .about-partner-text p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;margin:20px 0 0}
+    .about-partner-text p strong{font-weight:600;color:#020303}
+    .about-partner-image{width:46%;flex-shrink:0;border-radius:20px;overflow:hidden;background:#e5e7eb}
+    .about-partner-image img{width:100%;height:100%;object-fit:cover}
+
+    /* Core Values（grey-50 底） */
+    .about-values-section{background:#f9fafb;padding:60px 0 80px}
+    .about-values-container{width:100%;max-width:1536px;margin:0 auto;padding:0 100px}
+    .about-section-header{margin-bottom:40px}
+    .about-section-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
+    .about-section-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:560px;margin:8px 0 0}
+    .about-values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .about-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;transition:transform .2s}
+    .about-card:hover{transform:translateY(-4px)}
+    .about-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;margin:0;transition:color .2s}
+    .about-card:hover h3{color:#563cfa}
+    .about-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;margin:8px 0 0}
+
+    /* Stats */
+    .about-stats-section{width:100%;max-width:1536px;margin:0 auto;padding:0 100px 100px}
+    .about-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .about-stat{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:32px 24px;text-align:center;transition:transform .2s}
+    .about-stat:hover{transform:translateY(-4px)}
+    .about-stat-value{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303}
+    .about-stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin-top:4px}
+
+    /* Journey（黑底） */
+    .about-journey-section{width:100%;max-width:1536px;margin:0 auto;padding:0 100px 100px}
+    .about-journey-card{background:#020303;border-radius:20px;padding:60px}
+    .about-journey-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#fff;margin:0}
+    .about-journey-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#9ca3af;max-width:560px;margin:8px 0 0}
+    .about-journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .about-milestone{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px;transition:transform .2s}
+    .about-milestone:hover{transform:translateY(-4px)}
+    .about-milestone-year{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:28px;color:#563cfa}
+    .about-milestone-event{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#e5e7eb;margin-top:8px}
+
+    /* Responsive — 与 develo-blog.astro 断点一致 */
+    @media(max-width:1279px){
+      .about-hero{padding:0 40px}
+      .about-summary{padding:0 40px 40px}
+      .about-partner-section{padding:0 40px 80px;flex-direction:column;gap:40px}
+      .about-partner-image{width:100%}
+      .about-values-container{padding:0 40px}
+      .about-values-grid{grid-template-columns:repeat(2,1fr)}
+      .about-stats-section{padding:0 40px 80px}
+      .about-journey-section{padding:0 40px 80px}
+      .about-journey-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:767px){
+      .about-hero{padding:0 24px}
+      .about-hero h1{font-size:38px;line-height:44px;letter-spacing:-.37px}
+      .about-hero-desc{font-size:16px;line-height:25px}
+      .about-summary{padding:0 24px 32px}
+      .about-summary-title{font-size:20px;line-height:27px}
+      .about-partner-section{padding:0 24px 60px}
+      .about-partner-text h2{font-size:24px;line-height:31px}
+      .about-values-container{padding:0 24px}
+      .about-values-grid{grid-template-columns:1fr}
+      .about-values-section{padding:40px 0 60px}
+      .about-stats-section{padding:0 24px 60px}
+      .about-stats-grid{grid-template-columns:1fr}
+      .about-journey-section{padding:0 24px 60px}
+      .about-journey-card{padding:32px}
+      .about-journey-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <div class="about-page">
+    <!-- ═══ HERO ═══ -->
+    <header class="about-hero">
+      <div class="about-hero-inner">
+        <div class="about-hero-label">
+          <svg width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(#aboutHeroShape)"><path d="M2.16 16.4999C0.7733 14.3158 0 11.465 0 8.49995C0 5.53493 0.7733 2.68405 2.16 0.5V16.4999Z" fill="#020303"/><path d="M16 16.5C13.8783 16.5 11.8434 15.6572 10.3431 14.1569C8.84286 12.6566 8 10.6217 8 8.50001C8 6.37827 8.84285 4.34344 10.3431 2.84314C11.8434 1.34284 13.8783 0.5 16 0.5V16.5Z" fill="#020303"/></g><defs><clipPath id="aboutHeroShape"><rect fill="#fff" width="16" height="17"/></clipPath></defs></svg>
+          <span>Company Overview</span>
+        </div>
+        <h1>{pageTitle}</h1>
+        <p class="about-hero-desc">
+          Leading manufacturer of IPL hair removal devices, dedicated to helping brands succeed from concept to market.
+        </p>
+      </div>
+    </header>
+
+    <!-- ═══ Citable Summary ═══ -->
+    <section class="about-summary">
+      <div class="about-summary-kicker">Citable Summary</div>
+      <h2 class="about-summary-title">What is iShine Technology Ltd.?</h2>
+      <p class="about-summary-desc">
+        iShine Technology Ltd. is a B2B OEM/ODM manufacturer of home-use IPL hair removal devices that supports private-label programs for beauty brands and retailers. Founded in 2008 in Guangzhou, China, iShine provides end-to-end services across product design, prototyping, scalable production, packaging, compliance planning, and export delivery. The company references international market requirements such as FDA and CE pathways and operates with quality-system alignment including ISO 13485. iShine reports 15+ years in operation, 500,000+ devices produced, and 50+ global client partnerships, shipping to 20+ countries across North America, Europe, and the Middle East. Its work focuses on manufacturing repeatability and brand-ready execution so partners can launch and scale IPL products with consistent quality.
+      </p>
+    </section>
+
+    <!-- ═══ Full-stack partner（左文右图） ═══ -->
+    <section class="about-partner-section">
+      <div class="about-partner-text">
+        <h2>A full-stack IPL manufacturing partner for global beauty brands</h2>
+        <div>
+          <p>
+            <strong>Entity:</strong> iShine Technology Ltd.<br />
+            <strong>Industry:</strong> Home-use IPL hair removal device manufacturing (OEM/ODM).<br />
+            <strong>Headquarters:</strong> Guangzhou, China.<br />
+            <strong>Certifications:</strong> FDA cleared, CE certified, ISO 13485.
+          </p>
+          <p>
+            <strong>What iShine does:</strong> Partners with global retailers, beauty brands, and sourcing professionals to design, certify, produce, and deliver private-label IPL hair removal devices. Serves as both OEM (build to spec) and ODM (design and build) manufacturer.
+          </p>
+          <p>
+            <strong>Key partners:</strong> Costco Canada (retail), RoseSkinCo USA (beauty e-commerce), KU2 Cosmetics Germany (cosmetics retail).
+          </p>
+          <p>
+            <strong>Capabilities:</strong> Concept design and industrial design; rapid prototyping and tooling; large-scale production and assembly; custom packaging and branding; compliance documentation (FDA, CE, MDSAP); global logistics and warehousing.
+          </p>
+          <p>
+            <strong>Client types served:</strong> Brand owners launching new IPL product lines; product managers expanding existing beauty portfolios; sourcing specialists evaluating contract manufacturers; retailers developing private-label beauty-tech programs.
+          </p>
+          <p>
+            <strong>Geographic reach:</strong> North America, Europe, Middle East. Ships to 20+ countries.
+          </p>
+          <p>
+            <strong>Track record:</strong> 15+ years in operation; 500,000+ devices produced; 50+ global brand partners; successful Costco Canada shelf placement.
+          </p>
+        </div>
+      </div>
+      <div class="about-partner-image">
+        <picture>
+          <source srcset={aboutFacilityImage.avifSrcSet} sizes="(min-width: 1024px) 46vw, 100vw" type="image/avif" />
+          <source srcset={aboutFacilityImage.webpSrcSet} sizes="(min-width: 1024px) 46vw, 100vw" type="image/webp" />
+          <img
+            src={aboutFacilityImage.src}
+            srcset={aboutFacilityImage.webpSrcSet}
+            sizes="(min-width: 1024px) 46vw, 100vw"
+            alt="iShine Manufacturing Facility"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="900"
+            class="h-full w-full object-cover"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ═══ Core Values ═══ -->
+    <section class="about-values-section">
+      <div class="about-values-container">
+        <div class="about-section-header">
+          <h2>Our Core Values</h2>
+          <p>The principles that guide everything we do.</p>
+        </div>
+        <div class="about-values-grid">
+          {values.map((value) => (
+            <div class="about-card">
+              <h3>{value.title}</h3>
+              <p>{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Stats ═══ -->
+    <section class="about-stats-section">
+      <div class="about-stats-grid">
+        <div class="about-stat">
+          <div class="about-stat-value">500K+</div>
+          <div class="about-stat-label">Devices Produced</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-value">50+</div>
+          <div class="about-stat-label">Global Clients</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-value">15+</div>
+          <div class="about-stat-label">Years Experience</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Our Journey ═══ -->
+    <section class="about-journey-section">
+      <div class="about-journey-card">
+        <div class="about-journey-header">
+          <h2>Our Journey</h2>
+          <p>Milestones that shaped iShine into the trusted manufacturer we are today.</p>
+        </div>
+        <div class="about-journey-grid">
+          {milestones.map((milestone) => (
+            <div class="about-milestone">
+              <div class="about-milestone-year">{milestone.year}</div>
+              <div class="about-milestone-event">{milestone.event}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

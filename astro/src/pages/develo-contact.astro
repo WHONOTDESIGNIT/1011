@@ -1,0 +1,393 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+// iShine Contact Page — Develo-style design
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
+<title>Contact Us | iShine</title>
+<meta name="description" content="Ready to bring your IPL device to market? Get in touch with iShine — your OEM/ODM IPL manufacturing partner in Shenzhen — and we can book a call to discuss your goals, volumes and compliance requirements." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-100:#f3f4f6;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px;--pad-40:40px;--pad-24:24px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ═══ 1. TRUST BAR ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent;pointer-events:none;transition:opacity .1s ease,transform .1s ease;will-change:opacity,transform}
+.trust-bar.trust-bar-hidden{opacity:0;transform:translateY(-100%);pointer-events:none}
+.trust-bar-inner{display:flex;align-items:center}
+.trust-slide{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;background:transparent;transition:opacity .2s ease}
+.trust-slide[aria-hidden="true"]{display:none}
+.trust-slide[aria-hidden="false"]{display:flex}
+.trust-icon{flex-shrink:0}
+.trust-text{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+@media(max-width:768px){.trust-slide{padding:10px 16px}.trust-text{font-size:14px;line-height:21px}}
+
+/* ═══ 2. HEADER / NAV ═══ */
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .3s ease;will-change:top}
+.header-inner{display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-logo{display:flex;align-items:center;flex:0 0 auto;height:calc(100% - 12px);max-width:100%;margin-right:auto;min-width:0}
+.header-logo img{display:block;width:auto;height:100%;max-width:100%;object-fit:contain}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+
+/* Desktop nav visibility */
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}}
+
+/* Header CTA */
+.header-cta{display:flex;align-items:center;gap:12px;margin-left:38px;margin-right:38px}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
+.btn-cta:hover{gap:12px;background:#374151}
+.btn-cta svg{width:16px;height:16px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;transition:all .25s}
+.btn-primary:hover{gap:12px;background:#374151}
+.btn-primary svg{width:20px;height:20px}
+@media(max-width:959px){.header-cta .btn-cta{display:none}}
+
+/* Nav collapse button */
+.nav-collapse-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:100px;background:var(--blue);border:none;cursor:pointer;margin-left:auto;margin-right:38px}
+.nav-collapse-btn svg{width:20px;height:20px}
+.nav-collapsed .desktop-nav,.nav-collapsed .header-cta{display:none}
+@media(max-width:959px){.desktop-nav{display:none !important}.header-cta{display:none !important}.nav-collapse-btn{display:flex !important}}
+
+@media(max-width:767px){
+  .site-header{top:66px;width:calc(100% - 32px)}
+  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
+}
+
+/* ═══ Mega Dropdown ═══ */
+.nav-dropdown-wrapper{position:relative}
+.nav-has-dropdown{gap:6px}
+.nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
+.nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.nav-dropdown-wrapper:hover .mega-dropdown,.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mega-inner{display:flex;gap:60px;padding:36px 40px}
+.mega-left{flex:1;display:flex;flex-direction:column}
+.mega-link-group{display:flex;flex-direction:column;gap:4px}
+.mega-link{display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;position:relative}
+.mega-link:hover{background:rgba(0,0,0,.04)}
+.mega-link-title{font-family:Manrope,sans-serif;font-size:18px;font-weight:500;line-height:26px;color:#020303}
+.mega-link-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280}
+.mega-link.has-plus{flex-direction:row;align-items:center;justify-content:space-between}
+.mega-link.has-plus .mega-link-title,.mega-link.has-plus .mega-link-desc{display:block}
+.mega-link.has-plus>div{display:flex;flex-direction:column;gap:4px}
+.mega-plus{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;color:#020303;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-right{flex-shrink:0;width:260px}
+.mega-card{background:var(--grey-50);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mega-card-heading{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0}
+.mega-card-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:0}
+.mega-card-btn{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);padding:10px 18px;border-radius:100px;background:transparent;transition:all .2s;align-self:flex-start;text-decoration:none}
+.mega-card-btn:hover{background:var(--blue);color:#fff;gap:12px}
+
+/* Two-column link grid (Products dropdown) */
+.mega-left--cols2{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;align-content:start}
+.mega-left--cols2 .mega-link{padding:10px 12px}
+
+/* Products dropdown: wider panel, product series + components zone + feature card */
+.mega-dropdown--wide{min-width:800px;left:0;transform:translateY(4px)}
+.nav-dropdown-wrapper:hover .mega-dropdown--wide,.mega-dropdown--wide.open{transform:translateY(0)}
+@media(max-width:1279px){.mega-dropdown--wide{min-width:720px}}
+@media(max-width:1099px){.mega-dropdown--wide{min-width:640px}}
+.mega-inner--products{gap:0;padding:24px 24px 24px 28px}
+.mega-left--products{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
+.mega-products-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;align-content:start;min-width:0}
+.mega-product-card{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s;min-width:0}
+.mega-product-card:hover{background:rgba(0,0,0,.04)}
+.mega-product-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.mega-product-model{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mega-product-tagline{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mega-product-img{width:60px;height:60px;object-fit:cover;border-radius:10px;flex-shrink:0;background:var(--grey-100)}
+.mega-divider-h{height:1px;background:var(--grey-200);margin:0}
+.mega-components-heading{font-family:Syne,sans-serif;font-size:13px;font-weight:400;color:#6b7280;letter-spacing:.5px;margin:0 0 8px}
+.mega-components-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mega-component-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:10px;text-decoration:none;transition:background .15s;min-width:0}
+.mega-component-card:hover{background:rgba(0,0,0,.04)}
+.mega-component-img{width:44px;height:44px;object-fit:cover;border-radius:8px;background:var(--grey-100)}
+.mega-component-name{font-family:Manrope,sans-serif;font-size:12px;font-weight:500;line-height:16px;color:#020303;text-align:center}
+.mega-divider{width:1px;align-self:stretch;background:var(--grey-200);margin:0 24px}
+.mega-products-card-img{width:100%;height:150px;object-fit:cover;border-radius:10px;background:var(--grey-100)}
+
+/* Compact link list (Services dropdown right column) */
+.mega-services{display:flex;flex-direction:column;gap:2px}
+.mega-services-heading{font-family:Syne,sans-serif;font-size:13px;font-weight:400;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;padding:0 14px 8px}
+.mega-services-link{display:block;padding:7px 14px;border-radius:10px;font-family:Manrope,sans-serif;font-size:15px;font-weight:400;color:#020303;text-decoration:none;transition:background .15s,color .15s}
+.mega-services-link:hover{background:rgba(0,0,0,.04);color:var(--blue)}
+
+@media(max-width:959px){.mega-dropdown{display:none !important}}
+/* Mobile menu panel */
+.nav-collapse-btn.open{background:#374151}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
+.mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+.mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:none;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mobile-menu-panel{max-height:calc(100vh - 160px);overflow-y:auto}
+.mobile-menu-group{display:flex;flex-direction:column;border-bottom:1px solid #e5e7eb}
+.mobile-menu-group:last-of-type{border-bottom:none}
+.mobile-menu-toggle,.mobile-menu-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 12px;background:transparent;border:none;border-radius:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;text-align:left;cursor:pointer}
+.mobile-menu-toggle:hover,.mobile-menu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-menu-toggle-chevron{width:12px;height:7px;flex-shrink:0;transition:transform .25s ease}
+.mobile-menu-group.open .mobile-menu-toggle-chevron{transform:rotate(180deg)}
+.mobile-submenu{max-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:max-height .3s ease,padding-bottom .3s ease}
+.mobile-menu-group.open .mobile-submenu{max-height:560px;padding-bottom:12px}
+.mobile-submenu-link{display:flex;flex-direction:column;gap:4px;padding:10px 12px 10px 24px;border-radius:10px;text-decoration:none}
+.mobile-submenu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-submenu-title{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303}
+.mobile-submenu-desc{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280}
+.mobile-menu-cta{margin-top:8px}
+.mobile-menu-cta .btn-cta{width:100%;justify-content:center}
+@media(max-width:959px){.mobile-menu-panel{display:flex}}
+@media(max-width:767px){.mobile-menu-panel{top:130px;width:calc(100% - 32px);padding:18px}}
+
+
+
+/* ═══ PAGE MAIN ═══ */
+.page-main{margin-top:136px}
+
+/* ═══ HERO ═══ */
+.contact-hero{width:100%;max-width:var(--max-w);margin:0 auto 80px;padding:0 var(--pad-100)}
+.contact-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-hero-content{display:flex;flex-direction:column;gap:8px}
+.contact-hero-label{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--grey-500);line-height:22px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.contact-hero h1{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:56px;letter-spacing:-.47px;color:var(--black);margin:0}
+.contact-hero-desc{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:460px;margin-top:16px}
+.contact-direct{display:flex;flex-direction:column;gap:12px;margin-top:32px;padding:24px;background:var(--grey-50);border-radius:12px}
+.contact-direct h3{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:var(--black);line-height:22px}
+.contact-direct a{display:flex;align-items:center;gap:8px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);line-height:25px;transition:color .2s}
+.contact-direct a:hover{color:#374151}
+.contact-direct-icon{flex-shrink:0;color:var(--grey-500)}
+
+/* ═══ FORM ═══ */
+.contact-form-card{background:var(--white);border:1px solid var(--grey-200);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--black);line-height:21px}
+.form-group input,.form-group textarea,.form-group select{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:24px;color:var(--black);padding:12px 16px;border:1px solid var(--grey-200);border-radius:10px;background:var(--white);transition:border-color .2s;outline:none;resize:vertical}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--grey-400)}
+.audit-badge{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--grey-50);border-radius:12px;margin-bottom:8px}
+.audit-badge-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff}
+.audit-badge-text{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--black)}
+.audit-badge-text strong{font-weight:600}
+
+/* ═══ FAQ ═══ */
+.faq-section{padding:100px 0;background:var(--grey-50)}
+.faq-container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.faq-header{margin-bottom:48px}
+.faq-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0}
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:800px}
+.faq-item{border-bottom:1px solid var(--grey-200)}
+.faq-item:first-child{border-top:1px solid var(--grey-200)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:24px 0;font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);background:transparent;border:none;cursor:pointer;text-align:left;transition:color .2s}
+.faq-question:hover{color:var(--blue)}
+.faq-toggle{flex-shrink:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--grey-200);transition:all .2s;margin-left:16px}
+.faq-question:hover .faq-toggle{border-color:var(--blue)}
+.faq-toggle svg{transition:transform .2s}
+.faq-item.open .faq-toggle svg{transform:rotate(45deg)}
+.faq-answer{padding:0 0 24px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--grey-text)}
+.faq-answer a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.faq-answer a:hover{color:#374151}
+
+/* ═══ CTA ═══ */
+.contact-cta{padding:0 0 100px;text-align:center}
+.contact-cta-container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1279px){
+  .contact-hero{padding:0 40px}
+  .faq-container,.contact-cta-container{padding:0 40px}
+}
+@media(max-width:959px){
+  .contact-hero-grid{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:767px){
+  .contact-hero{padding:0 24px;margin-bottom:60px}
+  .contact-hero h1{font-size:36px;line-height:44px;letter-spacing:-.35px}
+  .contact-hero-desc{font-size:16px;line-height:26px}
+  .form-row{grid-template-columns:1fr}
+  .contact-form-card{padding:24px}
+  .faq-container,.contact-cta-container{padding:0 24px}
+  .faq-section{padding:60px 0}
+  .faq-header h2{font-size:28px;line-height:36px}
+}
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--black);color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0}
+.footer-container{padding:0 var(--pad-100);max-width:var(--max-w);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:60px}
+.footer-col h4{font-family:Manrope,sans-serif;font-size:18px;font-weight:600;color:#fff;line-height:27px;margin-bottom:16px}
+.footer-col a{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:#b4b4b4}
+.footer-col-cta h4{font-size:42px;line-height:50px;font-weight:600;margin-bottom:12px}
+.footer-col-cta p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)}
+.footer-col-cta .btn-primary{color:#fff;background:var(--blue)}
+.footer-cta-arrow{display:inline-flex;align-items:center}
+.footer-contact-link{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:4px;transition:text-decoration-color .2s}
+.footer-contact-link:hover{text-decoration-color:transparent}
+.footer-contact-text{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0}
+.footer-company-info{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#fff;margin-bottom:8px}
+.footer-col-info a{font-size:14px;line-height:21px;padding:2px 0;color:#fff;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px}
+.footer-col-info a:hover{text-decoration-color:transparent}
+.our-work-link{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);background:transparent;padding:12px 20px;border:1px solid var(--blue);border-radius:100px;transition:all .2s;white-space:nowrap}
+.our-work-link:hover{background:var(--blue);color:#fff;gap:12px}
+.our-work-link svg{width:16px;height:16px}
+@media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h4{font-size:30px;line-height:38px}}
+@media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO + FORM ═══ -->
+  <section class="contact-hero">
+    <div class="contact-hero-grid">
+      <div class="contact-hero-content">
+        <span class="contact-hero-label">Start your IPL project</span>
+        <h1>Ready to bring your IPL device to market?</h1>
+        <p class="contact-hero-desc">Great devices start with great conversations. Tell us about your brand, target market and compliance goals — we'll help you turn them into a launch-ready IPL device.</p>
+
+        <div class="contact-direct">
+          <h3>Prefer to talk directly?</h3>
+          <a href="mailto:service@ishineco.com">
+            <svg class="contact-direct-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            service@ishineco.com
+          </a>
+          <a href="tel:+8615012891148">
+            <svg class="contact-direct-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            +86 150 1289 1148
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-card">
+        <div class="audit-badge">
+          <div class="audit-badge-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="audit-badge-text"><strong>Get a free IPL device audit</strong> — Recommendations on energy output, frequency and stability, plus compliance and certification guidance</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group"><label for="first-name">First name *</label><input id="first-name" type="text" placeholder="John" required /></div>
+          <div class="form-group"><label for="last-name">Last name *</label><input id="last-name" type="text" placeholder="Smith" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="email">Email *</label><input id="email" type="email" placeholder="john@company.com" required /></div>
+          <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" placeholder="+1 234 567 890" /></div>
+        </div>
+        <div class="form-group full"><label for="company">Company</label><input id="company" type="text" placeholder="Your brand or company name" /></div>
+        <div class="form-group full"><label for="message">Tell us about your project *</label><textarea id="message" rows="5" placeholder="Describe your device concept, target market, volumes and timeline..." required></textarea></div>
+        <button class="btn-primary" type="submit" style="width:fit-content">Send message
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How do we get started?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer">The first step is a quick call so we can understand your product concept, target market and volume expectations. It is also a chance for you to see how our OEM/ODM process works, from specification review to sample approval and mass production.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What are your minimum order quantities?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer" style="display:none">We support low minimum order quantities. Our no-MOQ program lets you test the market with small batches first, then scale production as your brand grows — without heavy upfront inventory risk.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How long does it take to get a sample?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer" style="display:none">For existing models, samples ship within 3-5 business days. For custom-designed devices, prototypes typically take 2-4 weeks depending on the complexity of the design, tooling and features.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How do we communicate during a project?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer" style="display:none">You get a dedicated account manager with direct communication through email, WhatsApp or WeChat. We provide regular production updates with photos and video reports so you always know where your project stands.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Can we visit your factory?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer" style="display:none">Yes. We are based in Shenzhen, China, and welcome factory visits. You can walk through our production lines, QC lab and warehouse — most projects begin with a video factory tour, with in-person visits arranged when helpful.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How much does an IPL device cost?
+            <span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-answer" style="display:none">Pricing depends on specifications — energy output, features, materials and packaging — as well as order volume. Share your requirements and we will provide a detailed quote after spec review. For a full overview of how we work, see our <a href="/services/oem-odm">OEM/ODM page</a>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ Footer ═══ -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-cta">
+        <h4>Ready to start your IPL project?</h4>
+        <p>We'd love to help you bring your private-label IPL device to market.</p>
+        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer-col">
+        <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
+        <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
+        <span class="footer-contact-text">Shenzhen, China</span>
+        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
+      </div>
+      <div class="footer-col">
+        <a href="/products">Products</a>
+        <a href="/services">Services</a>
+        <a href="/clients">Clients</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/components">Components</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col footer-col-info">
+        <p class="footer-company-info">Founded in Shenzhen in 2008, serving beauty brands worldwide with OEM/ODM IPL manufacturing.</p>
+        <p class="footer-company-info">ISO 13485 Certified · MDSAP Compliant<br/>FDA 510(k) Documentation Support</p>
+        <p class="footer-company-info" style="margin-top:12px">&copy; iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

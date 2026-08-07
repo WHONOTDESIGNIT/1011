@@ -1,0 +1,453 @@
+---
+// Develo Design Blog Clone — exact CSS from Playwright getComputedStyle()
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog | Insights, Updates &amp; Expert Takes | Develo</title>
+<meta name="description" content="Explore industry news, project launches, and expert eCommerce commentary from the Develo team." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-100:#f3f4f6;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ═══ SHARED: Trust Bar ═══ */
+.trust-bar{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:center;background:transparent}
+.trust-bar-inner{display:flex;align-items:center}
+.trust-slide{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px}
+.trust-slide[aria-hidden="true"]{display:none}
+.trust-slide[aria-hidden="false"]{display:flex}
+.trust-text{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px}
+
+/* ═══ 2. HEADER / NAV ═══ */
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .3s ease;will-change:top}
+.header-inner{display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-logo{display:flex;align-items:center;flex-shrink:0;margin-right:502px}
+.header-logo svg{display:block}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+
+/* Desktop nav visibility */
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}}
+
+/* Header CTA */
+.header-cta{display:flex;align-items:center;gap:12px;margin-left:auto;margin-right:38px}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
+.btn-cta:hover{gap:12px;background:#374151}
+.btn-cta svg{width:16px;height:16px}
+@media(max-width:959px){.header-cta .btn-cta{display:none}}
+
+/* Nav collapse button */
+.nav-collapse-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:100px;background:var(--blue);border:none;cursor:pointer;margin-left:auto;margin-right:38px}
+.nav-collapse-btn svg{width:20px;height:20px}
+.nav-collapsed .desktop-nav,.nav-collapsed .header-cta{display:none}
+@media(max-width:959px){.desktop-nav{display:none !important}.header-cta{display:none !important}.nav-collapse-btn{display:flex !important}}
+
+@media(max-width:767px){
+  .site-header{top:66px;width:calc(100% - 32px)}
+  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
+}
+
+/* ═══ Mega Dropdown ═══ */
+.nav-dropdown-wrapper{position:relative}
+.nav-has-dropdown{gap:6px}
+.nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
+.nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.nav-dropdown-wrapper:hover .mega-dropdown,.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mega-inner{display:flex;gap:60px;padding:36px 40px}
+.mega-left{flex:1;display:flex;flex-direction:column}
+.mega-link-group{display:flex;flex-direction:column;gap:4px}
+.mega-link{display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;position:relative}
+.mega-link:hover{background:rgba(0,0,0,.04)}
+.mega-link-title{font-family:Manrope,sans-serif;font-size:18px;font-weight:500;line-height:26px;color:#020303}
+.mega-link-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280}
+.mega-link.has-plus{flex-direction:row;align-items:center;justify-content:space-between}
+.mega-link.has-plus .mega-link-title,.mega-link.has-plus .mega-link-desc{display:block}
+.mega-link.has-plus>div{display:flex;flex-direction:column;gap:4px}
+.mega-plus{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;color:#020303;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-right{flex-shrink:0;width:260px}
+.mega-card{background:var(--grey-50);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mega-card-heading{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0}
+.mega-card-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:0}
+.mega-card-btn{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);padding:10px 18px;border-radius:100px;background:transparent;transition:all .2s;align-self:flex-start;text-decoration:none}
+.mega-card-btn:hover{background:var(--blue);color:#fff;gap:12px}
+@media(max-width:959px){.mega-dropdown{display:none !important}}
+/* Mobile menu panel */
+.nav-collapse-btn.open{background:#374151}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
+.mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
+.mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:none;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mobile-menu-group{display:flex;flex-direction:column;border-bottom:1px solid #e5e7eb}
+.mobile-menu-group:last-of-type{border-bottom:none}
+.mobile-menu-toggle,.mobile-menu-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 12px;background:transparent;border:none;border-radius:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;text-align:left;cursor:pointer}
+.mobile-menu-toggle:hover,.mobile-menu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-menu-toggle-chevron{width:12px;height:7px;flex-shrink:0;transition:transform .25s ease}
+.mobile-menu-group.open .mobile-menu-toggle-chevron{transform:rotate(180deg)}
+.mobile-submenu{max-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:max-height .3s ease,padding-bottom .3s ease}
+.mobile-menu-group.open .mobile-submenu{max-height:480px;padding-bottom:12px}
+.mobile-submenu-link{display:flex;flex-direction:column;gap:4px;padding:10px 12px 10px 24px;border-radius:10px;text-decoration:none}
+.mobile-submenu-link:hover{background:rgba(0,0,0,.04)}
+.mobile-submenu-title{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303}
+.mobile-submenu-desc{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280}
+.mobile-menu-cta{margin-top:8px}
+.mobile-menu-cta .btn-cta{width:100%;justify-content:center}
+@media(max-width:959px){.mobile-menu-panel{display:flex}}
+@media(max-width:767px){.mobile-menu-panel{top:130px;width:calc(100% - 32px);padding:18px}}
+
+
+
+/* ═══ BLOG SPECIFIC ═══ */
+.page-main{margin-top:136px}
+
+/* Hero Banner */
+.blog-hero{width:100%;max-width:var(--max-w);margin:0 auto 24px;padding:0 var(--pad-100)}
+.blog-hero-inner{display:flex;flex-direction:column;gap:8px}
+.blog-hero-label{display:flex;align-items:center;gap:12px;padding:3px 12px;margin-bottom:16px}
+.blog-hero-label svg{flex-shrink:0}
+.blog-hero-label span{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;color:#020303;line-height:26px}
+.blog-hero h1{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:#020303;margin:0}
+.blog-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:#4b5563;max-width:600px}
+
+/* ═══ Featured + Latest Section ═══ */
+.featured-latest-section{background:#fff;padding:40px 0 100px}
+.featured-latest-container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100);display:flex;gap:60px;align-items:flex-start}
+
+/* Featured Card */
+.featured-col{flex:1;display:flex;flex-direction:column;gap:8px}
+.featured-card{display:flex;flex-direction:column;gap:16px}
+.featured-card-image{width:100%;border-radius:20px;overflow:hidden;background:var(--grey-200)}
+.featured-card-image img{width:100%;height:auto;object-fit:cover}
+.featured-card-category{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border:1px solid var(--grey-400);border-radius:100px;width:fit-content}
+.featured-card h2{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:var(--black);margin:0;transition:color .2s}
+.featured-card:hover h2{color:var(--blue)}
+.featured-card-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;color:var(--grey-500);line-height:21px}
+.featured-card-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text);margin:0}
+.featured-read-time{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--grey-500);text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:4px;background:var(--grey-100)}
+
+/* Latest List */
+.latest-col{width:590px;flex-shrink:0}
+.latest-col h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--black);margin:0 0 24px}
+.latest-list{display:flex;flex-direction:column;gap:24px;width:100%}
+.latest-item{display:flex;flex-direction:column;gap:12px;padding:0 0 24px;border-bottom:1px solid var(--grey-200);width:100%}
+.latest-item:last-child{border-bottom:none}
+.latest-item-category{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border:1px solid var(--grey-400);border-radius:100px;width:fit-content}
+.latest-item h3{font-family:Syne,sans-serif;font-size:17px;font-weight:400;line-height:22px;color:var(--black);margin:0;display:flex;align-items:center;gap:8px;transition:color .2s}
+.latest-item:hover h3{color:var(--blue)}
+.latest-item h3 .title-arrow{flex-shrink:0;opacity:0;transition:opacity .2s,transform .2s;transform:translateX(-4px)}
+.latest-item:hover h3 .title-arrow{opacity:1;transform:translateX(0)}
+.latest-item-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;line-height:21px}
+.latest-item-author{color:var(--black)}
+.latest-item-date{color:var(--grey-500)}
+
+/* ═══ Browse All Section ═══ */
+.browse-all-section{background:var(--grey-50);padding:60px 0 80px}
+.browse-all-container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.browse-all-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.browse-all-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--black);margin:0}
+.browse-categories{display:flex;gap:8px;flex-wrap:wrap}
+.browse-cat-btn{padding:8px 16px;border-radius:100px;border:1px solid var(--black);background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:var(--black);cursor:pointer;transition:all .2s;white-space:nowrap}
+.browse-cat-btn.active,.browse-cat-btn:hover{background:var(--black);color:var(--white)}
+
+.browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.browse-card{display:flex;flex-direction:column;gap:0;transition:transform .2s}
+.browse-card:hover{transform:translateY(-4px)}
+.browse-card-image{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--grey-200);margin-bottom:12px}
+.browse-card-image img{width:100%;height:100%;object-fit:cover}
+.browse-card-category{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border:1px solid var(--grey-400);border-radius:100px;width:fit-content;margin-bottom:8px}
+.browse-card h3{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0;transition:color .2s}
+.browse-card:hover h3{color:var(--blue)}
+.browse-card-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;color:var(--grey-500);line-height:21px;margin-top:8px}
+.browse-read-time{display:inline-block;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;color:var(--grey-500);text-transform:uppercase;letter-spacing:.5px}
+
+/* ═══ Pagination ═══ */
+.blog-pagination{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:60px}
+.pagination-btn{display:flex;align-items:center;justify-content:center;padding:8px 16px;border-radius:100px;border:1px solid var(--black);background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:var(--black);cursor:pointer;transition:all .2s;white-space:nowrap}
+.pagination-btn:disabled{border-color:rgba(2,3,3,.3);color:rgba(2,3,3,.3);cursor:not-allowed}
+.pagination-btn:hover:not(:disabled){background:var(--black);color:var(--white)}
+.pagination-num{display:flex;align-items:center;justify-content:center;width:40px;height:40px;min-width:40px;padding:8px 12px;border-radius:100px;border:1px solid var(--black);background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:var(--black);cursor:pointer;transition:all .2s}
+.pagination-num.active,.pagination-num:hover{background:var(--black);color:var(--white)}
+.pagination-ellipsis{display:flex;align-items:center;justify-content:center;width:40px;height:40px;font-family:Manrope,sans-serif;font-size:14px;color:var(--black)}
+
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--black);color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0;margin-top:0}
+.footer-container{padding:0 var(--pad-100);max-width:var(--max-w);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:rgba(255,255,255,.6);margin-top:16px;max-width:280px}
+.footer-col h4{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:#fff;line-height:25px;margin-bottom:16px}
+.footer-col a{display:block;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:21px;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.footer-bottom span{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.5);line-height:21px}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1279px){
+  .blog-hero{padding:0 40px}
+  .featured-latest-container{padding:0 40px;flex-direction:column;gap:40px}
+  .latest-col{width:100%}
+  .browse-all-container{padding:0 40px}
+  .browse-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:767px){
+  .blog-hero{padding:0 24px}
+  .blog-hero h1{font-size:38px;line-height:44px;letter-spacing:-.37px}
+  .blog-hero-desc{font-size:16px;line-height:25px}
+  .featured-latest-container{padding:0 24px}
+  .browse-all-container{padding:0 24px}
+  .browse-grid{grid-template-columns:1fr}
+  .browse-all-header{flex-direction:column;align-items:flex-start;gap:16px}
+  .site-footer{padding:60px 0}
+  .footer-container{padding:0 24px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<!-- ═══ BLOG HERO ═══ -->
+<main class="page-main">
+  <header class="blog-hero">
+    <div class="blog-hero-inner">
+      <div class="blog-hero-label">
+        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(#c0)"><path d="M2.16 16.4999C0.7733 14.3158 0 11.465 0 8.49995C0 5.53493 0.7733 2.68405 2.16 0.5V16.4999Z" fill="#020303"/><path d="M16 16.5C13.8783 16.5 11.8434 15.6572 10.3431 14.1569C8.84286 12.6566 8 10.6217 8 8.50001C8 6.37827 8.84285 4.34344 10.3431 2.84314C11.8434 1.34284 13.8783 0.5 16 0.5V16.5Z" fill="#020303"/></g><defs><clipPath id="c0"><rect fill="#fff" width="16" height="17"/></clipPath></defs></svg>
+        <span>Insights, Updates &amp; Expert Takes</span>
+      </div>
+      <h1>Blog</h1>
+      <p class="blog-hero-desc">Explore industry news, project launches, and expert eCommerce commentary from the Develo team.</p>
+    </div>
+  </header>
+
+  <!-- ═══ FEATURED + LATEST ═══ -->
+  <section class="featured-latest-section">
+    <div class="featured-latest-container">
+      <!-- Featured Article -->
+      <div class="featured-col">
+        <a class="featured-card" href="/blog/shopify-vape-restrictions-uk-merchants">
+          <div class="featured-card-image">
+            <img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Shopify US Vape Restrictions" loading="eager" />
+          </div>
+          <span class="featured-read-time">9 min read</span>
+          <span class="featured-card-category">ECOMMERCE</span>
+          <h2>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h2>
+          <p class="featured-card-desc">Recent Shopify US restrictions highlight the risks of relying on closed eCommerce platforms and why UK vape merchants should consider the benefits of greater ownership, flexibility and control.</p>
+          <div class="featured-card-meta">
+            <span>By Bethany Wood</span>
+            <span>Jul 16, 2026</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Latest Articles -->
+      <div class="latest-col">
+        <h2>Latest articles</h2>
+        <div class="latest-list">
+          <a class="latest-item" href="/blog/luke-collymore-elected-to-mage-os-board">
+            <span class="latest-item-category">ECOMMERCE</span>
+            <h3>Luke Collymore Elected to the Mage-OS Board <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+            <div class="latest-item-meta">
+              <span class="latest-item-author">By Bethany Wood</span>
+              <span class="latest-item-date">Jul 1, 2026</span>
+            </div>
+          </a>
+          <a class="latest-item" href="/blog/campus-to-commerce-student-real-world-ecommerce">
+            <span class="latest-item-category">HYVÄ THEMES</span>
+            <h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+            <div class="latest-item-meta">
+              <span class="latest-item-author">By Bethany Wood</span>
+              <span class="latest-item-date">Jun 25, 2026</span>
+            </div>
+          </a>
+          <a class="latest-item" href="/blog/optimising-b2b-ecommerce-search-high-intent-buyers">
+            <span class="latest-item-category">OPTIMISATION</span>
+            <h3>Optimising B2B eCommerce Search for High-Intent Buyers <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+            <div class="latest-item-meta">
+              <span class="latest-item-author">By Bethany Wood</span>
+              <span class="latest-item-date">Jun 3, 2026</span>
+            </div>
+          </a>
+          <a class="latest-item" href="/blog/hyva-checkout-benefits-conversion-stability">
+            <span class="latest-item-category">HYVÄ THEMES</span>
+            <h3>Hyvä Checkout Benefits for Conversion and Stability <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+            <div class="latest-item-meta">
+              <span class="latest-item-author">By Bethany Wood</span>
+              <span class="latest-item-date">May 18, 2026</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BROWSE ALL ═══ -->
+  <section class="browse-all-section">
+    <div class="browse-all-container">
+      <div class="browse-all-header">
+        <h2>Browse all</h2>
+        <div class="browse-categories">
+          <button class="browse-cat-btn active">ALL</button>
+          <button class="browse-cat-btn">DEVELO</button>
+          <button class="browse-cat-btn">CASE STUDY</button>
+          <button class="browse-cat-btn">PARTNERSHIPS</button>
+          <button class="browse-cat-btn">ECOMMERCE</button>
+          <button class="browse-cat-btn">OPTIMISATION</button>
+          <button class="browse-cat-btn">HYVÄ THEMES</button>
+        </div>
+      </div>
+      <div class="browse-grid">
+        <a class="browse-card" href="/blog/shopify-vape-restrictions-uk-merchants">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Shopify Vape Restrictions" loading="lazy" /></div>
+          <span class="browse-read-time">9 min read</span>
+          <span class="browse-card-category">ECOMMERCE</span>
+          <h3>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jul 16, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/luke-collymore-elected-to-mage-os-board">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Luke Collymore" loading="lazy" /></div>
+          <span class="browse-read-time">3 min read</span>
+          <span class="browse-card-category">ECOMMERCE</span>
+          <h3>Luke Collymore Elected to the Mage-OS Board</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jul 1, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/develo-campus-to-commerce-university-of-birmingham">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Campus to Commerce" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">HYVÄ THEMES</span>
+          <h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jun 25, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/optimising-b2b-ecommerce-search-for-buyers">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="B2B Search" loading="lazy" /></div>
+          <span class="browse-read-time">6 min read</span>
+          <span class="browse-card-category">OPTIMISATION</span>
+          <h3>Optimising B2B eCommerce Search for High-Intent Buyers</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jun 3, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/hyva-checkout-benefits-for-conversion-and-stability">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Hyva Checkout" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">HYVÄ THEMES</span>
+          <h3>Hyvä Checkout Benefits for Conversion and Stability</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>May 18, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/improving-magento-site-speed">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Magento Site Speed" loading="lazy" /></div>
+          <span class="browse-read-time">5 min read</span>
+          <span class="browse-card-category">OPTIMISATION</span>
+          <h3>Magento Site Speed: What Actually Makes a Difference (and What Doesn't)</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>May 5, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/core-web-vitals-guide-magento">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Core Web Vitals" loading="lazy" /></div>
+          <span class="browse-read-time">6 min read</span>
+          <span class="browse-card-category">OPTIMISATION</span>
+          <h3>Core Web Vitals: What Are They and Why Do They Matter for Your eCommerce Store</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Apr 20, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/magento-store-hierarchy-website-vs-store-vs-store-view">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="Store Hierarchy" loading="lazy" /></div>
+          <span class="browse-read-time">6 min read</span>
+          <span class="browse-card-category">MAGENTO</span>
+          <h3>Magento Store Hierarchy: Website vs Store vs Store View Explained</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Apr 5, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/5-tips-for-managing-magento-extensions-and-plugins">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Magento Extensions" loading="lazy" /></div>
+          <span class="browse-read-time">5 min read</span>
+          <span class="browse-card-category">MAGENTO</span>
+          <h3>5 Tips for Managing Magento Extensions and Plugins</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 25, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/magento-patches-for-your-store-9-steps-for-business-owners">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Magento Patches" loading="lazy" /></div>
+          <span class="browse-read-time">6 min read</span>
+          <span class="browse-card-category">MAGENTO</span>
+          <h3>Magento Patches for Your Store: 9 Steps for Business Owners</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 15, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/8-tips-to-optimise-magento-speed-and-performance">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Magento Speed" loading="lazy" /></div>
+          <span class="browse-read-time">5 min read</span>
+          <span class="browse-card-category">MAGENTO</span>
+          <h3>8 Tips to Optimise Magento Speed and Performance</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 1, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/building-magento-the-hyva-way-with-hyva-ai-skills">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="Hyva AI Skills" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">HYVÄ THEMES</span>
+          <h3>Building Magento the Hyvä Way: Why Hyvä AI Skills Are a Positive Step Forward</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Feb 20, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/a-new-develo-website-and-a-better-way-of-building-it">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="New Develo Website" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">DEVELO</span>
+          <h3>A New Develo Website, and a Better Way of Building It</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Feb 10, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/how-to-optimise-a-hyva-website">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Optimise Hyva" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">HYVÄ THEMES</span>
+          <h3>How to Optimise a Hyvä Website</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jan 28, 2026</span></div>
+        </a>
+        <a class="browse-card" href="/blog/12-fashion-ecommerce-tips-for-stlylish-high-converting-sites">
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Fashion eCommerce" loading="lazy" /></div>
+          <span class="browse-read-time">4 min read</span>
+          <span class="browse-card-category">ECOMMERCE</span>
+          <h3>12 Fashion eCommerce Tips for Stylish, High-Converting Sites</h3>
+          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jan 15, 2026</span></div>
+        </a>
+      </div>
+
+      <!-- Pagination -->
+      <nav class="blog-pagination" aria-label="Pagination">
+        <button class="pagination-btn" disabled>Previous</button>
+        <button class="pagination-num active" aria-current="page">1</button>
+        <button class="pagination-num">2</button>
+        <button class="pagination-num">3</button>
+        <button class="pagination-num">4</button>
+        <button class="pagination-num">5</button>
+        <span class="pagination-ellipsis">…</span>
+        <button class="pagination-num">10</button>
+        <button class="pagination-btn">Next</button>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<SiteFooter />
+
+<script>
+(function() {
+  // Category filter buttons
+  document.querySelectorAll('.browse-cat-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.browse-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
