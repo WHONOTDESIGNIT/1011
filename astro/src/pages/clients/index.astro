@@ -1,50 +1,46 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
-import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = 'en';
 const clients = [
   {
-    name: 'MandySkin',
+    name: 'Costco',
     region: 'Canada',
     industry: 'Retail',
     slug: 'costco-canada-ipl',
-    logo: '/images/logos/mandyskin-logo.jpg',
+    logo: '/images/logos/costco-logo.svg',
     description:
       'Leading retail giant trusts iShine for high-volume IPL device manufacturing with consistent quality and reliability.',
   },
   {
-    name: 'ROSESKINCO',
+    name: 'RoseSkinCo',
     region: 'USA',
     industry: 'Beauty & Wellness',
     slug: 'roseskin-ipl',
-    logo: '/images/logos/roseskinco-logo.png',
+    logo: '/images/logos/roseskin-logo.svg',
     description:
       'Premium beauty brand partnered with iShine for innovative IPL devices designed for the US market.',
   },
   {
-    name: 'KU-2 Cosmetic',
+    name: 'KU-2 Cosmetics',
     region: 'Germany',
     industry: 'Cosmetics',
     slug: 'ku2-ipl',
-    logo: '/images/logos/logo-ku-cosmetics.png',
+    logo: '/images/logos/KU-2%20logo.svg',
     description:
       'European cosmetic leader collaborates with iShine for compliant, retail-ready IPL products.',
   },
   {
-    name: 'LUX SKIN',
+    name: 'HappySkinCo',
     region: 'International',
     industry: 'DTC',
     slug: 'happyskinco-ipl',
-    logo: '/images/logos/Logo_LUX_SKIN.png',
+    logo: '/images/logos/happyskin-logo.webp',
     description:
       'Direct-to-consumer partner working with iShine for fast iteration, performance validation, and launch execution.',
   },
-].map((client) => ({
-  ...client,
-  logoSources: responsiveImageSources(client.logo, [120, 240, 480], 240),
-}));
+];
 
 const testimonials = [
   {
@@ -71,7 +67,7 @@ const testimonials = [
 <BaseLayout title="Our Clients" lang={locale} description="Trusted IPL manufacturing partners: Costco Canada, RoseSkinCo USA, KU2 Cosmetics Germany, and global beauty brands powered by iShine OEM/ODM solutions.">
   <div class="space-y-48">
     <section class="rounded-2xl bg-slate-50 px-8 py-12">
-      <h1 class="text-4xl font-bold tracking-tight">Our Clients</h1>
+      <h1 class="text-4xl font-bold">Our Clients</h1>
       <p class="mt-4 max-w-3xl text-lg text-slate-700">
         Trusted by leading brands worldwide for IPL hair removal device manufacturing.
       </p>
@@ -79,7 +75,7 @@ const testimonials = [
 
     <section class="mx-auto max-w-6xl px-6">
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What kinds of brands partner with iShine for IPL OEM/ODM?</h3>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">What kinds of brands partner with iShine for IPL OEM/ODM?</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
         iShine partners with a mix of retail, DTC, and beauty brands that want private-label IPL hair removal devices manufactured at consistent quality and delivered with brand-ready packaging. Client programs often include platform selection, customization of cosmetics and feature configurations, compliance planning for target markets, and production scheduling for launch timelines. Case studies commonly emphasize manufacturing repeatability, scalable capacity, and supply chain reliability, especially for partners distributing through major retail channels or fast-moving e-commerce. iShine references a track record of 50+ global clients, distribution to 30+ countries, and 500,000+ devices delivered across multiple programs. These partnerships typically combine engineering and operations support so brands can differentiate product experience while maintaining stable production performance.
       </p>
@@ -97,21 +93,15 @@ const testimonials = [
         {clients.map((client) => (
           <a class="block rounded-xl border-2 border-slate-200 bg-white p-8 shadow-sm transition-colors hover:border-sky-500" href={getLocalizedPath(locale, '/clients/' + client.slug)}>
             <div class="mx-auto mb-6 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md">
-              <picture>
-                <source srcset={client.logoSources.avifSrcSet} sizes="64px" type="image/avif" />
-                <source srcset={client.logoSources.webpSrcSet} sizes="64px" type="image/webp" />
-                <img
-                  src={client.logoSources.src}
-                  srcset={client.logoSources.webpSrcSet}
-                  sizes="64px"
-                  alt={`${client.name} logo`}
-                  loading="lazy"
-                  decoding="async"
-                  width="64"
-                  height="64"
-                  class="h-16 w-16 object-contain"
-                />
-              </picture>
+              <img
+                src={client.logo}
+                alt={`${client.name} logo`}
+                loading="lazy"
+                decoding="async"
+                width="64"
+                height="64"
+                class="h-16 w-16 object-contain"
+              />
             </div>
             <div class="text-center">
               <div class="text-2xl font-bold text-slate-900">{client.name}</div>

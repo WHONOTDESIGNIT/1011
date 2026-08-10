@@ -855,7 +855,7 @@ const productSchema = {
                 <div class="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">Pricing & Payment</div>
                 {displayPricing ? (
                   <>
-                    <div class="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+                    <div class="mt-3 text-3xl font-bold text-slate-900">
                       USD {displayPricing.firstTier.unitPrice}
                       <span class="ml-2 text-base font-medium text-slate-500">/ unit</span>
                     </div>
@@ -863,7 +863,7 @@ const productSchema = {
                   </>
                 ) : (
                   <>
-                    <div class="mt-3 text-2xl font-bold tracking-tight text-slate-900">Contact for quote</div>
+                    <div class="mt-3 text-2xl font-bold text-slate-900">Contact for quote</div>
                     <p class="mt-1 text-sm text-slate-600">{product.priceNote || 'Pricing depends on sampling scope, cosmetics, packaging, and validation requirements.'}</p>
                   </>
                 )}

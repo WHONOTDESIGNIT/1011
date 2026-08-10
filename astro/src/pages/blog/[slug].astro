@@ -116,7 +116,7 @@ const articleSchema = {
             ? <span class="rounded-2xl border border-slate-200 bg-white px-3 py-1 font-medium text-slate-700">{post.meta.category}</span>
             : null}
         </div>
-        <h1 class="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl lg:text-6xl">{post.meta.title}</h1>
+        <h1 class="text-4xl font-bold text-slate-950 md:text-5xl lg:text-6xl">{post.meta.title}</h1>
         {pageDescription
           ? <p class="max-w-3xl text-lg leading-relaxed text-slate-600">{pageDescription}</p>
           : null}
@@ -149,7 +149,7 @@ const articleSchema = {
 
     <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is this article about?</h3>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is this article about?</h3>
       <p class="mt-4 text-lg leading-relaxed text-slate-700">
         This article explains {post.meta.title} for teams evaluating or building private-label IPL hair removal products. It covers practical considerations for OEM/ODM execution, including how manufacturing choices can influence product experience, compliance planning, and launch readiness. The goal is to provide a self-contained overview that readers can reference when comparing options, preparing RFQs, or aligning internal stakeholders on requirements. Where relevant, the discussion connects component-level decisions (such as cooling, filters, lamp cartridges, sensors, and power design) with end-user comfort and repeatable production outcomes. The key takeaway is a clearer set of decision criteria you can use to reduce risk and move from concept to scalable manufacturing with fewer iterations.
       </p>
@@ -188,7 +188,7 @@ const articleSchema = {
       <div class="mt-14 rounded-2xl bg-slate-950 px-8 py-10 text-white">
         <div class="mx-auto max-w-xl text-center">
           <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'blog.post.ctaTitle')}</p>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight">{t(locale, 'blog.post.ctaHeading')}</h2>
+          <h2 class="mt-3 text-2xl font-bold">{t(locale, 'blog.post.ctaHeading')}</h2>
           <p class="mt-4 text-sm leading-relaxed text-slate-300">{t(locale, 'blog.post.ctaDescription')}</p>
           <div class="mt-6 flex flex-wrap justify-center gap-3">
             <a
@@ -214,7 +214,7 @@ const articleSchema = {
           <div class="flex items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
               <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">{t(locale, 'blog.post.relatedTitle')}</p>
-              <h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-900">{t(locale, 'blog.post.continueReadingTitle')}</h2>
+              <h2 class="mt-1 text-2xl font-bold text-slate-900">{t(locale, 'blog.post.continueReadingTitle')}</h2>
             </div>
             <a
               class="hidden flex-shrink-0 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 md:inline-flex"
@@ -262,7 +262,7 @@ const articleSchema = {
                       ? <span class="rounded-2xl bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600">{p.category}</span>
                       : null}
                   </div>
-                  <h3 class="text-lg font-semibold leading-snug tracking-tight text-slate-900">{p.title}</h3>
+                  <h3 class="text-lg font-semibold leading-snug text-slate-900">{p.title}</h3>
                   <p class="text-sm leading-relaxed text-slate-600">{p.excerpt}</p>
                   <span class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 transition group-hover:gap-2">
                     {t(locale, 'blog.post.relatedCta')}
@@ -292,7 +292,6 @@ const articleSchema = {
     margin-bottom: 1.25rem;
     font-size: 1.875rem;
     font-weight: 700;
-    letter-spacing: -0.03em;
     line-height: 1.2;
     color: var(--color-black, #000000);
   }
@@ -304,7 +303,6 @@ const articleSchema = {
     margin-bottom: 1rem;
     font-size: 1.625rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
     line-height: 1.3;
     color: var(--color-black, #000000);
   }
@@ -316,7 +314,6 @@ const articleSchema = {
     margin-bottom: 0.75rem;
     font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: -0.015em;
     line-height: 1.4;
     color: var(--color-black, #000000);
   }

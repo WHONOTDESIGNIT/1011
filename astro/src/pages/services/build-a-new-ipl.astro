@@ -399,29 +399,6 @@ a{text-decoration:none;color:inherit}
   .stat-cards-heading{font-size:28px;line-height:34px}
 }
 
-/* ═══ QUALITY & CERTIFICATIONS ═══ */
-.quality-certs{width:100%;background:#fff;padding:60px 0}
-.quality-certs-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100);display:flex;gap:60px}
-.quality-certs-left{flex:1;max-width:580px}
-.quality-certs-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:var(--black);margin:0 0 16px}
-.quality-certs-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black);margin:0 0 32px}
-.quality-certs-list{display:flex;flex-direction:column;gap:12px}
-.quality-certs-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--grey-50);border-radius:14px}
-.quality-certs-item-icon{width:40px;height:40px;flex-shrink:0;border-radius:12px;background:var(--blue);display:flex;align-items:center;justify-content:center}
-.quality-certs-item-icon svg{width:20px;height:20px;color:#fff}
-.quality-certs-item-content h4{font-family:Manrope,sans-serif;font-size:18px;font-weight:600;line-height:27px;color:var(--black);margin:0}
-.quality-certs-item-content p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:4px 0 0}
-.quality-certs-right{flex:0 0 380px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:flex-start}
-.quality-cert-badge{background:var(--grey-50);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
-.quality-cert-badge-label{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}
-.quality-cert-badge-value{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:30px;color:var(--black)}
-.quality-certs-cta{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;background:var(--blue);padding:12px 20px;border-radius:100px;transition:all .2s;text-decoration:none;margin-top:24px}
-.quality-certs-cta:hover{background:#374151;gap:12px}
-.quality-certs-cta svg{width:16px;height:16px}
-@media(max-width:1279px){.quality-certs-container{padding:0 var(--pad-40)}}
-@media(max-width:959px){.quality-certs-container{flex-direction:column;gap:32px}.quality-certs-left{max-width:100%}.quality-certs-right{flex:0 0 auto;grid-template-columns:1fr 1fr}.quality-certs-heading{font-size:36px;line-height:42px}}
-@media(max-width:767px){.quality-certs-container{padding:0 var(--pad-24)}.quality-certs-heading{font-size:28px;line-height:34px}.quality-certs-right{display:none}}
-
 /* ═══ 7. EXPERTISE ═══ */
 .expertise{width:100%;margin:0;padding:0;background:var(--black)}
 .expertise-container{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,600px);column-gap:40px;row-gap:24px;padding:240px 100px}
@@ -1070,45 +1047,6 @@ a{text-decoration:none;color:inherit}
     <div class="stat-cards-arrows-row">
       <button id="prev-stat-card" class="stat-cards-arrow" type="button" aria-label="Previous cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11.25 3.75L6 9L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button id="next-stat-card" class="stat-cards-arrow" type="button" aria-label="Next cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 3.75L12 9L6.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ QUALITY & CERTIFICATIONS ═══ -->
-<section class="quality-certs">
-  <div class="quality-certs-container">
-    <div class="quality-certs-left">
-      <div class="small-title" style="margin-bottom:20px">
-        <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Quality Assurance
-      </div>
-      <h2 class="quality-certs-heading">Global Certifications for Trusted Manufacturing</h2>
-      <p class="quality-certs-desc">Every device undergoes rigorous testing and quality control processes to meet the highest international standards. Our certifications open doors to global markets.</p>
-      <div class="quality-certs-list">
-        <div class="quality-certs-item">
-          <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>FDA Cleared Devices</h4><p>Full support for FDA clearance process and ongoing compliance documentation.</p></div>
-        </div>
-        <div class="quality-certs-item">
-          <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>CE Marking</h4><p>European market compliance for seamless distribution across EU member states.</p></div>
-        </div>
-        <div class="quality-certs-item">
-          <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>ISO 13485 Certified</h4><p>Medical device quality management system certification for consistent manufacturing.</p></div>
-        </div>
-        <div class="quality-certs-item">
-          <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>MDSAP Compliant</h4><p>Medical Device Single Audit Program for multi-market regulatory acceptance.</p></div>
-        </div>
-      </div>
-      <a class="quality-certs-cta" href="/about/quality-control">Learn About Quality Process <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <div class="quality-certs-right">
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">FDA Cleared</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">CE Marked</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">ISO 13485</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Compliant</div><div class="quality-cert-badge-value">MDSAP</div></div>
     </div>
   </div>
 </section>

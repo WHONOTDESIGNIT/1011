@@ -105,20 +105,20 @@ const productCards = [
 }));
 
 const testimonials = isEn ? [
-  { company: 'MandySkin', person: 'Sarah Johnson', role: 'Procurement Manager', region: 'Canada', quote: "iShine's IPL devices have exceeded our expectations. The quality and reliability are outstanding, making them perfect for our retail customers.", logo: '/images/logos/mandyskin-logo.jpg' },
-  { company: 'RoseSkinCo', person: 'Michael Chen', role: 'Product Director', region: 'USA', quote: 'Working with iShine has been transformative for our brand. Their sapphire cooling technology set us apart in the competitive beauty market.', logo: '/images/logos/roseskinco-logo.png' },
-  { company: 'KU-2 Cosmetic', person: 'Anna Mueller', role: 'Brand Manager', region: 'Germany', quote: 'The dual-lamp system designed by iShine helped us achieve European market leadership. Their technical expertise is unmatched.', logo: '/images/logos/logo-ku-cosmetics.png' },
+  { company: 'Costco', person: 'Sarah Johnson', role: 'Procurement Manager', region: 'Canada', quote: "iShine's IPL devices have exceeded our expectations. The quality and reliability are outstanding, making them perfect for our retail customers.", logo: '/images/logos/costco-logo.svg' },
+  { company: 'RoseSkinCo', person: 'Michael Chen', role: 'Product Director', region: 'USA', quote: 'Working with iShine has been transformative for our brand. Their sapphire cooling technology set us apart in the competitive beauty market.', logo: '/images/logos/roseskin-logo.svg' },
+  { company: 'KU-2 Cosmetics', person: 'Anna Mueller', role: 'Brand Manager', region: 'Germany', quote: 'The dual-lamp system designed by iShine helped us achieve European market leadership. Their technical expertise is unmatched.', logo: '/images/logos/KU-2%20logo.svg' },
 ] : [
-  { company: 'MandySkin', person: 'Sarah Johnson', role: 'Gerente de Compras', region: 'Canadá', quote: 'Los dispositivos IPL de iShine han superado nuestras expectativas. La calidad y fiabilidad son excepcionales.', logo: '/images/logos/mandyskin-logo.png' },
-  { company: 'RoseSkinCo', person: 'Michael Chen', role: 'Director de Producto', region: 'EE.UU.', quote: 'Trabajar con iShine ha sido transformador para nuestra marca. Su tecnología de enfriamiento de zafiro nos diferencia en el mercado.', logo: '/images/logos/roseskinco-logo.png' },
-  { company: 'KU-2 Cosmetic', person: 'Anna Mueller', role: 'Gerente de Marca', region: 'Alemania', quote: 'El sistema de lámpara dual diseñado por iShine nos ayudó a lograr el liderazgo en el mercado europeo.', logo: '/images/logos/logo-ku-cosmetics.png' },
+  { company: 'Costco', person: 'Sarah Johnson', role: 'Gerente de Compras', region: 'Canadá', quote: 'Los dispositivos IPL de iShine han superado nuestras expectativas. La calidad y fiabilidad son excepcionales.', logo: '/images/logos/costco-logo.svg' },
+  { company: 'RoseSkinCo', person: 'Michael Chen', role: 'Director de Producto', region: 'EE.UU.', quote: 'Trabajar con iShine ha sido transformador para nuestra marca. Su tecnología de enfriamiento de zafiro nos diferencia en el mercado.', logo: '/images/logos/roseskin-logo.svg' },
+  { company: 'KU-2 Cosmetics', person: 'Anna Mueller', role: 'Gerente de Marca', region: 'Alemania', quote: 'El sistema de lámpara dual diseñado por iShine nos ayudó a lograr el liderazgo en el mercado europeo.', logo: '/images/logos/KU-2%20logo.svg' },
 ];
 
 const partners = [
-  { name: 'MandySkin', logo: '/images/logos/mandyskin-logo.png' },
-  { name: 'RoseSkinCo', logo: '/images/logos/roseskinco-logo.png' },
-  { name: 'KU-2 Cosmetic', logo: '/images/logos/logo-ku-cosmetics.png' },
-  { name: 'LUX SKIN', logo: '/images/logos/Logo_LUX_SKIN.png' },
+  { name: 'Costco', logo: '/images/logos/costco-logo.svg' },
+  { name: 'RoseSkinCo', logo: '/images/logos/roseskin-logo.svg' },
+  { name: 'KU-2 Cosmetics', logo: '/images/logos/KU-2%20logo.svg' },
+  { name: 'HappySkinCo', logo: '/images/logos/happyskin-logo.webp' },
 ];
 
 const caseStudies = [
@@ -281,7 +281,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
 
     <section class="mx-auto max-w-6xl px-6">
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What does iShine manufacture for private-label IPL brands?</h3>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">What does iShine manufacture for private-label IPL brands?</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
         iShine Technology Ltd. is a B2B OEM/ODM manufacturer of home-use IPL hair removal devices for private-label beauty brands and retailers. Founded in 2008 in Shenzhen, China, iShine supports programs end to end: requirements and positioning, industrial design and engineering, prototype sampling, compliance documentation, mass production, custom packaging, and export delivery. Platform-based prototypes are commonly completed in 1-4 weeks depending on scope, while deeper customization typically adds time for validation and production planning before scale orders. Core differentiation options include sapphire contact cooling (with premium configurations targeting skin-contact temperatures around ~10°C), app-connected tracking, smart skin sensing, and configurable energy profiles across models (often around 5-9 J/cm² depending on platform). Manufacturing and quality processes align with ISO 13485 and MDSAP requirements, with support for CE-marked configurations and FDA 510(k)-related documentation pathways when needed. iShine has produced 500,000+ devices for 50+ global clients shipping to 20+ countries.
       </p>
@@ -311,7 +311,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
       </div>
       <div>
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Who We Are' : 'Quiénes Somos'}</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
           {isEn ? 'A full-stack IPL manufacturing partner for global beauty brands' : 'Un socio de fabricación IPL integral para marcas de belleza globales'}
         </h2>
         <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-700">
@@ -368,7 +368,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
         </button>
         <div class="mx-auto max-w-3xl text-center">
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Product Showcase' : 'Vitrina de Productos'}</div>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{isEn ? 'Our IPL Product Range' : 'Nuestra Gama de Productos IPL'}</h2>
+          <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{isEn ? 'Our IPL Product Range' : 'Nuestra Gama de Productos IPL'}</h2>
           <p class="mt-4 text-lg text-slate-700">
             {isEn ? 'From premium sapphire cooling to smart app-controlled devices, explore our complete range of customizable IPL solutions.' : 'Desde enfriamiento premium de zafiro hasta dispositivos inteligentes controlados por app, explora nuestra gama completa de soluciones IPL personalizables.'}
           </p>
@@ -436,7 +436,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     <section class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Testimonials' : 'Testimonios'}</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{isEn ? 'Why Work with iShine?' : '¿Por qué trabajar con iShine?'}</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900">{isEn ? 'Why Work with iShine?' : '¿Por qué trabajar con iShine?'}</h2>
         <p class="mt-4 text-slate-700">
           {isEn ? 'We are not ones to sing our own praises, so we let our clients do the talking. Their feedback shows what dependable execution looks like in real B2B projects.' : 'No somos de los que se cantan alabanzas, así que dejamos que nuestros clientes hablen por nosotros. Sus comentarios muestran cómo es la ejecución confiable en proyectos B2B reales.'}
         </p>
@@ -485,7 +485,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     <section class="space-y-8">
       <div class="text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Partners' : 'Socios'}</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{isEn ? 'Collaborating Brands and Partners' : 'Marcas y Socios Colaboradores'}</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900">{isEn ? 'Collaborating Brands and Partners' : 'Marcas y Socios Colaboradores'}</h2>
       </div>
       <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {partners.map((partner) => (
@@ -501,7 +501,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     <section class="space-y-8">
       <div class="max-w-3xl">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">Our Work</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Case studies that prove the manufacturing model works</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Case studies that prove the manufacturing model works</h2>
         <p class="mt-4 text-lg text-slate-700">
           We are a specialist IPL hair removal device manufacturer in Shenzhen, trusted by global retailers and beauty brands for speed, compliance, and execution.
         </p>
@@ -510,7 +510,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
         {caseStudies.map((item) => (
           <a class={`group rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${item.size ?? ''}`.trim()} href={item.href}>
             <div class="inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{isEn ? 'Case Study' : 'Caso de Estudio'}</div>
-            <h3 class="mt-5 text-2xl font-semibold tracking-tight text-slate-900">{item.title}</h3>
+            <h3 class="mt-5 text-2xl font-semibold text-slate-900">{item.title}</h3>
             <p class="mt-3 max-w-2xl text-slate-700">{item.description}</p>
             <div class="mt-6 text-sm font-medium text-slate-900">{isEn ? 'View case study →' : 'Ver caso de estudio →'}</div>
           </a>
@@ -524,7 +524,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
       <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div>
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">{isEn ? 'Capabilities' : 'Capacidades'}</div>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{isEn ? 'Complete Manufacturing Capabilities' : 'Capacidades Completas de Fabricación'}</h2>
+          <h2 class="mt-3 text-3xl font-bold md:text-4xl">{isEn ? 'Complete Manufacturing Capabilities' : 'Capacidades Completas de Fabricación'}</h2>
           <p class="mt-4 max-w-3xl text-lg text-slate-300">
             From initial concept to final delivery, we handle every aspect of IPL device production with precision and expertise.
           </p>
@@ -558,7 +558,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Technologies' : 'Tecnologías'}</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{isEn ? 'Advanced IPL Technologies' : 'Tecnologías IPL Avanzadas'}</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{isEn ? 'Advanced IPL Technologies' : 'Tecnologías IPL Avanzadas'}</h2>
         <p class="mt-4 text-lg text-slate-700">
             {isEn ? 'Cutting-edge features that set our IPL devices apart in the global market.' : 'Características de vanguardia que diferencian nuestros dispositivos IPL en el mercado global.'}
           </p>
@@ -581,7 +581,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
     <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
       <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Quality' : 'Calidad'}</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{isEn ? 'Quality Assurance and Global Certifications' : 'Aseguramiento de Calidad y Certificaciones Globales'}</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{isEn ? 'Quality Assurance and Global Certifications' : 'Aseguramiento de Calidad y Certificaciones Globales'}</h2>
         <p class="mt-4 text-lg text-slate-700">
           {isEn ? 'Every device undergoes rigorous testing and quality control processes to meet the highest international standards. Our certifications open doors to global markets.' : 'Cada dispositivo se somete a rigurosos procesos de prueba y control de calidad para cumplir con los más altos estándares internacionales. Nuestras certificaciones abren puertas a los mercados globales.'}
         </p>
@@ -604,7 +604,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
         {qualityStats.map((item) => (
           <div class="rounded-[1.75rem] border border-slate-200 bg-gradient-to-br from-sky-50 via-white to-violet-50 p-6 shadow-sm">
             <div class="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">Proof</div>
-            <div class="mt-4 text-2xl font-bold tracking-tight text-slate-900">{item}</div>
+            <div class="mt-4 text-2xl font-bold text-slate-900">{item}</div>
           </div>
         ))}
       </div>
@@ -616,7 +616,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
       <div class="grid gap-10 lg:grid-cols-[1fr_1fr]">
         <div>
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-100">{isEn ? 'Scale Proof' : 'Prueba de Escala'}</div>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{isEn ? 'Trusted by Industry Leaders Worldwide' : 'Confiado por Líderes de la Industria en Todo el Mundo'}</h2>
+          <h2 class="mt-3 text-3xl font-bold md:text-4xl">{isEn ? 'Trusted by Industry Leaders Worldwide' : 'Confiado por Líderes de la Industria en Todo el Mundo'}</h2>
             <p class="mt-4 max-w-2xl text-lg text-violet-100">
               {isEn ? 'Numbers that demonstrate our commitment to excellence and partnership success.' : 'Números que demuestran nuestro compromiso con la excelencia y el éxito de las asociaciones.'}
             </p>
@@ -646,7 +646,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div class="max-w-3xl">
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">{isEn ? 'Blog' : 'Blog'}</div>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{isEn ? 'Latest Insights and Resources' : 'Últimas Perspectivas y Recursos'}</h2>
+          <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{isEn ? 'Latest Insights and Resources' : 'Últimas Perspectivas y Recursos'}</h2>
           <p class="mt-4 text-lg text-slate-700">
             {isEn ? 'Stay informed with the latest trends, technologies, and best practices in IPL manufacturing.' : 'Mantente informado con las últimas tendencias, tecnologías y mejores prácticas en la fabricación IPL.'}
           </p>
@@ -696,7 +696,7 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
                 {post.category ? <span class="rounded-2xl bg-slate-100 px-3 py-1 font-medium text-slate-700">{post.category}</span> : null}
                 {post.date ? <span class="ml-auto">{post.date}</span> : null}
               </div>
-              <h3 class="text-xl font-semibold tracking-tight text-slate-900">{post.title}</h3>
+              <h3 class="text-xl font-semibold text-slate-900">{post.title}</h3>
               <p class="text-sm leading-relaxed text-slate-700">{post.excerpt}</p>
               <div class="text-sm font-medium text-slate-900">Read article →</div>
             </div>

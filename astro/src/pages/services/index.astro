@@ -271,13 +271,10 @@ const trustedStats = Array.from({ length: 3 }, (_, index) => ({
 }));
 
 const trustedBrands = [
-  { name: 'MandySkin Canada', logo: '/images/logos/mandyskin-logo.jpg' },
-  { name: 'ROSESKINCO USA', logo: '/images/logos/roseskinco-logo.png' },
-  { name: 'KU-2 Cosmetic Germany', logo: '/images/logos/logo-ku-cosmetics.png' },
-].map((brand) => ({
-  ...brand,
-  logoSources: responsiveImageSources(brand.logo, [200, 400, 800], 400),
-}));
+  { name: 'Costco Canada', logo: '/images/logos/costco-logo.svg' },
+  { name: 'RoseSkinCo USA', logo: '/images/logos/roseskin-logo.svg' },
+  { name: 'KU-2 Cosmetics Germany', logo: '/images/logos/KU-2%20logo.svg' },
+];
 
 const servicesHeroImage = responsiveImageSources('/images/service/service-ipl.jpg');
 const servicesWorkflowImage = responsiveImageSources(
@@ -301,7 +298,7 @@ const servicesWorkflowImage = responsiveImageSources(
         <div>
           <Breadcrumb items={breadcrumbs} locale={locale} />
           <div class="mt-8 max-w-3xl">
-            <h1 class="text-4xl font-bold tracking-tight text-[#020303] md:text-5xl">
+            <h1 class="text-4xl font-bold text-[#020303] md:text-5xl">
               IPL Private Label & OEM/ODM Services
               <span class="block text-[#020303]">
                 From Platform Selection to Fulfillment
@@ -382,7 +379,7 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="mx-auto max-w-6xl px-6">
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">What is included in iShine's IPL manufacturing services?</h3>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is included in iShine's IPL manufacturing services?</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
         iShine provides end-to-end IPL manufacturing services for private-label programs, covering OEM/ODM development, product design, production and assembly, packaging, and export logistics. A typical engagement starts with requirements and positioning, then moves into engineering decisions such as cooling approach (including premium sapphire contact cooling targeting ~10°C in supported configurations), energy range, flash window sizing, wavelength filtering, and safety interlocks. Platform-based prototype sampling can often begin in 1-4 weeks depending on scope, while programs involving tooling, electronics, firmware, or compliance work add time for validation, documentation, and production planning. Packaging support includes branded cartons, inserts, manuals, labeling, and accessory selection aligned to retail, distributor, or e-commerce channels, with options such as manual localization and channel-ready labeling. Delivery support includes export documents and shipping coordination (FOB Shenzhen, with CIF options) by sea, air, or courier based on timeline and destination requirements.
       </p>
@@ -391,7 +388,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Pick Your Path</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Start, Brand, or Scale—Choose Your Workflow</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Start, Brand, or Scale—Choose Your Workflow</h2>
         <p class="mt-4 text-lg text-slate-700">
           Use the paths below to jump straight to the services and pages that match your current stage.
         </p>
@@ -399,7 +396,7 @@ const servicesWorkflowImage = responsiveImageSources(
       <div class="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
         {pickYourPath.map((path) => (
           <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-2xl font-semibold tracking-tight text-slate-900">{path.title}</h3>
+            <h3 class="text-2xl font-semibold text-slate-900">{path.title}</h3>
             <p class="mt-3 text-sm leading-relaxed text-slate-700">{path.description}</p>
             <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
               {path.links.map((link) => (
@@ -419,7 +416,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Services Map</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">WHAT branding custom services do we offer?</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">WHAT branding custom services do we offer?</h2>
         <p class="mt-4 text-lg text-slate-700">
           From low-risk launches to channel-ready packaging, we help you turn a factory-ready SKU into a brand-ready product.
         </p>
@@ -435,7 +432,7 @@ const servicesWorkflowImage = responsiveImageSources(
                 <service.icon size={22} strokeWidth={1.5} />
               </div>
             </div>
-            <h3 class="mt-6 text-2xl font-semibold tracking-tight text-slate-900">{service.title}</h3>
+            <h3 class="mt-6 text-2xl font-semibold text-slate-900">{service.title}</h3>
             <p class="mt-3 text-slate-700">{service.description}</p>
             <ul class="mt-6 space-y-3 text-sm text-slate-700">
               {service.features.map((feature) => (
@@ -461,7 +458,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="rounded-2xl bg-slate-950 px-8 py-12 text-white shadow-2xl md:px-10">
       <div class="text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">Why Choose iShine</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{t(locale, 'servicesPage.why.title')}</h2>
+        <h2 class="mt-3 text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.why.title')}</h2>
         <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-300">{t(locale, 'servicesPage.why.description')}</p>
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -480,33 +477,33 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trust Signals</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Proof That Supports Long-Term Partnerships</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Proof That Supports Long-Term Partnerships</h2>
         <p class="mt-4 text-lg text-slate-700">These pages explain how we reduce operational risk, not just how we manufacture.</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Quality Control</h3>
+          <h3 class="text-xl font-semibold text-slate-900">Quality Control</h3>
           <p class="mt-3 text-sm leading-relaxed text-slate-700">Build stability with clear production steps and quality checkpoints.</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/production-assembly')}>
             Production & Assembly
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Compliance</h3>
+          <h3 class="text-xl font-semibold text-slate-900">Compliance</h3>
           <p class="mt-3 text-sm leading-relaxed text-slate-700">Understand safety considerations and how to plan documentation early.</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/faq')}>
             Read Our FAQ
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Customization</h3>
+          <h3 class="text-xl font-semibold text-slate-900">Customization</h3>
           <p class="mt-3 text-sm leading-relaxed text-slate-700">From logo and packaging to manuals—make the product feel like your brand.</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services')}>
             Branding Custom Services
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold tracking-tight text-slate-900">Contact</h3>
+          <h3 class="text-xl font-semibold text-slate-900">Contact</h3>
           <p class="mt-3 text-sm leading-relaxed text-slate-700">Get a clear scope, lead time, and a plan that fits your channel.</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/contact')}>
             Talk to our team
@@ -518,7 +515,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Process</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">From concept to delivery: a practical workflow</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">From concept to delivery: a practical workflow</h2>
         <p class="mt-4 text-lg text-slate-700">
           Follow a repeatable sequence that reduces rework, shortens decision cycles, and improves on-time delivery.
         </p>
@@ -550,7 +547,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
       <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trusted by Leading Brands</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{t(locale, 'servicesPage.trusted.title')}</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.trusted.title')}</h2>
         <p class="mt-4 max-w-2xl text-lg text-slate-700">{t(locale, 'servicesPage.trusted.description')}</p>
         <div class="mt-8 grid gap-4 sm:grid-cols-3">
           {trustedStats.map((stat) => (
@@ -591,21 +588,15 @@ const servicesWorkflowImage = responsiveImageSources(
         <div class="grid gap-4 sm:grid-cols-3">
           {trustedBrands.map((brand) => (
             <div class="flex min-h-[120px] items-center justify-center rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <picture>
-                <source srcset={brand.logoSources.avifSrcSet} sizes="140px" type="image/avif" />
-                <source srcset={brand.logoSources.webpSrcSet} sizes="140px" type="image/webp" />
-                <img
-                  src={brand.logoSources.src}
-                  srcset={brand.logoSources.webpSrcSet}
-                  sizes="140px"
-                  alt={`${brand.name} logo`}
-                  loading="lazy"
-                  decoding="async"
-                  width="140"
-                  height="48"
-                  class="max-h-12 w-auto object-contain"
-                />
-              </picture>
+              <img
+                src={brand.logo}
+                alt={`${brand.name} logo`}
+                loading="lazy"
+                decoding="async"
+                width="140"
+                height="48"
+                class="max-h-12 w-auto object-contain"
+              />
             </div>
           ))}
         </div>
@@ -615,7 +606,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Questions brands ask before placing an order</h2>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Questions brands ask before placing an order</h2>
         <p class="mt-4 text-lg text-slate-700">Short answers with direct links to the relevant service pages.</p>
       </div>
       <div class="mx-auto grid max-w-4xl gap-4">
@@ -645,7 +636,7 @@ const servicesWorkflowImage = responsiveImageSources(
     <section class="rounded-2xl bg-slate-900 px-8 py-14 text-white shadow-2xl">
       <div class="mx-auto max-w-4xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Ready to Start?</div>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{t(locale, 'servicesPage.cta.title')}</h2>
+        <h2 class="mt-3 text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-200">{t(locale, 'servicesPage.cta.description')}</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/contact')}>
