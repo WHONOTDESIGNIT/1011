@@ -228,6 +228,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
   </div>
 </header>
 
+<div class="nav-sky-overlay" id="nav-sky-overlay" aria-hidden="true"></div>
 <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 <div class="mobile-menu-panel" id="mobile-menu-panel" aria-hidden="true">
   <div class="mobile-menu-group">
@@ -474,6 +475,32 @@ const contactHref = getLocalizedPath(lang, '/contact');
 })();
 </script>
 
+<!-- 弹窗展开时显示 30% 天蓝背景图层（隐藏延迟与 mega-dropdown 的 2s 匹配，避免闪烁） -->
+<script>
+(function () {
+  var skyOverlay = document.getElementById('nav-sky-overlay');
+  var wrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+  if (!skyOverlay || !wrappers.length) return;
+  var hideTimer = null;
+  function showSky() {
+    clearTimeout(hideTimer);
+    skyOverlay.classList.add('open');
+    skyOverlay.setAttribute('aria-hidden', 'false');
+  }
+  function hideSky() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      skyOverlay.classList.remove('open');
+      skyOverlay.setAttribute('aria-hidden', 'true');
+    }, 2250);
+  }
+  wrappers.forEach(function (wrapper) {
+    wrapper.addEventListener('mouseenter', showSky);
+    wrapper.addEventListener('mouseleave', hideSky);
+  });
+})();
+</script>
+
 <style is:global>
 /* ═══ iShine 统一头部样式（源自 index.astro 最新版）═══ */
 .trust-bar,
@@ -527,6 +554,9 @@ const contactHref = getLocalizedPath(lang, '/contact');
 }
 
 /* ═══ Mega Dropdown ═══ */
+/* 弹窗出现时覆盖在 hero 背景上的 30% 天蓝色图层 */
+.nav-sky-overlay{position:fixed;inset:0;background:rgba(56,189,248,.3);opacity:0;visibility:hidden;pointer-events:none;z-index:104;transition:opacity .25s ease,visibility 0s .25s}
+.nav-sky-overlay.open{opacity:1;visibility:visible;pointer-events:none;transition:opacity .25s ease,visibility 0s 0s}
 .nav-dropdown-wrapper{position:relative}
 .nav-has-dropdown{gap:6px}
 .nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}

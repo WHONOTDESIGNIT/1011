@@ -3,7 +3,8 @@ import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import Chat from '../components/react/Chat';
+// TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
+// import Chat from '../components/react/Chat';
 import criticalCss from '../styles/critical.css?raw';
 import globalCssUrl from '../styles/global.css?url';
 
@@ -131,7 +132,9 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
     </div>
     <SiteFooter />
     <StickyContact />
+    <!-- TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
     <Chat client:idle />
+    -->
 
     <button id="back-to-top" aria-label="Back to top">
       <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -199,9 +202,9 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
       }
 
       #back-to-top:hover {
-        background: var(--primary-color, #F58C28);
+        background: var(--primary-color, #563cfa);
         color: var(--color-white, #FFFFFF);
-        border-color: var(--primary-color, #F58C28);
+        border-color: var(--primary-color, #563cfa);
       }
 
       @media (max-width: 1024px) {
