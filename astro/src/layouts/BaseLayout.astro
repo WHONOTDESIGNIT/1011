@@ -98,7 +98,7 @@ const hreflangEs = stripTrailingSlash(getAbsoluteLocaleUrl('es', basePath, siteB
 const hreflangFr = stripTrailingSlash(getAbsoluteLocaleUrl('fr', basePath, siteBaseUrl));
 const hreflangRu = stripTrailingSlash(getAbsoluteLocaleUrl('ru', basePath, siteBaseUrl));
 const hreflangHe = stripTrailingSlash(getAbsoluteLocaleUrl('he', basePath, siteBaseUrl));
-const hreflangPt = stripTrailingSlash(getAbsoluteLocaleUrl('pt-PT', basePath, siteBaseUrl));
+const hreflangPt = stripTrailingSlash(getAbsoluteLocaleUrl('pt-PT', basePath, { normalizeLocale: false }));
 const hreflangNl = stripTrailingSlash(getAbsoluteLocaleUrl('nl', basePath, siteBaseUrl));
 // 显式 hreflang（页面级覆盖）；未提供时回退到自动生成的 en/tr/ar/es/fr/ru
 const pageHreflangs = hreflangs?.length

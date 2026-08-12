@@ -22,8 +22,10 @@ const pathWithoutLocale = pathHasLocale(currentPath)
 const current = LANGUAGE_CONFIG.find((l) => l.code === lang) ?? LANGUAGE_CONFIG[0];
 
 // 链接规范：所有语种链接统一不带末尾斜杠（根路径除外），如 /tr/products/lumi
+// normalizeLocale:false 保留 locale 原始大小写（pt-PT），与构建目录一致，
+// 避免在 Linux（Netlify）上因大小写不敏感差异导致 /pt-pt/ 404
 const localeHref = (l: string, p: string) => {
-  const url = getRelativeLocaleUrl(l, p);
+  const url = getRelativeLocaleUrl(l, p, { normalizeLocale: false });
   return url.length > 1 ? url.replace(/\/+$/, '') : url;
 };
 ---
