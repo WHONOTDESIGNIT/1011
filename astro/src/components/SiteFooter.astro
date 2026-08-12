@@ -1,6 +1,19 @@
 ---
 // iShine 全站统一 Footer —— 与首页 (src/pages/index.astro) 完全一致
 // 用户要求"原样照抄"首页实现，含 CTA 列描述句现有配色
+import { getLocalizedPath } from '../lib/breadcrumbs';
+import { t } from '../lib/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang: langProp } = Astro.props as Props;
+// 未显式传 lang 时，从 URL 自动推导当前语言（兼容直接内联组件且不传参的 develo-* 等页面）
+const locale = langProp || Astro.currentLocale || (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/nl') ? 'nl' : 'en');
+const lang = locale;
+// 按当前语言为站内链接加前缀（en 无前缀，tr 自动带 /tr/）
+const loc = (p: string) => getLocalizedPath(lang, p);
 ---
 
 <style>
@@ -159,29 +172,29 @@
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h4>Ready to start your IPL project?</h4>
-        <p>We'd love to help you bring your private-label IPL device to market.</p>
-        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <h4>{t(locale, 'homepage.footer.heading')}</h4>
+        <p>{t(locale, 'homepage.footer.sub')}</p>
+        <a class="our-work-link" href={loc("/contact")} style="margin-top:12px">{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="footer-col">
         <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
         <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
-        <span class="footer-contact-text">Shenzhen, China</span>
-        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
+        <span class="footer-contact-text">{t(locale, 'homepage.footer.address')}</span>
+        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">{t(locale, 'homepage.footer.companyName')}</span>
       </div>
       <div class="footer-col">
-        <a href="/products">Products</a>
-        <a href="/services">Services</a>
-        <a href="/clients">Work</a>
-        <a href="/about">About</a>
-        <a href="/blog">Learn</a>
-        <a href="/services/dropshipping">Dropshipping</a>
-        <a href="/contact">Contact</a>
+        <a href={loc("/products")}>{t(locale, 'footer.products')}</a>
+        <a href={loc("/services")}>{t(locale, 'nav.services')}</a>
+        <a href={loc("/clients")}>{t(locale, 'nav.clients')}</a>
+        <a href={loc("/about")}>{t(locale, 'nav.about')}</a>
+        <a href={loc("/blog")}>{t(locale, 'nav.blog')}</a>
+        <a href={loc("/components")}>{t(locale, 'nav.components')}</a>
+        <a href={loc("/contact")}>{t(locale, 'nav.contact')}</a>
       </div>
       <div class="footer-col footer-col-info">
-        <p class="footer-company-info">iShine is a one-stop IPL hair removal device manufacturer and OEM/ODM solution provider in the beauty tech field, founded in 2015. It is certified with FDA 510(k) clearance, ISO13485, and complies with international quality and safety standards.</p>
-        <p class="footer-company-info">The IPL devices we produce are suitable for various skin types and hair removal needs, including consumer home-use and professional salon applications. Recognized for delivering diamond cooling technologies, intelligent skin-sensing systems, and reliable manufacturing expertise to global brand partners.</p>
-        <p class="footer-company-info" style="margin-top:12px">© iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
+        <p class="footer-company-info">{t(locale, 'homepage.footer.companyIntro')}</p>
+        <p class="footer-company-info">{t(locale, 'home.qualitySection.items.2.title')} · {t(locale, 'home.qualitySection.items.3.title')}<br/>{t(locale, 'homepage.footer.fdaSupport')}</p>
+        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'footer.copyright')} <a href={loc("/privacy-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'footer.privacyPolicy')}</a>. <a href={loc("/faq")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'nav.faq')}</a>.</p>
       </div>
     </div>
   </div>

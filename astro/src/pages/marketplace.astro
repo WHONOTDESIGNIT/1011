@@ -1,14 +1,53 @@
 ---
 // iShine Marketplace — 数字创意资产交易平台（iShine 专属页面）
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>iShine Marketplace | Digital Creative Asset Trading Platform</title>
-<meta name="description" content="iShine Marketplace is a trusted digital creative asset trading platform where creators showcase, trade and grow their digital works — with creator services and support built around the belief: Light up creativity, link value." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-PT', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'auxPages.marketplace.pageTitle')}</title>
+<meta name="description" content={t(locale, 'auxPages.marketplace.pageDescription')} />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
 <style>
@@ -154,13 +193,13 @@ h1,h2,h3{font-weight:400}
       <div class="content-col">
         <div class="small-title">
           <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M24 6C24 2.68629 21.3137 -1.44847e-07 18 0C14.6863 1.44847e-07 12 2.68629 12 6C12 2.68629 9.31371 3.7969e-07 6 5.24537e-07C2.68629 7.86805e-07 -2.62268e-07 2.68629 0 6C1.44847e-07 9.31371 2.68629 12 6 12C2.68629 12 3.7969e-07 14.6863 5.24537e-07 18C6.69384e-07 21.3137 2.68629 24 6 24C9.31371 24 12 21.3137 12 18C12 21.3137 14.6863 24 18 24C21.3137 24 24 21.3137 24 18C24 14.6871 21.315 12.0013 18.0024 12C21.315 11.9987 24 9.31292 24 6Z" fill="#020303"/></svg>
-          <h1 class="small-title-text">iShine Marketplace | Digital Creative Assets</h1>
+          <h1 class="small-title-text">{t(locale, 'auxPages.marketplace.hero.smallTitle')}</h1>
         </div>
-        <h2 class="heading">Your Trusted Digital Creative Asset Trading Platform</h2>
-        <p class="subheading">Showcase your digital works, trade with confidence, and grow with creator services — all in one trusted marketplace.</p>
-        <p class="brand-slogan">Light Up Creativity, Link Value</p>
+        <h2 class="heading">{t(locale, 'auxPages.marketplace.hero.heading')}</h2>
+        <p class="subheading">{t(locale, 'auxPages.marketplace.hero.subheading')}</p>
+        <p class="brand-slogan">{t(locale, 'auxPages.marketplace.brandSlogan')}</p>
         <div class="button-group">
-          <a class="btn-base btn-primary-dark with-icon" href="/contact"><span>Contact iShine</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn-base btn-primary-dark with-icon" href={getLocalizedPath(locale, '/contact')}><span>{t(locale, 'auxPages.marketplace.contactCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -170,18 +209,18 @@ h1,h2,h3{font-weight:400}
   <section class="product-card-section">
     <div class="section-container">
       <div class="product-card-wrapper">
-        <a class="product-image-col" href="/products">
-          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20digital%20creative%20studio%20wall%20displaying%20a%20colorful%20gallery%20of%20digital%20artwork%2C%20UI%20design%20templates%2C%20and%20illustration%20pieces%20on%20sleek%20screens%2C%20clean%20minimal%20workspace%2C%20soft%20daylight%2C%20professional%20product%20photography%20style&image_size=square_hd" alt="Digital Works Showcase - creative asset gallery" loading="lazy" />
+        <a class="product-image-col" href={getLocalizedPath(locale, '/products')}>
+          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20digital%20creative%20studio%20wall%20displaying%20a%20colorful%20gallery%20of%20digital%20artwork%2C%20UI%20design%20templates%2C%20and%20illustration%20pieces%20on%20sleek%20screens%2C%20clean%20minimal%20workspace%2C%20soft%20daylight%2C%20professional%20product%20photography%20style&image_size=square_hd" alt={t(locale, 'auxPages.marketplace.product1.imageAlt')} loading="lazy" />
         </a>
         <div class="product-content-col">
           <div class="product-small-title">
             <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
-            <span class="small-title-text">Digital Works Showcase</span>
+            <span class="small-title-text">{t(locale, 'auxPages.marketplace.product1.smallTitle')}</span>
           </div>
-          <a class="product-heading-link" href="/products"><h2 class="product-heading">Showcase Your Digital Creations</h2></a>
-          <p class="product-description">Publish and present your digital works — templates, designs, illustrations and more — in a beautifully organised gallery that makes it easy for buyers to discover your creations.</p>
+          <a class="product-heading-link" href={getLocalizedPath(locale, '/products')}><h2 class="product-heading">{t(locale, 'auxPages.marketplace.product1.heading')}</h2></a>
+          <p class="product-description">{t(locale, 'auxPages.marketplace.product1.description')}</p>
           <div class="product-cta">
-            <a class="product-link" href="/products"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+            <a class="product-link" href={getLocalizedPath(locale, '/products')}><button class="btn-base btn-primary-dark with-icon" type="button"><span>{t(locale, 'auxPages.marketplace.detailsCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
           </div>
         </div>
       </div>
@@ -192,18 +231,18 @@ h1,h2,h3{font-weight:400}
   <section class="product-card-section">
     <div class="section-container">
       <div class="product-card-wrapper">
-        <a class="product-image-col" href="/services/oem-odm">
-          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Sleek%20laptop%20screen%20showing%20a%20secure%20digital%20marketplace%20interface%20for%20creative%20asset%20transactions%20with%20order%20confirmation%20and%20payment%20success%2C%20clean%20modern%20fintech%20UI%20design%2C%20blue%20and%20violet%20accents%2C%20studio%20lighting&image_size=square_hd" alt="Secure Trading - digital asset transactions" loading="lazy" />
+        <a class="product-image-col" href={getLocalizedPath(locale, '/services/oem-odm')}>
+          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Sleek%20laptop%20screen%20showing%20a%20secure%20digital%20marketplace%20interface%20for%20creative%20asset%20transactions%20with%20order%20confirmation%20and%20payment%20success%2C%20clean%20modern%20fintech%20UI%20design%2C%20blue%20and%20violet%20accents%2C%20studio%20lighting&image_size=square_hd" alt={t(locale, 'auxPages.marketplace.product2.imageAlt')} loading="lazy" />
         </a>
         <div class="product-content-col">
           <div class="product-small-title">
             <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
-            <span class="small-title-text">Secure Digital Trading</span>
+            <span class="small-title-text">{t(locale, 'auxPages.marketplace.product2.smallTitle')}</span>
           </div>
-          <a class="product-heading-link" href="/services/oem-odm"><h2 class="product-heading">Trade Digital Assets With Confidence</h2></a>
-          <p class="product-description">Buy and sell digital assets through a clear, secure transaction flow with transparent licensing, instant delivery and protected payments.</p>
+          <a class="product-heading-link" href={getLocalizedPath(locale, '/services/oem-odm')}><h2 class="product-heading">{t(locale, 'auxPages.marketplace.product2.heading')}</h2></a>
+          <p class="product-description">{t(locale, 'auxPages.marketplace.product2.description')}</p>
           <div class="product-cta">
-            <a class="product-link" href="/services/oem-odm"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+            <a class="product-link" href={getLocalizedPath(locale, '/services/oem-odm')}><button class="btn-base btn-primary-dark with-icon" type="button"><span>{t(locale, 'auxPages.marketplace.detailsCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
           </div>
         </div>
       </div>
@@ -214,18 +253,18 @@ h1,h2,h3{font-weight:400}
   <section class="product-card-section">
     <div class="section-container">
       <div class="product-card-wrapper">
-        <a class="product-image-col" href="/services">
-          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Digital%20creator%20desk%20setup%20with%20drawing%20tablet%2C%20color%20swatches%2C%20design%20mockups%20and%20a%20floating%20analytics%20dashboard%2C%20warm%20ambient%20lighting%2C%20cozy%20creative%20workspace%2C%20professional%20photography&image_size=square_hd" alt="Creator Services - analytics and growth tools" loading="lazy" />
+        <a class="product-image-col" href={getLocalizedPath(locale, '/services')}>
+          <img class="product-image" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Digital%20creator%20desk%20setup%20with%20drawing%20tablet%2C%20color%20swatches%2C%20design%20mockups%20and%20a%20floating%20analytics%20dashboard%2C%20warm%20ambient%20lighting%2C%20cozy%20creative%20workspace%2C%20professional%20photography&image_size=square_hd" alt={t(locale, 'auxPages.marketplace.product3.imageAlt')} loading="lazy" />
         </a>
         <div class="product-content-col">
           <div class="product-small-title">
             <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#020303"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#020303"/></svg>
-            <span class="small-title-text">Creator Services</span>
+            <span class="small-title-text">{t(locale, 'auxPages.marketplace.product3.smallTitle')}</span>
           </div>
-          <a class="product-heading-link" href="/services"><h2 class="product-heading">Grow Your Creative Business</h2></a>
-          <p class="product-description">From portfolio tools to seller analytics, iShine Marketplace provides creators with the services and support they need to reach new audiences and scale sustainably.</p>
+          <a class="product-heading-link" href={getLocalizedPath(locale, '/services')}><h2 class="product-heading">{t(locale, 'auxPages.marketplace.product3.heading')}</h2></a>
+          <p class="product-description">{t(locale, 'auxPages.marketplace.product3.description')}</p>
           <div class="product-cta">
-            <a class="product-link" href="/services"><button class="btn-base btn-primary-dark with-icon" type="button"><span>Details</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
+            <a class="product-link" href={getLocalizedPath(locale, '/services')}><button class="btn-base btn-primary-dark with-icon" type="button"><span>{t(locale, 'auxPages.marketplace.detailsCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></a>
           </div>
         </div>
       </div>
@@ -238,19 +277,19 @@ h1,h2,h3{font-weight:400}
       <div class="left-col">
         <div class="small-title">
           <svg class="shape-icon" width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12.0001 0L24.0001 12.0001L12.0001 24.0001L0 12.0001L12.0001 0Z" fill="#fff"/></svg>
-          <span>iShine Marketplace | Official Services</span>
+          <span>{t(locale, 'auxPages.marketplace.cta.smallTitle')}</span>
         </div>
-        <h2 class="heading">Talk to our iShine service<br>team about your<br>goals</h2>
-        <p class="brand-slogan">Light Up Creativity, Link Value</p>
+        <h2 class="heading">{t(locale, 'auxPages.marketplace.cta.headingLine1')}<br>{t(locale, 'auxPages.marketplace.cta.headingLine2')}<br>{t(locale, 'auxPages.marketplace.cta.headingLine3')}</h2>
+        <p class="brand-slogan">{t(locale, 'auxPages.marketplace.brandSlogan')}</p>
         <div class="button-group">
-          <a class="btn-base btn-primary-light with-icon" href="/contact"><span>Contact iShine</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn-base btn-primary-light with-icon" href={getLocalizedPath(locale, '/contact')}><span>{t(locale, 'auxPages.marketplace.contactCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
       <div class="right-col">
-        <a class="mp-link" href="/services/private-label"><span class="mp-link-title">Private Label<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
-        <a class="mp-link" href="/services/find-a-technology-partner"><span class="mp-link-title">Find a IPL Technology Partner<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
-        <a class="mp-link" href="/services/build-a-new-ipl"><span class="mp-link-title">Build a New IPL<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
-        <a class="mp-link" href="/services/maintain-or-fix-ipl-project"><span class="mp-link-title">Maintain or Fix My IPL<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href={getLocalizedPath(locale, '/services/private-label')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.privateLabel')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href={getLocalizedPath(locale, '/services/find-a-technology-partner')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.technologyPartner')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href={getLocalizedPath(locale, '/services/build-a-new-ipl')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.buildNewIpl')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+        <a class="mp-link" href={getLocalizedPath(locale, '/services/maintain-or-fix-ipl-project')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.maintainOrFixIpl')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
       </div>
     </div>
   </section>
@@ -263,27 +302,27 @@ h1,h2,h3{font-weight:400}
           <div class="blog-header">
             <div class="small-title">
               <svg class="diamond-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00004 0L16.0001 8.00004L8.00004 16.0001L0 8.00004L8.00004 0Z" fill="currentColor"/></svg>
-              <span>Learn with us</span>
+              <span>{t(locale, 'auxPages.marketplace.blog.smallTitle')}</span>
             </div>
-            <h2 class="heading">Creator community</h2>
-            <p class="sub-heading">Useful articles about digital creativity, marketplace trading and growing your business with iShine Marketplace.</p>
+            <h2 class="heading">{t(locale, 'auxPages.marketplace.blog.heading')}</h2>
+            <p class="sub-heading">{t(locale, 'auxPages.marketplace.blog.subheading')}</p>
           </div>
           <div class="blog-cards">
-            <a class="blog-card" href="/blog">
-              <div class="card-image"><img loading="lazy" src="/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.webp" alt="Smart IPL Devices: The App-Connected Revolution" /></div>
-              <div class="card-content"><p class="read-time">5 min read</p><h3 class="card-title">Smart IPL Devices: The App-Connected Revolution</h3></div>
+            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
+              <div class="card-image"><img loading="lazy" src="/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.webp" alt={t(locale, 'auxPages.marketplace.blog.card1.title')} /></div>
+              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card1.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card1.title')}</h3></div>
             </a>
-            <a class="blog-card" href="/blog">
-              <div class="card-image"><img loading="lazy" src="/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.webp" alt="Latest Advances in IPL Research" /></div>
-              <div class="card-content"><p class="read-time">4 min read</p><h3 class="card-title">Latest Advances in IPL Research</h3></div>
+            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
+              <div class="card-image"><img loading="lazy" src="/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.webp" alt={t(locale, 'auxPages.marketplace.blog.card2.title')} /></div>
+              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card2.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card2.title')}</h3></div>
             </a>
-            <a class="blog-card" href="/blog">
-              <div class="card-image"><img loading="lazy" src="/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.webp" alt="OEM vs ODM: Choosing the Right Manufacturing Model" /></div>
-              <div class="card-content"><p class="read-time">6 min read</p><h3 class="card-title">OEM vs ODM: Choosing the Right Manufacturing Model</h3></div>
+            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
+              <div class="card-image"><img loading="lazy" src="/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.webp" alt={t(locale, 'auxPages.marketplace.blog.card3.title')} /></div>
+              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card3.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card3.title')}</h3></div>
             </a>
           </div>
           <div class="blog-cta">
-            <a class="btn-base btn-primary-dark with-icon" href="/blog"><span>Learn</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn-base btn-primary-dark with-icon" href={getLocalizedPath(locale, '/blog')}><span>{t(locale, 'auxPages.marketplace.blog.learnCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>

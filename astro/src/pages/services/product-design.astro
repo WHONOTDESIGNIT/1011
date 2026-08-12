@@ -1,112 +1,160 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../lib/netlify-images';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const designServices = [
   {
-    title: 'Industrial Design',
-    description:
-      'Aesthetic and functional design that combines beauty with ergonomics for optimal user experience.',
-    features: ['Ergonomic Design', 'Material Selection', 'Color & Finish', 'Form Factor Optimization'],
+    title: t(locale, 'servicesPage.productDesign.services.items.0.title'),
+    description: t(locale, 'servicesPage.productDesign.services.items.0.description'),
+    features: [
+      t(locale, 'servicesPage.productDesign.services.items.0.features.0'),
+      t(locale, 'servicesPage.productDesign.services.items.0.features.1'),
+      t(locale, 'servicesPage.productDesign.services.items.0.features.2'),
+      t(locale, 'servicesPage.productDesign.services.items.0.features.3'),
+    ],
     gradient: 'from-purple-500 to-pink-500',
   },
   {
-    title: 'UI/UX Design',
-    description:
-      'Intuitive user interfaces and seamless user experiences that make IPL treatments simple and effective.',
-    features: ['Interface Design', 'User Journey Mapping', 'Interaction Design', 'Usability Testing'],
+    title: t(locale, 'servicesPage.productDesign.services.items.1.title'),
+    description: t(locale, 'servicesPage.productDesign.services.items.1.description'),
+    features: [
+      t(locale, 'servicesPage.productDesign.services.items.1.features.0'),
+      t(locale, 'servicesPage.productDesign.services.items.1.features.1'),
+      t(locale, 'servicesPage.productDesign.services.items.1.features.2'),
+      t(locale, 'servicesPage.productDesign.services.items.1.features.3'),
+    ],
     gradient: 'from-sky-500 to-cyan-500',
   },
   {
-    title: 'User Research',
-    description:
-      'Deep understanding of user needs, behaviors, and preferences to inform design decisions.',
-    features: ['Market Research', 'User Interviews', 'Persona Development', 'Competitive Analysis'],
+    title: t(locale, 'servicesPage.productDesign.services.items.2.title'),
+    description: t(locale, 'servicesPage.productDesign.services.items.2.description'),
+    features: [
+      t(locale, 'servicesPage.productDesign.services.items.2.features.0'),
+      t(locale, 'servicesPage.productDesign.services.items.2.features.1'),
+      t(locale, 'servicesPage.productDesign.services.items.2.features.2'),
+      t(locale, 'servicesPage.productDesign.services.items.2.features.3'),
+    ],
     gradient: 'from-emerald-500 to-green-500',
   },
   {
-    title: 'Innovation Consulting',
-    description:
-      'Strategic design thinking to identify opportunities and create breakthrough IPL products.',
-    features: ['Design Strategy', 'Innovation Workshops', 'Concept Development', 'Future Trends Analysis'],
+    title: t(locale, 'servicesPage.productDesign.services.items.3.title'),
+    description: t(locale, 'servicesPage.productDesign.services.items.3.description'),
+    features: [
+      t(locale, 'servicesPage.productDesign.services.items.3.features.0'),
+      t(locale, 'servicesPage.productDesign.services.items.3.features.1'),
+      t(locale, 'servicesPage.productDesign.services.items.3.features.2'),
+      t(locale, 'servicesPage.productDesign.services.items.3.features.3'),
+    ],
     gradient: 'from-violet-600 to-fuchsia-600',
   },
 ];
 
 const designProcess = [
   {
-    phase: 'Research',
-    title: 'Discovery & Research',
-    description:
-      'Understanding market needs, user behaviors, and technical constraints to inform design strategy.',
-    activities: ['Market Analysis', 'User Research', 'Technical Requirements', 'Competitive Landscape'],
-    duration: '2–3 weeks',
+    phase: t(locale, 'servicesPage.productDesign.process.items.0.phase'),
+    title: t(locale, 'servicesPage.productDesign.process.items.0.title'),
+    description: t(locale, 'servicesPage.productDesign.process.items.0.description'),
+    activities: [
+      t(locale, 'servicesPage.productDesign.process.items.0.activities.0'),
+      t(locale, 'servicesPage.productDesign.process.items.0.activities.1'),
+      t(locale, 'servicesPage.productDesign.process.items.0.activities.2'),
+      t(locale, 'servicesPage.productDesign.process.items.0.activities.3'),
+    ],
+    duration: t(locale, 'servicesPage.productDesign.process.items.0.duration'),
   },
   {
-    phase: 'Ideation',
-    title: 'Concept Development',
-    description:
-      'Generating innovative design concepts that balance aesthetics, functionality, and manufacturability.',
-    activities: ['Brainstorming Sessions', 'Concept Sketching', 'Design Exploration', 'Feasibility Analysis'],
-    duration: '3–4 weeks',
+    phase: t(locale, 'servicesPage.productDesign.process.items.1.phase'),
+    title: t(locale, 'servicesPage.productDesign.process.items.1.title'),
+    description: t(locale, 'servicesPage.productDesign.process.items.1.description'),
+    activities: [
+      t(locale, 'servicesPage.productDesign.process.items.1.activities.0'),
+      t(locale, 'servicesPage.productDesign.process.items.1.activities.1'),
+      t(locale, 'servicesPage.productDesign.process.items.1.activities.2'),
+      t(locale, 'servicesPage.productDesign.process.items.1.activities.3'),
+    ],
+    duration: t(locale, 'servicesPage.productDesign.process.items.1.duration'),
   },
   {
-    phase: 'Design',
-    title: 'Detailed Design',
-    description:
-      'Developing comprehensive design specifications including 3D models, technical drawings, and prototypes.',
-    activities: ['3D Modeling', 'Technical Drawings', 'Material Specifications', 'Prototype Development'],
-    duration: '4–6 weeks',
+    phase: t(locale, 'servicesPage.productDesign.process.items.2.phase'),
+    title: t(locale, 'servicesPage.productDesign.process.items.2.title'),
+    description: t(locale, 'servicesPage.productDesign.process.items.2.description'),
+    activities: [
+      t(locale, 'servicesPage.productDesign.process.items.2.activities.0'),
+      t(locale, 'servicesPage.productDesign.process.items.2.activities.1'),
+      t(locale, 'servicesPage.productDesign.process.items.2.activities.2'),
+      t(locale, 'servicesPage.productDesign.process.items.2.activities.3'),
+    ],
+    duration: t(locale, 'servicesPage.productDesign.process.items.2.duration'),
   },
   {
-    phase: 'Validation',
-    title: 'Testing & Refinement',
-    description:
-      'Validating design concepts through user testing, technical validation, and iterative improvements.',
-    activities: ['User Testing', 'Design Validation', 'Performance Testing', 'Design Optimization'],
-    duration: '2–3 weeks',
+    phase: t(locale, 'servicesPage.productDesign.process.items.3.phase'),
+    title: t(locale, 'servicesPage.productDesign.process.items.3.title'),
+    description: t(locale, 'servicesPage.productDesign.process.items.3.description'),
+    activities: [
+      t(locale, 'servicesPage.productDesign.process.items.3.activities.0'),
+      t(locale, 'servicesPage.productDesign.process.items.3.activities.1'),
+      t(locale, 'servicesPage.productDesign.process.items.3.activities.2'),
+      t(locale, 'servicesPage.productDesign.process.items.3.activities.3'),
+    ],
+    duration: t(locale, 'servicesPage.productDesign.process.items.3.duration'),
   },
 ];
 
 const designPrinciples = [
   {
-    title: 'User-Centered Design',
-    description:
-      'Every design decision is made with the end user in mind, ensuring intuitive and satisfying experiences.',
-    examples: ['Ergonomic grip design', 'Clear visual feedback', 'Simple operation flow'],
+    title: t(locale, 'servicesPage.productDesign.principles.items.0.title'),
+    description: t(locale, 'servicesPage.productDesign.principles.items.0.description'),
+    examples: [
+      t(locale, 'servicesPage.productDesign.principles.items.0.examples.0'),
+      t(locale, 'servicesPage.productDesign.principles.items.0.examples.1'),
+      t(locale, 'servicesPage.productDesign.principles.items.0.examples.2'),
+    ],
   },
   {
-    title: 'Functional Aesthetics',
-    description:
-      "Beautiful designs that don't compromise on functionality, creating products that perform as well as they look.",
-    examples: ['Streamlined form factors', 'Premium materials', 'Thoughtful details'],
+    title: t(locale, 'servicesPage.productDesign.principles.items.1.title'),
+    description: t(locale, 'servicesPage.productDesign.principles.items.1.description'),
+    examples: [
+      t(locale, 'servicesPage.productDesign.principles.items.1.examples.0'),
+      t(locale, 'servicesPage.productDesign.principles.items.1.examples.1'),
+      t(locale, 'servicesPage.productDesign.principles.items.1.examples.2'),
+    ],
   },
   {
-    title: 'Innovation Focus',
-    description:
-      'Pushing boundaries to create breakthrough products that set new standards in the IPL industry.',
-    examples: ['Advanced cooling systems', 'Smart skin sensors', 'Wireless connectivity'],
+    title: t(locale, 'servicesPage.productDesign.principles.items.2.title'),
+    description: t(locale, 'servicesPage.productDesign.principles.items.2.description'),
+    examples: [
+      t(locale, 'servicesPage.productDesign.principles.items.2.examples.0'),
+      t(locale, 'servicesPage.productDesign.principles.items.2.examples.1'),
+      t(locale, 'servicesPage.productDesign.principles.items.2.examples.2'),
+    ],
   },
 ];
 
 const caseStudies = [
   {
-    title: 'Premium Home IPL Device',
-    challenge: 'Design a professional-grade IPL device for home use that rivals salon treatments.',
-    solution:
-      'Created an elegant, ergonomic design with advanced cooling technology and smart skin detection.',
-    results: ['40% improvement in user satisfaction', '25% faster treatment times', 'Premium market positioning achieved'],
+    title: t(locale, 'servicesPage.productDesign.caseStudies.items.0.title'),
+    challenge: t(locale, 'servicesPage.productDesign.caseStudies.items.0.challenge'),
+    solution: t(locale, 'servicesPage.productDesign.caseStudies.items.0.solution'),
+    results: [
+      t(locale, 'servicesPage.productDesign.caseStudies.items.0.results.0'),
+      t(locale, 'servicesPage.productDesign.caseStudies.items.0.results.1'),
+      t(locale, 'servicesPage.productDesign.caseStudies.items.0.results.2'),
+    ],
     image:
       '/images/products/Venus/using-venus-sapphire-ipl.webp',
   },
   {
-    title: 'Compact Travel IPL',
-    challenge: 'Develop a portable IPL device without compromising on performance or safety.',
-    solution:
-      'Innovative compact design with foldable handle and optimized internal component layout.',
-    results: ['60% size reduction vs competitors', 'Maintained full IPL effectiveness', 'Strong market differentiation'],
+    title: t(locale, 'servicesPage.productDesign.caseStudies.items.1.title'),
+    challenge: t(locale, 'servicesPage.productDesign.caseStudies.items.1.challenge'),
+    solution: t(locale, 'servicesPage.productDesign.caseStudies.items.1.solution'),
+    results: [
+      t(locale, 'servicesPage.productDesign.caseStudies.items.1.results.0'),
+      t(locale, 'servicesPage.productDesign.caseStudies.items.1.results.1'),
+      t(locale, 'servicesPage.productDesign.caseStudies.items.1.results.2'),
+    ],
     image:
       '/images/products/Eirene/battery-built-in%20ipl%20device%20holding.jpg',
   },
@@ -116,36 +164,36 @@ const caseStudies = [
 }));
 ---
 
-<BaseLayout title="Product Design" lang={locale} description="IPL device product design services: industrial design, UI/UX, user research, and innovation consulting. From concept to market-ready beauty devices.">
+<BaseLayout title={t(locale, 'servicesPage.productDesign.meta.title')} lang={locale} description={t(locale, 'servicesPage.productDesign.meta.description')}>
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-sky-50 to-cyan-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">
         <h1 class="text-4xl font-bold text-slate-900 md:text-6xl">
-          Design That
-          <span class="block bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Inspires &amp; Performs</span>
+          {t(locale, 'servicesPage.productDesign.hero.title1')}
+          <span class="block bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">{t(locale, 'servicesPage.productDesign.hero.title2')}</span>
         </h1>
         <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
-          Transform your IPL device concepts into market-leading products through innovative design, user-centered thinking, and technical excellence.
+          {t(locale, 'servicesPage.productDesign.hero.description')}
         </p>
         <div class="mt-10 flex justify-center">
-          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.productDesign.hero.cta')}</a>
         </div>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What does IPL product design include in an OEM/ODM project?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.productDesign.citable.heading')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        IPL product design in an OEM/ODM project covers both aesthetics and engineering decisions that affect usability, safety, manufacturability, and brand positioning. It typically includes industrial design for ergonomics and premium look-and-feel, UI/UX for controls and indicators, and component-level planning such as cooling approach, treatment window sizing, and sensor integration. Design work also considers packaging and unboxing so the product matches retail or DTC expectations. A strong design phase reduces later production risk by aligning materials, tolerances, and assembly constraints early, which improves consistency at scale. iShine supports design programs from concept exploration through 3D modeling, prototyping, testing, and iterative refinement, so the final device can be produced repeatably and documented for target markets.
+        {t(locale, 'servicesPage.productDesign.citable.body')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What IPL product design services do we offer?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productDesign.services.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          From initial concept to final product, we provide end-to-end design services that bring your IPL device vision to life.
+          {t(locale, 'servicesPage.productDesign.services.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -169,9 +217,9 @@ const caseStudies = [
 
     <section class="rounded-2xl bg-slate-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">How does the IPL product design process work?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productDesign.process.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          A structured approach that balances market insights, creativity, and manufacturability.
+          {t(locale, 'servicesPage.productDesign.process.sub')}
         </p>
       </div>
       <div class="mt-12 space-y-6">
@@ -207,9 +255,9 @@ const caseStudies = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Design Principles</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productDesign.principles.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Principles that guide our design decisions across form, usability, and performance.
+          {t(locale, 'servicesPage.productDesign.principles.sub')}
         </p>
       </div>
       <div class="grid gap-8 lg:grid-cols-3">
@@ -232,9 +280,9 @@ const caseStudies = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Case Studies</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productDesign.caseStudies.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Examples of how design translates into market outcomes and user experience gains.
+          {t(locale, 'servicesPage.productDesign.caseStudies.sub')}
         </p>
       </div>
       <div class="grid gap-8 lg:grid-cols-2">
@@ -260,15 +308,15 @@ const caseStudies = [
             <div class="space-y-4 p-8">
               <h3 class="text-2xl font-bold text-slate-900">{c.title}</h3>
               <div>
-                <div class="text-sm font-semibold text-slate-900">Challenge</div>
+                <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.productDesign.caseStudies.challenge')}</div>
                 <div class="mt-1 text-slate-700">{c.challenge}</div>
               </div>
               <div>
-                <div class="text-sm font-semibold text-slate-900">Solution</div>
+                <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.productDesign.caseStudies.solution')}</div>
                 <div class="mt-1 text-slate-700">{c.solution}</div>
               </div>
               <div>
-                <div class="text-sm font-semibold text-slate-900">Results</div>
+                <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.productDesign.caseStudies.results')}</div>
                 <ul class="mt-2 space-y-2 text-slate-700">
                   {c.results.map((r) => (
                     <li class="flex items-start gap-3">
@@ -279,8 +327,8 @@ const caseStudies = [
                 </ul>
               </div>
               <div class="flex flex-wrap gap-3 pt-2">
-                <a class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
-                <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+                <a class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.productDesign.caseStudies.start')}</a>
+                <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>{t(locale, 'servicesPage.productDesign.caseStudies.back')}</a>
               </div>
             </div>
           </div>
@@ -290,13 +338,13 @@ const caseStudies = [
 
     <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold md:text-4xl">Ready to Design Your Next IPL Product?</h2>
+        <h2 class="text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.productDesign.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
-          Bring your device vision to life with design that balances aesthetics, usability, and manufacturability.
+          {t(locale, 'servicesPage.productDesign.cta.description')}
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>Start Design Project</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+          <a class="rounded bg-sky-600 px-6 py-3 text-sm font-medium text-white hover:bg-sky-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.productDesign.cta.start')}</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>{t(locale, 'servicesPage.productDesign.cta.back')}</a>
         </div>
       </div>
     </section>

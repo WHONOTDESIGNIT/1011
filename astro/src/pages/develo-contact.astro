@@ -1,15 +1,55 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // iShine Contact Page — Develo-style design
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/nl') ? 'nl' : 'en');
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-PT', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
-<title>Contact Us | iShine</title>
-<meta name="description" content="Ready to bring your IPL device to market? Get in touch with iShine — your OEM/ODM IPL manufacturing partner in Shenzhen — and we can book a call to discuss your goals, volumes and compliance requirements." />
+<title>{t(locale, 'develoContent.contact.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoContent.contact.pageDescription')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -258,12 +298,12 @@ img{max-width:100%;height:auto;display:block}
   <section class="contact-hero">
     <div class="contact-hero-grid">
       <div class="contact-hero-content">
-        <span class="contact-hero-label">Start your IPL project</span>
-        <h1>Ready to bring your IPL device to market?</h1>
-        <p class="contact-hero-desc">Great devices start with great conversations. Tell us about your brand, target market and compliance goals — we'll help you turn them into a launch-ready IPL device.</p>
+        <span class="contact-hero-label">{t(locale, 'develoContent.contact.hero.label')}</span>
+        <h1>{t(locale, 'develoContent.contact.hero.title')}</h1>
+        <p class="contact-hero-desc">{t(locale, 'develoContent.contact.hero.description')}</p>
 
         <div class="contact-direct">
-          <h3>Prefer to talk directly?</h3>
+          <h3>{t(locale, 'develoContent.contact.direct.heading')}</h3>
           <a href="mailto:service@ishineco.com">
             <svg class="contact-direct-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             service@ishineco.com
@@ -281,20 +321,20 @@ img{max-width:100%;height:auto;display:block}
           <div class="audit-badge-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <p class="audit-badge-text"><strong>Get a free IPL device audit</strong> — Recommendations on energy output, frequency and stability, plus compliance and certification guidance</p>
+          <p class="audit-badge-text"><strong>{t(locale, 'develoContent.contact.form.auditStrong')}</strong> {t(locale, 'develoContent.contact.form.auditText')}</p>
         </div>
 
         <div class="form-row">
-          <div class="form-group"><label for="first-name">First name *</label><input id="first-name" type="text" placeholder="John" required /></div>
-          <div class="form-group"><label for="last-name">Last name *</label><input id="last-name" type="text" placeholder="Smith" required /></div>
+          <div class="form-group"><label for="first-name">{t(locale, 'develoContent.contact.form.firstNameLabel')}</label><input id="first-name" type="text" placeholder={t(locale, 'develoContent.contact.form.firstNamePlaceholder')} required /></div>
+          <div class="form-group"><label for="last-name">{t(locale, 'develoContent.contact.form.lastNameLabel')}</label><input id="last-name" type="text" placeholder={t(locale, 'develoContent.contact.form.lastNamePlaceholder')} required /></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label for="email">Email *</label><input id="email" type="email" placeholder="john@company.com" required /></div>
-          <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" placeholder="+1 234 567 890" /></div>
+          <div class="form-group"><label for="email">{t(locale, 'develoContent.contact.form.emailLabel')}</label><input id="email" type="email" placeholder={t(locale, 'develoContent.contact.form.emailPlaceholder')} required /></div>
+          <div class="form-group"><label for="phone">{t(locale, 'develoContent.contact.form.phoneLabel')}</label><input id="phone" type="tel" placeholder={t(locale, 'develoContent.contact.form.phonePlaceholder')} /></div>
         </div>
-        <div class="form-group full"><label for="company">Company</label><input id="company" type="text" placeholder="Your brand or company name" /></div>
-        <div class="form-group full"><label for="message">Tell us about your project *</label><textarea id="message" rows="5" placeholder="Describe your device concept, target market, volumes and timeline..." required></textarea></div>
-        <button class="btn-primary" type="submit" style="width:fit-content">Send message
+        <div class="form-group full"><label for="company">{t(locale, 'develoContent.contact.form.companyLabel')}</label><input id="company" type="text" placeholder={t(locale, 'develoContent.contact.form.companyPlaceholder')} /></div>
+        <div class="form-group full"><label for="message">{t(locale, 'develoContent.contact.form.messageLabel')}</label><textarea id="message" rows="5" placeholder={t(locale, 'develoContent.contact.form.messagePlaceholder')} required></textarea></div>
+        <button class="btn-primary" type="submit" style="width:fit-content">{t(locale, 'develoContent.contact.form.submit')}
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
@@ -357,37 +397,7 @@ img{max-width:100%;height:auto;display:block}
 </main>
 
 <!-- ═══ Footer ═══ -->
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <div class="footer-col footer-col-cta">
-        <h4>Ready to start your IPL project?</h4>
-        <p>We'd love to help you bring your private-label IPL device to market.</p>
-        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-      <div class="footer-col">
-        <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
-        <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
-        <span class="footer-contact-text">Shenzhen, China</span>
-        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
-      </div>
-      <div class="footer-col">
-        <a href="/products">Products</a>
-        <a href="/services">Services</a>
-        <a href="/clients">Clients</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/components">Components</a>
-        <a href="/contact">Contact</a>
-      </div>
-      <div class="footer-col footer-col-info">
-        <p class="footer-company-info">Founded in Shenzhen in 2008, serving beauty brands worldwide with OEM/ODM IPL manufacturing.</p>
-        <p class="footer-company-info">ISO 13485 Certified · MDSAP Compliant<br/>FDA 510(k) Documentation Support</p>
-        <p class="footer-company-info" style="margin-top:12px">&copy; iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
-      </div>
-    </div>
-  </div>
-</footer>
+<SiteFooter lang={locale} />
 
 </body>
 </html>

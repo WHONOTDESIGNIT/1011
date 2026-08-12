@@ -1,15 +1,53 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // Develo Design UI/UX Service Page Clone
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>UI/UX Agency Services | Develo Design</title>
-<meta name="description" content="UX & UI Design that Improves Your eCommerce Performance. A Birmingham-based UX and eCommerce design agency focused on removing friction, improving journeys, and turning visitors into confident buyers." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-PT', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'develoSocial.serviceUiuxPage.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoSocial.serviceUiuxPage.pageDescription')} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
@@ -180,9 +218,9 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ HERO ═══ -->
   <section class="hero-section">
     <div class="hero-container">
-      <div class="hero-badge">UI/UX Agency Services</div>
-      <h1 class="hero-title">UX &amp; UI Design that Improves Your eCommerce Performance</h1>
-      <p class="hero-desc">A Birmingham-based UX and eCommerce design agency focused on removing friction, improving journeys, and turning visitors into confident buyers.</p>
+      <div class="hero-badge">{t(locale, 'develoSocial.serviceUiuxPage.hero.badge')}</div>
+      <h1 class="hero-title">{t(locale, 'develoSocial.serviceUiuxPage.hero.heading')}</h1>
+      <p class="hero-desc">{t(locale, 'develoSocial.serviceUiuxPage.hero.description')}</p>
     </div>
   </section>
 
@@ -191,11 +229,11 @@ img{max-width:100%;height:auto;display:block}
     <div class="section-container">
       <div class="titled-content-grid">
         <div class="titled-content-text">
-          <span class="section-label">Collaborative by design</span>
-          <h2>UX design shaped by insight &amp; experience</h2>
-          <p>We combine visual user testing, best practice reviews and data analysis to understand where customers hesitate, get stuck or lose confidence. By blending research with years of eCommerce experience, we design UX improvements that make your store easier to navigate and more enjoyable to shop.</p>
+          <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.collaborative.label')}</span>
+          <h2>{t(locale, 'develoSocial.serviceUiuxPage.collaborative.heading')}</h2>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.collaborative.description')}</p>
         </div>
-        <div class="titled-content-visual"><span style="font-family:Syne,sans-serif;font-size:18px;color:var(--grey-400)">UX Design Process</span></div>
+        <div class="titled-content-visual"><span style="font-family:Syne,sans-serif;font-size:18px;color:var(--grey-400)">{t(locale, 'develoSocial.serviceUiuxPage.collaborative.visualPlaceholder')}</span></div>
       </div>
     </div>
   </section>
@@ -203,21 +241,21 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ PROVEN IMPROVEMENTS ═══ -->
   <section class="proven-section">
     <div class="section-container">
-      <span class="section-label">Proven Improvements</span>
-      <h2 class="section-title" style="margin-bottom:40px">Smarter UX &amp; design that improve eCommerce conversion</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.proven.label')}</span>
+      <h2 class="section-title" style="margin-bottom:40px">{t(locale, 'develoSocial.serviceUiuxPage.proven.heading')}</h2>
       <div class="proven-grid">
         <div class="proven-card">
           <span class="proven-card-tag">CRO</span>
-          <p style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)">Before launching BrandAlley's Magento 2 site, we delivered a full programme of UX, UI and CRO improvements. By refining navigation, mobile layouts, search and site speed, we helped them achieve a 19 per cent increase in revenue and 14 per cent more transactions in 2023.</p>
-          <a href="/services/cro-services" style="display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue)">CRO <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)">{t(locale, 'develoSocial.serviceUiuxPage.proven.description')}</p>
+          <a href={getLocalizedPath(locale, '/services/cro-services')} style="display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue)">CRO <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="proven-stats">
           <div class="stat-row">
-            <div class="stat-item"><span class="stat-value">+19%</span><span class="stat-label">Increase in revenue</span></div>
-            <div class="stat-item"><span class="stat-value">14%</span><span class="stat-label">Increase in transactions</span></div>
+            <div class="stat-item"><span class="stat-value">+19%</span><span class="stat-label">{t(locale, 'develoSocial.serviceUiuxPage.proven.stats.revenue')}</span></div>
+            <div class="stat-item"><span class="stat-value">14%</span><span class="stat-label">{t(locale, 'develoSocial.serviceUiuxPage.proven.stats.transactions')}</span></div>
           </div>
           <div class="stat-row">
-            <div class="stat-item"><span class="stat-value">+9%</span><span class="stat-label">Increase in conversions</span></div>
+            <div class="stat-item"><span class="stat-value">+9%</span><span class="stat-label">{t(locale, 'develoSocial.serviceUiuxPage.proven.stats.conversions')}</span></div>
           </div>
         </div>
       </div>
@@ -227,8 +265,8 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ TRUSTED BY ═══ -->
   <section class="trusted-section">
     <div class="section-container">
-      <span class="section-label" style="text-align:center;display:block">Trusted by</span>
-      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:17px;color:var(--grey-text);margin-bottom:32px">Leading retail and lifestyle brands.</p>
+      <span class="section-label" style="text-align:center;display:block">{t(locale, 'develoSocial.serviceUiuxPage.trusted.label')}</span>
+      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:17px;color:var(--grey-text);margin-bottom:32px">{t(locale, 'develoSocial.serviceUiuxPage.trusted.description')}</p>
       <div class="trusted-logos">
         <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">BRANDALLEY</span>
         <span style="font-family:Syne,sans-serif;font-size:24px;font-weight:700;color:var(--grey-400)">BAMFORD</span>
@@ -244,37 +282,37 @@ img{max-width:100%;height:auto;display:block}
     <div class="section-container">
       <div class="results-header">
         <div>
-          <span class="section-label">Real results</span>
-          <h2 class="section-title">Proven success for our clients</h2>
-          <p class="section-desc">Brands across Magento, Adobe Commerce and Hyva partner with us for UX and UI improvements because the impact is clear.</p>
+          <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.results.label')}</span>
+          <h2 class="section-title">{t(locale, 'develoSocial.serviceUiuxPage.results.heading')}</h2>
+          <p class="section-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.description')}</p>
         </div>
-        <a href="/services/magento-performance-optimisations" class="btn-outline">Performance Optimisations</a>
+        <a href={getLocalizedPath(locale, '/services/magento-performance-optimisations')} class="btn-outline">{t(locale, 'develoSocial.serviceUiuxPage.results.performanceCta')}</a>
       </div>
       <div class="results-grid">
         <div class="result-card">
           <span class="result-stat">+92%</span>
-          <span class="result-stat-desc">Increase in conversions since the site launch in 2025</span>
-          <a class="result-link" href="/work/bamford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.cards.bamford')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/bamford')}>{t(locale, 'develoSocial.serviceUiuxPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+47%</span>
-          <span class="result-stat-desc">Increase in conversions after a migration to Hyva in 2025</span>
-          <a class="result-link" href="/work/daylesford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.cards.daylesford')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/daylesford')}>{t(locale, 'develoSocial.serviceUiuxPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+19%</span>
-          <span class="result-stat-desc">Increase in revenue after a migration to Hyva</span>
-          <a class="result-link" href="/work/brandalley">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.cards.brandalley')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/brandalley')}>{t(locale, 'develoSocial.serviceUiuxPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">41%</span>
-          <span class="result-stat-desc">Increase in Revenue after the Hyva migration</span>
-          <a class="result-link" href="/work/teague">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.cards.teague')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/teague')}>{t(locale, 'develoSocial.serviceUiuxPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+300%</span>
-          <span class="result-stat-desc">Increase in speed for placing bids on Currys Magento B2B auction platform</span>
-          <a class="result-link" href="/work/currys">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceUiuxPage.results.cards.currys')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoSocial.serviceUiuxPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
       <div class="result-pagination">
@@ -288,30 +326,30 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ PROCESS ═══ -->
   <section class="process-section">
     <div class="section-container">
-      <span class="section-label">OUR UI/UX Process</span>
-      <h2 class="section-title">A clear, structured approach to UX improvement</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.process.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceUiuxPage.process.heading')}</h2>
       <div class="process-grid">
         <div class="process-card">
           <span class="process-num">01</span>
-          <h3>Audit &amp; insight</h3>
-          <p>Every project begins with understanding how people currently use your site. We combine GA4, Hotjar, user testing and hands-on UX reviews to identify friction in core journeys.</p>
-          <a class="process-card-link" href="/services/magento-site-audits">Get a Free Magento Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.audit.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.audit.description')}</p>
+          <a class="process-card-link" href={getLocalizedPath(locale, '/services/magento-site-audits')}>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.audit.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="process-card">
           <span class="process-num">02</span>
-          <h3>Hypothesis &amp; prioritise</h3>
-          <p>We translate our findings into clear, actionable improvements. Each recommendation is prioritised using RICE scoring so your investment is focused on changes that will make the greatest impact first.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.hypothesis.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.hypothesis.description')}</p>
         </div>
         <div class="process-card">
           <span class="process-num">03</span>
-          <h3>Design &amp; validate</h3>
-          <p>Our UX and UI designers create visual solutions in Figma. Validation may include prototype reviews, usability testing or A/B testing depending on the scale of the update.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.design.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.design.description')}</p>
         </div>
         <div class="process-card">
           <span class="process-num">04</span>
-          <h3>Implement &amp; optimise</h3>
-          <p>Once designs are approved, our development team builds the updates. We monitor impact through analytics, heatmaps and user feedback, refining changes where needed.</p>
-          <a class="process-card-link" href="/contact">Speak to the team <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.implement.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.implement.description')}</p>
+          <a class="process-card-link" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoSocial.serviceUiuxPage.process.steps.implement.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -320,35 +358,35 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ AREAS ═══ -->
   <section class="areas-section">
     <div class="section-container">
-      <span class="section-label">Where we start</span>
-      <h2 class="section-title">Common areas of UX &amp; UI improvement</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.areas.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceUiuxPage.areas.heading')}</h2>
       <div class="areas-grid">
         <div class="area-card">
-          <h3>Checkout &amp; basket</h3>
-          <p>Clearer layouts and stronger calls to action reduce hesitation and increase completed purchases.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.checkout.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.checkout.description')}</p>
         </div>
         <div class="area-card">
-          <h3>Navigation &amp; discovery</h3>
-          <p>Simplified menus and improved product hierarchy help customers find what they need quickly and confidently.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.navigation.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.navigation.description')}</p>
         </div>
         <div class="area-card">
-          <h3>Mobile experience</h3>
-          <p>Optimised layouts, touch targets and imagery give customers a smoother experience across every device.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.mobile.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.mobile.description')}</p>
         </div>
         <div class="area-card">
-          <h3>Product interaction &amp; upsells</h3>
-          <p>Refined add to basket areas and meaningful upsells increase engagement and average order value.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.product.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.product.description')}</p>
         </div>
         <div class="area-card">
-          <h3>Accessibility</h3>
-          <p>WCAG-aligned design improves usability, trust and Lighthouse scores while making the experience more inclusive.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.accessibility.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.accessibility.description')}</p>
         </div>
         <div class="area-card">
-          <h3>Performance &amp; speed</h3>
-          <p>Faster pages create better sessions, stronger SEO signals and higher conversion rates.</p>
+          <h3>{t(locale, 'develoSocial.serviceUiuxPage.areas.performance.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceUiuxPage.areas.performance.description')}</p>
         </div>
       </div>
-      <div style="margin-top:32px"><a class="btn-outline" href="/contact">Book a call</a></div>
+      <div style="margin-top:32px"><a class="btn-outline" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoSocial.serviceUiuxPage.bookCallCta')}</a></div>
     </div>
   </section>
 
@@ -356,10 +394,10 @@ img{max-width:100%;height:auto;display:block}
   <section class="cta-section">
     <div class="section-container">
       <div class="cta-content">
-        <span class="section-label">Let's talk</span>
-        <h2 class="section-title" style="margin-bottom:8px">Ready to improve your store's shopping experience?</h2>
-        <p class="section-desc">Great UX is an investment that pays back quickly. If you want a clearer, faster and more polished user journey, our UX and UI team in Birmingham can help.</p>
-        <a class="btn-primary" href="/contact" style="width:fit-content;margin-top:8px">Book a call</a>
+        <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.cta.label')}</span>
+        <h2 class="section-title" style="margin-bottom:8px">{t(locale, 'develoSocial.serviceUiuxPage.cta.heading')}</h2>
+        <p class="section-desc">{t(locale, 'develoSocial.serviceUiuxPage.cta.description')}</p>
+        <a class="btn-primary" href={getLocalizedPath(locale, '/contact')} style="width:fit-content;margin-top:8px">{t(locale, 'develoSocial.serviceUiuxPage.bookCallCta')}</a>
       </div>
     </div>
   </section>
@@ -367,16 +405,16 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ OUR WORK ═══ -->
   <section class="work-section">
     <div class="section-container">
-      <span class="section-label">Our Work</span>
-      <h2 class="section-title">Explore our client stories</h2>
-      <p class="section-desc" style="margin-bottom:0">Helping overcome technical limitations and unlock growth with custom Magento and Hyva solutions.</p>
-      <div style="margin-top:12px"><a class="btn-outline" href="/work">View all projects</a></div>
+      <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.work.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceUiuxPage.work.heading')}</h2>
+      <p class="section-desc" style="margin-bottom:0">{t(locale, 'develoSocial.serviceUiuxPage.work.description')}</p>
+      <div style="margin-top:12px"><a class="btn-outline" href={getLocalizedPath(locale, '/work')}>{t(locale, 'develoSocial.serviceUiuxPage.work.viewAllProjects')}</a></div>
       <div class="work-grid">
-        <a class="work-card" href="/work/daylesford"><span class="work-card-tag">Adobe Hyva Migration</span><h3>Daylesford</h3></a>
-        <a class="work-card" href="/work/bamford"><span class="work-card-tag">Adobe Hyva Migration</span><h3>Bamford</h3></a>
-        <a class="work-card" href="/work/brandalley"><span class="work-card-tag">Hyva Migration</span><h3>BrandAlley</h3></a>
-        <a class="work-card" href="/work/currys"><span class="work-card-tag">Magento Auction Portal</span><h3>Currys</h3></a>
-        <a class="work-card" href="/work/teague"><span class="work-card-tag">Hyva Migration</span><h3>Teague</h3></a>
+        <a class="work-card" href={getLocalizedPath(locale, '/work/daylesford')}><span class="work-card-tag">{t(locale, 'develoSocial.serviceUiuxPage.work.cards.daylesford')}</span><h3>Daylesford</h3></a>
+        <a class="work-card" href={getLocalizedPath(locale, '/work/bamford')}><span class="work-card-tag">{t(locale, 'develoSocial.serviceUiuxPage.work.cards.bamford')}</span><h3>Bamford</h3></a>
+        <a class="work-card" href={getLocalizedPath(locale, '/work/brandalley')}><span class="work-card-tag">{t(locale, 'develoSocial.serviceUiuxPage.work.cards.brandalley')}</span><h3>BrandAlley</h3></a>
+        <a class="work-card" href={getLocalizedPath(locale, '/work/currys')}><span class="work-card-tag">{t(locale, 'develoSocial.serviceUiuxPage.work.cards.currys')}</span><h3>Currys</h3></a>
+        <a class="work-card" href={getLocalizedPath(locale, '/work/teague')}><span class="work-card-tag">{t(locale, 'develoSocial.serviceUiuxPage.work.cards.teague')}</span><h3>Teague</h3></a>
       </div>
     </div>
   </section>
@@ -384,31 +422,31 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ FAQ ═══ -->
   <section class="faq-section">
     <div class="section-container">
-      <span class="section-label">FAQ's</span>
+      <span class="section-label">{t(locale, 'develoSocial.serviceUiuxPage.faq.label')}</span>
       <div class="faq-list" style="margin-top:40px">
         <div class="faq-item open">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is included in a UX improvement project?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer">As a Birmingham-based UX design agency, we begin with a review of user behaviour and site data to understand where your eCommerce experience can improve. From there, we design and test solutions that focus on usability, clarity, navigation and conversion.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q1.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer">{t(locale, 'develoSocial.serviceUiuxPage.faq.q1.answer')}</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do you decide which improvements to make first?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer" style="display:none">Every opportunity is prioritised using RICE scoring so the most impactful changes are tackled early. This ensures quick wins that produce measurable results.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q2.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceUiuxPage.faq.q2.answer')}</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do you measure success?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer" style="display:none">We compare metrics such as conversion rate, revenue per session and engagement before and after updates. This data-led approach lets us see what is working and continually refine your store experience.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q3.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceUiuxPage.faq.q3.answer')}</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can you support ongoing UX optimisation?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer" style="display:none">Yes. Through our Magento support packages, we continue to improve UX, CRO and performance over time. Most clients treat us as a long-term partner for design and development improvements.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q4.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceUiuxPage.faq.q4.answer')}</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do you only work on Magento sites?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer" style="display:none">Magento and Adobe Commerce are our core platforms, but our UX and UI process works across any eCommerce website. As a UX design agency in Birmingham, we combine design, development and data to improve performance on any platform.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q5.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceUiuxPage.faq.q5.answer')}</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What kind of ROI can we expect?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="faq-answer" style="display:none">While every store is different, most clients see noticeable improvements in conversion and revenue within the first few months. We prioritise changes that offer meaningful improvement quickly, giving you maximum return on your investment.</div>
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceUiuxPage.faq.q6.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceUiuxPage.faq.q6.answer')}</div>
         </div>
       </div>
     </div>

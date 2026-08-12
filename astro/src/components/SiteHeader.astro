@@ -2,14 +2,21 @@
 // iShine 全站统一头部 — 最新版 trust-bar + site-header（源自 index.astro 内联实现）
 // 保留 lang 传参（getLocalizedPath API 契约），导航结构与内容与首页最新版完全一致
 import { getLocalizedPath } from '../lib/breadcrumbs';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { t } from '../lib/i18n';
 
 interface Props {
   lang?: string;
 }
 
-const { lang = 'en' } = Astro.props as Props;
+const { lang: langProp } = Astro.props as Props;
+// 未显式传 lang 时，从 URL 自动推导当前语言（兼容直接内联组件且不传参的 develo-* 等页面）
+const locale = langProp || Astro.currentLocale || (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/nl') ? 'nl' : 'en');
+const lang = locale;
 const homeHref = getLocalizedPath(lang);
 const contactHref = getLocalizedPath(lang, '/contact');
+// 按当前语言为站内链接加前缀（en 无前缀，tr 自动带 /tr/）
+const loc = (p: string) => getLocalizedPath(lang, p);
 ---
 
 <!-- ═══ 1. TRUST BAR ═══ -->
@@ -17,15 +24,15 @@ const contactHref = getLocalizedPath(lang, '/contact');
   <div class="trust-bar-inner">
     <div class="trust-slide" data-slide="shipping">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      <span class="trust-text">Global Shipping</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.shipping')}</span>
     </div>
     <div class="trust-slide" data-slide="private-label" aria-hidden="true">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.42 0l8.58-8.58a1 1 0 0 0 0-1.42z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-      <span class="trust-text">Private Label</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.privateLabel')}</span>
     </div>
     <div class="trust-slide" data-slide="chatgpt" aria-hidden="true">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.7a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
-      <span class="trust-text">ChatGPT Top Collection</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.chatgpt')}</span>
     </div>
   </div>
 </div>
@@ -33,93 +40,93 @@ const contactHref = getLocalizedPath(lang, '/contact');
 <!-- ═══ 2. HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a class="header-logo" href={homeHref} aria-label="iShine Laser Epilator Supplier">
-      <img src="/images/logos/ishine-logo.png" alt="iShine Laser Epilator Supplier" />
+    <a class="header-logo" href={homeHref} aria-label={t(locale, 'homepage.logo.alt')}>
+      <img src="/images/logos/ishine-logo.png" alt={t(locale, 'homepage.logo.alt')} />
     </a>
     <div class="header-main-nav">
     <nav class="header-nav desktop-nav">
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/products" data-dropdown="products">Products <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/products")} data-dropdown="products">{t(locale, 'homepage.nav.products')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown mega-dropdown--wide" id="mega-products">
           <div class="mega-inner mega-inner--products">
             <div class="mega-left mega-left--products">
               <div class="mega-products-grid">
-                <a class="mega-product-card" href="/products/lumi-2">
+                <a class="mega-product-card" href={loc("/products/lumi-2")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Lumi 2</span>
-                    <span class="mega-product-tagline">Smart Skin Sensor, cooling to 10°C</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.lumi2.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi2.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images%20(1).jpg" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
+                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images%20(1).jpg" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
                 </a>
-                <a class="mega-product-card" href="/products/lumi">
+                <a class="mega-product-card" href={loc("/products/lumi")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Lumi</span>
-                    <span class="mega-product-tagline">Smart App Control</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.lumi.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/venus">
+                <a class="mega-product-card" href={loc("/products/venus")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Venus</span>
-                    <span class="mega-product-tagline">Premium Ice Cooling</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.venus.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.venus.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/themis">
+                <a class="mega-product-card" href={loc("/products/themis")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Themis</span>
-                    <span class="mega-product-tagline">Dual Lamp System</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.themis.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.themis.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/emerald">
+                <a class="mega-product-card" href={loc("/products/emerald")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Emerald</span>
-                    <span class="mega-product-tagline">Sensitive-Skin Cooling</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.emerald.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.emerald.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/eirene">
+                <a class="mega-product-card" href={loc("/products/eirene")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Eirene</span>
-                    <span class="mega-product-tagline">Professional Grade</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.eirene.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.eirene.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt="Eirene" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt={t(locale, 'homepage.mega.eirene.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/wooden">
+                <a class="mega-product-card" href={loc("/products/wooden")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Golden</span>
-                    <span class="mega-product-tagline">Luxury Edition</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.golden.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.golden.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="Golden" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt={t(locale, 'homepage.mega.golden.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/hebe">
+                <a class="mega-product-card" href={loc("/products/hebe")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Hebe</span>
-                    <span class="mega-product-tagline">AI Skin Sensor</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.hebe.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.hebe.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
               </div>
               <div class="mega-divider-h" role="separator"></div>
               <div class="mega-components">
-                <h4 class="mega-components-heading">ipl components</h4>
+                <h4 class="mega-components-heading">{t(locale, 'homepage.mega.components.heading')}</h4>
                 <div class="mega-components-grid">
-                  <a class="mega-component-card" href="/components/lamp-cartridges">
-                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt="Lamp Cartridges" loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
-                    <span class="mega-component-name">Lamp Cartridges</span>
+                  <a class="mega-component-card" href={loc("/components/lamp-cartridges")}>
+                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt={t(locale, 'homepage.mega.components.lamp')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.lamp')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/optical-filters">
-                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt="Optical Filters" loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
-                    <span class="mega-component-name">Optical Filters</span>
+                  <a class="mega-component-card" href={loc("/components/optical-filters")}>
+                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt={t(locale, 'homepage.mega.components.filter')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.filter')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/cooling-system">
-                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt="Cooling System" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
-                    <span class="mega-component-name">Cooling System</span>
+                  <a class="mega-component-card" href={loc("/components/cooling-system")}>
+                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt={t(locale, 'homepage.mega.components.cooling')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.cooling')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/power-supply">
-                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt="Power Supply" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
-                    <span class="mega-component-name">Power Supply</span>
+                  <a class="mega-component-card" href={loc("/components/power-supply")}>
+                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt={t(locale, 'homepage.mega.components.power')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.power')}</span>
                   </a>
                 </div>
               </div>
@@ -127,39 +134,39 @@ const contactHref = getLocalizedPath(lang, '/contact');
             <div class="mega-divider" role="separator"></div>
             <div class="mega-right">
               <div class="mega-card">
-                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
-                <h4 class="mega-card-heading">Meet Best IPL</h4>
-                <p class="mega-card-desc">SmartSkin Sensor and Diamond Ice</p>
-                <a class="mega-card-btn" href="/products/lumi-2">Meet Lumi 2 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.card1.heading')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.card1.desc')}</p>
+                <a class="mega-card-btn" href={loc("/products/lumi-2")}>{t(locale, 'homepage.mega.card1.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/services" data-dropdown="services">Services <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/services")} data-dropdown="services">{t(locale, 'homepage.nav.services')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-services">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link has-plus" href="/services/private-label"><div><span class="mega-link-title">Private Label</span><span class="mega-link-desc">Logo Printing / Packaging &amp; Logistics / Custom</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/find-a-technology-partner"><div><span class="mega-link-title">Find a Technology Partner</span><span class="mega-link-desc">Diamond ice, Smart skin sensor, Dual-lamp</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/build-a-new-ipl"><div><span class="mega-link-title">Build a New IPL</span><span class="mega-link-desc">Product Design / Prototyping / At Scale</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/maintain-or-fix-ipl-project"><div><span class="mega-link-title">Maintain or Fix My IPL</span><span class="mega-link-desc">Energy, flash speed and upgrade</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/private-label")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.privateLabel.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.privateLabel.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/find-a-technology-partner")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.technology.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.technology.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/build-a-new-ipl")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.build.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.build.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/maintain-or-fix-ipl-project")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.maintain.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.maintain.desc')}</span></div><span class="mega-plus">+</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-services">
-                <span class="mega-services-heading">Manufacturing Services</span>
+                <span class="mega-services-heading">{t(locale, 'homepage.mega.services.heading')}</span>
                 <div class="mega-link-group">
-                  <a class="mega-link" href="/services/oem-odm"><span class="mega-link-title">OEM &amp; ODM</span><span class="mega-link-desc">Factory production under your brand</span></a>
-                  <a class="mega-link" href="/services/product-design"><span class="mega-link-title">Product Design</span><span class="mega-link-desc">From concept to production design</span></a>
-                  <a class="mega-link" href="/services/production-assembly"><span class="mega-link-title">Production &amp; Assembly</span><span class="mega-link-desc">Mass production and assembly</span></a>
-                  <a class="mega-link" href="/services/packaging-logistics"><span class="mega-link-title">Packaging &amp; Logistics</span><span class="mega-link-desc">Custom packaging, global delivery</span></a>
-                  <a class="mega-link" href="/services/logo-printing"><span class="mega-link-title">Logo Printing</span><span class="mega-link-desc">Your branding on every device</span></a>
-                  <a class="mega-link" href="/services/box-custom"><span class="mega-link-title">Box Custom</span><span class="mega-link-desc">Custom retail and gift packaging</span></a>
-                  <a class="mega-link" href="/services/dropshipping"><span class="mega-link-title">Dropshipping</span><span class="mega-link-desc">Ship direct from our warehouse</span></a>
-                  <a class="mega-link" href="/services/no-moq"><span class="mega-link-title">No MOQ</span><span class="mega-link-desc">Start small, scale when ready</span></a>
+                  <a class="mega-link" href={loc("/services/oem-odm")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.oemOdm')}</span></a>
+                  <a class="mega-link" href={loc("/services/product-design")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.productDesign')}</span></a>
+                  <a class="mega-link" href={loc("/services/production-assembly")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.productionAssembly')}</span></a>
+                  <a class="mega-link" href={loc("/services/packaging-logistics")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.packagingLogistics')}</span></a>
+                  <a class="mega-link" href={loc("/services/logo-printing")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.logoPrinting')}</span></a>
+                  <a class="mega-link" href={loc("/services/box-custom")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.boxCustom')}</span></a>
+                  <a class="mega-link" href={loc("/services/dropshipping")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.dropshipping')}</span></a>
+                  <a class="mega-link" href={loc("/services/no-moq")}><span class="mega-link-title">{t(locale, 'homepage.mega.services.noMoq')}</span></a>
                 </div>
               </div>
             </div>
@@ -167,62 +174,63 @@ const contactHref = getLocalizedPath(lang, '/contact');
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/about" data-dropdown="about">About <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/about")} data-dropdown="about">{t(locale, 'homepage.mega.about.navTitle')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-about">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link" href="/about"><span class="mega-link-title">About iShine</span><span class="mega-link-desc">Who we are &amp; what we do</span></a>
-                <a class="mega-link" href="/about/brand-story"><span class="mega-link-title">Brand Story</span><span class="mega-link-desc">How iShine started</span></a>
-                <a class="mega-link" href="/about/company-profile"><span class="mega-link-title">Company Profile</span><span class="mega-link-desc">Capabilities, certifications and facilities</span></a>
-                <a class="mega-link" href="/about/manufacturing-capabilities"><span class="mega-link-title">Manufacturing Capabilities</span><span class="mega-link-desc">Factory, equipment and production scale</span></a>
-                <a class="mega-link" href="/about/quality-control"><span class="mega-link-title">Quality Control</span><span class="mega-link-desc">ISO 13485 processes and testing</span></a>
-                <a class="mega-link" href="/meet-the-team"><span class="mega-link-title">Meet the Team</span><span class="mega-link-desc">The people behind our work</span></a>
-                <a class="mega-link" href="/clients"><span class="mega-link-title">Client Testimonials</span><span class="mega-link-desc">Trusted by leading brands</span></a>
+                <a class="mega-link" href={loc("/about")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/brand-story")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.brandStory.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.brandStory.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/company-profile")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.companyProfile.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.companyProfile.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/manufacturing-capabilities")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.manufacturing.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.manufacturing.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/quality-control")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.quality.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.quality.desc')}</span></a>
+                <a class="mega-link" href={loc("/meet-the-team")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.team.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.team.desc')}</span></a>
+                <a class="mega-link" href={loc("/clients")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.clients.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.clients.desc')}</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-card">
                 <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
-                <h4 class="mega-card-heading">Behind the projects</h4>
-                <p class="mega-card-desc">The people and skills behind the work.</p>
-                <a class="mega-card-btn" href="/meet-the-team">Meet the team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.about.card.heading')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.about.card.desc')}</p>
+                <a class="mega-card-btn" href={loc("/meet-the-team")}>{t(locale, 'homepage.mega.about.card.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/blog" data-dropdown="resources">Resources <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/blog")} data-dropdown="resources">{t(locale, 'homepage.mega.resources.navTitle')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-resources">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link" href="/blog"><span class="mega-link-title">Blog</span><span class="mega-link-desc">Insights and expert updates.</span></a>
-                <a class="mega-link" href="/faq"><span class="mega-link-title">FAQ &amp; Help</span><span class="mega-link-desc">Common questions, answered.</span></a>
-                <a class="mega-link" href="/contact"><span class="mega-link-title">Free IPL Device Audit</span><span class="mega-link-desc">Check energy, frequency and stability.</span></a>
-                <a class="mega-link has-plus" href="/services"><div><span class="mega-link-title">Free IPL Consult Service</span><span class="mega-link-desc">Check energy, speed and check the energy consumption, current flash speed, and the possibility of an upgrade.</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link" href="/ipl-hair-removal-is-safe"><span class="mega-link-title">IPL Safety</span><span class="mega-link-desc">Is IPL hair removal safe?</span></a>
+                <a class="mega-link" href={loc("/blog")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.blog.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.blog.desc')}</span></a>
+                <a class="mega-link" href={loc("/faq")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.faq.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.faq.desc')}</span></a>
+                <a class="mega-link" href={loc("/contact")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.audit.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.audit.desc')}</span></a>
+                <a class="mega-link has-plus" href={loc("/services")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.resources.consult.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.consult.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link" href={loc("/ipl-hair-removal-is-safe")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.iplSafety.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.iplSafety.desc')}</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-card">
                 <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
-                <h4 class="mega-card-heading">Get a free instant IPL audit</h4>
-                <p class="mega-card-desc">Recommendations on energy, frequency, and stability issues, and real user experience data</p>
-                <a class="mega-card-btn" href="/contact">Get my audit <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.audit.title')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.audit.desc')}</p>
+                <a class="mega-card-btn" href={loc("/contact")}>{t(locale, 'homepage.mega.audit.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="nav-item" href="/clients">Work</a>
+      <a class="nav-item" href={loc("/clients")}>{t(locale, 'homepage.nav.ourWork')}</a>
     </nav>
+    <LanguageSwitcher lang={lang} />
     <div class="header-cta">
-      <a class="btn-cta" href={contactHref}>Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn-cta" href={contactHref}>{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     </div>
-    <button class="nav-collapse-btn" id="nav-collapse-btn" aria-label="Menu">
+    <button class="nav-collapse-btn" id="nav-collapse-btn" aria-label={t(locale, 'homepage.nav.menuLabel')}>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
   </div>
@@ -233,68 +241,69 @@ const contactHref = getLocalizedPath(lang, '/contact');
 <div class="mobile-menu-panel" id="mobile-menu-panel" aria-hidden="true">
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Products</span>
+      <span>{t(locale, 'homepage.nav.products')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/catalogue"><span class="mobile-submenu-title">IPL Catalogue</span></a>
-      <a class="mobile-submenu-link" href="/products"><span class="mobile-submenu-title">All Products</span></a>
-      <a class="mobile-submenu-link" href="/products/lumi-2"><span class="mobile-submenu-title">Lumi 2</span></a>
-      <a class="mobile-submenu-link" href="/products/lumi"><span class="mobile-submenu-title">Lumi</span></a>
-      <a class="mobile-submenu-link" href="/products/venus"><span class="mobile-submenu-title">Venus</span></a>
-      <a class="mobile-submenu-link" href="/products/themis"><span class="mobile-submenu-title">Themis</span></a>
-      <a class="mobile-submenu-link" href="/products/emerald"><span class="mobile-submenu-title">Emerald</span></a>
-      <a class="mobile-submenu-link" href="/products/eirene"><span class="mobile-submenu-title">Eirene</span></a>
-      <a class="mobile-submenu-link" href="/products/wooden"><span class="mobile-submenu-title">Golden</span></a>
-      <a class="mobile-submenu-link" href="/products/hebe"><span class="mobile-submenu-title">Hebe</span></a>
-      <a class="mobile-submenu-link" href="/components"><span class="mobile-submenu-title">IPL Components</span></a>
+      <a class="mobile-submenu-link" href={loc("/catalogue")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.iplCatalogue')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.allProducts')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/lumi-2")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.lumi2.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/lumi")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.lumi.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/venus")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.venus.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/themis")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.themis.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/emerald")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.emerald.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/eirene")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.eirene.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/wooden")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.golden.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/hebe")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.hebe.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/components")}><span class="mobile-submenu-title">{t(locale, 'nav.iplComponentsCatalogue')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Services</span>
+      <span>{t(locale, 'homepage.nav.services')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/services/maintain-or-fix-ipl-project"><span class="mobile-submenu-title">Maintain or Fix My IPL</span><span class="mobile-submenu-desc">Energy, flash speed and upgrade</span></a>
-      <a class="mobile-submenu-link" href="/services/find-a-technology-partner"><span class="mobile-submenu-title">Find a Technology Partner</span><span class="mobile-submenu-desc">Diamond ice, Smart skin sensor, Dual-lamp</span></a>
-      <a class="mobile-submenu-link" href="/services/private-label"><span class="mobile-submenu-title">Private Label</span><span class="mobile-submenu-desc">Logo Printing / Packaging &amp; Logistics / Custom</span></a>
-      <a class="mobile-submenu-link" href="/services/build-a-new-ipl"><span class="mobile-submenu-title">Build a New IPL</span><span class="mobile-submenu-desc">Product Design / Prototyping / At Scale</span></a>
-      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">View all Services</span><span class="mobile-submenu-desc">See how we support your IPL project from launch to long-term growth.</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/maintain-or-fix-ipl-project")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.maintain.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.maintain.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/find-a-technology-partner")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.technology.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.technology.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/private-label")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.privateLabel.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.privateLabel.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/build-a-new-ipl")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.build.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.build.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.viewAllServices.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mobile.viewAllServices.desc')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>About</span>
+      <span>{t(locale, 'homepage.mega.about.navTitle')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/about"><span class="mobile-submenu-title">About iShine</span><span class="mobile-submenu-desc">Who we are &amp; what we do</span></a>
-      <a class="mobile-submenu-link" href="/about/brand-story"><span class="mobile-submenu-title">Brand Story</span><span class="mobile-submenu-desc">How iShine started</span></a>
-      <a class="mobile-submenu-link" href="/about/company-profile"><span class="mobile-submenu-title">Company Profile</span><span class="mobile-submenu-desc">Capabilities, certifications and facilities</span></a>
-      <a class="mobile-submenu-link" href="/about/manufacturing-capabilities"><span class="mobile-submenu-title">Manufacturing Capabilities</span><span class="mobile-submenu-desc">Factory, equipment and production scale</span></a>
-      <a class="mobile-submenu-link" href="/about/quality-control"><span class="mobile-submenu-title">Quality Control</span><span class="mobile-submenu-desc">ISO 13485 processes and testing</span></a>
-      <a class="mobile-submenu-link" href="/meet-the-team"><span class="mobile-submenu-title">Meet the Team</span><span class="mobile-submenu-desc">The people behind our work</span></a>
-      <a class="mobile-submenu-link" href="/clients"><span class="mobile-submenu-title">Client Testimonials</span><span class="mobile-submenu-desc">Trusted by leading brands</span></a>
+      <a class="mobile-submenu-link" href={loc("/about")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/brand-story")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.brandStory.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.brandStory.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/company-profile")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.companyProfile.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.companyProfile.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/manufacturing-capabilities")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.manufacturing.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.manufacturing.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/quality-control")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.quality.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.quality.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/meet-the-team")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.team.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.team.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/clients")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.clients.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.clients.desc')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Resources</span>
+      <span>{t(locale, 'homepage.mega.resources.navTitle')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/blog"><span class="mobile-submenu-title">Blog</span><span class="mobile-submenu-desc">Insights and expert updates.</span></a>
-      <a class="mobile-submenu-link" href="/faq"><span class="mobile-submenu-title">FAQ &amp; Help</span><span class="mobile-submenu-desc">Common questions, answered.</span></a>
-      <a class="mobile-submenu-link" href="/contact"><span class="mobile-submenu-title">Free IPL Device Audit</span><span class="mobile-submenu-desc">Check energy, frequency and stability.</span></a>
-      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">Free IPL Consult Service</span><span class="mobile-submenu-desc">Check energy, speed and check the energy consumption, current flash speed, and the possibility of an upgrade.</span></a>
-      <a class="mobile-submenu-link" href="/ipl-hair-removal-is-safe"><span class="mobile-submenu-title">IPL Safety</span><span class="mobile-submenu-desc">Is IPL hair removal safe?</span></a>
+      <a class="mobile-submenu-link" href={loc("/blog")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.blog.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.blog.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/faq")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.faq.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.faq.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/contact")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.audit.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.audit.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.consult.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mobile.consultDesc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/ipl-hair-removal-is-safe")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.iplSafety.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.iplSafety.desc')}</span></a>
     </div>
   </div>
-  <a class="mobile-menu-link" href="/clients"><span>Work</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <a class="mobile-menu-link" href={loc("/clients")}><span>{t(locale, 'homepage.nav.ourWork')}</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <div class="mobile-menu-cta">
-    <a class="btn-cta" href={contactHref}>Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="btn-cta" href={contactHref}>{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
+  <LanguageSwitcher lang={lang} variant="mobile" />
 </div>
 
 <!-- Trust carousel + top bar auto-hide on scroll -->

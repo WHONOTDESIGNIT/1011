@@ -4,14 +4,14 @@ import { getAllPosts } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
 }
 
 const pageTitle = t(locale, 'blog.meta.title');
 const pageDescription = t(locale, 'blog.meta.description');
-const canonical = `${resolveBaseUrl()}/blog`;
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/blog')}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
@@ -74,7 +74,11 @@ const uiText = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} hreflangs={[
+    { locale: 'en', href: `${resolveBaseUrl()}/blog` },
+    { locale: 'tr', href: `${resolveBaseUrl()}/tr/blog` },
+    { locale: 'ar', href: `${resolveBaseUrl()}/ar/blog` },
+  ]}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />

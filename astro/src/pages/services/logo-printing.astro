@@ -1,63 +1,64 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
+import { t } from '../../lib/i18n';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const methods = [
   {
-    title: 'Silk-screen printing',
-    description: 'Cost-effective, clean logos for device shells, adapters, and accessories.',
-    features: ['Color matching guidance', 'Positioning mockups', 'Batch consistency checks', 'Rub resistance options'],
+    title: t(locale, 'servicesPage.logoPrinting.methods.items.0.title'),
+    description: t(locale, 'servicesPage.logoPrinting.methods.items.0.description'),
+    features: [t(locale, 'servicesPage.logoPrinting.methods.items.0.features.0'), t(locale, 'servicesPage.logoPrinting.methods.items.0.features.1'), t(locale, 'servicesPage.logoPrinting.methods.items.0.features.2'), t(locale, 'servicesPage.logoPrinting.methods.items.0.features.3')],
   },
   {
-    title: 'Pad printing',
-    description: 'Great for curved surfaces and small logo marks with fine detail.',
-    features: ['Complex surfaces support', 'Sharp edges on small marks', 'Fixture alignment control', 'Repeatability testing'],
+    title: t(locale, 'servicesPage.logoPrinting.methods.items.1.title'),
+    description: t(locale, 'servicesPage.logoPrinting.methods.items.1.description'),
+    features: [t(locale, 'servicesPage.logoPrinting.methods.items.1.features.0'), t(locale, 'servicesPage.logoPrinting.methods.items.1.features.1'), t(locale, 'servicesPage.logoPrinting.methods.items.1.features.2'), t(locale, 'servicesPage.logoPrinting.methods.items.1.features.3')],
   },
   {
-    title: 'Laser engraving',
-    description: 'Premium feel and long-term durability for high-end SKUs.',
-    features: ['High-end aesthetics', 'Excellent durability', 'Controlled depth and contrast', 'Placement templates'],
+    title: t(locale, 'servicesPage.logoPrinting.methods.items.2.title'),
+    description: t(locale, 'servicesPage.logoPrinting.methods.items.2.description'),
+    features: [t(locale, 'servicesPage.logoPrinting.methods.items.2.features.0'), t(locale, 'servicesPage.logoPrinting.methods.items.2.features.1'), t(locale, 'servicesPage.logoPrinting.methods.items.2.features.2'), t(locale, 'servicesPage.logoPrinting.methods.items.2.features.3')],
   },
 ];
 ---
 
-<BaseLayout title="Logo Printing | iShine" lang={locale} description="Logo printing services for IPL private-label programs: silk-screen, pad printing, and laser engraving with placement mockups and durability checks.">
+<BaseLayout title={t(locale, 'servicesPage.logoPrinting.meta.title')} lang={locale} description={t(locale, 'servicesPage.logoPrinting.meta.description')}>
   <div class="space-y-60">
     <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10 lg:px-12 lg:py-16">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.14),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(168,85,247,0.10),_transparent_34%)]" />
       <div class="relative mx-auto max-w-5xl">
         <h1 class="text-4xl font-bold text-slate-900 md:text-6xl">
-          Logo Printing That
-          <span class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">Looks Premium, Stays Durable</span>
+          {t(locale, 'servicesPage.logoPrinting.hero.title1')}
+          <span class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">{t(locale, 'servicesPage.logoPrinting.hero.title2')}</span>
         </h1>
         <p class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
-          Put your brand where customers see it most: on-device, on accessories, and on packaging. We focus on placement, consistency, and durability—not just a logo on a shell.
+          {t(locale, 'servicesPage.logoPrinting.hero.description')}
         </p>
         <div class="mt-10 flex flex-wrap gap-3">
           <a class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
-            Request a Branding Quote
+            {t(locale, 'servicesPage.logoPrinting.hero.cta1')}
           </a>
           <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services')}>
-            Back to Services
+            {t(locale, 'servicesPage.logoPrinting.hero.cta2')}
           </a>
         </div>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is included in logo printing for an IPL private-label project?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.logoPrinting.citable.heading')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        Logo printing for an IPL private-label project typically includes placement selection, artwork preparation, production method selection (such as silk-screen, pad printing, or laser engraving), and durability verification. A reliable program also defines color targets, alignment tolerances, fixture setup, and batch consistency checks so branding looks consistent across devices, accessories, and packaging. The goal is a premium, durable brand presentation that matches your positioning and reduces return risk due to cosmetic defects.
+        {t(locale, 'servicesPage.logoPrinting.citable.body')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Methods</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Common logo application methods</h2>
-        <p class="mt-4 text-lg text-slate-700">We recommend the method based on material, surface geometry, and expected wear.</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.logoPrinting.methods.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.logoPrinting.methods.heading')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.logoPrinting.methods.sub')}</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
         {methods.map((card) => (

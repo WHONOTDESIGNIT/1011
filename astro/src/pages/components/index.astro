@@ -4,7 +4,7 @@ import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../lib/netlify-images';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const headerTitle = t(locale, 'componentsPower.header.title');
 const headerDescription = t(locale, 'componentsPower.header.description');
 const introTitle = t(locale, 'componentsPower.intro.title');
@@ -94,7 +94,7 @@ const componentsDiagramImage = responsiveImageSources(
 );
 ---
 
-<BaseLayout title={headerTitle} lang={locale} description={headerDescription || 'Explore iShine\'s IPL device components: lamp cartridges, optical filters, cooling systems, and power supplies for OEM and ODM manufacturing.'}>
+<BaseLayout title={headerTitle} lang={locale} description={headerDescription || t(locale, 'componentsPage.meta.description')}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
       <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-30" aria-hidden="true">
@@ -148,10 +148,10 @@ const componentsDiagramImage = responsiveImageSources(
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What are the core components of a home-use IPL device?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'componentsPage.citable.question')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        A home-use IPL device is built from several core subsystems that directly affect safety, comfort, and performance. The flash source is typically a xenon lamp cartridge, engineered for stable output and high flash counts (commonly 500,000-999,000 flashes depending on platform). Optical filters shape the emitted spectrum by blocking unwanted wavelengths (including UV) and selecting bands suited to hair-reduction positioning, with common cut-on options such as 550 nm or 570 nm in supported configurations. A cooling system manages skin-contact comfort and heat load; options include sapphire ice plates and semiconductor (TEC) cooling designs used in premium builds, with some designs targeting skin-contact temperatures around ~10°C. The power supply provides consistent voltage delivery and protects the device through electrical design choices such as insulation, grounding, and thermal safeguards, typically supporting global input ranges like 100-240V AC for international launches. For private-label programs, these components are selected as a matched platform so the final device can meet target-market requirements, maintain consistent batch performance, and support documentation and verification during scale production.
+        {t(locale, 'componentsPage.citable.paragraph')}
       </p>
     </section>
 
@@ -184,7 +184,7 @@ const componentsDiagramImage = responsiveImageSources(
                 <li>{s}</li>
               ))}
             </ul>
-            <div class="mt-4 text-sm font-medium text-slate-900">View details →</div>
+            <div class="mt-4 text-sm font-medium text-slate-900">{t(locale, 'common.viewDetails')}</div>
           </a>
         ))}
       </div>
@@ -240,7 +240,7 @@ const componentsDiagramImage = responsiveImageSources(
       <p class="mt-3 max-w-3xl text-slate-700">{customizationDescription}</p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a class="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/contact')}>{ctaButton}</a>
-        <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>View services</a>
+        <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>{t(locale, 'common.viewServices')}</a>
       </div>
     </section>
 

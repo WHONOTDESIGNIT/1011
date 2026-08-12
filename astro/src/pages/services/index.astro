@@ -6,9 +6,9 @@ import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../lib/netlify-images';
 import { PenTool, Cog, Truck, Clock, Globe, RefreshCw, ShieldCheck } from '@lucide/astro';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 
-const pageTitle = 'IPL Private Label & OEM/ODM Services | iShine';
+const pageTitle = t(locale, 'servicesPage.index.meta.title');
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.serviceSupport') },
@@ -16,127 +16,127 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
 const pickYourPath = [
   {
-    title: 'Start a Brand',
-    description: 'Launch with less risk, validate demand, then scale with repeatable replenishment.',
+    title: t(locale, 'servicesPage.index.pickYourPath.items.0.title'),
+    description: t(locale, 'servicesPage.index.pickYourPath.items.0.description'),
     links: [
-      { label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') },
-      { label: 'Choose a Platform from the Catalogue', href: getLocalizedPath(locale, '/catalogue') },
-      { label: 'Request a Sample Plan', href: getLocalizedPath(locale, '/contact') },
-      { label: 'See OEM/ODM Options', href: getLocalizedPath(locale, '/services/oem-odm') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.0.links.0'), href: getLocalizedPath(locale, '/services/no-moq') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.0.links.1'), href: getLocalizedPath(locale, '/catalogue') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.0.links.2'), href: getLocalizedPath(locale, '/contact') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.0.links.3'), href: getLocalizedPath(locale, '/services/oem-odm') },
     ],
   },
   {
-    title: 'Upgrade Branding',
-    description: 'Turn a factory-ready SKU into a brand-ready product with channel-compliant assets.',
+    title: t(locale, 'servicesPage.index.pickYourPath.items.1.title'),
+    description: t(locale, 'servicesPage.index.pickYourPath.items.1.description'),
     links: [
-      { label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') },
-      { label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') },
-      { label: 'Create a User Manual & Quick Start Guide', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
-      { label: 'Packaging & Export Logistics Support', href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.1.links.0'), href: getLocalizedPath(locale, '/services/logo-printing') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.1.links.1'), href: getLocalizedPath(locale, '/services/box-custom') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.1.links.2'), href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.1.links.3'), href: getLocalizedPath(locale, '/services/packaging-logistics') },
     ],
   },
   {
-    title: 'Scale Fulfillment',
-    description: 'Build a clean shipping workflow for predictable lead times and fewer support issues.',
+    title: t(locale, 'servicesPage.index.pickYourPath.items.2.title'),
+    description: t(locale, 'servicesPage.index.pickYourPath.items.2.description'),
     links: [
-      { label: 'Set Up Dropshipping', href: getLocalizedPath(locale, '/services/dropshipping') },
-      { label: 'Plan Warehousing & Replenishment', href: getLocalizedPath(locale, '/services/packaging-logistics') },
-      { label: 'Talk to a Fulfillment Specialist', href: getLocalizedPath(locale, '/contact') },
-      { label: 'Read Our FAQ', href: getLocalizedPath(locale, '/faq') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.2.links.0'), href: getLocalizedPath(locale, '/services/dropshipping') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.2.links.1'), href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.2.links.2'), href: getLocalizedPath(locale, '/contact') },
+      { label: t(locale, 'servicesPage.index.pickYourPath.items.2.links.3'), href: getLocalizedPath(locale, '/faq') },
     ],
   },
 ];
 
 const brandingServices = [
   {
-    title: 'No MOQ',
+    title: t(locale, 'servicesPage.index.brandingServices.items.0.title'),
     icon: Clock,
-    description: 'Launch with smaller orders, validate demand, then scale with predictable replenishment.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.0.description'),
     features: [
-      'Platform-ready options for fast sampling',
-      'Flexible mix-SKU trial orders',
-      'Step-up volume plan as sales grow',
-      'Repeatable replenishment workflow',
+      t(locale, 'servicesPage.index.brandingServices.items.0.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.0.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.0.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.0.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/no-moq'),
-    linkLabel: 'Launch with a Pilot Order',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.0.linkLabel'),
     accent: 'from-sky-600 to-violet-600',
-    badge: 'Start Small',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.0.badge'),
   },
   {
-    title: 'Logo Printing',
+    title: t(locale, 'servicesPage.index.brandingServices.items.1.title'),
     icon: PenTool,
-    description: 'Put your brand on devices, accessories, and packaging with durable, production-ready methods.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.1.description'),
     features: [
-      'Logo placement mockups before production',
-      'Silk-screen and pad printing options',
-      'Laser engraving for premium finishes',
-      'Rub and adhesion durability checks',
+      t(locale, 'servicesPage.index.brandingServices.items.1.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.1.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.1.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.1.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/logo-printing'),
-    linkLabel: 'Make Your Device Look Premium',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.1.linkLabel'),
     accent: 'from-violet-600 to-fuchsia-600',
-    badge: 'Branding',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.1.badge'),
   },
   {
-    title: 'Box Custom',
+    title: t(locale, 'servicesPage.index.brandingServices.items.2.title'),
     icon: Cog,
-    description: 'Retail-ready cartons and inserts designed for unboxing, shelf presence, and logistics efficiency.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.2.description'),
     features: [
-      'Custom dielines and artwork setup',
-      'Insert options: EVA / blister / molded pulp',
-      'Channel labels and barcode requirements',
-      'Master carton optimization for freight',
+      t(locale, 'servicesPage.index.brandingServices.items.2.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.2.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.2.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.2.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/box-custom'),
-    linkLabel: 'Reduce Damage with Better Inserts',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.2.linkLabel'),
     accent: 'from-slate-900 to-sky-600',
-    badge: 'Packaging',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.2.badge'),
   },
   {
-    title: 'User Manual Guide Custom',
+    title: t(locale, 'servicesPage.index.brandingServices.items.3.title'),
     icon: ShieldCheck,
-    description: 'Clear manuals, quick-start guides, and safety content that reduce returns and support tickets.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.3.description'),
     features: [
-      'Multilingual translation and proofreading',
-      'Safety warnings and labeling alignment',
-      'Quick-start diagrams and usage charts',
-      'QR codes to video tutorials and FAQ',
+      t(locale, 'servicesPage.index.brandingServices.items.3.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.3.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.3.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.3.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/user-manual-guide-custom'),
-    linkLabel: 'Reduce Returns with Clear Instructions',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.3.linkLabel'),
     accent: 'from-violet-700 to-slate-900',
-    badge: 'Documentation',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.3.badge'),
   },
   {
-    title: 'Packaging & Logistics',
+    title: t(locale, 'servicesPage.index.brandingServices.items.4.title'),
     icon: Truck,
-    description: 'Kitting, labeling, export documents, and shipping coordination built for global delivery.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.4.description'),
     features: [
-      'Accessory kitting and final packing SOP',
-      'Export docs: invoice, packing list, HS code',
-      'Air, sea, and courier routing support',
-      'FOB Shenzhen with CIF options',
+      t(locale, 'servicesPage.index.brandingServices.items.4.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.4.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.4.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.4.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/packaging-logistics'),
-    linkLabel: 'Export Shipping Support (FOB/CIF)',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.4.linkLabel'),
     accent: 'from-sky-600 to-slate-900',
-    badge: 'Fulfillment',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.4.badge'),
   },
   {
-    title: 'Dropshipping',
+    title: t(locale, 'servicesPage.index.brandingServices.items.5.title'),
     icon: Globe,
-    description: 'Ship directly to your customers with fast handling and reliable tracking workflows.',
+    description: t(locale, 'servicesPage.index.brandingServices.items.5.description'),
     features: [
-      'Neutral packaging or branded inserts',
-      'Bulk order upload and daily dispatch',
-      'Tracking number sync and status updates',
-      'Exceptions and returns handling process',
+      t(locale, 'servicesPage.index.brandingServices.items.5.features.0'),
+      t(locale, 'servicesPage.index.brandingServices.items.5.features.1'),
+      t(locale, 'servicesPage.index.brandingServices.items.5.features.2'),
+      t(locale, 'servicesPage.index.brandingServices.items.5.features.3'),
     ],
     href: getLocalizedPath(locale, '/services/dropshipping'),
-    linkLabel: 'Ship Directly to Customers',
+    linkLabel: t(locale, 'servicesPage.index.brandingServices.items.5.linkLabel'),
     accent: 'from-violet-600 to-sky-600',
-    badge: 'DTC Ready',
+    badge: t(locale, 'servicesPage.index.brandingServices.items.5.badge'),
   },
 ];
 
@@ -166,102 +166,94 @@ const advantages = [
 const processSteps = [
   {
     step: '01',
-    title: 'Shortlist a platform',
-    description: 'Match your concept to a proven device platform based on cooling, energy positioning, and use case.',
-    duration: '1–2 days',
-    links: [{ label: 'Browse the Catalogue', href: getLocalizedPath(locale, '/catalogue') }],
+    title: t(locale, 'servicesPage.index.process.items.0.title'),
+    description: t(locale, 'servicesPage.index.process.items.0.description'),
+    duration: t(locale, 'servicesPage.index.process.items.0.duration'),
+    links: [{ label: t(locale, 'servicesPage.index.process.items.0.links.0'), href: getLocalizedPath(locale, '/catalogue') }],
   },
   {
     step: '02',
-    title: 'Define customization scope',
-    description: 'Confirm specifications, branding scope, and compliance requirements for your target market.',
-    duration: '2–5 days',
-    links: [{ label: 'OEM/ODM Services', href: getLocalizedPath(locale, '/services/oem-odm') }],
+    title: t(locale, 'servicesPage.index.process.items.1.title'),
+    description: t(locale, 'servicesPage.index.process.items.1.description'),
+    duration: t(locale, 'servicesPage.index.process.items.1.duration'),
+    links: [{ label: t(locale, 'servicesPage.index.process.items.1.links.0'), href: getLocalizedPath(locale, '/services/oem-odm') }],
   },
   {
     step: '03',
-    title: 'Branding setup',
-    description: 'Lock in branding placements and finishes so every unit looks consistent and premium.',
-    duration: '3–7 days',
-    links: [{ label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') }],
+    title: t(locale, 'servicesPage.index.process.items.2.title'),
+    description: t(locale, 'servicesPage.index.process.items.2.description'),
+    duration: t(locale, 'servicesPage.index.process.items.2.duration'),
+    links: [{ label: t(locale, 'servicesPage.index.process.items.2.links.0'), href: getLocalizedPath(locale, '/services/logo-printing') }],
   },
   {
     step: '04',
-    title: 'Packaging & documentation',
-    description: 'Prepare retail-ready assets that reduce damage, reduce returns, and improve first-use success.',
-    duration: '1–2 weeks',
+    title: t(locale, 'servicesPage.index.process.items.3.title'),
+    description: t(locale, 'servicesPage.index.process.items.3.description'),
+    duration: t(locale, 'servicesPage.index.process.items.3.duration'),
     links: [
-      { label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') },
-      { label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
+      { label: t(locale, 'servicesPage.index.process.items.3.links.0'), href: getLocalizedPath(locale, '/services/box-custom') },
+      { label: t(locale, 'servicesPage.index.process.items.3.links.1'), href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
     ],
   },
   {
     step: '05',
-    title: 'Production & QC',
-    description: 'Execute production with stable BOM control and quality checkpoints aligned to your channels.',
-    duration: '2–6 weeks',
-    links: [{ label: 'Production & Assembly', href: getLocalizedPath(locale, '/services/production-assembly') }],
+    title: t(locale, 'servicesPage.index.process.items.4.title'),
+    description: t(locale, 'servicesPage.index.process.items.4.description'),
+    duration: t(locale, 'servicesPage.index.process.items.4.duration'),
+    links: [{ label: t(locale, 'servicesPage.index.process.items.4.links.0'), href: getLocalizedPath(locale, '/services/production-assembly') }],
   },
   {
     step: '06',
-    title: 'Ship & fulfill',
-    description: 'Choose the shipping model that matches your timeline and operations—from pallets to parcels.',
-    duration: 'Ongoing',
+    title: t(locale, 'servicesPage.index.process.items.5.title'),
+    description: t(locale, 'servicesPage.index.process.items.5.description'),
+    duration: t(locale, 'servicesPage.index.process.items.5.duration'),
     links: [
-      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
-      { label: 'Ship Directly to Customers', href: getLocalizedPath(locale, '/services/dropshipping') },
+      { label: t(locale, 'servicesPage.index.process.items.5.links.0'), href: getLocalizedPath(locale, '/services/packaging-logistics') },
+      { label: t(locale, 'servicesPage.index.process.items.5.links.1'), href: getLocalizedPath(locale, '/services/dropshipping') },
     ],
   },
 ];
 
 const serviceFaq = [
   {
-    question: 'Do you offer No MOQ for private-label IPL programs?',
-    answer:
-      'Yes. Many programs can start with smaller pilot orders so you can validate positioning and demand before scaling. For details, see No MOQ support.',
-    links: [{ label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') }],
+    question: t(locale, 'servicesPage.index.faq.items.0.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.0.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.0.links.0'), href: getLocalizedPath(locale, '/services/no-moq') }],
   },
   {
-    question: 'Can you print our logo on the device and accessories?',
-    answer:
-      'Yes. We support production-ready logo application methods and help confirm placement and durability expectations before mass production.',
-    links: [{ label: 'Add Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') }],
+    question: t(locale, 'servicesPage.index.faq.items.1.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.1.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.1.links.0'), href: getLocalizedPath(locale, '/services/logo-printing') }],
   },
   {
-    question: 'Can you customize the box, inserts, and barcodes for retail channels?',
-    answer:
-      'Yes. We can customize cartons, internal protection inserts, and channel labeling requirements, including barcode placement and master carton planning.',
-    links: [{ label: 'Customize Your Box & Inserts', href: getLocalizedPath(locale, '/services/box-custom') }],
+    question: t(locale, 'servicesPage.index.faq.items.2.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.2.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.2.links.0'), href: getLocalizedPath(locale, '/services/box-custom') }],
   },
   {
-    question: 'Do you provide multilingual user manuals and quick-start guides?',
-    answer:
-      'Yes. We can customize manuals and quick-start guides with clear diagrams, warnings, and localization support to reduce returns and support load.',
-    links: [{ label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') }],
+    question: t(locale, 'servicesPage.index.faq.items.3.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.3.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.3.links.0'), href: getLocalizedPath(locale, '/services/user-manual-guide-custom') }],
   },
   {
-    question: 'Do you support packaging and export logistics?',
-    answer:
-      'Yes. We support kitting, labeling, export documents, and shipping coordination for sea, air, or courier based on destination requirements.',
-    links: [{ label: 'Packaging & Export Logistics Support', href: getLocalizedPath(locale, '/services/packaging-logistics') }],
+    question: t(locale, 'servicesPage.index.faq.items.4.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.4.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.4.links.0'), href: getLocalizedPath(locale, '/services/packaging-logistics') }],
   },
   {
-    question: 'Do you support dropshipping directly to customers?',
-    answer:
-      'Yes. We can support direct-to-customer dispatch with defined packaging rules, order handling workflows, and tracking synchronization.',
-    links: [{ label: 'Ship Directly to Customers', href: getLocalizedPath(locale, '/services/dropshipping') }],
+    question: t(locale, 'servicesPage.index.faq.items.5.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.5.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.5.links.0'), href: getLocalizedPath(locale, '/services/dropshipping') }],
   },
   {
-    question: 'How do we choose the best IPL model for our market?',
-    answer:
-      'Start by matching your target segment to a platform: cooling comfort, energy positioning, app connectivity, portability, and packaging goals. Then confirm the customization scope and compliance needs.',
-    links: [{ label: 'Compare IPL Models', href: getLocalizedPath(locale, '/catalogue') }],
+    question: t(locale, 'servicesPage.index.faq.items.6.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.6.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.6.links.0'), href: getLocalizedPath(locale, '/catalogue') }],
   },
   {
-    question: 'What are the next steps after we choose a model?',
-    answer:
-      'Typical next steps are: confirm requirements, sample evaluation, finalize branding and packaging assets, then plan production and shipping.',
-    links: [{ label: 'Get a Quote', href: getLocalizedPath(locale, '/contact') }],
+    question: t(locale, 'servicesPage.index.faq.items.7.question'),
+    answer: t(locale, 'servicesPage.index.faq.items.7.answer'),
+    links: [{ label: t(locale, 'servicesPage.index.faq.items.7.links.0'), href: getLocalizedPath(locale, '/contact') }],
   },
 ];
 
@@ -271,9 +263,9 @@ const trustedStats = Array.from({ length: 3 }, (_, index) => ({
 }));
 
 const trustedBrands = [
-  { name: 'Costco Canada', logo: '/images/logos/costco-logo.svg' },
-  { name: 'RoseSkinCo USA', logo: '/images/logos/roseskin-logo.svg' },
-  { name: 'KU-2 Cosmetics Germany', logo: '/images/logos/KU-2%20logo.svg' },
+  { name: t(locale, 'servicesPage.index.trustedBrands.items.0.name'), logo: '/images/logos/costco-logo.svg' },
+  { name: t(locale, 'servicesPage.index.trustedBrands.items.1.name'), logo: '/images/logos/roseskin-logo.svg' },
+  { name: t(locale, 'servicesPage.index.trustedBrands.items.2.name'), logo: '/images/logos/KU-2%20logo.svg' },
 ];
 
 const servicesHeroImage = responsiveImageSources('/images/service/service-ipl.jpg');
@@ -285,7 +277,7 @@ const servicesWorkflowImage = responsiveImageSources(
 <BaseLayout
   title={pageTitle}
   lang={locale}
-  description="IPL private label and OEM/ODM services: model selection, sampling, logo printing, box customization, user manual customization, packaging & logistics, and dropshipping support."
+  description={t(locale, 'servicesPage.index.meta.description')}
 >
   <div class="space-y-60">
     <section class="relative py-12 lg:py-16">
@@ -299,18 +291,18 @@ const servicesWorkflowImage = responsiveImageSources(
           <Breadcrumb items={breadcrumbs} locale={locale} />
           <div class="mt-8 max-w-3xl">
             <h1 class="text-4xl font-bold text-[#020303] md:text-5xl">
-              IPL Private Label & OEM/ODM Services
+              {t(locale, 'servicesPage.index.heroTitle1')}
               <span class="block text-[#020303]">
-                From Platform Selection to Fulfillment
+                {t(locale, 'servicesPage.index.heroTitle2')}
               </span>
             </h1>
             <p class="mt-5 text-lg leading-relaxed text-slate-700">
-              Build a brand-ready IPL program with a proven manufacturing workflow: model selection, sampling, branding, packaging, documentation, and global delivery support.
+              {t(locale, 'servicesPage.index.heroDescription')}
             </p>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
-              Get a Quote
+              {t(locale, 'servicesPage.index.getAQuote')}
             </a>
           </div>
         </div>
@@ -325,7 +317,7 @@ const servicesWorkflowImage = responsiveImageSources(
                   src={servicesHeroImage.src}
                   srcset={servicesHeroImage.webpSrcSet}
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  alt="IPL manufacturing services"
+                  alt={t(locale, 'servicesPage.index.heroImageAlt')}
                   loading="lazy"
                   decoding="async"
                   width="1200"
@@ -338,38 +330,38 @@ const servicesWorkflowImage = responsiveImageSources(
           <div class="wwd-services">
             <div class="wwd-service-item" data-index="0">
               <button class="wwd-service-header" aria-expanded="false">
-                <h3>Maintain or Fix My Site<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+                <h3>{t(locale, 'servicesPage.index.wwd.items.0.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
               </button>
               <div class="wwd-service-body">
-                <p>Keep your existing IPL project healthy — component upgrades, production fixes, and packaging refreshes that protect your brand.</p>
-                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/maintain-or-fix-ipl-project')}>Learn more <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <p>{t(locale, 'servicesPage.index.wwd.items.0.description')}</p>
+                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/maintain-or-fix-ipl-project')}>{t(locale, 'servicesPage.index.wwd.items.0.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
             <div class="wwd-service-item" data-index="1">
               <button class="wwd-service-header" aria-expanded="false">
-                <h3>Find a Technology Partner<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+                <h3>{t(locale, 'servicesPage.index.wwd.items.1.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
               </button>
               <div class="wwd-service-body">
-                <p>Evaluate iShine as a long-term manufacturing partner for your private-label and OEM/ODM IPL programs.</p>
-                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/find-a-technology-partner')}>Learn more <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <p>{t(locale, 'servicesPage.index.wwd.items.1.description')}</p>
+                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/find-a-technology-partner')}>{t(locale, 'servicesPage.index.wwd.items.1.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
             <div class="wwd-service-item" data-index="2">
               <button class="wwd-service-header" aria-expanded="false">
-                <h3>Optimise My Store<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+                <h3>{t(locale, 'servicesPage.index.wwd.items.2.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
               </button>
               <div class="wwd-service-body">
-                <p>Strengthen your product lineup with new models, channel-ready packaging, and better documentation.</p>
-                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/oem-odm')}>Learn more <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <p>{t(locale, 'servicesPage.index.wwd.items.2.description')}</p>
+                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/oem-odm')}>{t(locale, 'servicesPage.index.wwd.items.2.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
             <div class="wwd-service-item" data-index="3">
               <button class="wwd-service-header" aria-expanded="false">
-                <h3>Build a New Site<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+                <h3>{t(locale, 'servicesPage.index.wwd.items.3.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
               </button>
               <div class="wwd-service-body">
-                <p>Design and develop a new IPL device or beauty device shaped around your brand, goals, and long-term plans.</p>
-                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/build-a-new-ipl')}>Get started <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <p>{t(locale, 'servicesPage.index.wwd.items.3.description')}</p>
+                <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/build-a-new-ipl')}>{t(locale, 'servicesPage.index.wwd.items.3.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
@@ -378,19 +370,19 @@ const servicesWorkflowImage = responsiveImageSources(
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is included in iShine's IPL manufacturing services?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'servicesPage.index.citableEyebrow')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.index.citableQuestion')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        iShine provides end-to-end IPL manufacturing services for private-label programs, covering OEM/ODM development, product design, production and assembly, packaging, and export logistics. A typical engagement starts with requirements and positioning, then moves into engineering decisions such as cooling approach (including premium sapphire contact cooling targeting ~10°C in supported configurations), energy range, flash window sizing, wavelength filtering, and safety interlocks. Platform-based prototype sampling can often begin in 1-4 weeks depending on scope, while programs involving tooling, electronics, firmware, or compliance work add time for validation, documentation, and production planning. Packaging support includes branded cartons, inserts, manuals, labeling, and accessory selection aligned to retail, distributor, or e-commerce channels, with options such as manual localization and channel-ready labeling. Delivery support includes export documents and shipping coordination (FOB Shenzhen, with CIF options) by sea, air, or courier based on timeline and destination requirements.
+        {t(locale, 'servicesPage.index.citableParagraph')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Pick Your Path</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Start, Brand, or Scale—Choose Your Workflow</h2>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.index.pickYourPath.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.index.pickYourPath.title')}</h2>
         <p class="mt-4 text-lg text-slate-700">
-          Use the paths below to jump straight to the services and pages that match your current stage.
+          {t(locale, 'servicesPage.index.pickYourPath.description')}
         </p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
@@ -415,10 +407,10 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Services Map</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">WHAT branding custom services do we offer?</h2>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.index.brandingServices.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.index.brandingServices.title')}</h2>
         <p class="mt-4 text-lg text-slate-700">
-          From low-risk launches to channel-ready packaging, we help you turn a factory-ready SKU into a brand-ready product.
+          {t(locale, 'servicesPage.index.brandingServices.description')}
         </p>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
@@ -447,7 +439,7 @@ const servicesWorkflowImage = responsiveImageSources(
                 {service.linkLabel}
               </a>
               <a class="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={service.href}>
-                Learn More
+                {t(locale, 'servicesPage.index.learnMore')}
               </a>
             </div>
           </article>
@@ -457,7 +449,7 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="rounded-2xl bg-slate-950 px-8 py-12 text-white shadow-2xl md:px-10">
       <div class="text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">Why Choose iShine</div>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'servicesPage.why.title')}</div>
         <h2 class="mt-3 text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.why.title')}</h2>
         <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-300">{t(locale, 'servicesPage.why.description')}</p>
       </div>
@@ -476,37 +468,37 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trust Signals</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Proof That Supports Long-Term Partnerships</h2>
-        <p class="mt-4 text-lg text-slate-700">These pages explain how we reduce operational risk, not just how we manufacture.</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.index.trustSignals.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.index.trustSignals.title')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.index.trustSignals.description')}</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold text-slate-900">Quality Control</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-700">Build stability with clear production steps and quality checkpoints.</p>
+          <h3 class="text-xl font-semibold text-slate-900">{t(locale, 'servicesPage.index.trustSignals.cards.0.title')}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, 'servicesPage.index.trustSignals.cards.0.description')}</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/production-assembly')}>
-            Production & Assembly
+            {t(locale, 'servicesPage.index.trustSignals.cards.0.link')}
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold text-slate-900">Compliance</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-700">Understand safety considerations and how to plan documentation early.</p>
+          <h3 class="text-xl font-semibold text-slate-900">{t(locale, 'servicesPage.index.trustSignals.cards.1.title')}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, 'servicesPage.index.trustSignals.cards.1.description')}</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/faq')}>
-            Read Our FAQ
+            {t(locale, 'servicesPage.index.trustSignals.cards.1.link')}
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold text-slate-900">Customization</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-700">From logo and packaging to manuals—make the product feel like your brand.</p>
+          <h3 class="text-xl font-semibold text-slate-900">{t(locale, 'servicesPage.index.trustSignals.cards.2.title')}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, 'servicesPage.index.trustSignals.cards.2.description')}</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/services')}>
-            Branding Custom Services
+            {t(locale, 'servicesPage.index.trustSignals.cards.2.link')}
           </a>
         </article>
         <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <h3 class="text-xl font-semibold text-slate-900">Contact</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-700">Get a clear scope, lead time, and a plan that fits your channel.</p>
+          <h3 class="text-xl font-semibold text-slate-900">{t(locale, 'servicesPage.index.trustSignals.cards.3.title')}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, 'servicesPage.index.trustSignals.cards.3.description')}</p>
           <a class="mt-6 inline-flex text-sm font-semibold text-slate-900 transition hover:text-violet-700" href={getLocalizedPath(locale, '/contact')}>
-            Talk to our team
+            {t(locale, 'servicesPage.index.trustSignals.cards.3.link')}
           </a>
         </article>
       </div>
@@ -514,10 +506,10 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Process</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">From concept to delivery: a practical workflow</h2>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.index.process.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.index.process.title')}</h2>
         <p class="mt-4 text-lg text-slate-700">
-          Follow a repeatable sequence that reduces rework, shortens decision cycles, and improves on-time delivery.
+          {t(locale, 'servicesPage.index.process.description')}
         </p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -546,7 +538,7 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
       <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Trusted by Leading Brands</div>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.trusted.title')}</div>
         <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.trusted.title')}</h2>
         <p class="mt-4 max-w-2xl text-lg text-slate-700">{t(locale, 'servicesPage.trusted.description')}</p>
         <div class="mt-8 grid gap-4 sm:grid-cols-3">
@@ -559,9 +551,9 @@ const servicesWorkflowImage = responsiveImageSources(
         </div>
         <blockquote class="mt-8 rounded-[1.5rem] bg-gradient-to-br from-violet-50 to-sky-50 p-6 text-slate-800">
           <p class="text-lg leading-relaxed">
-            "iShine's comprehensive approach and attention to detail have been instrumental in bringing our IPL products to market successfully across multiple regions."
+            "{t(locale, 'servicesPage.trusted.quote')}"
           </p>
-          <footer class="mt-4 text-sm font-medium text-slate-600">Operations Team, Multi-region Beauty Brand</footer>
+          <footer class="mt-4 text-sm font-medium text-slate-600">{t(locale, 'servicesPage.trusted.quoteAuthor')}</footer>
         </blockquote>
       </div>
 
@@ -575,7 +567,7 @@ const servicesWorkflowImage = responsiveImageSources(
                 src={servicesWorkflowImage.src}
                 srcset={servicesWorkflowImage.webpSrcSet}
                 sizes="(min-width: 1024px) 30vw, 100vw"
-                alt="Manufacturing and packaging workflow"
+                alt={t(locale, 'servicesPage.index.workflowImageAlt')}
                 loading="lazy"
                 decoding="async"
                 width="1200"
@@ -590,7 +582,7 @@ const servicesWorkflowImage = responsiveImageSources(
             <div class="flex min-h-[120px] items-center justify-center rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
               <img
                 src={brand.logo}
-                alt={`${brand.name} logo`}
+                alt={`${brand.name} ${t(locale, 'servicesPage.trusted.logoAlt')}`}
                 loading="lazy"
                 decoding="async"
                 width="140"
@@ -605,9 +597,9 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Questions brands ask before placing an order</h2>
-        <p class="mt-4 text-lg text-slate-700">Short answers with direct links to the relevant service pages.</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'servicesPage.index.faq.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.index.faq.title')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'servicesPage.index.faq.description')}</p>
       </div>
       <div class="mx-auto grid max-w-4xl gap-4">
         {serviceFaq.map((item) => (
@@ -635,7 +627,7 @@ const servicesWorkflowImage = responsiveImageSources(
 
     <section class="rounded-2xl bg-slate-900 px-8 py-14 text-white shadow-2xl">
       <div class="mx-auto max-w-4xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Ready to Start?</div>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">{t(locale, 'servicesPage.cta.eyebrow')}</div>
         <h2 class="mt-3 text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-200">{t(locale, 'servicesPage.cta.description')}</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
@@ -643,10 +635,10 @@ const servicesWorkflowImage = responsiveImageSources(
             {t(locale, 'servicesPage.cta.button')}
           </a>
           <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/clients')}>
-            View Case Studies
+            {t(locale, 'servicesPage.cta.viewCaseStudies')}
           </a>
           <a class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href={getLocalizedPath(locale, '/catalogue')}>
-            Compare IPL Models
+            {t(locale, 'servicesPage.cta.compareModels')}
           </a>
         </div>
       </div>

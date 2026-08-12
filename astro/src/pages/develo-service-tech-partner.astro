@@ -2,12 +2,51 @@
 // Develo Design — Find a Technology Partner
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-PT', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <title>Find a Technology Partner | Develo Design</title>
 <meta name="description" content="Platforms That Power Your Next Stage of Growth. We specialise in Magento, Adobe Commerce and Hyvä." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -208,34 +247,34 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ OUR CORE STACK ═══ -->
   <section class="stack-section">
     <div class="section-container">
-      <span class="section-label">Our core stack</span>
-      <h2 class="section-title">Reliable platforms, chosen around your business</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.stack.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.stack.heading')}</h2>
       <div class="stack-grid">
         <div class="stack-card">
           <h3>Magento Open Source</h3>
-          <p>Magento Open Source gives ambitious brands the flexibility and control to build a fully custom, scalable eCommerce experience around how their business works.</p>
-          <a class="stack-card-link" href="/services/magento-development">Explore <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.magento.description')}</p>
+          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/magento-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="stack-card">
           <h3>Adobe Commerce</h3>
-          <p>Adobe Commerce builds on Magento with enterprise-level tools, advanced B2B functionality, strong security, and personalisation, supporting complex, international eCommerce at scale.</p>
-          <a class="stack-card-link" href="/services/adobe-commerce-development">Explore <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.adobe.description')}</p>
+          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/adobe-commerce-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="stack-card">
           <h3>Hyva Themes</h3>
-          <p>Hyva replaces Magento's traditional frontend with a lightweight, modern theme that dramatically improves performance, simplifies development, and supports better conversion.</p>
-          <a class="stack-card-link" href="/services/hyva-themes">Explore <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.hyva.description')}</p>
+          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/hyva-themes')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href="/services">All Services</a></div>
+      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/services')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.allServicesCta')}</a></div>
     </div>
   </section>
 
   <!-- ═══ TRUSTED BY ═══ -->
   <section class="trusted-section">
     <div class="section-container">
-      <span class="section-label" style="text-align:center;display:block">Trusted by</span>
-      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:16px;color:var(--grey-text)">From premium retailers to fast growing independents.</p>
+      <span class="section-label" style="text-align:center;display:block">{t(locale, 'develoSocial.serviceTechPartnerPage.trusted.label')}</span>
+      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:16px;color:var(--grey-text)">{t(locale, 'develoSocial.serviceTechPartnerPage.trusted.description')}</p>
       <div class="trusted-logos">
         <span class="trusted-logo-text">BRANDALLEY</span>
         <span class="trusted-logo-text">BAMFORD</span>
@@ -250,12 +289,12 @@ img{max-width:100%;height:auto;display:block}
   <section class="goals-section">
     <div class="section-container">
       <div class="goals-content">
-        <span class="section-label">Your goals</span>
-        <h2 class="section-title">The right solution starts with your goals</h2>
-        <p class="section-desc">Whether you're improving an existing Magento or Adobe Commerce store, planning a rebuild or exploring long-term support, it starts with understanding your next step. A short discovery call helps shape the right approach and technology.</p>
+        <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.label')}</span>
+        <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.heading')}</h2>
+        <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.description')}</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn-primary" href="/contact">Talk to us</a>
-          <a class="btn-outline" href="/services/magento-migration-solutions">Migrations and Upgrades</a>
+          <a class="btn-primary" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoSocial.serviceTechPartnerPage.goals.talkToUs')}</a>
+          <a class="btn-outline" href={getLocalizedPath(locale, '/services/magento-migration-solutions')}>{t(locale, 'develoSocial.serviceTechPartnerPage.goals.migrationsCta')}</a>
         </div>
       </div>
     </div>
@@ -264,44 +303,44 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ WHY CHOOSE US ═══ -->
   <section class="why-section">
     <div class="section-container">
-      <span class="section-label">Why choose us?</span>
-      <h2 class="section-title">We are focused on relationships and long-term success</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.why.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.why.heading')}</h2>
       <div class="why-grid">
         <div class="why-card">
-          <h3>Magento, Adobe &amp; Hyva Specialists</h3>
-          <p>We've specialised in these platforms for years and know how to deliver at scale.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.specialists.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.specialists.description')}</p>
         </div>
         <div class="why-card">
-          <h3>Long-Term Partnerships</h3>
-          <p>Many of our clients stay with us for years. We offer flexible retainers and growth support, not just launches.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.partnerships.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.partnerships.description')}</p>
         </div>
         <div class="why-card">
-          <h3>Boutique Size Agency</h3>
-          <p>Big enough to handle complex projects, small enough to stay personal and responsive.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.boutique.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.boutique.description')}</p>
         </div>
         <div class="why-card">
-          <h3>Collaborative Approach</h3>
-          <p>We work as an extension of your team, keeping communication clear and transparent throughout the project.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.collaborative.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.collaborative.description')}</p>
         </div>
         <div class="why-card">
-          <h3>Trusted by Leading Brands</h3>
-          <p>From lifestyle to B2B enterprises, brands trust us to scale and support their eCommerce stores.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.trustedBrands.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.trustedBrands.description')}</p>
         </div>
         <div class="why-card">
-          <h3>Focused on results</h3>
-          <p>We do not just write code. We help you achieve business goals like conversion, performance and scalability.</p>
+          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.results.title')}</h3>
+          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.results.description')}</p>
         </div>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href="/about-us">About Develo</a></div>
+      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/about-us')}>{t(locale, 'develoSocial.serviceTechPartnerPage.why.aboutCta')}</a></div>
     </div>
   </section>
 
   <!-- ═══ PARTNERSHIPS & INTEGRATIONS ═══ -->
   <section class="partner-section">
     <div class="section-container">
-      <span class="section-label">Partnerships &amp; Integrations</span>
-      <h2 class="section-title">Smarter commerce through connected systems</h2>
-      <p class="section-desc">We integrate Magento, Adobe Commerce, and Hyva with the systems that power your business, ensuring everything works together smoothly behind the scenes.</p>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.heading')}</h2>
+      <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.description')}</p>
       <div class="partner-grid">
         <div class="partner-logo">Adobe Commerce</div>
         <div class="partner-logo">Magento</div>
@@ -314,7 +353,7 @@ img{max-width:100%;height:auto;display:block}
         <div class="partner-logo">PayPal</div>
         <div class="partner-logo">Akeneo</div>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href="/services/magento-integrations">Magento Integrations</a></div>
+      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/services/magento-integrations')}>{t(locale, 'develoSocial.serviceTechPartnerPage.partner.integrationsCta')}</a></div>
     </div>
   </section>
 
@@ -322,10 +361,10 @@ img{max-width:100%;height:auto;display:block}
   <section class="b2b-section">
     <div class="section-container">
       <div class="b2b-content">
-        <span class="section-label">B2C eCommerce</span>
-        <h2 class="section-title">Stores built for complex buying journeys</h2>
-        <p class="section-desc">We design Magento and Adobe Commerce solutions for B2B brands, simplifying complex catalogues, pricing and procurement to make buying easier.</p>
-        <a class="btn-outline" href="/services/b2b-commerce" style="width:fit-content">B2B Commerce</a>
+        <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.label')}</span>
+        <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.heading')}</h2>
+        <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.description')}</p>
+        <a class="btn-outline" href={getLocalizedPath(locale, '/services/b2b-commerce')} style="width:fit-content">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.commerceCta')}</a>
       </div>
     </div>
   </section>
@@ -333,35 +372,35 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ REAL RESULTS ═══ -->
   <section class="results-section">
     <div class="section-container">
-      <span class="section-label">Real results</span>
-      <h2 class="section-title">Performance you can measure</h2>
-      <p class="section-desc">Explore how other brands improved speed, user experience and customer experience through Magento, Adobe Commerce and Hyva.</p>
-      <div style="margin-top:12px"><a class="btn-outline" href="/work">View our work</a></div>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.results.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.results.heading')}</h2>
+      <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.description')}</p>
+      <div style="margin-top:12px"><a class="btn-outline" href={getLocalizedPath(locale, '/work')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewWorkCta')}</a></div>
       <div class="results-grid">
         <div class="result-card">
           <span class="result-stat">+92%</span>
-          <span class="result-stat-desc">Increase in conversions since the site launch in 2025</span>
-          <a class="result-link" href="/work/bamford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.bamford')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/bamford')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+47%</span>
-          <span class="result-stat-desc">Increase in conversions after a migration to Hyva in 2025</span>
-          <a class="result-link" href="/work/daylesford">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.daylesford')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/daylesford')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+19%</span>
-          <span class="result-stat-desc">Increase in revenue after a migration to Hyva</span>
-          <a class="result-link" href="/work/brandalley">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.brandalley')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/brandalley')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">41%</span>
-          <span class="result-stat-desc">Increase in Revenue after the Hyva migration</span>
-          <a class="result-link" href="/work/teague">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.teague')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/teague')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="result-card">
           <span class="result-stat">+300%</span>
-          <span class="result-stat-desc">Increase in speed for placing bids on Currys Magento B2B auction platform</span>
-          <a class="result-link" href="/work/currys">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.currys')}</span>
+          <a class="result-link" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
       <div class="results-pagination">
@@ -375,12 +414,12 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ LET'S TALK CTA ═══ -->
   <section class="cta-section">
     <div class="section-container">
-      <span class="section-label">Let's talk</span>
-      <h2 class="section-title">Ready to find your technology partner?</h2>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.cta.label')}</span>
+      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.cta.heading')}</h2>
       <div class="cta-grid">
-        <a class="cta-card" href="/services/adobe-commerce-development">Adobe Commerce Development <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-card" href="/services/hyva-themes">Hyva Development <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-card" href="/services/magento-performance-optimisations">Performance Optimisations <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-card" href={getLocalizedPath(locale, '/services/adobe-commerce-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.adobe')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-card" href={getLocalizedPath(locale, '/services/hyva-themes')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.hyva')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-card" href={getLocalizedPath(locale, '/services/magento-performance-optimisations')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.performance')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
@@ -388,15 +427,15 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ FAQ ═══ -->
   <section class="faq-section">
     <div class="section-container">
-      <span class="section-label">FAQ's</span>
+      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.label')}</span>
       <div class="faq-list">
-        <div class="faq-item open"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can you take over an existing Magento or Adobe Commerce site?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer">We regularly onboard Magento, Adobe Commerce and Hyva stores. We begin with a full technical and performance audit to understand your setup, uncover issues and define the most impactful improvements. Whether you need quick fixes, better performance or a long-term roadmap, we can stabilise and strengthen your site.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What makes you different from other Magento agencies?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">We're an experienced, in-house team focused on clear communication and measurable results. You work directly with developers, designers and account managers who understand your goals and stay invested in your success, not outsourced teams or layers of account handling.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do you approach a new development project?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">Every engagement starts with discovery. We learn about your systems, customers and commercial goals, then create detailed plans, wireframes and technical specifications. This ensures development runs smoothly and your final solution is aligned with both technical requirements and user needs.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do you provide ongoing support after launch?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">We offer flexible Magento and Adobe Commerce support packages with clear SLAs. Support includes maintenance, security patching, speed optimisation, Hyva upgrades and ongoing development so your site continues to evolve.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How can you help my website grow?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">We provide ongoing optimisation, including conversion rate optimisation (CRO), UX improvements, analytics, SEO, Magento performance optimisation and personalised user experiences. Our goal is to improve speed, clarity and conversion across every interaction.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can Magento integrate with my existing systems?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">Absolutely. We integrate Magento and Adobe Commerce with ERP, CRM, payment gateways, shipping tools, marketing platforms and specialist B2B systems. We support both custom integrations and connections with major third-party providers.</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What eCommerce development services do you offer?<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">We deliver full eCommerce builds, platform migrations, Hyva upgrades, performance improvements, UX design, ongoing development and long-term support retainers for Magento, Adobe Commerce and Hyva stores.</div></div>
+        <div class="faq-item open"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q1.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q1.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q2.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q2.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q3.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q3.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q4.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q4.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q5.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q5.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q6.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q6.answer')}</div></div>
+        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q7.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q7.answer')}</div></div>
       </div>
     </div>
   </section>

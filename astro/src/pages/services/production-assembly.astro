@@ -1,154 +1,227 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const productionCapabilities = [
   {
-    title: 'Advanced Manufacturing',
-    description:
-      'State-of-the-art production facilities equipped with the latest technology for precision IPL device manufacturing.',
-    features: ['Automated Assembly Lines', 'Precision Tooling', 'Clean Room Environment', 'Real-time Monitoring'],
+    title: t(locale, 'servicesPage.productionAssembly.capabilities.items.0.title'),
+    description: t(locale, 'servicesPage.productionAssembly.capabilities.items.0.description'),
+    features: [
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.0.features.0'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.0.features.1'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.0.features.2'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.0.features.3'),
+    ],
     gradient: 'from-emerald-500 to-green-500',
   },
   {
-    title: 'Quality Assurance',
-    description:
-      'Comprehensive quality control systems ensuring every product meets international standards and regulations.',
-    features: ['ISO 13485 Certified', 'FDA Clearance Process', 'CE Marking Compliance', '100% Product Testing'],
+    title: t(locale, 'servicesPage.productionAssembly.capabilities.items.1.title'),
+    description: t(locale, 'servicesPage.productionAssembly.capabilities.items.1.description'),
+    features: [
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.1.features.0'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.1.features.1'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.1.features.2'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.1.features.3'),
+    ],
     gradient: 'from-sky-500 to-cyan-500',
   },
   {
-    title: 'Scalable Production',
-    description:
-      'Flexible manufacturing capacity that scales from prototype quantities to high-volume mass production.',
-    features: ['Flexible MOQ', 'Rapid Scale-up', 'Capacity Planning', 'Demand Forecasting'],
+    title: t(locale, 'servicesPage.productionAssembly.capabilities.items.2.title'),
+    description: t(locale, 'servicesPage.productionAssembly.capabilities.items.2.description'),
+    features: [
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.2.features.0'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.2.features.1'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.2.features.2'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.2.features.3'),
+    ],
     gradient: 'from-purple-500 to-pink-500',
   },
   {
-    title: 'Process Optimization',
-    description:
-      'Continuous improvement methodologies to optimize efficiency, reduce costs, and enhance quality.',
-    features: ['Lean Manufacturing', 'Six Sigma Principles', 'Waste Reduction', 'Cycle Time Optimization'],
+    title: t(locale, 'servicesPage.productionAssembly.capabilities.items.3.title'),
+    description: t(locale, 'servicesPage.productionAssembly.capabilities.items.3.description'),
+    features: [
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.3.features.0'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.3.features.1'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.3.features.2'),
+      t(locale, 'servicesPage.productionAssembly.capabilities.items.3.features.3'),
+    ],
     gradient: 'from-violet-600 to-fuchsia-600',
   },
 ];
 
 const productionStages = [
   {
-    stage: '01',
-    title: 'Component Sourcing',
-    description: 'Strategic sourcing of high-quality components from certified suppliers worldwide.',
-    details: ['Supplier qualification and auditing', 'Component testing and validation', 'Supply chain risk management', 'Cost optimization strategies'],
-    duration: '2–4 weeks',
+    stage: t(locale, 'servicesPage.productionAssembly.process.items.0.stage'),
+    title: t(locale, 'servicesPage.productionAssembly.process.items.0.title'),
+    description: t(locale, 'servicesPage.productionAssembly.process.items.0.description'),
+    details: [
+      t(locale, 'servicesPage.productionAssembly.process.items.0.details.0'),
+      t(locale, 'servicesPage.productionAssembly.process.items.0.details.1'),
+      t(locale, 'servicesPage.productionAssembly.process.items.0.details.2'),
+      t(locale, 'servicesPage.productionAssembly.process.items.0.details.3'),
+    ],
+    duration: t(locale, 'servicesPage.productionAssembly.process.items.0.duration'),
   },
   {
-    stage: '02',
-    title: 'Pre-Production Setup',
-    description: 'Comprehensive preparation including tooling, fixtures, and production line configuration.',
-    details: ['Production line setup', 'Tooling and fixture preparation', 'Quality control station setup', 'Staff training and certification'],
-    duration: '3–5 weeks',
+    stage: t(locale, 'servicesPage.productionAssembly.process.items.1.stage'),
+    title: t(locale, 'servicesPage.productionAssembly.process.items.1.title'),
+    description: t(locale, 'servicesPage.productionAssembly.process.items.1.description'),
+    details: [
+      t(locale, 'servicesPage.productionAssembly.process.items.1.details.0'),
+      t(locale, 'servicesPage.productionAssembly.process.items.1.details.1'),
+      t(locale, 'servicesPage.productionAssembly.process.items.1.details.2'),
+      t(locale, 'servicesPage.productionAssembly.process.items.1.details.3'),
+    ],
+    duration: t(locale, 'servicesPage.productionAssembly.process.items.1.duration'),
   },
   {
-    stage: '03',
-    title: 'Pilot Production',
-    description: 'Small-batch production to validate processes, identify issues, and optimize workflows.',
-    details: ['Process validation', 'Quality system verification', 'Yield optimization', 'Documentation finalization'],
-    duration: '1–2 weeks',
+    stage: t(locale, 'servicesPage.productionAssembly.process.items.2.stage'),
+    title: t(locale, 'servicesPage.productionAssembly.process.items.2.title'),
+    description: t(locale, 'servicesPage.productionAssembly.process.items.2.description'),
+    details: [
+      t(locale, 'servicesPage.productionAssembly.process.items.2.details.0'),
+      t(locale, 'servicesPage.productionAssembly.process.items.2.details.1'),
+      t(locale, 'servicesPage.productionAssembly.process.items.2.details.2'),
+      t(locale, 'servicesPage.productionAssembly.process.items.2.details.3'),
+    ],
+    duration: t(locale, 'servicesPage.productionAssembly.process.items.2.duration'),
   },
   {
-    stage: '04',
-    title: 'Mass Production',
-    description: 'Full-scale manufacturing with continuous monitoring and quality assurance.',
-    details: ['High-volume production', 'Real-time quality monitoring', 'Continuous improvement', 'Delivery scheduling'],
-    duration: 'Ongoing',
+    stage: t(locale, 'servicesPage.productionAssembly.process.items.3.stage'),
+    title: t(locale, 'servicesPage.productionAssembly.process.items.3.title'),
+    description: t(locale, 'servicesPage.productionAssembly.process.items.3.description'),
+    details: [
+      t(locale, 'servicesPage.productionAssembly.process.items.3.details.0'),
+      t(locale, 'servicesPage.productionAssembly.process.items.3.details.1'),
+      t(locale, 'servicesPage.productionAssembly.process.items.3.details.2'),
+      t(locale, 'servicesPage.productionAssembly.process.items.3.details.3'),
+    ],
+    duration: t(locale, 'servicesPage.productionAssembly.process.items.3.duration'),
   },
 ];
 
 const qualityStandards = [
   {
-    standard: 'ISO 13485',
-    title: 'Medical Device Quality Management',
-    description: 'Comprehensive quality management system specifically designed for medical device manufacturing.',
-    scope: 'Design, development, production, and post-market surveillance',
+    standard: t(locale, 'servicesPage.productionAssembly.standards.items.0.standard'),
+    title: t(locale, 'servicesPage.productionAssembly.standards.items.0.title'),
+    description: t(locale, 'servicesPage.productionAssembly.standards.items.0.description'),
+    scope: t(locale, 'servicesPage.productionAssembly.standards.items.0.scope'),
   },
   {
-    standard: 'FDA 510(k)',
-    title: 'FDA Clearance Process',
-    description: 'Regulatory pathway for medical devices that are substantially equivalent to existing approved devices.',
-    scope: 'Safety and effectiveness validation for US market',
+    standard: t(locale, 'servicesPage.productionAssembly.standards.items.1.standard'),
+    title: t(locale, 'servicesPage.productionAssembly.standards.items.1.title'),
+    description: t(locale, 'servicesPage.productionAssembly.standards.items.1.description'),
+    scope: t(locale, 'servicesPage.productionAssembly.standards.items.1.scope'),
   },
   {
-    standard: 'CE Marking',
-    title: 'European Conformity',
-    description: 'Certification indicating conformity with health, safety, and environmental protection standards.',
-    scope: 'European Economic Area market access',
+    standard: t(locale, 'servicesPage.productionAssembly.standards.items.2.standard'),
+    title: t(locale, 'servicesPage.productionAssembly.standards.items.2.title'),
+    description: t(locale, 'servicesPage.productionAssembly.standards.items.2.description'),
+    scope: t(locale, 'servicesPage.productionAssembly.standards.items.2.scope'),
   },
   {
-    standard: 'IEC 60601',
-    title: 'Medical Electrical Equipment',
-    description: 'International standard for safety and essential performance of medical electrical equipment.',
-    scope: 'Electrical safety and electromagnetic compatibility',
+    standard: t(locale, 'servicesPage.productionAssembly.standards.items.3.standard'),
+    title: t(locale, 'servicesPage.productionAssembly.standards.items.3.title'),
+    description: t(locale, 'servicesPage.productionAssembly.standards.items.3.description'),
+    scope: t(locale, 'servicesPage.productionAssembly.standards.items.3.scope'),
   },
 ];
 
 const productionMetrics = [
-  { metric: '50,000+', label: 'Units/Month Capacity', description: 'Maximum monthly production capacity' },
-  { metric: '99.5%', label: 'Quality Pass Rate', description: 'First-pass quality rate achievement' },
-  { metric: '24/7', label: 'Production Monitoring', description: 'Continuous production oversight' },
-  { metric: '15+', label: 'Years Experience', description: 'Manufacturing expertise in IPL devices' },
+  {
+    metric: t(locale, 'servicesPage.productionAssembly.metrics.items.0.metric'),
+    label: t(locale, 'servicesPage.productionAssembly.metrics.items.0.label'),
+    description: t(locale, 'servicesPage.productionAssembly.metrics.items.0.description'),
+  },
+  {
+    metric: t(locale, 'servicesPage.productionAssembly.metrics.items.1.metric'),
+    label: t(locale, 'servicesPage.productionAssembly.metrics.items.1.label'),
+    description: t(locale, 'servicesPage.productionAssembly.metrics.items.1.description'),
+  },
+  {
+    metric: t(locale, 'servicesPage.productionAssembly.metrics.items.2.metric'),
+    label: t(locale, 'servicesPage.productionAssembly.metrics.items.2.label'),
+    description: t(locale, 'servicesPage.productionAssembly.metrics.items.2.description'),
+  },
+  {
+    metric: t(locale, 'servicesPage.productionAssembly.metrics.items.3.metric'),
+    label: t(locale, 'servicesPage.productionAssembly.metrics.items.3.label'),
+    description: t(locale, 'servicesPage.productionAssembly.metrics.items.3.description'),
+  },
 ];
 
 const testingProcedures = [
   {
-    category: 'Electrical Testing',
-    tests: ['Power consumption verification', 'Electrical safety testing', 'EMC compliance testing', 'Insulation resistance testing'],
+    category: t(locale, 'servicesPage.productionAssembly.testing.items.0.category'),
+    tests: [
+      t(locale, 'servicesPage.productionAssembly.testing.items.0.tests.0'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.0.tests.1'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.0.tests.2'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.0.tests.3'),
+    ],
   },
   {
-    category: 'Optical Performance',
-    tests: ['Light output measurement', 'Wavelength verification', 'Pulse duration testing', 'Energy density calibration'],
+    category: t(locale, 'servicesPage.productionAssembly.testing.items.1.category'),
+    tests: [
+      t(locale, 'servicesPage.productionAssembly.testing.items.1.tests.0'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.1.tests.1'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.1.tests.2'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.1.tests.3'),
+    ],
   },
   {
-    category: 'Safety & Reliability',
-    tests: ['Skin contact safety testing', 'Temperature monitoring', 'Durability testing', 'Environmental testing'],
+    category: t(locale, 'servicesPage.productionAssembly.testing.items.2.category'),
+    tests: [
+      t(locale, 'servicesPage.productionAssembly.testing.items.2.tests.0'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.2.tests.1'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.2.tests.2'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.2.tests.3'),
+    ],
   },
   {
-    category: 'Functional Testing',
-    tests: ['User interface testing', 'Treatment mode verification', 'Sensor functionality', 'Overall system integration'],
+    category: t(locale, 'servicesPage.productionAssembly.testing.items.3.category'),
+    tests: [
+      t(locale, 'servicesPage.productionAssembly.testing.items.3.tests.0'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.3.tests.1'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.3.tests.2'),
+      t(locale, 'servicesPage.productionAssembly.testing.items.3.tests.3'),
+    ],
   },
 ];
 ---
 
-<BaseLayout title="Production & Assembly" lang={locale} description="IPL device production and assembly: advanced manufacturing, quality assurance, scalable production, and process optimization for OEM/ODM projects.">
+<BaseLayout title={t(locale, 'servicesPage.productionAssembly.meta.title')} lang={locale} description={t(locale, 'servicesPage.productionAssembly.meta.description')}>
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">
         <h1 class="text-4xl font-bold text-slate-900 md:text-6xl">
-          Precision Manufacturing
-          <span class="block bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">At Scale</span>
+          {t(locale, 'servicesPage.productionAssembly.hero.title1')}
+          <span class="block bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t(locale, 'servicesPage.productionAssembly.hero.title2')}</span>
         </h1>
         <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
-          State-of-the-art production facilities and rigorous quality control systems ensure every IPL device meets the highest standards of performance and safety.
+          {t(locale, 'servicesPage.productionAssembly.hero.description')}
         </p>
         <div class="mt-10 flex justify-center">
-          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.productionAssembly.hero.cta')}</a>
         </div>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">How is an IPL device produced at scale for private-label?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.productionAssembly.citable.heading')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        Scaled IPL device production for private-label typically follows a structured flow: verified component sourcing, pre-production line setup, pilot runs to validate yield and test stations, and then mass production with ongoing quality monitoring. Key checkpoints include electrical safety tests, optical output verification, pulse stability and energy calibration, temperature and cooling checks, and final functional tests of sensors and user interface. For target markets, documentation and traceability processes are maintained alongside production so batches remain consistent and auditable. iShine aligns production planning with the selected lamp, filter, cooling, and power subsystems to reduce variation between lots and support repeatable performance. This approach helps brands launch reliably, scale quantities, and maintain consistent customer experience across shipments.
+        {t(locale, 'servicesPage.productionAssembly.citable.body')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What manufacturing capabilities do we offer for IPL devices?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.capabilities.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Comprehensive manufacturing solutions that combine advanced technology with proven processes to deliver exceptional results.
+          {t(locale, 'servicesPage.productionAssembly.capabilities.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -172,9 +245,9 @@ const testingProcedures = [
 
     <section class="rounded-2xl bg-slate-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">How does the IPL production process work?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.process.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          A systematic approach to manufacturing that ensures quality, efficiency, and scalability from prototype to mass production.
+          {t(locale, 'servicesPage.productionAssembly.process.sub')}
         </p>
       </div>
       <div class="mt-12 space-y-6">
@@ -209,9 +282,9 @@ const testingProcedures = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What quality standards and certifications do we meet?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.standards.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Our commitment to quality is demonstrated through rigorous adherence to international standards and regulatory requirements.
+          {t(locale, 'servicesPage.productionAssembly.standards.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -220,7 +293,7 @@ const testingProcedures = [
             <div class="inline-flex rounded-2xl border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-medium text-sky-700">{s.standard}</div>
             <h3 class="mt-4 text-xl font-bold text-slate-900">{s.title}</h3>
             <p class="mt-3 text-slate-700">{s.description}</p>
-            <div class="mt-4 text-sm text-slate-600"><span class="font-semibold text-slate-700">Scope:</span> {s.scope}</div>
+            <div class="mt-4 text-sm text-slate-600"><span class="font-semibold text-slate-700">{t(locale, 'servicesPage.productionAssembly.standards.scopeLabel')}</span> {s.scope}</div>
           </div>
         ))}
       </div>
@@ -228,9 +301,9 @@ const testingProcedures = [
 
     <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Production Excellence</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.metrics.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Key performance indicators that demonstrate our commitment to manufacturing excellence and operational efficiency.
+          {t(locale, 'servicesPage.productionAssembly.metrics.sub')}
         </p>
       </div>
       <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -246,9 +319,9 @@ const testingProcedures = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Comprehensive Testing Procedures</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.testing.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Rigorous testing protocols ensure every IPL device meets performance specifications and safety requirements before shipment.
+          {t(locale, 'servicesPage.productionAssembly.testing.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -270,13 +343,13 @@ const testingProcedures = [
 
     <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold md:text-4xl">Ready to Scale Your IPL Production?</h2>
+        <h2 class="text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.productionAssembly.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
-          Talk to our production team about capacity, quality standards, and delivery schedules for your next run.
+          {t(locale, 'servicesPage.productionAssembly.cta.description')}
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>Discuss Production Needs</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+          <a class="rounded bg-emerald-600 px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.productionAssembly.cta.start')}</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>{t(locale, 'servicesPage.productionAssembly.cta.back')}</a>
         </div>
       </div>
     </section>
