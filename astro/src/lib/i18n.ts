@@ -5,7 +5,7 @@ import es from '../../../messages/es.json';
 import fr from '../../../messages/fr.json';
 import ru from '../../../messages/ru.json';
 import he from '../../../messages/he.json';
-import pt from '../../../messages/pt-PT.json';
+import pt from '../../../messages/pt-BR.json';
 import nl from '../../../messages/nl.json';
 
 type Messages = Record<string, unknown>;
@@ -18,7 +18,7 @@ const messagesByLocale: Record<string, Messages> = {
   fr: fr as Messages,
   ru: ru as Messages,
   he: he as Messages,
-  'pt-PT': pt as Messages,
+  'pt-BR': pt as Messages,
   nl: nl as Messages,
 };
 

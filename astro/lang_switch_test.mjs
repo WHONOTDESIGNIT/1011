@@ -1,13 +1,13 @@
-// 语言切换端到端验证：打开 /pt-PT/ 首页 → 打开语言切换器 → 点 English → 验证 localStorage + URL 变化
+// 语言切换端到端验证：打开 /pt-BR/ 首页 → 打开语言切换器 → 点 English → 验证 localStorage + URL 变化
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
 
-// 1. 访问 pt-PT 首页，确认切换器存在且 pt-PT 高亮
-await page.goto('http://localhost:56212/pt-PT/', { waitUntil: 'load' });
+// 1. 访问 pt-BR 首页，确认切换器存在且 pt-BR 高亮
+await page.goto('http://localhost:56212/pt-BR/', { waitUntil: 'load' });
 const triggerLabel = await page.textContent('[data-ls-trigger] .ls-trigger-label');
-console.log('pt-PT 页切换器当前语言:', triggerLabel);
+console.log('pt-BR 页切换器当前语言:', triggerLabel);
 
 // 2. 打开切换器（header 版可见实例）
 const clicked = await page.evaluate(() => {
@@ -19,7 +19,7 @@ const clicked = await page.evaluate(() => {
 if (!clicked) throw new Error('无可见的切换器触发器');
 await page.waitForSelector('.ls-panel.ls--visible');
 
-// 3. 检查可选语言数（应为 8：en/tr/ar/es/fr/ru/he/pt-PT）
+// 3. 检查可选语言数（应为 8：en/tr/ar/es/fr/ru/he/pt-BR）
 const enabled = await page.evaluate(() => [...document.querySelectorAll('[data-ls-option]')].map((a) => a.getAttribute('hreflang')));
 console.log('可选语言:', JSON.stringify(enabled));
 

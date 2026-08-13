@@ -1,7 +1,7 @@
 # 国际化（i18n）开发指南
 
 > 适用项目：iShine Technology 官网（Astro + Netlify Adapter，主域名 iplmanufacturer.com）
-> 本文档描述项目多语言体系的配置路径、语言包维护规范、RTL 布局开发注意事项，以及 2026-08 新增语言（希伯来语 he、葡萄牙语 pt-PT、荷兰语 nl）的完整说明。
+> 本文档描述项目多语言体系的配置路径、语言包维护规范、RTL 布局开发注意事项，以及 2026-08 新增语言（希伯来语 he、巴西葡萄牙语 pt-BR、荷兰语 nl）的完整说明。
 
 ---
 
@@ -16,7 +16,7 @@
 | fr | French | Français | LTR | ✅ | |
 | ru | Russian | Русский | LTR | ✅ | |
 | he | Hebrew | עברית | **RTL** | ✅ | 2026-08 新增 |
-| pt-PT | Portuguese (Portugal) | Português (Portugal) | LTR | ✅ | 2026-08 新增 |
+| pt-BR | Portuguese (Brazil) | Português (Brasil) | LTR | ✅ | 2026-08 新增 |
 | nl | Dutch | Nederlands | LTR | ✅ | 2026-08 新增 |
 
 > 其余语言（ro/da/lt/sv/pt-BR/id/th/ko/ja/af/it/pl）已在 `LANGUAGE_CONFIG` 中预置但 `enabled: false`，语言切换器中不可见。
@@ -36,14 +36,14 @@
 | 5 | `src/layouts/BaseLayout.astro` | `<html dir>` 判断（RTL 语言加 `lang === 'xx' ? 'rtl'`）；新增 `hreflangXx` 常量并加入 `pageHreflangs` 数组；内联脚本 `var LANGS` 追加 |
 | 6 | 各 `.astro` 页面内联脚本 | 语言推导链（`Astro.url.pathname.startsWith('/xx') ? 'xx' : ...`）追加；`var LANGS` 数组追加 |
 
-> 注意：语言代码作为 **Astro 路由前缀** 使用（`/pt-PT/`、`/he/`），目录结构与 `locales` 完全一致。默认语言 en 使用根目录（`prefixDefaultLocale: false`）。
+> 注意：语言代码作为 **Astro 路由前缀** 使用（`/pt-BR/`、`/he/`），目录结构与 `locales` 完全一致。默认语言 en 使用根目录（`prefixDefaultLocale: false`）。
 
 ### 2.1 统一路由结构（2026-08-12 确认）
 
 全站采用 **统一路由结构**，不依赖语言文件夹拆分，所有语言共享同一套页面组件，通过 URL 前缀 + 语言包渲染：
 
 - **页面层**：单一 `src/pages/` 结构，Astro `i18n` 前缀路由自动为每种语言生成 `/tr/`、`/ar/`、`/es/`… 路由。未翻译页（fallback 场景）由 `fallbackType: 'rewrite'` 在对应语言 URL 下直接渲染英文内容（不跳转、无 noindex）。
-- **内容层（博客）**：`src/content/blog/<locale>/` 各语言**独立目录**（en/tr/ar/es/fr/ru/he/pt-PT），每篇含本地化 `slug` + `canonicalSlug`（指向英文原文）用于 hreflang 分组与 fallback 归并。
+- **内容层（博客）**：`src/content/blog/<locale>/` 各语言**独立目录**（en/tr/ar/es/fr/ru/he/pt-BR），每篇含本地化 `slug` + `canonicalSlug`（指向英文原文）用于 hreflang 分组与 fallback 归并。
 - 全部 8 种语言均验证 **51 个核心页面** 逐一存在（页面层完全对齐），无缺页。
 
 ---
@@ -66,9 +66,9 @@ export interface RegionConfig {
 
 | 语言 | locale | timeZone | calendar | numberingSystem | currency |
 |---|---|---|---|---|---|
-| **pt-PT** | `pt-PT` | `Europe/Lisbon` | `gregory` | `latn` | `EUR` |
+| **pt-BR** | `pt-BR` | `America/Sao_Paulo` | `gregory` | `latn` | `BRL` |
 
-- pt-PT 使用葡萄牙本土规范：欧洲葡萄牙时区、西方阿拉伯数字（latn）、欧元货币。
+- pt-BR 使用巴西本土规范：巴西时区（America/Sao_Paulo）、西方阿拉伯数字（latn）、雷亚尔（BRL）。
 - he 目前未显式配置 `REGION_CONFIG`（该配置为可选扩展项）；如需希伯来语本地化日期/数字，建议按以下参数扩展：`locale: 'he-IL'`、`timeZone: 'Asia/Jerusalem'`、`calendar: 'gregory'`、`numberingSystem: 'latn'`（如需希伯来数字可改 `hebr`）、`currency: 'ILS'`。优先使用 `Intl.NumberFormat('he-IL')` / `Intl.DateTimeFormat('he-IL')` 保证本地化正确性。
 
 ---
@@ -78,7 +78,7 @@ export interface RegionConfig {
 ### 4.1 存储位置与命名
 
 - 目录：`messages/`
-- 命名：`<language-code>.json`（小写语言码；带地区的语言使用 BCP-47 大小写，如 `pt-PT.json`）
+- 命名：`<language-code>.json`（小写语言码；带地区的语言使用 BCP-47 大小写，如 `pt-BR.json`）
 - 基准：`messages/en.json` 是唯一权威英文源，所有语言包必须与其 **键结构完全一致**
 
 ### 4.2 结构一致性校验
@@ -93,7 +93,7 @@ export interface RegionConfig {
 | fr.json | 3959 | 122 |
 | ru.json | 3959 | 122 |
 | he.json | 3959 | 122 |
-| pt-PT.json | 3959 | 122 |
+| pt-BR.json | 3959 | 122 |
 | nl.json | 3959 | 122 |
 
 任何语言包新增/删除键都必须同步到全部语言包。校验方式：
@@ -108,7 +108,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 - **品牌名与缩写保留**：iShine、Lumi、Venus、IPL、OEM/ODM、FDA、CE 等。
 - **[TODO] 骨架值**：未完成翻译的叶节点用 `[TODO]` 标记，禁止删除。
 - **语言专属规范**：
-  - pt-PT：欧葡词汇（ecrã/telemóvel/Contacto/Controlo/Arrefecimento），禁用巴葡词汇（tela/celular/contato/equipe）；`? ! : ;` 前不加空格；引号用 « »；数字用西方阿拉伯数字。
+  - pt-BR：巴葡词汇（tela/celular/contato/equipe/resfriamento），禁用欧葡词汇（ecrã/telemóvel/contacto/controlo/arrefecimento）；`? ! : ;` 前不加空格；引号用 `" "`；数字用西方阿拉伯数字。
   - he：RTL 文本，注意标点与括号的方向；数字默认希伯来数字格式。
   - nl：荷兰语正式书面语（u 形 / officieel），注意「de/het」冠词与「en/of」连词的自然语序；商业借词如 State-of-the-art、end-to-end、after-sales 在荷兰语商业语境中合法，按本土习惯保留或连写（如 end-to-enddiensten、lay-out）；货币用 EUR。
 
@@ -134,7 +134,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ---
 
-## 7. 新增语言完整工作流（以 pt-PT 为例）
+## 7. 新增语言完整工作流（以 pt-BR 为例）
 
 1. **核查现有配置**：确认 6 处联动点（见 §2）与语言包结构（见 §4）。
 2. **翻译语言包**：从 `en.json` 拆分（`messages/work/pt/split_pt.js` 40 块）→ 逐块翻译 → 合并（`merge_pt.js`）→ 校验叶节点/数组与 en 完全一致。
@@ -151,7 +151,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ## 7.1 全语言兼容性回归（2026-08-12）
 
-`all_langs_test.mjs`：Chromium / Edge / Firefox / WebKit 4 引擎 × 8 语言（en/tr/ar/es/fr/ru/he/pt-PT）× 4 视口（1920×1080 / 1366×768 / 375×667 / 390×844）× 4 页面（首页 / products/lumi / faq / contact），共 **512 项检查**：
+`all_langs_test.mjs`：Chromium / Edge / Firefox / WebKit 4 引擎 × 8 语言（en/tr/ar/es/fr/ru/he/pt-BR）× 4 视口（1920×1080 / 1366×768 / 375×667 / 390×844）× 4 页面（首页 / products/lumi / faq / contact），共 **512 项检查**：
 
 - `lang` 属性与期望语言一致
 - `dir` 属性正确（ar/he → rtl，其余 ltr）
@@ -176,16 +176,16 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
   - `verify_he.cjs`：11 个关键页面 lang=he / dir=rtl / 导航命中 / 无英文残留 —— 全绿
   - `scan_he_body.cjs`：50 页扫描，仅 privacy-policy 合法术语（DO-NOT-TRACK / cursor:not-allowed）
   - `he_browser_test.mjs`：4 引擎（Chromium/Edge/Firefox/WebKit）× 3 视口 × 3 页面 = **36/36 通过**，RTL 无横向溢出
-  - 可访问性检查：lang=he / dir=rtl 正确、89 张图片全部含 alt、无重复 id、无未命名图标按钮。注：`<main>` landmark 缺失为全站既有问题（en/pt-PT/he 均无），非 he 引入，留待后续统一改进
+  - 可访问性检查：lang=he / dir=rtl 正确、89 张图片全部含 alt、无重复 id、无未命名图标按钮。注：`<main>` landmark 缺失为全站既有问题（en/pt-BR/he 均无），非 he 引入，留待后续统一改进
 
-### 8.2 葡萄牙语（葡萄牙）（pt-PT）
+### 8.2 巴西葡萄牙语（pt-BR）
 
-- **语言包**：`messages/pt-PT.json`（3959 叶，结构对齐 en）
-- **配置**：6 处联动全部启用；`REGION_CONFIG['pt-PT']` = `{ locale: 'pt-PT', timeZone: 'Europe/Lisbon', calendar: 'gregory', numberingSystem: 'latn', currency: 'EUR' }`
+- **语言包**：`messages/pt-BR.json`（3959 叶，结构对齐 en）
+- **配置**：6 处联动全部启用；`REGION_CONFIG['pt-BR']` = `{ locale: 'pt-BR', timeZone: 'America/Sao_Paulo', calendar: 'gregory', numberingSystem: 'latn', currency: 'BRL' }`
 - **书写方向**：LTR（无需 RTL 适配）
-- **博客**：`src/content/blog/pt-PT/custom-gradient-housing-for-a-sourcing-agent.mdx`，slug `involucro-degrade-agente-aprovisionamento`，`canonicalSlug` 指向英文原文
+- **博客**：`src/content/blog/pt-BR/custom-gradient-housing-for-a-sourcing-agent.mdx`，slug `involucro-degrade-agente-aprovisionamento`，`canonicalSlug` 指向英文原文
 - **验证**：
-  - `verify_pt.cjs`：11 个关键页面 lang=pt-PT / dir=ltr / 导航命中 / 无英文残留 —— 全绿
+  - `verify_pt.cjs`：11 个关键页面 lang=pt-BR / dir=ltr / 导航命中 / 无英文残留 —— 全绿
   - `scan_pt_body.cjs`：50 页扫描，仅 privacy-policy 3 处合法命中（CSS 注释 / `cursor:not-allowed` / `DO-NOT-TRACK` 术语）
   - `pt_browser_test.mjs`：4 引擎 × 4 视口 × 3 页面 = **48/48 通过**，无横向溢出
 
@@ -216,7 +216,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ### 9.1 核心页面（9 语言 × 51 页，全部翻译就绪）
 
-各语言（en/tr/ar/es/fr/ru/he/pt-PT/nl）均完整覆盖以下 51 个页面，页面层文本 100% 本地化，无英文残留：
+各语言（en/tr/ar/es/fr/ru/he/pt-BR/nl）均完整覆盖以下 51 个页面，页面层文本 100% 本地化，无英文残留：
 
 | 分类 | 页面 |
 |---|---|
@@ -236,14 +236,14 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ### 9.2 博客文章覆盖（2026-08-12）
 
-| 博客文章 | en | tr | ar | es | fr | ru | he | pt-PT | nl |
+| 博客文章 | en | tr | ar | es | fr | ru | he | pt-BR | nl |
 |---|---|---|---|---|---|---|---|---|---|---|
 | components-that-stand-up-to-scrutiny | ✅ | ✅ | ✅ | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback |
 | you-design-it-we-build-it-box-it | ✅ | ✅ | ✅ | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback |
 | zero-to-one-beauty-brand | ✅ | ✅ | ✅ | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback | ⚠️ fallback |
 | custom-gradient-housing-for-a-sourcing-agent | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ fallback |
 
-> 核心页面层（51 页 × 9 语言）为完全独立翻译，不依赖 fallback。博客文章 3 篇旧文在 es/fr/ru/he/pt-PT/nl 走 fallback→en（rewrite 渲染英文，URL 正常），新文章已 8 语言全量覆盖（nl 待同步）。
+> 核心页面层（51 页 × 9 语言）为完全独立翻译，不依赖 fallback。博客文章 3 篇旧文在 es/fr/ru/he/pt-BR/nl 走 fallback→en（rewrite 渲染英文，URL 正常），新文章已 8 语言全量覆盖（nl 待同步）。
 
 ---
 

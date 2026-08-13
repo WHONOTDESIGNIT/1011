@@ -6,8 +6,9 @@
 [build.environment]
   NODE_VERSION = "20"
   # 多语言站点构建（9 语言 × 51 核心页 + 博客）堆内存需求高，
-  # 默认 ~2GB 上限会导致 V8 OOM（FATAL ERROR: Ineffective mark-compacts near heap limit）
-  NODE_OPTIONS = "--max-old-space-size=4096"
+  # 默认 ~2GB 上限会导致 V8 OOM（FATAL ERROR: Ineffective mark-compacts near heap limit）；
+  # 4096 在部分套餐上仍 OOM，已提高到 8192（注意需套餐内存上限 ≥ 8GB）
+  NODE_OPTIONS = "--max-old-space-size=8192"
 
 [images]
   remote_images = [

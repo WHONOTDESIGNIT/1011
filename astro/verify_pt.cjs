@@ -1,8 +1,8 @@
-// 验证 pt-PT 构建产物：lang / dir(ltr) / 葡萄牙语导航命中 / 英文导航残留
+// 验证 pt-BR 构建产物：lang / dir(ltr) / 葡萄牙语导航命中 / 英文导航残留
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, 'dist', 'pt-PT');
+const ROOT = path.join(__dirname, 'dist', 'pt-BR');
 const files = [
   'index.html',
   'services/index.html',
@@ -17,7 +17,7 @@ const files = [
   'blog/index.html',
 ];
 
-// 葡萄牙语导航标签（取自 pt-PT.json nav.*）
+// 葡萄牙语导航标签（取自 pt-BR.json nav.*）
 const ptNav = ['Produtos IPL', 'Serviços', 'Componentes', 'Clientes', 'Blog', 'Sobre nós', 'FAQ', 'Contacto'];
 const enNav = ['>Products<', '>Services<', '>Components<', '>Clients<', '>About<'];
 
@@ -35,7 +35,7 @@ for (const rel of files) {
   const dir = (html.match(/<html[^>]*dir="([^"]*)"/) || [])[1] || '';
   const ptHits = ptNav.filter((w) => html.includes(w));
   const enHits = enNav.filter((w) => html.includes(w));
-  const ok = lang === 'pt-PT' && dir === 'ltr' && enHits.length === 0;
+  const ok = lang === 'pt-BR' && dir === 'ltr' && enHits.length === 0;
   if (!ok) allOk = false;
   console.log(`--- ${rel}`);
   console.log(`  lang=${lang} | dir=${dir} | title=${title.slice(0, 90)}`);

@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGUAGES = ["en", "tr", "ar", "es", "fr", "ru", "he", "pt-PT", "nl"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "tr", "ar", "es", "fr", "ru", "he", "pt-BR", "nl"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export interface LanguageMeta {
@@ -29,13 +29,12 @@ export const LANGUAGE_CONFIG: LanguageMeta[] = [
   { code: "lt",    countryCode: "lt", label: "Lithuanian",  nativeName: "Lietuvių",               flagUrl: flag("lt"), enabled: false },
   { code: "sv",    countryCode: "se", label: "Swedish",     nativeName: "Svenska",                flagUrl: flag("se"), enabled: false },
   { code: "nl",    countryCode: "nl", label: "Dutch",       nativeName: "Nederlands",             flagUrl: flag("nl"), enabled: true },
-  { code: "pt-BR", countryCode: "br", label: "Portuguese (Brazil)", nativeName: "Português (Brasil)", flagUrl: flag("br"), enabled: false },
+  { code: "pt-BR", countryCode: "br", label: "Portuguese (Brazil)", nativeName: "Português (Brasil)", flagUrl: flag("br"), enabled: true },
   { code: "id",    countryCode: "id", label: "Indonesian",  nativeName: "Bahasa Indonesia",       flagUrl: flag("id"), enabled: false },
   { code: "th",    countryCode: "th", label: "Thai",        nativeName: "ไทย",                    flagUrl: flag("th"), enabled: false },
   { code: "ko",    countryCode: "kr", label: "Korean",      nativeName: "한국어",                  flagUrl: flag("kr"), enabled: false },
   { code: "ja",    countryCode: "jp", label: "Japanese",    nativeName: "日本語",                  flagUrl: flag("jp"), enabled: false },
   { code: "af",    countryCode: "za", label: "Afrikaans",   nativeName: "Afrikaans",              flagUrl: flag("za"), enabled: false },
-  { code: "pt-PT", countryCode: "pt", label: "Portuguese (Portugal)", nativeName: "Português (Portugal)", flagUrl: flag("pt"), enabled: true },
   { code: "it",    countryCode: "it", label: "Italian",     nativeName: "Italiano",               flagUrl: flag("it"), enabled: false },
   { code: "ru",    countryCode: "ru", label: "Russian",     nativeName: "Русский",                flagUrl: flag("ru"), enabled: true },
   { code: "es",    countryCode: "es", label: "Spanish",     nativeName: "Español",                flagUrl: flag("es"), enabled: true },
@@ -57,11 +56,11 @@ export interface RegionConfig {
 }
 
 export const REGION_CONFIG: Record<string, RegionConfig> = {
-  "pt-PT": {
-    locale: "pt-PT",
-    timeZone: "Europe/Lisbon",
+  "pt-BR": {
+    locale: "pt-BR",
+    timeZone: "America/Sao_Paulo",
     calendar: "gregory",
     numberingSystem: "latn",
-    currency: "EUR",
+    currency: "BRL",
   },
 };

@@ -1,5 +1,5 @@
 // 全语言 4 引擎测试：Chromium / Edge / Firefox / WebKit(Safari)
-// 覆盖 9 种已启用语言（en 根目录 + tr/ar/es/fr/ru/he/pt-PT/nl）× 4 视口 × 关键页面
+// 覆盖 9 种已启用语言（en 根目录 + tr/ar/es/fr/ru/he/pt-BR/nl）× 4 视口 × 关键页面
 // 检查：lang / dir（ar/he 应为 rtl）/ 横向溢出 / 关键 flex 容器自适应（页脚网格、导航、卡片网格）
 import { chromium, firefox, webkit } from 'playwright';
 
@@ -12,7 +12,7 @@ const LOCALES = [
   { prefix: '/fr', code: 'fr', dir: 'ltr' },
   { prefix: '/ru', code: 'ru', dir: 'ltr' },
   { prefix: '/he', code: 'he', dir: 'rtl' },
-  { prefix: '/pt-PT', code: 'pt-PT', dir: 'ltr' },
+  { prefix: '/pt-BR', code: 'pt-BR', dir: 'ltr' },
   { prefix: '/nl', code: 'nl', dir: 'ltr' },
 ];
 const PAGES = ['/', '/products/lumi/', '/faq/', '/contact/'];
