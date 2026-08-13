@@ -10,6 +10,13 @@
   # 4096 在部分套餐上仍 OOM，已提高到 8192（注意需套餐内存上限 ≥ 8GB）
   NODE_OPTIONS = "--max-old-space-size=8192"
 
+# 禁用 Netlify 全部后处理（含 Subfont 字体子集化）——构建超时的元凶：
+# Subfont 每次部署扫描 dist 中的字体/图片，但期望 dist/.netlify/images 而实际目录是
+# dist/images/，路径不匹配产生大量 ENOENT，最终拖垮构建。
+# Astro 生产构建已自带 JS/CSS minify + 资源 hash，图片多为 webp，无需 Netlify 二次处理。
+[build.processing]
+  skip_processing = true
+
 [images]
   remote_images = [
     "https://images\\.pexels\\.com/.*",
