@@ -1,21 +1,41 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { getAllPosts, getPostBySlug, getRelatedPosts } from '../../lib/blog';
+import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
-const locale = 'en'; const { slug } = Astro.params;
+const urlLocale = Astro.currentLocale ?? 'en';
+const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts('en');
-  return posts.map((post) => ({ params: { slug: post.slug } }));
+  // 三语文章各自的独立 slug 都注册为路由；Astro 会为每个 locale 前缀复制同一 slug，
+  // 组合不匹配的（如 /tr/blog/<en-slug>）在页面内 301 重定向到该文章的正确语言 URL。
+  const versions = await getAllArticleVersions();
+  return versions.map((v) => ({ params: { slug: v.slug }, props: { articleLocale: v.locale } }));
 }
+
+const { articleLocale } = Astro.props as { articleLocale: string };
+
+// 跨语言组合重定向：URL 前缀语言 ≠ slug 归属语言时，跳到该文章在 URL 前缀语言下的正确地址
+if (articleLocale !== urlLocale) {
+  const translations = await getPostTranslations(slug);
+  const target = translations.find((x) => x.locale === urlLocale);
+  if (target) {
+    return Astro.redirect(target.href, 301);
+  }
+  return new Response('Not found', { status: 404 });
+}
+
+const locale = articleLocale;
 
 const post = await getPostBySlug(locale, slug);
 if (!post) {
   return new Response('Not found', { status: 404 });
 }
+
+// 文章的三语 URL 映射（hreflang / canonical）
+const translations = await getPostTranslations(slug);
 
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
@@ -99,7 +119,7 @@ const articleSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }))}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
@@ -148,10 +168,10 @@ const articleSchema = {
     </header>
 
     <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is this article about?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'blog.post.citableEyebrow')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'blog.post.citableQuestion')}</h3>
       <p class="mt-4 text-lg leading-relaxed text-slate-700">
-        This article explains {post.meta.title} for teams evaluating or building private-label IPL hair removal products. It covers practical considerations for OEM/ODM execution, including how manufacturing choices can influence product experience, compliance planning, and launch readiness. The goal is to provide a self-contained overview that readers can reference when comparing options, preparing RFQs, or aligning internal stakeholders on requirements. Where relevant, the discussion connects component-level decisions (such as cooling, filters, lamp cartridges, sensors, and power design) with end-user comfort and repeatable production outcomes. The key takeaway is a clearer set of decision criteria you can use to reduce risk and move from concept to scalable manufacturing with fewer iterations.
+        {t(locale, 'blog.post.citableBody').replace('{title}', post.meta.title)}
       </p>
     </section>
 
@@ -346,7 +366,7 @@ const articleSchema = {
     transition: text-decoration-color 0.15s;
   }
   .blog-content a:hover {
-    text-decoration-color: var(--primary-color, #F58C28);
+    text-decoration-color: var(--primary-color, #563cfa);
   }
   .blog-content strong {
     font-weight: 600;
@@ -357,6 +377,11 @@ const articleSchema = {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     padding-left: 1.5rem;
+  }
+  [dir="rtl"] .blog-content ul,
+  [dir="rtl"] .blog-content ol {
+    padding-left: 0;
+    padding-right: 1.5rem;
   }
   .blog-content p + ul,
   .blog-content p + ol {

@@ -2,11 +2,50 @@
 // Develo Design — About / Testimonials（复刻 https://www.develodesign.co.uk/about/testimonials，hero 交互参考首页 testimonial 轮播）
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <title>Testimonials &amp; Reviews | Develo Design</title>
 <meta name="description" content="What Our Clients Say. Read testimonials and reviews from brands who trust Develo for Magento, Adobe Commerce and Hyva development." />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,27 +171,27 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="small-title" style="margin-bottom:24px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        What Our Clients Say
+        {t(locale, 'develoSocial.aboutTestimonialsPage.hero.label')}
       </div>
-      <h1 class="hero-title">Testimonials &amp; Reviews</h1>
+      <h1 class="hero-title">{t(locale, 'develoSocial.aboutTestimonialsPage.hero.heading')}</h1>
       <div class="testimonials-container">
         <div class="testimonial-main" id="testimonial-main">
           <div class="testimonial-quote-icon">
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M16 32c0-8.837 7.163-16 16-16 0 0-4 4-4 12s4 12 12 12 12-4 12-12-4-12-12-12v-4c-17.673 0-32 14.327-32 32z" fill="rgba(86,60,250,.2)"/></svg>
           </div>
-          <p class="testimonial-quote" id="testimonial-quote">"I am continually impressed by the results you produced! Your unique perspective, expertise and dedication played a crucial role in our project success."</p>
+          <p class="testimonial-quote" id="testimonial-quote">{t(locale, 'develoSocial.aboutTestimonialsPage.hero.quote')}</p>
           <div class="testimonial-author" id="testimonial-author">
             <div>
               <span class="testimonial-author-name" id="testimonial-name">Dominika Miler-Zydek</span><br/>
-              <span class="testimonial-author-role" id="testimonial-role">IT Project Manager</span>
+              <span class="testimonial-author-role" id="testimonial-role">{t(locale, 'develoSocial.aboutTestimonialsPage.hero.role')}</span>
             </div>
           </div>
-          <a class="testimonial-cta" id="testimonial-cta" href="/work/currys">See case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="testimonial-cta" id="testimonial-cta" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoSocial.aboutTestimonialsPage.hero.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-nav">
-          <button id="prev-testimonial" aria-label="Previous"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="prev-testimonial" aria-label={t(locale, 'common.previous')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="testimonials-pagination"><span id="testimonial-pagination">1/10</span></div>
-          <button id="next-testimonial" aria-label="Next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="next-testimonial" aria-label={t(locale, 'common.next')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
     </div>
@@ -163,22 +202,22 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="small-title" style="margin-bottom:20px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Reviews
+        {t(locale, 'develoSocial.aboutTestimonialsPage.reviews.label')}
       </div>
-      <h2 class="reviews-heading">Why brands choose us</h2>
-      <p class="reviews-desc">From project delivery to ongoing optimisation, our independent reviews reflect the trust and outcomes we build with every partnership.</p>
+      <h2 class="reviews-heading">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.heading')}</h2>
+      <p class="reviews-desc">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.description')}</p>
       <div class="reviews-cards">
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <span class="review-score">4.9 out of 5</span>
-          <span class="review-meta">Based on 12 reviews</span>
-          <a class="review-link" href="https://www.google.com/search?q=develo+design+reviews" target="_blank" rel="noopener">View on Google <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="review-score">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.google.score')}</span>
+          <span class="review-meta">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.google.meta')}</span>
+          <a class="review-link" href="https://www.google.com/search?q=develo+design+reviews" target="_blank" rel="noopener">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.google.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <span class="review-score">5.0 out of 5</span>
-          <span class="review-meta">2 verified reviews</span>
-          <a class="review-link" href="https://clutch.co/profile/develo-design" target="_blank" rel="noopener">View on Clutch <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="review-score">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.clutch.score')}</span>
+          <span class="review-meta">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.clutch.meta')}</span>
+          <a class="review-link" href="https://clutch.co/profile/develo-design" target="_blank" rel="noopener">{t(locale, 'develoSocial.aboutTestimonialsPage.reviews.clutch.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -189,17 +228,17 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="blog-header">
         <div>
-          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">The Blog</p>
-          <h2>eCommerce Insights</h2>
+          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">{t(locale, 'develoSocial.aboutTestimonialsPage.blog.label')}</p>
+          <h2>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.heading')}</h2>
         </div>
-        <p>eCommerce news, expert insights and behind-the-scenes updates from our team at Develo.</p>
+        <p>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.description')}</p>
       </div>
       <div class="blog-grid">
-        <a class="blog-card" href="/blog/shopify-vape-restrictions-uk-merchants"><h3>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h3></a>
-        <a class="blog-card" href="/blog/luke-collymore-elected-to-mage-os-board"><h3>Luke Collymore Elected to the Mage-OS Board</h3></a>
-        <a class="blog-card" href="/blog/develo-campus-to-commerce-university-of-birmingham"><h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/shopify-vape-restrictions-uk-merchants')}><h3>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.card1')}</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/luke-collymore-elected-to-mage-os-board')}><h3>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.card2')}</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/develo-campus-to-commerce-university-of-birmingham')}><h3>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.card3')}</h3></a>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href="/blog">View the blog</a></div>
+      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/blog')}>{t(locale, 'develoSocial.aboutTestimonialsPage.blog.viewBlog')}</a></div>
     </div>
   </section>
 

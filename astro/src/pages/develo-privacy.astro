@@ -1,14 +1,53 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // Develo Design — Privacy and Cookies Policy
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Privacy and Cookies Policy | Develo Design</title>
-<meta name="description" content="At Develo Design, we are committed to protecting your privacy. Learn how we collect, use, and protect your personal information." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'develoContent.privacy.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoContent.privacy.pageDescription')} />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
 <style>
@@ -73,68 +112,68 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
   <div class="page-container">
 
     <div class="legal-hero">
-      <p class="legal-label">Legal</p>
-      <h1>Privacy and Cookies Policies</h1>
-      <p class="legal-hero-desc">Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+      <p class="legal-label">{t(locale, 'develoContent.privacy.hero.label')}</p>
+      <h1>{t(locale, 'develoContent.privacy.hero.title')}</h1>
+      <p class="legal-hero-desc">{t(locale, 'develoContent.privacy.hero.description')}</p>
     </div>
 
     <div class="legal-body">
-      <h2>Introduction</h2>
-      <p>At Develo Design, we are committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy and Cookies Policy explains how we collect, use, and protect your personal information.</p>
+      <h2>{t(locale, 'develoContent.privacy.body.introTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.introPara')}</p>
 
-      <h2>Information We Collect</h2>
-      <p>We collect information in the following ways:</p>
-      <h3>Information You Provide</h3>
-      <p>When you contact us through forms or communications, we collect information such as your name, email address, phone number, company details, and any other information you choose to provide.</p>
-      <h3>Automatic Information</h3>
-      <p>We automatically collect certain information about your device and how you interact with our website, including IP address, browser type, pages visited, and time spent on pages.</p>
-      <h3>Cookies</h3>
-      <p>We use cookies to enhance your browsing experience. See our Cookies Policy section below for more details.</p>
+      <h2>{t(locale, 'develoContent.privacy.body.collectTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.collectIntro')}</p>
+      <h3>{t(locale, 'develoContent.privacy.body.collectProvidedTitle')}</h3>
+      <p>{t(locale, 'develoContent.privacy.body.collectProvidedPara')}</p>
+      <h3>{t(locale, 'develoContent.privacy.body.collectAutoTitle')}</h3>
+      <p>{t(locale, 'develoContent.privacy.body.collectAutoPara')}</p>
+      <h3>{t(locale, 'develoContent.privacy.body.collectCookiesTitle')}</h3>
+      <p>{t(locale, 'develoContent.privacy.body.collectCookiesPara')}</p>
 
-      <h2>How We Use Your Information</h2>
-      <p>We use the information we collect to:</p>
+      <h2>{t(locale, 'develoContent.privacy.body.useTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.useIntro')}</p>
       <ul>
-        <li>Respond to your inquiries and provide customer support</li>
-        <li>Send you requested information about our services</li>
-        <li>Improve our website and services</li>
-        <li>Comply with legal obligations</li>
-        <li>Prevent fraud and ensure security</li>
+        <li>{t(locale, 'develoContent.privacy.body.useItem1')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.useItem2')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.useItem3')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.useItem4')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.useItem5')}</li>
       </ul>
 
-      <h2>Data Protection &amp; Security</h2>
-      <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is completely secure.</p>
+      <h2>{t(locale, 'develoContent.privacy.body.securityTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.securityPara')}</p>
 
-      <h2>Your Rights</h2>
-      <p>You have the right to:</p>
+      <h2>{t(locale, 'develoContent.privacy.body.rightsTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.rightsIntro')}</p>
       <ul>
-        <li>Access your personal information</li>
-        <li>Correct inaccurate information</li>
-        <li>Request deletion of your information</li>
-        <li>Opt-out of marketing communications</li>
-        <li>Data portability</li>
-        <li>Withdraw consent at any time</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem1')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem2')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem3')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem4')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem5')}</li>
+        <li>{t(locale, 'develoContent.privacy.body.rightsItem6')}</li>
       </ul>
 
-      <h2>Cookies Policy</h2>
-      <p>We use cookies to improve your experience on our website. Cookies are small files stored on your device that help us remember your preferences and understand how you use our site.</p>
-      <h3>Types of Cookies We Use</h3>
+      <h2>{t(locale, 'develoContent.privacy.body.cookiesTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.cookiesIntro')}</p>
+      <h3>{t(locale, 'develoContent.privacy.body.cookiesTypesTitle')}</h3>
       <ul>
-        <li><strong>Essential Cookies:</strong> Required for website functionality</li>
-        <li><strong>Analytics Cookies:</strong> Help us understand how you use our site</li>
-        <li><strong>Marketing Cookies:</strong> Used to deliver relevant content and advertisements</li>
+        <li><strong>{t(locale, 'develoContent.privacy.body.cookiesEssential')}</strong> {t(locale, 'develoContent.privacy.body.cookiesEssentialDesc')}</li>
+        <li><strong>{t(locale, 'develoContent.privacy.body.cookiesAnalytics')}</strong> {t(locale, 'develoContent.privacy.body.cookiesAnalyticsDesc')}</li>
+        <li><strong>{t(locale, 'develoContent.privacy.body.cookiesMarketing')}</strong> {t(locale, 'develoContent.privacy.body.cookiesMarketingDesc')}</li>
       </ul>
-      <h3>Managing Cookies</h3>
-      <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies or alert you when a cookie is being sent.</p>
+      <h3>{t(locale, 'develoContent.privacy.body.cookiesManageTitle')}</h3>
+      <p>{t(locale, 'develoContent.privacy.body.cookiesManagePara')}</p>
 
-      <h2>Third-Party Links</h2>
-      <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of other websites and encourage you to review their privacy policies.</p>
+      <h2>{t(locale, 'develoContent.privacy.body.thirdPartyTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.thirdPartyPara')}</p>
 
-      <h2>Contact Us</h2>
-      <p>If you have questions about this Privacy and Cookies Policy or our privacy practices, please contact us:</p>
-      <p>Email: <a href="mailto:hello@develodesign.co.uk">hello@develodesign.co.uk</a></p>
-      <p>Phone: <a href="tel:01216630817">0121 663 0817</a></p>
+      <h2>{t(locale, 'develoContent.privacy.body.contactTitle')}</h2>
+      <p>{t(locale, 'develoContent.privacy.body.contactPara')}</p>
+      <p>{t(locale, 'develoContent.privacy.body.contactEmailLabel')} <a href="mailto:hello@develodesign.co.uk">hello@develodesign.co.uk</a></p>
+      <p>{t(locale, 'develoContent.privacy.body.contactPhoneLabel')} <a href="tel:01216630817">0121 663 0817</a></p>
 
-      <p class="legal-updated">Last updated: January 2024</p>
+      <p class="legal-updated">{t(locale, 'develoContent.privacy.updated')}</p>
     </div>
 
   </div>

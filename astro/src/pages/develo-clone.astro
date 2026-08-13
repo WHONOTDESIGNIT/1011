@@ -1,16 +1,54 @@
 ---
 // Develo Design Clone — exact CSS from getComputedStyle() extraction
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteHeader from '../components/SiteHeader.astro';
+const locale = Astro.currentLocale ?? 'en';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
-<title>Magento Agency for High Performance eCommerce | Develo | Birmingham</title>
-<meta name="description" content="Develo is a Magento agency with extensive experience in all eCommerce web development, building custom, feature-rich B2B & B2C websites. Get in touch today." />
+<title>{t(locale, 'develoCore.clone.meta.title')}</title>
+<meta name="description" content={t(locale, 'develoCore.clone.meta.description')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -566,7 +604,7 @@ a{text-decoration:none;color:inherit}
 <div class="overflow-x-hidden">
 <div class="gradient-bg"></div>
 
-<SiteHeader />
+<SiteHeader lang={locale} />
 
 <!-- ═══ 3. HERO ═══ -->
 <!-- Hero SVG clipPaths for curved bottom container -->
@@ -589,13 +627,13 @@ a{text-decoration:none;color:inherit}
       <div class="hero-heading">
         <h1 style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:normal;color:#020303;margin:0;display:flex;align-items:center;gap:12px;padding:3px 0">
           <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-          Powering the World Leading IPL Device Brands;
+          {t(locale, 'develoCore.clone.hero.eyebrow')}
         </h1>
-        <h2 class="hero-title-main">Private-label manufacturing for Ambitious Brands</h2>
+        <h2 class="hero-title-main">{t(locale, 'develoCore.clone.hero.title')}</h2>
       </div>
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#what-we-do-section">What we do <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn btn-secondary" href="/contact">Book a call <span class="btn-book-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="btn btn-primary" href="#what-we-do-section">{t(locale, 'develoCore.clone.hero.whatWeDo')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-secondary" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoCore.clone.hero.bookCall')} <span class="btn-book-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -616,62 +654,62 @@ a{text-decoration:none;color:inherit}
     <div class="what-we-do-left">
       <div class="small-title" style="margin-bottom:24px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        What we do
+        {t(locale, 'develoCore.clone.wwd.label')}
       </div>
-      <h2 class="wwd-heading">Designing & developing IPL device that scale</h2>
+      <h2 class="wwd-heading">{t(locale, 'develoCore.clone.wwd.heading')}</h2>
       <div class="wwd-services">
         <div class="wwd-service-item" data-index="0">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Find Your Manufacturing Partner<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'develoCore.clone.wwd.item1.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>iShine Technology partners with global retailers and beauty leaders — including Costco, RoseSkinCo, and KU2 Cosmetics — to deliver innovative home-use IPL hair removal devices. We help brands expand into the fast-growing beauty-tech market with products that combine advanced technology, safety, and design excellence.</p>
-            <a class="wwd-service-cta" href="/services/find-a-technology-partner">Learn more <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'develoCore.clone.wwd.item1.desc')}</p>
+            <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/find-a-technology-partner')}>{t(locale, 'develoCore.clone.wwd.item1.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="1">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>You Design it, We Bulid it , Box it.<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'develoCore.clone.wwd.item2.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>As a full-service OEM and ODM manufacturer, we provide end-to-end solutions: from concept design and prototyping to large-scale production, custom packaging, and worldwide logistics.</p>
-            <a class="wwd-service-cta" href="/services/oem-odm">View platforms <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'develoCore.clone.wwd.item2.desc')}</p>
+            <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/oem-odm')}>{t(locale, 'develoCore.clone.wwd.item2.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="2">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Private Label<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'develoCore.clone.wwd.item3.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>Whether you’re a brand,retailer, wholesaler , distributor, e-commerce seller, Amazon seller, Design Studios, promotional campaigns. iShine is here to collaborate and OEM your beauty items idea into a reality. We will never show our cooperation Clients brands or design when we sign the NDA with you.</p>
-            <a class="wwd-service-cta" href="/services/private-label">Explore <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'develoCore.clone.wwd.item3.desc')}</p>
+            <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/private-label')}>{t(locale, 'develoCore.clone.wwd.item3.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="3">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Build a New IPL Device<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'develoCore.clone.wwd.item4.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>We design and develop new IPL device, LED Therapy mask, and high speed hair dryer shaped around your brand, goals, and long-term plans. From packaging custom, visual design to development and launch, your new IPL project is built for performance, conversion, and scalability.</p>
-            <a class="wwd-service-cta" href="/services/build-a-new-ipl">Get started <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'develoCore.clone.wwd.item4.desc')}</p>
+            <a class="wwd-service-cta" href={getLocalizedPath(locale, '/services/build-a-new-ipl')}>{t(locale, 'develoCore.clone.wwd.item4.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
-      <a class="btn btn-primary" href="/services" style="align-self:flex-start;margin-top:24px">View all services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn-primary" href={getLocalizedPath(locale, '/services')} style="align-self:flex-start;margin-top:24px">{t(locale, 'develoCore.clone.wwd.viewAllServices')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="what-we-do-right">
       <div class="wwd-visuals" aria-live="polite">
         <div class="wwd-visual active" data-index="0">
-          <img src="/images/client/client-witness-ku2-cosmetics-brand.webp" alt="Private-label Manufacturing" loading="lazy" />
+          <img src="/images/client/client-witness-ku2-cosmetics-brand.webp" alt={t(locale, 'develoCore.clone.wwd.alt1')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="1">
-          <img src="/images/client/client-witness-lux-skin-brand.webp" alt="Find a IPL Technology Partner" loading="lazy" />
+          <img src="/images/client/client-witness-lux-skin-brand.webp" alt={t(locale, 'develoCore.clone.wwd.alt2')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="2">
-          <img src="/images/client/client-witness-mandyskin-brand.webp" alt="Maintain or Fix IPL Project" loading="lazy" />
+          <img src="/images/client/client-witness-mandyskin-brand.webp" alt={t(locale, 'develoCore.clone.wwd.alt3')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="3">
-          <img src="/images/client/client-witness-roseskinco-brand.webp" alt="Build a New IPL Product" loading="lazy" />
+          <img src="/images/client/client-witness-roseskinco-brand.webp" alt={t(locale, 'develoCore.clone.wwd.alt4')} loading="lazy" />
         </div>
       </div>
     </div>
@@ -684,51 +722,51 @@ a{text-decoration:none;color:inherit}
     <div class="product-showcase-header">
       <div class="small-title" style="margin-bottom:20px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Product Showcase
+        {t(locale, 'develoCore.clone.showcase.label')}
       </div>
-      <h2 class="product-showcase-heading">Our IPL Product Range</h2>
-      <p class="product-showcase-desc">From premium sapphire cooling to smart app-controlled devices, explore our complete range of customizable IPL solutions.</p>
+      <h2 class="product-showcase-heading">{t(locale, 'develoCore.clone.showcase.heading')}</h2>
+      <p class="product-showcase-desc">{t(locale, 'develoCore.clone.showcase.desc')}</p>
     </div>
     <div class="product-carousel-wrapper">
       <div class="product-carousel-viewport">
         <div class="product-carousel-track" id="product-carousel-track">
-          <a class="product-card-item" href="/products/lumi-2">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/lumi-2')}>
             <div class="product-card-img"><img src="/images/products/lumi-2/lumi-2-images (1).jpg" alt="Lumi 2" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Lumi 2</h3><p class="product-card-tagline">Smart Skin Sensor + Cooling to 10°C</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Lumi 2</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.lumi2Tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/venus">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/venus')}>
             <div class="product-card-img"><img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Venus</h3><p class="product-card-tagline">Premium Ice Cooling</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Venus</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.venusTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/lumi">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/lumi')}>
             <div class="product-card-img"><img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Lumi</h3><p class="product-card-tagline">Smart App Control</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Lumi</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.lumiTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/helix">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/helix')}>
             <div class="product-card-img"><img src="/images/products/Helix/helix-ipl-front-view.jpg" alt="Helix" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Helix</h3><p class="product-card-tagline">Ice Cooling + 9 Intensity Levels</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Helix</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.helixTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/themis">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/themis')}>
             <div class="product-card-img"><img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Themis</h3><p class="product-card-tagline">Dual Lamp System</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Themis</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.themisTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/emerald">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/emerald')}>
             <div class="product-card-img"><img src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Emerald</h3><p class="product-card-tagline">Sensitive-Skin Cooling</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Emerald</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.emeraldTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/alpha">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/alpha')}>
             <div class="product-card-img"><img src="/images/products/Alpha/alpha-ipl-device-front-view.jpg" alt="Alpha" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Alpha</h3><p class="product-card-tagline">High-Efficiency IPL</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Alpha</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.alphaTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/hebe">
+          <a class="product-card-item" href={getLocalizedPath(locale, '/products/hebe')}>
             <div class="product-card-img"><img src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Hebe</h3><p class="product-card-tagline">AI Skin Sensor</p></div>
+            <div class="product-card-info"><h3 class="product-card-name">Hebe</h3><p class="product-card-tagline">{t(locale, 'develoCore.clone.showcase.hebeTagline')}</p></div>
           </a>
         </div>
       </div>
       <div class="product-carousel-nav">
-        <button id="prev-product-card" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button id="next-product-card" aria-label="Next"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button id="prev-product-card" aria-label={t(locale, 'develoCore.clone.common.previous')}><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button id="next-product-card" aria-label={t(locale, 'develoCore.clone.common.next')}><svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
   </div>
@@ -738,8 +776,8 @@ a{text-decoration:none;color:inherit}
 <section class="our-clients">
   <div class="our-clients-container">
     <div class="our-clients-left">
-      <h2 class="our-clients-heading">Trusted by Global Beauty Brands</h2>
-      <p class="our-clients-sub">From premium retailers to fast growing beauty-tech startups.</p>
+      <h2 class="our-clients-heading">{t(locale, 'develoCore.clone.clients.heading')}</h2>
+      <p class="our-clients-sub">{t(locale, 'develoCore.clone.clients.sub')}</p>
     </div>
     <div class="our-clients-logos">
       <img src="/images/logos/costco-logo.svg" alt="Costco" loading="lazy" />
@@ -755,42 +793,42 @@ a{text-decoration:none;color:inherit}
   <div class="stat-cards-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-      You Design it, We Build it and Box it.
+      {t(locale, 'develoCore.clone.statcards.label')}
     </div>
     <div class="stat-cards-header">
-      <h2 class="stat-cards-heading">Manufacturing at Scale for the IPL Industry</h2>
+      <h2 class="stat-cards-heading">{t(locale, 'develoCore.clone.statcards.heading')}</h2>
       <div class="stat-cards-desc-col">
-        <p class="stat-cards-desc">From prototyping to mass production, our manufacturing track record speaks for itself across the global beauty-tech market.</p>
+        <p class="stat-cards-desc">{t(locale, 'develoCore.clone.statcards.desc')}</p>
         <div class="stat-cards-actions">
-          <a class="stat-cards-cta" href="/products">Explore Products <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="stat-cards-cta" href={getLocalizedPath(locale, '/products')}>{t(locale, 'develoCore.clone.statcards.exploreProducts')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
     <div class="stat-cards-grid" id="stat-cards-grid">
       <div class="stat-card" style="background:#35292b">
         <div class="stat-number">500K+</div>
-        <div class="stat-label">IPL devices manufactured and shipped to global markets since 2008</div>
-        <a class="stat-card-cta" href="/products">View Products &rarr;</a>
+        <div class="stat-label">{t(locale, 'develoCore.clone.statcards.card1.label')}</div>
+        <a class="stat-card-cta" href={getLocalizedPath(locale, '/products')}>{t(locale, 'develoCore.clone.statcards.card1.cta')}</a>
       </div>
       <div class="stat-card" style="background:#020303">
         <div class="stat-number">FDA · CE · ISO</div>
-        <div class="stat-label">International certifications held for global market compliance</div>
-        <a class="stat-card-cta" href="/about/quality-control">Quality Process &rarr;</a>
+        <div class="stat-label">{t(locale, 'develoCore.clone.statcards.card2.label')}</div>
+        <a class="stat-card-cta" href={getLocalizedPath(locale, '/about/quality-control')}>{t(locale, 'develoCore.clone.statcards.card2.cta')}</a>
       </div>
       <div class="stat-card" style="background:#bf3918">
         <div class="stat-number">50+</div>
-        <div class="stat-label">Global brand partners including Costco, RoseSkinCo, and KU2</div>
-        <a class="stat-card-cta" href="/clients">Client Stories &rarr;</a>
+        <div class="stat-label">{t(locale, 'develoCore.clone.statcards.card3.label')}</div>
+        <a class="stat-card-cta" href={getLocalizedPath(locale, '/clients')}>{t(locale, 'develoCore.clone.statcards.card3.cta')}</a>
       </div>
       <div class="stat-card" style="background:#330d6b">
         <div class="stat-number">20+</div>
-        <div class="stat-label">Countries served with end-to-end logistics and export support</div>
-        <a class="stat-card-cta" href="/services/packaging-logistics">Global Logistics &rarr;</a>
+        <div class="stat-label">{t(locale, 'develoCore.clone.statcards.card4.label')}</div>
+        <a class="stat-card-cta" href={getLocalizedPath(locale, '/services/packaging-logistics')}>{t(locale, 'develoCore.clone.statcards.card4.cta')}</a>
       </div>
     </div>
     <div class="stat-cards-arrows-row">
-      <button id="prev-stat-card" class="stat-cards-arrow" type="button" aria-label="Previous cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11.25 3.75L6 9L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button id="next-stat-card" class="stat-cards-arrow" type="button" aria-label="Next cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 3.75L12 9L6.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="prev-stat-card" class="stat-cards-arrow" type="button" aria-label={t(locale, 'develoCore.clone.statcards.ariaPrev')}><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11.25 3.75L6 9L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="next-stat-card" class="stat-cards-arrow" type="button" aria-label={t(locale, 'develoCore.clone.statcards.ariaNext')}><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 3.75L12 9L6.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 </section>
@@ -801,35 +839,35 @@ a{text-decoration:none;color:inherit}
     <div class="quality-certs-left">
       <div class="small-title" style="margin-bottom:20px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Quality Assurance
+        {t(locale, 'develoCore.clone.quality.label')}
       </div>
-      <h2 class="quality-certs-heading">Global Certifications for Trusted Manufacturing</h2>
-      <p class="quality-certs-desc">Every device undergoes rigorous testing and quality control processes to meet the highest international standards. Our certifications open doors to global markets.</p>
+      <h2 class="quality-certs-heading">{t(locale, 'develoCore.clone.quality.heading')}</h2>
+      <p class="quality-certs-desc">{t(locale, 'develoCore.clone.quality.desc')}</p>
       <div class="quality-certs-list">
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>FDA Cleared Devices</h4><p>Full support for FDA clearance process and ongoing compliance documentation.</p></div>
+          <div class="quality-certs-item-content"><h4>{t(locale, 'develoCore.clone.quality.item1.title')}</h4><p>{t(locale, 'develoCore.clone.quality.item1.desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>CE Marking</h4><p>European market compliance for seamless distribution across EU member states.</p></div>
+          <div class="quality-certs-item-content"><h4>{t(locale, 'develoCore.clone.quality.item2.title')}</h4><p>{t(locale, 'develoCore.clone.quality.item2.desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>ISO 13485 Certified</h4><p>Medical device quality management system certification for consistent manufacturing.</p></div>
+          <div class="quality-certs-item-content"><h4>{t(locale, 'develoCore.clone.quality.item3.title')}</h4><p>{t(locale, 'develoCore.clone.quality.item3.desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>MDSAP Compliant</h4><p>Medical Device Single Audit Program for multi-market regulatory acceptance.</p></div>
+          <div class="quality-certs-item-content"><h4>{t(locale, 'develoCore.clone.quality.item4.title')}</h4><p>{t(locale, 'develoCore.clone.quality.item4.desc')}</p></div>
         </div>
       </div>
-      <a class="quality-certs-cta" href="/about/quality-control">Learn About Quality Process <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="quality-certs-cta" href={getLocalizedPath(locale, '/about/quality-control')}>{t(locale, 'develoCore.clone.quality.cta')} <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="quality-certs-right">
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">FDA Cleared</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">CE Marked</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Certified</div><div class="quality-cert-badge-value">ISO 13485</div></div>
-      <div class="quality-cert-badge"><div class="quality-cert-badge-label">Compliant</div><div class="quality-cert-badge-value">MDSAP</div></div>
+      <div class="quality-cert-badge"><div class="quality-cert-badge-label">{t(locale, 'develoCore.clone.quality.certified')}</div><div class="quality-cert-badge-value">{t(locale, 'develoCore.clone.quality.badgeFdaCleared')}</div></div>
+      <div class="quality-cert-badge"><div class="quality-cert-badge-label">{t(locale, 'develoCore.clone.quality.certified')}</div><div class="quality-cert-badge-value">{t(locale, 'develoCore.clone.quality.badgeCeMarked')}</div></div>
+      <div class="quality-cert-badge"><div class="quality-cert-badge-label">{t(locale, 'develoCore.clone.quality.certified')}</div><div class="quality-cert-badge-value">{t(locale, 'develoCore.clone.quality.badgeIso')}</div></div>
+      <div class="quality-cert-badge"><div class="quality-cert-badge-label">{t(locale, 'develoCore.clone.quality.compliant')}</div><div class="quality-cert-badge-value">{t(locale, 'develoCore.clone.quality.badgeMdsap')}</div></div>
     </div>
   </div>
 </section>
@@ -839,20 +877,20 @@ a{text-decoration:none;color:inherit}
   <div class="expertise-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#fff"/></svg>
-      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">Manufacturing Capabilities</span>
+      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">{t(locale, 'develoCore.clone.expertise.label')}</span>
     </div>
     <div class="expertise-left">
-      <h2 class="expertise-heading">Full-Stack IPL Device Manufacturer in Shenzhen</h2>
+      <h2 class="expertise-heading">{t(locale, 'develoCore.clone.expertise.heading')}</h2>
     </div>
     <div class="expertise-right">
       <div class="expertise-logo-placeholders">
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo print.png" alt="Logo Print" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/Box custom.png" alt="Box Custom" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.png" alt="Global Express" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.png" alt="Dropshipping" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo print.png" alt={t(locale, 'develoCore.clone.expertise.altLogoPrint')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/Box custom.png" alt={t(locale, 'develoCore.clone.expertise.altBoxCustom')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.png" alt={t(locale, 'develoCore.clone.expertise.altGlobalExpress')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.png" alt={t(locale, 'develoCore.clone.expertise.altDropshipping')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
       </div>
-      <p class="expertise-desc">As a Shenzhen-based IPL device manufacturer, we deliver end-to-end OEM/ODM solutions — from industrial design and PCB engineering to regulatory certification and global logistics. Every device is built under ISO 13485 processes with FDA and CE documentation support.</p>
-      <a class="expertise-btn" href="/services">Explore Our Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="expertise-desc">{t(locale, 'develoCore.clone.expertise.desc')}</p>
+      <a class="expertise-btn" href={getLocalizedPath(locale, '/services')}>{t(locale, 'develoCore.clone.expertise.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
@@ -863,43 +901,43 @@ a{text-decoration:none;color:inherit}
     <div class="partner-left">
       <div class="small-title" style="margin-bottom:24px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Core IPL Technologies
+        {t(locale, 'develoCore.clone.tech.label')}
       </div>
-      <h2 class="partner-integrations-heading">Advanced Technologies Powering Our IPL Devices</h2>
-      <p class="partner-integrations-desc">Every iShine IPL device is built around proprietary technologies that deliver superior hair removal results, user comfort, and device longevity — customizable for your brand.</p>
-      <a class="our-work-link" href="/components" style="align-self:flex-start">Explore Components <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <h2 class="partner-integrations-heading">{t(locale, 'develoCore.clone.tech.heading')}</h2>
+      <p class="partner-integrations-desc">{t(locale, 'develoCore.clone.tech.desc')}</p>
+      <a class="our-work-link" href={getLocalizedPath(locale, '/components')} style="align-self:flex-start">{t(locale, 'develoCore.clone.tech.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="partner-right">
       <div class="partner-grid">
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/ice feeling.png" alt="Sapphire Cooling" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Sapphire Cooling</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Sapphire semiconductor cooling down to 8°C for painless treatment</span>
+          <div class="tech-icon"><img src="/images/icons/ice feeling.png" alt={t(locale, 'develoCore.clone.tech.card1.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card1.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card1.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/Glide Mode.png" alt="glide" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Glide</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Press and hold button, then glide the device smoothly over the skin for automatic flashing</span>
+          <div class="tech-icon"><img src="/images/icons/Glide Mode.png" alt={t(locale, 'develoCore.clone.tech.card2.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card2.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card2.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/smart-app.png" alt="App Control" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">App Control</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Smart app integration for personalized treatment plans and progress tracking</span>
+          <div class="tech-icon"><img src="/images/icons/smart-app.png" alt={t(locale, 'develoCore.clone.tech.card3.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card3.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card3.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/dual-lamp.png" alt="Dual Lamp" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Dual Lamp</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Dual quartz lamp system doubling flash lifespan to 1,999,998 flashes</span>
+          <div class="tech-icon"><img src="/images/icons/dual-lamp.png" alt={t(locale, 'develoCore.clone.tech.card4.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card4.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card4.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/skin sensor.png" alt="Skin Sensor" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Skin Sensor</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">AI skin tone detection for auto energy adjustment and safe operation</span>
+          <div class="tech-icon"><img src="/images/icons/skin sensor.png" alt={t(locale, 'develoCore.clone.tech.card5.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card5.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card5.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/safety-lock.png" alt="Safety Lock" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Safety Lock</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Integrated safety system with accidental flash prevention mechanism</span>
+          <div class="tech-icon"><img src="/images/icons/safety-lock.png" alt={t(locale, 'develoCore.clone.tech.card6.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card6.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card6.desc')}</span>
         </div>
       </div>
     </div>
@@ -911,39 +949,39 @@ a{text-decoration:none;color:inherit}
   <div class="our-work-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#fff"/></svg>
-      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">Our work</span>
+      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">{t(locale, 'develoCore.clone.work.label')}</span>
     </div>
     <div class="our-work-header">
-      <h2 class="our-work-heading">Case Studies That Prove the Manufacturing Model Works</h2>
-      <p class="our-work-intro">We are a specialist IPL hair removal device manufacturer in Shenzhen, trusted by global retailers and beauty brands for speed, compliance, and execution.</p>
-      <a class="our-work-projects-cta" href="/clients">View all case studies <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <h2 class="our-work-heading">{t(locale, 'develoCore.clone.work.heading')}</h2>
+      <p class="our-work-intro">{t(locale, 'develoCore.clone.work.intro')}</p>
+      <a class="our-work-projects-cta" href={getLocalizedPath(locale, '/clients')}>{t(locale, 'develoCore.clone.work.viewAll')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="work-grid" style="grid-template-columns:repeat(4,1fr)">
-      <a class="work-card" href="/clients/roseskin-ipl">
+      <a class="work-card" href={getLocalizedPath(locale, '/clients/roseskin-ipl')}>
         <img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="RoseSkinCo" loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(236,72,153,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Sapphire Cooling IPL</div>
+          <div class="work-card-tag">{t(locale, 'develoCore.clone.work.tag1')}</div>
           <h3>RoseSkinCo</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/costco-canada-ipl">
+      <a class="work-card" href={getLocalizedPath(locale, '/clients/costco-canada-ipl')}>
         <img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Costco" loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(30,64,175,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Retail-Ready IPL</div>
+          <div class="work-card-tag">{t(locale, 'develoCore.clone.work.tag2')}</div>
           <h3>Costco</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/ku2-ipl">
+      <a class="work-card" href={getLocalizedPath(locale, '/clients/ku2-ipl')}>
         <img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="KU2" loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(124,58,237,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Dual Lamp System</div>
+          <div class="work-card-tag">{t(locale, 'develoCore.clone.work.tag3')}</div>
           <h3>KU2 Cosmetics</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/happyskinco-ipl">
+      <a class="work-card" href={getLocalizedPath(locale, '/clients/happyskinco-ipl')}>
         <img src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="HappySkinCo" loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(180,83,9,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Luxury Design IPL</div>
+          <div class="work-card-tag">{t(locale, 'develoCore.clone.work.tag4')}</div>
           <h3>HappySkinCo</h3>
         </div>
       </a>
@@ -958,22 +996,22 @@ a{text-decoration:none;color:inherit}
       <div class="testimonial-quote-icon">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M16 32c0-8.837 7.163-16 16-16 0 0-4 4-4 12s4 12 12 12 12-4 12-12-4-12-12-12v-4c-17.673 0-32 14.327-32 32z" fill="rgba(86,60,250,.2)"/></svg>
       </div>
-      <p class="testimonial-quote">"iShine's IPL devices have exceeded our expectations. The quality and reliability are outstanding, making them perfect for our retail customers."</p>
+      <p class="testimonial-quote">{t(locale, 'develoCore.clone.testimonials.quote')}</p>
       <div class="testimonial-author">
         <img src="/images/logos/costco-logo.svg" alt="Costco" width="48" height="48" style="width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;padding:4px" />
         <div>
           <span class="testimonial-author-name">Sarah Johnson</span>
-          <span class="testimonial-author-role">Procurement Manager, Costco Canada</span>
+          <span class="testimonial-author-role">{t(locale, 'develoCore.clone.testimonials.role')}</span>
         </div>
       </div>
-      <a class="testimonial-cta" href="/clients">See all case studies <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="testimonial-cta" href={getLocalizedPath(locale, '/clients')}>{t(locale, 'develoCore.clone.testimonials.seeAll')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="testimonial-nav">
-      <button aria-label="Previous"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button aria-label={t(locale, 'develoCore.clone.common.previous')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="testimonials-pagination">
         <span>1/3</span>
       </div>
-      <button aria-label="Next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button aria-label={t(locale, 'develoCore.clone.common.next')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 </section>
@@ -983,29 +1021,29 @@ a{text-decoration:none;color:inherit}
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h4>Ready to start your IPL project?</h4>
-        <p>We'd love to help you bring your private-label IPL device to market.</p>
-        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <h4>{t(locale, 'develoCore.clone.footer.heading')}</h4>
+        <p>{t(locale, 'develoCore.clone.footer.desc')}</p>
+        <a class="our-work-link" href={getLocalizedPath(locale, '/contact')} style="margin-top:12px">{t(locale, 'develoCore.clone.footer.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="footer-col">
         <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
         <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
-        <span class="footer-contact-text">Shenzhen, China</span>
+        <span class="footer-contact-text">{t(locale, 'develoCore.clone.footer.location')}</span>
         <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
       </div>
       <div class="footer-col">
-        <a href="/products">Products</a>
-        <a href="/services">Services</a>
-        <a href="/clients">Clients</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/components">Components</a>
-        <a href="/contact">Contact</a>
+        <a href={getLocalizedPath(locale, '/products')}>{t(locale, 'develoCore.clone.footer.navProducts')}</a>
+        <a href={getLocalizedPath(locale, '/services')}>{t(locale, 'develoCore.clone.footer.navServices')}</a>
+        <a href={getLocalizedPath(locale, '/clients')}>{t(locale, 'develoCore.clone.footer.navClients')}</a>
+        <a href={getLocalizedPath(locale, '/about')}>{t(locale, 'develoCore.clone.footer.navAbout')}</a>
+        <a href={getLocalizedPath(locale, '/blog')}>{t(locale, 'develoCore.clone.footer.navBlog')}</a>
+        <a href={getLocalizedPath(locale, '/components')}>{t(locale, 'develoCore.clone.footer.navComponents')}</a>
+        <a href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoCore.clone.footer.navContact')}</a>
       </div>
       <div class="footer-col footer-col-info">
-        <p class="footer-company-info">Founded in Shenzhen in 2008, serving beauty brands worldwide with OEM/ODM IPL manufacturing.</p>
-        <p class="footer-company-info">ISO 13485 Certified · MDSAP Compliant<br/>FDA 510(k) Documentation Support</p>
-        <p class="footer-company-info" style="margin-top:12px">© iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
+        <p class="footer-company-info">{t(locale, 'develoCore.clone.footer.companyInfo')}</p>
+        <p class="footer-company-info">{t(locale, 'develoCore.clone.footer.certLine1')}<br/>{t(locale, 'develoCore.clone.footer.certLine2')}</p>
+        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'develoCore.clone.footer.copyright')} <a href={getLocalizedPath(locale, '/privacy-policy')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.privacyPolicy')}</a>. <a href={getLocalizedPath(locale, '/faq')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.faq')}</a>.</p>
       </div>
     </div>
   </div>

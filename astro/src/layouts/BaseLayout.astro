@@ -3,7 +3,9 @@ import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import Chat from '../components/react/Chat';
+import { getAbsoluteLocaleUrl, pathHasLocale } from 'astro:i18n';
+// TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
+// import Chat from '../components/react/Chat';
 import criticalCss from '../styles/critical.css?raw';
 import globalCssUrl from '../styles/global.css?url';
 
@@ -63,9 +65,11 @@ type Props = {
   type?: 'website' | 'article';
   showCornerMarkers?: boolean;
   stickyNav?: boolean;
+  /** 显式指定三语 hreflang（用于博客文章/列表等跨语言 slug 不同的页面）；未提供时按当前路径自动生成 en/tr/ar */
+  hreflangs?: { locale: string; href: string }[];
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs } = Astro.props as Props;
 const siteBaseUrl = (
   Astro.site?.toString()
   ?? process.env.URL
@@ -73,22 +77,96 @@ const siteBaseUrl = (
   ?? process.env.SITE_URL
   ?? 'https://iplmanufacturer.com'
 ).replace(/\/$/, '');
-const canonicalUrl = canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href;
+// 站点链接规范：除根路径外一律去掉末尾斜杠（如 /tr/contact 而非 /tr/contact/），
+// 兼容相对路径（hreflang）与绝对路径（canonical/og:url）
+const stripTrailingSlash = (u: string) => {
+  if (u && u !== '/' && u.length > 1 && u.endsWith('/')) {
+    const cleaned = u.replace(/\/+$/, '');
+    return cleaned.length > 0 ? cleaned : u;
+  }
+  return u;
+};
+const canonicalUrl = stripTrailingSlash(canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href);
+// 语言化 hreflang：剥离当前路径前缀后为 en/tr/ar 各生成语言版本 URL
+const basePath = pathHasLocale(Astro.url.pathname)
+  ? Astro.url.pathname.replace(new RegExp(`^/${lang}`), '') || '/'
+  : Astro.url.pathname || '/';
+const hreflangEn = stripTrailingSlash(getAbsoluteLocaleUrl('en', basePath, siteBaseUrl));
+const hreflangTr = stripTrailingSlash(getAbsoluteLocaleUrl('tr', basePath, siteBaseUrl));
+const hreflangAr = stripTrailingSlash(getAbsoluteLocaleUrl('ar', basePath, siteBaseUrl));
+const hreflangEs = stripTrailingSlash(getAbsoluteLocaleUrl('es', basePath, siteBaseUrl));
+const hreflangFr = stripTrailingSlash(getAbsoluteLocaleUrl('fr', basePath, siteBaseUrl));
+const hreflangRu = stripTrailingSlash(getAbsoluteLocaleUrl('ru', basePath, siteBaseUrl));
+const hreflangHe = stripTrailingSlash(getAbsoluteLocaleUrl('he', basePath, siteBaseUrl));
+const hreflangPt = stripTrailingSlash(getAbsoluteLocaleUrl('pt-BR', basePath, { normalizeLocale: false }));
+const hreflangNl = stripTrailingSlash(getAbsoluteLocaleUrl('nl', basePath, siteBaseUrl));
+// 显式 hreflang（页面级覆盖）；未提供时回退到自动生成的 en/tr/ar/es/fr/ru
+const pageHreflangs = hreflangs?.length
+  ? hreflangs
+  : [
+      { locale: 'en', href: hreflangEn },
+      { locale: 'tr', href: hreflangTr },
+      { locale: 'ar', href: hreflangAr },
+      { locale: 'es', href: hreflangEs },
+      { locale: 'fr', href: hreflangFr },
+      { locale: 'ru', href: hreflangRu },
+      { locale: 'he', href: hreflangHe },
+      { locale: 'pt-BR', href: hreflangPt },
+      { locale: 'nl', href: hreflangNl },
+    ];
+const defaultHreflang = pageHreflangs.find((h) => h.locale === 'en')?.href ?? pageHreflangs[0]?.href ?? hreflangEn;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap';
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // 语言偏好持久化：读取用户选定的语言（localStorage），
+      // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar/es）
+      (function () {
+        var KEY = 'ishine_lang';
+        try {
+          var stored = localStorage.getItem(KEY);
+          if (!stored) return;
+          var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+          var path = window.location.pathname;
+          var cur = 'en';
+          for (var i = 0; i < LANGS.length; i++) {
+            if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+              cur = LANGS[i];
+              break;
+            }
+          }
+          if (stored === cur) return;
+          var stripped = path;
+          for (var j = 0; j < LANGS.length; j++) {
+            stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+          }
+          if (stored === 'en') {
+            stripped = stripped.replace(/\/+$/, '');
+            if (stripped === '' || stripped === '/') stripped = '/';
+            if (stripped !== path) window.location.replace(stripped);
+          } else {
+            var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+            target = target.replace(/\/+$/, '');
+            if (target === '') target = '/' + stored;
+            if (target !== path) window.location.replace(target);
+          }
+        } catch (e) { /* 隐私模式等场景忽略 */ }
+      })();
+    </script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    {pageHreflangs.map((h) => (
+      <link rel="alternate" hreflang={h.locale} href={h.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={defaultHreflang} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description || SITE_DESCRIPTION} />
     <meta property="og:url" content={canonicalUrl} />
@@ -129,9 +207,11 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
     <slot />
     {showCornerMarkers && <CornerMarker />}
     </div>
-    <SiteFooter />
+    <SiteFooter lang={lang} />
     <StickyContact />
+    <!-- TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
     <Chat client:idle />
+    -->
 
     <button id="back-to-top" aria-label="Back to top">
       <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -199,9 +279,9 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
       }
 
       #back-to-top:hover {
-        background: var(--primary-color, #F58C28);
+        background: var(--primary-color, #563cfa);
         color: var(--color-white, #FFFFFF);
-        border-color: var(--primary-color, #F58C28);
+        border-color: var(--primary-color, #563cfa);
       }
 
       @media (max-width: 1024px) {

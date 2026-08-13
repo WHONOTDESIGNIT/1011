@@ -15,6 +15,9 @@ type ChatResponse = {
 
 const MAX_HISTORY = 20;
 const CHAT_STORAGE_KEY = 'ishine-chat-conversation-id';
+/** iShine AI Chat 基础建设完成前强制隐藏窗口（不渲染任何 UI）；
+ *  上线时将 CHAT_ENABLED 改为 true 即可恢复。 */
+const CHAT_ENABLED = false;
 
 function createConversationId() {
   if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
@@ -43,6 +46,10 @@ function IconClose() {
 }
 
 export default function Chat() {
+  // 隐藏开关：在 CHAT_ENABLED 为 false 时组件完全不渲染，
+  // 保证聊天窗口在页面上一直处于隐藏状态（在首个 hook 之前返回，符合 hooks 规则）
+  if (!CHAT_ENABLED) return null;
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

@@ -1,0 +1,381 @@
+---
+import { getRelativeLocaleUrl, pathHasLocale } from 'astro:i18n';
+import { LANGUAGE_CONFIG } from '../config/i18n';
+import { t } from '../lib/i18n';
+
+interface Props {
+  lang?: string;
+  variant?: 'header' | 'mobile';
+}
+
+const { lang: langProp, variant = 'header' } = Astro.props;
+// 未显式传 lang 时，从 URL 自动推导当前语言
+const lang = langProp || Astro.currentLocale || (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/nl') ? 'nl' : 'en');
+
+// 剥离当前 URL 的语言前缀，得到「无前缀路径」再交给 getRelativeLocaleUrl，
+// 保证 EN/TR 互切链接不叠加前缀（en 无前缀，tr 带 /tr/）
+const currentPath = Astro.url.pathname;
+const pathWithoutLocale = pathHasLocale(currentPath)
+  ? currentPath.replace(new RegExp(`^/${lang}`), '') || '/'
+  : currentPath || '/';
+
+const current = LANGUAGE_CONFIG.find((l) => l.code === lang) ?? LANGUAGE_CONFIG[0];
+
+// 链接规范：所有语种链接统一不带末尾斜杠（根路径除外），如 /tr/products/lumi
+// normalizeLocale:false 保留 locale 原始大小写（pt-BR），与构建目录一致，
+// 避免在 Linux（Netlify）上因大小写不敏感差异导致 /pt-pt/ 404
+const localeHref = (l: string, p: string) => {
+  const url = getRelativeLocaleUrl(l, p, { normalizeLocale: false });
+  return url.length > 1 ? url.replace(/\/+$/, '') : url;
+};
+---
+
+<div class:list={['ls', variant === 'mobile' && 'ls--mobile']} data-lang-switcher>
+  <button
+    type="button"
+    class="ls-trigger"
+    data-ls-trigger
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-label={t(lang, 'languageSwitcher.switchLanguage')}
+  >
+    <img class="ls-flag" src={current.flagUrl} alt="" width="28" height="21" loading="lazy" />
+    <span class="ls-trigger-label">{current.nativeName}</span>
+    <svg class="ls-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="ls-backdrop" data-ls-backdrop></div>
+
+  <div class="ls-panel" role="dialog" aria-modal="true" aria-label={t(lang, 'languageSwitcher.chooseLanguage')} data-ls-panel>
+    <div class="ls-panel-header">
+      <h3 class="ls-title">{t(lang, 'languageSwitcher.chooseLanguage')}</h3>
+      <button type="button" class="ls-close" data-ls-close aria-label={t(lang, 'languageSwitcher.close')}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="ls-grid">
+      {LANGUAGE_CONFIG.map((l) =>
+        l.enabled ? (
+          <a
+            class:list={['ls-option', { active: l.code === lang }]}
+            href={localeHref(l.code, pathWithoutLocale)}
+            hreflang={l.code}
+            lang={l.code}
+            aria-label={l.label}
+            aria-current={l.code === lang ? 'true' : undefined}
+            data-ls-option
+          >
+            <img class="ls-flag" src={l.flagUrl} alt="" width="28" height="21" loading="lazy" />
+            <span class="ls-option-name">{l.nativeName}</span>
+          </a>
+        ) : (
+          <div class="ls-option ls-option--disabled" title={`${l.label} — ${t(lang, 'languageSwitcher.comingSoon')}`}>
+            <img class="ls-flag" src={l.flagUrl} alt="" width="28" height="21" loading="lazy" />
+            <span class="ls-option-name">{l.nativeName}</span>
+            <span class="ls-option-badge">{t(lang, 'languageSwitcher.comingSoon')}</span>
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    // 语言偏好持久化 key（与各页面 <head> 内的重定向脚本共用）
+    const LS_KEY = 'ishine_lang';
+    const flagFallback = 'data:image/svg+xml;charset=utf-8,' +
+      encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="28" height="21"><rect width="28" height="21" fill="#e5e7eb" rx="3"/></svg>');
+
+    document.querySelectorAll('[data-lang-switcher]').forEach((root) => {
+      const trigger = root.querySelector('[data-ls-trigger]');
+      const backdrop = root.querySelector('[data-ls-backdrop]');
+      const panel = root.querySelector('[data-ls-panel]');
+      const closeBtn = root.querySelector('[data-ls-close]');
+      if (!trigger || !backdrop || !panel) return;
+
+      const open = () => {
+        // .site-header 的 transform 会改变 fixed 定位上下文，
+        // 将遮罩与弹窗挂到 body 下，确保相对视口居中
+        if (backdrop.parentElement !== document.body) document.body.appendChild(backdrop);
+        if (panel.parentElement !== document.body) document.body.appendChild(panel);
+        root.classList.add('open');
+        backdrop.classList.add('ls--visible');
+        panel.classList.add('ls--visible');
+        trigger.setAttribute('aria-expanded', 'true');
+        // 记录原锁定状态，关闭时恢复，避免覆盖移动菜单自身的滚动锁
+        if (document.body.dataset.lsPrevOverflow === undefined) {
+          document.body.dataset.lsPrevOverflow = document.body.style.overflow || '';
+        }
+        if (document.documentElement.dataset.lsPrevOverflow === undefined) {
+          document.documentElement.dataset.lsPrevOverflow = document.documentElement.style.overflow || '';
+        }
+        // 同时锁定 html/body：滚动条彻底消失后，fixed + inset:0 + margin:auto
+        // 才能让弹窗几何中心与视口几何中心精确重合
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      };
+      const close = () => {
+        root.classList.remove('open');
+        backdrop.classList.remove('ls--visible');
+        panel.classList.remove('ls--visible');
+        trigger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = document.body.dataset.lsPrevOverflow ?? '';
+        delete document.body.dataset.lsPrevOverflow;
+        document.documentElement.style.overflow = document.documentElement.dataset.lsPrevOverflow ?? '';
+        delete document.documentElement.dataset.lsPrevOverflow;
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        root.classList.contains('open') ? close() : open();
+      });
+      backdrop.addEventListener('click', close);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      // 点击弹窗内部不冒泡到 backdrop
+      panel.addEventListener('click', (e) => e.stopPropagation());
+
+      // 点击任意可切换语言链接时，先把选择持久化到 localStorage，
+      // 保证跳转后其它页面仍按该语言加载（点击已选语言仅收起，同样记录无副作用）
+      panel.querySelectorAll('[data-ls-option]').forEach((el) => {
+        el.addEventListener('click', () => {
+          const code = el.getAttribute('hreflang');
+          if (code) {
+            try { localStorage.setItem(LS_KEY, code); } catch (e) { /* 隐私模式忽略 */ }
+          }
+        });
+      });
+
+      // 点击「已选语言」仅收起弹窗（不跳转刷新当前页）
+      panel.querySelectorAll('[data-ls-option].active').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          close();
+        });
+      });
+
+      // 国旗加载失败时的灰色兜底
+      root.querySelectorAll('.ls-flag').forEach((img) => {
+        img.addEventListener('error', () => {
+          img.src = flagFallback;
+          img.removeEventListener('error', () => {});
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && root.classList.contains('open')) close();
+      });
+    });
+  })();
+</script>
+
+<style is:global>
+/* ═══ 多语言切换器 ═══ */
+.ls {
+  position: relative;
+  flex: 0 0 auto;
+}
+.ls-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px 7px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 100px;
+  background: #fff;
+  cursor: pointer;
+  font-family: Manrope, system-ui, sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ls-trigger:hover { border-color: #563cfa; }
+.ls-trigger-label {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: #020303;
+  white-space: nowrap;
+}
+.ls-chevron {
+  flex-shrink: 0;
+  color: #6b7280;
+  transition: transform 0.25s ease;
+}
+.ls.open .ls-chevron { transform: rotate(180deg); }
+
+/* 国旗统一尺寸（4:3），object-fit 防变形 */
+.ls-flag {
+  width: 28px;
+  height: 21px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+/* 弹窗遮罩：浅灰色、不透明度固定 30% */
+.ls-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(156, 163, 175, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 300;
+  transition: opacity 0.25s ease, visibility 0s 0.25s;
+}
+.ls-backdrop.ls--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.25s ease, visibility 0s 0s;
+}
+
+/* 弹窗面板：接近全屏、视口居中（fixed + inset:0 + margin:auto 无平移依赖） */
+.ls-panel {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(680px, 92vw);
+  height: min(580px, 82vh);
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(2, 3, 3, 0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 301;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+}
+.ls-panel.ls--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0s;
+}
+
+.ls-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+/* 标题：固定 Manrope 字体栈 + 显式常规渲染参数，杜绝跨设备字体压扁变形 */
+.ls-title {
+  margin: 0;
+  min-width: 0;
+  font-family: Manrope, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: optimizeLegibility;
+  color: #020303;
+}
+.ls-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 100px;
+  background: #fff;
+  color: #6b7280;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.ls-close:hover { border-color: #563cfa; color: #563cfa; }
+
+/* 两列自适应网格：完全隐藏自带滚动条（滚动仍可用，桌面端内容可完整容纳） */
+.ls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 16px 24px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ls-grid::-webkit-scrollbar { display: none; }
+.ls-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.ls-option:hover { background: rgba(0, 0, 0, 0.04); }
+.ls-option.active {
+  background: #eef2ff;
+  box-shadow: inset 0 0 0 1px #c7d2fe;
+}
+.ls-option.active:hover { background: #e0e7ff; }
+.ls-option-name {
+  min-width: 0;
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #020303;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ls-option--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ls-option--disabled:hover { background: transparent; }
+.ls-option-badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 100px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+/* 移动端：面板更接近全屏；超窄屏网格收为单列 */
+@media (max-width: 560px) {
+  .ls-panel {
+    width: calc(100vw - 24px);
+    height: calc(100dvh - 24px);
+    border-radius: 20px;
+  }
+  .ls-grid { grid-template-columns: 1fr; padding: 12px 16px 20px; }
+  .ls-panel-header { padding: 16px 16px 12px; }
+}
+
+/* 移动菜单面板内 variant */
+.ls--mobile {
+  margin-top: 20px;
+  width: 100%;
+}
+.ls--mobile .ls-trigger {
+  width: 100%;
+  justify-content: flex-start;
+}
+</style>

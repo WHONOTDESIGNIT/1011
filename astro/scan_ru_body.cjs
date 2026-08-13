@@ -1,0 +1,52 @@
+// 深度扫描 dist/ru/**/*.html 正文中的英文功能词残留（导航/页脚已由 verify_ru.cjs 覆盖）
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, 'dist', 'ru');
+const STOP = new Set(['the', 'and', 'with', 'your', 'for', 'from', 'this', 'that', 'what', 'why', 'how', 'are', 'were', 'will', 'our', 'you', 'of', 'to', 'at', 'by', 'we', 'not', 'but', 'when', 'which', 'who', 'about', 'into', 'through', 'during', 'before', 'after', 'under', 'also', 'very', 'more', 'most', 'have', 'has', 'had', 'do', 'does', 'did', 'can', 'could', 'would', 'should', 'may', 'might', 'must', 'only', 'just', 'then', 'than', 'there', 'here', 'all', 'any', 'some', 'they', 'them', 'their', 'its', 'need', 'want', 'make', 'made', 'use', 'used', 'using', 'new', 'now', 'out', 'get', 'go', 'good', 'best', 'free', 'buy', 'sale', 'learn', 'read']);
+
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (e.name.endsWith('.html')) out.push(p);
+  }
+  return out;
+}
+
+function textOf(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<style[\s\S]*?<\/style>/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z#0-9]+;/gi, ' ')
+    .replace(/\bnew\s+(york|zealand)\b/gi, ' $1 ')
+    .replace(/\s+/g, ' ');
+}
+
+// 已知不可翻译页面：develo-* 系列 + index.backup（与 es/tr/ar 相同策略）
+const SKIP_PREFIX = ['develo-', 'index.backup'];
+
+let fail = 0;
+let total = 0;
+for (const file of walk(ROOT)) {
+  const rel = path.relative(ROOT, file);
+  const parts = rel.split(path.sep);
+  if (parts[0] === 'blog' && parts.length > 1) continue;
+  // develo-* 目录（Develo Design 模板演示页，不走 i18n）与 index.backup 备份页均跳过
+  if (parts.some((p) => p.startsWith('develo-') || p.startsWith('index.backup'))) continue;
+  total++;
+  const html = fs.readFileSync(file, 'utf8');
+  const text = textOf(html);
+  const words = text.toLowerCase().split(/([^a-zà-ÿ]+)/).filter((w) => w.length >= 2 && /^[a-zà-ÿ]+$/.test(w));
+  const hits = new Map();
+  for (const w of words) if (STOP.has(w)) hits.set(w, (hits.get(w) || 0) + 1);
+  if (hits.size) {
+    console.log(`--- ${rel}`);
+    console.log(`  EN 功能词: ${[...hits.entries()].map(([w, n]) => `${w}(${n})`).join(' ')}`);
+    fail++;
+  }
+}
+console.log(`扫描页面数: ${total}`);
+console.log(fail ? `\n${fail} 个页面存在英文功能词残留` : '\n全部 ru 页面正文无英文功能词残留 OK');
+process.exit(fail ? 1 : 0);

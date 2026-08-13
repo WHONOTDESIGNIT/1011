@@ -4,7 +4,7 @@ import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { Image } from 'astro:assets';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 
 function netlifyImage(path: string, width: number, format: 'avif' | 'webp', quality = 80) {
   return `/.netlify/images?url=${encodeURIComponent(path)}&w=${width}&fm=${format}&q=${quality}`;
@@ -23,120 +23,113 @@ function responsiveImageSources(path: string, widths = [400, 800, 1200], default
 }
 
 const products = [
-  { slug: 'lumi', nameKey: 'nav.lumi', tagline: "RoseSkinCo's Top Selling", firstImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp' },
-  { slug: 'lumi-2', nameKey: 'nav.lumi2', tagline: 'Smart Skin Sensor + Chills Skin to 10℃', firstImage: '/images/products/lumi-2/lumi-2-images (1).jpg' },
-  { slug: 'venus', nameKey: 'nav.venus', tagline: 'Comfort Ice Feeling', firstImage: '/images/products/Venus/purple-venus-sapphire-ipl.webp' },
-  { slug: 'hestia', nameKey: 'nav.hestia', tagline: 'Smart App-Connected Hair Removal', firstImage: '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-2.png' },
-  { slug: 'alpha', nameKey: 'nav.alpha', tagline: 'Simple and Clean IPL', firstImage: '/images/products/Alpha/alpha-ipl-device-front-view.jpg' },
-  { slug: 'emerald', nameKey: 'nav.emerald', tagline: 'Be Bold--First Emerald Style IPL', firstImage: '/images/products/Emerald/emerald%20ipl%20white%20color.webp' },
-  { slug: 'euno', nameKey: 'nav.euno', tagline: 'Compact & Portable Design', firstImage: '/images/products/Euno/euno%20ipl%20white%20color.webp' },
-  { slug: 'themis', nameKey: 'nav.themis', tagline: 'Ice Feeling Professional Treatment', firstImage: '/images/products/Themis/golden-luxury-front-view.jpg' },
-  { slug: 'hebe', nameKey: 'nav.hebe', tagline: 'AI-Powered Skin Detection', firstImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp' },
-  { slug: 'helix', nameKey: 'nav.helix', tagline: 'Ice Cooling + 9 Intensity Levels', firstImage: '/images/products/Helix/helix-ipl-front-view.jpg' },
-  { slug: 'eirene', nameKey: 'nav.eirene', tagline: 'Battery-build-in IPL, Cordless IPL', firstImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg' },
-  { slug: 'wooden', nameKey: 'nav.wooden', tagline: 'Natural design, inspired by Whynotdesign.', firstImage: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp' },
+  { slug: 'lumi', nameKey: 'nav.lumi', firstImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp' },
+  { slug: 'lumi-2', nameKey: 'nav.lumi2', firstImage: '/images/products/lumi-2/lumi-2-images (1).jpg' },
+  { slug: 'venus', nameKey: 'nav.venus', firstImage: '/images/products/Venus/purple-venus-sapphire-ipl.webp' },
+  { slug: 'hestia', nameKey: 'nav.hestia', firstImage: '/images/products/Hestia/hestia-smart-app-ipl-device-12pro-2.png' },
+  { slug: 'alpha', nameKey: 'nav.alpha', firstImage: '/images/products/Alpha/alpha-ipl-device-front-view.jpg' },
+  { slug: 'emerald', nameKey: 'nav.emerald', firstImage: '/images/products/Emerald/emerald%20ipl%20white%20color.webp' },
+  { slug: 'euno', nameKey: 'nav.euno', firstImage: '/images/products/Euno/euno%20ipl%20white%20color.webp' },
+  { slug: 'themis', nameKey: 'nav.themis', firstImage: '/images/products/Themis/golden-luxury-front-view.jpg' },
+  { slug: 'hebe', nameKey: 'nav.hebe', firstImage: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp' },
+  { slug: 'helix', nameKey: 'nav.helix', firstImage: '/images/products/Helix/helix-ipl-front-view.jpg' },
+  { slug: 'eirene', nameKey: 'nav.eirene', firstImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg' },
+  { slug: 'wooden', nameKey: 'nav.wooden', firstImage: '/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp' },
 ].map((product) => ({
   ...product,
+  taglineKey: `productDetail.index.cards.${product.slug}.tagline`,
   imageSources: responsiveImageSources(product.firstImage),
 }));
 const freeSampleImage = responsiveImageSources('/images/products/free_sample.jpg', [400, 800, 1200], 1200);
 
 const platformTracks = [
   {
-    title: 'Comfort-first cooling',
-    description: 'Best for brands selling “painless” positioning and sensitive-area comfort.',
+    titleKey: 'productDetail.index.tracks.comfort.title',
+    descriptionKey: 'productDetail.index.tracks.comfort.description',
     links: [
-      { label: 'Venus (Cooling)', href: getLocalizedPath(locale, '/products/venus') },
-      { label: 'Lumi 2 (Cooling to 10°C)', href: getLocalizedPath(locale, '/products/lumi-2') },
+      { labelKey: 'productDetail.index.tracks.comfort.linkVenus', href: getLocalizedPath(locale, '/products/venus') },
+      { labelKey: 'productDetail.index.tracks.comfort.linkLumi2', href: getLocalizedPath(locale, '/products/lumi-2') },
     ],
   },
   {
-    title: 'Smart app-guided routines',
-    description: 'Best for retention-driven brands that use app workflows and scheduling.',
+    titleKey: 'productDetail.index.tracks.smartApp.title',
+    descriptionKey: 'productDetail.index.tracks.smartApp.description',
     links: [
-      { label: 'Hestia (App tracking)', href: getLocalizedPath(locale, '/products/hestia') },
-      { label: 'Lumi (Smart app control)', href: getLocalizedPath(locale, '/products/lumi') },
+      { labelKey: 'productDetail.index.tracks.smartApp.linkHestia', href: getLocalizedPath(locale, '/products/hestia') },
+      { labelKey: 'productDetail.index.tracks.smartApp.linkLumi', href: getLocalizedPath(locale, '/products/lumi') },
     ],
   },
   {
-    title: 'Portable / travel',
-    description: 'Best for compact positioning and lightweight bundles.',
-    links: [{ label: 'Euno (Portable)', href: getLocalizedPath(locale, '/products/euno') }],
+    titleKey: 'productDetail.index.tracks.portable.title',
+    descriptionKey: 'productDetail.index.tracks.portable.description',
+    links: [{ labelKey: 'productDetail.index.tracks.portable.linkEuno', href: getLocalizedPath(locale, '/products/euno') }],
   },
   {
-    title: 'Luxury unboxing',
-    description: 'Best for premium packaging and giftable positioning.',
-    links: [{ label: 'Golden (Wooden luxury)', href: getLocalizedPath(locale, '/products/wooden') }],
+    titleKey: 'productDetail.index.tracks.luxury.title',
+    descriptionKey: 'productDetail.index.tracks.luxury.description',
+    links: [{ labelKey: 'productDetail.index.tracks.luxury.linkWooden', href: getLocalizedPath(locale, '/products/wooden') }],
   },
   {
-    title: 'Professional performance',
-    description: 'Best for high-output positioning and faster full-body routines.',
+    titleKey: 'productDetail.index.tracks.professional.title',
+    descriptionKey: 'productDetail.index.tracks.professional.description',
     links: [
-      { label: 'Themis (Salon-grade)', href: getLocalizedPath(locale, '/products/themis') },
-      { label: 'Alpha (Dual-lamp efficiency)', href: getLocalizedPath(locale, '/products/alpha') },
-    ],
-  },
-];
-
-const productFaq = [
-  {
-    question: 'How do we choose the right IPL platform for our brand?',
-    answer:
-      'Start with positioning and channel: comfort-first cooling, app-guided routines, portability, luxury unboxing, or professional performance. Then validate key specs and customization scope in sampling.',
-    links: [{ label: 'Compare models in the Catalogue', href: getLocalizedPath(locale, '/catalogue') }],
-  },
-  {
-    question: 'What can be customized in a private-label IPL program?',
-    answer:
-      'Typical customization includes device cosmetics and colors, logo placement, packaging and inserts, user manuals and quick-start guides, labeling, and bundle accessories. Logistics and dropshipping workflows can be configured by channel.',
-    links: [
-      { label: 'Logo Printing', href: getLocalizedPath(locale, '/services/logo-printing') },
-      { label: 'Box Customization', href: getLocalizedPath(locale, '/services/box-custom') },
-      { label: 'User Manual Customization', href: getLocalizedPath(locale, '/services/user-manual-guide-custom') },
-    ],
-  },
-  {
-    question: 'Can we start with a pilot order?',
-    answer:
-      'Yes. Many programs can start with a smaller pilot order to validate demand and positioning before scaling with predictable replenishment.',
-    links: [{ label: 'Start with No MOQ', href: getLocalizedPath(locale, '/services/no-moq') }],
-  },
-  {
-    question: 'Do you support dropshipping and export logistics?',
-    answer:
-      'Yes. We support packaging, labeling, export documents, shipping coordination, and dropshipping workflows depending on your channel and destination.',
-    links: [
-      { label: 'Packaging & Logistics', href: getLocalizedPath(locale, '/services/packaging-logistics') },
-      { label: 'Dropshipping', href: getLocalizedPath(locale, '/services/dropshipping') },
+      { labelKey: 'productDetail.index.tracks.professional.linkThemis', href: getLocalizedPath(locale, '/products/themis') },
+      { labelKey: 'productDetail.index.tracks.professional.linkAlpha', href: getLocalizedPath(locale, '/products/alpha') },
     ],
   },
 ];
 
-const safetyPillar = { label: 'Why IPL hair removal is safe (pillar page)', href: getLocalizedPath(locale, '/ipl-hair-removal-is-safe') };
-const safetyResources = [
-  { label: 'Clinical data on IPL safety', href: getLocalizedPath(locale, '/blog/28-clinical-data-why-ipl-hair-removal-is-safe') },
-  { label: 'FDA verification (what “FDA cleared” means)', href: getLocalizedPath(locale, '/blog/14-fda-cleared-ipl-device-manufacturer-guide') },
-  { label: 'Safe at-home IPL protocol (frequency, patch test, settings)', href: getLocalizedPath(locale, '/blog/29-safe-ipl-hair-removal-at-home-protocol') },
-  { label: 'Fitzpatrick skin types & IPL safety limits', href: getLocalizedPath(locale, '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick') },
-  { label: 'IPL vs laser: safety comparison', href: getLocalizedPath(locale, '/blog/30-ipl-vs-laser-which-is-safer') },
-  { label: 'UV filtering & wavelength control', href: getLocalizedPath(locale, '/blog/31-uv-filtering-wavelengths-why-ipl-is-safe') },
-  { label: 'Safety sensors (skin tone detection & contact sensors)', href: getLocalizedPath(locale, '/blog/15-skin-tone-detection-ipl-safety-guide') },
-  { label: 'IPL side effects explained (what’s normal vs not)', href: getLocalizedPath(locale, '/blog/32-ipl-hair-removal-side-effects-what-is-normal') },
-  { label: 'Who should not use IPL (contraindications)', href: getLocalizedPath(locale, '/blog/33-who-should-not-use-ipl-hair-removal-contraindications') },
-  { label: 'Before/after care to reduce IPL risks', href: getLocalizedPath(locale, '/blog/34-ipl-hair-removal-before-and-aftercare-for-safety') },
+const faqHrefs = [
+  [getLocalizedPath(locale, '/catalogue')],
+  [
+    getLocalizedPath(locale, '/services/logo-printing'),
+    getLocalizedPath(locale, '/services/box-custom'),
+    getLocalizedPath(locale, '/services/user-manual-guide-custom'),
+  ],
+  [getLocalizedPath(locale, '/services/no-moq')],
+  [
+    getLocalizedPath(locale, '/services/packaging-logistics'),
+    getLocalizedPath(locale, '/services/dropshipping'),
+  ],
 ];
+const productFaq = [0, 1, 2, 3].map((i) => ({
+  question: t(locale, `productDetail.index.faq.items.${i}.question`),
+  answer: t(locale, `productDetail.index.faq.items.${i}.answer`),
+  links: faqHrefs[i].map((href, j) => ({
+    label: t(locale, `productDetail.index.faq.items.${i}.links.${j}`),
+    href,
+  })),
+}));
+
+const safetyPillar = { labelKey: 'productDetail.index.safety.pillar', href: getLocalizedPath(locale, '/ipl-hair-removal-is-safe') };
+const safetyHrefs = [
+  '/blog/28-clinical-data-why-ipl-hair-removal-is-safe',
+  '/blog/30-ipl-vs-laser-which-is-safer',
+  '/blog/14-fda-cleared-ipl-device-manufacturer-guide',
+  '/ipl-hair-removal-is-safe',
+  '/blog/31-uv-filtering-wavelengths-why-ipl-is-safe',
+  '/blog/15-skin-tone-detection-ipl-safety-guide',
+  '/blog/29-safe-ipl-hair-removal-at-home-protocol',
+  '/ipl-hair-removal-is-safe',
+  '/blog/33-who-should-not-use-ipl-hair-removal-contraindications',
+  '/ipl-hair-removal-is-safe',
+];
+const safetyResources = safetyHrefs.map((href, i) => ({
+  labelKey: `productDetail.index.safety.links.${i}`,
+  href: getLocalizedPath(locale, href),
+}));
 ---
 
 <BaseLayout
-  title="IPL Device Platforms for Private Label | iShine"
+  title={`${t(locale, 'productDetail.index.page.title')} | iShine`}
   lang={locale}
-  description="Explore iShine IPL device platforms for private label and OEM/ODM: cooling-focused models, app-connected routines, portable devices, luxury cosmetics, and professional-performance platforms."
+  description={t(locale, 'productDetail.index.page.description')}
 >
   <div class="space-y-36">
     <section class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-[160px] pt-[160px] min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
       <Image
         src="/images/products/ipl-products-banner.webp"
-        alt="IPL Products"
+        alt={t(locale, 'productDetail.index.hero.alt')}
         loading="eager"
         class="absolute inset-0 h-full w-full object-cover"
         width={1920}
@@ -145,19 +138,19 @@ const safetyResources = [
       <div class="absolute inset-0 bg-black/20" />
       <div class="relative z-10 flex h-full items-end px-6 pb-10 md:px-12">
         <div class="max-w-4xl">
-          <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl">IPL Device Platforms</h1>
+          <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl">{t(locale, 'productDetail.index.hero.title')}</h1>
           <p class="mt-4 max-w-3xl text-lg text-white/90">
-            Choose a platform that matches your positioning—cooling comfort, smart routines, portability, luxury cosmetics, or professional performance—then customize branding, packaging, and fulfillment.
+            {t(locale, 'productDetail.index.hero.description')}
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
             <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/catalogue')}>
-              Compare Models
+              {t(locale, 'productDetail.index.hero.compareModels')}
             </a>
             <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/services')}>
-              Explore Services
+              {t(locale, 'productDetail.index.hero.exploreServices')}
             </a>
             <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/contact')}>
-              Get a Quote
+              {t(locale, 'productDetail.index.hero.getAQuote')}
             </a>
           </div>
         </div>
@@ -165,30 +158,29 @@ const safetyResources = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What product types does iShine offer for private-label IPL?</h3>
+      <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'productDetail.index.summary.title')}</h2>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        iShine offers a portfolio of home-use IPL device platforms that can be adapted for private-label launches across different price tiers and channel positioning. Product families commonly include app-connected models for guided routines and progress tracking, cooling-focused models with sapphire contact cooling for comfort, AI-enabled skin sensing configurations for safer energy selection, and premium cosmetics built for DTC or retail unboxing. Typical specification targets vary by platform, such as energy ranges around 5-9 J/cm², flash counts near 999,000 (or 500,000 on compact models), treatment windows around 4.5 cm² (with larger windows available on select platforms), and wavelength bands like 550-1200 nm or 570-1200 nm in supported configurations. Brands can customize cosmetics, colors, packaging, manuals, labeling, accessories, and bundle configuration to match channel requirements while keeping manufacturing repeatability. This catalog is used as a starting point for OEM/ODM discussions about sampling, MOQ, compliance documentation, and scale delivery.
+        {t(locale, 'productDetail.index.summary.description')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">How to Choose</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Pick a track, then open platform pages</h2>
-        <p class="mt-4 text-lg text-slate-700">Use the links below to jump straight to the most relevant platforms.</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.choose.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.choose.title')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'productDetail.index.choose.description')}</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {platformTracks.map((track) => (
           <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-2xl font-semibold text-slate-900">{track.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">{track.description}</p>
+            <h3 class="text-2xl font-semibold text-slate-900">{t(locale, track.titleKey)}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, track.descriptionKey)}</p>
             <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
               {track.links.map((link) => (
                 <li>
                   <a class="inline-flex items-center gap-2 text-slate-900 transition hover:text-violet-700" href={link.href}>
                     <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
-                    <span>{link.label}</span>
+                    <span>{t(locale, link.labelKey)}</span>
                   </a>
                 </li>
               ))}
@@ -232,7 +224,7 @@ const safetyResources = [
           <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
             <div>
               <h2 class="text-xl font-semibold text-slate-900">{t(locale, product.nameKey)}</h2>
-              <p class="mt-1 text-sm text-slate-700">{product.tagline}</p>
+              <p class="mt-1 text-sm text-slate-700">{t(locale, product.taglineKey)}</p>
             </div>
           </div>
         </a>
@@ -242,30 +234,30 @@ const safetyResources = [
     <section class="mx-auto max-w-6xl px-6">
       <div class="grid gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-3 md:p-10">
         <div class="md:col-span-2">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Next Step</div>
-          <h2 class="mt-3 text-3xl font-bold text-slate-900">Turn a platform into a brand-ready product</h2>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.nextStep.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-slate-900">{t(locale, 'productDetail.index.nextStep.title')}</h2>
           <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
-            After you shortlist a platform, we help you customize branding, packaging, manuals, and fulfillment so the final product matches your channel and positioning.
+            {t(locale, 'productDetail.index.nextStep.description')}
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/services/no-moq')}>
-              Start with No MOQ
+              {t(locale, 'productDetail.index.nextStep.startNoMoq')}
             </a>
             <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/box-custom')}>
-              Customize Your Box & Inserts
+              {t(locale, 'productDetail.index.nextStep.customizeBox')}
             </a>
             <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
-              Ship Directly to Customers
+              {t(locale, 'productDetail.index.nextStep.shipDirectly')}
             </a>
           </div>
         </div>
         <div class="rounded-2xl bg-slate-50 p-6">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Fast Links</div>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'productDetail.index.fastLinks.kicker')}</div>
           <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-900">
-            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/logo-printing')}>Add Logo Printing</a></li>
-            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/user-manual-guide-custom')}>User Manual Customization</a></li>
-            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/packaging-logistics')}>Packaging & Export Logistics</a></li>
-            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/contact')}>Get a Quote</a></li>
+            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/logo-printing')}>{t(locale, 'productDetail.index.fastLinks.logoPrinting')}</a></li>
+            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/user-manual-guide-custom')}>{t(locale, 'productDetail.index.fastLinks.userManual')}</a></li>
+            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/packaging-logistics')}>{t(locale, 'productDetail.index.fastLinks.packagingLogistics')}</a></li>
+            <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'productDetail.index.fastLinks.getAQuote')}</a></li>
           </ul>
         </div>
       </div>
@@ -273,9 +265,9 @@ const safetyResources = [
 
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">FAQ</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Questions brands ask before choosing a platform</h2>
-        <p class="mt-4 text-lg text-slate-700">Short answers with direct links to the relevant pages.</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.faq.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.faq.title')}</h2>
+        <p class="mt-4 text-lg text-slate-700">{t(locale, 'productDetail.index.faq.description')}</p>
       </div>
       <div class="mx-auto grid max-w-4xl gap-4">
         {productFaq.map((item) => (
@@ -305,19 +297,19 @@ const safetyResources = [
       <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <div class="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
-            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">Safety Resources</div>
-            <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Why IPL hair removal is safe (and how to explain it)</h2>
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.safety.kicker')}</div>
+            <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.safety.title')}</h2>
             <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
-              Use the pillar page and the linked safety guides below to answer buyer questions and reduce support risk during launch.
+              {t(locale, 'productDetail.index.safety.description')}
             </p>
             <div class="mt-8">
               <a class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={safetyPillar.href}>
-                {safetyPillar.label}
+                {t(locale, safetyPillar.labelKey)}
               </a>
             </div>
           </div>
           <div class="rounded-[1.75rem] bg-slate-50 p-7">
-            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Deep Links</div>
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'productDetail.index.safety.deepLinks')}</div>
             <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-900">
               {safetyResources.map((item) => (
                 <li>
@@ -341,7 +333,7 @@ const safetyResources = [
             src={freeSampleImage.src}
             srcset={freeSampleImage.webpSrcSet}
             sizes="(min-width: 1024px) 72rem, 100vw"
-            alt="Free sample IPL product display"
+            alt={t(locale, 'productDetail.index.freeSampleAlt')}
             loading="lazy"
             decoding="async"
             width="1200"

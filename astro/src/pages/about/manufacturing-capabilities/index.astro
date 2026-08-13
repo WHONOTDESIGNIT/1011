@@ -5,43 +5,43 @@ import { t } from '../../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../../lib/netlify-images';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const heroBackgroundImage =
   'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1600';
 const heroBackgroundImageSources = responsiveImageSources(heroBackgroundImage, [800, 1200, 1600], 1600);
 
 const cards = [
   {
-    title: 'Industry Excellence',
+    titleKey: 'aboutPages.manufacturing.cards.card1.title',
     accent: 'bg-sky-600',
-    description: '15+ years of experience in IPL manufacturing with proven track record of success.',
+    descriptionKey: 'aboutPages.manufacturing.cards.card1.description',
   },
   {
-    title: 'Advanced Technology',
+    titleKey: 'aboutPages.manufacturing.cards.card2.title',
     accent: 'bg-emerald-600',
-    description: 'State-of-the-art facilities and cutting-edge manufacturing processes.',
+    descriptionKey: 'aboutPages.manufacturing.cards.card2.description',
   },
   {
-    title: 'Quality Assurance',
-    accent: 'bg-amber-500',
-    description: 'Rigorous testing and quality control at every production stage.',
-  },
-  {
-    title: 'Global Standards',
+    titleKey: 'aboutPages.manufacturing.cards.card3.title',
     accent: 'bg-violet-600',
-    description: 'FDA cleared and CE certified products meeting international standards.',
+    descriptionKey: 'aboutPages.manufacturing.cards.card3.description',
+  },
+  {
+    titleKey: 'aboutPages.manufacturing.cards.card4.title',
+    accent: 'bg-violet-600',
+    descriptionKey: 'aboutPages.manufacturing.cards.card4.description',
   },
 ];
 
 const reasons = [
-  'Comprehensive end-to-end manufacturing solutions',
-  'Flexible MOQ to support startups and established brands',
-  'Fast prototyping and reliable production timelines',
-  'Complete compliance and certification support',
-  'Global shipping and logistics expertise',
+  'aboutPages.reasons.0',
+  'aboutPages.reasons.1',
+  'aboutPages.reasons.2',
+  'aboutPages.reasons.3',
+  'aboutPages.reasons.4',
 ];
 const pageTitle = t(locale, 'nav.manufacturing');
-const pageDescription = 'Explore iShine\'s advanced IPL manufacturing facilities: injection molding, precision assembly, clean rooms, rapid prototyping, and scalable production for global beauty brands.';
+const pageDescription = t(locale, 'aboutPages.manufacturing.description');
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.about'), path: '/about' },
@@ -73,26 +73,26 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
         <h1 class="mt-6 text-4xl font-bold md:text-5xl">{pageTitle}</h1>
         <p class="mt-4 max-w-3xl text-lg text-slate-200">
-          Explore our advanced manufacturing facilities and production capabilities
+          {t(locale, 'aboutPages.manufacturing.heroSubtitle')}
         </p>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What manufacturing capabilities does iShine offer for IPL devices?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'aboutPages.manufacturing.summaryTitle')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        iShine’s manufacturing capabilities for IPL devices cover the core steps required to move from a validated design to repeatable production and delivery. This includes controlled assembly workflows, sourcing and integration of key subsystems (lamp, filters, cooling, power), in-line testing, calibration, and final inspection to reduce variation across batches. Capability planning also extends to packaging execution and logistics coordination so finished products can ship in market-ready form. For OEM/ODM partners, these capabilities matter because they support consistent performance, stable quality outcomes, and smoother documentation and verification work when targeting multiple markets. The overall goal is to provide a scalable manufacturing foundation for private-label launches.
+        {t(locale, 'aboutPages.manufacturing.summaryDescription')}
       </p>
     </section>
 
     <section class="space-y-6">
-      <h2 class="text-3xl font-bold text-slate-900">Our Facilities &amp; Equipment</h2>
+      <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'aboutPages.manufacturing.facilitiesTitle')}</h2>
       <p class="text-lg text-slate-700">
-        Explore our advanced manufacturing facilities and production capabilities
+        {t(locale, 'aboutPages.manufacturing.heroSubtitle')}
       </p>
       <p class="text-lg text-slate-700">
-        At iShine, we combine advanced technology with expert craftsmanship to deliver exceptional results. Our team works closely with clients throughout the entire process, ensuring every detail meets your specifications and exceeds market expectations.
+        {t(locale, 'aboutPages.manufacturing.introParagraph')}
       </p>
     </section>
 
@@ -102,25 +102,25 @@ const breadcrumbs = buildBreadcrumbs(locale, [
           <div class={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${card.accent}`}>
             <span class="text-lg font-bold text-white">+</span>
           </div>
-          <h3 class="text-xl font-semibold text-slate-900">{card.title}</h3>
-          <p class="mt-3 text-slate-700">{card.description}</p>
+          <h3 class="text-xl font-semibold text-slate-900">{t(locale, card.titleKey)}</h3>
+          <p class="mt-3 text-slate-700">{t(locale, card.descriptionKey)}</p>
         </div>
       ))}
     </section>
 
     <section class="rounded-2xl bg-slate-50 p-8">
-      <h2 class="text-2xl font-bold text-slate-900">Why Choose iShine?</h2>
+      <h2 class="text-2xl font-bold text-slate-900">{t(locale, 'aboutPages.whyChooseTitle')}</h2>
       <ul class="mt-6 space-y-3 text-slate-700">
         {reasons.map((r) => (
           <li class="flex items-start gap-3">
             <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-emerald-600" />
-            <span>{r}</span>
+            <span>{t(locale, r)}</span>
           </li>
         ))}
       </ul>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a class="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/contact')}>Request a Quote</a>
-        <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/about')}>Back to About</a>
+        <a class="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'aboutPages.requestQuote')}</a>
+        <a class="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/about')}>{t(locale, 'aboutPages.backToAbout')}</a>
       </div>
     </section>
   </div>

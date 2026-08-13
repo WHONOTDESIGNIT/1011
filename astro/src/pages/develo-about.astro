@@ -1,16 +1,55 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // Develo Design About Us Clone — exact CSS from Playwright getComputedStyle()
 // Path: /about-us
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About Our Magento Agency in Birmingham | Develo</title>
-<meta name="description" content="A Birmingham eCommerce Team Built on Craft, Curiosity &amp; Long-Term Partnerships. We're a small but mighty team of developers, designers, and growth specialists." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'develoContent.about.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoContent.about.pageDescription')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -232,8 +271,8 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ HERO ═══ -->
   <section class="about-hero">
     <div class="about-hero-inner">
-      <h1>About Our Magento Agency in Birmingham</h1>
-      <p class="about-hero-subtitle">A Birmingham eCommerce Team Built on Craft, Curiosity &amp; Long-Term Partnerships. We're a small but mighty team of developers, designers, and growth specialists who care about building seamless eCommerce experiences.</p>
+      <h1>{t(locale, 'develoContent.about.hero.title')}</h1>
+      <p class="about-hero-subtitle">{t(locale, 'develoContent.about.hero.subtitle')}</p>
     </div>
   </section>
 
@@ -242,12 +281,12 @@ img{max-width:100%;height:auto;display:block}
     <div class="journey-container">
       <div class="journey-grid">
         <div class="journey-text">
-          <h2>Our Story</h2>
-          <h3>How our eCommerce journey began</h3>
-          <p>Develo started as a passion for building websites and has grown into a specialist eCommerce agency focused on Magento, Adobe Commerce, and Hyva. From a two-person setup to a close-knit team, we combine creativity and technical expertise to support sustainable eCommerce growth.</p>
+          <h2>{t(locale, 'develoContent.about.journey.kicker')}</h2>
+          <h3>{t(locale, 'develoContent.about.journey.title')}</h3>
+          <p>{t(locale, 'develoContent.about.journey.description')}</p>
         </div>
         <div class="journey-image">
-          <div class="journey-image-placeholder">Develo Team Photo</div>
+          <div class="journey-image-placeholder">{t(locale, 'develoContent.about.journey.imageAlt')}</div>
         </div>
       </div>
     </div>
@@ -257,25 +296,25 @@ img{max-width:100%;height:auto;display:block}
   <section class="values-section">
     <div class="values-container">
       <div class="values-header">
-        <h2>Our core values</h2>
-        <h3>What drives us every day</h3>
+        <h2>{t(locale, 'develoContent.about.values.kicker')}</h2>
+        <h3>{t(locale, 'develoContent.about.values.title')}</h3>
       </div>
       <div class="values-grid">
         <div class="value-card">
-          <h4>Transparency</h4>
-          <p>We're honest, straightforward, and easy to work with. Clear communication builds trust, and trust builds long-term relationships.</p>
+          <h4>{t(locale, 'develoContent.about.values.item1.title')}</h4>
+          <p>{t(locale, 'develoContent.about.values.item1.description')}</p>
         </div>
         <div class="value-card">
-          <h4>Collaboration</h4>
-          <p>We work with you, not just for you. Your goals shape every decision, and your success is the benchmark for ours.</p>
+          <h4>{t(locale, 'develoContent.about.values.item2.title')}</h4>
+          <p>{t(locale, 'develoContent.about.values.item2.description')}</p>
         </div>
         <div class="value-card">
-          <h4>Flexibility</h4>
-          <p>eCommerce changes quickly, and so do customer expectations. We adapt fast, stay proactive, and work hard to keep your store evolving long after it's launched.</p>
+          <h4>{t(locale, 'develoContent.about.values.item3.title')}</h4>
+          <p>{t(locale, 'develoContent.about.values.item3.description')}</p>
         </div>
         <div class="value-card">
-          <h4>Curiosity</h4>
-          <p>We're always keen on exploring new ideas and testing new tools and technology. That curiosity keeps our work innovative and helps us deliver modern, high-performing Magento and eCommerce solutions.</p>
+          <h4>{t(locale, 'develoContent.about.values.item4.title')}</h4>
+          <p>{t(locale, 'develoContent.about.values.item4.description')}</p>
         </div>
       </div>
     </div>
@@ -286,44 +325,44 @@ img{max-width:100%;height:auto;display:block}
     <div class="testimonials-container">
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p class="testimonial-quote">I am continually impressed by the results you produced! Your unique perspective, expertise and dedication played a crucial role in our project success.</p>
-          <div><span class="testimonial-author">Dominika Miler-Zydek</span><br/><span class="testimonial-role">IT Project Manager</span></div>
-          <a class="testimonial-link" href="/work/currys">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item1.quote')}</p>
+          <div><span class="testimonial-author">Dominika Miler-Zydek</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item1.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">We were impressed with their knowledge of the Hyva theme and their efficiency in implementing it. Communication was great throughout the process and we are happy with the outcome and the impact this has had on our site speed.</p>
-          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">Digital &amp; eCommerce Director, Bamford Collection</span></div>
-          <a class="testimonial-link" href="/work/daylesford">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item2.quote')}</p>
+          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item2.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/daylesford')}>{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo has truly become an extension of our team, consistently bringing proactive advice and innovative solutions that align perfectly with our objectives.</p>
-          <div><span class="testimonial-author">Pippa Silva</span><br/><span class="testimonial-role">Project Manager</span></div>
-          <a class="testimonial-link" href="/work/brandalley">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item3.quote')}</p>
+          <div><span class="testimonial-author">Pippa Silva</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item3.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/brandalley')}>{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Feels like Develo is an extension of our internal team</p>
-          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">Digital &amp; eCommerce Director, Bamford Collection</span></div>
-          <a class="testimonial-link" href="/work/bamford">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item4.quote')}</p>
+          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item4.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/bamford')}>{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">We stock and sell some unusual products that require a lot of custom development. We've always been able to get what we want, no matter how complex it seemed.</p>
-          <div><span class="testimonial-author">Riley Beament</span><br/><span class="testimonial-role">Director of eCommerce</span></div>
-          <a class="testimonial-link" href="/work/leonpaul">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item5.quote')}</p>
+          <div><span class="testimonial-author">Riley Beament</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item5.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/leonpaul')}>{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo implemented the punchout2go module into our Magento installation with absolute precision. The integration was clean, fully compliant with our ERP procurement workflows, and performance has been rock solid.</p>
-          <div><span class="testimonial-author">John Spencer</span><br/><span class="testimonial-role">Dynamic Technologies Europe</span></div>
-          <a class="testimonial-link" href="#">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item6.quote')}</p>
+          <div><span class="testimonial-author">John Spencer</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item6.role')}</span></div>
+          <a class="testimonial-link" href="#">{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo has meticulous attention to detail, coupled with a technically sound scope of work and supporting SoW, showcased their commitment to excellence. We value our partnership and would gladly choose to work with them again for future endeavours.</p>
-          <div><span class="testimonial-author">Ben Hawes</span><br/><span class="testimonial-role">Antiblanks</span></div>
-          <a class="testimonial-link" href="#">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item7.quote')}</p>
+          <div><span class="testimonial-author">Ben Hawes</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item7.role')}</span></div>
+          <a class="testimonial-link" href="#">{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">The team's knowledge and experience with Magento is invaluable. The website's speed and UX improved significantly, with page elements loading efficiently. The team was great at communicating different stages of the project and was always on hand when needed.</p>
-          <div><span class="testimonial-author">Gemma Edwards</span><br/><span class="testimonial-role">Marketing Manager, Pure Theatre</span></div>
-          <a class="testimonial-link" href="#">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoContent.about.testimonials.item8.quote')}</p>
+          <div><span class="testimonial-author">Gemma Edwards</span><br/><span class="testimonial-role">{t(locale, 'develoContent.about.testimonials.item8.role')}</span></div>
+          <a class="testimonial-link" href="#">{t(locale, 'develoContent.about.testimonials.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
       <div class="testimonial-pagination">
@@ -339,13 +378,13 @@ img{max-width:100%;height:auto;display:block}
     <div class="team-container">
       <div class="team-inner">
         <div class="team-content">
-          <h2>Our team</h2>
-          <h3>The eCommerce experts behind Develo</h3>
-          <p>Our clients often tell us it feels like we're part of their own team, and that's exactly how we like to work. When you partner with us, you get direct access to the designers, developers, and strategists who take care of your store. No layers. No confusion. Just a friendly, highly skilled team focused on helping your eCommerce site perform at its best.</p>
-          <a class="btn-outline" href="/about/meet-the-team" style="width:fit-content">Meet the team</a>
+          <h2>{t(locale, 'develoContent.about.team.kicker')}</h2>
+          <h3>{t(locale, 'develoContent.about.team.title')}</h3>
+          <p>{t(locale, 'develoContent.about.team.description')}</p>
+          <a class="btn-outline" href={getLocalizedPath(locale, '/about/meet-the-team')} style="width:fit-content">{t(locale, 'develoContent.about.team.cta')}</a>
         </div>
         <div class="team-visual">
-          <div class="journey-image-placeholder">Team Photo</div>
+          <div class="journey-image-placeholder">{t(locale, 'develoContent.about.team.imageAlt')}</div>
         </div>
       </div>
     </div>
@@ -355,16 +394,16 @@ img{max-width:100%;height:auto;display:block}
   <section class="cta-section">
     <div class="cta-container">
       <div class="cta-header">
-        <h2>More of what we do</h2>
-        <h3>The ways we help brands succeed</h3>
+        <h2>{t(locale, 'develoContent.about.cta.kicker')}</h2>
+        <h3>{t(locale, 'develoContent.about.cta.title')}</h3>
       </div>
       <div class="cta-links">
-        <a class="cta-link-card" href="/services/find-a-technology-partner">Find a Technology Partner <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-link-card" href="/services/optimise-my-store">Optimise My Store <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-link-card" href="/services/maintain-or-fix-my-site">Maintain or Fix My Site <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-link-card" href="/services/build-a-new-site">Build a New Site <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-link-card" href={getLocalizedPath(locale, '/services/find-a-technology-partner')}>{t(locale, 'develoContent.about.cta.links.item1')} <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-link-card" href={getLocalizedPath(locale, '/services/optimise-my-store')}>{t(locale, 'develoContent.about.cta.links.item2')} <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-link-card" href={getLocalizedPath(locale, '/services/maintain-or-fix-my-site')}>{t(locale, 'develoContent.about.cta.links.item3')} <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-link-card" href={getLocalizedPath(locale, '/services/build-a-new-site')}>{t(locale, 'develoContent.about.cta.links.item4')} <svg class="cta-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a class="btn-primary" href="/contact">Start a project</a>
+      <a class="btn-primary" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoContent.about.cta.primaryCta')}</a>
     </div>
   </section>
 
@@ -373,30 +412,30 @@ img{max-width:100%;height:auto;display:block}
     <div class="insights-container">
       <div class="insights-header">
         <div class="insights-header-left">
-          <h2>eCommerce insights</h2>
-          <h3>Practical advice and platform guidance</h3>
+          <h2>{t(locale, 'develoContent.about.insights.kicker')}</h2>
+          <h3>{t(locale, 'develoContent.about.insights.title')}</h3>
         </div>
-        <p>We share practical advice, platform guidance, and hands-on strategies to help you get more from your Magento, Adobe Commerce, or Hyva store.</p>
+        <p>{t(locale, 'develoContent.about.insights.description')}</p>
       </div>
       <div class="insights-grid">
-        <a class="insight-card" href="/blog">
-          <h4>How to Build an eCommerce Marketing Strategy</h4>
-          <p>Practical steps to create a marketing strategy that drives traffic and converts visitors into loyal customers.</p>
-          <span class="card-arrow">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="insight-card" href={getLocalizedPath(locale, '/blog')}>
+          <h4>{t(locale, 'develoContent.about.insights.card1.title')}</h4>
+          <p>{t(locale, 'develoContent.about.insights.card1.description')}</p>
+          <span class="card-arrow">{t(locale, 'develoContent.about.insights.readMore')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
-        <a class="insight-card" href="/blog">
-          <h4>Black Friday: Should Your Business Participate Given Its Environmental Impact?</h4>
-          <p>Exploring the sustainability concerns around Black Friday and whether eCommerce brands should take part.</p>
-          <span class="card-arrow">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="insight-card" href={getLocalizedPath(locale, '/blog')}>
+          <h4>{t(locale, 'develoContent.about.insights.card2.title')}</h4>
+          <p>{t(locale, 'develoContent.about.insights.card2.description')}</p>
+          <span class="card-arrow">{t(locale, 'develoContent.about.insights.readMore')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
-        <a class="insight-card" href="/blog">
-          <h4>How to Build an eCommerce Marketing Strategy</h4>
-          <p>A comprehensive guide to creating and executing a successful eCommerce marketing plan for your Magento store.</p>
-          <span class="card-arrow">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="insight-card" href={getLocalizedPath(locale, '/blog')}>
+          <h4>{t(locale, 'develoContent.about.insights.card3.title')}</h4>
+          <p>{t(locale, 'develoContent.about.insights.card3.description')}</p>
+          <span class="card-arrow">{t(locale, 'develoContent.about.insights.readMore')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div style="margin-top:32px">
-        <a class="btn-outline" href="/blog">View all articles</a>
+        <a class="btn-outline" href={getLocalizedPath(locale, '/blog')}>{t(locale, 'develoContent.about.insights.viewAll')}</a>
       </div>
     </div>
   </section>

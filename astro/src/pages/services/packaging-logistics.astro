@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../lib/netlify-images';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const heroImageSource =
   'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1600';
 const heroImageSources = responsiveImageSources(heroImageSource, [800, 1200, 1600], 1600);
@@ -13,153 +14,256 @@ const packagingLogisticsImage = responsiveImageSources(
 
 const packagingServices = [
   {
-    title: 'Custom Packaging Design',
-    description:
-      'Bespoke packaging solutions that protect your products while reinforcing your brand identity.',
-    features: ['Brand-aligned Design', 'Protective Engineering', 'Sustainable Materials', 'Unboxing Experience'],
-    gradient: 'from-orange-500 to-red-500',
+    title: t(locale, 'servicesPage.packagingLogistics.services.items.0.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.services.items.0.description'),
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.services.items.0.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.0.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.0.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.0.features.3'),
+    ],
+    gradient: 'from-violet-600 to-fuchsia-600',
   },
   {
-    title: 'Product Protection',
-    description:
-      'Advanced protective packaging ensuring your IPL devices arrive in perfect condition worldwide.',
-    features: ['Shock Absorption', 'Moisture Protection', 'Temperature Control', 'Anti-static Materials'],
+    title: t(locale, 'servicesPage.packagingLogistics.services.items.1.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.services.items.1.description'),
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.services.items.1.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.1.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.1.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.1.features.3'),
+    ],
     gradient: 'from-sky-500 to-cyan-500',
   },
   {
-    title: 'Global Logistics',
-    description:
-      'Comprehensive logistics solutions covering warehousing, distribution, and international shipping.',
-    features: ['Worldwide Shipping', 'Customs Clearance', 'Inventory Management', 'Real-time Tracking'],
+    title: t(locale, 'servicesPage.packagingLogistics.services.items.2.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.services.items.2.description'),
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.services.items.2.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.2.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.2.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.2.features.3'),
+    ],
     gradient: 'from-emerald-500 to-green-500',
   },
   {
-    title: 'Supply Chain Optimization',
-    description:
-      'Data-driven supply chain management to reduce costs and improve delivery performance.',
-    features: ['Route Optimization', 'Cost Analysis', 'Performance Metrics', 'Continuous Improvement'],
+    title: t(locale, 'servicesPage.packagingLogistics.services.items.3.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.services.items.3.description'),
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.services.items.3.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.3.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.3.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.services.items.3.features.3'),
+    ],
     gradient: 'from-purple-500 to-pink-500',
   },
 ];
 
 const packagingTypes = [
   {
-    type: 'Retail Packaging',
-    description:
-      'Eye-catching retail packaging designed to attract customers and communicate product value.',
-    applications: ['Consumer Electronics Stores', 'Online Marketplaces', 'Beauty Retailers', 'Department Stores'],
-    features: ['Premium Materials', 'Brand Storytelling', 'Product Visibility', 'Shelf Appeal'],
+    type: t(locale, 'servicesPage.packagingLogistics.types.items.0.type'),
+    description: t(locale, 'servicesPage.packagingLogistics.types.items.0.description'),
+    applications: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.applications.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.applications.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.applications.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.applications.3'),
+    ],
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.0.features.3'),
+    ],
   },
   {
-    type: 'E-commerce Packaging',
-    description:
-      'Optimized packaging for online sales with focus on protection and memorable unboxing experience.',
-    applications: ['Amazon FBA', 'Direct-to-Consumer', 'Online Beauty Stores', 'Subscription Boxes'],
-    features: ['Compact Design', 'Easy Opening', 'Damage Prevention', 'Brand Experience'],
+    type: t(locale, 'servicesPage.packagingLogistics.types.items.1.type'),
+    description: t(locale, 'servicesPage.packagingLogistics.types.items.1.description'),
+    applications: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.applications.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.applications.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.applications.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.applications.3'),
+    ],
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.1.features.3'),
+    ],
   },
   {
-    type: 'B2B Packaging',
-    description:
-      'Efficient bulk packaging solutions for wholesale and distribution partners.',
-    applications: ['Distributor Shipments', 'Bulk Orders', 'Trade Shows', 'Professional Channels'],
-    features: ['Cost Efficiency', 'Space Optimization', 'Easy Handling', 'Quantity Flexibility'],
+    type: t(locale, 'servicesPage.packagingLogistics.types.items.2.type'),
+    description: t(locale, 'servicesPage.packagingLogistics.types.items.2.description'),
+    applications: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.applications.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.applications.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.applications.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.applications.3'),
+    ],
+    features: [
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.features.0'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.features.1'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.features.2'),
+      t(locale, 'servicesPage.packagingLogistics.types.items.2.features.3'),
+    ],
   },
 ];
 
 const logisticsNetwork = [
   {
-    region: 'North America',
-    coverage: 'USA, Canada, Mexico',
-    hubs: ['Los Angeles', 'New York', 'Toronto'],
-    deliveryTime: '2–5 business days',
-    services: ['Express Shipping', 'Ground Delivery', 'White Glove Service'],
+    region: t(locale, 'servicesPage.packagingLogistics.network.items.0.region'),
+    coverage: t(locale, 'servicesPage.packagingLogistics.network.items.0.coverage'),
+    hubs: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.hubs.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.hubs.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.hubs.2'),
+    ],
+    deliveryTime: t(locale, 'servicesPage.packagingLogistics.network.items.0.deliveryTime'),
+    services: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.services.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.services.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.0.services.2'),
+    ],
   },
   {
-    region: 'Europe',
-    coverage: 'EU, UK, Switzerland, Norway',
-    hubs: ['Frankfurt', 'London', 'Amsterdam'],
-    deliveryTime: '1–4 business days',
-    services: ['Next Day Delivery', 'Standard Shipping', 'Customs Handling'],
+    region: t(locale, 'servicesPage.packagingLogistics.network.items.1.region'),
+    coverage: t(locale, 'servicesPage.packagingLogistics.network.items.1.coverage'),
+    hubs: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.hubs.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.hubs.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.hubs.2'),
+    ],
+    deliveryTime: t(locale, 'servicesPage.packagingLogistics.network.items.1.deliveryTime'),
+    services: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.services.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.services.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.1.services.2'),
+    ],
   },
   {
-    region: 'Asia Pacific',
-    coverage: 'China, Japan, Australia, Southeast Asia',
-    hubs: ['Hong Kong', 'Singapore', 'Sydney'],
-    deliveryTime: '2–7 business days',
-    services: ['Air Freight', 'Sea Freight', 'Regional Distribution'],
+    region: t(locale, 'servicesPage.packagingLogistics.network.items.2.region'),
+    coverage: t(locale, 'servicesPage.packagingLogistics.network.items.2.coverage'),
+    hubs: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.hubs.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.hubs.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.hubs.2'),
+    ],
+    deliveryTime: t(locale, 'servicesPage.packagingLogistics.network.items.2.deliveryTime'),
+    services: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.services.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.services.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.2.services.2'),
+    ],
   },
   {
-    region: 'Rest of World',
-    coverage: 'Middle East, Africa, South America',
-    hubs: ['Dubai', 'São Paulo', 'Johannesburg'],
-    deliveryTime: '5–14 business days',
-    services: ['International Express', 'Economy Shipping', 'Door-to-Door'],
+    region: t(locale, 'servicesPage.packagingLogistics.network.items.3.region'),
+    coverage: t(locale, 'servicesPage.packagingLogistics.network.items.3.coverage'),
+    hubs: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.hubs.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.hubs.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.hubs.2'),
+    ],
+    deliveryTime: t(locale, 'servicesPage.packagingLogistics.network.items.3.deliveryTime'),
+    services: [
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.services.0'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.services.1'),
+      t(locale, 'servicesPage.packagingLogistics.network.items.3.services.2'),
+    ],
   },
 ];
 
 const packagingProcess = [
   {
-    step: '01',
-    title: 'Design Consultation',
-    description:
-      'Understanding your brand, product requirements, and target market to create the perfect packaging strategy.',
-    deliverables: ['Brand Analysis', 'Market Research', 'Design Brief', 'Material Recommendations'],
+    step: t(locale, 'servicesPage.packagingLogistics.process.items.0.step'),
+    title: t(locale, 'servicesPage.packagingLogistics.process.items.0.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.process.items.0.description'),
+    deliverables: [
+      t(locale, 'servicesPage.packagingLogistics.process.items.0.deliverables.0'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.0.deliverables.1'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.0.deliverables.2'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.0.deliverables.3'),
+    ],
   },
   {
-    step: '02',
-    title: 'Concept Development',
-    description:
-      'Creating innovative packaging concepts that balance protection, aesthetics, and cost-effectiveness.',
-    deliverables: ['Design Concepts', '3D Visualizations', 'Material Samples', 'Cost Estimates'],
+    step: t(locale, 'servicesPage.packagingLogistics.process.items.1.step'),
+    title: t(locale, 'servicesPage.packagingLogistics.process.items.1.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.process.items.1.description'),
+    deliverables: [
+      t(locale, 'servicesPage.packagingLogistics.process.items.1.deliverables.0'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.1.deliverables.1'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.1.deliverables.2'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.1.deliverables.3'),
+    ],
   },
   {
-    step: '03',
-    title: 'Prototyping & Testing',
-    description:
-      'Developing prototypes and conducting rigorous testing to ensure optimal protection and user experience.',
-    deliverables: ['Physical Prototypes', 'Drop Testing', 'User Testing', 'Design Refinements'],
+    step: t(locale, 'servicesPage.packagingLogistics.process.items.2.step'),
+    title: t(locale, 'servicesPage.packagingLogistics.process.items.2.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.process.items.2.description'),
+    deliverables: [
+      t(locale, 'servicesPage.packagingLogistics.process.items.2.deliverables.0'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.2.deliverables.1'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.2.deliverables.2'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.2.deliverables.3'),
+    ],
   },
   {
-    step: '04',
-    title: 'Production & Fulfillment',
-    description:
-      'Scaling to full production and integrating with our global logistics network for seamless delivery.',
-    deliverables: ['Mass Production', 'Quality Control', 'Inventory Management', 'Global Distribution'],
+    step: t(locale, 'servicesPage.packagingLogistics.process.items.3.step'),
+    title: t(locale, 'servicesPage.packagingLogistics.process.items.3.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.process.items.3.description'),
+    deliverables: [
+      t(locale, 'servicesPage.packagingLogistics.process.items.3.deliverables.0'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.3.deliverables.1'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.3.deliverables.2'),
+      t(locale, 'servicesPage.packagingLogistics.process.items.3.deliverables.3'),
+    ],
   },
 ];
 
 const sustainabilityFeatures = [
   {
-    title: 'Eco-Friendly Materials',
-    description:
-      'Sustainable packaging materials that reduce environmental impact without compromising protection.',
-    examples: ['Recycled Cardboard', 'Biodegradable Foam', 'Plant-based Plastics', 'Minimal Packaging'],
+    title: t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.description'),
+    examples: [
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.examples.0'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.examples.1'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.examples.2'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.0.examples.3'),
+    ],
   },
   {
-    title: 'Circular Design',
-    description:
-      'Packaging designed for reuse, recycling, or composting to support circular economy principles.',
-    examples: ['Reusable Containers', 'Recyclable Components', 'Compostable Materials', 'Modular Design'],
+    title: t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.description'),
+    examples: [
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.examples.0'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.examples.1'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.examples.2'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.1.examples.3'),
+    ],
   },
   {
-    title: 'Carbon Footprint Reduction',
-    description:
-      'Optimized logistics and packaging to minimize carbon emissions throughout the supply chain.',
-    examples: ['Route Optimization', 'Consolidated Shipping', 'Local Sourcing', 'Efficient Packaging'],
+    title: t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.title'),
+    description: t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.description'),
+    examples: [
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.examples.0'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.examples.1'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.examples.2'),
+      t(locale, 'servicesPage.packagingLogistics.sustainability.items.2.examples.3'),
+    ],
   },
 ];
 
 const performanceMetrics = [
-  { metric: '99.8%', label: 'On-Time Delivery' },
-  { metric: '0.02%', label: 'Damage Rate' },
-  { metric: '50+', label: 'Countries Served' },
-  { metric: '24/7', label: 'Tracking Support' },
+  { metric: t(locale, 'servicesPage.packagingLogistics.performance.items.0.metric'), label: t(locale, 'servicesPage.packagingLogistics.performance.items.0.label') },
+  { metric: t(locale, 'servicesPage.packagingLogistics.performance.items.1.metric'), label: t(locale, 'servicesPage.packagingLogistics.performance.items.1.label') },
+  { metric: t(locale, 'servicesPage.packagingLogistics.performance.items.2.metric'), label: t(locale, 'servicesPage.packagingLogistics.performance.items.2.label') },
+  { metric: t(locale, 'servicesPage.packagingLogistics.performance.items.3.metric'), label: t(locale, 'servicesPage.packagingLogistics.performance.items.3.label') },
 ];
 ---
 
-<BaseLayout title="Packaging & Logistics" lang={locale} description="IPL device packaging and logistics: custom retail packaging, e-commerce packaging, global shipping, customs clearance, and supply chain optimization.">
+<BaseLayout title={t(locale, 'servicesPage.packagingLogistics.meta.title')} lang={locale} description={t(locale, 'servicesPage.packagingLogistics.meta.description')}>
   <div class="space-y-60">
-    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 px-8 py-16">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-50 to-fuchsia-50 px-8 py-16">
       <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-10" aria-hidden="true">
         <source srcset={heroImageSources.avifSrcSet} sizes="100vw" type="image/avif" />
         <source srcset={heroImageSources.webpSrcSet} sizes="100vw" type="image/webp" />
@@ -179,15 +283,15 @@ const performanceMetrics = [
       <div class="relative mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <h1 class="text-4xl font-bold text-slate-900 md:text-6xl">
-            From Design to
-            <span class="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Doorstep</span>
+            {t(locale, 'servicesPage.packagingLogistics.hero.title1')}
+            <span class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">{t(locale, 'servicesPage.packagingLogistics.hero.title2')}</span>
           </h1>
           <p class="mt-6 text-xl leading-relaxed text-slate-700">
-            Complete packaging and logistics solutions that protect your IPL products, enhance your brand, and deliver exceptional customer experiences worldwide.
+            {t(locale, 'servicesPage.packagingLogistics.hero.description')}
           </p>
           <div class="mt-10 flex gap-3">
-            <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
-            <a class="rounded border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+            <a class="rounded bg-violet-600 px-6 py-3 text-sm font-medium text-white hover:bg-violet-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.packagingLogistics.hero.cta1')}</a>
+            <a class="rounded border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/services')}>{t(locale, 'servicesPage.packagingLogistics.hero.cta2')}</a>
           </div>
         </div>
         <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -199,7 +303,7 @@ const performanceMetrics = [
                 src={packagingLogisticsImage.src}
                 srcset={packagingLogisticsImage.webpSrcSet}
                 sizes="(min-width: 1024px) 33vw, 100vw"
-                alt="Packaging and logistics"
+                alt={t(locale, 'servicesPage.packagingLogistics.hero.imgAlt')}
                 loading="lazy"
                 decoding="async"
                 width="1200"
@@ -213,18 +317,18 @@ const performanceMetrics = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What is included in packaging and logistics for an IPL brand launch?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.packagingLogistics.citable.heading')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        Packaging and logistics for an IPL brand launch cover both the customer-facing unboxing experience and the practical protections needed for global delivery. Programs typically include branded cartons, inserts, manuals, labeling, and accessory selection, plus protective structures designed to reduce damage during transit. For e-commerce, packaging is often optimized for compact size and durability; for retail, it is designed for shelf appeal and clear communication. Logistics support includes export documents, shipping coordination by sea or air, customs handling, and tracking, with routing choices based on cost, destination, and timeline requirements. iShine supports packaging workflows that align with OEM/ODM production schedules so products can ship consistently and arrive in market-ready condition.
+        {t(locale, 'servicesPage.packagingLogistics.citable.body')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What packaging and logistics services do we offer?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.services.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          From custom packaging design to worldwide delivery, we build a dependable path from factory to customer.
+          {t(locale, 'servicesPage.packagingLogistics.services.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -248,9 +352,9 @@ const performanceMetrics = [
 
     <section class="rounded-2xl bg-slate-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Packaging Types</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.types.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Tailored packaging strategies for retail, e-commerce, and B2B channels.
+          {t(locale, 'servicesPage.packagingLogistics.types.sub')}
         </p>
       </div>
       <div class="mt-12 grid gap-8 lg:grid-cols-3">
@@ -259,18 +363,18 @@ const performanceMetrics = [
             <h3 class="text-xl font-bold text-slate-900">{p.type}</h3>
             <p class="mt-3 text-slate-700">{p.description}</p>
             <div class="mt-6">
-              <div class="text-sm font-semibold text-slate-900">Applications</div>
+              <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.packagingLogistics.types.applicationsLabel')}</div>
               <ul class="mt-3 space-y-2 text-sm text-slate-700">
                 {p.applications.map((a) => (
                   <li class="flex items-start gap-3">
-                    <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-orange-600" />
+                    <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-violet-600" />
                     <span>{a}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div class="mt-6">
-              <div class="text-sm font-semibold text-slate-900">Features</div>
+              <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.packagingLogistics.types.featuresLabel')}</div>
               <div class="mt-3 flex flex-wrap gap-2">
                 {p.features.map((f) => (
                   <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{f}</span>
@@ -284,9 +388,9 @@ const performanceMetrics = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">What is our global logistics network coverage?</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.network.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Coverage, hubs, and services designed for predictable delivery and clear handoffs.
+          {t(locale, 'servicesPage.packagingLogistics.network.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
@@ -298,7 +402,7 @@ const performanceMetrics = [
             </div>
             <div class="mt-3 text-slate-700">{n.coverage}</div>
             <div class="mt-6">
-              <div class="text-sm font-semibold text-slate-900">Hubs</div>
+              <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.packagingLogistics.network.hubsLabel')}</div>
               <div class="mt-3 flex flex-wrap gap-2">
                 {n.hubs.map((h) => (
                   <span class="rounded bg-slate-100 px-3 py-1 text-xs text-slate-700">{h}</span>
@@ -306,7 +410,7 @@ const performanceMetrics = [
               </div>
             </div>
             <div class="mt-6">
-              <div class="text-sm font-semibold text-slate-900">Services</div>
+              <div class="text-sm font-semibold text-slate-900">{t(locale, 'servicesPage.packagingLogistics.network.servicesLabel')}</div>
               <ul class="mt-3 space-y-2 text-sm text-slate-700">
                 {n.services.map((s) => (
                   <li class="flex items-start gap-3">
@@ -323,9 +427,9 @@ const performanceMetrics = [
 
     <section class="rounded-2xl bg-slate-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Packaging Process</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.process.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          A repeatable workflow from design to fulfillment that keeps quality and timelines predictable.
+          {t(locale, 'servicesPage.packagingLogistics.process.sub')}
         </p>
       </div>
       <div class="mt-12 space-y-6">
@@ -333,7 +437,7 @@ const performanceMetrics = [
           <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <div class="grid gap-6 lg:grid-cols-[260px_1fr]">
               <div class="flex items-center gap-6">
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-orange-600 to-red-600">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600">
                   <span class="text-xl font-bold text-white">{step.step}</span>
                 </div>
                 <div>
@@ -356,9 +460,9 @@ const performanceMetrics = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Sustainability</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.sustainability.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Practical sustainability options that improve material efficiency and reduce logistics impact.
+          {t(locale, 'servicesPage.packagingLogistics.sustainability.sub')}
         </p>
       </div>
       <div class="grid gap-8 lg:grid-cols-3">
@@ -376,17 +480,17 @@ const performanceMetrics = [
       </div>
     </section>
 
-    <section class="rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 px-8 py-16">
+    <section class="rounded-2xl bg-gradient-to-br from-violet-50 to-fuchsia-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">Performance</h2>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.performance.heading')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
-          Metrics that reflect consistent delivery and low-damage handling.
+          {t(locale, 'servicesPage.packagingLogistics.performance.sub')}
         </p>
       </div>
       <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {performanceMetrics.map((m) => (
           <div class="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg">
-            <div class="text-4xl font-bold text-orange-600">{m.metric}</div>
+            <div class="text-4xl font-bold text-violet-600">{m.metric}</div>
             <div class="mt-2 font-medium text-slate-700">{m.label}</div>
           </div>
         ))}
@@ -395,13 +499,13 @@ const performanceMetrics = [
 
     <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold md:text-4xl">Ready to Ship Globally with Confidence?</h2>
+        <h2 class="text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.packagingLogistics.cta.title')}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
-          Get a packaging and logistics plan aligned to your channels, regions, and delivery timelines.
+          {t(locale, 'servicesPage.packagingLogistics.cta.description')}
         </p>
         <div class="mt-10 flex justify-center gap-3">
-          <a class="rounded bg-orange-600 px-6 py-3 text-sm font-medium text-white hover:bg-orange-700" href={getLocalizedPath(locale, '/contact')}>Get Logistics Quote</a>
-          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>Back to Services</a>
+          <a class="rounded bg-violet-600 px-6 py-3 text-sm font-medium text-white hover:bg-violet-700" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'servicesPage.packagingLogistics.cta.start')}</a>
+          <a class="rounded border border-white/30 px-6 py-3 text-sm font-medium text-white" href={getLocalizedPath(locale, '/services')}>{t(locale, 'servicesPage.packagingLogistics.cta.back')}</a>
         </div>
       </div>
     </section>

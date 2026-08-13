@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #F58C28;
+  /* iShine 主题紫（参照首页 --blue: #563cfa） */
+  --primary-color: #563cfa;
   --color-black: #000000;
   --color-white: #FFFFFF;
   --border-color: #E5E5E5;

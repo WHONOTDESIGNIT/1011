@@ -1,15 +1,54 @@
 ---
 // Develo Design Blog Clone — exact CSS from Playwright getComputedStyle()
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Blog | Insights, Updates &amp; Expert Takes | Develo</title>
-<meta name="description" content="Explore industry news, project launches, and expert eCommerce commentary from the Develo team." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'develoContent.blog.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoContent.blog.pageDescription')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -228,10 +267,10 @@ img{max-width:100%;height:auto;display:block}
     <div class="blog-hero-inner">
       <div class="blog-hero-label">
         <svg width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(#c0)"><path d="M2.16 16.4999C0.7733 14.3158 0 11.465 0 8.49995C0 5.53493 0.7733 2.68405 2.16 0.5V16.4999Z" fill="#020303"/><path d="M16 16.5C13.8783 16.5 11.8434 15.6572 10.3431 14.1569C8.84286 12.6566 8 10.6217 8 8.50001C8 6.37827 8.84285 4.34344 10.3431 2.84314C11.8434 1.34284 13.8783 0.5 16 0.5V16.5Z" fill="#020303"/></g><defs><clipPath id="c0"><rect fill="#fff" width="16" height="17"/></clipPath></defs></svg>
-        <span>Insights, Updates &amp; Expert Takes</span>
+        <span>{t(locale, 'develoContent.blog.hero.label')}</span>
       </div>
-      <h1>Blog</h1>
-      <p class="blog-hero-desc">Explore industry news, project launches, and expert eCommerce commentary from the Develo team.</p>
+      <h1>{t(locale, 'develoContent.blog.hero.title')}</h1>
+      <p class="blog-hero-desc">{t(locale, 'develoContent.blog.hero.description')}</p>
     </div>
   </header>
 
@@ -240,55 +279,55 @@ img{max-width:100%;height:auto;display:block}
     <div class="featured-latest-container">
       <!-- Featured Article -->
       <div class="featured-col">
-        <a class="featured-card" href="/blog/shopify-vape-restrictions-uk-merchants">
+        <a class="featured-card" href={getLocalizedPath(locale, '/blog/shopify-vape-restrictions-uk-merchants')}>
           <div class="featured-card-image">
-            <img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Shopify US Vape Restrictions" loading="eager" />
+            <img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt={t(locale, 'develoContent.blog.featured.alt')} loading="eager" />
           </div>
-          <span class="featured-read-time">9 min read</span>
-          <span class="featured-card-category">ECOMMERCE</span>
-          <h2>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h2>
-          <p class="featured-card-desc">Recent Shopify US restrictions highlight the risks of relying on closed eCommerce platforms and why UK vape merchants should consider the benefits of greater ownership, flexibility and control.</p>
+          <span class="featured-read-time">{t(locale, 'develoContent.blog.featured.readTime')}</span>
+          <span class="featured-card-category">{t(locale, 'develoContent.blog.featured.category')}</span>
+          <h2>{t(locale, 'develoContent.blog.featured.title')}</h2>
+          <p class="featured-card-desc">{t(locale, 'develoContent.blog.featured.description')}</p>
           <div class="featured-card-meta">
-            <span>By Bethany Wood</span>
-            <span>Jul 16, 2026</span>
+            <span>{t(locale, 'develoContent.blog.author')}</span>
+            <span>{t(locale, 'develoContent.blog.featured.date')}</span>
           </div>
         </a>
       </div>
 
       <!-- Latest Articles -->
       <div class="latest-col">
-        <h2>Latest articles</h2>
+        <h2>{t(locale, 'develoContent.blog.latest.title')}</h2>
         <div class="latest-list">
-          <a class="latest-item" href="/blog/luke-collymore-elected-to-mage-os-board">
-            <span class="latest-item-category">ECOMMERCE</span>
-            <h3>Luke Collymore Elected to the Mage-OS Board <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+          <a class="latest-item" href={getLocalizedPath(locale, '/blog/luke-collymore-elected-to-mage-os-board')}>
+            <span class="latest-item-category">{t(locale, 'develoContent.blog.latest.item1.category')}</span>
+            <h3>{t(locale, 'develoContent.blog.latest.item1.title')} <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
             <div class="latest-item-meta">
-              <span class="latest-item-author">By Bethany Wood</span>
-              <span class="latest-item-date">Jul 1, 2026</span>
+              <span class="latest-item-author">{t(locale, 'develoContent.blog.author')}</span>
+              <span class="latest-item-date">{t(locale, 'develoContent.blog.latest.item1.date')}</span>
             </div>
           </a>
-          <a class="latest-item" href="/blog/campus-to-commerce-student-real-world-ecommerce">
-            <span class="latest-item-category">HYVÄ THEMES</span>
-            <h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+          <a class="latest-item" href={getLocalizedPath(locale, '/blog/campus-to-commerce-student-real-world-ecommerce')}>
+            <span class="latest-item-category">{t(locale, 'develoContent.blog.latest.item2.category')}</span>
+            <h3>{t(locale, 'develoContent.blog.latest.item2.title')} <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
             <div class="latest-item-meta">
-              <span class="latest-item-author">By Bethany Wood</span>
-              <span class="latest-item-date">Jun 25, 2026</span>
+              <span class="latest-item-author">{t(locale, 'develoContent.blog.author')}</span>
+              <span class="latest-item-date">{t(locale, 'develoContent.blog.latest.item2.date')}</span>
             </div>
           </a>
-          <a class="latest-item" href="/blog/optimising-b2b-ecommerce-search-high-intent-buyers">
-            <span class="latest-item-category">OPTIMISATION</span>
-            <h3>Optimising B2B eCommerce Search for High-Intent Buyers <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+          <a class="latest-item" href={getLocalizedPath(locale, '/blog/optimising-b2b-ecommerce-search-high-intent-buyers')}>
+            <span class="latest-item-category">{t(locale, 'develoContent.blog.latest.item3.category')}</span>
+            <h3>{t(locale, 'develoContent.blog.latest.item3.title')} <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
             <div class="latest-item-meta">
-              <span class="latest-item-author">By Bethany Wood</span>
-              <span class="latest-item-date">Jun 3, 2026</span>
+              <span class="latest-item-author">{t(locale, 'develoContent.blog.author')}</span>
+              <span class="latest-item-date">{t(locale, 'develoContent.blog.latest.item3.date')}</span>
             </div>
           </a>
-          <a class="latest-item" href="/blog/hyva-checkout-benefits-conversion-stability">
-            <span class="latest-item-category">HYVÄ THEMES</span>
-            <h3>Hyvä Checkout Benefits for Conversion and Stability <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+          <a class="latest-item" href={getLocalizedPath(locale, '/blog/hyva-checkout-benefits-conversion-stability')}>
+            <span class="latest-item-category">{t(locale, 'develoContent.blog.latest.item4.category')}</span>
+            <h3>{t(locale, 'develoContent.blog.latest.item4.title')} <svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
             <div class="latest-item-meta">
-              <span class="latest-item-author">By Bethany Wood</span>
-              <span class="latest-item-date">May 18, 2026</span>
+              <span class="latest-item-author">{t(locale, 'develoContent.blog.author')}</span>
+              <span class="latest-item-date">{t(locale, 'develoContent.blog.latest.item4.date')}</span>
             </div>
           </a>
         </div>
@@ -300,128 +339,128 @@ img{max-width:100%;height:auto;display:block}
   <section class="browse-all-section">
     <div class="browse-all-container">
       <div class="browse-all-header">
-        <h2>Browse all</h2>
+        <h2>{t(locale, 'develoContent.blog.browse.title')}</h2>
         <div class="browse-categories">
-          <button class="browse-cat-btn active">ALL</button>
-          <button class="browse-cat-btn">DEVELO</button>
-          <button class="browse-cat-btn">CASE STUDY</button>
-          <button class="browse-cat-btn">PARTNERSHIPS</button>
-          <button class="browse-cat-btn">ECOMMERCE</button>
-          <button class="browse-cat-btn">OPTIMISATION</button>
-          <button class="browse-cat-btn">HYVÄ THEMES</button>
+          <button class="browse-cat-btn active">{t(locale, 'develoContent.blog.browse.categories.all')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.develo')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.caseStudy')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.partnerships')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.ecommerce')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.optimisation')}</button>
+          <button class="browse-cat-btn">{t(locale, 'develoContent.blog.browse.categories.hyvaThemes')}</button>
         </div>
       </div>
       <div class="browse-grid">
-        <a class="browse-card" href="/blog/shopify-vape-restrictions-uk-merchants">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Shopify Vape Restrictions" loading="lazy" /></div>
-          <span class="browse-read-time">9 min read</span>
-          <span class="browse-card-category">ECOMMERCE</span>
-          <h3>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jul 16, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/shopify-vape-restrictions-uk-merchants')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt={t(locale, 'develoContent.blog.browse.card1.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card1.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card1.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card1.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card1.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/luke-collymore-elected-to-mage-os-board">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Luke Collymore" loading="lazy" /></div>
-          <span class="browse-read-time">3 min read</span>
-          <span class="browse-card-category">ECOMMERCE</span>
-          <h3>Luke Collymore Elected to the Mage-OS Board</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jul 1, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/luke-collymore-elected-to-mage-os-board')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt={t(locale, 'develoContent.blog.browse.card2.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card2.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card2.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card2.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card2.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/develo-campus-to-commerce-university-of-birmingham">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Campus to Commerce" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">HYVÄ THEMES</span>
-          <h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jun 25, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/develo-campus-to-commerce-university-of-birmingham')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt={t(locale, 'develoContent.blog.browse.card3.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card3.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card3.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card3.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card3.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/optimising-b2b-ecommerce-search-for-buyers">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="B2B Search" loading="lazy" /></div>
-          <span class="browse-read-time">6 min read</span>
-          <span class="browse-card-category">OPTIMISATION</span>
-          <h3>Optimising B2B eCommerce Search for High-Intent Buyers</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jun 3, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/optimising-b2b-ecommerce-search-for-buyers')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt={t(locale, 'develoContent.blog.browse.card4.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card4.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card4.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card4.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card4.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/hyva-checkout-benefits-for-conversion-and-stability">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Hyva Checkout" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">HYVÄ THEMES</span>
-          <h3>Hyvä Checkout Benefits for Conversion and Stability</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>May 18, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/hyva-checkout-benefits-for-conversion-and-stability')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt={t(locale, 'develoContent.blog.browse.card5.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card5.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card5.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card5.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card5.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/improving-magento-site-speed">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Magento Site Speed" loading="lazy" /></div>
-          <span class="browse-read-time">5 min read</span>
-          <span class="browse-card-category">OPTIMISATION</span>
-          <h3>Magento Site Speed: What Actually Makes a Difference (and What Doesn't)</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>May 5, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/improving-magento-site-speed')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt={t(locale, 'develoContent.blog.browse.card6.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card6.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card6.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card6.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card6.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/core-web-vitals-guide-magento">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Core Web Vitals" loading="lazy" /></div>
-          <span class="browse-read-time">6 min read</span>
-          <span class="browse-card-category">OPTIMISATION</span>
-          <h3>Core Web Vitals: What Are They and Why Do They Matter for Your eCommerce Store</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Apr 20, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/core-web-vitals-guide-magento')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt={t(locale, 'develoContent.blog.browse.card7.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card7.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card7.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card7.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card7.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/magento-store-hierarchy-website-vs-store-vs-store-view">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="Store Hierarchy" loading="lazy" /></div>
-          <span class="browse-read-time">6 min read</span>
-          <span class="browse-card-category">MAGENTO</span>
-          <h3>Magento Store Hierarchy: Website vs Store vs Store View Explained</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Apr 5, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/magento-store-hierarchy-website-vs-store-vs-store-view')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt={t(locale, 'develoContent.blog.browse.card8.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card8.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card8.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card8.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card8.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/5-tips-for-managing-magento-extensions-and-plugins">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="Magento Extensions" loading="lazy" /></div>
-          <span class="browse-read-time">5 min read</span>
-          <span class="browse-card-category">MAGENTO</span>
-          <h3>5 Tips for Managing Magento Extensions and Plugins</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 25, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/5-tips-for-managing-magento-extensions-and-plugins')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt={t(locale, 'develoContent.blog.browse.card9.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card9.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card9.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card9.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card9.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/magento-patches-for-your-store-9-steps-for-business-owners">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Magento Patches" loading="lazy" /></div>
-          <span class="browse-read-time">6 min read</span>
-          <span class="browse-card-category">MAGENTO</span>
-          <h3>Magento Patches for Your Store: 9 Steps for Business Owners</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 15, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/magento-patches-for-your-store-9-steps-for-business-owners')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt={t(locale, 'develoContent.blog.browse.card10.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card10.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card10.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card10.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card10.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/8-tips-to-optimise-magento-speed-and-performance">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Magento Speed" loading="lazy" /></div>
-          <span class="browse-read-time">5 min read</span>
-          <span class="browse-card-category">MAGENTO</span>
-          <h3>8 Tips to Optimise Magento Speed and Performance</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Mar 1, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/8-tips-to-optimise-magento-speed-and-performance')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt={t(locale, 'develoContent.blog.browse.card11.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card11.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card11.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card11.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card11.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/building-magento-the-hyva-way-with-hyva-ai-skills">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt="Hyva AI Skills" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">HYVÄ THEMES</span>
-          <h3>Building Magento the Hyvä Way: Why Hyvä AI Skills Are a Positive Step Forward</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Feb 20, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/building-magento-the-hyva-way-with-hyva-ai-skills')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/cJFKFYFzv2kayobgtoYn8Gzm3lJSb2xsbq4dziOd.png" alt={t(locale, 'develoContent.blog.browse.card12.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card12.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card12.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card12.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card12.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/a-new-develo-website-and-a-better-way-of-building-it">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt="New Develo Website" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">DEVELO</span>
-          <h3>A New Develo Website, and a Better Way of Building It</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Feb 10, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/a-new-develo-website-and-a-better-way-of-building-it')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/NfQXw2oKqbLVP4SO4DRUz4cKD7c0TJrj1MW2gfXR.jpg" alt={t(locale, 'develoContent.blog.browse.card13.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card13.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card13.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card13.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card13.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/how-to-optimise-a-hyva-website">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt="Optimise Hyva" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">HYVÄ THEMES</span>
-          <h3>How to Optimise a Hyvä Website</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jan 28, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/how-to-optimise-a-hyva-website')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/i92rrehJoJqpJ8krzrtodOkW6UNqMXbaIuVlwj3G.jpg" alt={t(locale, 'develoContent.blog.browse.card14.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card14.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card14.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card14.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card14.date')}</span></div>
         </a>
-        <a class="browse-card" href="/blog/12-fashion-ecommerce-tips-for-stlylish-high-converting-sites">
-          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt="Fashion eCommerce" loading="lazy" /></div>
-          <span class="browse-read-time">4 min read</span>
-          <span class="browse-card-category">ECOMMERCE</span>
-          <h3>12 Fashion eCommerce Tips for Stylish, High-Converting Sites</h3>
-          <div class="browse-card-meta"><span>By Bethany Wood</span><span>Jan 15, 2026</span></div>
+        <a class="browse-card" href={getLocalizedPath(locale, '/blog/12-fashion-ecommerce-tips-for-stlylish-high-converting-sites')}>
+          <div class="browse-card-image"><img src="https://res.cloudinary.com/develodesign/image/fetch/q_auto:good,w_800,f_auto/https://media.develodesign.co.uk/storage/image/articles/featured-image/2NgzLlnhYpxgQv21RSYJh3y2EnUyJYUvsKPL9o2o.jpg" alt={t(locale, 'develoContent.blog.browse.card15.alt')} loading="lazy" /></div>
+          <span class="browse-read-time">{t(locale, 'develoContent.blog.browse.card15.readTime')}</span>
+          <span class="browse-card-category">{t(locale, 'develoContent.blog.browse.card15.category')}</span>
+          <h3>{t(locale, 'develoContent.blog.browse.card15.title')}</h3>
+          <div class="browse-card-meta"><span>{t(locale, 'develoContent.blog.author')}</span><span>{t(locale, 'develoContent.blog.browse.card15.date')}</span></div>
         </a>
       </div>
 
       <!-- Pagination -->
-      <nav class="blog-pagination" aria-label="Pagination">
-        <button class="pagination-btn" disabled>Previous</button>
+      <nav class="blog-pagination" aria-label={t(locale, 'develoContent.blog.pagination.ariaLabel')}>
+        <button class="pagination-btn" disabled>{t(locale, 'develoContent.blog.pagination.previous')}</button>
         <button class="pagination-num active" aria-current="page">1</button>
         <button class="pagination-num">2</button>
         <button class="pagination-num">3</button>
@@ -429,7 +468,7 @@ img{max-width:100%;height:auto;display:block}
         <button class="pagination-num">5</button>
         <span class="pagination-ellipsis">…</span>
         <button class="pagination-num">10</button>
-        <button class="pagination-btn">Next</button>
+        <button class="pagination-btn">{t(locale, 'develoContent.blog.pagination.next')}</button>
       </nav>
     </div>
   </section>

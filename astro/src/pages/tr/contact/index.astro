@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { Image } from 'astro:assets';
+import { Zap, Lock, Headphones } from '@lucide/astro';
+
+// iShine 土耳其语版联系页（i18n 回迁 C 阶段首个真实 tr 页面）
+const locale = 'tr';
+
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const pageTitle = 'Bize Ulaşın';
+const pageDescription = 'IPL OEM/ODM projeniz hakkında iShine ekibiyle iletişime geçin. Numune talebi, fiyat teklifi ve iş birliği için 24-48 saat içinde yanıt veriyoruz.';
+const canonical = `${resolveBaseUrl()}/tr/contact`;
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: 'Ana Sayfa', path: '/' },
+  { label: pageTitle },
+]);
+
+const benefits = [
+  { title: 'Hızlı Yanıt', icon: Zap, description: 'Proje özetinizi paylaşın; ekibimiz genellikle 24-48 saat içinde doğru adımlarla yanıt verir.' },
+  { title: 'Gizlilik', icon: Lock, description: 'Tedarik planınız, özelleştirme hedefleriniz ve pazar stratejiniz gizlilikle korunur.' },
+  { title: 'Uzman Destek', icon: Headphones, description: 'OEM/ODM süreçlerini, uyumluluk planlamasını ve lansman gereksinimlerini bilen bir ekiple görüşün.' },
+];
+
+const contactCards = [
+  { label: 'E-posta', title: 'service@ishineco.com', description: 'RFQ, numune talebi ve proje özetleri için.', href: 'mailto:service@ishineco.com' },
+  { label: 'Telefon', title: '+86 138 2350 8753', description: 'Eric — aktif üretim talepleri için satış desteği.', href: 'tel:+8613823508753' },
+  { label: 'Telefon', title: '+86 150 1289 1148', description: 'Maurice — proje takibi ve koordinasyon desteği.', href: 'tel:+8615012891148' },
+  { label: 'Adres', title: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street", description: 'Shenzhen, Guangdong, Çin' },
+];
+
+const selectOptions = {
+  product: ['IPL Epilasyon Cihazları', 'Özel OEM/ODM Projesi', 'Sadece IPL Bileşenleri', 'Cilt Gençleştirme Cihazı', 'Henüz emin değilim'],
+  quantity: ['Ücretsiz numune', '10~500 adet', 'Hâlâ planlıyorum'],
+  timeline: ['En kısa sürede', '1 - 3 ay', '3 - 6 ay', '6 - 12 ay', 'Sadece araştırıyorum'],
+};
+
+const messagePlaceholder = 'Projeniz hakkında detayları paylaşın: hedef pazar, konumlandırma, beklenen adet ve zamanlama…';
+---
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+
+  <div class="space-y-48">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950 px-8 py-12 text-white shadow-2xl md:px-10 lg:px-12 lg:py-16">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(196,181,253,0.18),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
+      <div class="relative">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl font-bold md:text-5xl">Bize Ulaşın</h1>
+          <p class="mt-5 text-lg leading-relaxed text-slate-200">
+            OEM/ODM projeniz hakkında bize bilgi verin. Genellikle 24-48 saat içinde yol haritası ile yanıt veriyoruz.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Özet</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">iShine ile IPL OEM/ODM talebi nasıl başlatılır?</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        iShine ile IPL OEM/ODM talebi başlatmak için hedef pazarınız, istediğiniz konumlandırma, beklenen sipariş adedi ve zamanlamayı içeren kısa bir proje özeti paylaşın. Cihaz konsepti (uygulama bağlantılı, soğutma odaklı, AI cilt algılamalı veya belirli bir model referansı), tercih ettiğiniz paketleme stili ve CE işaretli konfigürasyonlar veya FDA ile ilgili dokümantasyon gibi uyumluluk gereksinimleri gibi detaylar faydalıdır. Mevcut bir BOM, referans fotoğraflar veya rakip kıyaslamalarınız varsa ekleyin. Özet alındıktan sonraki adım genellikle numune seçimi ve özelleştirme kapsamı, MOQ, teslim süresi ve dokümantasyon planlamasıdır.
+      </p>
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm lg:sticky lg:top-24 lg:self-start">
+        <div class="relative aspect-[4/3] bg-slate-100">
+          <Image
+            src="/images/home/themis-ice-feeling-ipl-device.jpg"
+            alt="iShine IPL Cihazı"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            width={1200}
+            height={900}
+          />
+        </div>
+      </div>
+
+      <section id="inquiry-form" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-xl md:p-10">
+        <div class="rounded-[1.5rem] bg-gradient-to-r from-violet-600 to-fuchsia-600 p-5 text-white">
+          <h2 class="text-2xl font-bold">Bizimle iletişime geçin!</h2>
+        </div>
+
+        <form
+          name="contact"
+          method="POST"
+          action="/__forms/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="mt-8 space-y-6"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="locale" value={locale} />
+          <input type="hidden" name="page" value="contact" />
+          <p class="hidden">
+            <label>
+              Bu alanı doldurmayın:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Ad Soyad</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="text" name="name" required />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">E-posta</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="email" name="email" required />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Şirket Adı</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="text" name="company" />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Telefon Numarası</span>
+              <input class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" type="tel" name="phone" />
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Ürün İlgisi</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="product">
+                {selectOptions.product.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2">
+              <span class="text-sm font-medium text-slate-900">Beklenen Adet</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="quantity">
+                {selectOptions.quantity.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2 md:col-span-2">
+              <span class="text-sm font-medium text-slate-900">Proje Takvimi</span>
+              <select class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white" name="timeline">
+                {selectOptions.timeline.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label class="space-y-2 md:col-span-2">
+              <span class="text-sm font-medium text-slate-900">Proje Detayları</span>
+              <textarea
+                class="min-h-[180px] w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-violet-500 focus:bg-white"
+                name="message"
+                placeholder={messagePlaceholder}
+                required
+              />
+            </label>
+          </div>
+
+          <div class="flex justify-end">
+            <button class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" type="submit">
+              Gönder
+            </button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </div>
+</BaseLayout>

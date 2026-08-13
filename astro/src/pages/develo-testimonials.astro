@@ -1,12 +1,51 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // Develo Design — Testimonials & Reviews
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <title>Testimonials &amp; Reviews | Develo Design</title>
 <meta name="description" content="What Our Clients Say. Read testimonials and reviews from brands who trust Develo for Magento, Adobe Commerce and Hyva development." />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,8 +142,8 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
   <!-- ═══ HERO ═══ -->
   <section class="hero-section">
     <div class="section-container">
-      <p class="hero-label">What Our Clients Say</p>
-      <h1 class="hero-title">Testimonials &amp; Reviews</h1>
+      <p class="hero-label">{t(locale, 'develoSocial.testimonialsPage.hero.label')}</p>
+      <h1 class="hero-title">{t(locale, 'develoSocial.testimonialsPage.hero.heading')}</h1>
     </div>
   </section>
 
@@ -113,45 +152,45 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p class="testimonial-quote">I am continually impressed by the results you produced! Your unique perspective, expertise and dedication played a crucial role in our project success.</p>
-          <div><span class="testimonial-author">Dominika Miler-Zydek</span><br/><span class="testimonial-role">IT Project Manager</span></div>
-          <a class="testimonial-link" href="/work/currys">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.dominika.quote')}</p>
+          <div><span class="testimonial-author">Dominika Miler-Zydek</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.dominika.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoSocial.testimonialsPage.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">We were impressed with their knowledge of the Hyva theme and their efficiency in implementing it. Communication was great throughout the process and we are happy with the outcome and the impact this has had on our site speed.</p>
-          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">Digital &amp; eCommerce Director, Bamford Collection</span></div>
-          <a class="testimonial-link" href="/work/daylesford">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.aliceSorbyHyva.quote')}</p>
+          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.aliceSorbyHyva.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/daylesford')}>{t(locale, 'develoSocial.testimonialsPage.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo has truly become an extension of our team, consistently bringing proactive advice and innovative solutions that align perfectly with our objectives.</p>
-          <div><span class="testimonial-author">Pippa Silva</span><br/><span class="testimonial-role">Project Manager</span></div>
-          <a class="testimonial-link" href="/work/brandalley">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.pippaSilva.quote')}</p>
+          <div><span class="testimonial-author">Pippa Silva</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.pippaSilva.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/brandalley')}>{t(locale, 'develoSocial.testimonialsPage.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Feels like Develo is an extension of our internal team</p>
-          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">Digital &amp; eCommerce Director, Bamford Collection</span></div>
-          <a class="testimonial-link" href="/work/bamford">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.aliceSorbyTeam.quote')}</p>
+          <div><span class="testimonial-author">Alice Sorby</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.aliceSorbyTeam.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/bamford')}>{t(locale, 'develoSocial.testimonialsPage.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">We stock and sell some unusual products that require a lot of custom development. We've always been able to get what we want, no matter how complex it seemed.</p>
-          <div><span class="testimonial-author">Riley Beament</span><br/><span class="testimonial-role">Director of eCommerce</span></div>
-          <a class="testimonial-link" href="/work/leonpaul">See case study <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.rileyBeament.quote')}</p>
+          <div><span class="testimonial-author">Riley Beament</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.rileyBeament.role')}</span></div>
+          <a class="testimonial-link" href={getLocalizedPath(locale, '/work/leonpaul')}>{t(locale, 'develoSocial.testimonialsPage.seeCaseStudy')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo implemented the punchout2go module into our Magento installation with absolute precision. The integration was clean, fully compliant with our ERP procurement workflows, and performance has been rock solid. Data mapping, authentication, and order sync all worked exactly as required. Highly competent team who clearly know Magento and PunchOut inside out.</p>
-          <div><span class="testimonial-author">John Spencer</span><br/><span class="testimonial-role">Dynamic Technologies Europe</span></div>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.johnSpencer.quote')}</p>
+          <div><span class="testimonial-author">John Spencer</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.johnSpencer.role')}</span></div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Develo has meticulous attention to detail, coupled with a technically sound scope of work and supporting SoW, showcased their commitment to excellence. We value our partnership and would gladly choose to work with them again for future endeavours.</p>
-          <div><span class="testimonial-author">Ben Hawes</span><br/><span class="testimonial-role">Antiblanks</span></div>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.benHawes.quote')}</p>
+          <div><span class="testimonial-author">Ben Hawes</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.benHawes.role')}</span></div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">The team's knowledge and experience with Magento is invaluable. The website's speed and UX improved significantly, with page elements loading efficiently. The team was great at communicating different stages of the project and was always on hand when needed.</p>
-          <div><span class="testimonial-author">Gemma Edwards</span><br/><span class="testimonial-role">Marketing Manager, Pure Theatre</span></div>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.gemmaEdwards.quote')}</p>
+          <div><span class="testimonial-author">Gemma Edwards</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.gemmaEdwards.role')}</span></div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Really enjoyed working with the team this year - Luke Collymore and the team genuinely know their stuff and always deliver. Excited for what we've got lined up together</p>
-          <div><span class="testimonial-author">Cris Brookes</span><br/><span class="testimonial-role">Digital Growth Manager, Costcutters</span></div>
+          <p class="testimonial-quote">{t(locale, 'develoSocial.testimonialsPage.testimonials.crisBrookes.quote')}</p>
+          <div><span class="testimonial-author">Cris Brookes</span><br/><span class="testimonial-role">{t(locale, 'develoSocial.testimonialsPage.testimonials.crisBrookes.role')}</span></div>
         </div>
       </div>
       <div class="testimonials-pagination">
@@ -167,22 +206,22 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="reviews-grid">
         <div class="reviews-text">
-          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px">Reviews</p>
-          <h2>Why brands choose us</h2>
-          <p>From project delivery to ongoing optimisation, our independent reviews reflect the trust and outcomes we build with every partnership.</p>
+          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px">{t(locale, 'develoSocial.testimonialsPage.reviews.label')}</p>
+          <h2>{t(locale, 'develoSocial.testimonialsPage.reviews.heading')}</h2>
+          <p>{t(locale, 'develoSocial.testimonialsPage.reviews.description')}</p>
         </div>
         <div class="reviews-cards">
           <div class="review-card">
             <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <span class="review-score">4.9 out of 5</span>
-            <span class="review-meta">Based on 12 reviews</span>
-            <a class="review-link" href="https://www.google.com/search?q=develo+design+reviews" target="_blank" rel="noopener">View on Google <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="review-score">{t(locale, 'develoSocial.testimonialsPage.reviews.google.score')}</span>
+            <span class="review-meta">{t(locale, 'develoSocial.testimonialsPage.reviews.google.meta')}</span>
+            <a class="review-link" href="https://www.google.com/search?q=develo+design+reviews" target="_blank" rel="noopener">{t(locale, 'develoSocial.testimonialsPage.reviews.google.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
           <div class="review-card">
             <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <span class="review-score">5.0 out of 5</span>
-            <span class="review-meta">2 verified reviews</span>
-            <a class="review-link" href="https://clutch.co/profile/develo-design" target="_blank" rel="noopener">View on Clutch <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="review-score">{t(locale, 'develoSocial.testimonialsPage.reviews.clutch.score')}</span>
+            <span class="review-meta">{t(locale, 'develoSocial.testimonialsPage.reviews.clutch.meta')}</span>
+            <a class="review-link" href="https://clutch.co/profile/develo-design" target="_blank" rel="noopener">{t(locale, 'develoSocial.testimonialsPage.reviews.clutch.cta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
@@ -194,17 +233,17 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
     <div class="section-container">
       <div class="blog-header">
         <div>
-          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">The Blog</p>
-          <h2>eCommerce Insights</h2>
+          <p style="font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">{t(locale, 'develoSocial.testimonialsPage.blog.label')}</p>
+          <h2>{t(locale, 'develoSocial.testimonialsPage.blog.heading')}</h2>
         </div>
-        <p>eCommerce news, expert insights and behind-the-scenes updates from our team at Develo.</p>
+        <p>{t(locale, 'develoSocial.testimonialsPage.blog.description')}</p>
       </div>
       <div class="blog-grid">
-        <a class="blog-card" href="/blog/shopify-vape-restrictions-uk-merchants"><h3>Shopify's US Vape Restrictions: Why UK Retailers Should Be Reviewing Their eCommerce Platform Strategy</h3></a>
-        <a class="blog-card" href="/blog/luke-collymore-elected-to-mage-os-board"><h3>Luke Collymore Elected to the Mage-OS Board</h3></a>
-        <a class="blog-card" href="/blog/develo-campus-to-commerce-university-of-birmingham"><h3>Campus to Commerce: Giving Students a Real-World Introduction to eCommerce</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/shopify-vape-restrictions-uk-merchants')}><h3>{t(locale, 'develoSocial.testimonialsPage.blog.card1')}</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/luke-collymore-elected-to-mage-os-board')}><h3>{t(locale, 'develoSocial.testimonialsPage.blog.card2')}</h3></a>
+        <a class="blog-card" href={getLocalizedPath(locale, '/blog/develo-campus-to-commerce-university-of-birmingham')}><h3>{t(locale, 'develoSocial.testimonialsPage.blog.card3')}</h3></a>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href="/blog">View the blog</a></div>
+      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/blog')}>{t(locale, 'develoSocial.testimonialsPage.blog.viewBlog')}</a></div>
     </div>
   </section>
 

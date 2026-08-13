@@ -1,15 +1,53 @@
 ---
-// iShine Homepage — Develo-style design
+import { t } from '../../lib/i18n';
+import { getLocalizedPath } from '../../lib/breadcrumbs';
+const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/nl') ? 'nl' : 'en');
+const loc = (p: string) => getLocalizedPath(locale, p);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
-<title>Build a New IPL Device | iShine</title>
-<meta name="description" content="From concept and industrial design to prototyping, compliant production and global delivery — iShine builds your new IPL device, LED therapy mask or beauty-tech product." />
+<title>{t(locale, 'servicesPage.buildANewIpl.meta.title')}</title>
+<meta name="description" content={t(locale, 'servicesPage.buildANewIpl.meta.description')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -547,15 +585,15 @@ a{text-decoration:none;color:inherit}
   <div class="trust-bar-inner">
     <div class="trust-slide" data-slide="shipping">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      <span class="trust-text">Global Shipping</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.shipping')}</span>
     </div>
     <div class="trust-slide" data-slide="private-label" aria-hidden="true">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.42 0l8.58-8.58a1 1 0 0 0 0-1.42z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-      <span class="trust-text">Private Label</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.privateLabel')}</span>
     </div>
     <div class="trust-slide" data-slide="chatgpt" aria-hidden="true">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.7a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
-      <span class="trust-text">ChatGPT Top Collection</span>
+      <span class="trust-text">{t(locale, 'homepage.trustBar.chatgpt')}</span>
     </div>
   </div>
 </div>
@@ -563,93 +601,93 @@ a{text-decoration:none;color:inherit}
 <!-- ═══ 2. HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a class="header-logo" href="/" aria-label="iShine Laser Epilator Supplier">
-      <img src="/images/logos/ishine-logo.png" alt="iShine Laser Epilator Supplier" />
+    <a class="header-logo" href={loc("/")} aria-label={t(locale, 'homepage.logo.alt')}>
+      <img src="/images/logos/ishine-logo.png" alt={t(locale, 'homepage.logo.alt')} />
     </a>
     <div class="header-main-nav">
     <nav class="header-nav desktop-nav">
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/products" data-dropdown="products">Products <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/products")} data-dropdown="products">{t(locale, 'homepage.nav.products')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown mega-dropdown--wide" id="mega-products">
           <div class="mega-inner mega-inner--products">
             <div class="mega-left mega-left--products">
               <div class="mega-products-grid">
-                <a class="mega-product-card" href="/products/lumi-2">
+                <a class="mega-product-card" href={loc("/products/lumi-2")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Lumi 2</span>
-                    <span class="mega-product-tagline">Smart Skin Sensor, cooling to 10°C</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.lumi2.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi2.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images%20(1).jpg" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
+                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images%20(1).jpg" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
                 </a>
-                <a class="mega-product-card" href="/products/lumi">
+                <a class="mega-product-card" href={loc("/products/lumi")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Lumi</span>
-                    <span class="mega-product-tagline">Smart App Control</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.lumi.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/venus">
+                <a class="mega-product-card" href={loc("/products/venus")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Venus</span>
-                    <span class="mega-product-tagline">Premium Ice Cooling</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.venus.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.venus.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/themis">
+                <a class="mega-product-card" href={loc("/products/themis")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Themis</span>
-                    <span class="mega-product-tagline">Dual Lamp System</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.themis.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.themis.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/emerald">
+                <a class="mega-product-card" href={loc("/products/emerald")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Emerald</span>
-                    <span class="mega-product-tagline">Sensitive-Skin Cooling</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.emerald.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.emerald.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/eirene">
+                <a class="mega-product-card" href={loc("/products/eirene")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Eirene</span>
-                    <span class="mega-product-tagline">Professional Grade</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.eirene.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.eirene.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt="Eirene" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt={t(locale, 'homepage.mega.eirene.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/wooden">
+                <a class="mega-product-card" href={loc("/products/wooden")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Golden</span>
-                    <span class="mega-product-tagline">Luxury Edition</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.golden.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.golden.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="Golden" loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
+                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt={t(locale, 'homepage.mega.golden.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
                 </a>
-                <a class="mega-product-card" href="/products/hebe">
+                <a class="mega-product-card" href={loc("/products/hebe")}>
                   <span class="mega-product-info">
-                    <span class="mega-product-model">Hebe</span>
-                    <span class="mega-product-tagline">AI Skin Sensor</span>
+                    <span class="mega-product-model">{t(locale, 'homepage.mega.hebe.name')}</span>
+                    <span class="mega-product-tagline">{t(locale, 'homepage.mega.hebe.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
               </div>
               <div class="mega-divider-h" role="separator"></div>
               <div class="mega-components">
-                <h4 class="mega-components-heading">ipl components</h4>
+                <h4 class="mega-components-heading">{t(locale, 'homepage.mega.components.heading')}</h4>
                 <div class="mega-components-grid">
-                  <a class="mega-component-card" href="/components/lamp-cartridges">
-                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt="Lamp Cartridges" loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
-                    <span class="mega-component-name">Lamp Cartridges</span>
+                  <a class="mega-component-card" href={loc("/components/lamp-cartridges")}>
+                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt={t(locale, 'homepage.mega.components.lamp')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.lamp')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/optical-filters">
-                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt="Optical Filters" loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
-                    <span class="mega-component-name">Optical Filters</span>
+                  <a class="mega-component-card" href={loc("/components/optical-filters")}>
+                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt={t(locale, 'homepage.mega.components.filter')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.filter')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/cooling-system">
-                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt="Cooling System" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
-                    <span class="mega-component-name">Cooling System</span>
+                  <a class="mega-component-card" href={loc("/components/cooling-system")}>
+                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt={t(locale, 'homepage.mega.components.cooling')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.cooling')}</span>
                   </a>
-                  <a class="mega-component-card" href="/components/power-supply">
-                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt="Power Supply" loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
-                    <span class="mega-component-name">Power Supply</span>
+                  <a class="mega-component-card" href={loc("/components/power-supply")}>
+                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt={t(locale, 'homepage.mega.components.power')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
+                    <span class="mega-component-name">{t(locale, 'homepage.mega.components.power')}</span>
                   </a>
                 </div>
               </div>
@@ -657,100 +695,100 @@ a{text-decoration:none;color:inherit}
             <div class="mega-divider" role="separator"></div>
             <div class="mega-right">
               <div class="mega-card">
-                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt="Lumi 2" loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
-                <h4 class="mega-card-heading">Meet Best IPL</h4>
-                <p class="mega-card-desc">SmartSkin Sensor and Diamond Ice</p>
-                <a class="mega-card-btn" href="/products/lumi-2">Meet Lumi 2 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.card1.heading')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.card1.desc')}</p>
+                <a class="mega-card-btn" href={loc("/products/lumi-2")}>{t(locale, 'homepage.mega.card1.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/services" data-dropdown="services">Services <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/services")} data-dropdown="services">{t(locale, 'homepage.nav.services')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-services">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link has-plus" href="/services/find-a-technology-partner"><div><span class="mega-link-title">Find a IPL Technology Partner</span><span class="mega-link-desc">Ice Feeling, Skin Sensor and Dual-lamp</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/private-label"><div><span class="mega-link-title">Private-label</span><span class="mega-link-desc">Logo print, box custom</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/build-a-new-ipl"><div><span class="mega-link-title">Build a New IPL</span><span class="mega-link-desc">Custom design and development</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link has-plus" href="/services/maintain-or-fix-ipl-project"><div><span class="mega-link-title">Maintain or Fix IPL Project</span><span class="mega-link-desc">Support and maintenance</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/find-a-technology-partner")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.technology.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.technology.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/private-label")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.privateLabel.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.privateLabel.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/build-a-new-ipl")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.build.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.build.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link has-plus" href={loc("/services/maintain-or-fix-ipl-project")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.services.maintain.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.services.maintain.desc')}</span></div><span class="mega-plus">+</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-services">
-                <span class="mega-services-heading">Manufacturing Services</span>
-                <a class="mega-services-link" href="/services/oem-odm">OEM &amp; ODM</a>
-                <a class="mega-services-link" href="/services/product-design">Product Design</a>
-                <a class="mega-services-link" href="/services/production-assembly">Production &amp; Assembly</a>
-                <a class="mega-services-link" href="/services/packaging-logistics">Packaging &amp; Logistics</a>
-                <a class="mega-services-link" href="/services/logo-printing">Logo Printing</a>
-                <a class="mega-services-link" href="/services/box-custom">Box Custom</a>
-                <a class="mega-services-link" href="/services/dropshipping">Dropshipping</a>
-                <a class="mega-services-link" href="/services/no-moq">No MOQ</a>
+                <span class="mega-services-heading">{t(locale, 'homepage.mega.services.heading')}</span>
+                <a class="mega-services-link" href={loc("/services/oem-odm")}>{t(locale, 'homepage.mega.services.oemOdm')}</a>
+                <a class="mega-services-link" href={loc("/services/product-design")}>{t(locale, 'homepage.mega.services.productDesign')}</a>
+                <a class="mega-services-link" href={loc("/services/production-assembly")}>{t(locale, 'homepage.mega.services.productionAssembly')}</a>
+                <a class="mega-services-link" href={loc("/services/packaging-logistics")}>{t(locale, 'homepage.mega.services.packagingLogistics')}</a>
+                <a class="mega-services-link" href={loc("/services/logo-printing")}>{t(locale, 'homepage.mega.services.logoPrinting')}</a>
+                <a class="mega-services-link" href={loc("/services/box-custom")}>{t(locale, 'homepage.mega.services.boxCustom')}</a>
+                <a class="mega-services-link" href={loc("/services/dropshipping")}>{t(locale, 'homepage.mega.services.dropshipping')}</a>
+                <a class="mega-services-link" href={loc("/services/no-moq")}>{t(locale, 'homepage.mega.services.noMoq')}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/about" data-dropdown="about">About <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/about")} data-dropdown="about">{t(locale, 'homepage.mega.about.navTitle')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-about">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link" href="/about"><span class="mega-link-title">About iShine</span><span class="mega-link-desc">Who we are &amp; what we do</span></a>
-                <a class="mega-link" href="/about/brand-story"><span class="mega-link-title">Brand Story</span><span class="mega-link-desc">How iShine started</span></a>
-                <a class="mega-link" href="/about/company-profile"><span class="mega-link-title">Company Profile</span><span class="mega-link-desc">Capabilities, certifications and facilities</span></a>
-                <a class="mega-link" href="/about/manufacturing-capabilities"><span class="mega-link-title">Manufacturing Capabilities</span><span class="mega-link-desc">Factory, equipment and production scale</span></a>
-                <a class="mega-link" href="/about/quality-control"><span class="mega-link-title">Quality Control</span><span class="mega-link-desc">ISO 13485 processes and testing</span></a>
-                <a class="mega-link" href="/meet-the-team"><span class="mega-link-title">Meet the Team</span><span class="mega-link-desc">The people behind our work</span></a>
-                <a class="mega-link" href="/clients"><span class="mega-link-title">Client Testimonials</span><span class="mega-link-desc">Trusted by leading brands</span></a>
+                <a class="mega-link" href={loc("/about")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/brand-story")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.brandStory.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.brandStory.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/company-profile")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.companyProfile.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.companyProfile.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/manufacturing-capabilities")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.manufacturing.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.manufacturing.desc')}</span></a>
+                <a class="mega-link" href={loc("/about/quality-control")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.quality.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.quality.desc')}</span></a>
+                <a class="mega-link" href={loc("/meet-the-team")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.team.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.team.desc')}</span></a>
+                <a class="mega-link" href={loc("/clients")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.clients.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.clients.desc')}</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-card">
                 <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
-                <h4 class="mega-card-heading">Behind the projects</h4>
-                <p class="mega-card-desc">The people and skills behind the work.</p>
-                <a class="mega-card-btn" href="/meet-the-team">Meet the team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.about.card.heading')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.about.card.desc')}</p>
+                <a class="mega-card-btn" href={loc("/meet-the-team")}>{t(locale, 'homepage.mega.about.card.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-dropdown-wrapper">
-        <a class="nav-item nav-has-dropdown" href="/blog" data-dropdown="resources">Resources <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-item nav-has-dropdown" href={loc("/blog")} data-dropdown="resources">{t(locale, 'homepage.mega.resources.navTitle')} <svg class="nav-dropdown-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="mega-dropdown" id="mega-resources">
           <div class="mega-inner">
             <div class="mega-left">
               <div class="mega-link-group">
-                <a class="mega-link" href="/blog"><span class="mega-link-title">Blog</span><span class="mega-link-desc">Insights and expert updates.</span></a>
-                <a class="mega-link" href="/faq"><span class="mega-link-title">FAQ &amp; Help</span><span class="mega-link-desc">Common questions, answered.</span></a>
-                <a class="mega-link" href="/contact"><span class="mega-link-title">Free IPL Device Audit</span><span class="mega-link-desc">Check energy, frequency and stability.</span></a>
-                <a class="mega-link has-plus" href="/services"><div><span class="mega-link-title">iShine Consult Service</span><span class="mega-link-desc">Medical regulation consultant, Dropshipping, Global shipping, Shopify extensions.</span></div><span class="mega-plus">+</span></a>
-                <a class="mega-link" href="/ipl-hair-removal-is-safe"><span class="mega-link-title">IPL Safety</span><span class="mega-link-desc">Is IPL hair removal safe?</span></a>
+                <a class="mega-link" href={loc("/blog")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.blog.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.blog.desc')}</span></a>
+                <a class="mega-link" href={loc("/faq")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.faq.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.faq.desc')}</span></a>
+                <a class="mega-link" href={loc("/contact")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.audit.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.audit.desc')}</span></a>
+                <a class="mega-link has-plus" href={loc("/services")}><div><span class="mega-link-title">{t(locale, 'homepage.mega.resources.consult.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.consult.desc')}</span></div><span class="mega-plus">+</span></a>
+                <a class="mega-link" href={loc("/ipl-hair-removal-is-safe")}><span class="mega-link-title">{t(locale, 'homepage.mega.resources.iplSafety.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.resources.iplSafety.desc')}</span></a>
               </div>
             </div>
             <div class="mega-right">
               <div class="mega-card">
                 <div class="mega-card-img" style="background:#d1d5db;border-radius:10px;width:100%;height:160px"></div>
-                <h4 class="mega-card-heading">Get a free instant IPL audit</h4>
-                <p class="mega-card-desc">Recommendations on energy, frequency, and stability issues, and real user experience data</p>
-                <a class="mega-card-btn" href="/contact">Get my audit <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h4 class="mega-card-heading">{t(locale, 'homepage.mega.audit.title')}</h4>
+                <p class="mega-card-desc">{t(locale, 'homepage.mega.audit.desc')}</p>
+                <a class="mega-card-btn" href={loc("/contact")}>{t(locale, 'homepage.mega.audit.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="nav-item" href="/clients">Our Work</a>
+      <a class="nav-item" href={loc("/clients")}>{t(locale, 'homepage.nav.ourWork')}</a>
     </nav>
     <div class="header-cta">
-      <a class="btn-cta" href="/contact">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn-cta" href={loc("/contact")}>{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     </div>
-    <button class="nav-collapse-btn" id="nav-collapse-btn" aria-label="Menu">
+    <button class="nav-collapse-btn" id="nav-collapse-btn" aria-label={t(locale, 'homepage.nav.menuLabel')}>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
   </div>
@@ -760,67 +798,67 @@ a{text-decoration:none;color:inherit}
 <div class="mobile-menu-panel" id="mobile-menu-panel" aria-hidden="true">
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Products</span>
+      <span>{t(locale, 'homepage.nav.products')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/catalogue"><span class="mobile-submenu-title">IPL Catalogue</span></a>
-      <a class="mobile-submenu-link" href="/products"><span class="mobile-submenu-title">All Products</span></a>
-      <a class="mobile-submenu-link" href="/products/lumi-2"><span class="mobile-submenu-title">Lumi 2</span></a>
-      <a class="mobile-submenu-link" href="/products/lumi"><span class="mobile-submenu-title">Lumi</span></a>
-      <a class="mobile-submenu-link" href="/products/venus"><span class="mobile-submenu-title">Venus</span></a>
-      <a class="mobile-submenu-link" href="/products/themis"><span class="mobile-submenu-title">Themis</span></a>
-      <a class="mobile-submenu-link" href="/products/emerald"><span class="mobile-submenu-title">Emerald</span></a>
-      <a class="mobile-submenu-link" href="/products/eirene"><span class="mobile-submenu-title">Eirene</span></a>
-      <a class="mobile-submenu-link" href="/products/wooden"><span class="mobile-submenu-title">Golden</span></a>
-      <a class="mobile-submenu-link" href="/products/hebe"><span class="mobile-submenu-title">Hebe</span></a>
-      <a class="mobile-submenu-link" href="/components"><span class="mobile-submenu-title">IPL Components</span></a>
+      <a class="mobile-submenu-link" href={loc("/catalogue")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.iplCatalogue')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.allProducts')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/lumi-2")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.lumi2.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/lumi")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.lumi.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/venus")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.venus.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/themis")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.themis.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/emerald")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.emerald.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/eirene")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.eirene.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/wooden")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.golden.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/products/hebe")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.hebe.name')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/components")}><span class="mobile-submenu-title">{t(locale, 'nav.iplComponentsCatalogue')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Services</span>
+      <span>{t(locale, 'homepage.nav.services')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/services/maintain-or-fix-ipl-project"><span class="mobile-submenu-title">Maintain or Fix IPL Project</span><span class="mobile-submenu-desc">Support and maintenance</span></a>
-      <a class="mobile-submenu-link" href="/services/find-a-technology-partner"><span class="mobile-submenu-title">Find a IPL Technology Partner</span><span class="mobile-submenu-desc">Ice Feeling, Skin Sensor and Dual-lamp</span></a>
-      <a class="mobile-submenu-link" href="/services/private-label"><span class="mobile-submenu-title">Private-label</span><span class="mobile-submenu-desc">Logo print, box custom</span></a>
-      <a class="mobile-submenu-link" href="/services/build-a-new-ipl"><span class="mobile-submenu-title">Build a New IPL</span><span class="mobile-submenu-desc">Custom design and development</span></a>
-      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">View all Services</span><span class="mobile-submenu-desc">See how we support your IPL project from launch to long-term growth.</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/maintain-or-fix-ipl-project")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.maintain.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.maintain.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/find-a-technology-partner")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.technology.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.technology.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/private-label")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.privateLabel.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.privateLabel.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services/build-a-new-ipl")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.services.build.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.services.build.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services")}><span class="mobile-submenu-title">{t(locale, 'homepage.mobile.viewAllServices.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mobile.viewAllServices.desc')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>About</span>
+      <span>{t(locale, 'homepage.mega.about.navTitle')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/about"><span class="mobile-submenu-title">About iShine</span><span class="mobile-submenu-desc">Who we are &amp; what we do</span></a>
-      <a class="mobile-submenu-link" href="/about/brand-story"><span class="mobile-submenu-title">Brand Story</span><span class="mobile-submenu-desc">How iShine started</span></a>
-      <a class="mobile-submenu-link" href="/about/company-profile"><span class="mobile-submenu-title">Company Profile</span><span class="mobile-submenu-desc">Capabilities, certifications and facilities</span></a>
-      <a class="mobile-submenu-link" href="/about/manufacturing-capabilities"><span class="mobile-submenu-title">Manufacturing Capabilities</span><span class="mobile-submenu-desc">Factory, equipment and production scale</span></a>
-      <a class="mobile-submenu-link" href="/about/quality-control"><span class="mobile-submenu-title">Quality Control</span><span class="mobile-submenu-desc">ISO 13485 processes and testing</span></a>
-      <a class="mobile-submenu-link" href="/meet-the-team"><span class="mobile-submenu-title">Meet the Team</span><span class="mobile-submenu-desc">The people behind our work</span></a>
-      <a class="mobile-submenu-link" href="/clients"><span class="mobile-submenu-title">Client Testimonials</span><span class="mobile-submenu-desc">Trusted by leading brands</span></a>
+      <a class="mobile-submenu-link" href={loc("/about")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/brand-story")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.brandStory.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.brandStory.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/company-profile")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.companyProfile.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.companyProfile.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/manufacturing-capabilities")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.manufacturing.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.manufacturing.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/about/quality-control")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.quality.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.quality.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/meet-the-team")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.team.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.team.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/clients")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.about.clients.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.about.clients.desc')}</span></a>
     </div>
   </div>
   <div class="mobile-menu-group">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false">
-      <span>Resources</span>
+      <span>{t(locale, 'homepage.mega.resources.navTitle')}</span>
       <svg class="mobile-menu-toggle-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="mobile-submenu">
-      <a class="mobile-submenu-link" href="/blog"><span class="mobile-submenu-title">Blog</span><span class="mobile-submenu-desc">Insights and expert updates.</span></a>
-      <a class="mobile-submenu-link" href="/faq"><span class="mobile-submenu-title">FAQ &amp; Help</span><span class="mobile-submenu-desc">Common questions, answered.</span></a>
-      <a class="mobile-submenu-link" href="/contact"><span class="mobile-submenu-title">Free IPL Device Audit</span><span class="mobile-submenu-desc">Check energy, frequency and stability.</span></a>
-      <a class="mobile-submenu-link" href="/services"><span class="mobile-submenu-title">iShine Consult Service</span><span class="mobile-submenu-desc">Medical regulation consultant, dropshipping, global shipping</span></a>
-      <a class="mobile-submenu-link" href="/ipl-hair-removal-is-safe"><span class="mobile-submenu-title">IPL Safety</span><span class="mobile-submenu-desc">Is IPL hair removal safe?</span></a>
+      <a class="mobile-submenu-link" href={loc("/blog")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.blog.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.blog.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/faq")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.faq.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.faq.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/contact")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.audit.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.audit.desc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/services")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.consult.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mobile.consultDesc')}</span></a>
+      <a class="mobile-submenu-link" href={loc("/ipl-hair-removal-is-safe")}><span class="mobile-submenu-title">{t(locale, 'homepage.mega.resources.iplSafety.title')}</span><span class="mobile-submenu-desc">{t(locale, 'homepage.mega.resources.iplSafety.desc')}</span></a>
     </div>
   </div>
-  <a class="mobile-menu-link" href="/clients"><span>Our Work</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <a class="mobile-menu-link" href={loc("/clients")}><span>{t(locale, 'homepage.nav.ourWork')}</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <div class="mobile-menu-cta">
-    <a class="btn-cta" href="/contact">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="btn-cta" href={loc("/contact")}>{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </div>
 
@@ -845,13 +883,13 @@ a{text-decoration:none;color:inherit}
       <div class="hero-heading">
         <h1 style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:normal;color:#020303;margin:0;display:flex;align-items:center;gap:12px;padding:3px 0">
           <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-          From Concept to Certified Production;
+          {t(locale, 'servicesPage.buildANewIpl.hero.eyebrow')}
         </h1>
-        <h2 class="hero-title-main">Build a New IPL Device From Scratch</h2>
+        <h2 class="hero-title-main">{t(locale, 'servicesPage.buildANewIpl.hero.title')}</h2>
       </div>
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#what-we-do-section">What we do <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn btn-secondary" href="/contact">Book a call <span class="btn-book-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="btn btn-primary" href="#what-we-do-section">{t(locale, 'servicesPage.common.whatWeDoCta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-secondary" href={loc("/contact")}>{t(locale, 'servicesPage.common.bookACall')} <span class="btn-book-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -872,62 +910,62 @@ a{text-decoration:none;color:inherit}
     <div class="what-we-do-left">
       <div class="small-title" style="margin-bottom:24px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        What we do
+        {t(locale, 'homepage.whatWeDo.kicker')}
       </div>
-      <h2 class="wwd-heading">From first sketch to shipping pallet</h2>
+      <h2 class="wwd-heading">{t(locale, 'servicesPage.buildANewIpl.wwd.heading')}</h2>
       <div class="wwd-services">
         <div class="wwd-service-item" data-index="0">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Concept &amp; Industrial Design<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'servicesPage.buildANewIpl.wwd.item1.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>We shape your idea into a manufacturable device — industrial design, materials, ergonomics and user experience from the very first sketch.</p>
-            <a class="wwd-service-cta" href="/contact">Start a project <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'servicesPage.buildANewIpl.wwd.item1.desc')}</p>
+            <a class="wwd-service-cta" href={loc("/contact")}>{t(locale, 'servicesPage.buildANewIpl.wwd.item1.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="1">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Prototyping &amp; Testing<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'servicesPage.buildANewIpl.wwd.item2.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>Functional prototypes and rigorous safety, energy and durability testing before a single unit reaches the production line.</p>
-            <a class="wwd-service-cta" href="/services">Learn more <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'servicesPage.buildANewIpl.wwd.item2.desc')}</p>
+            <a class="wwd-service-cta" href={loc("/services")}>{t(locale, 'servicesPage.buildANewIpl.wwd.item2.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="2">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Compliant Mass Production<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'servicesPage.buildANewIpl.wwd.item3.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>FDA, CE, ISO 13485 and MDSAP-compliant production lines with strict quality control at every stage.</p>
-            <a class="wwd-service-cta" href="/about/quality-control">Our certifications <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'servicesPage.buildANewIpl.wwd.item3.desc')}</p>
+            <a class="wwd-service-cta" href={loc("/about/quality-control")}>{t(locale, 'servicesPage.buildANewIpl.wwd.item3.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="wwd-service-item" data-index="3">
           <button class="wwd-service-header" aria-expanded="false">
-            <h3>Packaging &amp; Global Delivery<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
+            <h3>{t(locale, 'servicesPage.buildANewIpl.wwd.item4.title')}<span class="wwd-hover-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#020303" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h3>
           </button>
           <div class="wwd-service-body">
-            <p>Custom packaging design and worldwide logistics, so your new device lands in stores and doorsteps on time.</p>
-            <a class="wwd-service-cta" href="/services/packaging-logistics">See logistics <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <p>{t(locale, 'servicesPage.buildANewIpl.wwd.item4.desc')}</p>
+            <a class="wwd-service-cta" href={loc("/services/packaging-logistics")}>{t(locale, 'servicesPage.buildANewIpl.wwd.item4.cta')} <svg class="wwd-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 3H11v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
-      <a class="btn btn-primary" href="/services" style="align-self:flex-start;margin-top:24px">View all services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn-primary" href={loc("/services")} style="align-self:flex-start;margin-top:24px">{t(locale, 'homepage.whatWeDo.viewAllServices')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="what-we-do-right">
       <div class="wwd-visuals" aria-live="polite">
         <div class="wwd-visual active" data-index="0">
-          <img src="/images/client/client-witness-ku2-cosmetics-brand.webp" alt="Private-label Manufacturing" loading="lazy" />
+          <img src="/images/client/client-witness-ku2-cosmetics-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual1Alt')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="1">
-          <img src="/images/client/client-witness-lux-skin-brand.webp" alt="Find a IPL Technology Partner" loading="lazy" />
+          <img src="/images/client/client-witness-lux-skin-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual2Alt')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="2">
-          <img src="/images/client/client-witness-mandyskin-brand.webp" alt="Maintain or Fix IPL Project" loading="lazy" />
+          <img src="/images/client/client-witness-mandyskin-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual3Alt')} loading="lazy" />
         </div>
         <div class="wwd-visual" data-index="3">
-          <img src="/images/client/client-witness-roseskinco-brand.webp" alt="Build a New IPL Product" loading="lazy" />
+          <img src="/images/client/client-witness-roseskinco-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual4Alt')} loading="lazy" />
         </div>
       </div>
     </div>
@@ -940,51 +978,51 @@ a{text-decoration:none;color:inherit}
     <div class="product-showcase-header">
       <div class="small-title" style="margin-bottom:20px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Product Showcase
+        {t(locale, 'home.productShowcase.kicker')}
       </div>
-      <h2 class="product-showcase-heading">Our IPL Product Range</h2>
-      <p class="product-showcase-desc">From premium sapphire cooling to smart app-controlled devices, explore our complete range of customizable IPL solutions.</p>
+      <h2 class="product-showcase-heading">{t(locale, 'home.productShowcase.title')}</h2>
+      <p class="product-showcase-desc">{t(locale, 'home.productShowcase.description')}</p>
     </div>
     <div class="product-carousel-wrapper">
       <div class="product-carousel-viewport">
         <div class="product-carousel-track" id="product-carousel-track">
-          <a class="product-card-item" href="/products/lumi-2">
-            <div class="product-card-img"><img src="/images/products/lumi-2/lumi-2-images (1).jpg" alt="Lumi 2" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Lumi 2</h3><p class="product-card-tagline">Smart Skin Sensor + Cooling to 10°C</p></div>
+          <a class="product-card-item" href={loc("/products/lumi-2")}>
+            <div class="product-card-img"><img src="/images/products/lumi-2/lumi-2-images (1).jpg" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.lumi2.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.lumi2Tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/venus">
-            <div class="product-card-img"><img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Venus</h3><p class="product-card-tagline">Premium Ice Cooling</p></div>
+          <a class="product-card-item" href={loc("/products/venus")}>
+            <div class="product-card-img"><img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.venus.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.venus.tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/lumi">
-            <div class="product-card-img"><img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Lumi</h3><p class="product-card-tagline">Smart App Control</p></div>
+          <a class="product-card-item" href={loc("/products/lumi")}>
+            <div class="product-card-img"><img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.lumi.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.lumi.tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/helix">
-            <div class="product-card-img"><img src="/images/products/Helix/helix-ipl-front-view.jpg" alt="Helix" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Helix</h3><p class="product-card-tagline">Ice Cooling + 9 Intensity Levels</p></div>
+          <a class="product-card-item" href={loc("/products/helix")}>
+            <div class="product-card-img"><img src="/images/products/Helix/helix-ipl-front-view.jpg" alt={t(locale, 'nav.helix')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'nav.helix')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.helixTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/themis">
-            <div class="product-card-img"><img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Themis</h3><p class="product-card-tagline">Dual Lamp System</p></div>
+          <a class="product-card-item" href={loc("/products/themis")}>
+            <div class="product-card-img"><img src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.themis.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.themis.tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/emerald">
-            <div class="product-card-img"><img src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Emerald</h3><p class="product-card-tagline">Sensitive-Skin Cooling</p></div>
+          <a class="product-card-item" href={loc("/products/emerald")}>
+            <div class="product-card-img"><img src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.emerald.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.emerald.tagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/alpha">
-            <div class="product-card-img"><img src="/images/products/Alpha/alpha-ipl-device-front-view.jpg" alt="Alpha" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Alpha</h3><p class="product-card-tagline">High-Efficiency IPL</p></div>
+          <a class="product-card-item" href={loc("/products/alpha")}>
+            <div class="product-card-img"><img src="/images/products/Alpha/alpha-ipl-device-front-view.jpg" alt={t(locale, 'nav.alpha')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'nav.alpha')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.alphaTagline')}</p></div>
           </a>
-          <a class="product-card-item" href="/products/hebe">
-            <div class="product-card-img"><img src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" /></div>
-            <div class="product-card-info"><h3 class="product-card-name">Hebe</h3><p class="product-card-tagline">AI Skin Sensor</p></div>
+          <a class="product-card-item" href={loc("/products/hebe")}>
+            <div class="product-card-img"><img src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" /></div>
+            <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.hebe.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.hebe.tagline')}</p></div>
           </a>
         </div>
       </div>
       <div class="product-carousel-nav">
-        <button id="prev-product-card" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button id="next-product-card" aria-label="Next"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button id="prev-product-card" aria-label={t(locale, 'common.previous')}><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button id="next-product-card" aria-label={t(locale, 'common.next')}><svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
   </div>
@@ -994,14 +1032,14 @@ a{text-decoration:none;color:inherit}
 <section class="our-clients">
   <div class="our-clients-container">
     <div class="our-clients-left">
-      <h2 class="our-clients-heading">Trusted by Global Beauty Brands</h2>
-      <p class="our-clients-sub">From premium retailers to fast growing beauty-tech startups.</p>
+      <h2 class="our-clients-heading">{t(locale, 'homepage.clients.heading')}</h2>
+      <p class="our-clients-sub">{t(locale, 'homepage.clients.sub')}</p>
     </div>
     <div class="our-clients-logos">
-      <img src="/images/logos/mandyskin-logo.jpg" alt="MandySkin" loading="lazy" />
-      <img src="/images/logos/roseskinco-logo.png" alt="RoseSkinCo" loading="lazy" />
-      <img src="/images/logos/logo-ku-cosmetics.png" alt="KU-2 Cosmetic" loading="lazy" />
-      <img src="/images/logos/Logo_LUX_SKIN.png" alt="LUX SKIN" loading="lazy" />
+      <img src="/images/logos/mandyskin-logo.jpg" alt={t(locale, 'homepage.clients.mandyskinAlt')} loading="lazy" />
+      <img src="/images/logos/roseskinco-logo.png" alt={t(locale, 'homepage.clients.roseskincoAlt')} loading="lazy" />
+      <img src="/images/logos/logo-ku-cosmetics.png" alt={t(locale, 'servicesPage.common.ku2Alt')} loading="lazy" />
+      <img src="/images/logos/Logo_LUX_SKIN.png" alt={t(locale, 'homepage.clients.luxskinAlt')} loading="lazy" />
     </div>
   </div>
 </section>
@@ -1011,42 +1049,42 @@ a{text-decoration:none;color:inherit}
   <div class="stat-cards-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-      You Design it, We Build it and Box it.
+      {t(locale, 'homepage.stats.kicker')}
     </div>
     <div class="stat-cards-header">
-      <h2 class="stat-cards-heading">Manufacturing at Scale for the IPL Industry</h2>
+      <h2 class="stat-cards-heading">{t(locale, 'homepage.stats.heading')}</h2>
       <div class="stat-cards-desc-col">
-        <p class="stat-cards-desc">From prototyping to mass production, our manufacturing track record speaks for itself across the global beauty-tech market.</p>
+        <p class="stat-cards-desc">{t(locale, 'homepage.stats.desc')}</p>
         <div class="stat-cards-actions">
-          <a class="stat-cards-cta" href="/products">Explore Products <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="stat-cards-cta" href={loc("/products")}>{t(locale, 'common.exploreProducts')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
     <div class="stat-cards-grid" id="stat-cards-grid">
       <div class="stat-card" style="background:#35292b">
         <div class="stat-number">500K+</div>
-        <div class="stat-label">IPL devices manufactured and shipped to global markets since 2008</div>
-        <a class="stat-card-cta" href="/products">View Products &rarr;</a>
+        <div class="stat-label">{t(locale, 'homepage.stats.card1Label')}</div>
+        <a class="stat-card-cta" href={loc("/products")}>{t(locale, 'homepage.stats.viewProducts')} &rarr;</a>
       </div>
       <div class="stat-card" style="background:#020303">
-        <div class="stat-number">FDA · CE · ISO</div>
-        <div class="stat-label">International certifications held for global market compliance</div>
-        <a class="stat-card-cta" href="/about/quality-control">Quality Process &rarr;</a>
+        <div class="stat-number">{t(locale, 'homepage.stats.certValue')}</div>
+        <div class="stat-label">{t(locale, 'homepage.stats.card2Label')}</div>
+        <a class="stat-card-cta" href={loc("/about/quality-control")}>{t(locale, 'homepage.stats.qualityProcess')} &rarr;</a>
       </div>
       <div class="stat-card" style="background:#bf3918">
         <div class="stat-number">50+</div>
-        <div class="stat-label">Global brand partners including Costco, RoseSkinCo, and KU2</div>
-        <a class="stat-card-cta" href="/clients">Client Stories &rarr;</a>
+        <div class="stat-label">{t(locale, 'homepage.stats.card3Label')}</div>
+        <a class="stat-card-cta" href={loc("/clients")}>{t(locale, 'homepage.stats.clientStories')} &rarr;</a>
       </div>
       <div class="stat-card" style="background:#330d6b">
         <div class="stat-number">20+</div>
-        <div class="stat-label">Countries served with end-to-end logistics and export support</div>
-        <a class="stat-card-cta" href="/services/packaging-logistics">Global Logistics &rarr;</a>
+        <div class="stat-label">{t(locale, 'homepage.stats.card4Label')}</div>
+        <a class="stat-card-cta" href={loc("/services/packaging-logistics")}>{t(locale, 'homepage.stats.globalLogistics')} &rarr;</a>
       </div>
     </div>
     <div class="stat-cards-arrows-row">
-      <button id="prev-stat-card" class="stat-cards-arrow" type="button" aria-label="Previous cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11.25 3.75L6 9L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button id="next-stat-card" class="stat-cards-arrow" type="button" aria-label="Next cards"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 3.75L12 9L6.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="prev-stat-card" class="stat-cards-arrow" type="button" aria-label={t(locale, 'homepage.stats.prevAria')}><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11.25 3.75L6 9L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="next-stat-card" class="stat-cards-arrow" type="button" aria-label={t(locale, 'homepage.stats.nextAria')}><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 3.75L12 9L6.75 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 </section>
@@ -1056,20 +1094,20 @@ a{text-decoration:none;color:inherit}
   <div class="expertise-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#fff"/></svg>
-      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">Manufacturing Capabilities</span>
+      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">{t(locale, 'homepage.mega.about.manufacturing.title')}</span>
     </div>
     <div class="expertise-left">
-      <h2 class="expertise-heading">Full-Stack IPL Device Manufacturer in Shenzhen</h2>
+      <h2 class="expertise-heading">{t(locale, 'homepage.expertise.heading')}</h2>
     </div>
     <div class="expertise-right">
       <div class="expertise-logo-placeholders">
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo print.png" alt="Logo Print" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/Box custom.png" alt="Box Custom" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.png" alt="Global Express" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.png" alt="Dropshipping" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo print.png" alt={t(locale, 'homepage.expertise.logoPrintAlt')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/Box custom.png" alt={t(locale, 'homepage.expertise.boxCustomAlt')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.png" alt={t(locale, 'homepage.expertise.globalExpressAlt')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.png" alt={t(locale, 'homepage.mega.services.dropshipping')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
       </div>
-      <p class="expertise-desc">As a Shenzhen-based IPL device manufacturer, we deliver end-to-end OEM/ODM solutions — from industrial design and PCB engineering to regulatory certification and global logistics. Every device is built under ISO 13485 processes with FDA and CE documentation support.</p>
-      <a class="expertise-btn" href="/services">Explore Our Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="expertise-desc">{t(locale, 'homepage.expertise.desc')}</p>
+      <a class="expertise-btn" href={loc("/services")}>{t(locale, 'homepage.expertise.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
@@ -1080,43 +1118,43 @@ a{text-decoration:none;color:inherit}
     <div class="partner-left">
       <div class="small-title" style="margin-bottom:24px">
         <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg>
-        Core IPL Technologies
+        {t(locale, 'homepage.tech.kicker')}
       </div>
-      <h2 class="partner-integrations-heading">Advanced Technologies Powering Our IPL Devices</h2>
-      <p class="partner-integrations-desc">Every iShine IPL device is built around proprietary technologies that deliver superior hair removal results, user comfort, and device longevity — customizable for your brand.</p>
-      <a class="our-work-link" href="/components" style="align-self:flex-start">Explore Components <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <h2 class="partner-integrations-heading">{t(locale, 'homepage.tech.heading')}</h2>
+      <p class="partner-integrations-desc">{t(locale, 'homepage.tech.desc')}</p>
+      <a class="our-work-link" href={loc("/components")} style="align-self:flex-start">{t(locale, 'homepage.tech.exploreComponents')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="partner-right">
       <div class="partner-grid">
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/ice feeling.png" alt="Sapphire Cooling" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Sapphire Cooling</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Sapphire semiconductor cooling down to 8°C for painless treatment</span>
+          <div class="tech-icon"><img src="/images/icons/ice feeling.png" alt={t(locale, 'homepage.tech.sapphire.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.sapphire.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.sapphire.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/Glide Mode.png" alt="glide" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Glide</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Press and hold button, then glide the device smoothly over the skin for automatic flashing</span>
+          <div class="tech-icon"><img src="/images/icons/Glide Mode.png" alt={t(locale, 'homepage.tech.glide.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.glide.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.glide.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/smart-app.png" alt="App Control" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">App Control</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Smart app integration for personalized treatment plans and progress tracking</span>
+          <div class="tech-icon"><img src="/images/icons/smart-app.png" alt={t(locale, 'homepage.tech.appControl.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.appControl.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.appControl.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/dual-lamp.png" alt="Dual Lamp" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Dual Lamp</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Dual quartz lamp system doubling flash lifespan to 1,999,998 flashes</span>
+          <div class="tech-icon"><img src="/images/icons/dual-lamp.png" alt={t(locale, 'homepage.tech.dualLamp.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.dualLamp.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.dualLamp.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/skin sensor.png" alt="Skin Sensor" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Skin Sensor</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">AI skin tone detection for auto energy adjustment and safe operation</span>
+          <div class="tech-icon"><img src="/images/icons/skin sensor.png" alt={t(locale, 'homepage.tech.skinSensor.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.skinSensor.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.skinSensor.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/safety-lock.png" alt="Safety Lock" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
-          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">Safety Lock</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">Integrated safety system with accidental flash prevention mechanism</span>
+          <div class="tech-icon"><img src="/images/icons/safety-lock.png" alt={t(locale, 'homepage.tech.safetyLock.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.safetyLock.title')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.safetyLock.desc')}</span>
         </div>
       </div>
     </div>
@@ -1128,40 +1166,40 @@ a{text-decoration:none;color:inherit}
   <div class="our-work-container">
     <div class="small-title" style="margin-bottom:24px">
       <svg class="diamond-icon" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#fff"/></svg>
-      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">Our work</span>
+      <span style="font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff">{t(locale, 'homepage.work.kicker')}</span>
     </div>
     <div class="our-work-header">
-      <h2 class="our-work-heading">Case Studies That Prove the Manufacturing Model Works</h2>
-      <p class="our-work-intro">We are a specialist IPL hair removal device manufacturer in Shenzhen, trusted by global retailers and beauty brands for speed, compliance, and execution.</p>
-      <a class="our-work-projects-cta" href="/clients">View all case studies <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <h2 class="our-work-heading">{t(locale, 'homepage.work.heading')}</h2>
+      <p class="our-work-intro">{t(locale, 'home.caseStudies.description')}</p>
+      <a class="our-work-projects-cta" href={loc("/clients")}>{t(locale, 'homepage.work.viewAll')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="work-grid" style="grid-template-columns:repeat(4,1fr)">
-      <a class="work-card" href="/clients/roseskin-ipl">
-        <img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="RoseSkinCo" loading="lazy" />
+      <a class="work-card" href={loc("/clients/roseskin-ipl")}>
+        <img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.work.roseskinco')} loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(236,72,153,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Sapphire Cooling IPL</div>
-          <h3>RoseSkinCo</h3>
+          <div class="work-card-tag">{t(locale, 'homepage.work.card1Tag')}</div>
+          <h3>{t(locale, 'homepage.work.roseskinco')}</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/costco-canada-ipl">
-        <img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Costco" loading="lazy" />
+      <a class="work-card" href={loc("/clients/costco-canada-ipl")}>
+        <img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.work.costco')} loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(30,64,175,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Retail-Ready IPL</div>
-          <h3>Costco</h3>
+          <div class="work-card-tag">{t(locale, 'homepage.work.card2Tag')}</div>
+          <h3>{t(locale, 'homepage.work.costco')}</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/ku2-ipl">
-        <img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="KU2" loading="lazy" />
+      <a class="work-card" href={loc("/clients/ku2-ipl")}>
+        <img src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.work.ku2Alt')} loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(124,58,237,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Dual Lamp System</div>
-          <h3>KU2 Cosmetics</h3>
+          <div class="work-card-tag">{t(locale, 'homepage.mega.themis.tagline')}</div>
+          <h3>{t(locale, 'homepage.work.ku2Title')}</h3>
         </div>
       </a>
-      <a class="work-card" href="/clients/happyskinco-ipl">
-        <img src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="HappySkinCo" loading="lazy" />
+      <a class="work-card" href={loc("/clients/happyskinco-ipl")}>
+        <img src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt={t(locale, 'homepage.work.happyskinco')} loading="lazy" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(180,83,9,.85) 0%,transparent 60%)">
-          <div class="work-card-tag">Luxury Design IPL</div>
-          <h3>HappySkinCo</h3>
+          <div class="work-card-tag">{t(locale, 'homepage.work.card4Tag')}</div>
+          <h3>{t(locale, 'homepage.work.happyskinco')}</h3>
         </div>
       </a>
     </div>
@@ -1175,22 +1213,22 @@ a{text-decoration:none;color:inherit}
       <div class="testimonial-quote-icon">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M16 32c0-8.837 7.163-16 16-16 0 0-4 4-4 12s4 12 12 12 12-4 12-12-4-12-12-12v-4c-17.673 0-32 14.327-32 32z" fill="rgba(86,60,250,.2)"/></svg>
       </div>
-      <p class="testimonial-quote">"iShine's IPL devices have exceeded our expectations. The quality and reliability are outstanding, making them perfect for our retail customers."</p>
+      <p class="testimonial-quote">"{t(locale, 'home.clients.costco.testimonial')}"</p>
       <div class="testimonial-author">
-        <img src="/images/logos/mandyskin-logo.jpg" alt="MandySkin" width="48" height="48" style="width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;padding:4px" />
+        <img src="/images/logos/mandyskin-logo.jpg" alt={t(locale, 'homepage.clients.mandyskinAlt')} width="48" height="48" style="width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;padding:4px" />
         <div>
-          <span class="testimonial-author-name">Sarah Johnson</span>
-          <span class="testimonial-author-role">Procurement Manager, Costco Canada</span>
+          <span class="testimonial-author-name">{t(locale, 'homepage.testimonials.authorName')}</span>
+          <span class="testimonial-author-role">{t(locale, 'homepage.testimonials.authorRole')}</span>
         </div>
       </div>
-      <a class="testimonial-cta" href="/clients">See all case studies <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="testimonial-cta" href={loc("/clients")}>{t(locale, 'home.testimonialsSection.seeAll')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="testimonial-nav">
-      <button aria-label="Previous"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button aria-label={t(locale, 'common.previous')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="testimonials-pagination">
         <span>1/3</span>
       </div>
-      <button aria-label="Next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button aria-label={t(locale, 'common.next')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 </section>
@@ -1200,29 +1238,29 @@ a{text-decoration:none;color:inherit}
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h4>Ready to start your IPL project?</h4>
-        <p>We'd love to help you bring your private-label IPL device to market.</p>
-        <a class="our-work-link" href="/contact" style="margin-top:12px">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <h4>{t(locale, 'homepage.footer.heading')}</h4>
+        <p>{t(locale, 'homepage.footer.sub')}</p>
+        <a class="our-work-link" href={loc("/contact")} style="margin-top:12px">{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="footer-col">
         <a class="footer-contact-link" href="mailto:service@ishineco.com">service@ishineco.com</a>
         <a class="footer-contact-link" href="tel:+8615012891148">+86 150 1289 1148</a>
-        <span class="footer-contact-text">Shenzhen, China</span>
-        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">iShine Technology Ltd.</span>
+        <span class="footer-contact-text">{t(locale, 'homepage.footer.address')}</span>
+        <span class="footer-contact-text" style="font-size:12px;color:#b4b4b4">{t(locale, 'homepage.footer.companyName')}</span>
       </div>
       <div class="footer-col">
-        <a href="/products">Products</a>
-        <a href="/services">Services</a>
-        <a href="/clients">Clients</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/components">Components</a>
-        <a href="/contact">Contact</a>
+        <a href={loc("/products")}>{t(locale, 'footer.products')}</a>
+        <a href={loc("/services")}>{t(locale, 'nav.services')}</a>
+        <a href={loc("/clients")}>{t(locale, 'nav.clients')}</a>
+        <a href={loc("/about")}>{t(locale, 'nav.about')}</a>
+        <a href={loc("/blog")}>{t(locale, 'nav.blog')}</a>
+        <a href={loc("/components")}>{t(locale, 'nav.components')}</a>
+        <a href={loc("/contact")}>{t(locale, 'nav.contact')}</a>
       </div>
       <div class="footer-col footer-col-info">
-        <p class="footer-company-info">Founded in Shenzhen in 2008, serving beauty brands worldwide with OEM/ODM IPL manufacturing.</p>
-        <p class="footer-company-info">ISO 13485 Certified · MDSAP Compliant<br/>FDA 510(k) Documentation Support</p>
-        <p class="footer-company-info" style="margin-top:12px">© iShine Technology Ltd 2026 All rights reserved. <a href="/privacy-policy" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Privacy Policy</a>. <a href="/faq" style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">FAQ</a>.</p>
+        <p class="footer-company-info">{t(locale, 'homepage.footer.companyIntro')}</p>
+        <p class="footer-company-info">{t(locale, 'home.qualitySection.items.2.title')} · {t(locale, 'home.qualitySection.items.3.title')}<br/>{t(locale, 'homepage.footer.fdaSupport')}</p>
+        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'footer.copyright')} <a href={loc("/privacy-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'footer.privacyPolicy')}</a>. <a href={loc("/faq")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'nav.faq')}</a>.</p>
       </div>
     </div>
   </div>

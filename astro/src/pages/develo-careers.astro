@@ -1,14 +1,53 @@
 ---
 // Develo Design — Careers（复刻 https://www.develodesign.co.uk/about/careers）
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Careers | Develo Design</title>
-<meta name="description" content="Join our growing team. We're always looking for talented developers, designers, and eCommerce specialists who care about doing great work." />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{t(locale, 'develoContent.careers.pageTitle')}</title>
+<meta name="description" content={t(locale, 'develoContent.careers.pageDescription')} />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
 <style>
@@ -89,9 +128,9 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
   <section class="hero-section-wrapper">
     <div class="hero-section-container">
       <div class="hero-section-content">
-        <div class="small-title-wrapper"><svg width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg><span class="small-title">Careers</span></div>
-        <h1 class="main-heading">Join our growing team</h1>
-        <p class="sub-heading">We're always looking for talented developers, designers, and eCommerce specialists who care about doing great work.</p>
+        <div class="small-title-wrapper"><svg width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M8.00004 0.5L16.0001 8.50004L8.00004 16.5001L0 8.50004L8.00004 0.5Z" fill="#020303"/></svg><span class="small-title">{t(locale, 'develoContent.careers.hero.smallTitle')}</span></div>
+        <h1 class="main-heading">{t(locale, 'develoContent.careers.hero.heading')}</h1>
+        <p class="sub-heading">{t(locale, 'develoContent.careers.hero.subheading')}</p>
       </div>
     </div>
   </section>
@@ -100,10 +139,10 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
   <section class="no-positions-section">
     <div class="no-positions-container">
       <div class="content-block">
-        <h2 class="content-heading">Currently, we don't have any open positions</h2>
-        <p class="content-description">However, we're always interested in hearing from talented individuals. If you think you'd be a great fit for our team, please send us your CV and we'll reach out when opportunities become available.</p>
+        <h2 class="content-heading">{t(locale, 'develoContent.careers.noPositions.heading')}</h2>
+        <p class="content-description">{t(locale, 'develoContent.careers.noPositions.description')}</p>
         <div class="button-group">
-          <a class="primary-button" href="/contact">Send us your CV <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="primary-button" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoContent.careers.noPositions.cta')} <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -115,9 +154,9 @@ a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:bloc
 <section class="footer-cta-section">
   <div class="footer-container">
     <div class="footer-cta">
-      <h2 class="footer-heading">Ready to start your project?</h2>
-      <p class="footer-description">We'd love to help you make it fast, scalable, and beautiful.</p>
-      <a class="footer-button" href="/contact">Get in touch <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <h2 class="footer-heading">{t(locale, 'develoContent.careers.footerCta.heading')}</h2>
+      <p class="footer-description">{t(locale, 'develoContent.careers.footerCta.description')}</p>
+      <a class="footer-button" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoContent.careers.footerCta.button')} <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>

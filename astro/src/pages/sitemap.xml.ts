@@ -1,6 +1,4 @@
-import { getAllPosts } from '../lib/blog';
-
-const SUPPORTED_LOCALES = ['en'];
+import { getAllPosts, SUPPORTED_LOCALES } from '../lib/blog';
 
 function escapeXml(value: string) {
   return value
@@ -40,6 +38,10 @@ export async function GET() {
       '/services/box-custom',
       '/services/user-manual-guide-custom',
       '/services/dropshipping',
+      '/services/private-label',
+      '/services/build-a-new-ipl',
+      '/services/find-a-technology-partner',
+      '/services/maintain-or-fix-ipl-project',
       '/products',
       '/products/venus',
       '/products/lumi',
@@ -52,12 +54,17 @@ export async function GET() {
       '/products/eirene',
       '/products/euno',
       '/products/wooden',
+      '/products/helix',
       '/components',
       '/components/lamp-cartridges',
       '/components/optical-filters',
       '/components/cooling-system',
       '/components/power-supply',
       '/clients',
+      '/clients/costco-canada-ipl',
+      '/clients/happyskinco-ipl',
+      '/clients/ku2-ipl',
+      '/clients/roseskin-ipl',
       '/catalogue',
       '/ipl-hair-removal-is-safe',
       '/faq',
@@ -71,6 +78,7 @@ export async function GET() {
     urls.push(...staticPaths.map((p) => `${root}${p}`));
 
     const posts = await getAllPosts(locale);
+    // blog.ts 的 href 已含语言前缀（en 无前缀，tr/ar 带前缀）
     urls.push(...posts.map((p) => `${base}${p.href}`));
   }
 

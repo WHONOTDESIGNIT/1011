@@ -1,37 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
 import { responsiveImageSources } from '../../lib/netlify-images';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const values = [
   {
-    title: 'Mission Driven',
-    description: 'Empowering brands with innovative IPL solutions that transform the beauty industry.',
+    titleKey: 'aboutPages.overview.values.item1.title',
+    descriptionKey: 'aboutPages.overview.values.item1.description',
   },
   {
-    title: 'Customer Focused',
-    description: 'Building lasting partnerships through exceptional service and reliable delivery.',
+    titleKey: 'aboutPages.overview.values.item2.title',
+    descriptionKey: 'aboutPages.overview.values.item2.description',
   },
   {
-    title: 'Innovation First',
-    description: 'Continuously advancing IPL technology to meet evolving market demands.',
+    titleKey: 'aboutPages.overview.values.item3.title',
+    descriptionKey: 'aboutPages.overview.values.item3.description',
   },
   {
-    title: 'Quality Excellence',
-    description: 'Maintaining the highest standards in manufacturing and quality control.',
+    titleKey: 'aboutPages.overview.values.item4.title',
+    descriptionKey: 'aboutPages.overview.values.item4.description',
   },
 ];
 
 const milestones = [
-  { year: '2008', event: 'Founded in Guangzhou, China' },
-  { year: '2012', event: 'First international partnership' },
-  { year: '2015', event: 'FDA clearance achieved' },
-  { year: '2018', event: 'Partnership with Costco Canada' },
-  { year: '2020', event: '500,000 devices milestone' },
-  { year: '2023', event: 'Expanded smart IPL technology' },
+  { year: '2008', eventKey: 'aboutPages.overview.timeline.2008' },
+  { year: '2012', eventKey: 'aboutPages.overview.timeline.2012' },
+  { year: '2015', eventKey: 'aboutPages.overview.timeline.2015' },
+  { year: '2018', eventKey: 'aboutPages.overview.timeline.2018' },
+  { year: '2020', eventKey: 'aboutPages.overview.timeline.2020' },
+  { year: '2023', eventKey: 'aboutPages.overview.timeline.2023' },
 ];
-const pageTitle = 'About iShine';
-const pageDescription = 'iShine is an IPL hair removal device manufacturer providing OEM and ODM services for beauty brands, from product design to global delivery.';
+const pageTitle = t(locale, 'aboutPages.overview.title');
+const pageDescription = t(locale, 'aboutPages.overview.description');
 const aboutFacilityImage = responsiveImageSources(
   'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
 );
@@ -138,52 +139,52 @@ const aboutFacilityImage = responsiveImageSources(
       <div class="about-hero-inner">
         <div class="about-hero-label">
           <svg width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(#aboutHeroShape)"><path d="M2.16 16.4999C0.7733 14.3158 0 11.465 0 8.49995C0 5.53493 0.7733 2.68405 2.16 0.5V16.4999Z" fill="#020303"/><path d="M16 16.5C13.8783 16.5 11.8434 15.6572 10.3431 14.1569C8.84286 12.6566 8 10.6217 8 8.50001C8 6.37827 8.84285 4.34344 10.3431 2.84314C11.8434 1.34284 13.8783 0.5 16 0.5V16.5Z" fill="#020303"/></g><defs><clipPath id="aboutHeroShape"><rect fill="#fff" width="16" height="17"/></clipPath></defs></svg>
-          <span>Company Overview</span>
+          <span>{t(locale, 'aboutPages.overview.heroLabel')}</span>
         </div>
         <h1>{pageTitle}</h1>
         <p class="about-hero-desc">
-          Leading manufacturer of IPL hair removal devices, dedicated to helping brands succeed from concept to market.
+          {t(locale, 'aboutPages.overview.heroDescription')}
         </p>
       </div>
     </header>
 
     <!-- ═══ Citable Summary ═══ -->
     <section class="about-summary">
-      <div class="about-summary-kicker">Citable Summary</div>
-      <h2 class="about-summary-title">What is iShine Technology Ltd.?</h2>
+      <div class="about-summary-kicker">{t(locale, 'common.citableSummary')}</div>
+      <h2 class="about-summary-title">{t(locale, 'aboutPages.overview.summaryTitle')}</h2>
       <p class="about-summary-desc">
-        iShine Technology Ltd. is a B2B OEM/ODM manufacturer of home-use IPL hair removal devices that supports private-label programs for beauty brands and retailers. Founded in 2008 in Guangzhou, China, iShine provides end-to-end services across product design, prototyping, scalable production, packaging, compliance planning, and export delivery. The company references international market requirements such as FDA and CE pathways and operates with quality-system alignment including ISO 13485. iShine reports 15+ years in operation, 500,000+ devices produced, and 50+ global client partnerships, shipping to 20+ countries across North America, Europe, and the Middle East. Its work focuses on manufacturing repeatability and brand-ready execution so partners can launch and scale IPL products with consistent quality.
+        {t(locale, 'aboutPages.overview.summaryDescription')}
       </p>
     </section>
 
     <!-- ═══ Full-stack partner（左文右图） ═══ -->
     <section class="about-partner-section">
       <div class="about-partner-text">
-        <h2>A full-stack IPL manufacturing partner for global beauty brands</h2>
+        <h2>{t(locale, 'aboutPages.overview.partnerTitle')}</h2>
         <div>
           <p>
-            <strong>Entity:</strong> iShine Technology Ltd.<br />
-            <strong>Industry:</strong> Home-use IPL hair removal device manufacturing (OEM/ODM).<br />
-            <strong>Headquarters:</strong> Guangzhou, China.<br />
-            <strong>Certifications:</strong> FDA cleared, CE certified, ISO 13485.
+            <strong>{t(locale, 'aboutPages.overview.partner.entityLabel')}</strong> {t(locale, 'aboutPages.overview.partner.entityValue')}<br />
+            <strong>{t(locale, 'aboutPages.overview.partner.industryLabel')}</strong> {t(locale, 'aboutPages.overview.partner.industryValue')}<br />
+            <strong>{t(locale, 'aboutPages.overview.partner.headquartersLabel')}</strong> {t(locale, 'aboutPages.overview.partner.headquartersValue')}<br />
+            <strong>{t(locale, 'aboutPages.overview.partner.certificationsLabel')}</strong> {t(locale, 'aboutPages.overview.partner.certificationsValue')}
           </p>
           <p>
-            <strong>What iShine does:</strong> Partners with global retailers, beauty brands, and sourcing professionals to design, certify, produce, and deliver private-label IPL hair removal devices. Serves as both OEM (build to spec) and ODM (design and build) manufacturer.
+            <strong>{t(locale, 'aboutPages.overview.partner.whatDoesLabel')}</strong> {t(locale, 'aboutPages.overview.partner.whatDoesValue')}
           </p>
           <p>
-            <strong>Key partners:</strong> Costco Canada (retail), RoseSkinCo USA (beauty e-commerce), KU2 Cosmetics Germany (cosmetics retail).
+            <strong>{t(locale, 'aboutPages.overview.partner.keyPartnersLabel')}</strong> {t(locale, 'aboutPages.overview.partner.keyPartnersValue')}
           </p>
           <p>
-            <strong>Capabilities:</strong> Concept design and industrial design; rapid prototyping and tooling; large-scale production and assembly; custom packaging and branding; compliance documentation (FDA, CE, MDSAP); global logistics and warehousing.
+            <strong>{t(locale, 'aboutPages.overview.partner.capabilitiesLabel')}</strong> {t(locale, 'aboutPages.overview.partner.capabilitiesValue')}
           </p>
           <p>
-            <strong>Client types served:</strong> Brand owners launching new IPL product lines; product managers expanding existing beauty portfolios; sourcing specialists evaluating contract manufacturers; retailers developing private-label beauty-tech programs.
+            <strong>{t(locale, 'aboutPages.overview.partner.clientTypesLabel')}</strong> {t(locale, 'aboutPages.overview.partner.clientTypesValue')}
           </p>
           <p>
-            <strong>Geographic reach:</strong> North America, Europe, Middle East. Ships to 20+ countries.
+            <strong>{t(locale, 'aboutPages.overview.partner.geographicLabel')}</strong> {t(locale, 'aboutPages.overview.partner.geographicValue')}
           </p>
           <p>
-            <strong>Track record:</strong> 15+ years in operation; 500,000+ devices produced; 50+ global brand partners; successful Costco Canada shelf placement.
+            <strong>{t(locale, 'aboutPages.overview.partner.trackRecordLabel')}</strong> {t(locale, 'aboutPages.overview.partner.trackRecordValue')}
           </p>
         </div>
       </div>
@@ -195,7 +196,7 @@ const aboutFacilityImage = responsiveImageSources(
             src={aboutFacilityImage.src}
             srcset={aboutFacilityImage.webpSrcSet}
             sizes="(min-width: 1024px) 46vw, 100vw"
-            alt="iShine Manufacturing Facility"
+            alt={t(locale, 'aboutPages.overview.facilityImageAlt')}
             loading="lazy"
             decoding="async"
             width="1200"
@@ -210,14 +211,14 @@ const aboutFacilityImage = responsiveImageSources(
     <section class="about-values-section">
       <div class="about-values-container">
         <div class="about-section-header">
-          <h2>Our Core Values</h2>
-          <p>The principles that guide everything we do.</p>
+          <h2>{t(locale, 'aboutPages.overview.valuesTitle')}</h2>
+          <p>{t(locale, 'aboutPages.overview.valuesSubtitle')}</p>
         </div>
         <div class="about-values-grid">
           {values.map((value) => (
             <div class="about-card">
-              <h3>{value.title}</h3>
-              <p>{value.description}</p>
+              <h3>{t(locale, value.titleKey)}</h3>
+              <p>{t(locale, value.descriptionKey)}</p>
             </div>
           ))}
         </div>
@@ -229,15 +230,15 @@ const aboutFacilityImage = responsiveImageSources(
       <div class="about-stats-grid">
         <div class="about-stat">
           <div class="about-stat-value">500K+</div>
-          <div class="about-stat-label">Devices Produced</div>
+          <div class="about-stat-label">{t(locale, 'aboutPages.overview.stats.devicesLabel')}</div>
         </div>
         <div class="about-stat">
           <div class="about-stat-value">50+</div>
-          <div class="about-stat-label">Global Clients</div>
+          <div class="about-stat-label">{t(locale, 'aboutPages.overview.stats.clientsLabel')}</div>
         </div>
         <div class="about-stat">
           <div class="about-stat-value">15+</div>
-          <div class="about-stat-label">Years Experience</div>
+          <div class="about-stat-label">{t(locale, 'aboutPages.overview.stats.yearsLabel')}</div>
         </div>
       </div>
     </section>
@@ -246,14 +247,14 @@ const aboutFacilityImage = responsiveImageSources(
     <section class="about-journey-section">
       <div class="about-journey-card">
         <div class="about-journey-header">
-          <h2>Our Journey</h2>
-          <p>Milestones that shaped iShine into the trusted manufacturer we are today.</p>
+          <h2>{t(locale, 'aboutPages.overview.journeyTitle')}</h2>
+          <p>{t(locale, 'aboutPages.overview.journeySubtitle')}</p>
         </div>
         <div class="about-journey-grid">
           {milestones.map((milestone) => (
             <div class="about-milestone">
               <div class="about-milestone-year">{milestone.year}</div>
-              <div class="about-milestone-event">{milestone.event}</div>
+              <div class="about-milestone-event">{t(locale, milestone.eventKey)}</div>
             </div>
           ))}
         </div>

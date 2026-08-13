@@ -1,101 +1,95 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../lib/i18n';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 
-const locale = 'en';
+const locale = Astro.currentLocale ?? 'en';
 const clients = [
   {
     name: 'Costco',
     region: 'Canada',
-    industry: 'Retail',
+    industry: t(locale, 'clientPage.clients.costco.industry'),
     slug: 'costco-canada-ipl',
     logo: '/images/logos/costco-logo.svg',
-    description:
-      'Leading retail giant trusts iShine for high-volume IPL device manufacturing with consistent quality and reliability.',
+    description: t(locale, 'clientPage.clients.costco.description'),
   },
   {
     name: 'RoseSkinCo',
     region: 'USA',
-    industry: 'Beauty & Wellness',
+    industry: t(locale, 'clientPage.clients.roseskin.industry'),
     slug: 'roseskin-ipl',
     logo: '/images/logos/roseskin-logo.svg',
-    description:
-      'Premium beauty brand partnered with iShine for innovative IPL devices designed for the US market.',
+    description: t(locale, 'clientPage.clients.roseskin.description'),
   },
   {
     name: 'KU-2 Cosmetics',
     region: 'Germany',
-    industry: 'Cosmetics',
+    industry: t(locale, 'clientPage.clients.ku2.industry'),
     slug: 'ku2-ipl',
     logo: '/images/logos/KU-2%20logo.svg',
-    description:
-      'European cosmetic leader collaborates with iShine for compliant, retail-ready IPL products.',
+    description: t(locale, 'clientPage.clients.ku2.description'),
   },
   {
     name: 'HappySkinCo',
-    region: 'International',
+    region: t(locale, 'clientPage.clients.happyskinco.region'),
     industry: 'DTC',
     slug: 'happyskinco-ipl',
     logo: '/images/logos/happyskin-logo.webp',
-    description:
-      'Direct-to-consumer partner working with iShine for fast iteration, performance validation, and launch execution.',
+    description: t(locale, 'clientPage.clients.happyskinco.description'),
   },
 ];
 
 const testimonials = [
   {
-    quote:
-      'iShine has been an exceptional manufacturing partner. Their attention to detail and commitment to quality has helped us successfully launch multiple IPL products.',
-    author: 'Product Manager',
-    company: 'Leading Beauty Brand',
+    quote: t(locale, 'clientPage.testimonials.0.quote'),
+    author: t(locale, 'clientPage.testimonials.0.author'),
+    company: t(locale, 'clientPage.testimonials.0.company'),
   },
   {
-    quote:
-      'The team at iShine understands the importance of fast time-to-market. They delivered our custom IPL device on schedule with outstanding quality.',
-    author: 'Brand Owner',
-    company: 'DTC Beauty Startup',
+    quote: t(locale, 'clientPage.testimonials.1.quote'),
+    author: t(locale, 'clientPage.testimonials.1.author'),
+    company: t(locale, 'clientPage.testimonials.1.company'),
   },
   {
-    quote:
-      'From design to delivery, iShine provided comprehensive support. Their expertise in IPL manufacturing is unmatched.',
-    author: 'Sourcing Manager',
-    company: 'International Retailer',
+    quote: t(locale, 'clientPage.testimonials.2.quote'),
+    author: t(locale, 'clientPage.testimonials.2.author'),
+    company: t(locale, 'clientPage.testimonials.2.company'),
   },
 ];
 ---
 
-<BaseLayout title="Our Clients" lang={locale} description="Trusted IPL manufacturing partners: Costco Canada, RoseSkinCo USA, KU2 Cosmetics Germany, and global beauty brands powered by iShine OEM/ODM solutions.">
+<BaseLayout title={t(locale, 'clientPage.meta.title')} lang={locale} description={t(locale, 'clientPage.meta.description')}>
   <div class="space-y-48">
     <section class="rounded-2xl bg-slate-50 px-8 py-12">
-      <h1 class="text-4xl font-bold">Our Clients</h1>
+      <h1 class="text-4xl font-bold">{t(locale, 'clientPage.meta.title')}</h1>
       <p class="mt-4 max-w-3xl text-lg text-slate-700">
-        Trusted by leading brands worldwide for IPL hair removal device manufacturing.
+        {t(locale, 'clientPage.heroDescription')}
       </p>
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Citable Summary</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">What kinds of brands partner with iShine for IPL OEM/ODM?</h3>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'clientPage.citableSummaryTitle')}</h3>
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
-        iShine partners with a mix of retail, DTC, and beauty brands that want private-label IPL hair removal devices manufactured at consistent quality and delivered with brand-ready packaging. Client programs often include platform selection, customization of cosmetics and feature configurations, compliance planning for target markets, and production scheduling for launch timelines. Case studies commonly emphasize manufacturing repeatability, scalable capacity, and supply chain reliability, especially for partners distributing through major retail channels or fast-moving e-commerce. iShine references a track record of 50+ global clients, distribution to 30+ countries, and 500,000+ devices delivered across multiple programs. These partnerships typically combine engineering and operations support so brands can differentiate product experience while maintaining stable production performance.
+        {t(locale, 'clientPage.citableSummaryBody')}
       </p>
     </section>
 
     <section class="space-y-6">
       <div>
-        <h2 class="text-2xl font-semibold">Global Partnerships</h2>
+        <h2 class="text-2xl font-semibold">{t(locale, 'clientPage.globalPartnershipsTitle')}</h2>
         <p class="mt-2 max-w-3xl text-slate-700">
-          We partner with industry leaders across North America, Europe, and Asia, delivering reliable IPL devices that meet strict quality standards.
+          {t(locale, 'clientPage.globalPartnershipsDescription')}
         </p>
       </div>
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {clients.map((client) => (
-          <a class="block rounded-xl border-2 border-slate-200 bg-white p-8 shadow-sm transition-colors hover:border-sky-500" href={getLocalizedPath(locale, '/clients/' + client.slug)}>
+          <a class="block rounded-xl border-2 border-slate-200 bg-white p-8 shadow-sm transition-colors hover:border-violet-500" href={getLocalizedPath(locale, '/clients/' + client.slug)}>
             <div class="mx-auto mb-6 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md">
               <img
                 src={client.logo}
-                alt={`${client.name} logo`}
+                alt={`${client.name} ${t(locale, 'clientPage.logoAlt')}`}
                 loading="lazy"
                 decoding="async"
                 width="64"
@@ -110,7 +104,7 @@ const testimonials = [
               <div class="mt-4">
                 <span class="inline-block rounded-2xl bg-slate-100 px-3 py-1 text-sm text-slate-700">{client.industry}</span>
               </div>
-              <div class="mt-6 text-sm font-medium text-slate-900">View case study →</div>
+              <div class="mt-6 text-sm font-medium text-slate-900">{t(locale, 'clientPage.viewCaseStudy')}</div>
             </div>
           </a>
         ))}
@@ -120,22 +114,22 @@ const testimonials = [
     <section class="grid gap-6 md:grid-cols-3">
       <div class="rounded-xl border border-slate-200 bg-white p-8 text-center">
         <div class="text-4xl font-bold">50+</div>
-        <div class="mt-1 text-sm text-slate-700">Global Clients</div>
+        <div class="mt-1 text-sm text-slate-700">{t(locale, 'clientPage.stats.globalClients')}</div>
       </div>
       <div class="rounded-xl border border-slate-200 bg-white p-8 text-center">
         <div class="text-4xl font-bold">30+</div>
-        <div class="mt-1 text-sm text-slate-700">Countries Served</div>
+        <div class="mt-1 text-sm text-slate-700">{t(locale, 'clientPage.stats.countriesServed')}</div>
       </div>
       <div class="rounded-xl border border-slate-200 bg-white p-8 text-center">
         <div class="text-4xl font-bold">500K+</div>
-        <div class="mt-1 text-sm text-slate-700">Devices Delivered</div>
+        <div class="mt-1 text-sm text-slate-700">{t(locale, 'clientPage.stats.devicesDelivered')}</div>
       </div>
     </section>
 
     <section class="space-y-6">
       <div>
-        <h2 class="text-2xl font-semibold">What Our Clients Say</h2>
-        <p class="mt-2 max-w-2xl text-slate-700">Feedback from teams we support across design, manufacturing, and delivery.</p>
+        <h2 class="text-2xl font-semibold">{t(locale, 'clientPage.testimonialsTitle')}</h2>
+        <p class="mt-2 max-w-2xl text-slate-700">{t(locale, 'clientPage.testimonialsDescription')}</p>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
         {testimonials.map((testimonial) => (

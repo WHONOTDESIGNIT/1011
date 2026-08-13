@@ -1,6 +1,7 @@
 ---
 import type { BreadcrumbItem } from '../lib/breadcrumbs';
 import { getSubNavigation } from '../lib/navigation-data';
+import { t } from '../lib/i18n';
 
 type Props = {
   items: BreadcrumbItem[];
@@ -40,7 +41,7 @@ const subLinkClass = variant === 'dark'
   : 'block rounded-xl px-3 py-2.5 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900';
 ---
 
-<nav aria-label="Breadcrumb" data-bc-root={id} class={`${className}`.trim()}>
+<nav aria-label={t(locale, 'common.breadcrumb')} data-bc-root={id} class={`${className}`.trim()}>
   <ol class="hidden items-center gap-0 overflow-x-auto whitespace-nowrap text-sm md:flex">
     {items.map((item, index) => (
       <li class="flex items-center">
@@ -74,9 +75,9 @@ const subLinkClass = variant === 'dark'
     <div class="absolute left-0 right-0 top-0 flex justify-center px-4 pt-8">
       <div class={`w-full max-w-sm ${panelClass}`.trim()}>
         <div class="mb-4 flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Breadcrumb</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'common.breadcrumb')}</span>
           <button type="button" data-bc-close={id} class={variant === 'dark' ? 'rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-white' : 'rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700'}>
-            Close
+            {t(locale, 'common.close')}
           </button>
         </div>
 
@@ -98,7 +99,7 @@ const subLinkClass = variant === 'dark'
           ? (
             <div class="mt-5 border-t border-slate-200 pt-4">
               <span class="mb-3 block px-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Explore
+                {t(locale, 'common.explore')}
               </span>
               <div class="space-y-0.5">
                 {subNavigation.map((link) => (
