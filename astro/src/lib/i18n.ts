@@ -1,5 +1,6 @@
 import en from '../../../messages/en.json';
 import tr from '../../../messages/tr.json';
+import ro from '../../../messages/ro.json';
 import ar from '../../../messages/ar.json';
 import es from '../../../messages/es.json';
 import fr from '../../../messages/fr.json';
@@ -7,12 +8,16 @@ import ru from '../../../messages/ru.json';
 import he from '../../../messages/he.json';
 import pt from '../../../messages/pt-BR.json';
 import nl from '../../../messages/nl.json';
+import pl from '../../../messages/pl.json';
+import ja from '../../../messages/ja.json';
+import ko from '../../../messages/ko.json';
 
 type Messages = Record<string, unknown>;
 
 const messagesByLocale: Record<string, Messages> = {
   en: en as Messages,
   tr: tr as Messages,
+  ro: ro as Messages,
   ar: ar as Messages,
   es: es as Messages,
   fr: fr as Messages,
@@ -20,6 +25,9 @@ const messagesByLocale: Record<string, Messages> = {
   he: he as Messages,
   'pt-BR': pt as Messages,
   nl: nl as Messages,
+  pl: pl as Messages,
+  ja: ja as Messages,
+  ko: ko as Messages,
 };
 
 function getValue(obj: unknown, key: string): unknown {
