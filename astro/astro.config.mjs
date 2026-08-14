@@ -15,13 +15,14 @@ export default defineConfig({
   // fallback tr/ar → en：未翻译页面在 /tr/、/ar/ URL 下直接渲染英文内容（rewrite，不跳转、无 noindex）
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'tr', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl'],
+    locales: ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl', 'pl', 'ja', 'ko'],
     routing: {
       prefixDefaultLocale: false,
       fallbackType: 'rewrite',
     },
     fallback: {
       tr: 'en',
+      ro: 'en',
       ar: 'en',
       es: 'en',
       fr: 'en',
@@ -29,6 +30,9 @@ export default defineConfig({
       he: 'en',
       'pt-BR': 'en',
       nl: 'en',
+      pl: 'en',
+      ja: 'en',
+      ko: 'en',
     },
   },
   adapter: netlify({
