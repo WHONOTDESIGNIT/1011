@@ -1,0 +1,6 @@
+# 临时本地 dev 配置：覆盖 base 路径，仅用于 astro dev 本地预览。
+# Netlify 生产构建只读取仓库根目录的 netlify.toml，此文件不会影响部署。
+[build]
+  base = "."
+  publish = "dist/"
+  command = "npm run build && node scripts/check-robots.mjs"

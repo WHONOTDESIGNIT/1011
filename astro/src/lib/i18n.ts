@@ -6,9 +6,12 @@ import es from '../../../messages/es.json';
 import fr from '../../../messages/fr.json';
 import ru from '../../../messages/ru.json';
 import he from '../../../messages/he.json';
+import fa from '../../../messages/fa.json';
+import el from '../../../messages/el.json';
 import pt from '../../../messages/pt-BR.json';
 import nl from '../../../messages/nl.json';
 import id from '../../../messages/id.json';
+import th from '../../../messages/th.json';
 import pl from '../../../messages/pl.json';
 import ja from '../../../messages/ja.json';
 import ko from '../../../messages/ko.json';
@@ -24,9 +27,12 @@ const messagesByLocale: Record<string, Messages> = {
   fr: fr as Messages,
   ru: ru as Messages,
   he: he as Messages,
+  fa: fa as Messages,
+  el: el as Messages,
   'pt-BR': pt as Messages,
   nl: nl as Messages,
   id: id as Messages,
+  th: th as Messages,
   pl: pl as Messages,
   ja: ja as Messages,
   ko: ko as Messages,

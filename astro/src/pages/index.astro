@@ -6,13 +6,13 @@ import { t } from '../lib/i18n';
 
 // 首页不经过 BaseLayout/SiteHeader 组件，内联实现自取当前语言：
 // en 无前缀；/tr/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr
-const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : 'en');
+const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : 'en');
 // 按当前语言为站内链接加前缀（en 无前缀，tr 自动带 /tr/）
 const loc = (p: string) => getLocalizedPath(locale, p);
 ---
 
 <!doctype html>
-<html lang={locale} dir={locale === 'ar' || locale === 'he' ? 'rtl' : 'ltr'}>
+<html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@ const loc = (p: string) => getLocalizedPath(locale, p);
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl', 'id', 'pl', 'ja', 'ko'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko'];
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {

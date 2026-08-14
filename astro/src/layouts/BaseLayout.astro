@@ -98,12 +98,15 @@ const hreflangEs = stripTrailingSlash(getAbsoluteLocaleUrl('es', basePath, siteB
 const hreflangFr = stripTrailingSlash(getAbsoluteLocaleUrl('fr', basePath, siteBaseUrl));
 const hreflangRu = stripTrailingSlash(getAbsoluteLocaleUrl('ru', basePath, siteBaseUrl));
 const hreflangHe = stripTrailingSlash(getAbsoluteLocaleUrl('he', basePath, siteBaseUrl));
+const hreflangFa = stripTrailingSlash(getAbsoluteLocaleUrl('fa', basePath, siteBaseUrl));
+const hreflangEl = stripTrailingSlash(getAbsoluteLocaleUrl('el', basePath, siteBaseUrl));
 const hreflangPt = stripTrailingSlash(getAbsoluteLocaleUrl('pt-BR', basePath, { normalizeLocale: false }));
 const hreflangNl = stripTrailingSlash(getAbsoluteLocaleUrl('nl', basePath, siteBaseUrl));
 const hreflangPl = stripTrailingSlash(getAbsoluteLocaleUrl('pl', basePath, siteBaseUrl));
 const hreflangJa = stripTrailingSlash(getAbsoluteLocaleUrl('ja', basePath, siteBaseUrl));
 const hreflangKo = stripTrailingSlash(getAbsoluteLocaleUrl('ko', basePath, siteBaseUrl));
 const hreflangId = stripTrailingSlash(getAbsoluteLocaleUrl('id', basePath, siteBaseUrl));
+const hreflangTh = stripTrailingSlash(getAbsoluteLocaleUrl('th', basePath, siteBaseUrl));
 // 显式 hreflang（页面级覆盖）；未提供时回退到自动生成的 en/tr/ar/es/fr/ru
 const pageHreflangs = hreflangs?.length
   ? hreflangs
@@ -115,12 +118,15 @@ const pageHreflangs = hreflangs?.length
       { locale: 'fr', href: hreflangFr },
       { locale: 'ru', href: hreflangRu },
       { locale: 'he', href: hreflangHe },
+      { locale: 'fa', href: hreflangFa },
+      { locale: 'el', href: hreflangEl },
       { locale: 'pt-BR', href: hreflangPt },
       { locale: 'nl', href: hreflangNl },
       { locale: 'pl', href: hreflangPl },
       { locale: 'ja', href: hreflangJa },
       { locale: 'ko', href: hreflangKo },
       { locale: 'id', href: hreflangId },
+      { locale: 'th', href: hreflangTh },
     ];
 const defaultHreflang = pageHreflangs.find((h) => h.locale === 'en')?.href ?? pageHreflangs[0]?.href ?? hreflangEn;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
@@ -128,7 +134,7 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
 ---
 
 <!doctype html>
-<html lang={lang} dir={lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr'}>
+<html lang={lang} dir={lang === 'ar' || lang === 'he' || lang === 'fa' ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -140,7 +146,7 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
         try {
           var stored = localStorage.getItem(KEY);
           if (!stored) return;
-          var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'pt-BR', 'nl', 'id', 'pl', 'ja', 'ko'];
+          var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko'];
           var path = window.location.pathname;
           var cur = 'en';
           for (var i = 0; i < LANGS.length; i++) {
