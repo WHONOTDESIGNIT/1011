@@ -8,6 +8,7 @@ import ru from '../../../messages/ru.json';
 import he from '../../../messages/he.json';
 import pt from '../../../messages/pt-BR.json';
 import nl from '../../../messages/nl.json';
+import id from '../../../messages/id.json';
 import pl from '../../../messages/pl.json';
 import ja from '../../../messages/ja.json';
 import ko from '../../../messages/ko.json';
@@ -25,6 +26,7 @@ const messagesByLocale: Record<string, Messages> = {
   he: he as Messages,
   'pt-BR': pt as Messages,
   nl: nl as Messages,
+  id: id as Messages,
   pl: pl as Messages,
   ja: ja as Messages,
   ko: ko as Messages,
