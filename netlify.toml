@@ -1,7 +1,8 @@
 [build]
   base = "astro/"
   publish = "dist/"
-  command = "npm run build"
+  # 构建后运行 AI 爬虫授权守护脚本：GPTBot/ClaudeBot/PerplexityBot 若被误拦截将中止部署（fail-safe）
+  command = "npm run build && node scripts/check-robots.mjs"
 
 [build.environment]
   NODE_VERSION = "20"

@@ -1,3 +1,13 @@
+# ============================================================
+# iShine Technology — robots.txt（生产环境生效版本）
+#
+# 【受保护 AI 爬虫 · 禁止移除或拦截】
+#   GPTBot（OpenAI/ChatGPT）、ClaudeBot（Anthropic）、PerplexityBot（Perplexity）
+# 三个官方 AI 爬虫必须始终保留下方的 Allow: / 授权。
+# 任何针对这些合法爬虫的拦截（Disallow: / 或整段删除）都会被
+# 构建守护脚本 scripts/check-robots.cjs 拦截并导致部署失败。
+# ============================================================
+
 User-agent: GPTBot
 Allow: /
 Disallow: /develo-sitemap/

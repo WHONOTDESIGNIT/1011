@@ -1,15 +1,18 @@
 # ============================================================
-# iShine Technology — robots.txt
-# AI Crawler Whitelist — Comprehensive
+# iShine Technology — robots.txt（AI 爬虫白名单 · 综合版本）
+#
+# 【受保护 AI 爬虫 · 禁止移除或拦截】
+#   GPTBot（OpenAI/ChatGPT）、ClaudeBot（Anthropic）、PerplexityBot（Perplexity）
+# 三个官方 AI 爬虫必须始终保留下方的 Allow: / 授权，禁止为其添加
+# 根路径 Disallow 或整段删除。生产构建由 scripts/check-robots.mjs 守护。
 # ============================================================
 
 # --- OpenAI / ChatGPT ---
-User-Agent: GPTBot
+User-agent: GPTBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: *.json
 
 User-Agent: ChatGPT-User
 Allow: /
@@ -67,12 +70,11 @@ Disallow: /admin/
 Disallow: /private/
 
 # --- Anthropic / Claude ---
-User-Agent: ClaudeBot
+User-agent: ClaudeBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: *.json
 
 User-Agent: Claude-User
 Allow: /
@@ -96,12 +98,11 @@ Disallow: /private/
 Disallow: *.json
 
 # --- Perplexity AI ---
-User-Agent: PerplexityBot
+User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: *.json
 
 User-Agent: Perplexity-User
 Allow: /
