@@ -2,7 +2,9 @@
   base = "astro/"
   publish = "dist/"
   # 构建后运行 AI 爬虫授权守护脚本：GPTBot/ClaudeBot/PerplexityBot 若被误拦截将中止部署（fail-safe）
-  command = "npm run build && node scripts/check-robots.mjs"
+  # flatten-html.mjs：方案B —— 将 directory 产物（foo/index.html）转换为 .html 文件，
+  # 使 Netlify 原生将 /about/ 301 → /about（全站无结尾斜杠，Panasonic 风格）
+  command = "npm run build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs"
 
 [build.environment]
   NODE_VERSION = "20"
