@@ -39,7 +39,7 @@ type BlogMdxModule = {
   default: unknown;
 };
 
-export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko'] as const;
+export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'] as const;
 export type BlogLocale = (typeof SUPPORTED_LOCALES)[number];
 
 // 站点 i18n 回退设计：未提供内容的小语种回退到 en 内容，

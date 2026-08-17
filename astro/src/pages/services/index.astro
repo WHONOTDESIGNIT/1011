@@ -279,6 +279,20 @@ const servicesWorkflowImage = responsiveImageSources(
   lang={locale}
   description={t(locale, 'servicesPage.index.meta.description')}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: serviceFaq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    })}></script>
+  </Fragment>
   <div class="space-y-60">
     <section class="relative py-12 lg:py-16">
       <div

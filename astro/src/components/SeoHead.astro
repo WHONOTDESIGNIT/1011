@@ -1,0 +1,206 @@
+---
+// SeoHead — 全站统一 SEO head（canonical / 18 语言 hreflang / OG / Twitter / JSON-LD / 验证码）
+//
+// BaseLayout 与 index.astro（首页，自包含 Develo 风格布局）共用此组件，
+// 保证首页与其他页面 head 永不漂移、防回归。
+// 注意：字体/CSS 加载保留在各页面自身（BaseLayout 用 critical.css + global.css，
+// 首页用自己的内联样式体系），此处仅输出 SEO 关键标签。
+import { getRelativeLocaleUrl, pathHasLocale } from 'astro:i18n';
+
+const SITE_NAME = 'iShine - Professional IPL Hair Removal Device Manufacturer';
+const SITE_DESCRIPTION =
+  'iShine is an OEM and ODM IPL hair removal device manufacturer providing custom design, compliant production, packaging, and global delivery for beauty brands and retailers.';
+
+function organizationJsonLd(lang: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://iplmanufacturer.com/#organization',
+    name: 'iShine Technology Ltd',
+    url: 'https://iplmanufacturer.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://iplmanufacturer.com/images/logos/ishine-logo.png',
+      width: 1280,
+      height: 461,
+    },
+    description: SITE_DESCRIPTION,
+    foundingDate: '2008',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Shenzhen',
+      addressCountry: 'CN',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-150-1289-1148',
+      contactType: 'sales',
+      email: 'service@ishineco.com',
+      availableLanguage: ['English', 'Chinese'],
+    },
+    areaServed: ['US', 'CA', 'DE', 'TR', 'AE', 'SA', 'GB', 'FR', 'ES', 'JP', 'KR'],
+    sameAs: [
+      'https://www.linkedin.com/company/ishine-technology',
+      'https://www.youtube.com/@ishinetech',
+      'https://www.facebook.com/ishinetech',
+      'https://twitter.com/ishinetech',
+      'https://www.instagram.com/ishinetech',
+    ],
+    knowsAbout: [
+      'IPL hair removal device manufacturing',
+      'OEM and ODM manufacturing services',
+      'Sapphire cooling technology',
+      'Beauty device design and production',
+    ],
+  };
+}
+
+type Props = {
+  title: string;
+  lang?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  /** 显式 hreflang（用于博客文章/列表等跨语言 slug 不同的页面）；未提供时按当前路径自动生成 */
+  hreflangs?: { locale: string; href: string }[];
+};
+
+const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs } = Astro.props as Props;
+
+const siteBaseUrl = (
+  Astro.site?.toString()
+  ?? process.env.URL
+  ?? process.env.DEPLOY_PRIME_URL
+  ?? process.env.SITE_URL
+  ?? 'https://iplmanufacturer.com'
+).replace(/\/$/, '');
+// 站点链接规范：除根路径外一律去掉末尾斜杠（如 /tr/contact 而非 /tr/contact/）
+const stripTrailingSlash = (u: string) => {
+  if (u && u !== '/' && u.length > 1 && u.endsWith('/')) {
+    const cleaned = u.replace(/\/+$/, '');
+    return cleaned.length > 0 ? cleaned : u;
+  }
+  return u;
+};
+const canonicalUrl = stripTrailingSlash(canonical || new URL(`${Astro.url.pathname}${Astro.url.search}`, `${siteBaseUrl}/`).href);
+// 语言化 hreflang：剥离当前路径前缀后为各语言生成语言版本 URL
+// 注意：不用 getAbsoluteLocaleUrl —— 它依赖 astro.config 的 site 字段，本工程未配置，
+// 会输出相对路径（Google 要求 hreflang 必须为绝对 URL）。
+// 改用 getRelativeLocaleUrl 得到相对路径，再基于 siteBaseUrl 拼接绝对 URL，
+// 同时保留 Netlify 预览环境的动态域名（process.env.URL）。
+const basePath = pathHasLocale(Astro.url.pathname)
+  ? Astro.url.pathname.replace(new RegExp(`^/${lang}`), '') || '/'
+  : Astro.url.pathname || '/';
+const absoluteLocaleUrl = (locale: string, path: string) =>
+  stripTrailingSlash(new URL(getRelativeLocaleUrl(locale, path, { normalizeLocale: false }), `${siteBaseUrl}/`).href);
+const hreflangEn = absoluteLocaleUrl('en', basePath);
+const hreflangTr = absoluteLocaleUrl('tr', basePath);
+const hreflangAr = absoluteLocaleUrl('ar', basePath);
+const hreflangEs = absoluteLocaleUrl('es', basePath);
+const hreflangFr = absoluteLocaleUrl('fr', basePath);
+const hreflangRu = absoluteLocaleUrl('ru', basePath);
+const hreflangHe = absoluteLocaleUrl('he', basePath);
+const hreflangFa = absoluteLocaleUrl('fa', basePath);
+const hreflangEl = absoluteLocaleUrl('el', basePath);
+const hreflangPt = absoluteLocaleUrl('pt-BR', basePath);
+const hreflangNl = absoluteLocaleUrl('nl', basePath);
+const hreflangPl = absoluteLocaleUrl('pl', basePath);
+const hreflangJa = absoluteLocaleUrl('ja', basePath);
+const hreflangKo = absoluteLocaleUrl('ko', basePath);
+const hreflangId = absoluteLocaleUrl('id', basePath);
+const hreflangTh = absoluteLocaleUrl('th', basePath);
+const hreflangCs = absoluteLocaleUrl('cs', basePath);
+const pageHreflangs = hreflangs?.length
+  ? hreflangs
+  : [
+      { locale: 'en', href: hreflangEn },
+      { locale: 'tr', href: hreflangTr },
+      { locale: 'ar', href: hreflangAr },
+      { locale: 'es', href: hreflangEs },
+      { locale: 'fr', href: hreflangFr },
+      { locale: 'ru', href: hreflangRu },
+      { locale: 'he', href: hreflangHe },
+      { locale: 'fa', href: hreflangFa },
+      { locale: 'el', href: hreflangEl },
+      { locale: 'pt-BR', href: hreflangPt },
+      { locale: 'nl', href: hreflangNl },
+      { locale: 'pl', href: hreflangPl },
+      { locale: 'ja', href: hreflangJa },
+      { locale: 'ko', href: hreflangKo },
+      { locale: 'id', href: hreflangId },
+      { locale: 'th', href: hreflangTh },
+      { locale: 'cs', href: hreflangCs },
+    ];
+const defaultHreflang = pageHreflangs.find((h) => h.locale === 'en')?.href ?? pageHreflangs[0]?.href ?? hreflangEn;
+const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
+const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png';
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 18 语言）
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
+          cur = LANGS[i];
+          break;
+        }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
+  })();
+</script>
+<title>{title}</title>
+{description && <meta name="description" content={description} />}
+<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+<link rel="canonical" href={canonicalUrl} />
+{pageHreflangs.map((h) => (
+  <link rel="alternate" hreflang={h.locale} href={h.href} />
+))}
+<link rel="alternate" hreflang="x-default" href={defaultHreflang} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description || SITE_DESCRIPTION} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description || SITE_DESCRIPTION} />
+<script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd(lang))}></script>
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://iplmanufacturer.com/#website',
+  url: 'https://iplmanufacturer.com',
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  inLanguage: lang,
+  publisher: { '@id': 'https://iplmanufacturer.com/#organization' },
+})}></script>
+<meta property="og:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
+<meta name="twitter:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
+<link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
