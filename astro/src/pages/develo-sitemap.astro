@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿---
 // Develo Design — Sitemap
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -6,7 +6,9 @@ import SiteHeader from '../components/SiteHeader.astro';
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <script is:inline>
   // 语言偏好持久化：读取用户选定的语言（localStorage），
   // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
@@ -15,7 +17,7 @@ import SiteHeader from '../components/SiteHeader.astro';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {

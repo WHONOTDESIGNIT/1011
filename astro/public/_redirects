@@ -1,0 +1,32 @@
+# ============================================================
+# Netlify _redirects — 全站 URL 规范（方案B · Panasonic 风格：无结尾斜杠）
+#
+# 【机制说明】Netlify 在边缘节点会先去除尾斜杠再做规则匹配，
+# 官方文档明确「重定向规则无法用于添加/移除尾斜杠」（强行配置会无限重定向）。
+# 尾斜杠 → 无斜杠的 301 由文件结构原生保证：
+#   astro.config.mjs 已设 trailingSlash: 'never'，构建产物为 about.html 而非
+#   about/index.html；Netlify 对 .html 文件自动将 /about/ 301 至 /about。
+#
+# 【下方规则】作为补充兜底（无 force 标记，真实子页面如 /about/brand-story
+# 由静态文件自动遮蔽 shadow，不受影响）：将各语种 /about/ 下不存在的深层路径
+# 301 至标准无斜杠 /about。所有语种（含 tr/ro 等 16 个非 en 语种）格式严格一致。
+# ============================================================
+
+/about/* /about 301
+/tr/about/* /tr/about 301
+/ro/about/* /ro/about 301
+/ar/about/* /ar/about 301
+/es/about/* /es/about 301
+/fr/about/* /fr/about 301
+/ru/about/* /ru/about 301
+/he/about/* /he/about 301
+/fa/about/* /fa/about 301
+/el/about/* /el/about 301
+/pt-BR/about/* /pt-BR/about 301
+/nl/about/* /nl/about 301
+/id/about/* /id/about 301
+/th/about/* /th/about 301
+/pl/about/* /pl/about 301
+/ja/about/* /ja/about 301
+/ko/about/* /ko/about 301
+/cs/about/* /cs/about 301

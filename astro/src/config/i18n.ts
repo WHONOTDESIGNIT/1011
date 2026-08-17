@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGUAGES = ["en", "tr", "ro", "ar", "es", "fr", "ru", "he", "fa", "el", "pt-BR", "nl", "id", "th", "pl", "ja", "ko"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "tr", "ro", "ar", "es", "fr", "ru", "he", "fa", "el", "pt-BR", "nl", "id", "th", "pl", "ja", "ko", "cs"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export interface LanguageMeta {
@@ -37,6 +37,7 @@ export const LANGUAGE_CONFIG: LanguageMeta[] = [
   { code: "ru",    countryCode: "ru", label: "Russian",     nativeName: "Русский",                flagUrl: flag("ru"), enabled: true },
   { code: "es",    countryCode: "es", label: "Spanish",     nativeName: "Español",                flagUrl: flag("es"), enabled: true },
   { code: "pl",    countryCode: "pl", label: "Polish",      nativeName: "Polski",                 flagUrl: flag("pl"), enabled: true },
+  { code: "cs",    countryCode: "cz", label: "Czech",       nativeName: "Čeština",                flagUrl: flag("cz"), enabled: true },
 ];
 
 // 国家/地区 → 语言 映射（Edge Function 地理检测用）
@@ -102,5 +103,12 @@ export const REGION_CONFIG: Record<string, RegionConfig> = {
     calendar: "buddhist",
     numberingSystem: "latn",
     currency: "THB",
+  },
+  cs: {
+    locale: "cs-CZ",
+    timeZone: "Europe/Prague",
+    calendar: "gregory",
+    numberingSystem: "latn",
+    currency: "CZK",
   },
 };

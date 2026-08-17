@@ -5,7 +5,10 @@
 #   GPTBot（OpenAI/ChatGPT）、ClaudeBot（Anthropic）、PerplexityBot（Perplexity）
 # 三个官方 AI 爬虫必须始终保留下方的 Allow: / 授权。
 # 任何针对这些合法爬虫的拦截（Disallow: / 或整段删除）都会被
-# 构建守护脚本 scripts/check-robots.cjs 拦截并导致部署失败。
+# 构建守护脚本 scripts/check-robots.mjs 拦截并导致部署失败。
+# 下方同时显式放行其余主流 AI 爬虫（OAI-SearchBot / Google-Extended /
+# Bytespider / CCBot / Meta-ExternalAgent / Applebot-Extended / Amazonbot），
+# 保证 AI 搜索引擎与训练爬虫均能抓取公开内容。
 # ============================================================
 
 User-agent: GPTBot
@@ -61,6 +64,40 @@ Disallow: /develo-service-uiux/
 Disallow: /develo-service-tech-partner/
 Disallow: /develo-blog-detail/
 Disallow: /index.backup/
+
+# --- AI 搜索引擎与训练爬虫（显式放行公开内容） ---
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# --- 兜底：全部未列出的爬虫 ---
 
 User-agent: *
 Allow: /

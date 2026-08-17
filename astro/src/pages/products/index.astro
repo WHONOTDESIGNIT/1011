@@ -118,6 +118,13 @@ const safetyResources = safetyHrefs.map((href, i) => ({
   labelKey: `productDetail.index.safety.links.${i}`,
   href: getLocalizedPath(locale, href),
 }));
+const siteBaseUrl = (
+  Astro.site?.toString()
+  ?? process.env.URL
+  ?? process.env.DEPLOY_PRIME_URL
+  ?? process.env.SITE_URL
+  ?? 'https://iplmanufacturer.com'
+).replace(/\/$/, '');
 ---
 
 <BaseLayout
@@ -125,6 +132,23 @@ const safetyResources = safetyHrefs.map((href, i) => ({
   lang={locale}
   description={t(locale, 'productDetail.index.page.description')}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: t(locale, 'productDetail.index.page.title'),
+      itemListElement: products.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: t(locale, product.nameKey),
+          url: new URL(getLocalizedPath(locale, `/products/${product.slug}`), `${siteBaseUrl}/`).href.replace(/\/+$/, ''),
+          image: new URL(product.firstImage, `${siteBaseUrl}/`).href,
+        },
+      })),
+    })}></script>
+  </Fragment>
   <div class="space-y-36">
     <section class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-[160px] pt-[160px] min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
       <Image

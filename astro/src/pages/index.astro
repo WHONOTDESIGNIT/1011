@@ -2,6 +2,7 @@
 // iShine Homepage — Develo-style design
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import SeoHead from '../components/SeoHead.astro';
 import { t } from '../lib/i18n';
 
 // 首页不经过 BaseLayout/SiteHeader 组件，内联实现自取当前语言：
@@ -9,52 +10,14 @@ import { t } from '../lib/i18n';
 const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : 'en');
 // 按当前语言为站内链接加前缀（en 无前缀，tr 自动带 /tr/）
 const loc = (p: string) => getLocalizedPath(locale, p);
+const pageTitle = t(locale, 'home.page.title');
+const pageDescription = t(locale, 'home.page.description');
 ---
 
 <!doctype html>
 <html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<script is:inline>
-  // 语言偏好持久化：读取用户选定的语言（localStorage），
-  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
-  (function () {
-    var KEY = 'ishine_lang';
-    try {
-      var stored = localStorage.getItem(KEY);
-      if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko'];
-      var path = window.location.pathname;
-      var cur = 'en';
-      for (var i = 0; i < LANGS.length; i++) {
-        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
-          cur = LANGS[i];
-          break;
-        }
-      }
-      if (stored === cur) return;
-      var stripped = path;
-      for (var j = 0; j < LANGS.length; j++) {
-        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
-      }
-      if (stored === 'en') {
-        stripped = stripped.replace(/\/+$/, '');
-        if (stripped === '' || stripped === '/') stripped = '/';
-        if (stripped !== path) window.location.replace(stripped);
-      } else {
-        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
-        target = target.replace(/\/+$/, '');
-        if (target === '') target = '/' + stored;
-        if (target !== path) window.location.replace(target);
-      }
-    } catch (e) { /* 隐私模式等场景忽略 */ }
-  })();
-</script>
-<link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
-<title>{t(locale, 'home.page.title')}</title>
-<meta name="description" content={t(locale, 'home.page.description')} />
-
+<SeoHead title={pageTitle} lang={locale} description={pageDescription} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />

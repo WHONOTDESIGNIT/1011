@@ -15,6 +15,7 @@ import th from '../../../messages/th.json';
 import pl from '../../../messages/pl.json';
 import ja from '../../../messages/ja.json';
 import ko from '../../../messages/ko.json';
+import cs from '../../../messages/cs.json';
 
 type Messages = Record<string, unknown>;
 
@@ -36,6 +37,7 @@ const messagesByLocale: Record<string, Messages> = {
   pl: pl as Messages,
   ja: ja as Messages,
   ko: ko as Messages,
+  cs: cs as Messages,
 };
 
 function getValue(obj: unknown, key: string): unknown {
