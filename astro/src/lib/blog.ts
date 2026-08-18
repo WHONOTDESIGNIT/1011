@@ -40,7 +40,7 @@ type BlogMdxModule = {
 };
 
 // URL path 前缀列表（与博客内容目录名、URL 前缀一致；es 目录服务于 es-ES）
-export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'] as const;
+export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'] as const;
 export type BlogLocale = (typeof SUPPORTED_LOCALES)[number];
 
 // locale code ↔ URL path 映射（es-ES → /es/；其余 code === path）
