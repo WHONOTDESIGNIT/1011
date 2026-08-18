@@ -20,7 +20,7 @@ const locale = Astro.currentLocale ?? 'en';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {
@@ -1044,7 +1044,7 @@ a{text-decoration:none;color:inherit}
       <div class="footer-col footer-col-info">
         <p class="footer-company-info">{t(locale, 'develoCore.clone.footer.companyInfo')}</p>
         <p class="footer-company-info">{t(locale, 'develoCore.clone.footer.certLine1')}<br/>{t(locale, 'develoCore.clone.footer.certLine2')}</p>
-        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'develoCore.clone.footer.copyright')} <a href={getLocalizedPath(locale, '/privacy-policy')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.privacyPolicy')}</a>. <a href={getLocalizedPath(locale, '/faq')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.faq')}</a>.</p>
+        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'develoCore.clone.footer.copyright')} <a href={getLocalizedPath(locale, '/privacy-policy')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.privacyPolicy')}</a>. <a href={getLocalizedPath(locale, '/faq')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'develoCore.clone.footer.faq')}</a>. <a href={getLocalizedPath(locale, '/return-policy')} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Return Policy</a>.</p>
       </div>
     </div>
   </div>

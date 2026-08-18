@@ -1,5 +1,5 @@
 ---
-// Develo Design — Find a Technology Partner
+// iShine — Technology Milestones (remodeled from Develo template page)
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { t } from '../lib/i18n';
@@ -14,21 +14,16 @@ const locale = Astro.currentLocale ?? 'en';
 <meta name="robots" content="noindex, nofollow" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script is:inline>
-  // 语言偏好持久化：读取用户选定的语言（localStorage），
-  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 en/tr/ar）
   (function () {
     var KEY = 'ishine_lang';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {
-        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) {
-          cur = LANGS[i];
-          break;
-        }
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) { cur = LANGS[i]; break; }
       }
       if (stored === cur) return;
       var stripped = path;
@@ -45,11 +40,11 @@ const locale = Astro.currentLocale ?? 'en';
         if (target === '') target = '/' + stored;
         if (target !== path) window.location.replace(target);
       }
-    } catch (e) { /* 隐私模式等场景忽略 */ }
+    } catch (e) { }
   })();
 </script>
-<title>Find a Technology Partner | Develo Design</title>
-<meta name="description" content="Platforms That Power Your Next Stage of Growth. We specialise in Magento, Adobe Commerce and Hyvä." />
+<title>iShine Technology Milestones | Our IPL Journey</title>
+<meta name="description" content="From our first IPL devices to a certified multi-head platform — the technology milestones behind Shenzhen iShine Technology, an IPL hair removal OEM/ODM manufacturer." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
@@ -62,171 +57,89 @@ body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16p
 a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto;display:block}
 
-/* ═══ 2. HEADER / NAV ═══ */
+/* Header / nav — same as Develo template */
 .site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .3s ease;will-change:top}
 .header-inner{display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
 .header-logo{display:flex;align-items:center;flex-shrink:0;margin-right:502px}
-.header-logo svg{display:block}
 .header-nav{display:flex;align-items:center;gap:8px}
 .nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
 .nav-item:hover{background:rgba(0,0,0,.04)}
-
-/* Desktop nav visibility */
 .desktop-nav{display:flex}
 @media(max-width:959px){.desktop-nav{display:none}}
-
-/* Header CTA */
 .header-cta{display:flex;align-items:center;gap:12px;margin-left:auto;margin-right:38px}
 .btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
 .btn-cta:hover{gap:12px;background:#374151}
-.btn-cta svg{width:16px;height:16px}
 @media(max-width:959px){.header-cta .btn-cta{display:none}}
 
-/* Nav collapse button */
-.nav-collapse-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:100px;background:var(--blue);border:none;cursor:pointer;margin-left:auto;margin-right:38px}
-.nav-collapse-btn svg{width:20px;height:20px}
-.nav-collapsed .desktop-nav,.nav-collapsed .header-cta{display:none}
-@media(max-width:959px){.desktop-nav{display:none !important}.header-cta{display:none !important}.nav-collapse-btn{display:flex !important}}
-
-@media(max-width:767px){
-  .site-header{top:66px;width:calc(100% - 32px)}
-  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
-}
-
-/* ═══ Mega Dropdown ═══ */
-.nav-dropdown-wrapper{position:relative}
-.nav-has-dropdown{gap:6px}
-.nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
-.nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
-.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
-.nav-dropdown-wrapper:hover .mega-dropdown,.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
-.mega-inner{display:flex;gap:60px;padding:36px 40px}
-.mega-left{flex:1;display:flex;flex-direction:column}
-.mega-link-group{display:flex;flex-direction:column;gap:4px}
-.mega-link{display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;position:relative}
-.mega-link:hover{background:rgba(0,0,0,.04)}
-.mega-link-title{font-family:Manrope,sans-serif;font-size:18px;font-weight:500;line-height:26px;color:#020303}
-.mega-link-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280}
-.mega-link.has-plus{flex-direction:row;align-items:center;justify-content:space-between}
-.mega-link.has-plus .mega-link-title,.mega-link.has-plus .mega-link-desc{display:block}
-.mega-link.has-plus>div{display:flex;flex-direction:column;gap:4px}
-.mega-plus{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;color:#020303;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mega-right{flex-shrink:0;width:260px}
-.mega-card{background:var(--grey-50);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
-.mega-card-heading{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#020303;margin:0}
-.mega-card-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin:0}
-.mega-card-btn{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);padding:10px 18px;border-radius:100px;background:transparent;transition:all .2s;align-self:flex-start;text-decoration:none}
-.mega-card-btn:hover{background:var(--blue);color:#fff;gap:12px}
-@media(max-width:959px){.mega-dropdown{display:none !important}}
-/* Mobile menu panel */
-.nav-collapse-btn.open{background:#374151}
-.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
-.mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
-.mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:none;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
-.mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
-.mobile-menu-group{display:flex;flex-direction:column;border-bottom:1px solid #e5e7eb}
-.mobile-menu-group:last-of-type{border-bottom:none}
-.mobile-menu-toggle,.mobile-menu-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 12px;background:transparent;border:none;border-radius:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;text-align:left;cursor:pointer}
-.mobile-menu-toggle:hover,.mobile-menu-link:hover{background:rgba(0,0,0,.04)}
-.mobile-menu-toggle-chevron{width:12px;height:7px;flex-shrink:0;transition:transform .25s ease}
-.mobile-menu-group.open .mobile-menu-toggle-chevron{transform:rotate(180deg)}
-.mobile-submenu{max-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:max-height .3s ease,padding-bottom .3s ease}
-.mobile-menu-group.open .mobile-submenu{max-height:480px;padding-bottom:12px}
-.mobile-submenu-link{display:flex;flex-direction:column;gap:4px;padding:10px 12px 10px 24px;border-radius:10px;text-decoration:none}
-.mobile-submenu-link:hover{background:rgba(0,0,0,.04)}
-.mobile-submenu-title{font-family:Manrope,sans-serif;font-size:16px;font-weight:500;line-height:24px;color:#020303}
-.mobile-submenu-desc{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:#6b7280}
-.mobile-menu-cta{margin-top:8px}
-.mobile-menu-cta .btn-cta{width:100%;justify-content:center}
-@media(max-width:959px){.mobile-menu-panel{display:flex}}
-@media(max-width:767px){.mobile-menu-panel{top:130px;width:calc(100% - 32px);padding:18px}}
-
-
-
-/* ═══ Layout ═══ */
+/* Layout */
 .page-main{margin-top:136px}
 .section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
 .section-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
 .section-title{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0 0 12px}
 .section-desc{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:620px}
 
-/* ═══ HERO ═══ */
+/* Hero */
 .hero-section{padding:40px 0 80px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 14px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:13px;font-weight:500;color:var(--grey-500);margin-bottom:24px}
-.hero-title{font-family:Syne,sans-serif;font-size:44px;font-weight:400;line-height:52px;letter-spacing:-.43px;color:var(--black);max-width:680px;margin:0 0 16px}
-.hero-desc{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:560px}
+.hero-title{font-family:Syne,sans-serif;font-size:44px;font-weight:400;line-height:52px;letter-spacing:-.43px;color:var(--black);max-width:760px;margin:0 0 16px}
+.hero-desc{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:600px}
 
-/* ═══ CORE STACK ═══ */
-.stack-section{padding:80px 0}
-.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.stack-card{display:flex;flex-direction:column;gap:16px;padding:32px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
-.stack-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
-.stack-card h3{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin:0}
-.stack-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text)}
-.stack-card-link{display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue);margin-top:auto}
+/* Timeline */
+.timeline-section{padding:40px 0 100px}
+.timeline{position:relative;max-width:860px;margin:56px 0 0}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--grey-200)}
+.tl-item{position:relative;padding:0 0 56px 52px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:6px;width:24px;height:24px;border-radius:50%;background:var(--blue);border:5px solid #e4e1ff;box-shadow:0 0 0 2px var(--blue)}
+.tl-year{font-family:Syne,sans-serif;font-size:20px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.tl-title{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin-bottom:8px}
+.tl-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--grey-text);max-width:640px}
+.tl-tag{display:inline-flex;align-items:center;margin-top:12px;padding:4px 12px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--grey-500);letter-spacing:.4px;text-transform:uppercase}
 
-/* ═══ TRUSTED ═══ */
-.trusted-section{padding:60px 0}
-.trusted-logos{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:24px}
-.trusted-logo-text{font-family:Syne,sans-serif;font-size:22px;font-weight:700;color:var(--grey-400)}
+/* Stats */
+.stats-section{padding:80px 0;background:var(--grey-50)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.stat-card{display:flex;flex-direction:column;gap:8px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;background:var(--white)}
+.stat-num{font-family:Syne,sans-serif;font-size:34px;font-weight:700;line-height:42px;color:var(--blue)}
+.stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
 
-/* ═══ GOALS ═══ */
-.goals-section{padding:80px 0;background:var(--grey-50)}
-.goals-content{display:flex;flex-direction:column;gap:16px;max-width:620px}
+/* Products */
+.products-section{padding:80px 0}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.product-card{display:flex;flex-direction:column;gap:12px;padding:32px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
+.product-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
+.product-card h3{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin:0}
+.product-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text)}
+.product-tag{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px}
 
-/* ═══ WHY SECTION ═══ */
-.why-section{padding:80px 0}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.why-card{display:flex;flex-direction:column;gap:12px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
-.why-card:hover{border-color:var(--grey-400)}
-.why-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0}
-.why-card p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
+/* Certifications */
+.cert-section{padding:80px 0;background:var(--grey-50)}
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.cert-item{display:flex;align-items:center;justify-content:center;padding:22px 16px;border:1px solid var(--grey-200);border-radius:12px;background:var(--white);font-family:Syne,sans-serif;font-size:15px;font-weight:600;color:var(--grey-500);text-align:center;transition:all .2s}
+.cert-item:hover{border-color:var(--blue);color:var(--blue)}
 
-/* ═══ PARTNERSHIPS ═══ */
-.partner-section{padding:80px 0;background:var(--grey-50)}
-.partner-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
-.partner-logo{display:flex;align-items:center;justify-content:center;padding:24px;border:1px solid var(--grey-200);border-radius:12px;background:var(--white);font-family:Syne,sans-serif;font-size:14px;font-weight:600;color:var(--grey-400);transition:all .2s}
-.partner-logo:hover{border-color:var(--grey-400)}
+/* For partners */
+.partner-section{padding:80px 0}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.partner-card{display:flex;flex-direction:column;gap:12px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
+.partner-card:hover{border-color:var(--grey-400)}
+.partner-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0}
+.partner-card p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
 
-/* ═══ B2B ═══ */
-.b2b-section{padding:80px 0}
-.b2b-content{max-width:620px;display:flex;flex-direction:column;gap:16px}
+/* CTA */
+.cta-section{padding:80px 0 120px;background:var(--grey-50)}
+.cta-content{max-width:620px;display:flex;flex-direction:column;gap:16px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 26px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:500;border-radius:100px;width:fit-content;transition:all .25s}
+.btn-primary:hover{background:#374151;gap:12px}
 
-/* ═══ RESULTS ═══ */
-.results-section{padding:0 0 80px}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
-.result-card{display:flex;flex-direction:column;gap:12px;padding:32px;border-radius:16px;border:1px solid var(--grey-200);transition:all .2s}
-.result-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
-.result-stat{font-family:Syne,sans-serif;font-size:28px;font-weight:400;line-height:36px;color:var(--blue)}
-.result-stat-desc{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
-.result-link{display:inline-flex;align-items:center;gap:4px;font-family:Manrope,sans-serif;font-size:14px;font-weight:500;color:var(--blue);margin-top:auto}
-.results-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:32px;font-family:Manrope,sans-serif;font-size:14px;color:var(--grey-500)}
-
-/* ═══ CTA ═══ */
-.cta-section{padding:80px 0;background:var(--grey-50)}
-.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-.cta-card{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border:1px solid var(--grey-200);border-radius:12px;background:var(--white);font-family:Manrope,sans-serif;font-size:15px;font-weight:400;color:var(--black);transition:all .2s}
-.cta-card:hover{border-color:var(--blue);color:var(--blue)}
-
-/* ═══ FAQ ═══ */
-.faq-section{padding:0 0 100px}
-.faq-list{display:flex;flex-direction:column;max-width:800px;margin-top:32px}
-.faq-item{border-bottom:1px solid var(--grey-200)}
-.faq-item:first-child{border-top:1px solid var(--grey-200)}
-.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 0;font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);background:transparent;border:none;cursor:pointer;text-align:left;transition:color .2s}
-.faq-question:hover{color:var(--blue)}
-.faq-toggle{flex-shrink:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--grey-200);transition:all .2s;margin-left:16px}
-.faq-answer{padding:0 0 20px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--grey-text)}
-.faq-answer a{color:var(--blue);text-decoration:underline}
-
-@media(max-width:1279px){.section-container{padding:0 40px}.stack-grid,.why-grid,.results-grid{grid-template-columns:repeat(2,1fr)}.partner-grid{grid-template-columns:repeat(3,1fr)}.cta-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:959px){.stack-grid,.why-grid,.results-grid,.cta-grid{grid-template-columns:repeat(2,1fr)}.partner-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1279px){.section-container{padding:0 40px}.stats-grid{grid-template-columns:repeat(2,1fr)}.products-grid,.partner-grid{grid-template-columns:repeat(2,1fr)}.cert-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:959px){.products-grid,.partner-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:767px){
   .section-container{padding:0 24px}
   .hero-title{font-size:34px;line-height:42px;letter-spacing:-.33px}
   .section-title{font-size:26px;line-height:34px}
-  .stack-grid,.why-grid,.results-grid,.cta-grid,.partner-grid{grid-template-columns:1fr}
-  .trusted-logos{gap:20px}
+  .stats-grid,.products-grid,.partner-grid,.cert-grid{grid-template-columns:1fr}
+  .tl-item{padding-left:44px}
 }
 </style>
 </head>
@@ -239,211 +152,167 @@ img{max-width:100%;height:auto;display:block}
   <!-- ═══ HERO ═══ -->
   <section class="hero-section">
     <div class="section-container">
-      <div class="hero-badge">eCommerce Development Services</div>
-      <h1 class="hero-title">Platforms That Power Your Next Stage of Growth</h1>
-      <p class="hero-desc">We specialise in Magento, Adobe Commerce and Hyva, helping brands build, optimise and support stores that feel faster, scale smarter and grow with confidence.</p>
+      <div class="hero-badge">iShine Technology · Milestones</div>
+      <h1 class="hero-title">The Road We've Built: From Our First IPL Device to a Certified Multi-Head Platform</h1>
+      <p class="hero-desc">Shenzhen iShine Technology is an IPL hair removal OEM/ODM manufacturer. This is the technology timeline behind the devices we build for beauty brands worldwide — the milestones, the certifications, and the engineering that got us here.</p>
     </div>
   </section>
 
-  <!-- ═══ OUR CORE STACK ═══ -->
-  <section class="stack-section">
+  <!-- ═══ TIMELINE ═══ -->
+  <section class="timeline-section">
     <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.stack.label')}</span>
-      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.stack.heading')}</h2>
-      <div class="stack-grid">
-        <div class="stack-card">
-          <h3>Magento Open Source</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.magento.description')}</p>
-          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/magento-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <span class="section-label">Our Journey</span>
+      <h2 class="section-title">Technology Milestones</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2021</div>
+          <div class="tl-title">iShine was founded</div>
+          <p class="tl-desc">We started as an IPL device manufacturer in Shenzhen and launched our first product line — the SKN001, SKN002, SKN005 and SKN006 IPL devices.</p>
+          <span class="tl-tag">First Devices</span>
         </div>
-        <div class="stack-card">
-          <h3>Adobe Commerce</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.adobe.description')}</p>
-          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/adobe-commerce-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2022</div>
+          <div class="tl-title">Earned FDA 510(k)</div>
+          <p class="tl-desc">We earned FDA 510(k) clearance and launched the SKN12 Pro, our first IPL device with APP control — a step toward the connected home-use experience brands now expect.</p>
+          <span class="tl-tag">FDA 510(k) · APP Control</span>
         </div>
-        <div class="stack-card">
-          <h3>Hyva Themes</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.hyva.description')}</p>
-          <a class="stack-card-link" href={getLocalizedPath(locale, '/services/hyva-themes')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.exploreCta')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2024</div>
+          <div class="tl-title">Sapphire ice-cooling technology</div>
+          <p class="tl-desc">We brought sapphire crystal contact cooling into our products. The SKN005 with sapphire crystal tech delivers an ice-cooling feeling, letting us run effective energy with less perceived heat.</p>
+          <span class="tl-tag">Sapphire Ice Tech</span>
         </div>
-      </div>
-      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/services')}>{t(locale, 'develoSocial.serviceTechPartnerPage.stack.allServicesCta')}</a></div>
-    </div>
-  </section>
-
-  <!-- ═══ TRUSTED BY ═══ -->
-  <section class="trusted-section">
-    <div class="section-container">
-      <span class="section-label" style="text-align:center;display:block">{t(locale, 'develoSocial.serviceTechPartnerPage.trusted.label')}</span>
-      <p style="text-align:center;font-family:Manrope,sans-serif;font-size:16px;color:var(--grey-text)">{t(locale, 'develoSocial.serviceTechPartnerPage.trusted.description')}</p>
-      <div class="trusted-logos">
-        <span class="trusted-logo-text">BRANDALLEY</span>
-        <span class="trusted-logo-text">BAMFORD</span>
-        <span class="trusted-logo-text">DAYLESFORD</span>
-        <span class="trusted-logo-text">CURRYS</span>
-        <span class="trusted-logo-text">TEAGUE</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ YOUR GOALS ═══ -->
-  <section class="goals-section">
-    <div class="section-container">
-      <div class="goals-content">
-        <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.label')}</span>
-        <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.heading')}</h2>
-        <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.goals.description')}</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn-primary" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'develoSocial.serviceTechPartnerPage.goals.talkToUs')}</a>
-          <a class="btn-outline" href={getLocalizedPath(locale, '/services/magento-migration-solutions')}>{t(locale, 'develoSocial.serviceTechPartnerPage.goals.migrationsCta')}</a>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Certified: ISO 13485, MDSAP, MDL &amp; NMPA</div>
+          <p class="tl-desc">We achieved ISO 13485, MDSAP, MDL and NMPA certifications, and launched the ice-cooling SKN004, creating a multi-head series of IPL devices built for different body areas and treatment modes.</p>
+          <span class="tl-tag">Certifications · Multi-Head Series</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Dual-lamp Ultra — coming next</div>
+          <p class="tl-desc">We are about to launch the dual-lamp ultra-power IPL, our next-generation platform combining dual lamps with higher output — built for brands that want maximum efficacy in one device.</p>
+          <span class="tl-tag">Next Generation</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ WHY CHOOSE US ═══ -->
-  <section class="why-section">
+  <!-- ═══ STATS ═══ -->
+  <section class="stats-section">
     <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.why.label')}</span>
-      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.why.heading')}</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.specialists.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.specialists.description')}</p>
-        </div>
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.partnerships.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.partnerships.description')}</p>
-        </div>
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.boutique.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.boutique.description')}</p>
-        </div>
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.collaborative.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.collaborative.description')}</p>
-        </div>
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.trustedBrands.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.trustedBrands.description')}</p>
-        </div>
-        <div class="why-card">
-          <h3>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.results.title')}</h3>
-          <p>{t(locale, 'develoSocial.serviceTechPartnerPage.why.cards.results.description')}</p>
-        </div>
+      <span class="section-label">By the Numbers</span>
+      <h2 class="section-title">What the Milestones Add Up To</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num">500,000+</span><span class="stat-label">IPL devices shipped</span></div>
+        <div class="stat-card"><span class="stat-num">50+</span><span class="stat-label">brand customers served</span></div>
+        <div class="stat-card"><span class="stat-num">20+</span><span class="stat-label">countries our devices reach</span></div>
+        <div class="stat-card"><span class="stat-num">12+</span><span class="stat-label">product models across SKN series</span></div>
       </div>
-      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/about-us')}>{t(locale, 'develoSocial.serviceTechPartnerPage.why.aboutCta')}</a></div>
     </div>
   </section>
 
-  <!-- ═══ PARTNERSHIPS & INTEGRATIONS ═══ -->
+  <!-- ═══ PRODUCTS ═══ -->
+  <section class="products-section">
+    <div class="section-container">
+      <span class="section-label">Product Lines</span>
+      <h2 class="section-title">From First Launch to Multi-Head Platform</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <span class="product-tag">2021 · Entry Line</span>
+          <h3>SKN001 / SKN002 / SKN006</h3>
+          <p>The devices that started it all — reliable home IPL hair removal for everyday use.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2022 · Connected</span>
+          <h3>SKN12 Pro</h3>
+          <p>IPL with APP control: usage tracking, treatment plans and firmware updates in a connected device.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2024 · Ice Feel</span>
+          <h3>SKN005 Sapphire Crystal</h3>
+          <p>Sapphire contact cooling that brings an ice-cooling feeling during treatment, so higher energy stays comfortable.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2025 · Multi-Head</span>
+          <h3>SKN004 Multi-Head Series</h3>
+          <p>Ice-cooling multi-head devices — different heads for different body areas and treatment modes.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Upcoming · Flagship</span>
+          <h3>Dual-lamp Ultra</h3>
+          <p>The next-generation dual-lamp ultra-power IPL, about to launch. Built for maximum efficacy in one device.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Platform</span>
+          <h3>Your Brand, Our Engineering</h3>
+          <p>Every SKN platform is available as a base for OEM/ODM programs — your brand, your spec, our validated hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section class="cert-section">
+    <div class="section-container">
+      <span class="section-label">Certifications &amp; Compliance</span>
+      <h2 class="section-title">A File You Can Take to Regulators</h2>
+      <p class="section-desc">Each milestone is backed by a documented design history file and the certifications your market needs.</p>
+      <div class="cert-grid">
+        <div class="cert-item">FDA 510(k)</div>
+        <div class="cert-item">ISO 13485</div>
+        <div class="cert-item">MDSAP</div>
+        <div class="cert-item">MDL</div>
+        <div class="cert-item">NMPA</div>
+        <div class="cert-item">CE</div>
+        <div class="cert-item">FCC</div>
+        <div class="cert-item">IEC 60601</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOR PARTNERS ═══ -->
   <section class="partner-section">
     <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.label')}</span>
-      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.heading')}</h2>
-      <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.partner.description')}</p>
+      <span class="section-label">For Brand Owners</span>
+      <h2 class="section-title">Why Our Milestones Matter to Your Product</h2>
       <div class="partner-grid">
-        <div class="partner-logo">Adobe Commerce</div>
-        <div class="partner-logo">Magento</div>
-        <div class="partner-logo">Hyva</div>
-        <div class="partner-logo">Hypernode</div>
-        <div class="partner-logo">Cloudflare</div>
-        <div class="partner-logo">Algolia</div>
-        <div class="partner-logo">Klaviyo</div>
-        <div class="partner-logo">Stripe</div>
-        <div class="partner-logo">PayPal</div>
-        <div class="partner-logo">Akeneo</div>
-      </div>
-      <div style="margin-top:24px"><a class="btn-outline" href={getLocalizedPath(locale, '/services/magento-integrations')}>{t(locale, 'develoSocial.serviceTechPartnerPage.partner.integrationsCta')}</a></div>
-    </div>
-  </section>
-
-  <!-- ═══ B2B ═══ -->
-  <section class="b2b-section">
-    <div class="section-container">
-      <div class="b2b-content">
-        <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.label')}</span>
-        <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.heading')}</h2>
-        <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.description')}</p>
-        <a class="btn-outline" href={getLocalizedPath(locale, '/services/b2b-commerce')} style="width:fit-content">{t(locale, 'develoSocial.serviceTechPartnerPage.b2b.commerceCta')}</a>
+        <div class="partner-card">
+          <h3>Validated Hardware</h3>
+          <p>You start from devices that already carry FDA 510(k) clearance and ISO 13485 certification — not from a blank page.</p>
+        </div>
+        <div class="partner-card">
+          <h3>Verified Components</h3>
+          <p>Our supply chain includes components used by leading brands — with the Ophir-measured optical output to back the numbers.</p>
+        </div>
+        <div class="partner-card">
+          <h3>Turnkey OEM/ODM</h3>
+          <p>Custom firmware, APP control, branding and packaging — from milestone hardware to a private-label product ready for your market.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ REAL RESULTS ═══ -->
-  <section class="results-section">
-    <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.results.label')}</span>
-      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.results.heading')}</h2>
-      <p class="section-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.description')}</p>
-      <div style="margin-top:12px"><a class="btn-outline" href={getLocalizedPath(locale, '/work')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewWorkCta')}</a></div>
-      <div class="results-grid">
-        <div class="result-card">
-          <span class="result-stat">+92%</span>
-          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.bamford')}</span>
-          <a class="result-link" href={getLocalizedPath(locale, '/work/bamford')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div class="result-card">
-          <span class="result-stat">+47%</span>
-          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.daylesford')}</span>
-          <a class="result-link" href={getLocalizedPath(locale, '/work/daylesford')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div class="result-card">
-          <span class="result-stat">+19%</span>
-          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.brandalley')}</span>
-          <a class="result-link" href={getLocalizedPath(locale, '/work/brandalley')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div class="result-card">
-          <span class="result-stat">41%</span>
-          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.teague')}</span>
-          <a class="result-link" href={getLocalizedPath(locale, '/work/teague')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div class="result-card">
-          <span class="result-stat">+300%</span>
-          <span class="result-stat-desc">{t(locale, 'develoSocial.serviceTechPartnerPage.results.cards.currys')}</span>
-          <a class="result-link" href={getLocalizedPath(locale, '/work/currys')}>{t(locale, 'develoSocial.serviceTechPartnerPage.results.viewProject')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="results-pagination">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>1/5</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ LET'S TALK CTA ═══ -->
+  <!-- ═══ CTA ═══ -->
   <section class="cta-section">
     <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.cta.label')}</span>
-      <h2 class="section-title">{t(locale, 'develoSocial.serviceTechPartnerPage.cta.heading')}</h2>
-      <div class="cta-grid">
-        <a class="cta-card" href={getLocalizedPath(locale, '/services/adobe-commerce-development')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.adobe')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-card" href={getLocalizedPath(locale, '/services/hyva-themes')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.hyva')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="cta-card" href={getLocalizedPath(locale, '/services/magento-performance-optimisations')}>{t(locale, 'develoSocial.serviceTechPartnerPage.cta.cards.performance')} <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FAQ ═══ -->
-  <section class="faq-section">
-    <div class="section-container">
-      <span class="section-label">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.label')}</span>
-      <div class="faq-list">
-        <div class="faq-item open"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q1.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q1.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q2.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q2.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q3.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q3.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q4.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q4.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q5.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q5.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q6.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q6.answer')}</div></div>
-        <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q7.question')}<span class="faq-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer" style="display:none">{t(locale, 'develoSocial.serviceTechPartnerPage.faq.q7.answer')}</div></div>
+      <div class="cta-content">
+        <span class="section-label">Next Milestone</span>
+        <h2 class="section-title">The Next Device on This Timeline Could Be Yours</h2>
+        <p class="section-desc">Tell us the market you're targeting and the price point you need. We'll map your product onto a validated platform and show you the route to launch.</p>
+        <a class="btn-primary" href={getLocalizedPath(locale, '/contact')}>Talk to Our Team →</a>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- ═══ Footer ═══ -->
+<!-- Footer -->
 <style>
 .site-footer{background:#020303;color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0;margin-top:0}
 .footer-container{max-width:1536px;margin:0 auto;padding:0 100px}

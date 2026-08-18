@@ -1,0 +1,250 @@
+{
+  "componentsFilter": {
+    "quality": {
+      "blocks": {
+        "transmission": {
+          "title": "Stabilità della trasmissione",
+          "description": "Test di lunga durata per proprietà ottiche costanti nell'intero ciclo di vita"
+        },
+        "heat": {
+          "title": "Resistenza al calore",
+          "description": "Test di stress termico per validare le prestazioni in condizioni intensive"
+        },
+        "durability": {
+          "title": "Test di durata",
+          "description": "Invecchiamento accelerato e test di stress meccanico per l'affidabilità a lungo termine"
+        }
+      }
+    },
+    "applications": {
+      "title": "Applicazioni",
+      "items": {
+        "hair": {
+          "title": "Depilazione",
+          "description": "Colpisce i follicoli piliferi proteggendo la pelle circostante"
+        },
+        "skin": {
+          "title": "Ringiovanimento della pelle",
+          "description": "Filtri che favoriscono la produzione di collagene e il rinnovamento cutaneo"
+        },
+        "acne": {
+          "title": "Trattamento dell'acne",
+          "description": "Terapia della luce mirata a infiammazioni e batteri"
+        },
+        "pigmentation": {
+          "title": "Riduzione della pigmentazione",
+          "description": "Lunghezze d'onda speciali per scomporre la melanina in modo sicuro"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformità e standard",
+      "paragraph": "I nostri filtri sono progettati e prodotti per soddisfare gli standard globali di sicurezza e prestazioni:",
+      "items": {
+        "ce": "Marcatura CE per il mercato UE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Supporto all'autorizzazione FDA",
+        "iec60601": "Sicurezza elettrica IEC 60601",
+        "mdr": "Processo di conformità MDR"
+      }
+    },
+    "visuals": {
+      "title": "Visualizzazione della tecnologia dei filtri",
+      "images": {
+        "wavelength": {
+          "alt": "Diagramma che mostra come i filtri bloccano le lunghezze d'onda dannose",
+          "caption": "Diagramma del blocco delle lunghezze d'onda dannose"
+        },
+        "comparison": {
+          "alt": "Tabella comparativa dei diversi intervalli di filtro e applicazioni",
+          "caption": "Confronto tra intervalli di filtro e applicazioni"
+        }
+      }
+    },
+    "cta": {
+      "title": "Collabori con iShine per filtri ottici premium",
+      "description": "Sviluppi dispositivi IPL con filtri sicuri e ad alte prestazioni che soddisfano gli standard globali.",
+      "button": "Avvia il Suo progetto"
+    },
+    "citable": {
+      "question": "Cosa fanno i filtri ottici in un dispositivo IPL?",
+      "paragraph": "I filtri ottici in un dispositivo IPL modellano l'emissione luminosa bloccando le lunghezze d'onda indesiderate e trasmettendo le bande che corrispondono al posizionamento terapeutico previsto. In termini pratici, i filtri aiutano a ridurre l'esposizione ai raggi UV e possono calibrare l'intervallo di lunghezza d'onda effettivo erogato attraverso la finestra di trattamento (ad esempio, comuni opzioni di taglio come 550 nm, 570 nm o 600 nm nelle configurazioni supportate). La progettazione del filtro influisce sul margine di sicurezza nelle diverse tonalità della pelle, sul comfort percepito e sull'equilibrio tra efficacia e tollerabilità ai diversi livelli di energia. Per la produzione OEM/ODM, la selezione del filtro è trattata come parte di un sistema ottico coordinato con il tubo lampada e i materiali della finestra, poiché piccole variazioni possono influire sulla costanza dell'emissione e sui risultati di verifica. iShine supporta la configurazione dei filtri nei programmi a marchio privato per allineare gli obiettivi di prestazione alla documentazione del mercato di destinazione e alla ripetibilità produttiva."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Componenti",
+      "lamp": "Cartucce lampada"
+    },
+    "header": {
+      "title": "Cartucce lampada",
+      "description": "Cartucce lampada IPL ad alte prestazioni con durata estesa ed energia stabile"
+    },
+    "intro": {
+      "title": "Per trattamenti IPL efficaci",
+      "paragraph": "Le cartucce lampada determinano la qualità dell'energia in uscita e la durata del dispositivo. Le nostre lampade allo Xenon garantiscono un'emissione di energia luminosa costante e una lunga vita di servizio."
+    },
+    "highlight": {
+      "whyTitle": "Perché la qualità della lampada è importante",
+      "paragraph": "Stabilità energetica, durata e sicurezza sono elementi critici. Le nostre cartucce garantiscono trattamenti affidabili.",
+      "badge": "Il motore dei dispositivi IPL",
+      "imageAlt": "Primo piano di una cartuccia lampada IPL"
+    },
+    "features": {
+      "title": "Caratteristiche principali",
+      "energy": {
+        "title": "Emissione di energia stabile",
+        "description": "Energia luminosa costante per trattamenti efficaci"
+      },
+      "lifespan": {
+        "title": "Durata estesa",
+        "description": "Prestazioni della lampada di lunga durata per migliaia di lampi"
+      },
+      "safety": {
+        "title": "Sicurezza",
+        "description": "Progettata per la sicurezza elettrica e termica"
+      },
+      "integration": {
+        "title": "Integrazione semplice",
+        "description": "Progettata per integrarsi perfettamente con varie architetture di dispositivo"
+      }
+    },
+    "specs": {
+      "title": "Specifiche tecniche",
+      "table": {
+        "parameter": "Parametro",
+        "value": "Valore",
+        "notes": "Note"
+      },
+      "rows": [
+        {
+          "parameter": "Numero di lampi",
+          "value": "999,000+",
+          "description": "Durata di servizio estesa"
+        },
+        {
+          "parameter": "Sorgente luminosa",
+          "value": "Xenon",
+          "description": "Erogazione di energia ad alta efficienza"
+        },
+        {
+          "parameter": "Stabilità energetica",
+          "value": "Elevata",
+          "description": "Costanza nell'intero ciclo di vita"
+        },
+        {
+          "parameter": "Gestione del calore",
+          "value": "Ottimizzata",
+          "description": "Sicurezza termica sotto carico"
+        },
+        {
+          "parameter": "Fattori di forma",
+          "value": "Multipli",
+          "description": "Forme e dimensioni personalizzabili"
+        },
+        {
+          "parameter": "Integrazione",
+          "value": "Flessibile",
+          "description": "Si adatta a diversi design di dispositivo"
+        }
+      ],
+      "footnote": "* Le specifiche dipendono dai requisiti del dispositivo e dalle esigenze del mercato."
+    },
+    "customization": {
+      "title": "Opzioni di personalizzazione",
+      "description": "Cartucce lampada completamente personalizzabili per adattarsi al marchio e all'architettura del dispositivo",
+      "options": {
+        "shape": {
+          "title": "Forma e dimensioni",
+          "description": "Su misura per il design del dispositivo e la finestra di trattamento"
+        },
+        "flashCount": {
+          "title": "Numero di lampi",
+          "description": "Configurato in base ai requisiti del ciclo di vita"
+        },
+        "branding": {
+          "title": "Branding",
+          "description": "Packaging personalizzato e identità visiva"
+        },
+        "integration": {
+          "title": "Integrazione",
+          "description": "Opzioni di interfaccia meccanica ed elettrica"
+        }
+      }
+    },
+    "quality": {
+      "title": "Qualità e collaudi",
+      "intertek": "Collaborazione con Intertek",
+      "intertekDesc": "Validazione di terze parti dei componenti della lampada",
+      "paragraph": "Ogni lampada è sottoposta a collaudi per garantire stabilità energetica, longevità e sicurezza dell'utente:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Test del ciclo di vita",
+          "description": "Simulazione dell'uso prolungato per validare le prestazioni"
+        },
+        "energy": {
+          "title": "Stabilità energetica",
+          "description": "Misurazione della costanza dell'emissione tra i lampi"
+        },
+        "heat": {
+          "title": "Resistenza al calore",
+          "description": "Sicurezza termica in condizioni di uso intensivo"
+        },
+        "qc": {
+          "title": "Controllo qualità",
+          "description": "Controllo qualità end-to-end per garantire la conformità agli standard"
+        }
+      }
+    },
+    "applications": {
+      "title": "Applicazioni",
+      "items": {
+        "home": {
+          "title": "Uso domestico",
+          "description": "Dispositivi compatti per uso personale"
+        },
+        "multi": {
+          "title": "Multifunzione",
+          "description": "Cartucce lampada per piattaforme multifunzione"
+        },
+        "proConsumer": {
+          "title": "Pro-consumer",
+          "description": "Dispositivi consumer ad alte prestazioni"
+        },
+        "handpieces": {
+          "title": "Manipoli professionali",
+          "description": "Moduli lampada per apparecchiature di livello clinico"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformità e standard",
+      "paragraph": "Progettate per soddisfare gli standard globali di sicurezza e prestazioni:",
+      "items": {
+        "ce": "Marcatura CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Supporto all'autorizzazione FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Conformità MDR"
+      }
+    },
+    "visuals": {
+      "title": "Immagini e infografiche",
+      "images": {
+        "exploded": {
+          "alt": "Vista esplosa dei componenti della cartuccia lampada",
+          "caption": "Panoramica dei componenti in vista esplosa"
+        },
+        "lifecycle": {
+          "alt": "Grafico delle prestazioni della lampada nel ciclo di vita",
+          "caption": "Grafico delle prestazioni nel ciclo di vita"
+        }
+      }
+    },
+    "cta": {
+      "title": "Costruisca con le cartucce lampada iShine",
+      "description": "Collabori con noi per sviluppare dispositivi con cartucce lampada affidabili e di lunga durata.",
+      "button": "Contattaci"
+    }
+  }
+}

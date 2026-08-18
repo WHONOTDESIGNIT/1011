@@ -1,0 +1,459 @@
+{
+  "servicesPage": {
+    "index": {
+      "citableQuestion": "Cosa è incluso nei servizi di produzione IPL di iShine?",
+      "citableParagraph": "iShine fornisce servizi di produzione IPL end-to-end per programmi a marchio privato, coprendo sviluppo OEM/ODM, design del prodotto, produzione e assemblaggio, packaging e logistica di esportazione. Un incarico tipico inizia con requisiti e posizionamento, per poi passare alle decisioni di ingegneria come l'approccio di raffreddamento (incluso il raffreddamento premium a contatto allo zaffiro mirato a ~10°C nelle configurazioni supportate), l'intervallo di energia, le dimensioni della finestra dei lampi, il filtraggio delle lunghezze d'onda e gli interblocchi di sicurezza. La campionatura del prototipo basata su piattaforma può spesso iniziare entro 1-4 settimane a seconda dell'ambito, mentre i programmi che coinvolgono stampi, elettronica, firmware o attività di conformità richiedono tempo aggiuntivo per validazione, documentazione e pianificazione della produzione. Il supporto per il packaging comprende cartoni brandizzati, inserti, manuali, etichettatura e selezione degli accessori in linea con i canali retail, distributivi o e-commerce, con opzioni come la localizzazione dei manuali e l'etichettatura pronta per i canali. Il supporto alla consegna include documenti di esportazione e coordinamento delle spedizioni (FOB Shenzhen, con opzioni CIF) via mare, aerea o corriere, in base ai tempi e ai requisiti di destinazione.",
+      "pickYourPath": {
+        "eyebrow": "Scelga il Suo percorso",
+        "title": "Avviare, brandizzare o scalare: scelga il Suo flusso di lavoro",
+        "description": "Utilizzi i percorsi seguenti per passare direttamente ai servizi e alle pagine che corrispondono alla Sua fase attuale.",
+        "items": [
+          {
+            "title": "Avviare un marchio",
+            "description": "Lanci con meno rischi, validi la domanda e poi scalì con un rifornimento ripetibile.",
+            "links": [
+              "Inizia senza MOQ",
+              "Scegli una piattaforma dal catalogo",
+              "Richiedi un piano di campionatura",
+              "Scopri le opzioni OEM/ODM"
+            ]
+          },
+          {
+            "title": "Potenzia il branding",
+            "description": "Trasformi uno SKU pronto per la fabbrica in un prodotto pronto per il marchio, con asset conformi ai canali.",
+            "links": [
+              "Aggiungi la stampa del logo",
+              "Personalizza confezione e inserti",
+              "Crea un manuale utente e una guida rapida",
+              "Supporto per packaging e logistica di esportazione"
+            ]
+          },
+          {
+            "title": "Scala il fulfillment",
+            "description": "Costruisca un flusso di spedizione pulito per tempi di consegna prevedibili e meno richieste di supporto.",
+            "links": [
+              "Configura il dropshipping",
+              "Pianifica magazzino e rifornimento",
+              "Parla con uno specialista del fulfillment",
+              "Leggi le nostre domande frequenti"
+            ]
+          }
+        ]
+      },
+      "brandingServices": {
+        "eyebrow": "Mappa dei servizi",
+        "title": "QUALI servizi di personalizzazione del branding offriamo?",
+        "description": "Dai lanci a basso rischio al packaging pronto per i canali, la aiutiamo a trasformare uno SKU pronto per la fabbrica in un prodotto pronto per il marchio.",
+        "items": [
+          {
+            "title": "Nessun MOQ",
+            "description": "Lanci con ordini più piccoli, validi la domanda e poi scalì con un rifornimento prevedibile.",
+            "features": [
+              "Opzioni pronte per la piattaforma per una campionatura rapida",
+              "Ordini di prova flessibili con SKU misti",
+              "Piano di volumi incrementale con la crescita delle vendite",
+              "Flusso di rifornimento ripetibile"
+            ],
+            "linkLabel": "Lancia con un ordine pilota",
+            "badge": "Inizia in piccolo"
+          },
+          {
+            "title": "Stampa del logo",
+            "description": "Mettà il Suo marchio su dispositivi, accessori e packaging con metodi durevoli e pronti per la produzione.",
+            "features": [
+              "Mockup del posizionamento del logo prima della produzione",
+              "Opzioni di serigrafia e tampografia",
+              "Incisione laser per finiture premium",
+              "Controlli di durata di sfregamento e adesione"
+            ],
+            "linkLabel": "Rendi il Suo dispositivo dall'aspetto premium",
+            "badge": "Branding"
+          },
+          {
+            "title": "Confezione personalizzata",
+            "description": "Cartoni e inserti pronti per il retail, progettati per l'esperienza di unboxing, la presenza sugli scaffali e l'efficienza logistica.",
+            "features": [
+              "Fustelle personalizzate e configurazione delle grafiche",
+              "Opzioni di inserti: EVA / blister / pasta di cellulosa stampata",
+              "Etichette per canale e requisiti dei codici a barre",
+              "Ottimizzazione del cartone master per il trasporto"
+            ],
+            "linkLabel": "Riduca i danni con inserti migliori",
+            "badge": "Packaging"
+          },
+          {
+            "title": "Manuale utente personalizzato",
+            "description": "Manuali chiari, guide rapide e contenuti di sicurezza che riducono resi e ticket di assistenza.",
+            "features": [
+              "Traduzione multilingue e revisione",
+              "Avvisi di sicurezza e allineamento dell'etichettatura",
+              "Diagrammi di avvio rapido e tabelle d'uso",
+              "Codici QR per tutorial video e domande frequenti"
+            ],
+            "linkLabel": "Riduca i resi con istruzioni chiare",
+            "badge": "Documentazione"
+          },
+          {
+            "title": "Packaging e logistica",
+            "description": "Kitting, etichettatura, documenti di esportazione e coordinamento delle spedizioni, progettati per la consegna globale.",
+            "features": [
+              "Kitting degli accessori e SOP del confezionamento finale",
+              "Documenti di esportazione: fattura, packing list, codice HS",
+              "Supporto alla scelta di aereo, mare e corriere",
+              "FOB Shenzhen con opzioni CIF"
+            ],
+            "linkLabel": "Supporto alla spedizione di esportazione (FOB/CIF)",
+            "badge": "Fulfillment"
+          },
+          {
+            "title": "Dropshipping",
+            "description": "Spedisca direttamente ai Suoi clienti con gestione rapida e flussi di tracciamento affidabili.",
+            "features": [
+              "Packaging neutro o inserti brandizzati",
+              "Caricamento ordini in blocco e spedizione giornaliera",
+              "Sincronizzazione dei numeri di tracciamento e aggiornamenti di stato",
+              "Processo di gestione di eccezioni e resi"
+            ],
+            "linkLabel": "Spedisci direttamente ai clienti",
+            "badge": "Pronto per DTC"
+          }
+        ]
+      },
+      "wwd": {
+        "items": [
+          {
+            "title": "Manutenzione o riparazione del mio sito",
+            "description": "Mantenga in salute il Suo progetto IPL esistente: aggiornamenti dei componenti, correzioni di produzione e rinnovi del packaging che proteggono il Suo marchio.",
+            "cta": "Scopri di più"
+          },
+          {
+            "title": "Trova un partner tecnologico",
+            "description": "Valuti iShine come partner di produzione a lungo termine per i Suoi programmi IPL a marchio privato e OEM/ODM.",
+            "cta": "Scopri di più"
+          },
+          {
+            "title": "Ottimizza il mio store",
+            "description": "Rafforzi la Sua gamma di prodotti con nuovi modelli, packaging pronto per i canali e una documentazione migliore.",
+            "cta": "Scopri di più"
+          },
+          {
+            "title": "Crea un nuovo sito",
+            "description": "Progetti e sviluppi un nuovo dispositivo IPL o dispositivo di bellezza modellato sul Suo marchio, i Suoi obiettivi e i Suoi piani a lungo termine.",
+            "cta": "Inizia"
+          }
+        ]
+      },
+      "trustSignals": {
+        "eyebrow": "Segnali di fiducia",
+        "title": "Prove a sostegno di partnership a lungo termine",
+        "description": "Queste pagine spiegano come riduciamo il rischio operativo, non solo come produciamo.",
+        "cards": [
+          {
+            "title": "Controllo qualità",
+            "description": "Creare stabilità con fasi di produzione chiare e checkpoint di qualità.",
+            "link": "Produzione e assemblaggio"
+          },
+          {
+            "title": "Conformità",
+            "description": "Comprendere le considerazioni sulla sicurezza e come pianificare la documentazione in anticipo.",
+            "link": "Leggi le nostre domande frequenti"
+          },
+          {
+            "title": "Personalizzazione",
+            "description": "Dal logo e packaging ai manuali: renda il prodotto come se fosse del Suo marchio.",
+            "link": "Servizi di branding personalizzati"
+          },
+          {
+            "title": "Contatto",
+            "description": "Ottenga un ambito chiaro, tempi di consegna e un piano adatto al Suo canale.",
+            "link": "Parla con il nostro team"
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Processo",
+        "title": "Dal concept alla consegna: un flusso di lavoro pratico",
+        "description": "Segua una sequenza ripetibile che riduce le rilavorazioni, accorcia i cicli decisionali e migliora la puntualità delle consegne.",
+        "items": [
+          {
+            "title": "Seleziona una piattaforma",
+            "description": "Abbini il Suo concept a una piattaforma di dispositivi collaudata, in base a raffreddamento, posizionamento energetico e caso d'uso.",
+            "duration": "1–2 giorni",
+            "links": [
+              "Sfoglia il catalogo"
+            ]
+          },
+          {
+            "title": "Definisci l'ambito di personalizzazione",
+            "description": "Confermi specifiche, ambito del branding e requisiti di conformità per il Suo mercato di destinazione.",
+            "duration": "2–5 giorni",
+            "links": [
+              "Servizi OEM/ODM"
+            ]
+          },
+          {
+            "title": "Configurazione del branding",
+            "description": "Blocchi posizionamenti e finiture del branding così ogni unità appare coerente e premium.",
+            "duration": "3–7 giorni",
+            "links": [
+              "Aggiungi la stampa del logo"
+            ]
+          },
+          {
+            "title": "Packaging e documentazione",
+            "description": "Preparare asset pronti per il retail che riducono i danni, riducono i resi e migliorano il successo al primo utilizzo.",
+            "duration": "1–2 settimane",
+            "links": [
+              "Personalizza confezione e inserti",
+              "Personalizzazione del manuale utente"
+            ]
+          },
+          {
+            "title": "Produzione e controllo qualità",
+            "description": "Eseguire la produzione con controllo stabile del BOM e checkpoint di qualità allineati ai Suoi canali.",
+            "duration": "2–6 settimane",
+            "links": [
+              "Produzione e assemblaggio"
+            ]
+          },
+          {
+            "title": "Spedizione e fulfillment",
+            "description": "Scelga il modello di spedizione che corrisponde ai Suoi tempi e alle Sue operazioni, dai pallet ai pacchi.",
+            "duration": "In corso",
+            "links": [
+              "Packaging e logistica",
+              "Spedisci direttamente ai clienti"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "eyebrow": "Domande frequenti",
+        "title": "Domande che i marchi pongono prima di effettuare un ordine",
+        "description": "Risposte brevi con collegamenti diretti alle pagine dei servizi pertinenti.",
+        "items": [
+          {
+            "question": "Offrite il No MOQ per i programmi IPL a marchio privato?",
+            "answer": "Sì. Molti programmi possono iniziare con ordini pilota più piccoli, così può validare posizionamento e domanda prima di scalare. Per i dettagli, consulti il supporto No MOQ.",
+            "links": [
+              "Inizia senza MOQ"
+            ]
+          },
+          {
+            "question": "Potete stampare il nostro logo su dispositivo e accessori?",
+            "answer": "Sì. Supportiamo metodi di applicazione del logo pronti per la produzione e aiutiamo a confermare posizionamento e aspettative di durata prima della produzione in serie.",
+            "links": [
+              "Aggiungi la stampa del logo"
+            ]
+          },
+          {
+            "question": "Potete personalizzare confezione, inserti e codici a barre per i canali retail?",
+            "answer": "Sì. Possiamo personalizzare cartoni, inserti di protezione interna e requisiti di etichettatura per i canali, inclusi il posizionamento dei codici a barre e la pianificazione del cartone master.",
+            "links": [
+              "Personalizza confezione e inserti"
+            ]
+          },
+          {
+            "question": "Fornite manuali utente e guide rapide multilingue?",
+            "answer": "Sì. Possiamo personalizzare manuali e guide rapide con diagrammi chiari, avvisi e supporto alla localizzazione per ridurre resi e carico di assistenza.",
+            "links": [
+              "Personalizzazione del manuale utente"
+            ]
+          },
+          {
+            "question": "Supportate packaging e logistica di esportazione?",
+            "answer": "Sì. Supportiamo kitting, etichettatura, documenti di esportazione e coordinamento delle spedizioni via mare, aerea o corriere, in base ai requisiti di destinazione.",
+            "links": [
+              "Supporto per packaging e logistica di esportazione"
+            ]
+          },
+          {
+            "question": "Supportate il dropshipping direttamente ai clienti?",
+            "answer": "Sì. Possiamo supportare la spedizione diretta al cliente con regole di packaging definite, flussi di gestione degli ordini e sincronizzazione del tracciamento.",
+            "links": [
+              "Spedisci direttamente ai clienti"
+            ]
+          },
+          {
+            "question": "Come scegliamo il miglior modello IPL per il nostro mercato?",
+            "answer": "Inizi abbinate il Suo segmento target a una piattaforma: comfort del raffreddamento, posizionamento energetico, connettività dell'app, portabilità e obiettivi di packaging. Poi confermi l'ambito di personalizzazione e le esigenze di conformità.",
+            "links": [
+              "Confronta i modelli IPL"
+            ]
+          },
+          {
+            "question": "Quali sono i passi successivi dopo aver scelto un modello?",
+            "answer": "I passi tipici sono: confermare i requisiti, valutare i campioni, finalizzare branding e asset di packaging, quindi pianificare produzione e spedizione.",
+            "links": [
+              "Richiedi un preventivo"
+            ]
+          }
+        ]
+      },
+      "learnMore": "Scopri di più",
+      "workflowImageAlt": "Flusso di lavoro di produzione e packaging",
+      "trustedBrands": {
+        "items": [
+          {
+            "name": "Costco Canada"
+          },
+          {
+            "name": "RoseSkinCo USA"
+          },
+          {
+            "name": "KU-2 Cosmetics Germany"
+          }
+        ]
+      }
+    },
+    "common": {
+      "whatWeDoCta": "Cosa facciamo",
+      "bookACall": "Prenota una chiamata",
+      "ku2Alt": "KU-2 Cosmetics"
+    },
+    "buildANewIpl": {
+      "meta": {
+        "title": "Costruisci un nuovo dispositivo IPL | iShine",
+        "description": "Dal concept e design industriale alla prototipazione, alla produzione conforme e alla consegna globale: iShine costruisce il Suo nuovo dispositivo IPL, maschera LED per terapia o prodotto beauty-tech."
+      },
+      "hero": {
+        "eyebrow": "Dal concept alla produzione certificata;",
+        "title": "Costruisci un nuovo dispositivo IPL da zero"
+      },
+      "wwd": {
+        "heading": "Dal primo schizzo al pallet di spedizione",
+        "item1": {
+          "title": "Concept e design industriale",
+          "desc": "Trasformiamo la Sua idea in un dispositivo producibile: design industriale, materiali, ergonomia ed esperienza utente fin dal primo schizzo.",
+          "cta": "Avvia un progetto"
+        },
+        "item2": {
+          "title": "Prototipazione e collaudi",
+          "desc": "Prototipi funzionali e rigorosi test di sicurezza, energia e durata prima che una singola unità raggiunga la linea di produzione.",
+          "cta": "Scopri di più"
+        },
+        "item3": {
+          "title": "Produzione in serie conforme",
+          "desc": "Linee di produzione conformi a FDA, CE, ISO 13485 e MDSAP, con controllo qualità rigoroso in ogni fase.",
+          "cta": "Le nostre certificazioni"
+        },
+        "item4": {
+          "title": "Packaging e consegna globale",
+          "desc": "Progettazione del packaging personalizzato e logistica mondiale, così il Suo nuovo dispositivo arriva puntuale in negozi e sulle soglie di casa.",
+          "cta": "Scopri la logistica"
+        }
+      }
+    },
+    "findTechnologyPartner": {
+      "meta": {
+        "title": "Trova un partner tecnologico IPL | iShine",
+        "description": "iShine è un partner tecnologico IPL full-stack: dal raffreddamento allo zaffiro e i sistemi a doppia lampada alla produzione conforme e alla consegna globale per i marchi di bellezza."
+      },
+      "hero": {
+        "eyebrow": "Trova il partner di produzione che il Suo marchio IPL merita;",
+        "title": "Un partner tecnologico per il Suo dispositivo IPL"
+      },
+      "wwd": {
+        "heading": "Collabora con un produttore di dispositivi IPL full-stack",
+        "item1": {
+          "title": "Partner di produzione full-stack",
+          "desc": "Un unico partner per design, ingegneria, produzione conforme, packaging e consegna globale: così il Suo marchio può concentrarsi sul mercato, non sulla fabbrica.",
+          "cta": "Scopri di più"
+        },
+        "item2": {
+          "title": "Tecnologie IPL avanzate",
+          "desc": "Piattaforme collaudate tra cui raffreddamento a ghiaccio allo zaffiro, sistemi a doppia lampada, sensori della pelle e controllo tramite app smart, pronte per essere modellate sul Suo prodotto.",
+          "cta": "Consulta le piattaforme"
+        },
+        "item3": {
+          "title": "Conformità e certificazioni globali",
+          "desc": "Produzione autorizzata FDA, marcata CE, conforme a ISO 13485 e MDSAP, con supporto alla documentazione per ogni mercato in cui vende.",
+          "cta": "Consulta le certificazioni"
+        },
+        "item4": {
+          "title": "Partnership protetta da NDA",
+          "desc": "Firmi un NDA e il Suo marchio, i Suoi design e i Suoi progetti resteranno riservati: non mostriamo mai i marchi dei clienti con cui collaboriamo senza autorizzazione.",
+          "cta": "Parla con noi"
+        }
+      }
+    },
+    "maintainOrFix": {
+      "meta": {
+        "title": "Manutenzione o riparazione del progetto IPL | iShine",
+        "description": "Diagnosi, riparazione e manutenzione del Suo progetto IPL: supporto ai componenti, ricertificazione della conformità e assistenza tecnica continua da iShine Technology."
+      },
+      "hero": {
+        "eyebrow": "Mantenga il Suo progetto IPL al meglio;",
+        "title": "Manutenzione, ottimizzazione e riparazione del Suo progetto IPL"
+      },
+      "wwd": {
+        "heading": "Supporto che mantiene operativo il Suo progetto IPL",
+        "item1": {
+          "title": "Diagnosi e correzioni alla radice",
+          "desc": "Verifichiamo il Suo progetto di dispositivo IPL esistente, identifichiamo problemi di energia, frequenza e stabilità e li correggiamo alla fonte.",
+          "cta": "Avvia una verifica"
+        },
+        "item2": {
+          "title": "Supporto componenti e ricambi",
+          "desc": "Fornitura continua di lampade, filtri ottici, componenti di raffreddamento e ricambi, così la Sua produzione non si ferma mai.",
+          "cta": "Consulta i componenti"
+        },
+        "item3": {
+          "title": "Ricertificazione della conformità",
+          "desc": "Mantenga aggiornati gli status FDA, CE, ISO 13485 e MDSAP con l'evolversi delle normative: verifiche e documentazione gestite per Lei.",
+          "cta": "Consulta le certificazioni"
+        },
+        "item4": {
+          "title": "Assistenza tecnica continua",
+          "desc": "Un referente tecnico dedicato per risoluzione dei problemi, aggiornamenti firmware e miglioramento continuo del Suo progetto IPL.",
+          "cta": "Ottieni supporto"
+        }
+      }
+    },
+    "privateLabel": {
+      "meta": {
+        "title": "Produzione IPL a marchio privato | iShine",
+        "description": "Produzione di dispositivi IPL a marchio privato con logo personalizzato, packaging e flessibilità OEM/ODM. Il Suo marchio, la nostra linea di produzione: supportata da oltre 15 anni di esperienza."
+      },
+      "hero": {
+        "eyebrow": "Il Suo marchio, la nostra linea di produzione;",
+        "title": "Produzione a marchio privato per il Suo marchio"
+      },
+      "wwd": {
+        "heading": "Tutto ciò che il Suo marchio privato richiede, in un unico posto",
+        "item1": {
+          "title": "Il Suo marchio, la nostra linea di produzione",
+          "desc": "Prenda una piattaforma IPL collaudata, aggiunga il Suo logo, i Suoi colori e la Sua confezione: e spedisca un prodotto che sembra essere sempre stato Suo.",
+          "cta": "Trova una piattaforma"
+        },
+        "item2": {
+          "title": "Stampa di loghi ed etichette personalizzati",
+          "desc": "Stampa del logo ed etichettatura in-house per dispositivi, manuali e packaging retail, rifiniti a standard premium.",
+          "cta": "Esplora"
+        },
+        "item3": {
+          "title": "Packaging personalizzato e confezioni retail",
+          "desc": "Dalle semplici confezioni retail ai set di packaging pronti per il regalo, progettiamo e produciamo un packaging che protegge e vende il Suo dispositivo.",
+          "cta": "Scopri il packaging"
+        },
+        "item4": {
+          "title": "Flessibilità OEM e ODM",
+          "desc": "Che porti un design completo o che abbia bisogno del nostro team per svilupparlo, ci adattiamo alle Sue quantità, tempistiche e budget.",
+          "cta": "Avvia il Suo progetto"
+        }
+      }
+    },
+    "oemOdm": {
+      "meta": {
+        "title": "Soluzioni OEM/ODM | iShine",
+        "description": "Produzione OEM e ODM iShine per dispositivi IPL: sviluppo del concept, ingegneria, prototipazione, conformità FDA/CE, marchio privato e produzione chiavi in mano."
+      },
+      "hero": {
+        "title1": "La Sua visione,",
+        "title2": "La nostra competenza",
+        "description": "Soluzioni OEM/ODM complete per dispositivi IPL per la depilazione. Dal concept iniziale ai prodotti pronti per il mercato, trasformiamo le Sue idee in business di successo.",
+        "cta": "Avvia il Suo progetto"
+      }
+    }
+  }
+}

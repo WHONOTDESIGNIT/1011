@@ -17,6 +17,9 @@
 /ro/about/* /ro/about 301
 /ar/about/* /ar/about 301
 /es/about/* /es/about 301
+
+# es-MX 已合并进 es-ES：旧 /es-mx/* URL 全部 301 到 /es/*，保留已收录索引
+/es-mx/* /es/:splat 301
 /fr/about/* /fr/about 301
 /ru/about/* /ru/about 301
 /he/about/* /he/about 301

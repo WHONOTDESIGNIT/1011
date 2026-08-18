@@ -1,6 +1,6 @@
 // 生成 site-urls.txt —— 全站无结尾斜杠 URL 清单（每日搜索引擎提交用）
 // 用法：在 astro/ 目录执行 `node scripts/generate-site-urls.mjs`
-// 与 sitemap.xml.ts 同一路径来源：51 静态核心路径 × 17 语言 + 各语言博客文章。
+// 与 sitemap.xml.ts 同一路径来源：51 静态核心路径 × 21 语言 + 各语言博客文章。
 // 方案B规范：所有 URL 一律无结尾斜杠（如 /ro/about 而非 /ro/about/）。
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ASTRO_ROOT = path.resolve(__dirname, '..');
 const REPO_ROOT = path.resolve(ASTRO_ROOT, '..');
 
-const LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+const LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
 
 // 与 src/pages/sitemap.xml.ts 的 staticPaths 保持一致
 const STATIC_PATHS = [
@@ -64,6 +64,7 @@ const STATIC_PATHS = [
   '/meet-the-team',
   '/marketplace',
   '/privacy-policy',
+  '/return-policy',
   '/blog',
 ];
 

@@ -2,8 +2,10 @@
 // iShine Marketplace — 数字创意资产交易平台（iShine 专属页面）
 import { t } from '../lib/i18n';
 import { getLocalizedPath } from '../lib/breadcrumbs';
+import SeoHead from '../components/SeoHead.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 ---
@@ -19,7 +21,8 @@ const locale = Astro.currentLocale ?? 'en';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
+      var CODE_PATH = { 'es-ES': 'es' };
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {
@@ -38,9 +41,9 @@ const locale = Astro.currentLocale ?? 'en';
         if (stripped === '' || stripped === '/') stripped = '/';
         if (stripped !== path) window.location.replace(stripped);
       } else {
-        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        var target = '/' + (CODE_PATH[stored] || stored) + (stripped === '' || stripped === '/' ? '' : stripped);
         target = target.replace(/\/+$/, '');
-        if (target === '') target = '/' + stored;
+        if (target === '') target = '/' + (CODE_PATH[stored] || stored);
         if (target !== path) window.location.replace(target);
       }
     } catch (e) { /* 隐私模式等场景忽略 */ }
@@ -48,6 +51,7 @@ const locale = Astro.currentLocale ?? 'en';
 </script>
 <title>{t(locale, 'auxPages.marketplace.pageTitle')}</title>
 <meta name="description" content={t(locale, 'auxPages.marketplace.pageDescription')} />
+<SeoHead title={t(locale, 'auxPages.marketplace.pageTitle')} lang={locale} description={t(locale, 'auxPages.marketplace.pageDescription')} />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
 <style>
@@ -333,5 +337,6 @@ h1,h2,h3{font-weight:400}
 
 <SiteFooter />
 
+<CookieConsent lang={locale} />
 </body>
 </html>

@@ -1,0 +1,246 @@
+---
+// CookieConsent.astro — cookie consent banner modeled on the droidwipes.com
+// (TermsFeed CookieConsent) pattern: simple notice bar, express consent,
+// light palette, Accept-all / Decline buttons, remembered in localStorage.
+// Copy lives in messages/*.json under the `cookieConsent` key (19 languages).
+import { t } from '../lib/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props as Props;
+const locale = lang;
+const copy = {
+  message: t(locale, 'cookieConsent.message'),
+  accept: t(locale, 'cookieConsent.accept'),
+  decline: t(locale, 'cookieConsent.decline'),
+  settings: t(locale, 'cookieConsent.settings'),
+  title: t(locale, 'cookieConsent.title'),
+  privacyLink: t(locale, 'cookieConsent.privacyLink'),
+};
+
+// default to the current locale for the inline state
+const consentKey = 'ishine_cookie_consent_v1';
+---
+
+<div id="cookie-consent" role="dialog" aria-live="polite" aria-label={copy.title} hidden>
+  <div class="cc-inner">
+    <div class="cc-text">
+      <p class="cc-message">{copy.message}</p>
+      <a class="cc-privacy" href={`/${locale === 'en' ? '' : locale + '/'}privacy-policy`}>
+        {copy.privacyLink}
+      </a>
+    </div>
+    <div class="cc-actions">
+      <button type="button" class="cc-btn cc-btn-primary" data-cc-accept>
+        {copy.accept}
+      </button>
+      <button type="button" class="cc-btn cc-btn-secondary" data-cc-decline>
+        {copy.decline}
+      </button>
+      <button type="button" class="cc-btn cc-btn-link" data-cc-settings>
+        {copy.settings}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  #cookie-consent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--color-white, #ffffff);
+    border-top: 1px solid var(--border-color, #e5e5e5);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.08);
+    padding: 1rem 1.25rem;
+    font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+    color: var(--text-color, #333333);
+    transform: translateY(0);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  #cookie-consent[hidden] {
+    display: none;
+  }
+  #cookie-consent.cc-hiding {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  .cc-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .cc-text {
+    flex: 1 1 30rem;
+    min-width: 18rem;
+  }
+  .cc-message {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-color, #333333);
+  }
+  .cc-privacy {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--primary-color, #563cfa);
+    text-decoration: underline;
+  }
+  .cc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+  }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    line-height: 1.2;
+    font-family: inherit;
+  }
+  .cc-btn-primary {
+    background: var(--primary-color, #563cfa);
+    color: var(--color-white, #ffffff);
+  }
+  .cc-btn-primary:hover {
+    background: var(--primary-color-hover, #4a2fe0);
+  }
+  .cc-btn-secondary {
+    background: var(--color-white, #ffffff);
+    color: var(--text-color, #333333);
+    border-color: var(--border-color, #e5e5e5);
+  }
+  .cc-btn-secondary:hover {
+    background: var(--section-bg, #f9fafb);
+  }
+  .cc-btn-link {
+    background: transparent;
+    color: var(--primary-color, #563cfa);
+    text-decoration: underline;
+    padding: 0.625rem 0.5rem;
+  }
+  .cc-btn-link:hover {
+    color: var(--primary-color-hover, #4a2fe0);
+  }
+
+  @media (max-width: 640px) {
+    .cc-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .cc-actions {
+      width: 100%;
+    }
+    .cc-btn {
+      flex: 1;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const CONSENT_KEY = 'ishine_cookie_consent_v1';
+    const el = document.getElementById('cookie-consent');
+    if (!el) return;
+
+    // droidwipes/TermsFeed style: default consent level = strictly necessary
+    const DEFAULT_LEVELS = ['strictly-necessary'];
+
+    const applyConsent = (level) => {
+      // If analytics/ads scripts exist, gate them here. The site currently
+      // uses Simple Analytics (privacy-friendly, cookie-less); nothing to gate.
+      if (window.dataLayer) {
+        window.dataLayer.push({ event: 'consent-updated', consent: level });
+      }
+      // Simple Analytics respects `sa_no_track` cookie to opt out
+      if (level.includes('targeting') || level.includes('analytics')) {
+        document.cookie = 'sa_no_track=0; path=/; max-age=31536000; SameSite=Lax';
+      } else {
+        document.cookie = 'sa_no_track=1; path=/; max-age=31536000; SameSite=Lax';
+      }
+    };
+
+    const remember = (choice) => {
+      try {
+        localStorage.setItem(
+          CONSENT_KEY,
+          JSON.stringify({ choice, levels: DEFAULT_LEVELS, ts: Date.now() })
+        );
+      } catch (_) {
+        document.cookie = CONSENT_KEY + '=' + choice + '; path=/; max-age=31536000; SameSite=Lax';
+      }
+    };
+
+    const hide = () => {
+      el.classList.add('cc-hiding');
+      window.setTimeout(() => { el.setAttribute('hidden', ''); }, 350);
+    };
+
+    // Already decided? Keep hidden.
+    let decided = null;
+    try {
+      const raw = localStorage.getItem(CONSENT_KEY);
+      if (raw) decided = JSON.parse(raw).choice;
+    } catch (_) {
+      const m = document.cookie.match(new RegExp('(?:^|; )' + CONSENT_KEY + '=([^;]+)'));
+      if (m) decided = m[1];
+    }
+    if (decided) {
+      applyConsent(decided === 'accept' ? ['strictly-necessary', 'analytics', 'targeting'] : DEFAULT_LEVELS);
+      return; // banner never shows for returning visitors
+    }
+
+    const acceptBtn = el.querySelector('[data-cc-accept]');
+    const declineBtn = el.querySelector('[data-cc-decline]');
+    const settingsBtn = el.querySelector('[data-cc-settings]');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        remember('accept');
+        applyConsent(['strictly-necessary', 'analytics', 'targeting']);
+        hide();
+      });
+    }
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        remember('decline');
+        applyConsent(DEFAULT_LEVELS);
+        hide();
+      });
+    }
+    if (settingsBtn) {
+      settingsBtn.addEventListener('click', () => {
+        // Minimal preferences entry: expands the banner message + buttons.
+        // (Full preferences center can be added later like TermsFeed's
+        // preferences_center; for now it focuses the accept/decline actions.)
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        acceptBtn && acceptBtn.focus({ preventScroll: true });
+      });
+    }
+
+    // Show after a tick so the page paints first (no layout shift jank)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.removeAttribute('hidden');
+      });
+    });
+  })();
+</script>

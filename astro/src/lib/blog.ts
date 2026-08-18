@@ -39,13 +39,21 @@ type BlogMdxModule = {
   default: unknown;
 };
 
-export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'] as const;
+// URL path 前缀列表（与博客内容目录名、URL 前缀一致；es 目录服务于 es-ES）
+export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'] as const;
 export type BlogLocale = (typeof SUPPORTED_LOCALES)[number];
+
+// locale code ↔ URL path 映射（es-ES → /es/；其余 code === path）
+const LOCALE_CODE_TO_PATH: Record<string, string> = { 'es-ES': 'es' };
+const LOCALE_PATH_TO_CODE: Record<string, string> = { 'es': 'es-ES' };
+export const localeToPath = (l: string) => LOCALE_CODE_TO_PATH[l] ?? l;
+export const pathToCode = (p: string) => LOCALE_PATH_TO_CODE[p] ?? p;
 
 // 站点 i18n 回退设计：未提供内容的小语种回退到 en 内容，
 // 与 astro.config 的 fallback rewrite 行为保持一致，避免 /tr/blog/* 渲染 "Not found"
 function resolveBlogLocale(locale: string): BlogLocale {
-  return (SUPPORTED_LOCALES as readonly string[]).includes(locale) ? (locale as BlogLocale) : 'en';
+  const p = localeToPath(locale);
+  return (SUPPORTED_LOCALES as readonly string[]).includes(p) ? (p as BlogLocale) : 'en';
 }
 
 // 同时匹配两个内容目录：
@@ -125,12 +133,12 @@ export async function getPostBySlug(locale: string, slug: string): Promise<BlogP
   return null;
 }
 
-/** 全站所有文章版本（用于 getStaticPaths：每语言独立 slug） */
+/** 全站所有文章版本（用于 getStaticPaths：每语言独立 slug）；locale 返回标准 code（es-ES） */
 export async function getAllArticleVersions(): Promise<{ locale: string; slug: string; canonicalSlug: string }[]> {
   const versions: { locale: string; slug: string; canonicalSlug: string }[] = [];
   for (const { locale, mod } of await loadAllPosts()) {
     const fm = mod.frontmatter;
-    versions.push({ locale, slug: fm.slug, canonicalSlug: fm.canonicalSlug || fm.slug });
+    versions.push({ locale: pathToCode(locale), slug: fm.slug, canonicalSlug: fm.canonicalSlug || fm.slug });
   }
   return versions;
 }
@@ -153,9 +161,11 @@ export async function getPostTranslations(slug: string): Promise<PostTranslation
   const canonicalSlug = target.mod.frontmatter.canonicalSlug || target.mod.frontmatter.slug;
   return posts
     .filter(({ mod }) => (mod.frontmatter.canonicalSlug || mod.frontmatter.slug) === canonicalSlug)
-    .map(({ locale, mod }) => ({
-      locale,
-      href: postHref(locale, mod.frontmatter.slug),
+    .map(({ locale: fileLocale, mod }) => ({
+      // locale 返回标准 code（es-ES），与 Astro.currentLocale 语义一致；
+      // href 基于 URL path（es）生成
+      locale: pathToCode(fileLocale),
+      href: postHref(fileLocale, mod.frontmatter.slug),
       title: mod.frontmatter.title ?? mod.frontmatter.slug,
     }));
 }

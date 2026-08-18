@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "Un nuovo sito Develo e un modo migliore di costruirlo",
+          "alt": "Nuovo sito Develo",
+          "date": "10 feb 2026"
+        },
+        "card14": {
+          "readTime": "4 min di lettura",
+          "category": "HYVÄ THEMES",
+          "title": "Come ottimizzare un sito Hyvä",
+          "alt": "Ottimizza Hyva",
+          "date": "28 gen 2026"
+        },
+        "card15": {
+          "readTime": "4 min di lettura",
+          "category": "ECOMMERCE",
+          "title": "12 consigli di eCommerce moda per siti eleganti e ad alta conversione",
+          "alt": "eCommerce moda",
+          "date": "15 gen 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Paginazione",
+        "previous": "Precedente",
+        "next": "Successivo"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 consigli per ottimizzare velocità e prestazioni di Magento | Blog di Develo",
+      "pageDescription": "Modi pratici per rendere il Suo store Magento più veloce, fluido e redditizio.",
+      "breadcrumb": {
+        "ariaLabel": "Breadcrumb",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 consigli per ottimizzare velocità e prestazioni di Magento",
+      "description": "Modi pratici per rendere il Suo store Magento più veloce, fluido e redditizio",
+      "author": "Di Bethany Wood",
+      "date": "19 febbraio 2026",
+      "readTime": "5 min di lettura",
+      "updated": "Ultimo aggiornamento: 19 febbraio 2026",
+      "share": {
+        "label": "Condividi questo articolo",
+        "twitter": "Condividi su Twitter",
+        "linkedin": "Condividi su LinkedIn",
+        "facebook": "Condividi su Facebook"
+      },
+      "authorRole": "Marketing Manager",
+      "authorBio": "Beth lavora nel marketing dal 2016, realizzando campagne creative incentrate sulla conversione in diversi settori. È specializzata in social media marketing, branding, email marketing e copywriting. In qualità di Marketing Manager di Develo all'interno del dipartimento commerciale, Beth è responsabile della gestione e della realizzazione delle attività di marketing a supporto della crescita del business. Le piace portare i progetti dal concept alla consegna, trasformando le idee in campagne che generano risultati misurabili.",
+      "authorCompany": "Develo è un'agenzia Magento leader e una società di sviluppo web eCommerce con sede a Birmingham, nel Regno Unito, al servizio di clienti in tutto il mondo dal 2010.",
+      "cta": {
+        "text": "Serve aiuto per ottimizzare il Suo store Magento? Ne parliamo.",
+        "button": "Prenota una chiamata"
+      },
+      "body": {
+        "para1Before": "L'ottimizzazione della velocità e delle prestazioni del sito Magento dovrebbe essere in cima alla lista delle priorità di ogni titolare di attività. Perché? Perché con i clienti di oggi, ogni secondo conta. Infatti,",
+        "para1After": "quando le pagine impiegano più di tre secondi per caricarsi. I siti lenti non solo irritano i clienti, ma danneggiano anche l'esperienza utente (UX) e il posizionamento SEO del Suo sito Magento, soprattutto ora che la velocità del sito è un fattore chiave di ranking nei test Core Web Vitals di Google.",
+        "para2": "L'ottimizzazione del sito Magento aiuta a evitare questi problemi, incrementando di conseguenza vendite e conversioni. Di seguito abbiamo raccolto 8 consigli essenziali per aiutarla (o il Suo sviluppatore!) a ottimizzare la velocità di Magento e garantire che il Suo sito sia costruito per performare, qualunque sia la configurazione del Suo store eCommerce.",
+        "section1Title": "Come può testare velocità e prestazioni del Suo Magento con Core Web Vitals?",
+        "section1ParaBefore": "Prima di apportare qualsiasi modifica, consigliamo di eseguire un test Core Web Vitals. Chieda al Suo sviluppatore di verificare problemi di velocità e possibili miglioramenti utilizzando strumenti come",
+        "section1ParaMiddle": "o",
+        "section1ParaAfter": ". Questi strumenti forniscono una baseline per misurare i progressi ed evidenziare le aree che frenano il Suo sito.",
+        "section2Title": "Una volta completato, segua questi 8 consigli di ottimizzazione delle prestazioni di Magento.",
+        "tip1Title": "1. Abilitare tutti i tipi di cache di Magento e usare Varnish",
+        "tip1Para1": "Magento include diverse opzioni di cache integrate. Abilitarle è uno dei modi più rapidi per aumentare le prestazioni del sito. La nostra raccomandazione? Varnish, un potente strumento di caching che riduce significativamente i tempi di caricamento delle pagine memorizzando una versione del Suo sito web in memoria.",
+        "tip1Para2": "Ciò significa che i visitatori abituali non dovranno ricaricare ogni elemento della pagina, risparmiando tempo, risorse del server e riducendo gli acquisti abbandonati.",
+        "tip2Title": "2. Abilitare Redis per sessioni e archiviazione della cache",
+        "tip2Para1": "Oltre a Varnish, consigliamo al Suo sviluppatore di abilitare Redis per sessioni e archiviazione della cache. Redis aiuta ad alleggerire il carico del database memorizzando sessioni e cache in memoria, accelerando il recupero dei dati e riducendo il carico del server.",
+        "tip2Para2": "Perché Varnish e Redis? Questa combinazione migliora sia la reattività del sito Magento durante i picchi di traffico sia le prestazioni del backend. Risultato netto: un'esperienza più fluida per utenti e amministratori.",
+        "tip3Title": "3. Scegliere un hosting specializzato in Magento",
+        "tip3Para1Before": "Magento è una piattaforma ad alta intensità di risorse, quindi trae enormi benefici da ambienti di hosting dedicati e ottimizzati. Per questo motivo, valuti di passare a un provider di hosting specializzato in Magento come",
+        "tip3Para1After": ", UKFast o Corefinity. A differenza dei provider «facciamo tutto», conosceranno la piattaforma a fondo e potranno offrire supporto e infrastruttura su misura per l'ottimizzazione delle prestazioni di Magento.",
+        "tip3Para2": "Consiglio bonus: si assicuri che il Suo attuale provider abbia abilitato Varnish o Redis e che utilizzi la giusta capacità del server per il Suo traffico.",
+        "tip4Title": "4. Usare una CDN come Cloudflare",
+        "tip4Para1": "Una Content Delivery Network (CDN) memorizza le risorse statiche del Suo sito (come immagini, CSS e JS) su più server in tutto il mondo. Quando i clienti visitano il Suo sito, le risorse vengono caricate dal server più vicino, riducendo la latenza (tempo di caricamento) e migliorando i punteggi Core Web Vitals di Magento, il che contribuisce al margine di vendita.",
+        "tip4Para2Before": "Da Develo usiamo",
+        "tip4Para2After": "perché è semplice da configurare, affidabile e offre un piano gratuito generoso.",
+        "tip5Title": "5. Passare all'indicizzazione «on schedule»",
+        "tip5Para": "Magento consente di scegliere quando indicizzare i dati: immediatamente («on save») o «on schedule». Per la maggior parte degli store, l'indicizzazione «on schedule» è più rapida ed efficiente, riduce il carico di amministrazione e migliora l'esperienza utente (UX), soprattutto per i clienti che navigano in grandi cataloghi di prodotti.",
+        "tip6Title": "6. Ottimizzare le immagini e il caricamento lazy-load sotto la piega",
+        "tip6Para1": "Il Suo sito Magento ha immagini di grandi dimensioni? In tal caso, potrebbero caricarsi lentamente. Per correggere il problema, consigli al Suo sviluppatore di implementare il lazy-loading per le immagini che compaiono più in basso nella pagina («sotto la piega») e di utilizzare formati come WebP. Ciò riduce il peso della pagina, migliora i punteggi dei test Core Web Vitals e, cosa più importante, mantiene i tassi di conversione sulla giusta rotta.",
+        "tip6Para2Before": "Consigliamo strumenti come",
+        "tip6Para2After": "per automatizzare questo processo. Inoltre, valuti di ospitare i video esternamente (su piattaforme come YouTube o Vimeo), dove sono ottimizzati per la distribuzione.",
+        "tip7Title": "7. Rivedere e ridurre gli script di terze parti",
+        "tip7Para1Before": "Un altro modo per ottimizzare la velocità di Magento è rivedere (e, se necessario, rimuovere) le estensioni del sito e gli script di terze parti, soprattutto quelli aggiunti tramite GTM o direttamente in Magento. Scovarli è facile con",
+        "tip7Para1Middle": "o",
+        "tip7Para1After": ", e migliorerà i tempi di caricamento del sito.",
+        "tip7Para2": "Ricordi: se uno script è necessario solo in una singola pagina (come una PDP o il checkout), non è necessario caricarlo in tutto il sito.",
+        "tip8Title": "8. Pulire e ottimizzare il database di Magento",
+        "tip8Para": "Affidi al Suo sviluppatore il compito di pulire e ottimizzare regolarmente il database di Magento. Ciò impedirà l'accumulo di dati inutilizzati, inclusi log e preventivi scaduti. Migliorerà l'ottimizzazione del Suo sito Magento e accelererà le query dei clienti.",
+        "bonusTitle": "Consigli bonus per Magento 2.4 e versioni successive",
+        "bonusItem1Strong": "Usa i temi Hyva:",
+        "bonusItem1Before": "Il",
+        "bonusItem1After": "è un'ottima scelta per i titolari di attività che cercano velocità superiori a Luma e risultati eccezionali nei test Core Web Vitals. Il tema migliora le prestazioni web, riduce la complessità per gli sviluppatori e migliora la UX. È un aggiornamento intelligente e pronto per il futuro per qualsiasi store Magento.",
+        "bonusItem2Strong": "Testa regolarmente:",
+        "bonusItem2Before": "Esegua test di velocità mensili utilizzando strumenti come",
+        "bonusItem2Middle": "e",
+        "bonusItem2After": ".",
+        "finalTitle": "Ottimizzazione del sito Magento: considerazioni finali",
+        "finalParaBefore": "L'ottimizzazione del sito Magento è un investimento continuo. Con la giusta configurazione e revisioni regolari, può mantenere il Suo store veloce, sicuro e davanti alla concorrenza, come dimostra il nostro lavoro con",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Carriere | Develo Design",
+      "pageDescription": "Unisciti al nostro team in crescita. Siamo sempre alla ricerca di sviluppatori, designer e specialisti eCommerce di talento che abbiano a cuore un lavoro di qualità.",
+      "hero": {
+        "smallTitle": "Carriere",
+        "heading": "Unisciti al nostro team in crescita",
+        "subheading": "Siamo sempre alla ricerca di sviluppatori, designer e specialisti eCommerce di talento che abbiano a cuore un lavoro di qualità."
+      },
+      "noPositions": {
+        "heading": "Attualmente non abbiamo posizioni aperte",
+        "description": "Tuttavia, siamo sempre interessati a conoscere persone di talento. Se ritiene di essere la persona giusta per il nostro team, ci invii il Suo CV e la contatteremo quando si presenteranno opportunità.",
+        "cta": "Inviaci il tuo CV"
+      },
+      "footerCta": {
+        "heading": "Pronto ad avviare il Suo progetto?",
+        "description": "Saremo lieti di aiutarla a renderlo veloce, scalabile e bello.",
+        "button": "Contattaci"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Informativa sulla privacy e sui cookie | Develo Design",
+      "pageDescription": "In Develo Design siamo impegnati a proteggere la Sua privacy. Scopra come raccogliamo, utilizziamo e proteggiamo i Suoi dati personali.",
+      "hero": {
+        "label": "Legale",
+        "title": "Informativa sulla privacy e sui cookie",
+        "description": "La Sua privacy è importante per noi. Scopra come raccogliamo, utilizziamo e proteggiamo i Suoi dati personali."
+      },
+      "body": {
+        "introTitle": "Introduzione",
+        "introPara": "In Develo Design siamo impegnati a proteggere la Sua privacy e a garantirLe un'esperienza positiva sul nostro sito web. La presente Informativa sulla privacy e sui cookie spiega come raccogliamo, utilizziamo e proteggiamo i Suoi dati personali.",
+        "collectTitle": "Informazioni che raccogliamo",
+        "collectIntro": "Raccogliamo informazioni nei seguenti modi:",
+        "collectProvidedTitle": "Informazioni fornite dall'utente"
+      }
+    }
+  }
+}

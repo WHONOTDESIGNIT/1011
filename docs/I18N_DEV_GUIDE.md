@@ -3,6 +3,8 @@
 > 适用项目：iShine Technology 官网（Astro + Netlify Adapter，主域名 iplmanufacturer.com）
 > 本文档描述项目多语言体系的配置路径、语言包维护规范、RTL 布局开发注意事项，以及 2026-08 新增语言（希伯来语 he、巴西葡萄牙语 pt-BR、荷兰语 nl）的完整说明。
 
+> 🔖 **翻译内容规范请查阅 `docs/i18n/翻译规范准则-STYLE-GUIDE.md`**（各语言术语/敬语/格式/坑点的唯一权威规范），各语言详细审计见 `docs/i18n/` 目录。
+
 ---
 
 ## 1. 支持语言总览
