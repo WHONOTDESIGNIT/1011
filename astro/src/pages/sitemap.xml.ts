@@ -72,6 +72,7 @@ export async function GET() {
       '/meet-the-team',
       '/marketplace',
       '/privacy-policy',
+      '/return-policy',
       '/blog',
     ];
 

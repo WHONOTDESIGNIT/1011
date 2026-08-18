@@ -3,6 +3,7 @@ import StickyContact from '../components/StickyContact.astro';
 import CornerMarker from '../components/CornerMarker.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 // TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
 // import Chat from '../components/react/Chat';
 import criticalCss from '../styles/critical.css?raw';
@@ -50,6 +51,7 @@ const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@40
     </div>
     <SiteFooter lang={lang} />
     <StickyContact />
+    <CookieConsent lang={lang} />
     <!-- TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
     <Chat client:idle />
     -->

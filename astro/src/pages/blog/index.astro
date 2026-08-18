@@ -74,11 +74,7 @@ const uiText = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} hreflangs={[
-    { locale: 'en', href: `${resolveBaseUrl()}/blog` },
-    { locale: 'tr', href: `${resolveBaseUrl()}/tr/blog` },
-    { locale: 'ar', href: `${resolveBaseUrl()}/ar/blog` },
-  ]}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />

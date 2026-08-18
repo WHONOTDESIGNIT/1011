@@ -24,6 +24,12 @@ if (articleLocale !== urlLocale) {
   if (target) {
     return Astro.redirect(target.href, 301);
   }
+  // 当前语言无该文章翻译时（fallback 语言）回退到英文原文，
+  // 避免生成 "Not found" 死页（与 i18n fallback 语义一致）
+  const enTarget = translations.find((x) => x.locale === 'en');
+  if (enTarget) {
+    return Astro.redirect(enTarget.href, 301);
+  }
   return new Response('Not found', { status: 404 });
 }
 

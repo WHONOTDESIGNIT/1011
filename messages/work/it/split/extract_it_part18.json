@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "Nome dell'azienda",
+        "phoneNumber": "Numero di telefono",
+        "productInterest": "Prodotto di interesse",
+        "expectedQuantity": "Quantità prevista",
+        "projectTimeline": "Tempistiche del progetto",
+        "projectDetails": "Dettagli del progetto",
+        "send": "Invia",
+        "productOptions": [
+          "Dispositivi IPL per la depilazione",
+          "Progetto OEM/ODM personalizzato",
+          "Solo componenti IPL",
+          "Dispositivo per il ringiovanimento della pelle",
+          "Non ancora sicuro"
+        ],
+        "quantityOptions": [
+          "Un campione gratuito",
+          "10~500 unità",
+          "Ancora in fase di pianificazione"
+        ],
+        "timelineOptions": [
+          "Il prima possibile",
+          "1 - 3 mesi",
+          "3 - 6 mesi",
+          "6 - 12 mesi",
+          "Solo ricerca"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Perché la depilazione IPL è sicura | Evidenze, FDA, tipi di pelle e sicurezza del dispositivo",
+      "description": "Una pagina pilastro incentrata sulla sicurezza per la depilazione IPL: evidenze cliniche, contesto FDA, protocollo casalingo sicuro, tipi di pelle Fitzpatrick, filtraggio UV, sensori, effetti collaterali, controindicazioni e cure post-trattamento. Include collegamenti diretti alle piattaforme di prodotto e guide approfondite.",
+      "breadcrumbLabel": "Perché la depilazione IPL è sicura",
+      "cta": {
+        "explorePlatforms": "Esplora le piattaforme di dispositivi IPL",
+        "compareModels": "Confronta tutti i modelli"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Dati clinici sulla sicurezza dell'IPL",
+          "anchor": "Dati clinici sulla sicurezza dell'IPL",
+          "description": "Come la ricerca descrive le tipiche reazioni cutanee, la loro gravità e perché la maggior parte degli effetti collaterali è lieve e temporanea se il dispositivo viene usato correttamente."
+        },
+        "fdaContext": {
+          "title": "Contesto FDA: cosa significa realmente «autorizzato dalla FDA»",
+          "anchor": "Verifica FDA (cosa significa «autorizzato dalla FDA»)",
+          "description": "Come interpretare il linguaggio della FDA e perché supporta le dichiarazioni di sicurezza senza esagerare ciò che gli enti regolatori garantiscono."
+        },
+        "atHomeProtocol": {
+          "title": "Protocollo IPL casalingo sicuro (frequenza, test cutaneo, impostazioni)",
+          "anchor": "Protocollo IPL casalingo sicuro (frequenza, test cutaneo, impostazioni)",
+          "description": "Le regole pratiche d'uso che mantengono basso il rischio: test cutaneo, aumento graduale dell'intensità, distanziamento delle sedute ed evitare impulsi ripetuti sulla stessa area."
+        },
+        "fitzpatrick": {
+          "title": "Tipi di pelle Fitzpatrick e limiti di sicurezza dell'IPL",
+          "anchor": "Tipi di pelle Fitzpatrick e limiti di sicurezza dell'IPL",
+          "description": "Perché la tonalità della pelle influisce sul rischio (fisica, non discriminazione) e come i marchi dovrebbero comunicare la compatibilità in modo responsabile."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs laser: confronto sulla sicurezza (e a chi è destinato ciascuno)",
+          "anchor": "IPL vs laser: confronto sulla sicurezza",
+          "description": "Un confronto equilibrato: classe del dispositivo, erogazione dell'energia, rischi comuni e perché «più sicuro» dipende dal tipo di pelle e dal protocollo."
+        },
+        "uvFiltering": {
+          "title": "Filtraggio UV e controllo della lunghezza d'onda (perché l'IPL non è un'abbronzatura UV)",
+          "anchor": "Filtraggio UV e controllo della lunghezza d'onda",
+          "description": "Come i filtri e la progettazione della lunghezza d'onda riducono le radiazioni indesiderate e migliorano i margini di sicurezza durante il trattamento."
+        },
+        "safetySensors": {
+          "title": "Sensori di sicurezza: rilevamento della tonalità della pelle e sensori di contatto",
+          "anchor": "Sensori di sicurezza (rilevamento della tonalità della pelle e sensori di contatto)",
+          "description": "Come il rilevamento della tonalità della pelle e i blocchi di contatto riducono il rischio di uso improprio, soprattutto nei tipi di pelle Fitzpatrick più scuri."
+        },
+        "sideEffects": {
+          "title": "Effetti collaterali dell'IPL spiegati (cosa è normale e cosa no)",
+          "anchor": "Effetti collaterali dell'IPL spiegati (cosa è normale e cosa no)",
+          "description": "Cosa significa un lieve arrossamento, come si presentano le scottature e l'albero decisionale per mettere in pausa, ridurre le impostazioni o chiedere aiuto."
+        },
+        "contraindications": {
+          "title": "Chi non dovrebbe usare l'IPL (controindicazioni e fattori di rischio)",
+          "anchor": "Chi non dovrebbe usare l'IPL (controindicazioni)",
+          "description": "Farmaci, esposizione al sole, tatuaggi, patologie cutanee e altre situazioni in cui l'IPL dovrebbe essere evitato o rimandato."
+        },
+        "beforeAfterCare": {
+          "title": "Cure pre e post trattamento: come ridurre irritazione e rischio",
+          "anchor": "Cure pre e post trattamento per ridurre i rischi dell'IPL",
+          "description": "Semplici passaggi di cura pre e post trattamento che riducono l'infiammazione e aiutano a evitare problemi di pigmentazione dopo le sedute."
+        }
+      },
+      "heroKicker": "Pilastro della sicurezza",
+      "heroTitle": "Perché la depilazione IPL è sicura (se usata correttamente)",
+      "heroParagraph": "Questo è un hub incentrato sulla sicurezza, realizzato per marchi, team di approvvigionamento e buyer del retail. Collega le domande sulla sicurezza più cercate a risposte pratiche, contesto basato sulle evidenze e caratteristiche di progettazione del dispositivo che riducono il rischio.",
+      "howToKicker": "Come usare questa pagina",
+      "howToTitle": "Leggi nello stesso ordine dei tuoi buyer",
+      "howToSteps": [
+        "Inizia con le evidenze e il contesto FDA per fondare la dichiarazione di «sicurezza» in modo responsabile.",
+        "Verifica i limiti legati al tipo di pelle e il protocollo che mantiene basso il rischio per l'uso domestico.",
+        "Poi seleziona le piattaforme in Prodotti e confronta i modelli nel Catalogo."
+      ],
+      "topicMapKicker": "Mappa degli argomenti",
+      "topicMapTitle": "10 argomenti sulla sicurezza (link diretti)",
+      "topicMapParagraph": "Ogni argomento di seguito rimanda a una guida dedicata. Usa questi anchor esatti nelle pagine di supporto per rafforzare la pertinenza.",
+      "guideLabel": "Guida",
+      "pillarKicker": "Sezioni del pilastro",
+      "pillarTitle": "Evidenze + protocollo + progettazione del dispositivo",
+      "pillarParagraph": "Usa questa struttura come pagina di risposta in formato lungo e le guide collegate come contenuti cluster di supporto.",
+      "readGuide": "Leggi la guida",
+      "finalKicker": "Pronto a selezionare un modello?",
+      "finalTitle": "Confronta tutte le piattaforme, poi scegli il giusto stack di sicurezza",
+      "finalParagraph": "Usa la pagina Prodotti per aprire i dettagli delle piattaforme e il Catalogo per confrontare raffreddamento, controllo tramite app e rilevamento della sicurezza tra i modelli."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Piattaforma di trading di asset creativi digitali",
+      "pageDescription": "iShine Marketplace è una piattaforma affidabile di trading di asset creativi digitali dove i creator presentano, scambiano e fanno crescere le loro opere digitali, con servizi e supporto per i creator costruiti attorno alla convinzione: illumina la creatività, collega il valore.",
+      "brandSlogan": "Illumina la creatività, collega il valore",
+      "contactCta": "Contatta iShine",
+      "detailsCta": "Dettagli",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Asset creativi digitali",
+        "heading": "La tua piattaforma affidabile di trading di asset creativi digitali",
+        "subheading": "Presenta le tue opere digitali, scambia con fiducia e cresci con i servizi per creator, tutto in un'unica piattaforma affidabile."
+      },
+      "product1": {
+        "imageAlt": "Vetrina di opere digitali - galleria di asset creativi",
+        "smallTitle": "Vetrina delle opere digitali",
+        "heading": "Presenta le tue creazioni digitali",
+        "description": "Pubblica e presenta le tue opere digitali — modelli, design, illustrazioni e altro — in una galleria splendidamente organizzata che rende facile ai buyer scoprire le tue creazioni."
+      },
+      "product2": {
+        "imageAlt": "Trading sicuro - transazioni di asset digitali",
+        "smallTitle": "Trading digitale sicuro",
+        "heading": "Scambia asset digitali con fiducia",
+        "description": "Acquista e vendi asset digitali attraverso un flusso di transazione chiaro e sicuro, con licenze trasparenti, consegna immediata e pagamenti protetti."
+      },
+      "product3": {
+        "imageAlt": "Servizi per creator - strumenti di analisi e crescita",
+        "smallTitle": "Servizi per creator",
+        "heading": "Fai crescere la tua attività creativa",
+        "description": "Dagli strumenti di portfolio all'analisi per i venditori, iShine Marketplace offre ai creator i servizi e il supporto necessari per raggiungere nuovi pubblici e crescere in modo sostenibile."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Servizi ufficiali",
+        "headingLine1": "Parla con il nostro team di assistenza iShine",
+        "headingLine2": "per discutere dei tuoi",
+        "headingLine3": "obiettivi",
+        "links": {
+          "privateLabel": "Marchio privato",
+          "technologyPartner": "Trova un partner tecnologico IPL",
+          "buildNewIpl": "Costruisci un nuovo IPL",
+          "maintainOrFixIpl": "Manutenzione o riparazione del mio IPL"
+        }
+      },
+      "blog": {
+        "smallTitle": "Impara con noi",
+        "heading": "Community di creator",
+        "subheading": "Articoli utili su creatività digitale, trading sulla piattaforma e crescita del tuo business con iShine Marketplace.",
+        "learnCta": "Scopri",
+        "card1": {
+          "title": "Dispositivi IPL smart: la rivoluzione connessa all'app",
+          "readTime": "5 min di lettura"
+        },
+        "card2": {
+          "title": "Ultimi progressi nella ricerca sull'IPL",
+          "readTime": "4 min di lettura"
+        },
+        "card3": {
+          "title": "OEM vs ODM: scegliere il giusto modello di produzione",
+          "readTime": "6 min di lettura"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ | Produzione IPL iShine",
+      "pageDescription": "Trova risposte sui servizi OEM e ODM, conformità, MOQ, tempi di consegna, imballaggio, spedizione e utilizzo dei prodotti IPL per programmi di dispositivi di bellezza a marchio privato.",
+      "hero": {
+        "smallTitle": "FAQ e supporto"
+      }
+    }
+  }
+}

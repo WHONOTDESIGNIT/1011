@@ -2,10 +2,11 @@
 // iShine Homepage — Develo-style design
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import { t } from '../lib/i18n';
+import SeoHead from '../components/SeoHead.astro';
 
 // 页面不经过 BaseLayout，内联实现自取当前语言：
 // en 无前缀；/tr/、/ar/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr/ar
-const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : 'en');
+const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : startsWith('/de') ? 'de' : 'en');
 // 按当前语言为站内链接加前缀（en 无前缀，tr/ar 自动带前缀）
 const loc = (p: string) => getLocalizedPath(locale, p);
 ---
@@ -23,7 +24,8 @@ const loc = (p: string) => getLocalizedPath(locale, p);
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it', 'de'];
+      var CODE_PATH = { 'es-ES': 'es' };
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {
@@ -42,9 +44,9 @@ const loc = (p: string) => getLocalizedPath(locale, p);
         if (stripped === '' || stripped === '/') stripped = '/';
         if (stripped !== path) window.location.replace(stripped);
       } else {
-        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        var target = '/' + (CODE_PATH[stored] || stored) + (stripped === '' || stripped === '/' ? '' : stripped);
         target = target.replace(/\/+$/, '');
-        if (target === '') target = '/' + stored;
+        if (target === '') target = '/' + (CODE_PATH[stored] || stored);
         if (target !== path) window.location.replace(target);
       }
     } catch (e) { /* 隐私模式等场景忽略 */ }
@@ -53,6 +55,7 @@ const loc = (p: string) => getLocalizedPath(locale, p);
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
 <title>{t(locale, 'teamPage.meta.title')}</title>
 <meta name="description" content={t(locale, 'teamPage.meta.description')} />
+<SeoHead title={t(locale, 'teamPage.meta.title')} lang={locale} description={t(locale, 'teamPage.meta.description')} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1351,7 +1354,7 @@ a{text-decoration:none;color:inherit}
       <div class="footer-col footer-col-info">
         <p class="footer-company-info">{t(locale, 'teamPage.footer.companyIntro')}</p>
         <p class="footer-company-info">{t(locale, 'teamPage.footer.certInfo')}<br/>{t(locale, 'teamPage.footer.fdaSupport')}</p>
-        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'teamPage.footer.copyright')} <a href={loc("/privacy-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'teamPage.footer.privacyPolicy')}</a>. <a href={loc("/faq")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'teamPage.footer.faq')}</a>.</p>
+        <p class="footer-company-info" style="margin-top:12px">{t(locale, 'teamPage.footer.copyright')} <a href={loc("/privacy-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'teamPage.footer.privacyPolicy')}</a>. <a href={loc("/faq")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'teamPage.footer.faq')}</a>. <a href={loc("/return-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Return Policy</a>.</p>
       </div>
     </div>
   </div>
