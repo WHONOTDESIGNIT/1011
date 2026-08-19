@@ -389,8 +389,8 @@ a{text-decoration:none;color:inherit}
 .stat-cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
 .stat-card{border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px}
 .stat-number{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:#fff}
-.stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:rgba(255,255,255,.7)}
-.stat-card-cta{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.8);line-height:21px;margin-top:4px}
+.stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:rgba(255,255,255,.95)}
+.stat-card-cta{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:#fff;line-height:21px;margin-top:4px}
 @media(min-width:1280px){
   .stat-cards-grid{display:flex;gap:20px;overflow:hidden;padding-bottom:8px;transition:transform .5s cubic-bezier(.22,.61,.36,1);will-change:transform}
   .stat-card{flex:0 0 calc((100% - 20px)/1.25);min-height:640px;aspect-ratio:1.645/1;justify-content:space-between;padding:40px}
@@ -598,7 +598,7 @@ a{text-decoration:none;color:inherit}
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a class="header-logo" href={loc("/")} aria-label={t(locale, 'homepage.logo.alt')}>
-      <img src="/images/logos/ishine-logo.webp" alt={t(locale, 'homepage.logo.alt')} />
+      <img src="/images/logos/ishine-logo.webp" alt={t(locale, 'homepage.logo.alt')} width="444" height="160" />
     </a>
     <div class="header-main-nav">
     <nav class="header-nav desktop-nav">
@@ -1035,10 +1035,10 @@ a{text-decoration:none;color:inherit}
       <p class="our-clients-sub">{t(locale, 'homepage.clients.sub')}</p>
     </div>
     <div class="our-clients-logos">
-      <img src="/images/logos/mandyskin-logo.webp" alt={t(locale, 'homepage.clients.mandyskinAlt')} loading="lazy" />
-      <img src="/images/logos/roseskinco-logo.webp" alt={t(locale, 'homepage.clients.roseskincoAlt')} loading="lazy" />
-      <img src="/images/logos/logo-ku-cosmetics.webp" alt={t(locale, 'homepage.clients.ku2Alt')} loading="lazy" />
-      <img src="/images/logos/Logo_LUX_SKIN.webp" alt={t(locale, 'homepage.clients.luxskinAlt')} loading="lazy" />
+      <img src="/images/logos/mandyskin-logo.webp" alt={t(locale, 'homepage.clients.mandyskinAlt')} loading="lazy" width="182" height="72" />
+      <img src="/images/logos/roseskinco-logo.webp" alt={t(locale, 'homepage.clients.roseskincoAlt')} loading="lazy" width="334" height="72" />
+      <img src="/images/logos/logo-ku-cosmetics.webp" alt={t(locale, 'homepage.clients.ku2Alt')} loading="lazy" width="102" height="72" />
+      <img src="/images/logos/Logo_LUX_SKIN.webp" alt={t(locale, 'homepage.clients.luxskinAlt')} loading="lazy" width="317" height="72" />
     </div>
   </div>
 </section>
@@ -1101,19 +1101,19 @@ a{text-decoration:none;color:inherit}
       <div class="quality-certs-list">
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>{t(locale, 'home.qualitySection.items.0.title')}</h4><p>{t(locale, 'homepage.quality.item1Desc')}</p></div>
+          <div class="quality-certs-item-content"><h3>{t(locale, 'home.qualitySection.items.0.title')}</h3><p>{t(locale, 'homepage.quality.item1Desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>{t(locale, 'home.qualitySection.items.1.title')}</h4><p>{t(locale, 'homepage.quality.item2Desc')}</p></div>
+          <div class="quality-certs-item-content"><h3>{t(locale, 'home.qualitySection.items.1.title')}</h3><p>{t(locale, 'homepage.quality.item2Desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>{t(locale, 'home.qualitySection.items.2.title')}</h4><p>{t(locale, 'homepage.quality.item3Desc')}</p></div>
+          <div class="quality-certs-item-content"><h3>{t(locale, 'home.qualitySection.items.2.title')}</h3><p>{t(locale, 'homepage.quality.item3Desc')}</p></div>
         </div>
         <div class="quality-certs-item">
           <div class="quality-certs-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="quality-certs-item-content"><h4>{t(locale, 'home.qualitySection.items.3.title')}</h4><p>{t(locale, 'homepage.quality.item4Desc')}</p></div>
+          <div class="quality-certs-item-content"><h3>{t(locale, 'home.qualitySection.items.3.title')}</h3><p>{t(locale, 'homepage.quality.item4Desc')}</p></div>
         </div>
       </div>
       <a class="quality-certs-cta" href={loc("/about/quality-control")}>{t(locale, 'homepage.quality.cta')} <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1167,32 +1167,32 @@ a{text-decoration:none;color:inherit}
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/ice feeling.png" alt={t(locale, 'homepage.tech.sapphire.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.sapphire.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.sapphire.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.sapphire.desc')}</span>
         </div>
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/Glide Mode.png" alt={t(locale, 'homepage.tech.glide.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.glide.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.glide.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.glide.desc')}</span>
         </div>
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/smart-app.png" alt={t(locale, 'homepage.tech.appControl.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.appControl.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.appControl.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.appControl.desc')}</span>
         </div>
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/dual-lamp.png" alt={t(locale, 'homepage.tech.dualLamp.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.dualLamp.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.dualLamp.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.dualLamp.desc')}</span>
         </div>
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/skin sensor.png" alt={t(locale, 'homepage.tech.skinSensor.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.skinSensor.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.skinSensor.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.skinSensor.desc')}</span>
         </div>
         <div class="tech-card">
           <div class="tech-icon"><img src="/images/icons/safety-lock.png" alt={t(locale, 'homepage.tech.safetyLock.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'homepage.tech.safetyLock.title')}</span>
-          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'homepage.tech.safetyLock.desc')}</span>
+          <span style="font-family:Manrope,sans-serif;font-size:13px;color:#4b5563;line-height:18px">{t(locale, 'homepage.tech.safetyLock.desc')}</span>
         </div>
       </div>
     </div>
