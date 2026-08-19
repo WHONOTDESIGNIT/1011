@@ -144,6 +144,10 @@ const pageHreflangs = hreflangs?.length
     ];
 const defaultHreflang = pageHreflangs.find((h) => h.locale === 'en')?.href ?? pageHreflangs[0]?.href ?? hreflangEn;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
+// Bing Webmaster Tools 域名验证码（msvalidate.01）：登录 Bing Webmaster 添加站点后获取
+// 32 位十六进制验证码填入下方，输出 <meta name="msvalidate.01"> 完成域名验证并提交 sitemap。
+// 留空则不输出（避免无效 meta）。亦可用 BingSiteAuth.xml 文件验证。
+const BING_SITE_VERIFICATION = '';
 const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png';
 ---
 
@@ -190,6 +194,7 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
 <title>{title}</title>
 {description && <meta name="description" content={description} />}
 <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+{BING_SITE_VERIFICATION && <meta name="msvalidate.01" content={BING_SITE_VERIFICATION} />}
 <link rel="canonical" href={canonicalUrl} />
 {pageHreflangs.map((h) => (
   <link rel="alternate" hreflang={h.locale} href={h.href} />

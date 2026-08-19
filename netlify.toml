@@ -5,7 +5,7 @@
   # check-llms.mjs：校验 llms.txt 无 /en/ 前缀、无尾斜杠、无死链（防回归）
   # flatten-html.mjs：方案B —— 将 directory 产物（foo/index.html）转换为 .html 文件，
   # 使 Netlify 原生将 /about/ 301 → /about（全站无结尾斜杠，Panasonic 风格）
-  command = "npm run build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs"
+  command = "npm run build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/submit-indexnow.mjs"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -69,8 +69,9 @@
   status = 301
   force = true
 
-# SSR fallback（不加 force，现有静态文件由 CDN 直接提供）
+# 兜底 404：未匹配任何静态文件的路径返回 404（软 404 修复——
+# 此前 `/* → SSR 200` 使任意不存在的 URL 都返回 200，易被搜索引擎判为低质信号）
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/ssr"
-  status = 200
+  to = "/404.html"
+  status = 404
