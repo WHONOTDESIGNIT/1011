@@ -15,9 +15,12 @@
 //   3. /dir/:splat /dir/:splat.html 200—— 顶层页面目录通配规则；:splat 匹配任意深度子路径
 //      （/blog/:splat → /blog/a/b.html）。白名单方式（仅对真实页面目录生成）确保
 //      _astro/fonts/images/videos 等静态资源与 /.netlify/functions/* 不被误伤。
-// 未匹配路径（如 /zzz-does-not-exist-12345.txt）不命中任何规则，落入 netlify.toml 的
-// `/* → /404.html 404` 兜底返回真 404（软 404 修复的根本保障）。Netlify 对 rewrite 目标
-// 文件查找失败返回 404（"when all of these fail, we end up serving a 404 page"）。
+// 未匹配路径（如 /zzz-does-not-exist-12345.txt）不命中任何规则，落入 _redirects 末尾的
+// `/* /404.html 404` 兜底返回真 404（软 404 修复的根本保障）。兜底原本定义于
+// netlify.toml [[redirects]]，但线上实测该段未生效（平台对未命中规则的路径返回
+// text/plain 301 自指循环而非 404），故移入 _redirects 确保生效（_redirects 优先级最高）。
+// Netlify 对 rewrite 目标文件查找失败返回 404（"when all of these fail, we end up
+// serving a 404 page"）。
 // _redirects 优先级高于 netlify.toml。
 //
 // 保留不动：根 index.html（/ 路径，无尾斜杠标准形式）、404.html、500.html、
@@ -114,6 +117,13 @@ function buildRedirects(dist) {
   for (const dir of pageDirs.sort()) {
     rules.push(`/${dir}/:splat /${dir}/:splat.html 200`);
   }
+  // 兼容旧链接：/en/* 301 到无前缀版本。原定义于 netlify.toml，但线上实测
+  // netlify.toml 的 [[redirects]] 未生效（/en/foo 未 301 到 /foo），
+  // 且平台对未命中规则的路径返回 text/plain 301 自指循环而非 404。
+  // 因此将 /en/* 与 404 兜底一并写入 _redirects（文件优先级最高、必然生效）。
+  rules.push('/en/* /:splat 301!');
+  // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404
+  rules.push('/* /404.html 404');
   return rules;
 }
 
