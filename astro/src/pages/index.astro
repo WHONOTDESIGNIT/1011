@@ -18,7 +18,7 @@ const pageDescription = t(locale, 'home.page.description');
 <!doctype html>
 <html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
-<SeoHead title={pageTitle} lang={locale} description={pageDescription} />
+<SeoHead title={pageTitle} lang={locale} description={pageDescription} video={{ name: pageTitle }} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
@@ -895,7 +895,7 @@ a{text-decoration:none;color:inherit}
   <div class="hero-wrapper">
     <div class="video-section">
       <div class="video-placeholder">
-        <video autoplay muted loop playsinline width="1280" height="720">
+        <video autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
           <source src="/videos/head-video.mp4" type="video/mp4" />
         </video>
       </div>

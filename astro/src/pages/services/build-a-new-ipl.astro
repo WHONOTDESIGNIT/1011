@@ -51,7 +51,7 @@ const loc = (p: string) => getLocalizedPath(locale, p);
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
 <title>{t(locale, 'servicesPage.buildANewIpl.meta.title')}</title>
 <meta name="description" content={t(locale, 'servicesPage.buildANewIpl.meta.description')} />
-<SeoHead title={t(locale, 'servicesPage.buildANewIpl.meta.title')} lang={locale} description={t(locale, 'servicesPage.buildANewIpl.meta.description')} />
+<SeoHead title={t(locale, 'servicesPage.buildANewIpl.meta.title')} lang={locale} description={t(locale, 'servicesPage.buildANewIpl.meta.description')} video={{ name: t(locale, 'servicesPage.buildANewIpl.meta.title') }} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -900,7 +900,7 @@ a{text-decoration:none;color:inherit}
   <div class="hero-wrapper">
     <div class="video-section">
       <div class="video-placeholder">
-        <video autoplay muted loop playsinline width="1280" height="720">
+        <video autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
           <source src="/videos/head-video.mp4" type="video/mp4" />
         </video>
       </div>

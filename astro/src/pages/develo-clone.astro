@@ -288,8 +288,8 @@ a{text-decoration:none;color:inherit}
 
 /* Video */
 .video-section{position:relative;z-index:2;width:100%;max-width:960px;margin-top:calc(var(--hero-video-overlap) * -1)}
-.video-placeholder{position:relative;width:100%;overflow:hidden;border-radius:20px;background:#e5e7eb}
-.video-placeholder video{display:block;width:100%;height:auto;object-fit:cover;border-radius:20px}
+.video-placeholder{position:relative;width:100%;overflow:hidden;border-radius:20px;background:#e5e7eb;aspect-ratio:16/9}
+.video-placeholder video{display:block;width:100%;height:100%;object-fit:cover;border-radius:20px}
 
 @media(max-width:1279px){
   .hero-white-container{min-width:320px}
@@ -641,7 +641,7 @@ a{text-decoration:none;color:inherit}
   <div class="hero-wrapper">
     <div class="video-section">
       <div class="video-placeholder">
-        <video autoplay muted loop playsinline width="1280" height="720">
+        <video autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
           <source src="/videos/head-video.mp4" type="video/mp4" />
         </video>
       </div>
