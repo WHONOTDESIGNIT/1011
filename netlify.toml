@@ -1,11 +1,12 @@
 [build]
   base = "astro/"
   publish = "dist/"
-  # 构建后运行 AI 爬虫授权守护脚本：GPTBot/ClaudeBot/PerplexityBot 若被误拦截将中止部署（fail-safe）
-  # check-llms.mjs：校验 llms.txt 无 /en/ 前缀、无尾斜杠、无死链（防回归）
-  # flatten-html.mjs：方案B —— 将 directory 产物（foo/index.html）转换为 .html 文件，
-  # 使 Netlify 原生将 /about/ 301 → /about（全站无结尾斜杠，Panasonic 风格）
-  command = "npm run build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/submit-indexnow.mjs"
+  # 构建命令统一为 npm run build —— 完整链（astro build + flatten-html + 校验 + IndexNow）
+  # 定义在 astro/package.json 的 build script 中，避免 Netlify 控制台 Build command 覆盖
+  # netlify.toml 的 command 时丢失 flatten/校验步骤（线上曾因此回退为目录型产物）。
+  # flatten-html.mjs：方案B —— directory 产物（foo/index.html）→ .html + 生成 _redirects
+  # （无尾斜杠 URL rewrite 到 .html、尾斜杠 301 到无尾斜杠，全站无结尾斜杠，Panasonic 风格）
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
