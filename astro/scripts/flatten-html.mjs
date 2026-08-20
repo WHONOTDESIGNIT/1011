@@ -7,11 +7,18 @@
 // 同目录名的 .html 文件（about/index.html → about.html）。
 //
 // 重要：Netlify 不会自动把 /about 映射到 about.html（精确匹配静态文件 about，无则匹配
-// about/index.html，再无则走 redirects）。因此本脚本转换的同时生成 dist/_redirects：
-//   每条页面两条规则：
-//     /about /about.html 200     （无尾斜杠 URL → rewrite 到 .html，URL 不变）
-//     /about/ /about 301         （尾斜杠 URL → 301 到无尾斜杠，统一单一 URL 规范）
-// _redirects 优先级高于 netlify.toml，netlify.toml 的 `/* → /404.html 404` 兜底不受影响。
+// about/index.html，再无则走 redirects）。因此本脚本转换的同时生成 dist/_redirects。
+//
+// 精简通配符方案（替代逐页 5276 条规则，避免 396KB 大文件与 Netlify 10k 规则红线）：
+//   1. /*/ /:splat 301                 —— 全站尾斜杠统一 301 到无斜杠（单条覆盖所有尾斜杠 URL）
+//   2. /name /name.html 200            —— 顶层单段页面精确规则（/about、/pt-BR、/blog 等）
+//   3. /dir/:splat /dir/:splat.html 200—— 顶层页面目录通配规则；:splat 匹配任意深度子路径
+//      （/blog/:splat → /blog/a/b.html）。白名单方式（仅对真实页面目录生成）确保
+//      _astro/fonts/images/videos 等静态资源与 /.netlify/functions/* 不被误伤。
+// 未匹配路径（如 /zzz-does-not-exist-12345.txt）不命中任何规则，落入 netlify.toml 的
+// `/* → /404.html 404` 兜底返回真 404（软 404 修复的根本保障）。Netlify 对 rewrite 目标
+// 文件查找失败返回 404（"when all of these fail, we end up serving a 404 page"）。
+// _redirects 优先级高于 netlify.toml。
 //
 // 保留不动：根 index.html（/ 路径，无尾斜杠标准形式）、404.html、500.html、
 // index.backup.html、.netlify/（SSR 函数）、资源目录（_astro/fonts/images/videos）。
@@ -67,7 +74,6 @@ indexFiles.sort((a, b) => b.length - a.length);
 
 let moved = 0;
 let skipped = 0;
-const redirects = []; // Netlify _redirects 规则：无尾斜杠 URL rewrite 到 .html；尾斜杠 301 到无尾斜杠
 for (const file of indexFiles) {
   const dir = path.dirname(file);
   const dirName = path.basename(dir); // 页面目录名（如 about、pt-BR）
@@ -79,20 +85,44 @@ for (const file of indexFiles) {
   }
   fs.renameSync(file, target);
   moved++;
-  // 该页面的 URL 路径（无 .html 后缀，如 /about、/products/lumi-2、/tr）
-  const rel = path.relative(DIST, target).split(path.sep).join('/').replace(/\.html$/, '');
-  redirects.push(`/${rel} /${rel}.html 200`);
-  redirects.push(`/${rel}/ /${rel} 301`);
   console.log(`  → ${path.relative(DIST, target)}`);
 }
 
 removeEmptyDirs(DIST);
 
+// 基于 dist 实际产物生成精简 _redirects（白名单通配符方案，取代逐页 5276 条规则）
+function buildRedirects(dist) {
+  const rules = ['/*/ /:splat 301']; // 尾斜杠统一 301 → 无斜杠（单条覆盖全站尾斜杠 URL）
+  const pageDirs = [];
+  const topPages = [];
+  for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
+    if (EXCLUDED_DIRS.has(entry.name)) continue; // 白名单排除静态资源/函数目录
+    if (entry.isDirectory()) {
+      pageDirs.push(entry.name);
+    } else if (
+      entry.name.endsWith('.html') &&
+      !['404.html', 'index.html', 'index.backup.html'].includes(entry.name)
+    ) {
+      topPages.push(entry.name);
+    }
+  }
+  // 精确规则在前（更具体优先），目录通配在后
+  for (const f of topPages.sort()) {
+    const name = f.slice(0, -5);
+    rules.push(`/${name} /${name}.html 200`);
+  }
+  for (const dir of pageDirs.sort()) {
+    rules.push(`/${dir}/:splat /${dir}/:splat.html 200`);
+  }
+  return rules;
+}
+
 // 生成 _redirects（方案B 必须：Netlify 不自动将 /about 映射到 about.html，需显式 rewrite）
-if (redirects.length > 0) {
+const rules = buildRedirects(DIST);
+if (rules.length > 0) {
   const redirectsFile = path.join(DIST, '_redirects');
-  fs.writeFileSync(redirectsFile, redirects.join('\n') + '\n');
-  console.log(`📄 已生成 _redirects（${redirects.length} 条规则）`);
+  fs.writeFileSync(redirectsFile, rules.join('\n') + '\n');
+  console.log(`📄 已生成 _redirects（${rules.length} 条规则，通配符压缩方案）`);
 }
 
 console.log(`\n转换完成：移动 ${moved} 个页面产物${skipped ? `，跳过冲突 ${skipped} 个` : ''}`);
