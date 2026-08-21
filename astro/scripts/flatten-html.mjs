@@ -100,7 +100,13 @@ if (removedDirs > 0) {
 
 // 基于 dist 实际产物生成精简 _redirects（白名单通配符方案，取代逐页 5276 条规则）
 function buildRedirects(dist) {
-  const rules = ['/*/ /:splat 301']; // 尾斜杠统一 301 → 无斜杠（单条覆盖全站尾斜杠 URL）
+  // 【2026-08-21 修复】不再生成 "/*/ /:splat 301" —— 经 netlify-redirector（与线上 CDN 同一匹配引擎）
+  // 实测，该规则是「全站 catch-all 自指 301」：* 贪婪捕获含尾斜杠在内的整段路径，:splat 回指自身，
+  // 且因其排在最前、首条命中即生效，会遮蔽其后所有规则（/en/* 301!、/* 404! 均永不生效），
+  // 导致未命中静态文件的路径（如 /zzz-notexist、/en/about）全部 301 自指而非 404/301。
+  // 移除后：尾斜杠 URL 仍由下方精确/通配 200 规则（libredirect 精确匹配容忍尾斜杠）正常服务，
+  // /en/* 与兜底 404 规则不再被遮蔽。
+  const rules = [];
   const pageDirs = [];
   const topPages = [];
   for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
