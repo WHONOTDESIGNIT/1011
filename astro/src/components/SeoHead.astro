@@ -1,10 +1,10 @@
-﻿---
-// SeoHead 鈥?鍏ㄧ珯缁熶竴 SEO head锛坈anonical / 18 璇█ hreflang / OG / Twitter / JSON-LD / 楠岃瘉鐮侊級
+---
+// SeoHead — 全站统一 SEO head（canonical / 18 语言 hreflang / OG / Twitter / JSON-LD / 验证码）
 //
-// BaseLayout 涓?index.astro锛堥椤碉紝鑷寘鍚?Develo 椋庢牸甯冨眬锛夊叡鐢ㄦ缁勪欢锛?
-// 淇濊瘉棣栭〉涓庡叾浠栭〉闈?head 姘镐笉婕傜Щ銆侀槻鍥炲綊銆?
-// 娉ㄦ剰锛氬瓧浣?CSS 鍔犺浇淇濈暀鍦ㄥ悇椤甸潰鑷韩锛圔aseLayout 鐢?critical.css + global.css锛?
-// 棣栭〉鐢ㄨ嚜宸辩殑鍐呰仈鏍峰紡浣撶郴锛夛紝姝ゅ浠呰緭鍑?SEO 鍏抽敭鏍囩銆?
+// BaseLayout 与 index.astro（首页，自包含 Develo 风格布局）共用此组件，
+// 保证首页与其他页面 head 永不漂移、防回归。
+// 注意：字体/CSS 加载保留在各页面自身（BaseLayout 用 critical.css + global.css，
+// 首页用自己的内联样式体系），此处仅输出 SEO 关键标签。
 import { getRelativeLocaleUrl, pathHasLocale, getPathByLocale } from 'astro:i18n';
 
 const SITE_NAME = 'iShine - Professional IPL Hair Removal Device Manufacturer';
@@ -62,9 +62,9 @@ type Props = {
   canonical?: string;
   image?: string;
   type?: 'website' | 'article';
-  /** 鏄惧紡 hreflang锛堢敤浜庡崥瀹㈡枃绔?鍒楄〃绛夎法璇█ slug 涓嶅悓鐨勯〉闈級锛涙湭鎻愪緵鏃舵寜褰撳墠璺緞鑷姩鐢熸垚 */
+  /** 显式 hreflang（用于博客文章/列表等跨语言 slug 不同的页面）；未提供时按当前路径自动生成 */
   hreflangs?: { locale: string; href: string }[];
-  /** 椤甸潰鍚?<video> 鏃朵紶鍏ワ細杈撳嚭 VideoObject JSON-LD锛屽府鍔?Google 缂栧叆瑙嗛绱㈠紩 */
+  /** 页面含 <video> 时传入：输出 VideoObject JSON-LD，帮助 Google 编入视频索引 */
   video?: { name?: string; description?: string };
 };
 
@@ -77,7 +77,7 @@ const siteBaseUrl = (
   ?? process.env.SITE_URL
   ?? 'https://iplmanufacturer.com'
 ).replace(/\/$/, '');
-// 绔欑偣閾炬帴瑙勮寖锛氶櫎鏍硅矾寰勫涓€寰嬪幓鎺夋湯灏炬枩鏉狅紙濡?/tr/contact 鑰岄潪 /tr/contact/锛?
+// 站点链接规范：除根路径外一律去掉末尾斜杠（如 /tr/contact 而非 /tr/contact/）
 const stripTrailingSlash = (u: string) => {
   if (u && u !== '/' && u.length > 1 && u.endsWith('/')) {
     const cleaned = u.replace(/\/+$/, '');
@@ -86,12 +86,12 @@ const stripTrailingSlash = (u: string) => {
   return u;
 };
 
-// 璇█鍖?hreflang锛氬墺绂诲綋鍓嶈矾寰勫墠缂€鍚庝负鍚勮瑷€鐢熸垚璇█鐗堟湰 URL
-// 娉ㄦ剰锛氫笉鐢?getAbsoluteLocaleUrl 鈥斺€?瀹冧緷璧?astro.config 鐨?site 瀛楁锛屾湰宸ョ▼鏈厤缃紝
-// 浼氳緭鍑虹浉瀵硅矾寰勶紙Google 瑕佹眰 hreflang 蹇呴』涓虹粷瀵?URL锛夈€?
-// 鏀圭敤 getRelativeLocaleUrl 寰楀埌鐩稿璺緞锛屽啀鍩轰簬 siteBaseUrl 鎷兼帴缁濆 URL锛?
-// 鍚屾椂淇濈暀 Netlify 棰勮鐜鐨勫姩鎬佸煙鍚嶏紙process.env.URL锛夈€?
-// lang 鍙兘鏄?locale code锛堝 es-ES锛夛紝URL 鍓嶇紑闇€鐢?getPathByLocale 杞崲锛坋s锛?
+// 语言化 hreflang：剥离当前路径前缀后为各语言生成语言版本 URL
+// 注意：不用 getAbsoluteLocaleUrl —— 它依赖 astro.config 的 site 字段，本工程未配置，
+// 会输出相对路径（Google 要求 hreflang 必须为绝对 URL）。
+// 改用 getRelativeLocaleUrl 得到相对路径，再基于 siteBaseUrl 拼接绝对 URL，
+// 同时保留 Netlify 预览环境的动态域名（process.env.URL）。
+// lang 可能是 locale code（如 es-ES），URL 前缀需用 getPathByLocale 转换（es）
 const localePath = getPathByLocale(lang) ?? lang;
 const basePath = pathHasLocale(Astro.url.pathname)
   ? Astro.url.pathname.replace(new RegExp(`^/${localePath}(?=/|$)`), '') || '/'
@@ -150,9 +150,9 @@ const pageHreflangs = hreflangs?.length
     ];
 const defaultHreflang = pageHreflangs.find((h) => h.locale === 'en')?.href ?? pageHreflangs[0]?.href ?? hreflangEn;
 const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
-// Bing Webmaster Tools 鍩熷悕楠岃瘉鐮侊紙msvalidate.01锛夛細鐧诲綍 Bing Webmaster 娣诲姞绔欑偣鍚庤幏鍙?
-// 32 浣嶅崄鍏繘鍒堕獙璇佺爜濉叆涓嬫柟锛岃緭鍑?<meta name="msvalidate.01"> 瀹屾垚鍩熷悕楠岃瘉骞舵彁浜?sitemap銆?
-// 鐣欑┖鍒欎笉杈撳嚭锛堥伩鍏嶆棤鏁?meta锛夈€備害鍙敤 BingSiteAuth.xml 鏂囦欢楠岃瘉銆?
+// Bing Webmaster Tools 域名验证码（msvalidate.01）：登录 Bing Webmaster 添加站点后获取
+// 32 位十六进制验证码填入下方，输出 <meta name="msvalidate.01"> 完成域名验证并提交 sitemap。
+// 留空则不输出（避免无效 meta）。亦可用 BingSiteAuth.xml 文件验证。
 const BING_SITE_VERIFICATION = '8CF8DC045D3E948836B3121AF095A214';
 const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png';
 ---
@@ -160,16 +160,16 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script is:inline>
-  // 璇█鍋忓ソ鎸佷箙鍖栵細璇诲彇鐢ㄦ埛閫夊畾鐨勮瑷€锛坙ocalStorage锛夛紝
-  // 鑻ュ綋鍓?URL 璇█涓庡亸濂戒笉涓€鑷达紝绔嬪嵆閲嶅畾鍚戝埌鍋忓ソ璇█瀵瑰簲椤甸潰锛堟敮鎸?21 璇█锛?
+  // 语言偏好持久化：读取用户选定的语言（localStorage），
+  // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 21 语言）
   (function () {
     var KEY = 'ishine_lang';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      // URL path 鍓嶇紑鍒楄〃
+      // URL path 前缀列表
       var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
-      // localStorage 瀛樼殑鏄爣鍑?code锛坋s-ES锛夛紝璺宠浆闇€鏄犲皠鍥?URL path锛坋s锛?
+      // localStorage 存的是标准 code（es-ES），跳转需映射回 URL path（es）
       var CODE_PATH = { 'es-ES': 'es' };
       var path = window.location.pathname;
       var cur = 'en';
@@ -194,7 +194,7 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
         if (target === '') target = '/' + (CODE_PATH[stored] || stored);
         if (target !== path) window.location.replace(target);
       }
-    } catch (e) { /* 闅愮妯″紡绛夊満鏅拷鐣?*/ }
+    } catch (e) { /* 隐私模式等场景忽略 */ }
   })();
 </script>
 <title>{title}</title>
