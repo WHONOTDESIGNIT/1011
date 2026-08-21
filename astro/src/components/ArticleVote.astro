@@ -1,0 +1,228 @@
+---
+// 文章投票组件：点赞/差评计数（Netlify Blobs）+ 差评原因收集（Netlify Forms）
+// - slug 建议传 post.meta.canonicalSlug（英文 slug），同一篇文章的多种语言共享同一份计数
+// - 隐藏 form name="bad-review" 随本组件输出到每篇博客文章页，
+//   Netlify 构建时扫描 dist HTML 即可识别表单（等效于独立 _forms 页面，
+//   但 Astro 会忽略 src/pages 下划线前缀文件，不生成路由，故内嵌到组件）
+import { t } from '../lib/i18n';
+
+interface Props {
+  slug: string;
+  lang?: string;
+}
+
+const { slug, lang } = Astro.props as Props;
+const locale = lang ?? Astro.currentLocale ?? 'en';
+const i18n = {
+  thanks: t(locale, 'articleVote.thanks'),
+  received: t(locale, 'articleVote.received'),
+  already: t(locale, 'articleVote.already'),
+  fail: t(locale, 'articleVote.fail'),
+};
+---
+
+<!-- 差评原因弹窗 -->
+<div
+  id="dislike-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  hidden
+  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/50 p-4"
+>
+  <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+    <h2 id="modal-title" class="mt-0 text-lg font-bold text-slate-900">{t(locale, 'articleVote.modalTitle')}</h2>
+    <form id="bad-review-form" class="mt-4">
+      <fieldset class="m-0 border-none p-0">
+        <legend class="mb-2 font-semibold text-slate-800">{t(locale, 'articleVote.modalLegend')}</legend>
+        <label class="my-1 block text-sm text-slate-700">
+          <input type="radio" name="reason" value="not-detailed" required class="mr-2" />
+          {t(locale, 'articleVote.reasonNotDetailed')}
+        </label>
+        <label class="my-1 block text-sm text-slate-700">
+          <input type="radio" name="reason" value="not-found" class="mr-2" />
+          {t(locale, 'articleVote.reasonNotFound')}
+        </label>
+        <label class="my-1 block text-sm text-slate-700">
+          <input type="radio" name="reason" value="outdated" class="mr-2" />
+          {t(locale, 'articleVote.reasonOutdated')}
+        </label>
+        <label class="my-1 block text-sm text-slate-700">
+          <input type="radio" name="reason" value="translation" class="mr-2" />
+          {t(locale, 'articleVote.reasonTranslation')}
+        </label>
+        <label class="my-1 block text-sm text-slate-700">
+          <input type="radio" name="reason" value="other" class="mr-2" />
+          {t(locale, 'articleVote.reasonOther')}
+        </label>
+      </fieldset>
+      <label for="detail" class="mb-1 block text-sm text-slate-700">{t(locale, 'articleVote.detailLabel')}</label>
+      <textarea id="detail" name="detail" rows="3" class="w-full rounded-xl border border-slate-200 p-2.5 text-sm text-slate-700"></textarea>
+      <div class="mt-4 flex justify-end gap-2">
+        <button type="button" id="modal-cancel" class="cursor-pointer rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+          {t(locale, 'articleVote.cancel')}
+        </button>
+        <button type="submit" class="cursor-pointer rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700">
+          {t(locale, 'articleVote.submit')}
+        </button>
+      </div>
+    </form>
+    <p aria-live="polite" id="modal-status" class="mt-3 text-sm text-slate-500"></p>
+  </div>
+</div>
+
+<!-- 投票区域 -->
+<div class="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" data-article-vote>
+  <p class="text-sm font-semibold text-slate-700">{t(locale, 'articleVote.question')}</p>
+  <div class="mt-3 flex flex-wrap items-center gap-3">
+    <button
+      type="button"
+      id="btn-like"
+      aria-label={t(locale, 'articleVote.likeAria')}
+      class="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
+    >
+      <span aria-hidden="true">👍</span>
+      <span id="like-count" class="tabular-nums">-</span>
+    </button>
+    <button
+      type="button"
+      id="btn-dislike"
+      aria-label={t(locale, 'articleVote.dislikeAria')}
+      class="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
+    >
+      <span aria-hidden="true">👎</span>
+      <span id="dislike-count" class="tabular-nums">-</span>
+    </button>
+  </div>
+  <p aria-live="polite" id="vote-status" class="mt-2 text-sm text-slate-500"></p>
+</div>
+
+<!-- 供 Netlify Forms 构建期识别的隐藏表单（提交由脚本用 fetch 完成） -->
+<form name="bad-review" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+  <input type="hidden" name="bot-field" />
+  <input type="hidden" name="slug" />
+  <input type="text" name="reason" />
+  <input type="text" name="detail" />
+</form>
+
+<script define:vars={{ slug, i18n }}>
+  const modal = document.getElementById('dislike-modal');
+  const form = document.getElementById('bad-review-form');
+  const modalStatus = document.getElementById('modal-status');
+  const voteStatus = document.getElementById('vote-status');
+  const likeCount = document.getElementById('like-count');
+  const dislikeCount = document.getElementById('dislike-count');
+  const likeBtn = document.getElementById('btn-like');
+  const dislikeBtn = document.getElementById('btn-dislike');
+
+  // 同一浏览器每篇文章仅计一次，避免重复刷票
+  const voteKey = 'ishine_vote_' + slug;
+  let voted = (() => {
+    try {
+      return localStorage.getItem(voteKey);
+    } catch {
+      return null;
+    }
+  })();
+
+  const setVoted = (type) => {
+    voted = type;
+    try {
+      localStorage.setItem(voteKey, type);
+    } catch { /* localStorage 不可用时忽略 */ }
+  };
+
+  const api = `/api/votes?slug=${encodeURIComponent(slug)}`;
+
+  // 读取当前计数
+  fetch(api)
+    .then((r) => r.json())
+    .then((data) => {
+      likeCount.textContent = data.likes ?? 0;
+      dislikeCount.textContent = data.dislikes ?? 0;
+    })
+    .catch(() => {
+      likeCount.textContent = '?';
+      dislikeCount.textContent = '?';
+    });
+
+  const postVote = (type) =>
+    fetch('/api/vote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, type }),
+    }).then((r) => r.json());
+
+  // 点赞
+  likeBtn.addEventListener('click', async () => {
+    if (voted) {
+      voteStatus.textContent = voted === 'like' ? i18n.already : '';
+      return;
+    }
+    try {
+      const data = await postVote('like');
+      likeCount.textContent = data.likes;
+      setVoted('like');
+      voteStatus.textContent = i18n.thanks;
+    } catch {
+      voteStatus.textContent = i18n.fail;
+    }
+  });
+
+  // 差评：先弹窗选原因，确认后计数 + 表单提交
+  dislikeBtn.addEventListener('click', () => {
+    if (voted) return;
+    modal.hidden = false;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    const firstRadio = modal.querySelector('input[name="reason"]');
+    if (firstRadio) firstRadio.focus();
+  });
+
+  // 关闭弹窗
+  document.getElementById('modal-cancel').addEventListener('click', () => {
+    modal.hidden = true;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    form.reset();
+    modalStatus.textContent = '';
+  });
+
+  // 提交差评
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const reason = form.querySelector('input[name="reason"]:checked')?.value;
+    const detail = form.querySelector('textarea[name="detail"]').value;
+
+    try {
+      // 1. 更新计数到 Blobs
+      const data = await postVote('dislike');
+      dislikeCount.textContent = data.dislikes;
+      setVoted('dislike');
+
+      // 2. 提交具体原因到 Netlify Forms（提交到当前页面 URL，Netlify 截获处理）
+      await fetch(window.location.pathname, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'bad-review',
+          slug,
+          reason,
+          detail,
+        }).toString(),
+      });
+
+      modalStatus.textContent = i18n.received;
+      voteStatus.textContent = i18n.received;
+      setTimeout(() => {
+        modal.hidden = true;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        form.reset();
+        modalStatus.textContent = '';
+      }, 1500);
+    } catch {
+      modalStatus.textContent = i18n.fail;
+    }
+  });
+</script>

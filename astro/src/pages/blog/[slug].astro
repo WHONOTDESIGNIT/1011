@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ArticleVote from '../../components/ArticleVote.astro';
 import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
@@ -232,6 +233,8 @@ const articleSchema = {
           </div>
         </div>
       </div>
+
+      <ArticleVote slug={post.meta.canonicalSlug} lang={locale} />
     </div>
 
     {related.length
