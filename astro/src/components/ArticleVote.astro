@@ -156,7 +156,7 @@ const i18n = {
   // 点赞
   likeBtn.addEventListener('click', async () => {
     if (voted) {
-      voteStatus.textContent = voted === 'like' ? i18n.already : '';
+      voteStatus.textContent = i18n.already;
       return;
     }
     try {
@@ -171,7 +171,10 @@ const i18n = {
 
   // 差评：先弹窗选原因，确认后计数 + 表单提交
   dislikeBtn.addEventListener('click', () => {
-    if (voted) return;
+    if (voted) {
+      voteStatus.textContent = i18n.already;
+      return;
+    }
     modal.hidden = false;
     modal.classList.remove('hidden');
     modal.classList.add('flex');
