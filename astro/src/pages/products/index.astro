@@ -141,7 +141,9 @@ const siteBaseUrl = (
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@type': 'Product',
+          // 列表页不标记为 Product：Google 产品富结果要求 offers/review/aggregateRating 三者其一，
+          // 且技术规范仅支持单一产品页。列表页用 Thing 保持 ItemList 有效（见 product snippet 文档）。
+          '@type': 'Thing',
           name: t(locale, product.nameKey),
           url: new URL(getLocalizedPath(locale, `/products/${product.slug}`), `${siteBaseUrl}/`).href.replace(/\/+$/, ''),
           image: new URL(product.firstImage, `${siteBaseUrl}/`).href,

@@ -64,9 +64,11 @@ type Props = {
   type?: 'website' | 'article';
   /** 显式 hreflang（用于博客文章/列表等跨语言 slug 不同的页面）；未提供时按当前路径自动生成 */
   hreflangs?: { locale: string; href: string }[];
+  /** 页面含 <video> 时传入：输出 VideoObject JSON-LD，帮助 Google 编入视频索引 */
+  video?: { name?: string; description?: string };
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs, video } = Astro.props as Props;
 
 const siteBaseUrl = (
   Astro.site?.toString()
@@ -219,6 +221,16 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
   inLanguage: lang,
   publisher: { '@id': 'https://iplmanufacturer.com/#organization' },
 })}></script>
+{video && <script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: video.name || 'iShine IPL Hair Removal Device Showcase',
+  description: video.description || 'iShine IPL hair removal device showcase - OEM/ODM manufacturing, sapphire cooling technology and private label production.',
+  thumbnailUrl: `${siteBaseUrl}/images/home/head-video-poster.webp`,
+  uploadDate: '2026-07-30',
+  duration: 'PT26S',
+  contentUrl: `${siteBaseUrl}/videos/head-video.mp4`,
+})}></script>}
 <meta property="og:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
 <meta name="twitter:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
