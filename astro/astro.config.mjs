@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
@@ -77,9 +76,11 @@ export default defineConfig({
       it: 'en',
     },
   },
-  adapter: netlify({
-    imageCDN: true,
-  }),
+  // 【方案A · 2026-08-21】移除 @astrojs/netlify adapter（根因修复）：
+  // output: 'static' 下 adapter 仍会触发 Functions bundling，平台打包 ssr/ssr.mjs
+  // 时可能移走/替换 flatten-html.mjs 写入的 dist/_redirects，导致 79 条兜底规则
+  // 线上丢失。移除后纯静态发布，_redirects 不再被平台干预。
+  // Image CDN 不依赖适配器，改由 netlify.toml [images].remote_images 提供。
   image: {
     // External images use plain <img>, so no domains needed
   },

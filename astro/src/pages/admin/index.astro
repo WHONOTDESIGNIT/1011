@@ -1,6 +1,6 @@
 ---
-export const prerender = false;
-
+// 【方案A · 2026-08-21】移除 prerender = false：站点已改纯静态（无 adapter），
+// 页面静态化后表单仍由客户端 fetch 调用 /.netlify/functions/save-post，功能不变。
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdminPostForm from '../../components/react/AdminPostForm';
 ---

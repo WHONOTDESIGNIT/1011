@@ -6,7 +6,9 @@
   # netlify.toml 的 command 时丢失 flatten/校验步骤（线上曾因此回退为目录型产物）。
   # flatten-html.mjs：方案B —— directory 产物（foo/index.html）→ .html + 生成 _redirects
   # （无尾斜杠 URL rewrite 到 .html、尾斜杠 301 到无尾斜杠，全站无结尾斜杠，Panasonic 风格）
-  command = "npm run build"
+  # 【方案A · 2026-08-21 临时验证】build 命令尾部追加 ls/cat 确认 dist/_redirects
+  # 在构建结束（Functions bundling 之前）确实存在；部署后核对日志后移除。
+  command = "npm run build && ls -la dist/_redirects && cat dist/_redirects | tail -5"
 
 [build.environment]
   NODE_VERSION = "20"

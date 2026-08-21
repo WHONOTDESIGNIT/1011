@@ -1,7 +1,7 @@
 // Dev-only Astro config: avoids the @netlify/vite-plugin dev middleware that
 // intercepts Astro's virtual module requests (?astro&type=style/script) and
 // returns raw source files, which breaks every inline <script> in dev.
-// Production build still uses astro.config.mjs (with the Netlify adapter).
+// Production build uses astro.config.mjs（方案A：纯静态，无 Netlify adapter）。
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
