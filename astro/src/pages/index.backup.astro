@@ -252,6 +252,10 @@ const blogPosts = (latestPosts.length ? latestPosts.slice(0, 3) : fallbackBlogPo
 ---
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription} showCornerMarkers={false}>
+  <Fragment slot="head">
+    <!-- 备份页：禁止索引，避免与首页重复内容 -->
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
   <main>
     <HeroSection
       lang={locale}
