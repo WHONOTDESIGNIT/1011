@@ -1,0 +1,159 @@
+{
+  "homepage": {
+    "footer": {
+      "companyName": "iShine Technology Ltd.",
+      "companyIntro": "2008년 심천에서 설립되어, OEM/ODM IPL 제조 서비스를 통해 전 세계 뷰티 브랜드에 서비스를 제공합니다.",
+      "fdaSupport": "FDA 510(k) 문서 지원"
+    }
+  },
+  "blog": {
+    "common": {
+      "noImage": "이미지 없음"
+    },
+    "meta": {
+      "title": "IPL 블로그 - 최신 인사이트 및 업계 동향 | iShine",
+      "description": "뷰티 디바이스 제조사를 위한 종합 블로그에서 최신 IPL 기술 동향, 제조 인사이트, 업계 혁신을 살펴보세요."
+    },
+    "hero": {
+      "kicker": "인사이트 및 동향",
+      "title": "블로그",
+      "description": "기술, 규정 준수, 시장 전략을 검토하는 IPL 디바이스 브랜드를 위한 업계 인사이트, 제조 동향, 전문가 가이드를 제공합니다.",
+      "cards": {
+        "focusLabel": "콘텐츠 초점",
+        "focusTitle": "기술 + 제조",
+        "focusDescription": "IPL 제품과 공급업체 역량을 조사하는 뷰티 브랜드, 소싱 팀, 운영자를 위해 제작되었습니다.",
+        "discoveryLabel": "탐색",
+        "discoveryDescription": "이 Astro 블로그 아카이브에서 현재 확인할 수 있는 게시된 기사입니다.",
+        "useCaseLabel": "활용 사례",
+        "useCaseTitle": "문의 전 사전 조사",
+        "useCaseDescription": "제품 리뷰, 서비스 또는 문의로 진행하기 전에 이 아카이브를 활용해 전문성을 검증하세요."
+      }
+    },
+    "intro": {
+      "kicker": "최신 기사",
+      "title": "실용적인 가이드, 시장 인사이트, IPL 제품 전문성을 살펴보세요",
+      "description": "iShine 팀의 IPL 기술 최신 동향, 제조 모범 사례, 규정 준수 고려 사항, 시장 인사이트를 알아보세요.",
+      "stats": {
+        "archiveLabel": "아카이브",
+        "archiveHelp": "현재 라이브러리의 기사 수",
+        "categoriesLabel": "카테고리",
+        "categoriesHelp": "필터링 가능한 동적 주제",
+        "modeLabel": "읽기 모드",
+        "modeValue": "추천 + 그리드",
+        "modeHelp": "빠른 훑어보기와 심층 읽기를 위해 설계되었습니다"
+      }
+    },
+    "search": {
+      "label": "기사 검색",
+      "placeholder": "제목, 카테고리, 요약 또는 작성자로 기사를 검색하세요...",
+      "clear": "지우기",
+      "helper": "페이지를 벗어나지 않고 주제별로 필터링하고 탐색하세요"
+    },
+    "filters": {
+      "label": "카테고리별 필터",
+      "all": "전체",
+      "clear": "필터 지우기",
+      "reset": "필터 초기화",
+      "emptyTitle": "기사를 찾을 수 없습니다",
+      "emptyDescription": "원하는 콘텐츠를 찾으려면 검색어나 필터를 조정해 보세요."
+    },
+    "featured": {
+      "label": "추천 기사",
+      "title": "최신 게시물부터 시작하세요",
+      "cta": "추천 기사 읽기 →"
+    },
+    "grid": {
+      "label": "최신 기사",
+      "title": "아카이브의 다른 기사",
+      "cta": "기사 읽기 →"
+    },
+    "loadMore": "기사 더 보기",
+    "results": {
+      "template": "총 {total}개 중 {shown}개 표시 중",
+      "resultSingular": "결과",
+      "resultPlural": "결과",
+      "for": "에 대한",
+      "in": "에서"
+    },
+    "emptyArchive": {
+      "kicker": "블로그 아카이브",
+      "title": "아직 게시된 기사가 없습니다",
+      "description": "블로그 소스 디렉터리에 MDX 콘텐츠를 추가하면 아카이브, 추천 기사 영역, 필터, 결과 그리드가 채워집니다."
+    },
+    "post": {
+      "authorLabel": "기사 작성자",
+      "relatedTitle": "관련 기사",
+      "relatedCta": "읽기 →",
+      "backToBlog": "블로그로 돌아가기",
+      "tocTitle": "이 페이지 목차",
+      "ctaTitle": "프로젝트별 답변이 필요하신가요?",
+      "ctaHeading": "제조 팀과 상담하세요",
+      "ctaDescription": "시장, 물량, 규정 준수 요구 사항, 제품 방향에 대해 논의하려면 팀에 문의하세요.",
+      "ctaPrimary": "팀에 문의하기",
+      "ctaSecondary": "모든 IPL 제품 보기",
+      "keepExploringTitle": "계속 탐색하기",
+      "keepExploringDescription": "카테고리, 키워드 또는 주제별로 아카이브를 둘러보며 게시물을 찾아보세요.",
+      "nextStepsTitle": "다음 단계",
+      "nextStepsItems": [
+        "OEM 및 ODM 옵션 비교하기",
+        "규정 준수 및 테스트 요구 사항 검증하기",
+        "제품 리뷰 또는 샘플 플랜 요청하기"
+      ],
+      "continueReadingTitle": "계속 읽기",
+      "viewAllArticles": "모든 기사 보기",
+      "citableEyebrow": "인용 가능한 요약",
+      "citableQuestion": "이 기사는 무엇에 대한 내용인가요?",
+      "citableBody": "이 기사는 프라이빗 라벨 IPL 제모 제품을 평가하거나 개발하는 팀을 위해 {title}을(를) 설명합니다. OEM/ODM 실행을 위한 실질적인 고려 사항을 다루며, 제조 선택이 제품 경험, 규정 준수 계획, 출시 준비 상태에 어떤 영향을 미칠 수 있는지 포함합니다. 목표는 옵션을 비교하거나, RFQ를 준비하거나, 내부 이해관계자를 요구 사항에 맞추는 과정에서 참고할 수 있는 독립적인 개요를 제공하는 것입니다. 관련된 부분에서는 냉각, 필터, 램프 카트리지, 센서, 전원 설계와 같은 부품 수준의 결정을 최종 사용자의 편안함과 반복 가능한 생산 결과와 연결합니다. 핵심은 리스크를 줄이고 더 적은 반복으로 개념에서 확장 가능한 제조로 나아가는 데 활용할 수 있는 보다 명확한 의사 결정 기준입니다."
+    }
+  },
+  "contact": {
+    "title": "팀에 문의하기",
+    "subtitle": "저희 팀에 연락하세요",
+    "description": "OEM/ODM 프로젝트, 샘플 요청 또는 소싱 요구 사항을 알려주세요. 일반적으로 24~48시간 내에 다음 단계 안내와 함께 답변드립니다.",
+    "form": {
+      "title": "메시지 보내기",
+      "name": "이름",
+      "email": "이메일",
+      "phone": "전화",
+      "company": "회사",
+      "subject": "제목",
+      "message": "메시지",
+      "messagePlaceholder": "프로젝트에 대해 알려주세요...",
+      "send": "메시지 전송",
+      "sending": "전송 중...",
+      "success": "메시지가 성공적으로 전송되었습니다!",
+      "error": "메시지 전송에 실패했습니다. 다시 시도해 주세요."
+    },
+    "info": {
+      "title": "연락처 정보",
+      "phone": "전화",
+      "email": "이메일",
+      "address": "주소",
+      "businessHours": "영업 시간",
+      "mondayToFriday": "월요일 - 금요일: 오전 9:00 - 오후 6:00",
+      "saturday": "토요일: 오전 9:00 - 오후 1:00",
+      "sunday": "일요일: 휴무"
+    }
+  },
+  "componentsCooling": {
+    "header": {
+      "title": "고급 냉각 시스템",
+      "description": "안전하고 편안한 IPL 시술을 위한 사파이어 및 반도체 냉각을 포함한 최첨단 냉각 기술"
+    },
+    "breadcrumb": {
+      "components": "부품",
+      "cooling": "냉각 시스템"
+    },
+    "intro": {
+      "title": "혁신적인 냉각 기술",
+      "paragraph": "당사의 고급 냉각 시스템은 IPL 편안함과 안전 기술의 정점을 나타냅니다. 최첨단 사파이어 접촉 냉각과 지능형 온도 관리를 통합하여 모든 시술 세션이 효과적일 뿐만 아니라 사용자에게 매우 편안하도록 보장합니다."
+    },
+    "highlight": {
+      "whyTitle": "고급 냉각이 중요한 이유",
+      "paragraph": "효과적인 냉각은 IPL 디바이스 성능, 사용자 편안함, 시술 안전에 매우 중요합니다. 당사 시스템은 치료 효능을 극대화하면서 최적의 피부 온도를 유지합니다.",
+      "items": {
+        "comfort": "시술 중 환자 편안함 향상"
+      }
+    }
+  }
+}

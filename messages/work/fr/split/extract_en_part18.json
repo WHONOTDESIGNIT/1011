@@ -1,0 +1,180 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "cards": {
+        "email": {
+          "label": "Email",
+          "description": "Best for RFQs, sample requests, and project briefs."
+        },
+        "phone1": {
+          "label": "Phone",
+          "description": "Eric, sales support for active manufacturing inquiries."
+        },
+        "phone2": {
+          "label": "Phone",
+          "description": "Maurice, support for project follow-up and coordination."
+        },
+        "address": {
+          "label": "Address",
+          "description": "Shenzhen, Guangdong, China"
+        }
+      },
+      "heroTitle": "Let's Talk",
+      "heroParagraph": "Tell us about your OEM/ODM project. We typically respond within 24-48 hours with next-step guidance.",
+      "summaryTitle": "How do I start an IPL OEM/ODM inquiry with iShine?",
+      "summaryDescription": "To start an IPL OEM/ODM inquiry with iShine, share a short project brief including your target market, desired positioning, expected order quantity range, and timeline. Helpful details include the device concept (app-connected, cooling-focused, AI skin sensing, or a specific model reference), preferred packaging style, and any compliance requirements such as CE-marked configurations or documentation needs for FDA-related pathways. If you already have a BOM, reference photos, or competitor benchmarks, include them to reduce back-and-forth. After the brief is received, the next step is typically sample selection and a discussion of customization scope, MOQ, lead time, and documentation planning so the project can move into prototyping and production scheduling.",
+      "imageAlt": "iShine IPL Device",
+      "form": {
+        "title": "Let's get in touch!",
+        "honeypotLabel": "Do not fill this field:",
+        "fullName": "Full Name",
+        "email": "Email",
+        "companyName": "Company Name",
+        "phoneNumber": "Phone Number",
+        "productInterest": "Product Interest",
+        "expectedQuantity": "Expected Quantity",
+        "projectTimeline": "Project Timeline",
+        "projectDetails": "Project Details",
+        "send": "Send",
+        "productOptions": [
+          "IPL Hair Removal Devices",
+          "Custom OEM/ODM Project",
+          "IPL Components Only",
+          "Skin Rejuvenation Device",
+          "Not sure yet"
+        ],
+        "quantityOptions": [
+          "A free sample",
+          "10~500 units",
+          "Still planning"
+        ],
+        "timelineOptions": [
+          "As soon as possible",
+          "1 - 3 months",
+          "3 - 6 months",
+          "6 - 12 months",
+          "Researching only"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Why IPL Hair Removal Is Safe | Evidence, FDA, Skin Types & Device Safety",
+      "description": "A safety-first pillar page for IPL hair removal: clinical evidence, FDA context, safe at-home protocol, Fitzpatrick skin types, UV filtering, sensors, side effects, contraindications, and aftercare. Includes direct links to product platforms and deep-dive guides.",
+      "breadcrumbLabel": "Why IPL Hair Removal Is Safe",
+      "cta": {
+        "explorePlatforms": "Explore IPL Device Platforms",
+        "compareModels": "Compare All Models"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Clinical data on IPL safety",
+          "anchor": "Clinical data on IPL safety",
+          "description": "How research describes typical skin reactions, severity, and why most side effects are mild and temporary when used correctly."
+        },
+        "fdaContext": {
+          "title": "FDA context: what \"FDA cleared\" actually means",
+          "anchor": "FDA verification (what \"FDA cleared\" means)",
+          "description": "How to interpret FDA language and why it supports safety claims without overstating what regulators guarantee."
+        },
+        "atHomeProtocol": {
+          "title": "Safe at-home IPL protocol (frequency, patch test, settings)",
+          "anchor": "Safe at-home IPL protocol (frequency, patch test, settings)",
+          "description": "The practical usage rules that keep risk low: patch testing, gradual ramp-up, spacing sessions, and avoiding repeat flashes."
+        },
+        "fitzpatrick": {
+          "title": "Fitzpatrick skin types & IPL safety limits",
+          "anchor": "Fitzpatrick skin types & IPL safety limits",
+          "description": "Why skin tone affects risk (physics, not discrimination) and how brands should communicate compatibility responsibly."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs laser: safety comparison (and who each is for)",
+          "anchor": "IPL vs laser: safety comparison",
+          "description": "A balanced comparison: device class, energy delivery, common risks, and why \"safer\" depends on skin type and protocol."
+        },
+        "uvFiltering": {
+          "title": "UV filtering & wavelength control (why IPL is not UV tanning)",
+          "anchor": "UV filtering & wavelength control",
+          "description": "How filters and wavelength design reduce unwanted radiation and improve safety margins during treatment."
+        },
+        "safetySensors": {
+          "title": "Safety sensors: skin tone detection & contact sensors",
+          "anchor": "Safety sensors (skin tone detection & contact sensors)",
+          "description": "How skin tone sensing and contact interlocks reduce misuse risk—especially in higher Fitzpatrick skin types."
+        },
+        "sideEffects": {
+          "title": "IPL side effects explained (what's normal vs not)",
+          "anchor": "IPL side effects explained (what's normal vs not)",
+          "description": "What mild redness means, what burns look like, and the decision tree for pausing, lowering settings, or seeking help."
+        },
+        "contraindications": {
+          "title": "Who should not use IPL (contraindications & risk factors)",
+          "anchor": "Who should not use IPL (contraindications)",
+          "description": "Medication, sun exposure, tattoos, skin conditions, and other situations where IPL should be avoided or delayed."
+        },
+        "beforeAfterCare": {
+          "title": "Before/after care: how to reduce irritation and risk",
+          "anchor": "Before/after care to reduce IPL risks",
+          "description": "Simple pre- and post-care steps that lower inflammation and help avoid pigment issues after sessions."
+        }
+      },
+      "heroKicker": "Safety Pillar",
+      "heroTitle": "Why IPL hair removal is safe (when used correctly)",
+      "heroParagraph": "This is a safety-first hub built for brands, sourcing teams, and retail buyers. It links the most searched safety questions to practical answers, evidence-based context, and device design features that reduce risk.",
+      "howToKicker": "How to Use This Page",
+      "howToTitle": "Read in the same order your buyers do",
+      "howToSteps": [
+        "Start with evidence and FDA context to ground the \"safe\" claim responsibly.",
+        "Confirm skin-type limits and the protocol that keeps risk low for home use.",
+        "Then shortlist platforms in Products and compare models in Catalogue."
+      ],
+      "topicMapKicker": "Topic Map",
+      "topicMapTitle": "10 safety topics (deep links)",
+      "topicMapParagraph": "Each topic below links to a dedicated guide. Use these exact anchors on supporting pages to reinforce relevance.",
+      "guideLabel": "Guide",
+      "pillarKicker": "Pillar Sections",
+      "pillarTitle": "Evidence + protocol + device design",
+      "pillarParagraph": "Use this structure as the long-form answer page, and the linked guides as cluster content that supports it.",
+      "readGuide": "Read the guide",
+      "finalKicker": "Ready to shortlist a model?",
+      "finalTitle": "Compare all platforms, then pick the right safety stack",
+      "finalParagraph": "Use the Products page to open platform details and the Catalogue to compare cooling, app control, and safety sensing across models."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Digital Creative Asset Trading Platform",
+      "pageDescription": "iShine Marketplace is a trusted digital creative asset trading platform where creators showcase, trade and grow their digital works — with creator services and support built around the belief: Light up creativity, link value.",
+      "brandSlogan": "Light Up Creativity, Link Value",
+      "contactCta": "Contact iShine",
+      "detailsCta": "Details",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Digital Creative Assets",
+        "heading": "Your Trusted Digital Creative Asset Trading Platform",
+        "subheading": "Showcase your digital works, trade with confidence, and grow with creator services — all in one trusted marketplace."
+      },
+      "product1": {
+        "imageAlt": "Digital Works Showcase - creative asset gallery",
+        "smallTitle": "Digital Works Showcase",
+        "heading": "Showcase Your Digital Creations",
+        "description": "Publish and present your digital works — templates, designs, illustrations and more — in a beautifully organised gallery that makes it easy for buyers to discover your creations."
+      },
+      "product2": {
+        "imageAlt": "Secure Trading - digital asset transactions",
+        "smallTitle": "Secure Digital Trading",
+        "heading": "Trade Digital Assets With Confidence",
+        "description": "Buy and sell digital assets through a clear, secure transaction flow with transparent licensing, instant delivery and protected payments."
+      },
+      "product3": {
+        "imageAlt": "Creator Services - analytics and growth tools",
+        "smallTitle": "Creator Services",
+        "heading": "Grow Your Creative Business",
+        "description": "From portfolio tools to seller analytics, iShine Marketplace provides creators with the services and support they need to reach new audiences and scale sustainably."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Official Services",
+        "headingLine1": "Talk to our iShine service",
+        "headingLine2": "team about your"
+      }
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "productDetail": {
+    "hebe": {
+      "specs": {
+        "coolingTemperature": {
+          "label": "Θερμοκρασία ψύξης",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Χρόνος έως τη θερμοκρασία ψύξης",
+          "value": "1 λεπτό"
+        },
+        "totalEnergyRange": {
+          "label": "Εύρος συνολικής ενέργειας",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Τάση εισόδου",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Τροφοδοτικό",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Φίλτρο UV",
+          "value": "Ναι"
+        },
+        "safetySystem": {
+          "label": "Ενσωματωμένο σύστημα ασφαλείας",
+          "value": "Ναι"
+        },
+        "lampMaterial": {
+          "label": "Υλικό λυχνίας",
+          "value": "Χαλαζίας"
+        },
+        "warranty": {
+          "label": "Εγγύηση",
+          "value": "2 χρόνια παγκόσμια εγγύηση"
+        },
+        "wavelength": {
+          "label": "Μήκος κύματος",
+          "value": "510-1100 nm"
+        }
+      },
+      "features": {
+        "comfortIceFeeling": {
+          "title": "Άνετη Αίσθηση Πάγου",
+          "description": "Η ψύξη με αίσθηση πάγου Sapphire συμβάλλει στη βελτίωση της άνεσης της θεραπείας σε πιο ευαίσθητες περιοχές."
+        },
+        "safetyLockSupport": {
+          "title": "Υποστήριξη Κλειδώματος Ασφαλείας",
+          "description": "Επιπλέον τοποθέτηση κλειδώματος ασφαλείας για ελεγχόμενη λειτουργία κατά τη διάρκεια της θεραπείας."
+        },
+        "powerDelivery": {
+          "title": "Ισχύς 48W",
+          "description": "Το τροφοδοτικό 12V / 4000mA εξασφαλίζει σταθερή απόδοση και γρήγορη ψύξη."
+        },
+        "premiumColorOptions": {
+          "title": "Premium Επιλογές Χρώματος",
+          "description": "Διαθέσιμο σε Tech Black, Future Silver και Cosmic Blue για premium παρουσίαση στο λιανικό εμπόριο."
+        }
+      },
+      "badge": "Άνετη Ψύξη",
+      "colors": [
+        "Tech Black",
+        "Future Silver",
+        "Cosmic Blue"
+      ]
+    },
+    "helix": {
+      "name": "Helix IPL",
+      "tagline": "Ψύξη Πάγου + 9 Επίπεδα Έντασης",
+      "description": "Το Helix IPL συνδυάζει προηγμένη ψύξη πάγου Sapphire με ψηφιακή οθόνη και 9 επίπεδα έντασης για ακριβείς και άνετες θεραπείες στο σπίτι.",
+      "specs": {
+        "type": {
+          "label": "Τύπος",
+          "value": "IPL οικιακής χρήσης (μονή λυχνία χαλαζία)"
+        },
+        "cooling": {
+          "label": "Ψύξη",
+          "value": "Υποστήριξη, τεχνολογία αίσθησης πάγου Sapphire"
+        },
+        "window": {
+          "label": "Παράθυρο",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Ενέργεια",
+          "value": "5.0 J/cm²"
+        },
+        "energySettings": {
+          "label": "Ρυθμίσεις ενέργειας",
+          "value": "9 επίπεδα"
+        },
+        "lamp": {
+          "label": "Λυχνία",
+          "value": "Παρέχει 999,999 λάμψεις"
+        },
+        "autoFlash": {
+          "label": "Αυτόματη λάμψη",
+          "value": "Υποστήριξη"
+        },
+        "pulseDuration": {
+          "label": "Διάρκεια παλμού (FWHM)",
+          "value": "1.0-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Θερμοκρασία ψύξης",
+          "value": "8°C (θερμοκρασία περιβάλλοντος 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Χρόνος έως τη θερμοκρασία ψύξης",
+          "value": "2 λεπτά"
+        },
+        "totalEnergyRange": {
+          "label": "Εύρος συνολικής ενέργειας",
+          "value": "15 J"
+        },
+        "inputVoltage": {
+          "label": "Τάση εισόδου",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Τροφοδοτικό",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Φίλτρο UV",
+          "value": "Ναι"
+        },
+        "safetySystem": {
+          "label": "Ενσωματωμένο σύστημα ασφαλείας",
+          "value": "Ναι"
+        },
+        "lampMaterial": {
+          "label": "Υλικό λυχνίας",
+          "value": "Χαλαζίας"
+        },
+        "lampConfiguration": {
+          "label": "Διαμόρφωση λυχνίας",
+          "value": "Μονή λυχνία"
+        },
+        "warranty": {
+          "label": "Εγγύηση",
+          "value": "2 χρόνια παγκόσμια εγγύηση"
+        },
+        "wavelength": {
+          "label": "Μήκος κύματος",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Οθόνη",
+          "value": "Ψηφιακή οθόνη"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Ψύξη Πάγου Sapphire",
+          "description": "Η προηγμένη τεχνολογία ψύξης Sapphire διατηρεί το δέρμα άνετο στους 8°C, φτάνοντας στην επιθυμητή θερμοκρασία σε μόλις 2 λεπτά για μια ανακουφιστική θεραπεία."
+        },
+        "intensityLevels": {
+          "title": "9 Επίπεδα Έντασης",
+          "description": "Ακριβής έλεγχος ενέργειας με 9 ρυθμίσεις έντασης, περισσότερες από τις τυπικές συσκευές των 5 επιπέδων, για εξατομικευμένα προγράμματα θεραπείας."
+        },
+        "digitalDisplay": {
+          "title": "Ψηφιακή Οθόνη",
+          "description": "Η ενσωματωμένη ψηφιακή οθόνη εμφανίζει το επίπεδο ενέργειας και την κατάσταση σε πραγματικό χρόνο για διαισθητική λειτουργία και ακριβή έλεγχο της θεραπείας."
+        },
+        "longLastingLamp": {
+          "title": "Λυχνία Μακράς Διάρκειας",
+          "description": "Η λυχνία χαλαζία παρέχει 999,999 λάμψεις για χρόνια αξιόπιστων θεραπειών."
+        }
+      },
+      "badge": "Ψηφιακή Οθόνη",
+      "colors": [
+        "Λευκό",
+        "Χρυσό",
+        "Μαύρο"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Ήπια Φροντίδα για Ευαίσθητο Δέρμα",
+      "description": "Το Eirene IPL έχει σχεδιαστεί ειδικά για υπερευαίσθητο δέρμα, με ήπιο ενεργειακό προφίλ και ενισχυμένη προστασία UV.",
+      "specs": {
+        "type": {
+          "label": "Τύπος",
+          "value": "Υπερευαίσθητο δέρμα"
+        },
+        "cooling": {
+          "label": "Ψύξη",
+          "value": "Τυπική"
+        },
+        "energy": {
+          "label": "Ενέργεια",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Λυχνία",
+          "value": "800,000 λάμψεις"
+        },
+        "window": {
+          "label": "Παράθυρο",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Μήκος κύματος",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "Φίλτρο αποκοπής UV",
+          "value": "Ενισχυμένο"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Εστίαση στο Υπερευαίσθητο Δέρμα",
+          "description": "Σχεδιασμένο ειδικά για άτομα με αντιδραστικό ή ευαίσθητο δέρμα, με σταδιακή αύξηση έντασης για άνεση."
+        },
+        "enhancedUvProtection": {
+          "title": "Ενισχυμένη Προστασία UV"
+        }
+      }
+    }
+  }
+}

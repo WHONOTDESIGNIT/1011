@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "Název společnosti",
+        "phoneNumber": "Telefonní číslo",
+        "productInterest": "Zájem o produkt",
+        "expectedQuantity": "Předpokládané množství",
+        "projectTimeline": "Časový harmonogram projektu",
+        "projectDetails": "Podrobnosti projektu",
+        "send": "Odeslat",
+        "productOptions": [
+          "Přístroje IPL na odstranění chloupků",
+          "Vlastní projekt OEM/ODM",
+          "Pouze komponenty IPL",
+          "Přístroj na omlazení pleti",
+          "Zatím nejsem rozhodnut"
+        ],
+        "quantityOptions": [
+          "Vzorek zdarma",
+          "10~500 kusů",
+          "Stále plánuji"
+        ],
+        "timelineOptions": [
+          "Co nejdříve",
+          "1 - 3 měsíce",
+          "3 - 6 měsíců",
+          "6 - 12 měsíců",
+          "Pouze zjišťuji informace"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Proč je odstranění chloupků IPL bezpečné | Důkazy, FDA, typy pleti a bezpečnost přístroje",
+      "description": "Pilířová stránka zaměřená na bezpečnost IPL odstranění chloupků: klinické důkazy, kontext FDA, bezpečný domácí postup, Fitzpatrickovy typy pleti, filtrace UV záření, senzory, vedlejší účinky, kontraindikace a následná péče. Obsahuje přímé odkazy na produktové platformy a podrobné průvodce.",
+      "breadcrumbLabel": "Proč je odstranění chloupků IPL bezpečné",
+      "cta": {
+        "explorePlatforms": "Prozkoumat platformy IPL přístrojů",
+        "compareModels": "Porovnat všechny modely"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Klinické údaje o bezpečnosti IPL",
+          "anchor": "Klinické údaje o bezpečnosti IPL",
+          "description": "Jak výzkum popisuje typické kožní reakce, jejich závažnost a proč je většina vedlejších účinků při správném použití mírná a dočasná."
+        },
+        "fdaContext": {
+          "title": "Kontext FDA: co vlastně znamená „schváleno FDA“",
+          "anchor": "Ověření FDA (co znamená „schváleno FDA“)",
+          "description": "Jak interpretovat formulace FDA a proč podporují tvrzení o bezpečnosti, aniž by zveličovaly to, co regulační orgány zaručují."
+        },
+        "atHomeProtocol": {
+          "title": "Bezpečný domácí postup IPL (frekvence, náplasťový test, nastavení)",
+          "anchor": "Bezpečný domácí postup IPL (frekvence, náplasťový test, nastavení)",
+          "description": "Praktická pravidla používání, která udržují riziko nízké: náplasťové testy, postupné zvyšování, rozestupy mezi sezeními a vyhýbání se opakovaným zábleskům."
+        },
+        "fitzpatrick": {
+          "title": "Fitzpatrickovy typy pleti a bezpečnostní limity IPL",
+          "anchor": "Fitzpatrickovy typy pleti a bezpečnostní limity IPL",
+          "description": "Proč tón pleti ovlivňuje riziko (fyzika, nikoli diskriminace) a jak by značky měly odpovědně komunikovat kompatibilitu."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs. laser: srovnání bezpečnosti (a pro koho je každý určen)",
+          "anchor": "IPL vs. laser: srovnání bezpečnosti",
+          "description": "Vyvážené srovnání: třída přístroje, dodávání energie, běžná rizika a proč „bezpečnější“ závisí na typu pleti a postupu."
+        },
+        "uvFiltering": {
+          "title": "Filtrace UV záření a regulace vlnové délky (proč IPL není UV opalování)",
+          "anchor": "Filtrace UV záření a regulace vlnové délky",
+          "description": "Jak filtry a konstrukce vlnových délek snižují nežádoucí záření a zlepšují bezpečnostní rezervy během ošetření."
+        },
+        "safetySensors": {
+          "title": "Bezpečnostní senzory: detekce tónu pleti a kontaktní senzory",
+          "anchor": "Bezpečnostní senzory (detekce tónu pleti a kontaktní senzory)",
+          "description": "Jak snímání tónu pleti a kontaktní pojistky snižují riziko nesprávného použití — zejména u vyšších Fitzpatrickových typů pleti."
+        },
+        "sideEffects": {
+          "title": "Vysvětlení vedlejších účinků IPL (co je normální a co ne)",
+          "anchor": "Vysvětlení vedlejších účinků IPL (co je normální a co ne)",
+          "description": "Co znamená mírné zarudnutí, jak vypadají popáleniny a rozhodovací postup pro pauzu, snížení nastavení nebo vyhledání pomoci."
+        },
+        "contraindications": {
+          "title": "Kdo by IPL neměl používat (kontraindikace a rizikové faktory)",
+          "anchor": "Kdo by IPL neměl používat (kontraindikace)",
+          "description": "Léky, sluneční záření, tetování, kožní onemocnění a další situace, kdy je třeba se IPL vyhnout nebo jej odložit."
+        },
+        "beforeAfterCare": {
+          "title": "Péče před a po ošetření: jak snížit podráždění a riziko",
+          "anchor": "Péče před a po ošetření ke snížení rizik IPL",
+          "description": "Jednoduché kroky péče před a po ošetření, které snižují zánět a pomáhají předcházet problémům s pigmentací po sezeních."
+        }
+      },
+      "heroKicker": "Pilíř bezpečnosti",
+      "heroTitle": "Proč je odstranění chloupků IPL bezpečné (při správném použití)",
+      "heroParagraph": "Toto je centrum zaměřené především na bezpečnost, vytvořené pro značky, týmy zajišťující dodávky a maloobchodní kupující. Propojuje nejčastěji vyhledávané otázky o bezpečnosti s praktickými odpověďmi, kontextem založeným na důkazech a konstrukčními prvky přístrojů, které snižují riziko.",
+      "howToKicker": "Jak používat tuto stránku",
+      "howToTitle": "Čtěte ve stejném pořadí jako vaši kupující",
+      "howToSteps": [
+        "Začněte důkazy a kontextem FDA, abyste tvrzení o „bezpečnosti“ zodpovědně ukotvili.",
+        "Ověřte limity typů pleti a postup, který udržuje riziko nízké pro domácí použití.",
+        "Poté si v části Produkty vyberte platformy a v katalogu porovnejte modely."
+      ],
+      "topicMapKicker": "Mapa témat",
+      "topicMapTitle": "10 témat o bezpečnosti (přímé odkazy)",
+      "topicMapParagraph": "Každé téma níže odkazuje na samostatného průvodce. Použijte tyto přesné kotvy na podpůrných stránkách pro posílení relevance.",
+      "guideLabel": "Průvodce",
+      "pillarKicker": "Části pilíře",
+      "pillarTitle": "Důkazy + postup + design přístroje",
+      "pillarParagraph": "Tuto strukturu použijte jako rozsáhlou stránku s odpověďmi a propojené průvodce jako obsah shluku, který ji podporuje.",
+      "readGuide": "Číst průvodce",
+      "finalKicker": "Jste připraveni vybrat si model?",
+      "finalTitle": "Porovnejte všechny platformy a pak zvolte správnou kombinaci bezpečnostních prvků",
+      "finalParagraph": "Pomocí stránky Produkty otevřete podrobnosti o platformách a v katalogu porovnejte chlazení, ovládání aplikací a bezpečnostní snímání napříč modely."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Platforma pro obchodování s digitálními kreativními aktivy",
+      "pageDescription": "iShine Marketplace je důvěryhodná platforma pro obchodování s digitálními kreativními aktivy, kde tvůrci prezentují, obchodují a rozvíjejí svá digitální díla — s tvůrčími službami a podporou postavenou na přesvědčení: Rozsvítit kreativitu, propojit hodnotu.",
+      "brandSlogan": "Rozsvítit kreativitu, propojit hodnotu",
+      "contactCta": "Kontaktujte iShine",
+      "detailsCta": "Podrobnosti",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Digitální kreativní aktiva",
+        "heading": "Vaše důvěryhodná platforma pro obchodování s digitálními kreativními aktivy",
+        "subheading": "Prezentujte svá digitální díla, obchodujte s jistotou a rozvíjejte se díky službám pro tvůrce — vše na jedné důvěryhodné platformě."
+      },
+      "product1": {
+        "imageAlt": "Prezentace digitálních děl - galerie kreativních aktiv",
+        "smallTitle": "Prezentace digitálních děl",
+        "heading": "Prezentujte svá digitální díla",
+        "description": "Publikujte a prezentujte svá digitální díla — šablony, návrhy, ilustrace a další — v krásně uspořádané galerii, která kupujícím usnadňuje objevování vašich výtvorů."
+      },
+      "product2": {
+        "imageAlt": "Bezpečné obchodování - transakce s digitálními aktivy",
+        "smallTitle": "Bezpečné digitální obchodování",
+        "heading": "Obchodujte s digitálními aktivy s jistotou",
+        "description": "Nakupujte a prodávejte digitální aktiva prostřednictvím přehledného a bezpečného transakčního procesu s transparentním licencováním, okamžitým doručením a chráněnými platbami."
+      },
+      "product3": {
+        "imageAlt": "Služby pro tvůrce - analytické a růstové nástroje",
+        "smallTitle": "Služby pro tvůrce",
+        "heading": "Rozvíjejte své kreativní podnikání",
+        "description": "Od nástrojů pro portfolio až po analytiku pro prodejce poskytuje iShine Marketplace tvůrcům služby a podporu, které potřebují k oslovení nového publika a udržitelnému růstu."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Oficiální služby",
+        "headingLine1": "Promluvte si s naším servisním",
+        "headingLine2": "týmem iShine o vašich",
+        "headingLine3": "cílech",
+        "links": {
+          "privateLabel": "Privátní značka",
+          "technologyPartner": "Najděte technologického partnera pro IPL",
+          "buildNewIpl": "Vytvořte nový IPL",
+          "maintainOrFixIpl": "Servis nebo oprava mého IPL"
+        }
+      },
+      "blog": {
+        "smallTitle": "Učte se s námi",
+        "heading": "Komunita tvůrců",
+        "subheading": "Užitečné články o digitální kreativitě, obchodování na tržišti a rozvoji vašeho podnikání s iShine Marketplace.",
+        "learnCta": "Číst více",
+        "card1": {
+          "title": "Chytré IPL přístroje: Revoluce propojená s aplikací",
+          "readTime": "5 min čtení"
+        },
+        "card2": {
+          "title": "Nejnovější pokroky ve výzkumu IPL",
+          "readTime": "4 min čtení"
+        },
+        "card3": {
+          "title": "OEM vs. ODM: Výběr správného výrobního modelu",
+          "readTime": "6 min čtení"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "Časté dotazy | Výroba IPL iShine",
+      "pageDescription": "Získejte odpovědi na otázky týkající se služeb OEM a ODM, souladu s předpisy, MOQ, dodací lhůty, balení, dopravy a používání produktů IPL pro programy kosmetických přístrojů pod privátní značkou.",
+      "hero": {
+        "smallTitle": "Časté dotazy a podpora"
+      }
+    }
+  }
+}

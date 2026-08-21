@@ -1,0 +1,849 @@
+{
+  "products": {
+    "customization": {
+      "title": "Özelleştirme Seçenekleri",
+      "titleAdvanced": "Gelişmiş Özelleştirme Seçenekleri",
+      "titleForBrands": "Markalar için Özelleştirme Seçenekleri",
+      "description": "Bu cihaz, tasarım değişikliklerinden ambalaj ve uyumluluk desteğine kadar markanıza uyacak şekilde tamamen özelleştirilebilir.",
+      "ctaExplore": "Özel çözümleri keşfedin"
+    }
+  },
+  "productsPage": {
+    "breadcrumb": {
+      "products": "Ürünler"
+    },
+    "hero": {
+      "title": "Profesyonel IPL Cihazları",
+      "description": "Özelleştirilebilir IPL epilasyon cihazlarının tüm yelpazesini keşfedin. Premium safir soğutmasından akıllı uygulama kontrolüne kadar markanız için mükemmel çözümü bulun.",
+      "cta": "Numune Talep Edin"
+    },
+    "keyFeatures": {
+      "fda": {
+        "title": "FDA ve CE Sertifikalı",
+        "description": ""
+      },
+      "technology": {
+        "title": "Gelişmiş IPL Teknolojisi",
+        "description": ""
+      },
+      "customizable": {
+        "title": "Tamamen Özelleştirilebilir",
+        "description": ""
+      },
+      "manufacturing": {
+        "title": "Profesyonel Üretim",
+        "description": ""
+      }
+    },
+    "categories": {
+      "title": "Ürün Kategorileri",
+      "description": "Farklı pazar segmentleri ve kullanıcı ihtiyaçları için tasarlanmış özenle seçilmiş ürün serilerimiz arasından seçim yapın.",
+      "premium": {
+        "name": "Premium Seri",
+        "description": "Gelişmiş özelliklere sahip üst düzey cihazlar"
+      },
+      "smart": {
+        "name": "Akıllı Seri",
+        "description": "Akıllı kontrol özellikli uygulama bağlantılı cihazlar"
+      },
+      "essential": {
+        "name": "Temel Seri",
+        "description": "Rekabetçi fiyatlandırmayla temel işlevsellik"
+      },
+      "count": "{count} ürün mevcut"
+    },
+    "list": {
+      "title": "Tüm Ürünler",
+      "countText": "{count} adet özelleştirilebilir IPL cihazı mevcut"
+    },
+    "controls": {
+      "filter": "Filtrele"
+    },
+    "cta": {
+      "title": "IPL markanızı başlatmaya hazır mısınız?",
+      "description": "Gereksinimleriniz hakkında uzmanlarımızla görüşün ve size özel bir teklif alın.",
+      "button": "Bize Ulaşın"
+    }
+  },
+  "componentsPage": {
+    "breadcrumb": {
+      "components": "Bileşenler"
+    },
+    "header": {
+      "title": "IPL Bileşenleri ve Parçaları",
+      "description": "Performans, güvenlik ve güvenilirlik sunan yüksek kaliteli bileşenler"
+    },
+    "intro": {
+      "title": "Bileşen Kalitesi Cihaz Performansını Belirler",
+      "paragraph": "iShine'da her bileşenin kalitesinin tüm IPL cihazının performansını belirlediğini biliyoruz. Lamba kartuşlarından soğutma sistemlerine kadar her parça, uluslararası standartları karşılamak üzere titizlikle tasarlanır ve sıkı testlerden geçirilir."
+    },
+    "diagram": {
+      "alt": "IPL Cihazı Bileşen Şeması"
+    },
+    "overview": {
+      "title": "Temel Bileşenlere Genel Bakış"
+    },
+    "core": {
+      "lamp": {
+        "title": "Lamba Kartuşları",
+        "description": "Işık kaynağı, enerji stabilitesi, kullanım ömrü",
+        "specs": [
+          "999,000 flashes",
+          "Xenon teknolojisi",
+          "Yüksek verimlilik",
+          "Uzatılmış kullanım ömrü"
+        ],
+        "paragraph": "Lamba kartuşları IPL cihazlarının çekirdeğini oluşturur; enerji çıkış kalitesini ve cihazın kullanım ömrünü belirler. Yüksek performanslı lambalarımız, gelişmiş xenon teknolojisi kullanarak stabil ışık enerjisi çıkışı ve uzun kullanım ömrü sağlar; böylece her tedavide tutarlılık ve etkinlik garanti edilir.",
+        "imageAlt": "IPL Lamba Kartuşu",
+        "cta": "Lamba Kartuşları Hakkında Daha Fazla Bilgi"
+      },
+      "filter": {
+        "title": "Optik Filtreler",
+        "description": "Dalga boyu hassasiyeti, cilt güvenliği",
+        "specs": [
+          "UV koruması",
+          "Dalga boyu kontrolü",
+          "Yüksek netlik",
+          "Dayanıklılık"
+        ],
+        "paragraph": "Optik filtreler, zararlı dalga boylarını filtrelemede ve güvenli tedavilerin sağlanmasında kritik bir rol oynar. Hassas filtre teknolojimiz, spektral çıktıyı hassas bir şekilde kontrol ederek tedavi etkinliğini en üst düzeye çıkarırken cildi UV hasarından korur.",
+        "imageAlt": "IPL Optik Filtre",
+        "cta": "Optik Filtreleri Keşfedin"
+      },
+      "cooling": {
+        "title": "Soğutma Sistemi",
+        "description": "Konfor, cilt koruması, cihaz dayanıklılığı",
+        "specs": [
+          "Safir soğutma",
+          "Yarı iletken teknolojisi",
+          "Temas soğutması",
+          "Sıcaklık kontrolü"
+        ],
+        "paragraph": "Soğutma sistemleri, kullanıcı konforu ve cilt koruması için vazgeçilmezdir. Safir temas soğutması ve yarı iletken soğutma dahil gelişmiş soğutma teknolojilerimiz, cildi termal hasardan korurken tedavi sırasındaki rahatsızlığı azaltır.",
+        "imageAlt": "IPL Soğutma Sistemi",
+        "cta": "Soğutma Sistemi Çözümlerini İnceleyin"
+      },
+      "power": {
+        "title": "Güç Kaynağı",
+        "description": "Stabil enerji çıkışı, güvenlik uyumluluğu",
+        "specs": [
+          "Global voltaj",
+          "Güvenlik sertifikalı",
+          "Enerji verimli",
+          "Güvenilirlik"
+        ],
+        "paragraph": "Güvenilir güç kaynağı, IPL cihazı güvenliği ve performansının temelidir. Güç sistemlerimiz global standartlara uygun olarak stabil enerji çıkışı sağlar ve farklı ülke ile bölgelere uyum sağlar.",
+        "imageAlt": "IPL Güç Kaynağı",
+        "cta": "Güç Kaynağı Seçeneklerini Keşfedin"
+      }
+    },
+    "quality": {
+      "title": "Kalite ve Test",
+      "partnership": "Bileşen düzeyinde testler için Intertek ile iş birliği"
+    },
+    "qualityBlocks": {
+      "durability": {
+        "title": "Dayanıklılık Testi",
+        "description": "Bileşen performansının tüm kullanım ömrü boyunca korunmasını sağlamak için uzun süreli kullanım simülasyonu"
+      },
+      "safety": {
+        "title": "Güvenlik Testi",
+        "description": "Kullanıcı güvenliğini sağlamak için elektriksel ve termal performans testleri"
+      },
+      "performance": {
+        "title": "Performans Doğrulaması",
+        "description": "Işık çıkışı ve enerji stabilitesi gibi temel parametrelerin ölçülmesi"
+      },
+      "compliance": {
+        "title": "Uygunluk Sertifikasyonu",
+        "description": "Bileşenlerin sektör standartlarına ve yönetmeliklere uygunluğunun sağlanması"
+      }
+    },
+    "customization": {
+      "title": "Özelleştirme Seçenekleri",
+      "description": "Bileşenler marka gereksinimlerinize göre özelleştirilebilir; böylece IPL cihazınız öne çıkar"
+    },
+    "cta": {
+      "title": "IPL Çözümünüzü Oluşturun",
+      "description": "Tam cihazlara veya belirli bileşenlere ihtiyaç duyuyor olun, gereksinimlerinizi görüşmek için bize ulaşın.",
+      "button": "Bize Ulaşın"
+    },
+    "meta": {
+      "description": "iShine'ın IPL cihaz bileşenlerini keşfedin: OEM ve ODM üretimi için lamba kartuşları, optik filtreler, soğutma sistemleri ve güç kaynakları."
+    },
+    "citable": {
+      "question": "Ev kullanımına yönelik bir IPL cihazının temel bileşenleri nelerdir?",
+      "paragraph": "Ev kullanımına yönelik bir IPL cihazı; güvenliği, konforu ve performansı doğrudan etkileyen birkaç temel alt sistemden oluşur. Flaş kaynağı genellikle, stabil çıkış ve yüksek flaş sayısı için tasarlanmış bir xenon lamba kartuşudur (platforma bağlı olarak genellikle 500.000-999.000 flaş). Optik filtreler; istenmeyen dalga boylarını (UV dahil) engelleyerek ve desteklenen konfigürasyonlarda 550 nm veya 570 nm gibi yaygın kesme başlangıcı seçenekleriyle epilasyon konumlandırmasına uygun bantları seçerek yayılan spektrumu şekillendirir. Soğutma sistemi, cilt teması konforunu ve ısı yükünü yönetir; seçenekler arasında premium modellerde kullanılan safir buz plakaları ve yarı iletken (TEC) soğutma tasarımları yer alır ve bazı tasarımlar ~10°C civarında cilt temas sıcaklıklarını hedefler. Güç kaynağı tutarlı voltaj iletimi sağlar ve izolasyon, topraklama ile termal koruma gibi elektriksel tasarım tercihleri aracılığıyla cihazı korur; uluslararası lansmanlar için genellikle 100-240V AC gibi global giriş aralıklarını destekler. Özel marka (private label) programları için bu bileşenler, nihai cihazın hedef pazar gereksinimlerini karşılayabilmesi, partiler arası tutarlı performans sergilemesi ve seri üretim sırasında dokümantasyon ile doğrulama süreçlerini desteklemesi amacıyla uyumlu bir platform olarak seçilir."
+    }
+  },
+  "componentsCooling": {
+    "header": {
+      "title": "Gelişmiş Soğutma Sistemleri",
+      "description": "Güvenli ve konforlu IPL tedavileri için safir ve yarı iletken soğutma dahil son teknoloji soğutma teknolojileri"
+    },
+    "breadcrumb": {
+      "components": "Bileşenler",
+      "cooling": "Soğutma Sistemi"
+    },
+    "intro": {
+      "title": "Devrim Niteliğinde Soğutma Teknolojisi",
+      "paragraph": "Gelişmiş soğutma sistemlerimiz, IPL konfor ve güvenlik teknolojisinin zirvesini temsil eder. Son teknoloji safir temas soğutması ve akıllı sıcaklık yönetimini entegre ederek her tedavi seansının yalnızca etkili değil, aynı zamanda kullanıcılar için son derece konforlu olmasını sağlıyoruz."
+    },
+    "highlight": {
+      "whyTitle": "Gelişmiş Soğutma Neden Önemlidir",
+      "paragraph": "Etkili soğutma, IPL cihazı performansı, kullanıcı konforu ve tedavi güvenliği için kritik öneme sahiptir. Sistemlerimiz, tedavi etkinliğini en üst düzeye çıkarırken optimum cilt sıcaklığını korur.",
+      "items": {
+        "comfort": "Tedaviler sırasında artırılmış hasta konforu",
+        "safety": "Ciltte termal hasar riskinin azaltılması",
+        "performance": "İyileştirilmiş tedavi sonuçları ve tutarlılık"
+      },
+      "imageAlt": "Gelişmiş soğutma sistemi teknolojisi"
+    },
+    "tech": {
+      "title": "Soğutma Teknolojileri",
+      "description": "Farklı uygulamalar ve kullanıcı ihtiyaçları için tasarlanmış gelişmiş soğutma çözümleri yelpazemizi keşfedin",
+      "items": {
+        "plates": {
+          "title": "Temas Soğutma Plakaları",
+          "description": "Tedavi seansları sırasında tutarlı sıcaklığı koruyan yüksek verimli soğutma plakaları"
+        },
+        "sapphire": {
+          "title": "Safir Temas Soğutması",
+          "description": "Maksimum konfor ve üstün ısı dağılımı için premium safir kristal soğutma"
+        },
+        "semiconductor": {
+          "title": "Yarı İletken Soğutma",
+          "description": "Hassas sıcaklık kontrolü ve enerji verimliliği için gelişmiş Peltier soğutma teknolojisi"
+        }
+      }
+    },
+    "applications": {
+      "title": "Uygulama Alanları",
+      "description": "Soğutma sistemlerimiz çeşitli IPL uygulamaları ve tedavi senaryoları için tasarlanmıştır",
+      "items": {
+        "home": {
+          "title": "Ev Kullanımı Cihazları",
+          "description": "Kullanıcı dostu çalışma özelliğine sahip kişisel IPL cihazları için kompakt soğutma çözümleri"
+        },
+        "multi": {
+          "title": "Çok Fonksiyonlu Sistemler",
+          "description": "Profesyonel sınıf çok amaçlı IPL platformları için gelişmiş soğutma"
+        },
+        "pro": {
+          "title": "Profesyonel Ekipman",
+          "description": "Klinik ve salon ortamları için yüksek performanslı soğutma sistemleri"
+        },
+        "sensitive": {
+          "title": "Hassas Bölgeler",
+          "description": "Hassas cilt bölgeleri ve hassas tedavi alanları için özel soğutma"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Mevzuata Uygunluk",
+      "paragraph": "Soğutma sistemlerimiz uluslararası tıbbi cihaz standartlarını ve mevzuat gereksinimlerini karşılar",
+      "items": {
+        "fda": "FDA Uyumlu",
+        "iec60601": "IEC 60601 Sertifikalı",
+        "mdr": "MDR'ye Hazır",
+        "ce": "CE İşaretli",
+        "iso13485": "ISO 13485 Sertifikalı"
+      }
+    },
+    "visuals": {
+      "title": "Sistem Görselleştirme",
+      "images": {
+        "plate": {
+          "alt": "Soğutma plakası yakın çekim",
+          "title": "Safir Soğutma Plakası",
+          "caption": "Yüksek verimli termal transfer"
+        },
+        "integration": {
+          "alt": "Sistem entegrasyon şeması",
+          "title": "Sorunsuz Entegrasyon",
+          "caption": "Kompakt modül tasarımı"
+        }
+      }
+    },
+    "specs": {
+      "title": "Teknik Özellikler",
+      "description": "Soğutma sistemi bileşenlerimiz için ayrıntılı özellikler",
+      "table": {
+        "parameter": "Parametre",
+        "value": "Değer",
+        "notes": "Notlar"
+      },
+      "rows": [
+        {
+          "parameter": "Soğutma Yöntemi",
+          "value": "Sapphire Contact + Semiconductor",
+          "description": "Optimum performans için çift soğutma teknolojisi"
+        },
+        {
+          "parameter": "Sıcaklık Aralığı",
+          "value": "5°C - 25°C",
+          "description": "Farklı cilt tipleri için ayarlanabilir soğutma sıcaklığı"
+        },
+        {
+          "parameter": "Tepki Süresi",
+          "value": "< 3 seconds",
+          "description": "Anında konfor için hızlı soğutma aktivasyonu"
+        },
+        {
+          "parameter": "Temas Alanı",
+          "value": "25mm x 35mm",
+          "description": "Verimli ısı dağılımı için geniş soğutma yüzeyi"
+        },
+        {
+          "parameter": "Güç Tüketimi",
+          "value": "15W - 45W",
+          "description": "Enerji verimli soğutma sistemi tasarımı"
+        },
+        {
+          "parameter": "Kullanım Ömrü",
+          "value": "50,000+ hours",
+          "description": "Uzun ömürlü soğutma bileşenleri"
+        }
+      ],
+      "footnote": "* Özellikler, cihaz gereksinimlerine ve hedef pazarlara göre özelleştirilebilir."
+    },
+    "customization": {
+      "title": "Soğutma Sistemi Özelleştirmesi",
+      "description": "Belirli cihaz gereksinimlerinizi ve pazar ihtiyaçlarınızı karşılamak için soğutma çözümlerini size göre uyarlayın",
+      "blocks": {
+        "plates": {
+          "title": "Özel Soğutma Plakaları",
+          "description": "Uygulamanız için belirli boyut, malzeme ve termal özelliklere sahip soğutma plakaları tasarlayın"
+        },
+        "sapphire": {
+          "title": "Safir Kristal Seçenekleri",
+          "description": "Optimum soğutma performansı için çeşitli safir kristal kaliteleri ve konfigürasyonları arasından seçim yapın"
+        },
+        "integration": {
+          "title": "Sistem Entegrasyonu",
+          "description": "Soğutma sistemlerini mevcut cihaz mimarileri ve kontrol sistemleriyle sorunsuz şekilde entegre edin"
+        },
+        "temperature": {
+          "title": "Sıcaklık Kontrolü",
+          "description": "Hassas sıcaklık kontrol algoritmaları ve güvenlik izleme sistemleri uygulayın"
+        }
+      }
+    },
+    "quality": {
+      "title": "Kalite Güvence ve Test",
+      "paragraph": "Her soğutma sistemi; güvenilirlik, güvenlik ve performansı sağlamak için sıkı testlerden geçirilir",
+      "intertek": "Intertek Sertifikalı",
+      "intertekDesc": "Kalite güvencesi için bağımsız test ve sertifikasyon",
+      "blocks": {
+        "stability": {
+          "title": "Termal Stabilite Testi",
+          "description": "Tutarlı performans sağlamak için çeşitli termal koşullarda kapsamlı testler"
+        },
+        "longterm": {
+          "title": "Uzun Vadeli Güvenilirlik",
+          "description": "Zaman içinde dayanıklılık ve performansı doğrulamak için uzatılmış kullanım ömrü testleri"
+        },
+        "contact": {
+          "title": "Temas Kalite Kontrolü",
+          "description": "Optimum cilt teması için hassas üretim ve kalite kontrol"
+        },
+        "cycling": {
+          "title": "Sıcaklık Döngüsü Testleri",
+          "description": "Aşırı koşullar altında performansı doğrulamak için tekrarlanan sıcaklık döngüleri"
+        }
+      }
+    },
+    "cta": {
+      "title": "Gelişmiş Soğutmayı Entegre Etmeye Hazır mısınız?",
+      "description": "Soğutma sistemlerimizin IPL cihazı performansınızı nasıl artırabileceğini görüşmek için ekibimizle iletişime geçin",
+      "button": "Soğutma Sistemi Teklifi İsteyin"
+    },
+    "citable": {
+      "question": "Ev kullanımına yönelik bir IPL cihazında soğutma neden önemlidir?",
+      "paragraph": "Soğutma, ev kullanımına yönelik IPL cihazlarında temel bir tasarım faktörüdür; çünkü cilt teması konforunu artırır ve tekrarlanan flaşlar sırasında ısı yükünün yönetilmesine yardımcı olur. Premium konfigürasyonlarda, tedavi penceresinden ısıyı uzaklaştırmak için genellikle safir buz plakası veya yarı iletken (TEC) soğutma modülü kullanılır; bazı tasarımlar ~10°C civarında cilt temas sıcaklıklarını hedefler. Daha iyi termal yönetim, yüksek enerji ayarlarını daha tolere edilebilir hale getirebilir ve hassas bölgelerin tedavisinde kullanıcı rahatsızlığı riskini azaltabilir; bu da daha iyi seans tutarlılığı sağlar. Soğutma tercihleri ayrıca endüstriyel tasarımı, güç tüketimini, montaj karmaşıklığını ve maliyeti etkiler; bu nedenle doğru sistem, marka konumlandırmasına ve hedef pazar gereksinimlerine bağlıdır. OEM/ODM programları için iShine, soğutma yaklaşımını lamba, filtre, sıcaklık algılama ve güvenlik kilitlemeleriyle entegre eder; böylece nihai cihaz üretim partileri arasında stabil performans sergiler ve dağıtım için doğrulama ile dokümantasyonu destekler."
+    }
+  },
+  "componentsFilter": {
+    "breadcrumb": {
+      "components": "Bileşenler",
+      "filter": "Optik Filtreler"
+    },
+    "header": {
+      "title": "Optik Filtreler",
+      "description": "Güvenli ve etkili IPL tedavileri için hassas optik filtreler"
+    },
+    "intro": {
+      "title": "Güvenli Işık Terapisinin Bilimi",
+      "paragraph": "Optik filtreler, zararlı ışığı engellerken yalnızca güvenli ve etkili dalga boylarının cilde ulaşmasını sağlar. Hassas mühendislikle üretilen bu bileşenler, terapötik yetenekleri tanımlar ve ham ışık enerjisini hedefli tedavi çözümlerine dönüştürür."
+    },
+    "highlight": {
+      "whyTitle": "Optik Filtreler Neden Önemlidir",
+      "paragraph": "Filtre kalitesi ve hassasiyeti, tedavi güvenliğini, etkinliğini ve kullanıcı konforunu doğrudan etkiler.",
+      "badge": "Işık bazlı terapilerin kalbi",
+      "imageAlt": "IPL Optik Filtre Yakın Çekim"
+    },
+    "features": {
+      "title": "Başlıca Avantajlar",
+      "safety": {
+        "title": "Güvenlik",
+        "description": "Zararlı UV ve istenmeyen dalga boylarını engeller; böylece cilde yalnızca terapötik ışık ulaşır."
+      },
+      "precision": {
+        "title": "Hassasiyet",
+        "description": "Belirli tedaviler için hedefli dalga boyları; tek bir cihazın birden fazla cilt sorununa çözüm sunmasını sağlar."
+      },
+      "performance": {
+        "title": "Performans",
+        "description": "Yüksek geçirgenlik verimliliği, güç ihtiyacını en aza indirirken maksimum enerji sağlar."
+      },
+      "durability": {
+        "title": "Dayanıklılık",
+        "description": "Safir ve kaplamalı cam gibi premium malzemeler, yıllar boyunca ısı altında performansı korur."
+      }
+    },
+    "specs": {
+      "title": "Teknik Özellikler",
+      "table": {
+        "parameter": "Parametre",
+        "value": "Değer",
+        "notes": "Notlar"
+      },
+      "rows": [
+        {
+          "parameter": "Dalga Boyu Aralıkları",
+          "value": "510-1200 nm, 550-1200 nm",
+          "description": "Tedavi ihtiyaçlarına göre özelleştirilebilir"
+        },
+        {
+          "parameter": "Filtre Malzemeleri",
+          "value": "Coated glass, Sapphire",
+          "description": "Dayanıklılık için premium malzemeler"
+        },
+        {
+          "parameter": "Geçirgenlik Verimliliği",
+          "value": "95-98%",
+          "description": "Yüksek verimli ışık geçirgenliği"
+        },
+        {
+          "parameter": "Isı Direnci",
+          "value": "Up to 200°C",
+          "description": "Yoğun tedavi koşullarına dayanıklı"
+        },
+        {
+          "parameter": "UV Engelleme",
+          "value": "99.9%",
+          "description": "Zararlı UV'ye karşı tam koruma"
+        },
+        {
+          "parameter": "Hizmet Ömrü",
+          "value": "5+ years",
+          "description": "Uzun vadeli performans stabilitesi"
+        }
+      ],
+      "footnote": "* Özellikler, belirli cihaz gereksinimleri ve hedef pazarlar için özelleştirilebilir."
+    },
+    "types": {
+      "title": "Filtre Türleri",
+      "description": "Farklı ürün gereksinimleri için çeşitli filtre çözümleri sunuyoruz",
+      "fixed": {
+        "title": "Sabit Filtreler",
+        "description": "Tutarlı performans ve basitleştirilmiş kullanıcı deneyimi için cihaza kalıcı olarak entegre edilir"
+      },
+      "replaceable": {
+        "title": "Değiştirilebilir Filtreler",
+        "description": "Tek bir cihazda çok fonksiyonlu kullanım sağlayan değiştirilebilir filtreler"
+      },
+      "specialized": {
+        "title": "Özel Amaçlı Filtreler",
+        "description": "Akne, pigmentasyon ve cilt yenileme için hedefli dalga boyu aralıkları"
+      }
+    },
+    "customization": {
+      "title": "Özelleştirme Seçenekleri",
+      "blocks": {
+        "wavelengths": {
+          "title": "Dalga Boyu Aralıkları",
+          "description": "Tedavi hedefleri ve pazarlar için özelleştirilmiş dalga boyu aralıkları."
+        },
+        "shape": {
+          "title": "Şekil ve Boyut",
+          "description": "Cihaz tasarımlarına ve tedavi pencerelerine uyarlanmış form faktörleri."
+        },
+        "material": {
+          "title": "Malzeme Seçimi",
+          "description": "Dayanıklılık ve maliyete bağlı olarak premium safir veya kaplamalı cam seçin."
+        },
+        "branding": {
+          "title": "Markalama Seçenekleri",
+          "description": "Değiştirilebilir filtreler için ambalaj, renk şemaları ve markalama öğeleri."
+        }
+      }
+    },
+    "quality": {
+      "title": "Kalite ve Test",
+      "intertek": "Intertek İş Birliği",
+      "intertekDesc": "Optik filtre bileşenleri için üçüncü taraf doğrulama ve sertifikasyon",
+      "paragraph": "Her filtre; performans, güvenlik ve güvenilirliği sağlamak için sıkı testlerden geçirilir:",
+      "blocks": {
+        "wavelength": {
+          "title": "Dalga Boyu Doğruluğu",
+          "description": "Geçirgenlik ve engelleme özelliklerini doğrulamak için spektral analiz"
+        },
+        "transmission": {
+          "title": "Geçirgenlik Stabilitesi",
+          "description": "Kullanım ömrü boyunca tutarlı optik özellikler için uzun süreli testler"
+        },
+        "heat": {
+          "title": "Isı Direnci",
+          "description": "Yoğun koşullar altında performansı doğrulamak için termal stres testleri"
+        },
+        "durability": {
+          "title": "Dayanıklılık Testleri",
+          "description": "Uzun vadeli güvenilirlik için hızlandırılmış yaşlandırma ve mekanik stres testleri"
+        }
+      }
+    },
+    "applications": {
+      "title": "Uygulama Alanları",
+      "items": {
+        "hair": {
+          "title": "Epilasyon",
+          "description": "Çevredeki cildi korurken kıl köklerini hedefler"
+        },
+        "skin": {
+          "title": "Cilt Yenileme",
+          "description": "Kollajen üretimini ve cilt yenilenmesini destekleyen filtreler"
+        },
+        "acne": {
+          "title": "Akne Tedavisi",
+          "description": "İltihabı ve bakterileri hedefleyen ışık terapisi"
+        },
+        "pigmentation": {
+          "title": "Pigmentasyon Azaltma",
+          "description": "Melanini güvenli şekilde parçalamak için özel dalga boyları"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Uygunluk ve Standartlar",
+      "paragraph": "Filtrelerimiz, global güvenlik ve performans standartlarını karşılamak üzere tasarlanıp üretilmiştir:",
+      "items": {
+        "ce": "AB pazarı için CE işareti",
+        "iso13485": "ISO 13485 Kalite Yönetim Sistemi",
+        "fda": "FDA onayı desteği",
+        "iec60601": "IEC 60601 elektrik güvenliği",
+        "mdr": "MDR uygunluk süreci"
+      }
+    },
+    "visuals": {
+      "title": "Filtre Teknolojisini Görselleştirme",
+      "images": {
+        "wavelength": {
+          "alt": "Filtrelerin zararlı dalga boylarını nasıl engellediğini gösteren şema",
+          "caption": "Zararlı dalga boyu engelleme şeması"
+        },
+        "comparison": {
+          "alt": "Farklı filtre aralıklarının ve uygulamaların karşılaştırma tablosu",
+          "caption": "Filtre aralıkları ve uygulama karşılaştırması"
+        }
+      }
+    },
+    "cta": {
+      "title": "Premium Optik Filtreler için iShine ile Çalışın",
+      "description": "Global standartları karşılayan güvenli, yüksek performanslı filtrelerle IPL cihazları geliştirin.",
+      "button": "Projenize Başlayın"
+    },
+    "citable": {
+      "question": "Bir IPL cihazında optik filtreler ne işe yarar?",
+      "paragraph": "Bir IPL cihazındaki optik filtreler; istenmeyen dalga boylarını engelleyerek ve amaçlanan tedavi konumlandırmasıyla eşleşen bantları ileterek ışık çıktısını şekillendirir. Pratik anlamda filtreler, UV maruziyetini azaltmaya yardımcı olur ve tedavi penceresinden iletilen etkili dalga boyu aralığını ayarlayabilir (örneğin, desteklenen konfigürasyonlarda 550 nm, 570 nm veya 600 nm gibi yaygın kesme başlangıcı seçenekleri). Filtre tasarımı; farklı cilt tonlarındaki güvenlik payını, algılanan konforu ve farklı enerji ayarlarında etkinlik ile tolerabilite arasındaki dengeyi etkiler. OEM/ODM üretiminde filtre seçimi, lamba tüpü ve pencere malzemeleriyle birlikte uyumlu bir optik yığının parçası olarak ele alınır; çünkü küçük değişiklikler çıktı tutarlılığını ve doğrulama sonuçlarını etkileyebilir. iShine, özel marka (private label) programlarında performans hedeflerini hedef pazar dokümantasyonu ve üretim tekrarlanabilirliğiyle uyumlu hale getirmek için filtre konfigürasyonunu destekler."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Bileşenler",
+      "lamp": "Lamba Kartuşları"
+    },
+    "header": {
+      "title": "Lamba Kartuşları",
+      "description": "Uzun kullanım ömrü ve stabil enerjiye sahip yüksek performanslı IPL lamba kartuşları"
+    },
+    "intro": {
+      "title": "Etkili IPL Tedavilerini Güçlendirmek",
+      "paragraph": "Lamba kartuşları, enerji çıkış kalitesini ve cihazın kullanım ömrünü belirler. Xenon bazlı lambalarımız tutarlı ışık enerjisi ve uzun hizmet ömrü sunar."
+    },
+    "highlight": {
+      "whyTitle": "Lamba Kalitesi Neden Önemlidir",
+      "paragraph": "Enerji stabilitesi, kullanım ömrü ve güvenlik kritik öneme sahiptir. Kartuşlarımız güvenilir tedaviler sağlar.",
+      "badge": "IPL cihazlarının motoru",
+      "imageAlt": "IPL Lamba Kartuşu Yakın Çekim"
+    },
+    "features": {
+      "title": "Başlıca Özellikler",
+      "energy": {
+        "title": "Stabil Enerji Çıkışı",
+        "description": "Etkili tedaviler için tutarlı ışık enerjisi"
+      },
+      "lifespan": {
+        "title": "Uzatılmış Kullanım Ömrü",
+        "description": "Binlerce flaş boyunca uzun ömürlü lamba performansı"
+      },
+      "safety": {
+        "title": "Güvenlik",
+        "description": "Elektriksel ve termal güvenlik için tasarlanmıştır"
+      },
+      "integration": {
+        "title": "Kolay Entegrasyon",
+        "description": "Çeşitli cihaz mimarileriyle sorunsuz entegrasyon için tasarlanmıştır"
+      }
+    },
+    "specs": {
+      "title": "Teknik Özellikler",
+      "table": {
+        "parameter": "Parametre",
+        "value": "Değer",
+        "notes": "Notlar"
+      },
+      "rows": [
+        {
+          "parameter": "Flaş Sayısı",
+          "value": "999,000+",
+          "description": "Uzatılmış hizmet ömrü"
+        },
+        {
+          "parameter": "Işık Kaynağı",
+          "value": "Xenon",
+          "description": "Yüksek verimli enerji iletimi"
+        },
+        {
+          "parameter": "Enerji Stabilitesi",
+          "value": "High",
+          "description": "Kullanım ömrü boyunca tutarlılık"
+        },
+        {
+          "parameter": "Isı Yönetimi",
+          "value": "Optimized",
+          "description": "Yük altında termal güvenlik"
+        },
+        {
+          "parameter": "Form Faktörleri",
+          "value": "Multiple",
+          "description": "Özelleştirilebilir şekiller ve boyutlar"
+        },
+        {
+          "parameter": "Entegrasyon",
+          "value": "Flexible",
+          "description": "Farklı cihaz tasarımlarına uyar"
+        }
+      ],
+      "footnote": "* Özellikler, cihaz gereksinimlerine ve pazar ihtiyaçlarına bağlıdır."
+    },
+    "customization": {
+      "title": "Özelleştirme Seçenekleri",
+      "description": "Marka ve cihaz mimarisiyle uyumlu, tamamen özelleştirilebilir lamba kartuşları",
+      "options": {
+        "shape": {
+          "title": "Şekil ve Boyut",
+          "description": "Cihaz tasarımına ve tedavi penceresine göre uyarlanmış"
+        },
+        "flashCount": {
+          "title": "Flaş Sayısı",
+          "description": "Kullanım ömrü gereksinimlerine göre yapılandırılır"
+        },
+        "branding": {
+          "title": "Markalama",
+          "description": "Özel ambalaj ve görsel kimlik"
+        },
+        "integration": {
+          "title": "Entegrasyon",
+          "description": "Mekanik ve elektriksel arayüz seçenekleri"
+        }
+      }
+    },
+    "quality": {
+      "title": "Kalite ve Test",
+      "intertek": "Intertek İş Birliği",
+      "intertekDesc": "Lamba bileşenlerinin üçüncü taraf doğrulaması",
+      "paragraph": "Her lamba; enerji stabilitesi, uzun ömür ve kullanıcı güvenliğini sağlamak için testlere tabi tutulur:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Kullanım Ömrü Testi",
+          "description": "Performansı doğrulamak için uzun süreli kullanım simülasyonu"
+        },
+        "energy": {
+          "title": "Enerji Stabilitesi",
+          "description": "Flaşlar arasında çıkış tutarlılığının ölçülmesi"
+        },
+        "heat": {
+          "title": "Isı Direnci",
+          "description": "Yoğun kullanım altında termal güvenlik"
+        },
+        "qc": {
+          "title": "Kalite Kontrol",
+          "description": "Standartlara uygunluğu sağlayan uçtan uca kalite kontrol"
+        }
+      }
+    },
+    "applications": {
+      "title": "Uygulama Alanları",
+      "items": {
+        "home": {
+          "title": "Ev Kullanımı",
+          "description": "Kişisel kullanım için kompakt cihazlar"
+        },
+        "multi": {
+          "title": "Çok Fonksiyonlu",
+          "description": "Çok fonksiyonlu platformlar için lamba kartuşları"
+        },
+        "proConsumer": {
+          "title": "Pro-Tüketici",
+          "description": "Yüksek performanslı tüketici cihazları"
+        },
+        "handpieces": {
+          "title": "Profesyonel El Aparatları",
+          "description": "Klinik sınıfı ekipmanlar için lamba modülleri"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Uygunluk ve Standartlar",
+      "paragraph": "Global güvenlik ve performans standartlarını karşılamak üzere tasarlanmıştır:",
+      "items": {
+        "ce": "CE işareti",
+        "iso13485": "ISO 13485 Kalite Yönetim Sistemi",
+        "fda": "FDA onayı desteği",
+        "iec60601": "IEC 60601",
+        "mdr": "MDR uygunluğu"
+      }
+    },
+    "visuals": {
+      "title": "Görseller ve İnfografikler",
+      "images": {
+        "exploded": {
+          "alt": "Lamba kartuşu bileşenlerinin patlatılmış görünümü",
+          "caption": "Patlatılmış görünüm bileşen genel bakışı"
+        },
+        "lifecycle": {
+          "alt": "Lamba kullanım ömrü performans grafiği",
+          "caption": "Kullanım ömrü performans grafiği"
+        }
+      }
+    },
+    "cta": {
+      "title": "iShine Lamba Kartuşlarıyla Üretim Yapın",
+      "description": "Güvenilir, uzun ömürlü lamba kartuşları kullanan cihazlar geliştirmek için bizimle iş birliği yapın.",
+      "button": "Bize Ulaşın"
+    },
+    "citable": {
+      "question": "IPL lamba kartuşu nedir ve neden önemlidir?",
+      "paragraph": "IPL lamba kartuşu, ev kullanımına yönelik bir IPL cihazında yoğun darbeli ışık üreten flaş kaynağıdır. Çoğu platform, yayılan spektrumun kıl pigmentini hedeflerken UV gibi istenmeyen dalga boylarını azaltması için optik filtreleme ile eşleştirilmiş bir xenon flaş lamba tüpü kullanır. Lamba tasarımı; darbe stabilitesini, enerji tutarlılığını, ısı yükünü ve cihazın kullanım ömrü boyunca beklenen flaş sayısını etkiler (platforma bağlı olarak genellikle 500.000-999.000 flaş). Özel marka (private label) programları için iyi tanımlanmış bir lamba kartuşu, partiler arası farklılıkların azaltılmasına yardımcı olur ve tekrarlanabilir performans konumlandırmasını destekler; çünkü lamba, enerjinin tedavi penceresinden nasıl iletildiğinin merkezinde yer alır. iShine, lamba seçimini filtreler, soğutma ve güvenlik kilitlemeleriyle entegre eder; böylece nihai cihaz tutarlı şekilde üretilebilir ve hedef pazar gereksinimleri için doğrulama ile dokümantasyonla desteklenebilir."
+    }
+  },
+  "componentsPower": {
+    "breadcrumb": {
+      "components": "Bileşenler"
+    },
+    "header": {
+      "title": "Güç Kaynağı",
+      "description": "IPL cihazları için verimli ve güvenli güç kaynağı sistemleri"
+    },
+    "intro": {
+      "title": "Bileşen Kalitesi Cihaz Performansını Belirler",
+      "paragraph": "iShine'da her bileşenin kalitesinin tüm IPL cihazının performansını belirlediğini biliyoruz. Lamba kartuşlarından soğutma sistemlerine kadar her parça, uluslararası standartları karşılamak üzere titizlikle tasarlanır ve sıkı testlerden geçirilir."
+    },
+    "diagram": {
+      "alt": "IPL Cihazı Bileşen Şeması"
+    },
+    "overview": {
+      "title": "Temel Bileşenlere Genel Bakış"
+    },
+    "core": {
+      "lamp": {
+        "title": "Lamba Kartuşları",
+        "description": "Işık kaynağı, enerji stabilitesi, kullanım ömrü",
+        "specs": [
+          "999,000 flashes",
+          "Xenon teknolojisi",
+          "Yüksek verimlilik",
+          "Uzatılmış kullanım ömrü"
+        ],
+        "paragraph": "Lamba kartuşları IPL cihazlarının çekirdeğini oluşturur; enerji çıkış kalitesini ve cihazın kullanım ömrünü belirler. Yüksek performanslı lambalarımız, gelişmiş xenon teknolojisi kullanarak stabil ışık enerjisi çıkışı ve uzun kullanım ömrü sağlar; böylece her tedavide tutarlılık ve etkinlik garanti edilir.",
+        "imageAlt": "IPL Lamba Kartuşu",
+        "cta": "Lamba Kartuşları Hakkında Daha Fazla Bilgi"
+      },
+      "filter": {
+        "title": "Optik Filtreler",
+        "description": "Dalga boyu hassasiyeti, cilt güvenliği",
+        "specs": [
+          "UV koruması",
+          "Dalga boyu kontrolü",
+          "Yüksek netlik",
+          "Dayanıklılık"
+        ],
+        "paragraph": "Optik filtreler, zararlı dalga boylarını filtrelemede ve güvenli tedavilerin sağlanmasında kritik bir rol oynar. Hassas filtre teknolojimiz, spektral çıktıyı hassas bir şekilde kontrol ederek tedavi etkinliğini en üst düzeye çıkarırken cildi UV hasarından korur.",
+        "imageAlt": "IPL Optik Filtre",
+        "cta": "Optik Filtreleri Keşfedin"
+      },
+      "cooling": {
+        "title": "Soğutma Sistemi",
+        "description": "Konfor, cilt koruması, cihaz dayanıklılığı",
+        "specs": [
+          "Safir soğutma",
+          "Yarı iletken teknolojisi",
+          "Temas soğutması",
+          "Sıcaklık kontrolü"
+        ],
+        "paragraph": "Soğutma sistemleri, kullanıcı konforu ve cilt koruması için vazgeçilmezdir. Safir temas soğutması ve yarı iletken soğutma dahil gelişmiş soğutma teknolojilerimiz, cildi termal hasardan korurken tedavi sırasındaki rahatsızlığı azaltır.",
+        "imageAlt": "IPL Soğutma Sistemi",
+        "cta": "Soğutma Sistemi Çözümlerini İnceleyin"
+      },
+      "power": {
+        "title": "Güç Kaynağı",
+        "description": "Stabil enerji çıkışı, güvenlik uyumluluğu",
+        "specs": [
+          "Global voltaj",
+          "Güvenlik sertifikalı",
+          "Enerji verimli",
+          "Güvenilirlik"
+        ],
+        "paragraph": "Güvenilir güç kaynağı, IPL cihazı güvenliği ve performansının temelidir. Güç sistemlerimiz global standartlara uygun olarak stabil enerji çıkışı sağlar ve farklı ülke ile bölgelere uyum sağlar.",
+        "imageAlt": "IPL Güç Kaynağı",
+        "cta": "Güç Kaynağı Seçeneklerini Keşfedin"
+      }
+    },
+    "quality": {
+      "title": "Kalite ve Test",
+      "partnership": "Bileşen düzeyinde testler için Intertek ile iş birliği"
+    },
+    "qualityBlocks": {
+      "durability": {
+        "title": "Dayanıklılık Testi",
+        "description": "Bileşen performansının tüm kullanım ömrü boyunca korunmasını sağlamak için uzun süreli kullanım simülasyonu"
+      },
+      "safety": {
+        "title": "Güvenlik Testi",
+        "description": "Kullanıcı güvenliğini sağlamak için elektriksel ve termal performans testleri"
+      },
+      "performance": {
+        "title": "Performans Doğrulaması",
+        "description": "Işık çıkışı ve enerji stabilitesi gibi temel parametrelerin ölçülmesi"
+      },
+      "compliance": {
+        "title": "Uygunluk Sertifikasyonu",
+        "description": "Bileşenlerin sektör standartlarına ve yönetmeliklere uygunluğunun sağlanması"
+      }
+    },
+    "customization": {
+      "title": "Özelleştirme Seçenekleri",
+      "description": "Bileşenler marka gereksinimlerinize göre özelleştirilebilir; böylece IPL cihazınız öne çıkar"
+    },
+    "cta": {
+      "title": "IPL Çözümünüzü Oluşturun",
+      "description": "Tam cihazlara veya belirli bileşenlere ihtiyaç duyuyor olun, gereksinimlerinizi görüşmek için bize ulaşın.",
+      "button": "Bize Ulaşın"
+    },
+    "citable": {
+      "question": "Bir IPL cihazında güç kaynağı ne işe yarar?",
+      "paragraph": "Güç kaynağı, IPL darbeleri için stabil ve tekrarlanabilir enerji iletimini sağlayan elektriksel alt sistemdir. Şebeke girişini; lamba sürücüsü, soğutma modülleri ve kontrol elektroniği tarafından kullanılan kontrollü çıkışlara dönüştürür ve uluslararası dağıtım için genellikle 100-240V AC gibi global giriş aralıklarını destekler. İyi tasarlanmış bir güç sistemi; izolasyon tasarımı, termal yönetim ve elektriksel güvenlik önlemleri aracılığıyla cihazı korurken tutarlı darbe zamanlamasını ve enerji stabilitesini destekler. Global özel marka (private label) lansmanları için güç tasarımı; bölgesel priz standartlarını ve dahil edilen fiş tipleri ile adaptörler gibi nihai ambalaj konfigürasyonunu da dikkate almalıdır. OEM/ODM üretiminde iShine, güç kaynağı tasarımını optik ve soğutma tercihleriyle uyumlu hale getirir; böylece komple cihaz doğrulama adımlarından geçebilir ve üretim partileri arasında öngörülebilir performans sergiler."
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "Ustawienia energii",
+          "value": "5 poziomów"
+        },
+        "lamp": {
+          "label": "Lampa",
+          "value": "Zapewnia 999,999 błysków"
+        },
+        "autoFlash": {
+          "label": "Auto-błysk",
+          "value": "Tak"
+        },
+        "pulseDuration": {
+          "label": "Czas trwania impulsu (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura chłodzenia",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Czas do osiągnięcia temperatury chłodzenia",
+          "value": "1 minuta"
+        },
+        "totalEnergyRange": {
+          "label": "Zakres całkowitej energii",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Napięcie wejściowe",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Filtr UV",
+          "value": "Tak"
+        },
+        "safetySystem": {
+          "label": "Zintegrowany system bezpieczeństwa",
+          "value": "Tak"
+        },
+        "skinToneSensor": {
+          "label": "Czujnik odcienia skóry",
+          "value": "Nie"
+        },
+        "lampMaterial": {
+          "label": "Materiał lampy",
+          "value": "Kwarc"
+        },
+        "lampConfiguration": {
+          "label": "Konfiguracja lampy",
+          "value": "Pojedyncza lampa"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "2 lata globalnej gwarancji"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Maksymalna gęstość mocy optycznej",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Długość fali",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Wymiary urządzenia",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Masa netto",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ dla zamówień hurtowych (urządzenie)",
+          "value": "500 sztuk"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "Planowanie przez aplikację",
+          "description": "Planuj i śledź harmonogram zabiegów w aplikacji mobilnej, aby osiągać spójne rezultaty."
+        },
+        "progressTracking": {
+          "title": "Śledzenie postępów",
+          "description": "Monitoruj historię zabiegów i poprawę kondycji skóry w czasie dzięki szczegółowym analizom."
+        },
+        "multiColorDesign": {
+          "title": "Wielokolorowy design",
+          "description": "Dostępny w kolorach: białym, czarnym, beżowym i morskim, co umożliwia elastyczne dostosowanie do marki."
+        },
+        "dataDrivenResults": {
+          "title": "Wyniki oparte na danych",
+          "description": "Dane z zabiegów pomagają użytkownikom trzymać się planu i szybciej osiągać optymalne rezultaty."
+        }
+      },
+      "badge": "Inteligentne sterowanie przez aplikację",
+      "colors": [
+        "Biały",
+        "Czarny",
+        "Beżowy",
+        "Morski"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "Wysokowydajne urządzenie IPL",
+      "description": "Urządzenie Alpha IPL zostało zaprojektowane z myślą o skutecznych zabiegach w domu, z chłodzeniem o uczuciu lodowatego szafiru oraz stabilnym, powtarzalnym dostarczaniem energii dla programów private label.",
+      "specs": {
+        "type": {
+          "label": "Typ",
+          "value": "IPL do użytku domowego (pojedyncza lampa kwarcowa)"
+        },
+        "cooling": {
+          "label": "Chłodzenie",
+          "value": "Tak, technologia uczucia lodowatego szafiru"
+        },
+        "window": {
+          "label": "Okno",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "Energia",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Ustawienia energii",
+          "value": "5 poziomów"
+        },
+        "lamp": {
+          "label": "Lampa",
+          "value": "Zapewnia 999,999 błysków"
+        },
+        "autoFlash": {
+          "label": "Auto-błysk",
+          "value": "Tak"
+        },
+        "pulseDuration": {
+          "label": "Czas trwania impulsu (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura chłodzenia",
+          "value": "5°C (temperatura otoczenia 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Czas do osiągnięcia temperatury chłodzenia",
+          "value": "1 minuta"
+        },
+        "totalEnergyRange": {
+          "label": "Zakres całkowitej energii",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Napięcie wejściowe",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtr UV",
+          "value": "Tak"
+        },
+        "safetySystem": {
+          "label": "Zintegrowany system bezpieczeństwa",
+          "value": "Tak"
+        },
+        "skinToneSensor": {
+          "label": "Czujnik odcienia skóry",
+          "value": "Nie"
+        },
+        "lampMaterial": {
+          "label": "Materiał lampy",
+          "value": "Kwarc"
+        },
+        "lampConfiguration": {
+          "label": "Konfiguracja lampy",
+          "value": "Pojedyncza lampa"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "2 lata globalnej gwarancji"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Maksymalna gęstość mocy optycznej",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Długość fali",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Wymiary urządzenia",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Masa netto",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ dla zamówień hurtowych (urządzenie)",
+          "value": "500 sztuk"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "Wydajna energia",
+          "description": "Zakres gęstości energii 2-5 J/cm² z 5 poziomami zapewniający elastyczne programy zabiegowe."
+        }
+      }
+    }
+  }
+}

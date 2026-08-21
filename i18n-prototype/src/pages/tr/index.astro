@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const currentLocale = Astro.currentLocale;
+const translate = useTranslations(currentLocale);
+const title = translate('hero.title');
+---
+<Layout title={title}>
+  <h1>{translate('hero.title')}</h1>
+  <p>{translate('hero.desc')}</p>
+  <p class="meta">
+    {translate('meta.current')} = <code>{currentLocale}</code> · {translate('meta.url')} = <code>{Astro.url.pathname}</code>
+  </p>
+  <p><a href="/tr/services">{translate('fallback.link')}</a></p>
+</Layout>

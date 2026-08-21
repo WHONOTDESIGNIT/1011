@@ -1,0 +1,247 @@
+{
+  "componentsFilter": {
+    "customization": {
+      "blocks": {
+        "branding": {
+          "description": "Emballages, palettes de couleurs et éléments de marque pour filtres remplaçables."
+        }
+      }
+    },
+    "quality": {
+      "title": "Qualité et tests",
+      "intertek": "Partenariat Intertek",
+      "intertekDesc": "Vérification et certification par un tiers indépendant pour les composants de filtres optiques",
+      "paragraph": "Chaque filtre est soumis à des tests rigoureux pour garantir performance, sécurité et fiabilité :",
+      "blocks": {
+        "wavelength": {
+          "title": "Précision de la longueur d'onde",
+          "description": "Analyse spectrale pour vérifier les caractéristiques de transmission et de blocage"
+        },
+        "transmission": {
+          "title": "Stabilité de la transmission",
+          "description": "Tests de longue durée pour des propriétés optiques constantes sur toute la durée de vie"
+        },
+        "heat": {
+          "title": "Résistance à la chaleur",
+          "description": "Tests de contrainte thermique pour valider les performances en conditions intensives"
+        },
+        "durability": {
+          "title": "Tests de durabilité",
+          "description": "Vieillissement accéléré et tests de contrainte mécanique pour une fiabilité à long terme"
+        }
+      }
+    },
+    "applications": {
+      "title": "Applications",
+      "items": {
+        "hair": {
+          "title": "Épilation",
+          "description": "Cible les follicules pileux tout en protégeant la peau environnante"
+        },
+        "skin": {
+          "title": "Rajeunissement de la peau",
+          "description": "Des filtres favorisant la production de collagène et le renouvellement cutané"
+        },
+        "acne": {
+          "title": "Traitement de l'acné",
+          "description": "Photothérapie ciblant l'inflammation et les bactéries"
+        },
+        "pigmentation": {
+          "title": "Réduction de la pigmentation",
+          "description": "Des longueurs d'onde spéciales pour décomposer la mélanine en toute sécurité"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformité et normes",
+      "paragraph": "Nos filtres sont conçus et fabriqués pour répondre aux normes mondiales de sécurité et de performance :",
+      "items": {
+        "ce": "Marquage CE pour le marché européen",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Accompagnement pour l'homologation FDA",
+        "iec60601": "Sécurité électrique IEC 60601",
+        "mdr": "Processus de conformité MDR"
+      }
+    },
+    "visuals": {
+      "title": "Visualiser la technologie des filtres",
+      "images": {
+        "wavelength": {
+          "alt": "Schéma montrant comment les filtres bloquent les longueurs d'onde nocives",
+          "caption": "Schéma du blocage des longueurs d'onde nocives"
+        },
+        "comparison": {
+          "alt": "Tableau comparatif des différentes gammes de filtres et de leurs applications",
+          "caption": "Comparaison des gammes de filtres et de leurs applications"
+        }
+      }
+    },
+    "cta": {
+      "title": "Partenariat avec iShine pour des filtres optiques haut de gamme",
+      "description": "Développez des appareils IPL avec des filtres sûrs et haute performance conformes aux normes internationales.",
+      "button": "Lancez votre projet"
+    },
+    "citable": {
+      "question": "Quel est le rôle des filtres optiques dans un appareil IPL ?",
+      "paragraph": "Dans un appareil IPL, les filtres optiques façonnent la sortie de lumière en bloquant les longueurs d'onde indésirables et en transmettant les bandes correspondant au positionnement thérapeutique prévu. Concrètement, les filtres contribuent à réduire l'exposition aux UV et peuvent ajuster la plage de longueurs d'onde efficaces délivrée à travers la fenêtre de traitement (par exemple, des options de coupure courantes comme 550 nm, 570 nm ou 600 nm dans les configurations prises en charge). La conception du filtre influence la marge de sécurité selon les types de peau, le confort perçu et l'équilibre entre efficacité et tolérance à différents réglages d'énergie. Pour la production OEM/ODM, la sélection des filtres est traitée comme un élément d'une pile optique assortie avec le tube de lampe et les matériaux de la fenêtre, car de petits changements peuvent affecter la constance de la sortie et les résultats de vérification. iShine prend en charge la configuration des filtres dans le cadre des programmes de marque privée afin d'aligner les objectifs de performance sur la documentation du marché cible et la reproductibilité de la fabrication."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Composants",
+      "lamp": "Cartouches de lampe"
+    },
+    "header": {
+      "title": "Cartouches de lampe",
+      "description": "Cartouches de lampe IPL haute performance avec durée de vie prolongée et énergie stable"
+    },
+    "intro": {
+      "title": "Au cœur de traitements IPL efficaces",
+      "paragraph": "Les cartouches de lampe déterminent la qualité de la sortie d'énergie et la durée de vie de l'appareil. Nos lampes au xénon fournissent une énergie lumineuse constante et une longue durée de service."
+    },
+    "highlight": {
+      "whyTitle": "Pourquoi la qualité de la lampe est essentielle",
+      "paragraph": "La stabilité de l'énergie, la durée de vie et la sécurité sont essentielles. Nos cartouches garantissent des traitements fiables.",
+      "badge": "Moteur des appareils IPL",
+      "imageAlt": "Gros plan d'une cartouche de lampe IPL"
+    },
+    "features": {
+      "title": "Caractéristiques clés",
+      "energy": {
+        "title": "Sortie d'énergie stable",
+        "description": "Énergie lumineuse constante pour des traitements efficaces"
+      },
+      "lifespan": {
+        "title": "Durée de vie prolongée",
+        "description": "Performances de lampe durables sur des milliers de flashs"
+      },
+      "safety": {
+        "title": "Sécurité",
+        "description": "Conçue pour la sécurité électrique et thermique"
+      },
+      "integration": {
+        "title": "Intégration facile",
+        "description": "Conçue pour s'intégrer parfaitement à diverses architectures d'appareils"
+      }
+    },
+    "specs": {
+      "title": "Spécifications techniques",
+      "table": {
+        "parameter": "Paramètre",
+        "value": "Valeur",
+        "notes": "Notes"
+      },
+      "rows": [
+        {
+          "parameter": "Nombre de flashs",
+          "value": "999,000+",
+          "description": "Durée de service prolongée"
+        },
+        {
+          "parameter": "Source de lumière",
+          "value": "Xénon",
+          "description": "Transmission d'énergie à haute efficacité"
+        },
+        {
+          "parameter": "Stabilité de l'énergie",
+          "value": "Élevée",
+          "description": "Constance tout au long de la durée de vie"
+        },
+        {
+          "parameter": "Gestion de la chaleur",
+          "value": "Optimisée",
+          "description": "Sécurité thermique en charge"
+        },
+        {
+          "parameter": "Facteurs de forme",
+          "value": "Multiples",
+          "description": "Formes et tailles personnalisables"
+        },
+        {
+          "parameter": "Intégration",
+          "value": "Flexible",
+          "description": "S'adapte à diverses conceptions d'appareils"
+        }
+      ],
+      "footnote": "* Les spécifications dépendent des exigences de l'appareil et des besoins du marché."
+    },
+    "customization": {
+      "title": "Options de personnalisation",
+      "description": "Cartouches de lampe entièrement personnalisables pour correspondre à la marque et à l'architecture de l'appareil",
+      "options": {
+        "shape": {
+          "title": "Forme et taille",
+          "description": "Adaptée à la conception de l'appareil et à la fenêtre de traitement"
+        },
+        "flashCount": {
+          "title": "Nombre de flashs",
+          "description": "Configuré selon les exigences de durée de vie"
+        },
+        "branding": {
+          "title": "Image de marque",
+          "description": "Emballages personnalisés et identité visuelle"
+        },
+        "integration": {
+          "title": "Intégration",
+          "description": "Options d'interface mécanique et électrique"
+        }
+      }
+    },
+    "quality": {
+      "title": "Qualité et tests",
+      "intertek": "Partenariat Intertek",
+      "intertekDesc": "Validation par un tiers indépendant des composants de lampe",
+      "paragraph": "Chaque lampe est soumise à des tests pour garantir la stabilité de l'énergie, la longévité et la sécurité de l'utilisateur :",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Tests de durée de vie",
+          "description": "Simulation d'une utilisation à long terme pour valider les performances"
+        },
+        "energy": {
+          "title": "Stabilité de l'énergie",
+          "description": "Mesure de la constance de la sortie d'énergie entre les flashs"
+        },
+        "heat": {
+          "title": "Résistance à la chaleur",
+          "description": "Sécurité thermique en cas d'utilisation intensive"
+        },
+        "qc": {
+          "title": "Contrôle qualité",
+          "description": "Contrôle qualité de bout en bout garantissant la conformité aux normes"
+        }
+      }
+    },
+    "applications": {
+      "title": "Applications",
+      "items": {
+        "home": {
+          "title": "Usage domestique",
+          "description": "Appareils compacts pour un usage personnel"
+        },
+        "multi": {
+          "title": "Multifonction",
+          "description": "Cartouches de lampe pour plateformes multifonctions"
+        },
+        "proConsumer": {
+          "title": "Grand public haut de gamme",
+          "description": "Appareils grand public haute performance"
+        },
+        "handpieces": {
+          "title": "Pièces à main professionnelles",
+          "description": "Modules de lampe pour équipements de qualité clinique"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformité et normes",
+      "paragraph": "Conçu pour répondre aux normes mondiales de sécurité et de performance :",
+      "items": {
+        "ce": "Marquage CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Accompagnement pour l'homologation FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Conformité MDR"
+      }
+    }
+  }
+}

@@ -1,0 +1,330 @@
+---
+// iShine — Technology Milestones (remodeled from Develo template page)
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+
+const locale = Astro.currentLocale ?? 'en';
+---
+<!doctype html>
+<html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  (function () {
+    var KEY = 'ishine_lang';
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (!stored) return;
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs'];
+      var path = window.location.pathname;
+      var cur = 'en';
+      for (var i = 0; i < LANGS.length; i++) {
+        if (path === '/' + LANGS[i] || path.indexOf('/' + LANGS[i] + '/') === 0) { cur = LANGS[i]; break; }
+      }
+      if (stored === cur) return;
+      var stripped = path;
+      for (var j = 0; j < LANGS.length; j++) {
+        stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
+      }
+      if (stored === 'en') {
+        stripped = stripped.replace(/\/+$/, '');
+        if (stripped === '' || stripped === '/') stripped = '/';
+        if (stripped !== path) window.location.replace(stripped);
+      } else {
+        var target = '/' + stored + (stripped === '' || stripped === '/' ? '' : stripped);
+        target = target.replace(/\/+$/, '');
+        if (target === '') target = '/' + stored;
+        if (target !== path) window.location.replace(target);
+      }
+    } catch (e) { }
+  })();
+</script>
+<title>iShine Technology Milestones | Our IPL Journey</title>
+<meta name="description" content="From our first IPL devices to a certified multi-head platform — the technology milestones behind Shenzhen iShine Technology, an IPL hair removal OEM/ODM manufacturer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#563cfa;--black:#020303;--white:#fff;--grey-50:#f9fafb;--grey-100:#f3f4f6;--grey-200:#e5e7eb;--grey-400:#9ca3af;--grey-500:#6b7280;--grey-text:#4b5563;--max-w:1536px;--pad-100:100px}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* Header / nav — same as Develo template */
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .3s ease;will-change:top}
+.header-inner{display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:rgba(255,255,255,.9);border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-logo{display:flex;align-items:center;flex-shrink:0;margin-right:502px}
+.header-nav{display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:4px;padding:12px 16px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#020303;line-height:25px;background:transparent;cursor:pointer;border-radius:8px;transition:background .2s;white-space:nowrap;text-decoration:none}
+.nav-item:hover{background:rgba(0,0,0,.04)}
+.desktop-nav{display:flex}
+@media(max-width:959px){.desktop-nav{display:none}}
+.header-cta{display:flex;align-items:center;gap:12px;margin-left:auto;margin-right:38px}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .25s}
+.btn-cta:hover{gap:12px;background:#374151}
+@media(max-width:959px){.header-cta .btn-cta{display:none}}
+
+/* Layout */
+.page-main{margin-top:136px}
+.section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.section-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.section-title{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:40px;color:var(--black);margin:0 0 12px}
+.section-desc{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:620px}
+
+/* Hero */
+.hero-section{padding:40px 0 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 14px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:13px;font-weight:500;color:var(--grey-500);margin-bottom:24px}
+.hero-title{font-family:Syne,sans-serif;font-size:44px;font-weight:400;line-height:52px;letter-spacing:-.43px;color:var(--black);max-width:760px;margin:0 0 16px}
+.hero-desc{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:28px;color:var(--grey-text);max-width:600px}
+
+/* Timeline */
+.timeline-section{padding:40px 0 100px}
+.timeline{position:relative;max-width:860px;margin:56px 0 0}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--grey-200)}
+.tl-item{position:relative;padding:0 0 56px 52px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:6px;width:24px;height:24px;border-radius:50%;background:var(--blue);border:5px solid #e4e1ff;box-shadow:0 0 0 2px var(--blue)}
+.tl-year{font-family:Syne,sans-serif;font-size:20px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.tl-title{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin-bottom:8px}
+.tl-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--grey-text);max-width:640px}
+.tl-tag{display:inline-flex;align-items:center;margin-top:12px;padding:4px 12px;border:1px solid var(--grey-200);border-radius:100px;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--grey-500);letter-spacing:.4px;text-transform:uppercase}
+
+/* Stats */
+.stats-section{padding:80px 0;background:var(--grey-50)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.stat-card{display:flex;flex-direction:column;gap:8px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;background:var(--white)}
+.stat-num{font-family:Syne,sans-serif;font-size:34px;font-weight:700;line-height:42px;color:var(--blue)}
+.stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
+
+/* Products */
+.products-section{padding:80px 0}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.product-card{display:flex;flex-direction:column;gap:12px;padding:32px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
+.product-card:hover{border-color:var(--grey-400);transform:translateY(-2px)}
+.product-card h3{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:30px;color:var(--black);margin:0}
+.product-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--grey-text)}
+.product-tag{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px}
+
+/* Certifications */
+.cert-section{padding:80px 0;background:var(--grey-50)}
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.cert-item{display:flex;align-items:center;justify-content:center;padding:22px 16px;border:1px solid var(--grey-200);border-radius:12px;background:var(--white);font-family:Syne,sans-serif;font-size:15px;font-weight:600;color:var(--grey-500);text-align:center;transition:all .2s}
+.cert-item:hover{border-color:var(--blue);color:var(--blue)}
+
+/* For partners */
+.partner-section{padding:80px 0}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.partner-card{display:flex;flex-direction:column;gap:12px;padding:28px 24px;border:1px solid var(--grey-200);border-radius:16px;transition:all .2s}
+.partner-card:hover{border-color:var(--grey-400)}
+.partner-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--black);margin:0}
+.partner-card p{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--grey-text)}
+
+/* CTA */
+.cta-section{padding:80px 0 120px;background:var(--grey-50)}
+.cta-content{max-width:620px;display:flex;flex-direction:column;gap:16px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 26px;background:var(--blue);color:#fff;font-family:Manrope,sans-serif;font-size:16px;font-weight:500;border-radius:100px;width:fit-content;transition:all .25s}
+.btn-primary:hover{background:#374151;gap:12px}
+
+@media(max-width:1279px){.section-container{padding:0 40px}.stats-grid{grid-template-columns:repeat(2,1fr)}.products-grid,.partner-grid{grid-template-columns:repeat(2,1fr)}.cert-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:959px){.products-grid,.partner-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){
+  .section-container{padding:0 24px}
+  .hero-title{font-size:34px;line-height:42px;letter-spacing:-.33px}
+  .section-title{font-size:26px;line-height:34px}
+  .stats-grid,.products-grid,.partner-grid,.cert-grid{grid-template-columns:1fr}
+  .tl-item{padding-left:44px}
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="page-main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section">
+    <div class="section-container">
+      <div class="hero-badge">iShine Technology · Milestones</div>
+      <h1 class="hero-title">The Road We've Built: From Our First IPL Device to a Certified Multi-Head Platform</h1>
+      <p class="hero-desc">Shenzhen iShine Technology is an IPL hair removal OEM/ODM manufacturer. This is the technology timeline behind the devices we build for beauty brands worldwide — the milestones, the certifications, and the engineering that got us here.</p>
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <section class="timeline-section">
+    <div class="section-container">
+      <span class="section-label">Our Journey</span>
+      <h2 class="section-title">Technology Milestones</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2021</div>
+          <div class="tl-title">iShine was founded</div>
+          <p class="tl-desc">We started as an IPL device manufacturer in Shenzhen and launched our first product line — the SKN001, SKN002, SKN005 and SKN006 IPL devices.</p>
+          <span class="tl-tag">First Devices</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2022</div>
+          <div class="tl-title">Earned FDA 510(k)</div>
+          <p class="tl-desc">We earned FDA 510(k) clearance and launched the SKN12 Pro, our first IPL device with APP control — a step toward the connected home-use experience brands now expect.</p>
+          <span class="tl-tag">FDA 510(k) · APP Control</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2024</div>
+          <div class="tl-title">Sapphire ice-cooling technology</div>
+          <p class="tl-desc">We brought sapphire crystal contact cooling into our products. The SKN005 with sapphire crystal tech delivers an ice-cooling feeling, letting us run effective energy with less perceived heat.</p>
+          <span class="tl-tag">Sapphire Ice Tech</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Certified: ISO 13485, MDSAP, MDL &amp; NMPA</div>
+          <p class="tl-desc">We achieved ISO 13485, MDSAP, MDL and NMPA certifications, and launched the ice-cooling SKN004, creating a multi-head series of IPL devices built for different body areas and treatment modes.</p>
+          <span class="tl-tag">Certifications · Multi-Head Series</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Dual-lamp Ultra — coming next</div>
+          <p class="tl-desc">We are about to launch the dual-lamp ultra-power IPL, our next-generation platform combining dual lamps with higher output — built for brands that want maximum efficacy in one device.</p>
+          <span class="tl-tag">Next Generation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="stats-section">
+    <div class="section-container">
+      <span class="section-label">By the Numbers</span>
+      <h2 class="section-title">What the Milestones Add Up To</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num">500,000+</span><span class="stat-label">IPL devices shipped</span></div>
+        <div class="stat-card"><span class="stat-num">50+</span><span class="stat-label">brand customers served</span></div>
+        <div class="stat-card"><span class="stat-num">20+</span><span class="stat-label">countries our devices reach</span></div>
+        <div class="stat-card"><span class="stat-num">12+</span><span class="stat-label">product models across SKN series</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCTS ═══ -->
+  <section class="products-section">
+    <div class="section-container">
+      <span class="section-label">Product Lines</span>
+      <h2 class="section-title">From First Launch to Multi-Head Platform</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <span class="product-tag">2021 · Entry Line</span>
+          <h3>SKN001 / SKN002 / SKN006</h3>
+          <p>The devices that started it all — reliable home IPL hair removal for everyday use.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2022 · Connected</span>
+          <h3>SKN12 Pro</h3>
+          <p>IPL with APP control: usage tracking, treatment plans and firmware updates in a connected device.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2024 · Ice Feel</span>
+          <h3>SKN005 Sapphire Crystal</h3>
+          <p>Sapphire contact cooling that brings an ice-cooling feeling during treatment, so higher energy stays comfortable.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">2025 · Multi-Head</span>
+          <h3>SKN004 Multi-Head Series</h3>
+          <p>Ice-cooling multi-head devices — different heads for different body areas and treatment modes.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Upcoming · Flagship</span>
+          <h3>Dual-lamp Ultra</h3>
+          <p>The next-generation dual-lamp ultra-power IPL, about to launch. Built for maximum efficacy in one device.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Platform</span>
+          <h3>Your Brand, Our Engineering</h3>
+          <p>Every SKN platform is available as a base for OEM/ODM programs — your brand, your spec, our validated hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section class="cert-section">
+    <div class="section-container">
+      <span class="section-label">Certifications &amp; Compliance</span>
+      <h2 class="section-title">A File You Can Take to Regulators</h2>
+      <p class="section-desc">Each milestone is backed by a documented design history file and the certifications your market needs.</p>
+      <div class="cert-grid">
+        <div class="cert-item">FDA 510(k)</div>
+        <div class="cert-item">ISO 13485</div>
+        <div class="cert-item">MDSAP</div>
+        <div class="cert-item">MDL</div>
+        <div class="cert-item">NMPA</div>
+        <div class="cert-item">CE</div>
+        <div class="cert-item">FCC</div>
+        <div class="cert-item">IEC 60601</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOR PARTNERS ═══ -->
+  <section class="partner-section">
+    <div class="section-container">
+      <span class="section-label">For Brand Owners</span>
+      <h2 class="section-title">Why Our Milestones Matter to Your Product</h2>
+      <div class="partner-grid">
+        <div class="partner-card">
+          <h3>Validated Hardware</h3>
+          <p>You start from devices that already carry FDA 510(k) clearance and ISO 13485 certification — not from a blank page.</p>
+        </div>
+        <div class="partner-card">
+          <h3>Verified Components</h3>
+          <p>Our supply chain includes components used by leading brands — with the Ophir-measured optical output to back the numbers.</p>
+        </div>
+        <div class="partner-card">
+          <h3>Turnkey OEM/ODM</h3>
+          <p>Custom firmware, APP control, branding and packaging — from milestone hardware to a private-label product ready for your market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-content">
+        <span class="section-label">Next Milestone</span>
+        <h2 class="section-title">The Next Device on This Timeline Could Be Yours</h2>
+        <p class="section-desc">Tell us the market you're targeting and the price point you need. We'll map your product onto a validated platform and show you the route to launch.</p>
+        <a class="btn-primary" href={getLocalizedPath(locale, '/contact')}>Talk to Our Team →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<style>
+.site-footer{background:#020303;color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0;margin-top:0}
+.footer-container{max-width:1536px;margin:0 auto;padding:0 100px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:rgba(255,255,255,.6);margin-top:16px;max-width:280px}
+.footer-col h4{font-family:Manrope,sans-serif;font-size:16px;font-weight:600;color:#fff;line-height:25px;margin-bottom:16px}
+.footer-col a{display:block;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:21px;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.footer-bottom span{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.5);line-height:21px}
+@media(max-width:767px){.footer-container{padding:0 24px}.site-footer{padding:60px 0}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+<SiteFooter />
+</body>
+</html>

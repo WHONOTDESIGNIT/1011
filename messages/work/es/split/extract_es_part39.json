@@ -1,0 +1,224 @@
+{
+  "productDetail": {
+    "helix": {
+      "specs": {
+        "lampConfiguration": {
+          "value": "Lámpara única"
+        },
+        "warranty": {
+          "label": "Garantía",
+          "value": "Garantía global de 2 años"
+        },
+        "wavelength": {
+          "label": "Longitud de onda",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Pantalla",
+          "value": "Pantalla digital"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Enfriamiento de hielo de zafiro",
+          "description": "La avanzada tecnología de enfriamiento de zafiro mantiene la piel cómoda a 8°C y alcanza el punto de ajuste en solo 2 minutos para un tratamiento calmante."
+        },
+        "intensityLevels": {
+          "title": "9 niveles de intensidad",
+          "description": "Control preciso de la energía con 9 ajustes de intensidad, más que los dispositivos estándar de 5 niveles, para programas de tratamiento personalizados."
+        },
+        "digitalDisplay": {
+          "title": "Pantalla digital",
+          "description": "La pantalla digital integrada muestra el nivel de energía y el estado en tiempo real para un manejo intuitivo y un control preciso del tratamiento."
+        },
+        "longLastingLamp": {
+          "title": "Lámpara de larga duración",
+          "description": "La lámpara de cuarzo ofrece 999,999 destellos para años de tratamientos fiables."
+        }
+      },
+      "badge": "Pantalla digital",
+      "colors": [
+        "Blanco",
+        "Dorado",
+        "Negro"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Cuidado suave para pieles sensibles",
+      "description": "Eirene IPL está diseñada específicamente para pieles hipersensibles, con un perfil de energía suave y una protección UV mejorada.",
+      "specs": {
+        "type": {
+          "label": "Tipo",
+          "value": "Piel hipersensible"
+        },
+        "cooling": {
+          "label": "Enfriamiento",
+          "value": "Estándar"
+        },
+        "energy": {
+          "label": "Energía",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Lámpara",
+          "value": "800,000 destellos"
+        },
+        "window": {
+          "label": "Ventana",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Longitud de onda",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "Filtro de corte UV",
+          "value": "Mejorado"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Enfoque en piel hipersensible",
+          "description": "Diseñado específicamente para pieles reactivas o sensibles, con aumento gradual de la intensidad para mayor comodidad."
+        },
+        "enhancedUvProtection": {
+          "title": "Protección UV mejorada",
+          "description": "El filtro de corte UV avanzado ofrece protección adicional para las pieles delicadas durante el tratamiento."
+        },
+        "gentleEnergyProfile": {
+          "title": "Perfil de energía suave",
+          "description": "5-7 J/cm² optimizados con corte en 570 nm para una reducción del vello suave pero eficaz."
+        },
+        "softColorPalette": {
+          "title": "Paleta de colores suaves",
+          "description": "Disponible en rosa suave, blanco perlado y lavanda para una estética suave y relajante."
+        }
+      },
+      "priceNote": "Póngase en contacto con nosotros para conocer los precios de fábrica actuales y las opciones de pedidos piloto de la plataforma Eirene.",
+      "badge": "Suave",
+      "colors": [
+        "Rosa suave",
+        "Blanco perlado",
+        "Lavanda"
+      ]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (Madera)",
+      "tagline": "Colección de lujo con acabado de madera",
+      "description": "Golden Luxury es una plataforma IPL premium con acabado de madera, diseñada para un posicionamiento de gama alta y experiencias de unboxing de lujo.",
+      "specs": {
+        "type": {
+          "label": "Tipo",
+          "value": "Estética de lujo"
+        },
+        "cooling": {
+          "label": "Enfriamiento",
+          "value": "Sí, tecnología de sensación de frío de zafiro"
+        },
+        "window": {
+          "label": "Ventana",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Energía",
+          "value": "1-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Niveles de energía",
+          "value": "9 niveles"
+        },
+        "lamp": {
+          "label": "Lámpara",
+          "value": "Proporciona 999,999 destellos"
+        },
+        "autoFlash": {
+          "label": "Auto-destello",
+          "value": "Sí"
+        },
+        "pulseDuration": {
+          "label": "Duración del pulso (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura de enfriamiento",
+          "value": "8°C (ambiente 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Tiempo hasta la temperatura de enfriamiento",
+          "value": "2 minutos"
+        },
+        "totalEnergyRange": {
+          "label": "Rango de energía total",
+          "value": "4-15 J"
+        },
+        "inputVoltage": {
+          "label": "Tensión de entrada",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptador",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtro UV",
+          "value": "Sí"
+        },
+        "safetySystem": {
+          "label": "Sistema de seguridad integrado",
+          "value": "Sí"
+        },
+        "skinToneSensor": {
+          "label": "Sensor de tono de piel",
+          "value": "No"
+        },
+        "lampMaterial": {
+          "label": "Material de la lámpara",
+          "value": "Cuarzo"
+        },
+        "lampConfiguration": {
+          "label": "Configuración de la lámpara",
+          "value": "Lámpara única"
+        },
+        "warranty": {
+          "label": "Garantía",
+          "value": "Garantía global de 2 años"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densidad de potencia óptica máx.",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Longitud de onda",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Tamaño del dispositivo",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Peso neto",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ a granel (dispositivo)",
+          "value": "500 unidades"
+        }
+      },
+      "features": {
+        "luxuryAesthetics": {
+          "title": "Estética de lujo",
+          "description": "El acabado de madera premium y los detalles dorados crean una experiencia de unboxing que rivaliza con las marcas de belleza de lujo."
+        },
+        "sapphireIceCooling": {
+          "title": "Enfriamiento de hielo de zafiro",
+          "description": "La avanzada tecnología de placa de hielo de zafiro garantiza tratamientos cómodos y sin dolor en todo momento."
+        },
+        "premiumUnboxing": {
+          "title": "Unboxing premium",
+          "description": "Diseñado para el comercio minorista de gama alta con un embalaje y una presentación de lujo que elevan la percepción de la marca."
+        }
+      }
+    }
+  }
+}

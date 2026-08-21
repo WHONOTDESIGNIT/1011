@@ -1,0 +1,25 @@
+---
+import { getRelativeLocaleUrl, pathHasLocale } from 'astro:i18n';
+import { languages, useTranslations } from '../i18n/ui';
+
+const currentLocale = Astro.currentLocale;
+const translate = useTranslations(currentLocale);
+
+// 剥离当前 URL 中的语言前缀，得到「无前缀路径」（如 /about 或 /）
+// prefixDefaultLocale=false 时 en 页无前缀；tr 页形如 /tr/about
+const currentPath = Astro.url.pathname;
+const pathWithoutLocale = pathHasLocale(currentPath)
+  ? currentPath.replace(new RegExp(`^/${currentLocale}`), '') || '/'
+  : currentPath || '/';
+---
+<nav class="lang-switcher" aria-label={translate('lang.switch')}>
+  {Object.entries(languages).map(([locale, label]) => (
+    <a
+      href={getRelativeLocaleUrl(locale, pathWithoutLocale)}
+      class:list={['lang-link', { active: locale === currentLocale }]}
+      hreflang={locale}
+    >
+      {label}
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,272 @@
+# Czech (cs) Translation Glossary
+
+通用规则：
+- 产品名、品牌名、专有名词、缩写（IPL/OEM/ODM/MOQ/FDA/CE/UI/UX/LED/USB/B2B 等）一律保留原文不翻译。
+- 值中的 HTML 标签、`{{变量}}`、`%s`、`\n`、`<br>` 等必须原样保留。
+- `[TODO]` 开头的值保留原文不翻译。
+- 捷克语使用正确拼写：č ř š ž ě á é í ý ó ú ů，注意 čárky（长音）与 háčky（变音符号）。
+- 面向 B2B 制造商语境，用正式、专业的表达；称呼客户用「vy/váš」而非「ty/tvůj」。
+- 邮件/表单等 UI 短文本用动词不定式或祈使式（如 "Odeslat" 发送）。
+
+## 核心术语对照（en → cs）
+- Hair Removal → Odstranění chloupků
+- Hair Removal Device → přístroj na odstranění chloupků
+- IPL Device → IPL přístroj
+- Beauty Device → kosmetický přístroj
+- Device / Unit → zařízení / přístroj
+- Manufacturer → výrobce
+- Manufacturing → výroba
+- Manufacturer of / leading manufacturer → přední výrobce
+- Skin → pokožka / pleť
+- Skin Tone → tón pleti
+- Treatment → ošetření
+- Flash → záblesk
+- Lamp → lampa / žárovka（IPL lamp → IPL lampa）
+- Lamp Cartridge → lampová kazeta / náhradní lampa
+- Energy → energie
+- Energy Level → úroveň energie
+- Power → výkon
+- Cooling → chlazení
+- Ice Cooling → ledové chlazení
+- Sapphire Cooling → safírové chlazení
+- Painless → bezbolestný
+- Comfort → pohodlí
+- Comfortable → pohodlný
+- Whitening → zesvětlení pleti
+- Firming → zpevnění
+- Skin Rejuvenation → omlazení pleti
+- Anti-Aging → anti-aging / proti stárnutí
+- Acne → akné
+- Acne Treatment → ošetření akné
+- Redness → zarudnutí
+- Pigmentation → pigmentace
+- Sunscreen → opalovací krém
+- Session → sezení / ošetření
+- Frequency → frekvence
+- Pulse → pulz / impulz
+- Continuous / glide → kontinuální režim / plynulý pohyb
+- Face → obličej
+- Body → tělo
+- Legs → nohy
+- Arms → paže
+- Armpits → podpaží
+- Bikini Line → bikinová linie
+- Full Body → celé tělo
+- Cordless → bezdrátový
+- Rechargeable → dobíjecí
+- Waterproof → vodotěsný
+- Safe → bezpečný
+- Safety → bezpečnost
+- Certified → certifikovaný
+- Compliance → soulad s předpisy
+- Regulatory → regulační / dle předpisů
+- Warranty → záruka
+- Replace / Replacement → výměna / náhradní
+- Upgrade → upgrade / vylepšení
+- Compatible → kompatibilní
+- Original → originální
+- Accessories → příslušenství
+- Components → komponenty / součásti
+- Optical Filter → optický filtr
+- Cooling System → chladicí systém
+- Power Supply → napájení / napájecí zdroj
+- Packaging → balení / obal
+- Packaging Design → design obalu
+- Private Label → privátní značka
+- Private Labeling → výroba pod privátní značkou
+- Retailer → maloobchodník / prodejce
+- Distributor → distributor
+- Wholesale → velkoobchod
+- Partner → partner
+- Customer → zákazník
+- Client → klient
+- OEM/ODM Services → služby OEM/ODM
+- Product Development → vývoj produktu
+- Prototype → prototyp
+- Tooling → nástroje / formy
+- Mass Production → sériová výroba
+- Production Line → výrobní linka
+- Quality Control → kontrola kvality
+- Testing → testování
+- Certification → certifikace
+- Documentation → dokumentace
+- Manual → návod / manuál
+- User Manual → uživatelský návod
+- Quick Start Guide → rychlý průvodce
+- Results → výsledky
+- Effectiveness → účinnost
+- Clinical → klinický
+- Research → výzkum
+- Test → test / zkouška
+- Review → recenze
+- Testimonial → reference / doporučení
+- Success → úspěch
+- Industry → průmysl / odvětví
+- Technology → technologie
+- Innovation → inovace
+- Solution → řešení
+- Service → služba
+- Support → podpora / servis
+- Aftersales Support → poprodejní servis / poprodejní podpora
+- Global Shipping → celosvětová doprava
+- Delivery → dodání / doručení
+- Logistics → logistika
+- Inquiry → poptávka / dotaz
+- Get a Quote → Vyžádat nabídku
+- Request → vyžádat / poptat
+- Contact Us → Kontaktujte nás
+- Contact → Kontakt
+- Email → e-mail
+- Phone → telefon
+- Address → adresa
+- Newsletter → newsletter / zpravodaj
+- Subscribe → Přihlásit se k odběru
+- Privacy Policy → Zásady ochrany osobních údajů
+- Terms of Service → Podmínky služby
+- Cookie → soubor cookie / cookies
+- About Us → O nás
+- Our Company → Naše společnost
+- Brand Story → Příběh značky
+- Company Profile → Profil společnosti
+- Our Team → Náš tým
+- Careers → Kariéra
+- Blog → Blog
+- FAQ → Časté dotazy
+- Home → Domů
+- Search → Vyhledávání / Hledat
+- Read More → Číst více
+- Learn More → Zjistit více
+- View All → Zobrazit vše
+- Back → Zpět
+- Next → Další
+- Previous → Předchozí
+- Submit → Odeslat
+- Cancel → Zrušit
+- Close → Zavřít
+- Loading → Načítání
+- Error → Chyba
+- Success → Úspěch
+- Download → Stáhnout
+- Upload → Nahrát
+- Featured → Vybrané / Doporučené
+- New → Nový
+- Best Seller → Bestseller / Nejprodávanější
+- Recommended → Doporučeno
+- Available → Dostupný
+- In Stock → Skladem
+- Out of Stock → Vyprodáno
+- Price → Cena
+- Quantity → Množství
+- Add to Cart → Přidat do košíku
+- Order → Objednávka / Objednat
+- Checkout → Dokončení objednávky
+- Payment → Platba
+- Invoice → Faktura
+- Shipping → Doprava
+- Free Shipping → Doprava zdarma
+- Return → Vrácení / Vrátit
+- Refund → Vrácení peněz
+- Guarantee → Záruka
+- Limited Time → Omezená doba
+- Sale → Výprodej / Sleva
+- Discount → Sleva
+- Offer → Nabídka
+- Request a Sample → Vyžádat vzorek
+- MOQ → MOQ (minimální množství objednávky)
+- Lead Time → dodací lhůta
+- Payment Terms → platební podmínky
+- Sample → vzorek
+- Custom → na míru / vlastní / individuální
+- Customization → přizpůsobení na míru
+- Custom Design → vlastní design
+- Logo → logo
+- Branding → branding / budování značky
+- Color → barva
+- Color Options → barevné varianty
+- Cartridge → kazeta
+- Handle → rukojeť
+- Nozzle → nástavec
+- Head → hlavice / hlava
+- Sensor → senzor
+- Skin Sensor → senzor tónu pleti
+- Touch Screen → dotykový displej
+- Display → displej
+- Battery → baterie
+- Charging → nabíjení
+- Charging Cable → nabíjecí kabel
+- Adapter → adaptér
+- Plug → zástrčka
+- USB → USB
+- App → aplikace
+- Smart App → chytrá aplikace
+- Bluetooth → Bluetooth
+- Settings → Nastavení
+- Start → Spustit / Začít
+- Stop → Zastavit
+- Pause → Pozastavit
+- Ready → Připraveno
+- Low Battery → Vybitá baterie
+- Full → Plné / Plně
+- Intensity → intenzita
+- Level → úroveň
+- High → Vysoká
+- Medium → Střední
+- Low → Nízká
+- Auto → Automaticky
+- Manual → Manuální
+- Mode → režim
+- Button → tlačítko
+- Indicator → indikátor
+- Light → světlo / kontrolka
+- Red Light → červené světlo
+- Blue Light → modré světlo
+- LED Mask → LED maska
+- Phototherapy → fototerapie
+- Light Therapy → světelná terapie
+- Warning → Varování
+- Notice → Upozornění
+- Important → Důležité
+- Please → Prosím
+- Thank You → Děkujeme
+- Welcome → Vítejte
+- Hello → Dobrý den
+- Your → Váš / Vaše / Vaši
+- Our → náš / naše / naši
+- We → my / náš tým
+- You → vy
+- and → a
+- or → nebo
+- with → s / se
+- for → pro
+- of → z / o
+- to → do / na / pro
+- from → od / z
+- all → všechny / veškeré
+- more → více
+- less → méně
+- free → zdarma
+- now → nyní / hned
+- today → dnes
+- year(s) → rok / let
+- month(s) → měsíc / měsíců
+- week(s) → týden / týdnů
+- day(s) → den / dní
+- per session → za jedno sezení
+- per week → týdně
+- every → každý
+- first → první
+- second → druhý
+- up to → až do / až
+- over → více než / přes
+- number of → počet
+- No. / # → číslo
+
+## 数字与单位
+- 1.000 (捷克语千分位用空格或点) — 保持一致，按上下文
+- cm → cm, mm → mm, J (joule) → J, Hz → Hz
+- 保留原始数字与单位，不转换进制
+
+## 风格要点
+- 标题用首字母大写单词（捷克语通常仅句首大写，但标题、按钮、导航可用首字母大写）。
+- 句子与段落使用标准捷克语标点，省略号使用 tři tečky（…）。
+- 避免生硬直译，优先母语表达（如 "Do you need..." → "Potřebujete..." 而非 "Potřebujete...?" 逐字）。

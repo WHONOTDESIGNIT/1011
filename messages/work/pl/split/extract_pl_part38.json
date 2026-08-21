@@ -1,0 +1,227 @@
+{
+  "productDetail": {
+    "hebe": {
+      "specs": {
+        "coolingTemperature": {
+          "label": "Temperatura chłodzenia",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Czas osiągnięcia temperatury chłodzenia",
+          "value": "1 minuta"
+        },
+        "totalEnergyRange": {
+          "label": "Zakres całkowitej energii",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Napięcie wejściowe",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Zasilacz",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Filtr UV",
+          "value": "Tak"
+        },
+        "safetySystem": {
+          "label": "Zintegrowany system bezpieczeństwa",
+          "value": "Tak"
+        },
+        "lampMaterial": {
+          "label": "Materiał lampy",
+          "value": "Kwarc"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "2 lata gwarancji globalnej"
+        },
+        "wavelength": {
+          "label": "Długość fali",
+          "value": "510-1100 nm"
+        }
+      },
+      "features": {
+        "comfortIceFeeling": {
+          "title": "Komfortowe uczucie chłodu",
+          "description": "Chłodzenie szafirowym szkłem zapewniające uczucie chłodu poprawia komfort zabiegu w bardziej wrażliwych obszarach."
+        },
+        "safetyLockSupport": {
+          "title": "Blokada bezpieczeństwa",
+          "description": "Dodatkowa blokada bezpieczeństwa wspiera kontrolowaną pracę podczas zabiegu."
+        },
+        "powerDelivery": {
+          "title": "Zasilanie 48 W",
+          "description": "Zasilacz 12 V / 4000 mA zapewnia stabilną moc i szybkie chłodzenie."
+        },
+        "premiumColorOptions": {
+          "title": "Warianty kolorystyczne premium",
+          "description": "Dostępne w kolorach Tech Black, Future Silver i Cosmic Blue, zapewniających premium wygląd w sprzedaży detalicznej."
+        }
+      },
+      "badge": "Komfortowe chłodzenie",
+      "colors": [
+        "Tech Black",
+        "Future Silver",
+        "Cosmic Blue"
+      ]
+    },
+    "helix": {
+      "name": "Helix IPL",
+      "tagline": "Chłodzenie lodowe + 9 poziomów intensywności",
+      "description": "Helix IPL łączy zaawansowane chłodzenie szafirowym szkłem z wyświetlaczem cyfrowym i 9 poziomami intensywności, zapewniając precyzyjne i komfortowe zabiegi w domu.",
+      "specs": {
+        "type": {
+          "label": "Typ",
+          "value": "Domowe urządzenie IPL (pojedyncza lampa kwarcowa)"
+        },
+        "cooling": {
+          "label": "Chłodzenie",
+          "value": "Wsparcie, technologia szafirowego chłodu (ice feeling)"
+        },
+        "window": {
+          "label": "Okno zabiegowe",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Energia",
+          "value": "5.0 J/cm²"
+        },
+        "energySettings": {
+          "label": "Ustawienia energii",
+          "value": "9 poziomów"
+        },
+        "lamp": {
+          "label": "Lampa",
+          "value": "Zapewnia 999,999 błysków"
+        },
+        "autoFlash": {
+          "label": "Auto-błysk",
+          "value": "Wsparcie"
+        },
+        "pulseDuration": {
+          "label": "Czas trwania impulsu (FWHM)",
+          "value": "1.0-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura chłodzenia",
+          "value": "8°C (temperatura otoczenia 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Czas osiągnięcia temperatury chłodzenia",
+          "value": "2 minuty"
+        },
+        "totalEnergyRange": {
+          "label": "Zakres całkowitej energii",
+          "value": "15 J"
+        },
+        "inputVoltage": {
+          "label": "Napięcie wejściowe",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Zasilacz",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtr UV",
+          "value": "Tak"
+        },
+        "safetySystem": {
+          "label": "Zintegrowany system bezpieczeństwa",
+          "value": "Tak"
+        },
+        "lampMaterial": {
+          "label": "Materiał lampy",
+          "value": "Kwarc"
+        },
+        "lampConfiguration": {
+          "label": "Konfiguracja lampy",
+          "value": "Pojedyncza lampa"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "2 lata gwarancji globalnej"
+        },
+        "wavelength": {
+          "label": "Długość fali",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Wyświetlacz",
+          "value": "Wyświetlacz cyfrowy"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Chłodzenie lodowe z szafirowym szkłem",
+          "description": "Zaawansowana technologia chłodzenia szafirowym szkłem utrzymuje skórę w komfortowej temperaturze 8°C, osiągając wartość docelową w zaledwie 2 minuty, co zapewnia kojący zabieg."
+        },
+        "intensityLevels": {
+          "title": "9 poziomów intensywności",
+          "description": "Precyzyjna kontrola energii z 9 ustawieniami intensywności — więcej niż w standardowych urządzeniach z 5 poziomami — umożliwiająca spersonalizowane programy zabiegowe."
+        },
+        "digitalDisplay": {
+          "title": "Wyświetlacz cyfrowy",
+          "description": "Wbudowany wyświetlacz cyfrowy pokazuje poziom energii i status w czasie rzeczywistym, zapewniając intuicyjną obsługę i precyzyjną kontrolę zabiegu."
+        },
+        "longLastingLamp": {
+          "title": "Lampa o długiej żywotności",
+          "description": "Kwarcowa lampa zapewnia 999,999 błysków, czyli lata niezawodnych zabiegów."
+        }
+      },
+      "badge": "Wyświetlacz cyfrowy",
+      "colors": [
+        "Biały",
+        "Złoty",
+        "Czarny"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Delikatna pielęgnacja dla wrażliwej skóry",
+      "description": "Eirene IPL został zaprojektowany z myślą o skórze nadwrażliwej — oferuje łagodny profil energii i wzmocnioną ochronę przed promieniowaniem UV.",
+      "specs": {
+        "type": {
+          "label": "Typ",
+          "value": "Skóra nadwrażliwa"
+        },
+        "cooling": {
+          "label": "Chłodzenie",
+          "value": "Standardowe"
+        },
+        "energy": {
+          "label": "Energia",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Lampa",
+          "value": "800,000 błysków"
+        },
+        "window": {
+          "label": "Okno zabiegowe",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Długość fali",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "Filtr odcinający promieniowanie UV",
+          "value": "Wzmocniony"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Dedykowane skórze nadwrażliwej",
+          "description": "Zaprojektowane z myślą o osobach o reaktywnej lub wrażliwej skórze, ze stopniowym zwiększaniem intensywności dla komfortu."
+        },
+        "enhancedUvProtection": {
+          "title": "Wzmocniona ochrona przed promieniowaniem UV"
+        }
+      }
+    }
+  }
+}

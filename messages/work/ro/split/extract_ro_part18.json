@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "Numele companiei",
+        "phoneNumber": "Număr de telefon",
+        "productInterest": "Interes pentru produse",
+        "expectedQuantity": "Cantitate estimată",
+        "projectTimeline": "Calendarul proiectului",
+        "projectDetails": "Detalii proiect",
+        "send": "Trimite",
+        "productOptions": [
+          "Dispozitive de epilare IPL",
+          "Proiect personalizat OEM/ODM",
+          "Doar componente IPL",
+          "Dispozitiv de rejuvenare a pielii",
+          "Încă nu sunt sigur(ă)"
+        ],
+        "quantityOptions": [
+          "O mostră gratuită",
+          "10~500 unități",
+          "Încă în planificare"
+        ],
+        "timelineOptions": [
+          "Cât mai curând posibil",
+          "1 - 3 luni",
+          "3 - 6 luni",
+          "6 - 12 luni",
+          "Doar în faza de cercetare"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "De ce epilarea IPL este sigură | Dovezi, FDA, tipuri de piele și siguranța dispozitivelor",
+      "description": "O pagină-pilon axată pe siguranță pentru epilarea IPL: dovezi clinice, context FDA, protocol sigur de utilizare la domiciliu, tipuri de piele Fitzpatrick, filtrare UV, senzori, efecte secundare, contraindicații și îngrijire post-tratament. Include linkuri directe către platformele de produse și ghiduri detaliate.",
+      "breadcrumbLabel": "De ce epilarea IPL este sigură",
+      "cta": {
+        "explorePlatforms": "Explorează platformele de dispozitive IPL",
+        "compareModels": "Compară toate modelele"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Date clinice privind siguranța IPL",
+          "anchor": "Date clinice privind siguranța IPL",
+          "description": "Cum descrie cercetarea reacțiile cutanate tipice și severitatea acestora, și de ce majoritatea efectelor secundare sunt ușoare și temporare atunci când dispozitivul este folosit corect."
+        },
+        "fdaContext": {
+          "title": "Context FDA: ce înseamnă de fapt „FDA cleared”",
+          "anchor": "Verificare FDA (ce înseamnă „FDA cleared”)",
+          "description": "Cum să interpretezi limbajul FDA și de ce acesta susține afirmațiile de siguranță fără a exagera garanțiile oferite de autoritățile de reglementare."
+        },
+        "atHomeProtocol": {
+          "title": "Protocol IPL sigur de utilizat la domiciliu (frecvență, test pe porțiune mică de piele, setări)",
+          "anchor": "Protocol IPL sigur de utilizat la domiciliu (frecvență, test pe porțiune mică de piele, setări)",
+          "description": "Regulile practice de utilizare care mențin riscul scăzut: testul pe o porțiune mică de piele, creșterea treptată a intensității, spațierea ședințelor și evitarea fulgerelor repetate."
+        },
+        "fitzpatrick": {
+          "title": "Tipurile de piele Fitzpatrick și limitele de siguranță IPL",
+          "anchor": "Tipurile de piele Fitzpatrick și limitele de siguranță IPL",
+          "description": "De ce nuanța pielii influențează riscul (fizică, nu discriminare) și cum ar trebui brandurile să comunice compatibilitatea în mod responsabil."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs. laser: comparație de siguranță (și pentru cine este fiecare)",
+          "anchor": "IPL vs. laser: comparație de siguranță",
+          "description": "O comparație echilibrată: clasa dispozitivului, livrarea energiei, riscurile comune și de ce „mai sigur” depinde de tipul de piele și de protocol."
+        },
+        "uvFiltering": {
+          "title": "Filtrarea UV și controlul lungimii de undă (de ce IPL nu este bronzare UV)",
+          "anchor": "Filtrarea UV și controlul lungimii de undă",
+          "description": "Cum filtrele și designul lungimii de undă reduc radiațiile nedorite și îmbunătățesc marjele de siguranță în timpul tratamentului."
+        },
+        "safetySensors": {
+          "title": "Senzori de siguranță: detecția nuanței pielii și senzorii de contact",
+          "anchor": "Senzori de siguranță (detecția nuanței pielii și senzorii de contact)",
+          "description": "Cum detecția nuanței pielii și blocațele de contact reduc riscul de utilizare necorespunzătoare — mai ales la tipurile de piele Fitzpatrick mai înalte."
+        },
+        "sideEffects": {
+          "title": "Efectele secundare ale IPL, explicate (ce este normal și ce nu)",
+          "anchor": "Efectele secundare ale IPL, explicate (ce este normal și ce nu)",
+          "description": "Ce înseamnă roșeața ușoară, cum arată arsurile și care este arborele decizional pentru a face o pauză, a reduce setările sau a solicita ajutor."
+        },
+        "contraindications": {
+          "title": "Cine nu ar trebui să folosească IPL (contraindicații și factori de risc)",
+          "anchor": "Cine nu ar trebui să folosească IPL (contraindicații)",
+          "description": "Medicație, expunere la soare, tatuaje, afecțiuni ale pielii și alte situații în care IPL ar trebui evitat sau amânat."
+        },
+        "beforeAfterCare": {
+          "title": "Îngrijirea înainte/după: cum să reduci iritația și riscul",
+          "anchor": "Îngrijirea înainte/după pentru a reduce riscurile IPL",
+          "description": "Pași simpli de îngrijire înainte și după tratament care reduc inflamația și ajută la evitarea problemelor de pigmentare după ședințe."
+        }
+      },
+      "heroKicker": "Pilonul Siguranță",
+      "heroTitle": "De ce epilarea IPL este sigură (când este folosită corect)",
+      "heroParagraph": "Acesta este un hub axat pe siguranță, creat pentru branduri, echipe de achiziții și cumpărători din retail. Leagă cele mai căutate întrebări despre siguranță de răspunsuri practice, context bazat pe dovezi și caracteristici de design ale dispozitivelor care reduc riscul.",
+      "howToKicker": "Cum să folosești această pagină",
+      "howToTitle": "Citește în aceeași ordine în care o fac cumpărătorii tăi",
+      "howToSteps": [
+        "Începe cu dovezile și contextul FDA pentru a fundamenta în mod responsabil afirmația „sigur”.",
+        "Confirmă limitele pentru tipurile de piele și protocolul care menține riscul scăzut pentru utilizarea la domiciliu.",
+        "Apoi selectează platformele din Produse și compară modelele din Catalog."
+      ],
+      "topicMapKicker": "Harta subiectelor",
+      "topicMapTitle": "10 subiecte de siguranță (linkuri directe)",
+      "topicMapParagraph": "Fiecare subiect de mai jos trimite la un ghid dedicat. Folosește exact aceste ancore pe paginile de suport pentru a întări relevanța.",
+      "guideLabel": "Ghid",
+      "pillarKicker": "Secțiunile pilonului",
+      "pillarTitle": "Dovezi + protocol + designul dispozitivului",
+      "pillarParagraph": "Folosește această structură ca pagină de răspuns detaliat, iar ghidurile legate ca conținut de cluster care o susține.",
+      "readGuide": "Citește ghidul",
+      "finalKicker": "Gata să selectezi un model?",
+      "finalTitle": "Compară toate platformele, apoi alege combinația potrivită de siguranță",
+      "finalParagraph": "Folosește pagina Produse pentru a deschide detaliile platformei și Catalogul pentru a compara răcirea, controlul prin aplicație și detectarea siguranței între modele."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Platformă de tranzacționare a activelor creative digitale",
+      "pageDescription": "iShine Marketplace este o platformă de încredere pentru tranzacționarea activelor creative digitale, unde creatorii își prezintă, tranzacționează și dezvoltă operele digitale — cu servicii și suport pentru creatori construite în jurul credinței: Aprinde creativitatea, leagă valoarea.",
+      "brandSlogan": "Aprinde creativitatea, leagă valoarea",
+      "contactCta": "Contactează iShine",
+      "detailsCta": "Detalii",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Active creative digitale",
+        "heading": "Platforma ta de încredere pentru tranzacționarea activelor creative digitale",
+        "subheading": "Prezintă-ți operele digitale, tranzacționează cu încredere și dezvoltă-te cu serviciile pentru creatori — totul într-un singur marketplace de încredere."
+      },
+      "product1": {
+        "imageAlt": "Prezentarea operelor digitale - galerie de active creative",
+        "smallTitle": "Prezentarea operelor digitale",
+        "heading": "Prezintă-ți creațiile digitale",
+        "description": "Publică și prezintă-ți operele digitale — șabloane, designuri, ilustrații și nu numai — într-o galerie organizată frumos, care le permite cumpărătorilor să îți descopere cu ușurință creațiile."
+      },
+      "product2": {
+        "imageAlt": "Tranzacționare securizată - tranzacții cu active digitale",
+        "smallTitle": "Tranzacționare digitală securizată",
+        "heading": "Tranzacționează active digitale cu încredere",
+        "description": "Cumpără și vinde active digitale printr-un flux de tranzacții clar și securizat, cu licențiere transparentă, livrare instantanee și plăți protejate."
+      },
+      "product3": {
+        "imageAlt": "Servicii pentru creatori - instrumente de analiză și creștere",
+        "smallTitle": "Servicii pentru creatori",
+        "heading": "Dezvoltă-ți afacerea creativă",
+        "description": "De la instrumente de portofoliu până la analize pentru vânzători, iShine Marketplace oferă creatorilor serviciile și suportul de care au nevoie pentru a ajunge la noi audiențe și a crește sustenabil."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Servicii oficiale",
+        "headingLine1": "Vorbește cu echipa de",
+        "headingLine2": "servicii iShine despre",
+        "headingLine3": "obiectivele tale",
+        "links": {
+          "privateLabel": "Private Label",
+          "technologyPartner": "Găsește un partener tehnologic IPL",
+          "buildNewIpl": "Construiește un IPL nou",
+          "maintainOrFixIpl": "Întreține sau repară IPL-ul meu"
+        }
+      },
+      "blog": {
+        "smallTitle": "Învață împreună cu noi",
+        "heading": "Comunitatea creatorilor",
+        "subheading": "Articole utile despre creativitate digitală, tranzacționare pe marketplace și dezvoltarea afacerii tale cu iShine Marketplace.",
+        "learnCta": "Învață",
+        "card1": {
+          "title": "Dispozitive IPL inteligente: revoluția conectată prin aplicații",
+          "readTime": "5 min de citit"
+        },
+        "card2": {
+          "title": "Cele mai recente progrese în cercetarea IPL",
+          "readTime": "4 min de citit"
+        },
+        "card3": {
+          "title": "OEM vs. ODM: alegerea modelului de producție potrivit",
+          "readTime": "6 min de citit"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ | Producție IPL iShine",
+      "pageDescription": "Găsește răspunsuri despre serviciile OEM și ODM, conformitate, MOQ, termene de livrare, ambalare, transport și utilizarea produselor IPL pentru programe de dispozitive de înfrumusețare private label.",
+      "hero": {
+        "smallTitle": "FAQ și asistență"
+      }
+    }
+  }
+}

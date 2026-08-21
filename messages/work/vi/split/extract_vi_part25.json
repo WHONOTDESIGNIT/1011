@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "category": "DEVELO",
+          "title": "Trang web Develo mới và cách xây dựng tốt hơn",
+          "alt": "Trang web Develo mới",
+          "date": "10 thg 2, 2026"
+        },
+        "card14": {
+          "readTime": "4 phút đọc",
+          "category": "HYVÄ THEMES",
+          "title": "Cách tối ưu hóa trang web Hyvä",
+          "alt": "Tối ưu hóa Hyva",
+          "date": "28 thg 1, 2026"
+        },
+        "card15": {
+          "readTime": "4 phút đọc",
+          "category": "THƯƠNG MẠI ĐIỆN TỬ",
+          "title": "12 mẹo thương mại điện tử thời trang cho các trang web đẹp mắt và có tỷ lệ chuyển đổi cao",
+          "alt": "Thương mại điện tử thời trang",
+          "date": "15 thg 1, 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Phân trang",
+        "previous": "Trước",
+        "next": "Tiếp theo"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 mẹo tối ưu tốc độ và hiệu suất Magento | Blog Develo",
+      "pageDescription": "Những cách thiết thực để cửa hàng Magento của bạn nhanh hơn, mượt mà hơn và có lợi nhuận cao hơn.",
+      "breadcrumb": {
+        "ariaLabel": "Đường dẫn điều hướng",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 mẹo tối ưu tốc độ và hiệu suất Magento",
+      "description": "Những cách thiết thực để cửa hàng Magento của bạn nhanh hơn, mượt mà hơn và có lợi nhuận cao hơn",
+      "author": "Tác giả: Bethany Wood",
+      "date": "19 thg 2, 2026",
+      "readTime": "5 phút đọc",
+      "updated": "Cập nhật lần cuối: 19 thg 2, 2026",
+      "share": {
+        "label": "Chia sẻ bài viết này",
+        "twitter": "Chia sẻ lên Twitter",
+        "linkedin": "Chia sẻ lên LinkedIn",
+        "facebook": "Chia sẻ lên Facebook"
+      },
+      "authorRole": "Giám đốc Marketing",
+      "authorBio": "Beth đã làm việc trong lĩnh vực marketing từ năm 2016, triển khai các chiến dịch sáng tạo, tập trung vào chuyển đổi trên nhiều ngành nghề. Cô chuyên về marketing truyền thông xã hội, xây dựng thương hiệu, email marketing và viết quảng cáo. Với vai trò Giám đốc Marketing của Develo tại bộ phận thương mại, Beth chịu trách nhiệm quản lý và triển khai các hoạt động marketing hỗ trợ tăng trưởng kinh doanh. Cô thích đưa các dự án từ ý tưởng đến khi hoàn thành, biến ý tưởng thành các chiến dịch mang lại kết quả đo lường được.",
+      "authorCompany": "Develo là công ty phát triển web thương mại điện tử và đại lý Magento hàng đầu có trụ sở tại Birmingham, Vương quốc Anh, phục vụ khách hàng trên toàn cầu từ năm 2010.",
+      "cta": {
+        "text": "Bạn cần trợ giúp tối ưu cửa hàng Magento? Hãy trao đổi với chúng tôi.",
+        "button": "Đặt lịch tư vấn"
+      },
+      "body": {
+        "para1Before": "Tối ưu tốc độ và hiệu suất trang web Magento nên nằm ở vị trí hàng đầu trong danh sách ưu tiên của mọi chủ doanh nghiệp. Tại sao? Bởi vì với khách hàng ngày nay, từng giây đều có ý nghĩa. Thực tế,",
+        "para1After": "khi các trang mất hơn ba giây để tải. Trang web chậm không chỉ khiến khách hàng khó chịu mà còn ảnh hưởng đến trải nghiệm người dùng (UX) và thứ hạng SEO của trang Magento của bạn, đặc biệt là khi tốc độ trang hiện là yếu tố xếp hạng quan trọng trong kiểm tra Core Web Vitals của Google.",
+        "para2": "Tối ưu trang web Magento giúp tránh những vấn đề này, từ đó thúc đẩy doanh số và tỷ lệ chuyển đổi của bạn. Trong phần tiếp theo, chúng tôi đã tổng hợp 8 mẹo thiết yếu giúp bạn (hoặc nhà phát triển của bạn!) tối ưu tốc độ Magento và đảm bảo trang web của bạn được xây dựng để hoạt động hiệu quả, bất kể cửa hàng thương mại điện tử của bạn được thiết lập theo cách nào.",
+        "section1Title": "Làm thế nào để kiểm tra tốc độ và hiệu suất Magento của bạn bằng Core Web Vitals?",
+        "section1ParaBefore": "Trước khi thực hiện bất kỳ thay đổi nào, chúng tôi khuyên bạn nên chạy kiểm tra Core Web Vitals. Hãy yêu cầu nhà phát triển của bạn kiểm tra các vấn đề về tốc độ và cải tiến bằng các công cụ như",
+        "section1ParaMiddle": "hoặc",
+        "section1ParaAfter": ". Những công cụ này cung cấp cho bạn đường cơ sở để đo lường tiến độ và làm nổi bật mọi khía cạnh đang kìm hãm trang web của bạn.",
+        "section2Title": "Sau khi hoàn tất, hãy làm theo 8 mẹo tối ưu hiệu suất Magento sau đây.",
+        "tip1Title": "1. Bật tất cả các loại bộ nhớ đệm của Magento và sử dụng Varnish",
+        "tip1Para1": "Magento đi kèm với một số tùy chọn bộ nhớ đệm tích hợp. Bật các tùy chọn này là một trong những cách nhanh nhất để nâng cao hiệu suất trang web. Gợi ý của chúng tôi? Varnish, một công cụ lưu trữ đệm mạnh mẽ giúp giảm đáng kể thời gian tải trang bằng cách lưu trữ một phiên bản trang web của bạn trong bộ nhớ.",
+        "tip1Para2": "Điều này có nghĩa là khách truy cập quay lại sẽ không cần tải lại từng thành phần của trang, giúp bạn tiết kiệm thời gian, tài nguyên máy chủ và giảm tỷ lệ khách bỏ giỏ hàng.",
+        "tip2Title": "2. Bật Redis cho lưu trữ phiên và bộ nhớ đệm",
+        "tip2Para1": "Bên cạnh Varnish, chúng tôi khuyên nhà phát triển của bạn nên bật Redis để lưu trữ phiên và bộ nhớ đệm. Redis giúp giảm tải cho cơ sở dữ liệu bằng cách lưu trữ phiên và bộ nhớ đệm trong bộ nhớ, từ đó tăng tốc truy xuất dữ liệu và giảm tải cho máy chủ.",
+        "tip2Para2": "Tại sao lại dùng Varnish và Redis? Sự kết hợp này cải thiện cả khả năng phản hồi của trang Magento trong thời điểm lưu lượng truy cập tăng đột biến lẫn hiệu suất backend. Kết quả cuối cùng: trải nghiệm mượt mà hơn cho người dùng và quản trị viên.",
+        "tip3Title": "3. Chọn dịch vụ lưu trữ chuyên dụng cho Magento",
+        "tip3Para1Before": "Magento là một nền tảng tiêu tốn nhiều tài nguyên, vì vậy nó được hưởng lợi rất lớn từ các môi trường lưu trữ chuyên dụng và được tối ưu hóa. Vì lý do này, hãy cân nhắc chuyển sang nhà cung cấp dịch vụ lưu trữ chuyên về Magento như",
+        "tip3Para1After": ", UKFast hoặc Corefinity. Không giống như các nhà cung cấp kiểu \"chúng tôi làm mọi thứ\", họ hiểu rõ nền tảng này từ trong ra ngoài và có thể cung cấp hỗ trợ cùng hạ tầng được thiết kế riêng cho việc tối ưu hiệu suất Magento.",
+        "tip3Para2": "Mẹo thêm: hãy đảm bảo nhà cung cấp hiện tại của bạn đã bật Varnish hoặc Redis và họ đang sử dụng dung lượng máy chủ phù hợp với lưu lượng truy cập của bạn.",
+        "tip4Title": "4. Sử dụng CDN như Cloudflare",
+        "tip4Para1": "Mạng phân phối nội dung (CDN) lưu trữ các tài nguyên tĩnh của trang web (như hình ảnh, CSS và JS) trên nhiều máy chủ trên khắp thế giới. Khi khách hàng truy cập trang web của bạn, các tài nguyên này sẽ được tải từ máy chủ gần nhất, giảm độ trễ (thời gian tải) và cải thiện điểm Core Web Vitals của Magento, tất cả đều giúp cải thiện biên lợi nhuận bán hàng của bạn.",
+        "tip4Para2Before": "Tại Develo, chúng tôi sử dụng",
+        "tip4Para2After": "vì nó dễ cài đặt, đáng tin cậy và có gói miễn phí hào phóng.",
+        "tip5Title": "5. Chuyển sang lập chỉ mục \"Theo lịch trình\"",
+        "tip5Para": "Magento cho phép bạn chọn thời điểm dữ liệu được lập chỉ mục, ngay lập tức (\"khi lưu\") hoặc \"theo lịch trình\". Với hầu hết các cửa hàng, lập chỉ mục \"theo lịch trình\" nhanh hơn và hiệu quả hơn, giảm tải cho quản trị viên và cải thiện trải nghiệm người dùng (UX), đặc biệt với khách hàng duyệt các danh mục sản phẩm lớn.",
+        "tip6Title": "6. Tối ưu hình ảnh và tải chậm (lazy-load) phần dưới màn hình",
+        "tip6Para1": "Trang Magento của bạn có hình ảnh dung lượng lớn không? Nếu có, chúng có thể tải chậm. Để khắc phục, hãy yêu cầu nhà phát triển của bạn triển khai tính năng tải chậm (lazy-loading) cho các hình ảnh xuất hiện ở phần dưới trang (\"dưới màn hình\") và sử dụng các định dạng như WebP. Điều này giúp giảm dung lượng trang, cải thiện điểm kiểm tra Core Web Vitals và quan trọng nhất là giữ tỷ lệ chuyển đổi của bạn ở mức ổn định.",
+        "tip6Para2Before": "Chúng tôi khuyên dùng các công cụ như",
+        "tip6Para2After": "để tự động hóa quá trình này. Ngoài ra, hãy cân nhắc lưu trữ video bên ngoài (trên các nền tảng như YouTube hoặc Vimeo) nơi chúng được tối ưu hóa cho việc phân phối.",
+        "tip7Title": "7. Rà soát và giảm thiểu các tập lệnh bên thứ ba",
+        "tip7Para1Before": "Một cách khác để tối ưu tốc độ Magento là rà soát (và nếu cần, loại bỏ) các tiện ích mở rộng của trang và tập lệnh bên thứ ba, đặc biệt là những tập lệnh được thêm qua GTM hoặc trực tiếp vào Magento. Việc tìm ra chúng rất dễ dàng với",
+        "tip7Para1Middle": "hoặc",
+        "tip7Para1After": ", và sẽ cải thiện thời gian tải trang.",
+        "tip7Para2": "Hãy nhớ: nếu một tập lệnh chỉ cần thiết trên một trang duy nhất (chẳng hạn như trang chi tiết sản phẩm (PDP) hoặc trang thanh toán), thì không cần tải nó trên toàn bộ trang web.",
+        "tip8Title": "8. Dọn dẹp và tối ưu cơ sở dữ liệu Magento của bạn",
+        "tip8Para": "Giao cho nhà phát triển của bạn nhiệm vụ thường xuyên dọn dẹp và tối ưu cơ sở dữ liệu Magento. Điều này sẽ ngăn dữ liệu không sử dụng, bao gồm nhật ký và báo giá hết hạn, tích tụ theo thời gian. Việc này sẽ cải thiện khả năng tối ưu của trang Magento và tăng tốc các truy vấn của khách hàng.",
+        "bonusTitle": "Mẹo bổ sung cho Magento 2.4 trở lên",
+        "bonusItem1Strong": "Sử dụng Hyva Themes:",
+        "bonusItem1Before": "Đây là",
+        "bonusItem1After": "một lựa chọn tuyệt vời cho những chủ doanh nghiệp đang tìm kiếm tốc độ nhanh hơn Luma và kết quả kiểm tra Core Web Vitals vượt trội. Giao diện này nâng cao hiệu suất web, giảm độ phức tạp cho nhà phát triển và cải thiện trải nghiệm người dùng (UX). Đây là một nâng cấp thông minh, sẵn sàng cho tương lai cho bất kỳ cửa hàng Magento nào.",
+        "bonusItem2Strong": "Kiểm tra thường xuyên:",
+        "bonusItem2Before": "Chạy kiểm tra tốc độ hàng tháng bằng các công cụ như",
+        "bonusItem2Middle": ", và",
+        "bonusItem2After": ".",
+        "finalTitle": "Tối ưu trang web Magento: Kết luận cuối cùng",
+        "finalParaBefore": "Tối ưu trang web Magento là một khoản đầu tư liên tục. Với thiết lập phù hợp và đánh giá thường xuyên, bạn có thể giữ cho cửa hàng của mình nhanh, an toàn và đi trước đối thủ cạnh tranh, như đã được chứng minh qua công việc của chúng tôi với",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Tuyển dụng | Develo Design",
+      "pageDescription": "Gia nhập đội ngũ đang phát triển của chúng tôi. Chúng tôi luôn tìm kiếm những nhà phát triển, nhà thiết kế và chuyên gia thương mại điện tử tài năng, những người coi trọng việc tạo ra sản phẩm chất lượng.",
+      "hero": {
+        "smallTitle": "Tuyển dụng",
+        "heading": "Gia nhập đội ngũ đang phát triển của chúng tôi",
+        "subheading": "Chúng tôi luôn tìm kiếm những nhà phát triển, nhà thiết kế và chuyên gia thương mại điện tử tài năng, những người coi trọng việc tạo ra sản phẩm chất lượng."
+      },
+      "noPositions": {
+        "heading": "Hiện tại, chúng tôi không có vị trí tuyển dụng nào đang mở",
+        "description": "Tuy nhiên, chúng tôi luôn quan tâm đến những cá nhân tài năng. Nếu bạn nghĩ mình phù hợp với đội ngũ của chúng tôi, vui lòng gửi CV cho chúng tôi và chúng tôi sẽ liên hệ khi có cơ hội.",
+        "cta": "Gửi CV cho chúng tôi"
+      },
+      "footerCta": {
+        "heading": "Sẵn sàng bắt đầu dự án của bạn?",
+        "description": "Chúng tôi rất mong được giúp bạn tạo ra một sản phẩm nhanh chóng, có khả năng mở rộng và đẹp mắt.",
+        "button": "Liên hệ với chúng tôi"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Chính sách quyền riêng tư và Cookie | Develo Design",
+      "pageDescription": "Tại Develo Design, chúng tôi cam kết bảo vệ quyền riêng tư của bạn. Tìm hiểu cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn.",
+      "hero": {
+        "label": "Pháp lý",
+        "title": "Chính sách quyền riêng tư và Cookie",
+        "description": "Quyền riêng tư của bạn rất quan trọng với chúng tôi. Tìm hiểu cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn."
+      },
+      "body": {
+        "introTitle": "Giới thiệu",
+        "introPara": "Tại Develo Design, chúng tôi cam kết bảo vệ quyền riêng tư của bạn và đảm bảo bạn có trải nghiệm tích cực trên trang web của chúng tôi. Chính sách quyền riêng tư và Cookie này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn.",
+        "collectTitle": "Thông tin chúng tôi thu thập",
+        "collectIntro": "Chúng tôi thu thập thông tin theo các cách sau:"
+      }
+    }
+  }
+}

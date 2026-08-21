@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "Definições de energia",
+          "value": "5 níveis"
+        },
+        "lamp": {
+          "label": "Lâmpada",
+          "value": "Proporciona 999,999 flashes"
+        },
+        "autoFlash": {
+          "label": "Flash automático",
+          "value": "Suportado"
+        },
+        "pulseDuration": {
+          "label": "Duração do pulso (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura de arrefecimento",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Tempo até à temperatura de arrefecimento",
+          "value": "1 minuto"
+        },
+        "totalEnergyRange": {
+          "label": "Intervalo de energia total",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Tensão de entrada",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptador",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Filtro UV",
+          "value": "Sim"
+        },
+        "safetySystem": {
+          "label": "Sistema de segurança integrado",
+          "value": "Sim"
+        },
+        "skinToneSensor": {
+          "label": "Sensor de tom de pele",
+          "value": "Não"
+        },
+        "lampMaterial": {
+          "label": "Material da lâmpada",
+          "value": "Quartzo"
+        },
+        "lampConfiguration": {
+          "label": "Configuração da lâmpada",
+          "value": "Lâmpada única"
+        },
+        "warranty": {
+          "label": "Garantia",
+          "value": "Garantia global de 2 anos"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densidade máxima de potência ótica",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Comprimento de onda",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensões do dispositivo",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Peso líquido",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ por grosso (dispositivo)",
+          "value": "500 unidades"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "Agendamento Ligado à Aplicação",
+          "description": "Planeie e acompanhe o seu plano de tratamento através da aplicação móvel para obter resultados consistentes."
+        },
+        "progressTracking": {
+          "title": "Acompanhamento do Progresso",
+          "description": "Acompanhe o seu histórico de tratamentos e as melhorias da pele ao longo do tempo com análises detalhadas."
+        },
+        "multiColorDesign": {
+          "title": "Design Multicolor",
+          "description": "Disponível em Branco, Preto, Bege e Verde-Azulado para personalização flexível da marca."
+        },
+        "dataDrivenResults": {
+          "title": "Resultados Orientados por Dados",
+          "description": "Os dados do tratamento ajudam os utilizadores a cumprir o plano e a alcançar resultados ótimos mais rapidamente."
+        }
+      },
+      "badge": "Controlo Inteligente da Aplicação",
+      "colors": [
+        "Branco",
+        "Preto",
+        "Bege",
+        "Verde-Azulado"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "Dispositivo IPL de Alta Eficiência",
+      "description": "O dispositivo Alpha IPL foi concebido para sessões eficientes em casa, com suporte de arrefecimento com tecnologia de sensação de gelo de safira e fornecimento de energia estável e repetível para programas de marca própria.",
+      "specs": {
+        "type": {
+          "label": "Tipo",
+          "value": "IPL de uso doméstico (lâmpada de quartzo única)"
+        },
+        "cooling": {
+          "label": "Arrefecimento",
+          "value": "Suportado, tecnologia de sensação de gelo de safira"
+        },
+        "window": {
+          "label": "Janela",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "Energia",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Definições de energia",
+          "value": "5 níveis"
+        },
+        "lamp": {
+          "label": "Lâmpada",
+          "value": "Proporciona 999,999 flashes"
+        },
+        "autoFlash": {
+          "label": "Flash automático",
+          "value": "Suportado"
+        },
+        "pulseDuration": {
+          "label": "Duração do pulso (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura de arrefecimento",
+          "value": "5°C (ambiente 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Tempo até à temperatura de arrefecimento",
+          "value": "1 minuto"
+        },
+        "totalEnergyRange": {
+          "label": "Intervalo de energia total",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Tensão de entrada",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptador",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtro UV",
+          "value": "Sim"
+        },
+        "safetySystem": {
+          "label": "Sistema de segurança integrado",
+          "value": "Sim"
+        },
+        "skinToneSensor": {
+          "label": "Sensor de tom de pele",
+          "value": "Não"
+        },
+        "lampMaterial": {
+          "label": "Material da lâmpada",
+          "value": "Quartzo"
+        },
+        "lampConfiguration": {
+          "label": "Configuração da lâmpada",
+          "value": "Lâmpada única"
+        },
+        "warranty": {
+          "label": "Garantia",
+          "value": "Garantia global de 2 anos"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densidade máxima de potência ótica",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Comprimento de onda",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensões do dispositivo",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Peso líquido",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ por grosso (dispositivo)",
+          "value": "500 unidades"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "Saída Eficiente",
+          "description": "Intervalo de densidade de energia de 2-5 J/cm² com 5 definições para programas de tratamento flexíveis."
+        }
+      }
+    }
+  }
+}

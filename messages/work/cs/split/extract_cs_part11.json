@@ -1,0 +1,779 @@
+{
+  "servicesPage": {
+    "oemOdm": {
+      "citable": {
+        "heading": "Co znamenají pojmy OEM a ODM při uvedení IPL přístroje na trh?",
+        "body": "OEM (Original Equipment Manufacturing) znamená, že společnost iShine vyrábí IPL přístroj podle specifikací partnera, jako je cílový rozsah energie, konfigurace chlazení, filtrace vlnových délek, kosmetický design, balení a etikety. ODM (Original Design Manufacturing) k výrobě přidává vývoj produktu – buď na základě stávající platformy, nebo vytvořením nového návrhu zahrnujícího průmyslový design, inženýring, prototypování a validaci před zahájením sériové výroby. Oba modely podporují požadavky privátních značek, jako je tisk loga, vícebarevné varianty, lokalizace návodů, konfigurace zástrček a adaptérů a výběr příslušenství. Typický program zahrnuje sladění požadavků, vzorkování prototypů (u řešení na bázi stávající platformy obvykle v rozmezí 1–4 týdnů podle rozsahu), ověření výkonu a bezpečnosti, přípravu dokumentace pro cílové trhy a plánování výroby pro dodávky ve velkých objemech. Časové harmonogramy se liší podle hloubky přizpůsobení: projekty zaměřené pouze na branding postupují rychleji, zatímco projekty zahrnující formy, elektroniku, firmware nebo práci na souladu s předpisy vyžadují delší harmonogram. Cílem je produkt IPL připravený pro trh, který lze vyrábět konzistentně a dodávat celosvětově."
+      },
+      "types": {
+        "heading": "Který model partnerství OEM/ODM je pro vás ten pravý?",
+        "sub": "Ať už máte kompletní návrh, nebo jen nápad, máme správné výrobní řešení pro uvedení vašich produktů IPL na trh.",
+        "items": [
+          {
+            "type": "OEM",
+            "title": "Výroba originálního zařízení",
+            "description": "Vyrábíme IPL přístroje podle vašich specifikací a návrhů, abyste se mohli soustředit na marketing a prodej.",
+            "features": [
+              "Vaše značka, váš design",
+              "Vlastní specifikace",
+              "Výroba pod privátní značkou",
+              "Flexibilní MOQ"
+            ]
+          },
+          {
+            "type": "ODM",
+            "title": "Výroba originálního designu",
+            "description": "Kompletní vývoj produktu od konceptu po uvedení na trh, včetně designu, inženýringu a výroby.",
+            "features": [
+              "Kompletní vývoj produktu",
+              "Design a inženýring",
+              "Průzkum trhu",
+              "Komplexní řešení na klíč"
+            ]
+          }
+        ]
+      },
+      "capabilities": {
+        "heading": "Jaké jsou naše hlavní schopnosti OEM/ODM?",
+        "sub": "Komplexní výrobní schopnosti pokrývající všechny aspekty vývoje a výroby IPL přístrojů.",
+        "items": [
+          {
+            "title": "Vývoj konceptu",
+            "description": "Přeměňte své nápady na životaschopné produktové koncepty díky průzkumu trhu a analýze proveditelnosti.",
+            "details": [
+              "Analýza trhu",
+              "Validace konceptu",
+              "Technická proveditelnost",
+              "Odhad nákladů"
+            ]
+          },
+          {
+            "title": "Produktový inženýring",
+            "description": "Pokročilá inženýrská řešení pro technologii IPL, bezpečnostní systémy a design uživatelského rozhraní.",
+            "details": [
+              "Technologie IPL",
+              "Bezpečnostní systémy",
+              "Design UI/UX",
+              "Optimalizace výkonu"
+            ]
+          },
+          {
+            "title": "Prototypování",
+            "description": "Rychlé prototypování pro ověření designových konceptů a funkčnosti před zahájením sériové výroby.",
+            "details": [
+              "3D tisk",
+              "Funkční testování",
+              "Validace designu",
+              "Uživatelské testování"
+            ]
+          },
+          {
+            "title": "Zajištění kvality",
+            "description": "Komplexní systémy kontroly kvality zajišťující, že produkty splňují mezinárodní standardy.",
+            "details": [
+              "Schválení FDA",
+              "Certifikace CE",
+              "Normy ISO",
+              "Bezpečnostní testování"
+            ]
+          }
+        ]
+      },
+      "process": {
+        "heading": "Jak probíhá proces vývoje OEM/ODM?",
+        "sub": "Ověřená metodika, která našim partnerům zajišťuje kvalitu, efektivitu a úspěšné uvedení produktů na trh.",
+        "items": [
+          {
+            "step": "01",
+            "title": "Analýza požadavků",
+            "description": "Hluboká analýza potřeb vašeho trhu, cílové skupiny a technických požadavků.",
+            "duration": "1–2 týdny",
+            "deliverables": [
+              "Zpráva z průzkumu trhu",
+              "Technické specifikace",
+              "Časový harmonogram projektu"
+            ]
+          },
+          {
+            "step": "02",
+            "title": "Design a vývoj",
+            "description": "Vytváříme podrobné návrhy, vyvíjíme prototypy a provádíme důkladné testování.",
+            "duration": "4–8 týdnů",
+            "deliverables": [
+              "Designové koncepty",
+              "Funkční prototyp",
+              "Protokoly z testování"
+            ]
+          },
+          {
+            "step": "03",
+            "title": "Plánování výroby",
+            "description": "Nastavení výrobních linek, zajištění materiálů a zavedení systémů kontroly kvality.",
+            "duration": "2–4 týdny",
+            "deliverables": [
+              "Výrobní plán",
+              "Příručka kvality",
+              "Nastavení dodavatelského řetězce"
+            ]
+          },
+          {
+            "step": "04",
+            "title": "Sériová výroba",
+            "description": "Přechod na plnou výrobu s průběžným sledováním kvality a dodávek.",
+            "duration": "4–12 týdnů",
+            "deliverables": [
+              "Hotové výrobky",
+              "Certifikáty kvality",
+              "Balení a doprava"
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "heading": "Jakých výsledků dosáhli naši partneři OEM/ODM?",
+        "sub": "Náš úspěch měříme úspěchem našich partnerů. Tady je to, čeho jsme v průběhu let společně dosáhli.",
+        "items": [
+          {
+            "metric": "500+",
+            "label": "Vyvinutých produktů"
+          },
+          {
+            "metric": "50+",
+            "label": "Značek partnerů"
+          },
+          {
+            "metric": "98%",
+            "label": "Spokojenost klientů"
+          }
+        ]
+      },
+      "benefits": {
+        "heading": "Proč spolupracovat s iShine?",
+        "sub": "Kromě výroby vám poskytujeme strategické výhody, které pomáhají vašemu podnikání uspět na konkurenčním trhu IPL.",
+        "items": [
+          {
+            "title": "Rychlejší uvedení na trh",
+            "description": "Urychlete uvedení svého produktu díky našemu efektivnímu procesu vývoje a výrobním zkušenostem."
+          },
+          {
+            "title": "Optimalizace nákladů",
+            "description": "Snižte náklady na vývoj díky efektivním procesům a zavedeným vztahům v dodavatelském řetězci."
+          },
+          {
+            "title": "Snížení rizik",
+            "description": "Minimalizujte technická a tržní rizika díky ověřené metodice vývoje a znalosti trhu."
+          },
+          {
+            "title": "Globální dosah",
+            "description": "Vstupte na mezinárodní trhy s produkty, které splňují globální regulační standardy a certifikace."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Připraveni uvést svůj produkt IPL na trh?",
+        "description": "Proberme požadavky vašeho projektu a zjistěme, jak vám naše řešení OEM/ODM mohou pomoci uspět na trhu IPL.",
+        "start": "Zahájit projekt",
+        "back": "Zpět na služby"
+      }
+    },
+    "productDesign": {
+      "meta": {
+        "title": "Produktový design | iShine",
+        "description": "Služby produktového designu pro IPL přístroje: průmyslový design, UI/UX, výzkum uživatelů a konzultace v oblasti inovací. Od konceptu po kosmetické přístroje připravené pro trh."
+      },
+      "hero": {
+        "title1": "Design, který",
+        "title2": "Inspiruje a podává výkony",
+        "description": "Proměňte své koncepty IPL přístrojů v produkty vedoucí na trhu díky inovativnímu designu, myšlení zaměřenému na uživatele a technické dokonalosti.",
+        "cta": "Zahájit designový projekt"
+      },
+      "citable": {
+        "heading": "Co zahrnuje produktový design IPL v projektu OEM/ODM?",
+        "body": "Produktový design IPL v projektu OEM/ODM pokrývá estetická i inženýrská rozhodnutí, která ovlivňují použitelnost, bezpečnost, vyrobitelnost a positioning značky. Obvykle zahrnuje průmyslový design zaměřený na ergonomii a prémiový vzhled a dojem, design UI/UX pro ovládání a indikátory a plánování na úrovni komponent, jako je způsob chlazení, velikost aplikačního okénka a integrace senzorů. Designová práce zohledňuje také balení a rozbalování, aby produkt odpovídal očekáváním v maloobchodě i v přímém prodeji. Kvalitní designová fáze snižuje pozdější výrobní rizika tím, že včas sladí materiály, tolerance a montážní omezení, což zlepšuje konzistenci při škálování. Společnost iShine podporuje designové programy od průzkumu konceptů přes 3D modelování, prototypování, testování a iterativní zdokonalování, takže výsledný přístroj lze opakovaně vyrábět a dokumentovat pro cílové trhy."
+      },
+      "services": {
+        "heading": "Jaké služby produktového designu IPL nabízíme?",
+        "sub": "Od prvotního konceptu až po finální produkt poskytujeme komplexní designové služby, které oživí vaši vizi IPL přístroje.",
+        "items": [
+          {
+            "title": "Průmyslový design",
+            "description": "Estetický a funkční design, který spojuje krásu s ergonomií pro optimální uživatelský zážitek.",
+            "features": [
+              "Ergonomický design",
+              "Výběr materiálů",
+              "Barvy a povrchové úpravy",
+              "Optimalizace tvarového faktoru"
+            ]
+          },
+          {
+            "title": "Design UI/UX",
+            "description": "Intuitivní uživatelská rozhraní a plynulé uživatelské zážitky, díky kterým je ošetření IPL jednoduché a efektivní.",
+            "features": [
+              "Návrh rozhraní",
+              "Mapování uživatelské cesty",
+              "Návrh interakcí",
+              "Testování použitelnosti"
+            ]
+          },
+          {
+            "title": "Výzkum uživatelů",
+            "description": "Hluboké porozumění potřebám, chování a preferencím uživatelů jako podklad pro designová rozhodnutí.",
+            "features": [
+              "Průzkum trhu",
+              "Rozhovory s uživateli",
+              "Tvorba person",
+              "Konkurenční analýza"
+            ]
+          },
+          {
+            "title": "Konzultace v oblasti inovací",
+            "description": "Strategické designové myšlení pro identifikaci příležitostí a vytváření přelomových produktů IPL.",
+            "features": [
+              "Designová strategie",
+              "Inovační workshopy",
+              "Vývoj konceptu",
+              "Analýza budoucích trendů"
+            ]
+          }
+        ]
+      },
+      "process": {
+        "heading": "Jak probíhá proces produktového designu IPL?",
+        "sub": "Strukturovaný přístup, který vyvažuje znalost trhu, kreativitu a vyrobitelnost.",
+        "items": [
+          {
+            "phase": "Výzkum",
+            "title": "Objev a výzkum",
+            "description": "Porozumění potřebám trhu, chování uživatelů a technickým omezením jako podklad pro designovou strategii.",
+            "activities": [
+              "Analýza trhu",
+              "Výzkum uživatelů",
+              "Technické požadavky",
+              "Konkurenční prostředí"
+            ],
+            "duration": "2–3 týdny"
+          },
+          {
+            "phase": "Generování nápadů",
+            "title": "Vývoj konceptu",
+            "description": "Generujeme inovativní designové koncepty, které vyvažují estetiku, funkčnost a vyrobitelnost.",
+            "activities": [
+              "Brainstormingové workshopy",
+              "Náčrty konceptů",
+              "Designové průzkumy",
+              "Analýza proveditelnosti"
+            ],
+            "duration": "3–4 týdny"
+          },
+          {
+            "phase": "Design",
+            "title": "Podrobný design",
+            "description": "Vývoj komplexních designových specifikací včetně 3D modelů, technických výkresů a prototypů.",
+            "activities": [
+              "3D modelování",
+              "Technické výkresy",
+              "Specifikace materiálů",
+              "Vývoj prototypů"
+            ],
+            "duration": "4–6 týdnů"
+          },
+          {
+            "phase": "Validace",
+            "title": "Testování a zdokonalování",
+            "description": "Ověřování designových konceptů prostřednictvím uživatelského testování, technické validace a iterativního zlepšování.",
+            "activities": [
+              "Uživatelské testování",
+              "Validace designu",
+              "Testování výkonu",
+              "Optimalizace designu"
+            ],
+            "duration": "2–3 týdny"
+          }
+        ]
+      },
+      "principles": {
+        "heading": "Designové principy",
+        "sub": "Principy, které řídí naše designová rozhodnutí v oblasti tvaru, použitelnosti a výkonu.",
+        "items": [
+          {
+            "title": "Design zaměřený na uživatele",
+            "description": "Každé designové rozhodnutí je učiněno s ohledem na koncového uživatele, což zajišťuje intuitivní a uspokojující zážitky.",
+            "examples": [
+              "Ergonomický tvar rukojeti",
+              "Jasná vizuální zpětná vazba",
+              "Jednoduchý průběh ovládání"
+            ]
+          },
+          {
+            "title": "Funkční estetika",
+            "description": "Krásné návrhy, které neohrožují funkčnost, vytvářejí produkty podávající výkon odpovídající jejich vzhledu.",
+            "examples": [
+              "Elegantní tvary",
+              "Prémiové materiály",
+              "Promyšlené detaily"
+            ]
+          },
+          {
+            "title": "Důraz na inovace",
+            "description": "Posouváme hranice, abychom vytvářeli přelomové produkty, které nastavují nové standardy v odvětví IPL.",
+            "examples": [
+              "Pokročilé chladicí systémy",
+              "Chytré senzory pleti",
+              "Bezdrátové připojení"
+            ]
+          }
+        ]
+      },
+      "caseStudies": {
+        "heading": "Případové studie",
+        "sub": "Příklady toho, jak se design promítá do výsledků na trhu a do zlepšení uživatelského zážitku.",
+        "challenge": "Výzva",
+        "solution": "Řešení",
+        "results": "Výsledky",
+        "start": "Zahájit designový projekt",
+        "back": "Zpět na služby",
+        "items": [
+          {
+            "title": "Prémiový domácí IPL přístroj",
+            "challenge": "Navrhněte profesionální IPL přístroj pro domácí použití, který se vyrovná ošetřením v salonu.",
+            "solution": "Vytvořili jsme elegantní, ergonomický design s pokročilou chladicí technologií a chytrou detekcí pleti.",
+            "results": [
+              "Zlepšení spokojenosti uživatelů o 40 %",
+              "Ošetření o 25 % rychlejší",
+              "Dosaženo prémiového postavení na trhu"
+            ]
+          },
+          {
+            "title": "Kompaktní cestovní IPL přístroj",
+            "challenge": "Vyviňte přenosný IPL přístroj bez kompromisů ve výkonu nebo bezpečnosti.",
+            "solution": "Inovativní kompaktní design se skládací rukojetí a optimalizovaným rozmístěním vnitřních komponent.",
+            "results": [
+              "O 60 % menší rozměry ve srovnání s konkurencí",
+              "Zachovaná plná účinnost IPL",
+              "Silná diferenciace na trhu"
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "title": "Připraveni navrhnout svůj další produkt IPL?",
+        "description": "Oživte svou vizi přístroje designem, který vyvažuje estetiku, použitelnost a vyrobitelnost.",
+        "start": "Zahájit designový projekt",
+        "back": "Zpět na služby"
+      }
+    },
+    "productionAssembly": {
+      "meta": {
+        "title": "Výroba a montáž | iShine",
+        "description": "Výroba a montáž IPL přístrojů: pokročilá výroba, zajištění kvality, škálovatelná produkce a optimalizace procesů pro projekty OEM/ODM."
+      },
+      "hero": {
+        "title1": "Precizní výroba",
+        "title2": "ve velkém měřítku",
+        "description": "Špičková výrobní zařízení a přísné systémy kontroly kvality zajišťují, že každý IPL přístroj splňuje nejvyšší standardy výkonu a bezpečnosti.",
+        "cta": "Probrat výrobní potřeby"
+      },
+      "citable": {
+        "heading": "Jak se IPL přístroj sériově vyrábí pro privátní značky?",
+        "body": "Sériová výroba IPL přístrojů pro privátní značky obvykle probíhá podle strukturovaného postupu: ověřené zajištění komponent, příprava výrobní linky před zahájením výroby, pilotní série k ověření výtěžnosti a testovacích stanic a poté sériová výroba s průběžným sledováním kvality. Klíčové kontrolní body zahrnují testy elektrické bezpečnosti, ověření optického výkonu, stabilitu pulzů a kalibraci energie, kontrolu teploty a chlazení a finální funkční testy senzorů a uživatelského rozhraní. Pro cílové trhy jsou vedle výroby udržovány procesy dokumentace a dohledatelnosti, takže šarže zůstávají konzistentní a auditovatelné. Společnost iShine sladí plánování výroby s vybranými subsystémy lampy, filtru, chlazení a napájení, aby snížila rozdíly mezi šaržemi a zajistila opakovatelný výkon. Tento přístup pomáhá značkám spolehlivě startovat, zvyšovat objemy a udržovat konzistentní zákaznickou zkušenost napříč dodávkami."
+      },
+      "capabilities": {
+        "heading": "Jaké výrobní schopnosti nabízíme pro IPL přístroje?",
+        "sub": "Komplexní výrobní řešení, která kombinují pokročilé technologie s ověřenými procesy pro dosažení vynikajících výsledků.",
+        "items": [
+          {
+            "title": "Pokročilá výroba",
+            "description": "Špičková výrobní zařízení vybavená nejnovějšími technologiemi pro precizní výrobu IPL přístrojů.",
+            "features": [
+              "Automatizované montážní linky",
+              "Přesné nástroje a formy",
+              "Prostředí čistých prostor",
+              "Sledování v reálném čase"
+            ]
+          },
+          {
+            "title": "Zajištění kvality",
+            "description": "Komplexní systémy kontroly kvality zajišťující, že každý produkt splňuje mezinárodní standardy a předpisy.",
+            "features": [
+              "Certifikace ISO 13485",
+              "Proces schválení FDA",
+              "Soulad se značením CE",
+              "Testování 100 % produktů"
+            ]
+          },
+          {
+            "title": "Škálovatelná výroba",
+            "description": "Flexibilní výrobní kapacita, která se škáluje od prototypových množství až po objemnou sériovou výrobu.",
+            "features": [
+              "Flexibilní MOQ",
+              "Rychlé škálování",
+              "Plánování kapacity",
+              "Prognózy poptávky"
+            ]
+          },
+          {
+            "title": "Optimalizace procesů",
+            "description": "Metodiky neustálého zlepšování pro zvýšení efektivity, snížení nákladů a zvýšení kvality.",
+            "features": [
+              "Štíhlá výroba",
+              "Principy Six Sigma",
+              "Snižování odpadu",
+              "Optimalizace doby cyklu"
+            ]
+          }
+        ]
+      },
+      "process": {
+        "heading": "Jak probíhá výrobní proces IPL?",
+        "sub": "Systematický přístup k výrobě, který zajišťuje kvalitu, efektivitu a škálovatelnost od prototypu po sériovou výrobu.",
+        "items": [
+          {
+            "stage": "01",
+            "title": "Zajištění komponent",
+            "description": "Strategické zajištění vysoce kvalitních komponent od certifikovaných dodavatelů po celém světě.",
+            "details": [
+              "Kvalifikace a audit dodavatelů",
+              "Testování a validace komponent",
+              "Řízení rizik dodavatelského řetězce",
+              "Strategie optimalizace nákladů"
+            ],
+            "duration": "2–4 týdny"
+          },
+          {
+            "stage": "02",
+            "title": "Příprava před výrobou",
+            "description": "Komplexní příprava zahrnující nástroje, přípravky a konfiguraci výrobní linky.",
+            "details": [
+              "Nastavení výrobní linky",
+              "Příprava nástrojů a přípravků",
+              "Nastavení stanic kontroly kvality",
+              "Školení a certifikace personálu"
+            ],
+            "duration": "3–5 týdnů"
+          },
+          {
+            "stage": "03",
+            "title": "Pilotní výroba",
+            "description": "Výroba v malých sériích pro ověření procesů, identifikaci problémů a optimalizaci pracovních postupů.",
+            "details": [
+              "Validace procesů",
+              "Ověření systému kvality",
+              "Optimalizace výtěžnosti",
+              "Finalizace dokumentace"
+            ],
+            "duration": "1–2 týdny"
+          },
+          {
+            "stage": "04",
+            "title": "Sériová výroba",
+            "description": "Výroba v plném rozsahu s průběžným sledováním a zajištěním kvality.",
+            "details": [
+              "Výroba ve velkých objemech",
+              "Sledování kvality v reálném čase",
+              "Neustálé zlepšování",
+              "Plánování dodávek"
+            ],
+            "duration": "Průběžně"
+          }
+        ]
+      },
+      "standards": {
+        "heading": "Jaké standardy kvality a certifikace splňujeme?",
+        "sub": "Náš závazek ke kvalitě je doložen přísným dodržováním mezinárodních standardů a regulačních požadavků.",
+        "scopeLabel": "Rozsah:",
+        "items": [
+          {
+            "standard": "ISO 13485",
+            "title": "Řízení kvality zdravotnických prostředků",
+            "description": "Komplexní systém řízení kvality navržený speciálně pro výrobu zdravotnických prostředků.",
+            "scope": "Design, vývoj, výroba a sledování po uvedení na trh"
+          },
+          {
+            "standard": "FDA 510(k)",
+            "title": "Proces schválení FDA",
+            "description": "Regulační cesta pro zdravotnické prostředky, které jsou v podstatě ekvivalentní stávajícím schváleným prostředkům.",
+            "scope": "Validace bezpečnosti a účinnosti pro trh USA"
+          },
+          {
+            "standard": "CE Marking",
+            "title": "Evropská shoda",
+            "description": "Certifikace potvrzující shodu se standardy ochrany zdraví, bezpečnosti a životního prostředí.",
+            "scope": "Přístup na trh Evropského hospodářského prostoru"
+          },
+          {
+            "standard": "IEC 60601",
+            "title": "Zdravotnické elektrické přístroje",
+            "description": "Mezinárodní standard pro bezpečnost a základní výkon zdravotnických elektrických přístrojů.",
+            "scope": "Elektrická bezpečnost a elektromagnetická kompatibilita"
+          }
+        ]
+      },
+      "metrics": {
+        "heading": "Výrobní dokonalost",
+        "sub": "Klíčové ukazatele výkonnosti, které dokládají náš závazek k výrobní dokonalosti a provozní efektivitě.",
+        "items": [
+          {
+            "metric": "50,000+",
+            "label": "Kapacita kusů/měsíc",
+            "description": "Maximální měsíční výrobní kapacita"
+          },
+          {
+            "metric": "99.5%",
+            "label": "Míra úspěšnosti kvality",
+            "description": "Dosažená kvalita při prvním průchodu"
+          },
+          {
+            "metric": "24/7",
+            "label": "Sledování výroby",
+            "description": "Nepřetržitý dohled nad výrobou"
+          },
+          {
+            "metric": "15+",
+            "label": "Let zkušeností",
+            "description": "Výrobní expertíza v oblasti IPL přístrojů"
+          }
+        ]
+      },
+      "testing": {
+        "heading": "Komplexní testovací postupy",
+        "sub": "Přísné testovací protokoly zajišťují, že každý IPL přístroj splňuje výkonnostní specifikace a bezpečnostní požadavky před odesláním.",
+        "items": [
+          {
+            "category": "Elektrické testování",
+            "tests": [
+              "Ověření spotřeby energie",
+              "Testování elektrické bezpečnosti",
+              "Testování shody EMC",
+              "Testování izolačního odporu"
+            ]
+          },
+          {
+            "category": "Optický výkon",
+            "tests": [
+              "Měření světelného výkonu",
+              "Ověření vlnové délky",
+              "Testování délky pulzu",
+              "Kalibrace hustoty energie"
+            ]
+          },
+          {
+            "category": "Bezpečnost a spolehlivost",
+            "tests": [
+              "Testování bezpečnosti kontaktu s pokožkou",
+              "Sledování teploty",
+              "Testování životnosti",
+              "Zkoušky vlivů prostředí"
+            ]
+          },
+          {
+            "category": "Funkční testování",
+            "tests": [
+              "Testování uživatelského rozhraní",
+              "Ověření režimů ošetření",
+              "Funkce senzorů",
+              "Celková integrace systému"
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "title": "Připraveni škálovat svou výrobu IPL?",
+        "description": "Proberte s naším výrobním týmem kapacitu, standardy kvality a plány dodávek pro vaši další výrobní sérii.",
+        "start": "Probrat výrobní potřeby",
+        "back": "Zpět na služby"
+      }
+    },
+    "packagingLogistics": {
+      "meta": {
+        "title": "Balení a logistika | iShine",
+        "description": "Balení a logistika IPL přístrojů: vlastní maloobchodní balení, e-commerce balení, celosvětová doprava, celní odbavení a optimalizace dodavatelského řetězce."
+      },
+      "hero": {
+        "title1": "Od designu až",
+        "title2": "ke dveřím zákazníka",
+        "description": "Kompletní řešení balení a logistiky, která chrání vaše produkty IPL, posilují vaši značku a zajišťují vynikající zákaznické zážitky po celém světě.",
+        "cta1": "Vyžádat nabídku logistiky",
+        "cta2": "Zpět na služby",
+        "imgAlt": "Balení a logistika"
+      },
+      "citable": {
+        "heading": "Co zahrnuje balení a logistika při uvedení značky IPL na trh?",
+        "body": "Balení a logistika při uvedení značky IPL na trh pokrývají jak zážitek z rozbalování, který vnímá zákazník, tak praktickou ochranu potřebnou pro celosvětové dodávky. Programy obvykle zahrnují značkové kartony, vložky, návody, etikety a výběr příslušenství a dále ochranné konstrukce navržené ke snížení poškození během přepravy. Pro e-commerce je balení často optimalizováno na kompaktní rozměry a odolnost; pro maloobchod je navrženo pro atraktivitu na regálu a jasnou komunikaci. Logistická podpora zahrnuje vývozní dokumenty, koordinaci dopravy po moři nebo vzduchem, celní odbavení a sledování zásilek, přičemž volba trasy se řídí náklady, cílovou destinací a časovými požadavky. Společnost iShine podporuje balicí procesy sladěné s výrobním harmonogramem OEM/ODM, takže produkty lze konzistentně expedovat a doručovat v perfektním stavu připravené pro trh."
+      },
+      "services": {
+        "heading": "Jaké služby balení a logistiky nabízíme?",
+        "sub": "Od vlastního designu balení po celosvětové doručení budujeme spolehlivou cestu od továrny k zákazníkovi.",
+        "items": [
+          {
+            "title": "Vlastní design balení",
+            "description": "Balení na míru, které chrání vaše produkty a zároveň posiluje identitu vaší značky.",
+            "features": [
+              "Design sladěný se značkou",
+              "Ochranné inženýrství",
+              "Udržitelné materiály",
+              "Zážitek z rozbalování"
+            ]
+          },
+          {
+            "title": "Ochrana produktu",
+            "description": "Pokročilá ochranná balení zajišťující, že se vaše IPL přístroje dostanou do celého světa v perfektním stavu.",
+            "features": [
+              "Absorpce nárazů",
+              "Ochrana proti vlhkosti",
+              "Kontrola teploty",
+              "Antistatické materiály"
+            ]
+          },
+          {
+            "title": "Globální logistika",
+            "description": "Komplexní logistická řešení pokrývající skladování, distribuci a mezinárodní dopravu.",
+            "features": [
+              "Celosvětová doprava",
+              "Celní odbavení",
+              "Řízení zásob",
+              "Sledování v reálném čase"
+            ]
+          },
+          {
+            "title": "Optimalizace dodavatelského řetězce",
+            "description": "Řízení dodavatelského řetězce založené na datech pro snížení nákladů a zlepšení kvality dodávek.",
+            "features": [
+              "Optimalizace tras",
+              "Analýza nákladů",
+              "Ukazatele výkonnosti",
+              "Neustálé zlepšování"
+            ]
+          }
+        ]
+      },
+      "types": {
+        "heading": "Typy balení",
+        "sub": "Přizpůsobené strategie balení pro maloobchod, e-commerce a kanály B2B.",
+        "applicationsLabel": "Použití",
+        "featuresLabel": "Vlastnosti",
+        "items": [
+          {
+            "type": "Maloobchodní balení",
+            "description": "Poutavé maloobchodní balení navržené k přilákání zákazníků a sdělení hodnoty produktu.",
+            "applications": [
+              "Prodejny spotřební elektroniky",
+              "Online tržiště",
+              "Prodejci kosmetiky",
+              "Obchodní domy"
+            ],
+            "features": [
+              "Prémiové materiály",
+              "Vyprávění příběhu značky",
+              "Viditelnost produktu",
+              "Atraktivita na regálu"
+            ]
+          },
+          {
+            "type": "E-commerce balení",
+            "description": "Optimalizované balení pro online prodej se zaměřením na ochranu a nezapomenutelný zážitek z rozbalování.",
+            "applications": [
+              "Amazon FBA",
+              "Přímý prodej zákazníkům",
+              "Online kosmetické obchody",
+              "Předplatné boxy"
+            ],
+            "features": [
+              "Kompaktní design",
+              "Snadné otevírání",
+              "Prevence poškození",
+              "Zážitek ze značky"
+            ]
+          },
+          {
+            "type": "B2B balení",
+            "description": "Efektivní hromadná balení pro velkoobchodní a distribuční partnery.",
+            "applications": [
+              "Distributorské zásilky",
+              "Velkoobjemové objednávky",
+              "Veletrhy",
+              "Profesionální kanály"
+            ],
+            "features": [
+              "Nákladová efektivita",
+              "Optimalizace prostoru",
+              "Snadná manipulace",
+              "Flexibilita množství"
+            ]
+          }
+        ]
+      },
+      "network": {
+        "heading": "Jaké je pokrytí naší globální logistické sítě?",
+        "sub": "Pokrytí, logistická centra a služby navržené pro předvídatelné dodávky a jasné předávání.",
+        "hubsLabel": "Logistická centra",
+        "servicesLabel": "Služby",
+        "items": [
+          {
+            "region": "Severní Amerika",
+            "coverage": "USA, Kanada, Mexiko",
+            "hubs": [
+              "Los Angeles",
+              "New York",
+              "Toronto"
+            ],
+            "deliveryTime": "2–5 pracovních dní",
+            "services": [
+              "Expresní doprava",
+              "Pozemní doprava",
+              "Služba bílých rukavic"
+            ]
+          },
+          {
+            "region": "Evropa",
+            "coverage": "EU, Velká Británie, Švýcarsko, Norsko",
+            "hubs": [
+              "Frankfurt",
+              "Londýn",
+              "Amsterdam"
+            ],
+            "deliveryTime": "1–4 pracovní dny",
+            "services": [
+              "Doručení do druhého dne",
+              "Standardní doprava",
+              "Celní odbavení"
+            ]
+          },
+          {
+            "region": "Asie a Tichomoří",
+            "coverage": "Čína, Japonsko, Austrálie, jihovýchodní Asie",
+            "hubs": [
+              "Hongkong",
+              "Singapur",
+              "Sydney"
+            ],
+            "deliveryTime": "2–7 pracovních dní",
+            "services": [
+              "Letecká přeprava",
+              "Námořní přeprava",
+              "Regionální distribuce"
+            ]
+          },
+          {
+            "region": "Zbytek světa",
+            "coverage": "Střední východ, Afrika, Jižní Amerika",
+            "hubs": [
+              "Dubaj",
+              "São Paulo",
+              "Johannesburg"
+            ],
+            "deliveryTime": "5–14 pracovních dní",
+            "services": [
+              "Mezinárodní expres",
+              "Ekonomická doprava",
+              "Od dveří ke dveřím"
+            ]
+          }
+        ]
+      },
+      "process": {
+        "heading": "Proces balení",
+        "sub": "Opakovatelný postup od designu po plnění objednávek, který udržuje kvalitu a časové harmonogramy předvídatelné."
+      }
+    }
+  }
+}

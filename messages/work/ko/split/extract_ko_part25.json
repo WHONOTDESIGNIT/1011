@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "새로운 Develo 웹사이트와 더 나은 구축 방식",
+          "alt": "새로운 Develo 웹사이트",
+          "date": "2026년 2월 10일"
+        },
+        "card14": {
+          "readTime": "4분 분량",
+          "category": "HYVÄ THEMES",
+          "title": "Hyvä 웹사이트를 최적화하는 방법",
+          "alt": "Hyva 최적화",
+          "date": "2026년 1월 28일"
+        },
+        "card15": {
+          "readTime": "4분 분량",
+          "category": "이커머스",
+          "title": "스타일리시하고 전환율이 높은 사이트를 위한 패션 이커머스 팁 12가지",
+          "alt": "패션 이커머스",
+          "date": "2026년 1월 15일"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "페이지네이션",
+        "previous": "이전",
+        "next": "다음"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "Magento 속도와 성능을 최적화하는 8가지 팁 | Develo 블로그",
+      "pageDescription": "Magento 스토어를 더 빠르고 원활하게, 더 수익성 있게 만드는 실질적인 방법.",
+      "breadcrumb": {
+        "ariaLabel": "브레드크럼",
+        "blog": "블로그"
+      },
+      "category": "MAGENTO",
+      "title": "Magento 속도와 성능을 최적화하는 8가지 팁",
+      "description": "Magento 스토어를 더 빠르고 원활하게, 더 수익성 있게 만드는 실질적인 방법",
+      "author": "작성자: Bethany Wood",
+      "date": "2026년 2월 19일",
+      "readTime": "5분 분량",
+      "updated": "마지막 업데이트: 2026년 2월 19일",
+      "share": {
+        "label": "이 기사 공유하기",
+        "twitter": "Twitter에 공유",
+        "linkedin": "LinkedIn에 공유",
+        "facebook": "Facebook에 공유"
+      },
+      "authorRole": "마케팅 매니저",
+      "authorBio": "Beth는 2016년부터 마케팅 분야에서 일하며 여러 산업에 걸쳐 창의적이고 전환율 중심의 캠페인을 진행해 왔습니다. 그녀는 소셜 미디어 마케팅, 브랜딩, 이메일 마케팅, 카피라이팅을 전문으로 합니다. 상업 부서 내 마케팅 매니저로서 Beth는 비즈니스 성장을 지원하는 마케팅 활동을 관리하고 실행하는 역할을 담당합니다. 그녀는 프로젝트를 컨셉에서 결과물까지 이끌며, 측정 가능한 성과를 내는 캠페인으로 아이디어를 구체화하는 것을 즐깁니다.",
+      "authorCompany": "Develo는 영국 버밍엄에 본사를 둔 선도적인 Magento 에이전시이자 이커머스 웹 개발 회사로, 2010년부터 전 세계 고객에게 서비스를 제공하고 있습니다.",
+      "cta": {
+        "text": "Magento 스토어 최적화에 도움이 필요하신가요? 지금 상담해 보세요.",
+        "button": "상담 예약하기"
+      },
+      "body": {
+        "para1Before": "Magento 사이트 속도와 성능 최적화는 모든 비즈니스 소유자의 우선순위 목록 맨 위에 있어야 합니다. 왜일까요? 오늘날의 고객에게는 모든 초가 중요하기 때문입니다. 실제로,",
+        "para1After": "페이지 로딩에 3초 이상 걸리는 경우입니다. 느린 사이트는 고객을 짜증나게 할 뿐만 아니라 Magento 사이트의 사용자 경험(UX)과 SEO 순위에도 악영향을 미칩니다. 특히 이제는 사이트 속도가 Google의 Core Web Vitals 테스트에서 핵심 순위 요소가 되었기 때문입니다.",
+        "para2": "Magento 사이트 최적화는 이러한 문제를 피하는 데 도움이 되며, 결과적으로 매출과 전환율을 높입니다. 이어지는 내용에서는 Magento 속도를 최적화하고 이커머스 스토어가 어떻게 구성되어 있든 성능을 발휘하도록 사이트를 구축하는 데 도움이 되는 필수 팁 8가지를 정리했습니다.",
+        "section1Title": "Core Web Vitals로 Magento 속도와 성능을 테스트하는 방법",
+        "section1ParaBefore": "변경을 가하기 전에 Core Web Vitals 테스트를 실행할 것을 권장합니다. 개발자에게",
+        "section1ParaMiddle": "또는",
+        "section1ParaAfter": "와 같은 도구를 사용해 속도 문제와 개선 사항을 확인하도록 요청하세요. 이러한 도구는 진행 상황을 측정할 기준점을 제공하고 사이트 성능을 저해하는 영역을 찾아내는 데 도움이 됩니다.",
+        "section2Title": "준비가 끝났다면 다음 Magento 성능 최적화 팁 8가지를 따라보세요.",
+        "tip1Title": "1. 모든 Magento 캐시 유형 활성화 및 Varnish 사용",
+        "tip1Para1": "Magento에는 여러 가지 기본 제공 캐싱 옵션이 있습니다. 이를 활성화하는 것은 사이트 성능을 높이는 가장 빠른 방법 중 하나입니다. 우리의 추천은? 웹사이트 버전을 메모리에 저장해 페이지 로딩 시간을 크게 줄여주는 강력한 캐싱 도구인 Varnish입니다.",
+        "tip1Para2": "즉, 재방문 고객이 모든 페이지 요소를 다시 로드할 필요가 없어 시간과 서버 리소스를 절약하고 구매 중도 포기를 줄일 수 있습니다.",
+        "tip2Title": "2. 세션 및 캐시 저장을 위한 Redis 활성화",
+        "tip2Para1": "Varnish 외에도 개발자가 세션 및 캐시 저장을 위해 Redis를 활성화할 것을 권장합니다. Redis는 세션과 캐시를 메모리에 저장하여 데이터베이스 부담을 덜어주며, 데이터 검색 속도를 높이고 서버 부하를 줄입니다.",
+        "tip2Para2": "왜 Varnish와 Redis일까요? 이 조합은 트래픽 급증 시 Magento 사이트의 응답성과 백엔드 성능을 모두 개선합니다. 최종 결과는 사용자와 관리자 모두에게 더 원활한 경험을 제공한다는 것입니다.",
+        "tip3Title": "3. Magento 전문 호스팅 선택",
+        "tip3Para1Before": "Magento는 리소스 집약적인 플랫폼이므로 전용 최적화 호스팅 환경의 이점을 크게 누릴 수 있습니다. 따라서 Magento 전문 호스팅 제공업체로 전환하는 것을 고려해 보세요. 예를 들어",
+        "tip3Para1After": ", UKFast 또는 Corefinity와 같은 업체가 있습니다. '모든 것을 처리해 드리는' 제공업체와 달리, 이들은 플랫폼을 속속들이 알고 있으며 Magento 성능 최적화에 맞춘 지원과 인프라를 제공할 수 있습니다.",
+        "tip3Para2": "보너스 팁: 현재 제공업체가 Varnish 또는 Redis 중 하나를 활성화했는지, 그리고 트래픽에 맞는 적절한 서버 용량을 사용하고 있는지 확인하세요.",
+        "tip4Title": "4. Cloudflare 같은 CDN 사용",
+        "tip4Para1": "콘텐츠 전송 네트워크(CDN)는 사이트의 정적 자산(이미지, CSS, JS 등)을 전 세계 여러 서버에 저장합니다. 고객이 사이트를 방문하면 가장 가까운 서버에서 자산이 로드되어 지연 시간(로딩 시간)을 줄이고 Magento Core Web Vitals 점수를 개선하며, 이 모두가 매출 마진에 도움이 됩니다.",
+        "tip4Para2Before": "Develo에서는",
+        "tip4Para2After": "를 사용합니다. 설정이 간단하고 안정적이며 넉넉한 무료 플랜을 제공하기 때문입니다.",
+        "tip5Title": "5. 'On Schedule' 인덱싱으로 전환",
+        "tip5Para": "Magento에서는 데이터가 인덱싱되는 시점을 즉시('on save') 또는 'on schedule' 중에서 선택할 수 있습니다. 대부분의 스토어에서 'on schedule' 인덱싱이 더 빠르고 효율적이며, 관리 부담을 줄이고 사용자 경험(UX)을 개선합니다. 특히 방대한 제품 카탈로그를 탐색하는 고객에게 유용합니다.",
+        "tip6Title": "6. 이미지 최적화 및 화면 밖 콘텐츠 지연 로딩(lazy-load)",
+        "tip6Para1": "Magento 사이트에 큰 이미지가 있나요? 그렇다면 로딩이 느릴 수 있습니다. 이를 해결하려면 페이지 아래쪽('below the fold')에 표시되는 이미지에 지연 로딩(lazy-loading)을 구현하고 WebP 같은 형식을 사용하도록 개발자에게 권장하세요. 이렇게 하면 페이지 무게가 줄어들고 Core Web Vitals 테스트 점수가 개선되며, 가장 중요한 것은 전환율을 유지할 수 있다는 점입니다.",
+        "tip6Para2Before": "다음과 같은 도구를 권장합니다",
+        "tip6Para2After": "로 이 과정을 자동화할 수 있습니다. 또한 동영상은 YouTube나 Vimeo 같은 플랫폼에서 배송에 최적화된 외부 호스팅도 고려해 보세요.",
+        "tip7Title": "7. 타사 스크립트 검토 및 줄이기",
+        "tip7Para1Before": "Magento 속도를 최적화하는 또 다른 방법은 사이트 확장 기능과 타사 스크립트를 검토하고(필요한 경우 제거) 특히 GTM 또는 Magento에 직접 추가된 스크립트를 점검하는 것입니다. 이러한 스크립트는",
+        "tip7Para1Middle": "또는",
+        "tip7Para1After": "와 같은 도구로 쉽게 찾아낼 수 있으며, 사이트 로딩 시간도 개선됩니다.",
+        "tip7Para2": "기억하세요: 스크립트가 단일 페이지(PDP 또는 결제 페이지 등)에서만 필요한 경우 사이트 전체에 로드할 필요가 없습니다.",
+        "tip8Title": "8. Magento 데이터베이스 정리 및 최적화",
+        "tip8Para": "개발자에게 Magento 데이터베이스를 정기적으로 정리하고 최적화하도록 지시하세요. 이렇게 하면 로그와 만료된 견적을 포함한 사용하지 않는 데이터가 시간이 지나면서 쌓이는 것을 방지할 수 있습니다. 이는 Magento 사이트의 최적화를 개선하고 고객 쿼리 속도를 높여줍니다.",
+        "bonusTitle": "Magento 2.4 이상을 위한 보너스 팁",
+        "bonusItem1Strong": "Hyva 테마 사용:",
+        "bonusItem1Before": "",
+        "bonusItem1After": " 테마는 Luma보다 빠른 속도와 뛰어난 Core Web Vitals 테스트 결과를 원하는 비즈니스 소유자에게 탁월한 선택입니다. 이 테마는 웹 성능을 향상시키고 개발자 복잡성을 줄이며 UX를 개선합니다. 모든 Magento 스토어에 적합한 현명하고 미래 지향적인 업그레이드입니다.",
+        "bonusItem2Strong": "정기적으로 테스트하세요:",
+        "bonusItem2Before": "다음과 같은 도구를 사용해 월간 속도 테스트를 실행하세요:",
+        "bonusItem2Middle": ", 그리고",
+        "bonusItem2After": ".",
+        "finalTitle": "Magento 사이트 최적화: 마지막 정리",
+        "finalParaBefore": "Magento 사이트 최적화는 지속적인 투자입니다. 올바른 설정과 정기적인 점검을 통해 스토어를 빠르고 안전하게 유지하고 경쟁에서 앞서 나갈 수 있습니다.",
+        "finalParaAfter": "와의 협업 사례가 이를 잘 보여줍니다."
+      }
+    },
+    "careers": {
+      "pageTitle": "채용 | Develo Design",
+      "pageDescription": "성장하는 팀에 합류하세요. 우리는 훌륭한 일에 진심인 재능 있는 개발자, 디자이너, 이커머스 전문가를 항상 찾고 있습니다.",
+      "hero": {
+        "smallTitle": "채용",
+        "heading": "성장하는 팀에 합류하세요",
+        "subheading": "우리는 훌륭한 일에 진심인 재능 있는 개발자, 디자이너, 이커머스 전문가를 항상 찾고 있습니다."
+      },
+      "noPositions": {
+        "heading": "현재 열려 있는 채용 공고가 없습니다",
+        "description": "그러나 우리는 항상 재능 있는 인재의 연락을 기다리고 있습니다. 저희 팀에 잘 맞을 것 같다면 이력서를 보내주세요. 기회가 생기면 연락드리겠습니다.",
+        "cta": "이력서 보내기"
+      },
+      "footerCta": {
+        "heading": "프로젝트를 시작할 준비가 되셨나요?",
+        "description": "빠르고 확장 가능하며 아름다운 결과물을 만들 수 있도록 도와드리겠습니다.",
+        "button": "문의하기"
+      }
+    },
+    "privacy": {
+      "pageTitle": "개인정보 처리방침 및 쿠키 정책 | Develo Design",
+      "pageDescription": "Develo Design은 고객의 개인정보 보호를 위해 최선을 다합니다. 개인정보를 수집, 사용, 보호하는 방법을 알아보세요.",
+      "hero": {
+        "label": "법률",
+        "title": "개인정보 처리방침 및 쿠키 정책",
+        "description": "고객의 개인정보는 저희에게 중요합니다. 개인정보를 수집, 사용, 보호하는 방법을 알아보세요."
+      },
+      "body": {
+        "introTitle": "소개",
+        "introPara": "Develo Design은 고객의 개인정보를 보호하고 웹사이트에서 긍정적인 경험을 보장하기 위해 최선을 다합니다. 본 개인정보 처리방침 및 쿠키 정책은 개인정보를 수집, 사용, 보호하는 방법을 설명합니다.",
+        "collectTitle": "수집하는 정보",
+        "collectIntro": "다음과 같은 방식으로 정보를 수집합니다:",
+        "collectProvidedTitle": "고객이 제공하는 정보"
+      }
+    }
+  }
+}

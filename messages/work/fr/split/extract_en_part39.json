@@ -1,0 +1,224 @@
+{
+  "productDetail": {
+    "helix": {
+      "specs": {
+        "lampConfiguration": {
+          "value": "Single lamp"
+        },
+        "warranty": {
+          "label": "Warranty",
+          "value": "2 years global warranty"
+        },
+        "wavelength": {
+          "label": "Wavelength",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Display",
+          "value": "Digital display"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Sapphire Ice Cooling",
+          "description": "Advanced sapphire cooling technology keeps skin comfortable at 8°C, reaching setpoint in just 2 minutes for a soothing treatment."
+        },
+        "intensityLevels": {
+          "title": "9 Intensity Levels",
+          "description": "Precise energy control with 9 intensity settings, more than standard 5-level devices, for personalized treatment programs."
+        },
+        "digitalDisplay": {
+          "title": "Digital Display",
+          "description": "Built-in digital display shows real-time energy level and status for intuitive operation and precise treatment control."
+        },
+        "longLastingLamp": {
+          "title": "Long-Lasting Lamp",
+          "description": "Quartz lamp delivers 999,999 flashes for years of reliable treatments."
+        }
+      },
+      "badge": "Digital Display",
+      "colors": [
+        "White",
+        "Gold",
+        "Black"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Gentle Care for Sensitive Skin",
+      "description": "Eirene IPL is purpose-built for hypersensitive skin with a gentle energy profile and enhanced UV protection.",
+      "specs": {
+        "type": {
+          "label": "Type",
+          "value": "Hypersensitive skin"
+        },
+        "cooling": {
+          "label": "Cooling",
+          "value": "Standard"
+        },
+        "energy": {
+          "label": "Energy",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Lamp",
+          "value": "800,000 flashes"
+        },
+        "window": {
+          "label": "Window",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Wavelength",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "UV-cut filter",
+          "value": "Enhanced"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Hypersensitive Skin Focus",
+          "description": "Purpose-built for those with reactive or sensitive skin, with gradual intensity ramp-up for comfort."
+        },
+        "enhancedUvProtection": {
+          "title": "Enhanced UV Protection",
+          "description": "Advanced UV-cut filter provides extra protection for delicate skin during treatment."
+        },
+        "gentleEnergyProfile": {
+          "title": "Gentle Energy Profile",
+          "description": "Optimized 5-7 J/cm² with 570nm cut-off for gentle yet effective hair reduction."
+        },
+        "softColorPalette": {
+          "title": "Soft Color Palette",
+          "description": "Available in Soft Pink, Pearl White, and Lavender for a gentle, calming aesthetic."
+        }
+      },
+      "priceNote": "Contact us for current factory pricing and pilot-order options for the Eirene platform.",
+      "badge": "Gentle",
+      "colors": [
+        "Soft Pink",
+        "Pearl White",
+        "Lavender"
+      ]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (Wooden)",
+      "tagline": "Luxury Collection with Wooden Finish",
+      "description": "Golden Luxury is a premium wooden-finish IPL platform designed for high-end positioning and luxury unboxing experiences.",
+      "specs": {
+        "type": {
+          "label": "Type",
+          "value": "Luxury aesthetics"
+        },
+        "cooling": {
+          "label": "Cooling",
+          "value": "Support, sapphire ice feeling tech"
+        },
+        "window": {
+          "label": "Window",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Energy",
+          "value": "1-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Energy settings",
+          "value": "9 levels"
+        },
+        "lamp": {
+          "label": "Lamp",
+          "value": "Delivers 999,999 flashes"
+        },
+        "autoFlash": {
+          "label": "Auto-flash",
+          "value": "Support"
+        },
+        "pulseDuration": {
+          "label": "Pulse duration (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Cooling temperature",
+          "value": "8°C (ambient 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Time to cooling temperature",
+          "value": "2 minutes"
+        },
+        "totalEnergyRange": {
+          "label": "Total energy range",
+          "value": "4-15 J"
+        },
+        "inputVoltage": {
+          "label": "Input voltage",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "UV filter",
+          "value": "Yes"
+        },
+        "safetySystem": {
+          "label": "Integrated safety system",
+          "value": "Yes"
+        },
+        "skinToneSensor": {
+          "label": "Skin tone sensor",
+          "value": "No"
+        },
+        "lampMaterial": {
+          "label": "Lamp material",
+          "value": "Quartz"
+        },
+        "lampConfiguration": {
+          "label": "Lamp configuration",
+          "value": "Single lamp"
+        },
+        "warranty": {
+          "label": "Warranty",
+          "value": "2 years global warranty"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Max optical power density",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Wavelength",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Device size",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Net weight",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "Bulk MOQ (device)",
+          "value": "500 units"
+        }
+      },
+      "features": {
+        "luxuryAesthetics": {
+          "title": "Luxury Aesthetics",
+          "description": "Premium wooden finish and gold accents create an unboxing experience that rivals luxury beauty brands."
+        },
+        "sapphireIceCooling": {
+          "title": "Sapphire Ice Cooling",
+          "description": "Advanced sapphire ice plate technology ensures comfortable, pain-free treatments every time."
+        },
+        "premiumUnboxing": {
+          "title": "Premium Unboxing",
+          "description": "Designed for high-end retail with luxurious packaging and presentation that elevates brand perception."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "productDetail": {
+    "helix": {
+      "specs": {
+        "lampConfiguration": {
+          "value": "Lampe unique"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "Garantie mondiale de 2 ans"
+        },
+        "wavelength": {
+          "label": "Longueur d'onde",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Écran",
+          "value": "Écran numérique"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Refroidissement Ice au saphir",
+          "description": "La technologie avancée de refroidissement au saphir garde la peau confortable à 8 °C et atteint la température cible en seulement 2 minutes pour un soin apaisant."
+        },
+        "intensityLevels": {
+          "title": "9 niveaux d'intensité",
+          "description": "Contrôle précis de l'énergie avec 9 réglages d'intensité, soit plus que les appareils standard à 5 niveaux, pour des programmes de soin personnalisés."
+        },
+        "digitalDisplay": {
+          "title": "Écran numérique",
+          "description": "L'écran numérique intégré affiche en temps réel le niveau d'énergie et l'état de l'appareil pour une utilisation intuitive et un contrôle précis du soin."
+        },
+        "longLastingLamp": {
+          "title": "Lampe longue durée",
+          "description": "La lampe en quartz offre 999 999 flashs pour des années de soins fiables."
+        }
+      },
+      "badge": "Écran numérique",
+      "colors": [
+        "Blanc",
+        "Or",
+        "Noir"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Soin doux pour peaux sensibles",
+      "description": "L'Eirene IPL est spécialement conçu pour les peaux hypersensibles, avec un profil d'énergie doux et une protection UV renforcée.",
+      "specs": {
+        "type": {
+          "label": "Type",
+          "value": "Peau hypersensible"
+        },
+        "cooling": {
+          "label": "Refroidissement",
+          "value": "Standard"
+        },
+        "energy": {
+          "label": "Énergie",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Lampe",
+          "value": "800 000 flashs"
+        },
+        "window": {
+          "label": "Fenêtre",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Longueur d'onde",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "Filtre anti-UV",
+          "value": "Renforcé"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Conçu pour les peaux hypersensibles",
+          "description": "Spécialement conçu pour les peaux réactives ou sensibles, avec une montée progressive de l'intensité pour un confort optimal."
+        },
+        "enhancedUvProtection": {
+          "title": "Protection UV renforcée",
+          "description": "Le filtre anti-UV avancé offre une protection supplémentaire aux peaux délicates pendant le soin."
+        },
+        "gentleEnergyProfile": {
+          "title": "Profil d'énergie doux",
+          "description": "Optimisé à 5-7 J/cm² avec une coupure à 570 nm pour une réduction des poils douce mais efficace."
+        },
+        "softColorPalette": {
+          "title": "Palette de couleurs douces",
+          "description": "Disponible en rose doux, blanc perle et lavande pour une esthétique douce et apaisante."
+        }
+      },
+      "priceNote": "Contactez-nous pour connaître les tarifs d'usine actuels et les options de commande pilote pour la plateforme Eirene.",
+      "badge": "Doux",
+      "colors": [
+        "Rose doux",
+        "Blanc perle",
+        "Lavande"
+      ]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (bois)",
+      "tagline": "Collection luxe à finition bois",
+      "description": "Golden Luxury est une plateforme IPL haut de gamme à finition bois, conçue pour un positionnement premium et des expériences de déballage luxueuses.",
+      "specs": {
+        "type": {
+          "label": "Type",
+          "value": "Esthétique luxe"
+        },
+        "cooling": {
+          "label": "Refroidissement",
+          "value": "Oui, technologie Ice au saphir"
+        },
+        "window": {
+          "label": "Fenêtre",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Énergie",
+          "value": "1-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Réglages d'énergie",
+          "value": "9 niveaux"
+        },
+        "lamp": {
+          "label": "Lampe",
+          "value": "Offre 999 999 flashs"
+        },
+        "autoFlash": {
+          "label": "Flash automatique",
+          "value": "Oui"
+        },
+        "pulseDuration": {
+          "label": "Durée d'impulsion (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Température de refroidissement",
+          "value": "8 °C (ambiante 25 °C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Temps pour atteindre la température de refroidissement",
+          "value": "2 minutes"
+        },
+        "totalEnergyRange": {
+          "label": "Plage d'énergie totale",
+          "value": "4-15 J"
+        },
+        "inputVoltage": {
+          "label": "Tension d'entrée",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptateur",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtre UV",
+          "value": "Oui"
+        },
+        "safetySystem": {
+          "label": "Système de sécurité intégré",
+          "value": "Oui"
+        },
+        "skinToneSensor": {
+          "label": "Capteur de teint de peau",
+          "value": "Non"
+        },
+        "lampMaterial": {
+          "label": "Matériau de la lampe",
+          "value": "Quartz"
+        },
+        "lampConfiguration": {
+          "label": "Configuration de la lampe",
+          "value": "Lampe unique"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "Garantie mondiale de 2 ans"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densité de puissance optique maximale",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Longueur d'onde",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensions de l'appareil",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Poids net",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ en gros (appareil)",
+          "value": "500 unités"
+        }
+      },
+      "features": {
+        "luxuryAesthetics": {
+          "title": "Esthétique luxe",
+          "description": "La finition bois premium et les accents dorés créent une expérience de déballage digne des grandes marques de beauté de luxe."
+        },
+        "sapphireIceCooling": {
+          "title": "Refroidissement Ice au saphir",
+          "description": "La technologie avancée de plaque Ice en saphir garantit des soins confortables et sans douleur à chaque utilisation."
+        },
+        "premiumUnboxing": {
+          "title": "Déballage premium",
+          "description": "Conçu pour la vente au détail haut de gamme avec un emballage et une présentation luxueux qui renforcent la perception de la marque."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "Setări de energie",
+          "value": "5 niveluri"
+        },
+        "lamp": {
+          "label": "Lampă",
+          "value": "Furnizează 999,999 de impulsuri"
+        },
+        "autoFlash": {
+          "label": "Impuls automat",
+          "value": "Support"
+        },
+        "pulseDuration": {
+          "label": "Durata impulsului (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Temperatură de răcire",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Timp până la temperatura de răcire",
+          "value": "1 minut"
+        },
+        "totalEnergyRange": {
+          "label": "Interval de energie totală",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Tensiune de intrare",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptor",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Filtru UV",
+          "value": "Yes"
+        },
+        "safetySystem": {
+          "label": "Sistem integrat de siguranță",
+          "value": "Yes"
+        },
+        "skinToneSensor": {
+          "label": "Senzor de nuanță a pielii",
+          "value": "No"
+        },
+        "lampMaterial": {
+          "label": "Materialul lămpii",
+          "value": "Cuarț"
+        },
+        "lampConfiguration": {
+          "label": "Configurația lămpii",
+          "value": "Lampă unică"
+        },
+        "warranty": {
+          "label": "Garanție",
+          "value": "Garanție globală de 2 ani"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densitate optică maximă de putere",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Lungime de undă",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensiunea dispozitivului",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Greutate netă",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ în vrac (dispozitiv)",
+          "value": "500 de unități"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "Programare conectată la aplicație",
+          "description": "Planificați și urmăriți programul de tratament prin aplicația mobilă, pentru rezultate constante."
+        },
+        "progressTracking": {
+          "title": "Urmărirea progresului",
+          "description": "Monitorizați istoricul tratamentelor și îmbunătățirile pielii în timp, cu analize detaliate."
+        },
+        "multiColorDesign": {
+          "title": "Design multi-culoare",
+          "description": "Disponibil în alb, negru, bej și teal, pentru o personalizare flexibilă a brandului."
+        },
+        "dataDrivenResults": {
+          "title": "Rezultate bazate pe date",
+          "description": "Datele de tratament îi ajută pe utilizatori să respecte programul și să obțină rezultate optime mai rapid."
+        }
+      },
+      "badge": "Control inteligent prin aplicație",
+      "colors": [
+        "White",
+        "Black",
+        "Beige",
+        "Teal"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "Dispozitiv IPL de înaltă eficiență",
+      "description": "Dispozitivul Alpha IPL este proiectat pentru ședințe eficiente la domiciliu, cu suport de răcire cu senzație de gheață cu safir și livrare stabilă și repetabilă a energiei, pentru programele de marcă proprie.",
+      "specs": {
+        "type": {
+          "label": "Tip",
+          "value": "IPL de uz casnic (lampă unică de cuarț)"
+        },
+        "cooling": {
+          "label": "Răcire",
+          "value": "Support, tehnologie de senzație de gheață cu safir"
+        },
+        "window": {
+          "label": "Fereastră",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "Energie",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Setări de energie",
+          "value": "5 niveluri"
+        },
+        "lamp": {
+          "label": "Lampă",
+          "value": "Furnizează 999,999 de impulsuri"
+        },
+        "autoFlash": {
+          "label": "Impuls automat",
+          "value": "Support"
+        },
+        "pulseDuration": {
+          "label": "Durata impulsului (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatură de răcire",
+          "value": "5°C (temperatură ambiantă 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Timp până la temperatura de răcire",
+          "value": "1 minut"
+        },
+        "totalEnergyRange": {
+          "label": "Interval de energie totală",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Tensiune de intrare",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptor",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtru UV",
+          "value": "Yes"
+        },
+        "safetySystem": {
+          "label": "Sistem integrat de siguranță",
+          "value": "Yes"
+        },
+        "skinToneSensor": {
+          "label": "Senzor de nuanță a pielii",
+          "value": "No"
+        },
+        "lampMaterial": {
+          "label": "Materialul lămpii",
+          "value": "Cuarț"
+        },
+        "lampConfiguration": {
+          "label": "Configurația lămpii",
+          "value": "Lampă unică"
+        },
+        "warranty": {
+          "label": "Garanție",
+          "value": "Garanție globală de 2 ani"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densitate optică maximă de putere",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Lungime de undă",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensiunea dispozitivului",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Greutate netă",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ în vrac (dispozitiv)",
+          "value": "500 de unități"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "Ieșire eficientă",
+          "description": "Interval de densitate energetică de 2-5 J/cm², cu 5 setări pentru programe de tratament flexibile."
+        }
+      }
+    }
+  }
+}

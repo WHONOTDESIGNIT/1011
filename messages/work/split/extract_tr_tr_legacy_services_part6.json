@@ -1,0 +1,220 @@
+{
+  "servicesPage": {
+    "productionAssembly": {
+      "standards": {
+        "items": {
+          "0": {
+            "title": "Tıbbi Cihaz Kalite Yönetimi",
+            "description": "Tıbbi cihaz üretimi için özel olarak tasarlanmış kapsamlı kalite yönetim sistemi.",
+            "scope": "Tasarım, geliştirme, üretim ve piyasa sonrası gözetim"
+          },
+          "1": {
+            "standard": "FDA 510(k)",
+            "title": "FDA Onay Süreci",
+            "description": "Mevcut onaylı cihazlarla önemli ölçüde eşdeğer olan tıbbi cihazlar için düzenleyici yol.",
+            "scope": "ABD pazarı için güvenlik ve etkinlik doğrulaması"
+          },
+          "2": {
+            "standard": "CE Marking",
+            "title": "Avrupa Uygunluğu",
+            "description": "Sağlık, güvenlik ve çevre koruma standartlarına uygunluğu gösteren belgelendirme.",
+            "scope": "Avrupa Ekonomik Alanı pazar erişimi"
+          },
+          "3": {
+            "standard": "IEC 60601",
+            "title": "Tıbbi Elektrikli Ekipman",
+            "description": "Tıbbi elektrikli ekipmanların güvenliği ve temel performansı için uluslararası standart.",
+            "scope": "Elektriksel güvenlik ve elektromanyetik uyumluluk"
+          }
+        }
+      },
+      "metrics": {
+        "heading": "Üretim Mükemmelliği",
+        "sub": "Üretim mükemmelliğine ve operasyonel verimliliğe olan bağlılığımızı gösteren temel performans göstergeleri.",
+        "items": {
+          "0": {
+            "metric": "50,000+",
+            "label": "Aylık Kapasite (Adet)",
+            "description": "Maksimum aylık üretim kapasitesi"
+          },
+          "1": {
+            "metric": "99.5%",
+            "label": "Kalite Geçiş Oranı",
+            "description": "İlk seferde kalite oranı başarısı"
+          },
+          "2": {
+            "metric": "24/7",
+            "label": "Üretim İzleme",
+            "description": "Sürekli üretim denetimi"
+          },
+          "3": {
+            "metric": "15+",
+            "label": "Yıllık Deneyim",
+            "description": "IPL cihazlarında üretim uzmanlığı"
+          }
+        }
+      },
+      "testing": {
+        "heading": "Kapsamlı Test Prosedürleri",
+        "sub": "Titiz test protokolleri, her IPL cihazının sevkiyat öncesinde performans özelliklerini ve güvenlik gereksinimlerini karşılamasını sağlar.",
+        "items": {
+          "0": {
+            "category": "Elektriksel Testler",
+            "tests": {
+              "0": "Güç tüketimi doğrulaması",
+              "1": "Elektriksel güvenlik testi",
+              "2": "EMC uyumluluk testi",
+              "3": "Yalıtım direnci testi"
+            }
+          },
+          "1": {
+            "category": "Optik Performans",
+            "tests": {
+              "0": "Işık çıkışı ölçümü",
+              "1": "Dalga boyu doğrulaması",
+              "2": "Darbe süresi testi",
+              "3": "Enerji yoğunluğu kalibrasyonu"
+            }
+          },
+          "2": {
+            "category": "Güvenlik ve Güvenilirlik",
+            "tests": {
+              "0": "Cilt teması güvenlik testi",
+              "1": "Sıcaklık izleme",
+              "2": "Dayanıklılık testi",
+              "3": "Çevresel testler"
+            }
+          },
+          "3": {
+            "category": "Fonksiyonel Testler",
+            "tests": {
+              "0": "Kullanıcı arayüzü testi",
+              "1": "Tedavi modu doğrulaması",
+              "2": "Sensör işlevselliği",
+              "3": "Genel sistem entegrasyonu"
+            }
+          }
+        }
+      },
+      "cta": {
+        "title": "IPL Üretiminizi Ölçeklendirmeye Hazır mısınız?",
+        "description": "Bir sonraki üretim partiniz için kapasite, kalite standartları ve teslimat programları hakkında üretim ekibimizle konuşun.",
+        "start": "Üretim İhtiyaçlarınızı Görüşün",
+        "back": "Hizmetlere Geri Dön"
+      }
+    },
+    "packagingLogistics": {
+      "meta": {
+        "title": "Ambalajlama ve Lojistik | iShine",
+        "description": "IPL cihazı ambalajlama ve lojistiği: özel perakende ambalajı, e-ticaret ambalajı, küresel sevkiyat, gümrük işlemleri ve tedarik zinciri optimizasyonu."
+      },
+      "hero": {
+        "title1": "Tasarımdan",
+        "title2": "Kapınıza",
+        "description": "IPL ürünlerinizi koruyan, markanızı güçlendiren ve dünya genelinde olağanüstü müşteri deneyimleri sunan eksiksiz ambalajlama ve lojistik çözümleri.",
+        "cta1": "Lojistik Teklifi Alın",
+        "cta2": "Hizmetlere Geri Dön",
+        "imgAlt": "Ambalajlama ve lojistik"
+      },
+      "citable": {
+        "heading": "Bir IPL markası lansmanı için ambalajlama ve lojistik kapsamında neler yer alır?",
+        "body": "Bir IPL markası lansmanı için ambalajlama ve lojistik, hem müşterinin karşılaştığı kutudan çıkarma (unboxing) deneyimini hem de küresel teslimat için gereken pratik korumaları kapsar. Programlar tipik olarak markalı koliler, iç parçalar, kullanım kılavuzları, etiketleme ve aksesuar seçiminin yanı sıra taşıma sırasında hasarı azaltmak için tasarlanmış koruyucu yapıları içerir. E-ticaret için ambalaj genellikle kompakt boyut ve dayanıklılık açısından optimize edilir; perakende için raf çekiciliği ve net iletişim düşünülerek tasarlanır. Lojistik desteği; ihracat belgeleri, deniz veya hava yoluyla sevkiyat koordinasyonu, gümrük işlemleri ve takibi kapsar; rota seçimleri maliyet, varış noktası ve zaman çizelgesi gereksinimlerine göre yapılır. iShine, OEM/ODM üretim programlarıyla uyumlu ambalajlama süreçlerini destekler; böylece ürünler tutarlı şekilde sevk edilir ve pazara hazır durumda teslim edilir."
+      },
+      "services": {
+        "heading": "Hangi ambalajlama ve lojistik hizmetlerini sunuyoruz?",
+        "sub": "Özel ambalaj tasarımından dünya çapında teslimata kadar fabrikadan müşteriye güvenilir bir yol inşa ediyoruz.",
+        "items": {
+          "0": {
+            "title": "Özel Ambalaj Tasarımı",
+            "description": "Ürünlerinizi korurken marka kimliğinizi güçlendiren özel ambalaj çözümleri.",
+            "features": {
+              "0": "Marka Uyumlu Tasarım",
+              "1": "Koruyucu Mühendislik",
+              "2": "Sürdürülebilir Malzemeler",
+              "3": "Kutudan Çıkarma Deneyimi"
+            }
+          },
+          "1": {
+            "title": "Ürün Koruması",
+            "description": "IPL cihazlarınızın dünya genelinde kusursuz durumda teslim edilmesini sağlayan ileri düzey koruyucu ambalaj.",
+            "features": {
+              "0": "Darbe Emilimi",
+              "1": "Nem Koruması",
+              "2": "Sıcaklık Kontrolü",
+              "3": "Anti-statik Malzemeler"
+            }
+          },
+          "2": {
+            "title": "Küresel Lojistik",
+            "description": "Depolama, dağıtım ve uluslararası sevkiyatı kapsayan kapsamlı lojistik çözümleri.",
+            "features": {
+              "0": "Dünya Çapında Sevkiyat",
+              "1": "Gümrük İşlemleri",
+              "2": "Envanter Yönetimi",
+              "3": "Gerçek Zamanlı Takip"
+            }
+          },
+          "3": {
+            "title": "Tedarik Zinciri Optimizasyonu",
+            "description": "Maliyetleri düşürmek ve teslimat performansını iyileştirmek için veri odaklı tedarik zinciri yönetimi.",
+            "features": {
+              "0": "Rota Optimizasyonu",
+              "1": "Maliyet Analizi",
+              "2": "Performans Metrikleri",
+              "3": "Sürekli İyileştirme"
+            }
+          }
+        }
+      },
+      "types": {
+        "heading": "Ambalaj Türleri",
+        "sub": "Perakende, e-ticaret ve B2B kanalları için özelleştirilmiş ambalaj stratejileri.",
+        "applicationsLabel": "Kullanım Alanları",
+        "featuresLabel": "Özellikler",
+        "items": {
+          "0": {
+            "type": "Perakende Ambalajı",
+            "description": "Müşterileri çekmek ve ürün değerini aktarmak için tasarlanmış dikkat çekici perakende ambalaj.",
+            "applications": {
+              "0": "Tüketici Elektroniği Mağazaları",
+              "1": "Online Pazaryerleri",
+              "2": "Güzellik Perakendecileri",
+              "3": "Büyük Mağazalar"
+            },
+            "features": {
+              "0": "Premium Malzemeler",
+              "1": "Marka Hikaye Anlatımı",
+              "2": "Ürün Görünürlüğü",
+              "3": "Raf Çekiciliği"
+            }
+          },
+          "1": {
+            "type": "E-ticaret Ambalajı",
+            "description": "Korumaya ve unutulmaz bir kutudan çıkarma deneyimine odaklanan, online satışlar için optimize edilmiş ambalaj.",
+            "applications": {
+              "0": "Amazon FBA",
+              "1": "Doğrudan Tüketiciye",
+              "2": "Online Güzellik Mağazaları",
+              "3": "Abonelik Kutuları"
+            },
+            "features": {
+              "0": "Kompakt Tasarım",
+              "1": "Kolay Açılma",
+              "2": "Hasar Önleme",
+              "3": "Marka Deneyimi"
+            }
+          },
+          "2": {
+            "type": "B2B Ambalaj",
+            "description": "Toptan satış ve dağıtım ortakları için verimli toplu ambalaj çözümleri.",
+            "applications": {
+              "0": "Distribütör Sevkiyatları",
+              "1": "Toplu Siparişler",
+              "2": "Ticaret Fuarları"
+            }
+          }
+        }
+      }
+    }
+  }
+}

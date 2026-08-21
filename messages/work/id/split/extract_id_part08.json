@@ -1,0 +1,250 @@
+{
+  "componentsFilter": {
+    "quality": {
+      "blocks": {
+        "transmission": {
+          "title": "Stabilitas Transmisi",
+          "description": "Pengujian jangka panjang untuk memastikan konsistensi properti optik sepanjang masa pakai"
+        },
+        "heat": {
+          "title": "Ketahanan Panas",
+          "description": "Pengujian tekanan termal untuk memvalidasi kinerja dalam kondisi intensif"
+        },
+        "durability": {
+          "title": "Uji Ketahanan",
+          "description": "Pengujian penuaan dipercepat dan tekanan mekanis untuk keandalan jangka panjang"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplikasi",
+      "items": {
+        "hair": {
+          "title": "Penghilangan Bulu",
+          "description": "Menyasar folikel bulu sekaligus melindungi kulit di sekitarnya"
+        },
+        "skin": {
+          "title": "Peremajaan Kulit",
+          "description": "Filter yang mendukung produksi kolagen dan regenerasi kulit"
+        },
+        "acne": {
+          "title": "Perawatan Jerawat",
+          "description": "Terapi cahaya yang menyasar peradangan dan bakteri"
+        },
+        "pigmentation": {
+          "title": "Pengurangan Pigmentasi",
+          "description": "Panjang gelombang khusus untuk memecah melanin secara aman"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Kepatuhan & Standar",
+      "paragraph": "Filter kami dirancang dan diproduksi untuk memenuhi standar keselamatan dan kinerja global:",
+      "items": {
+        "ce": "Tanda CE untuk pasar Uni Eropa",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Dukungan izin FDA",
+        "iec60601": "Keamanan kelistrikan IEC 60601",
+        "mdr": "Proses kepatuhan MDR"
+      }
+    },
+    "visuals": {
+      "title": "Memvisualisasikan Teknologi Filter",
+      "images": {
+        "wavelength": {
+          "alt": "Diagram yang menunjukkan cara filter memblokir panjang gelombang berbahaya",
+          "caption": "Diagram pemblokiran panjang gelombang berbahaya"
+        },
+        "comparison": {
+          "alt": "Bagan perbandingan berbagai rentang filter dan aplikasinya",
+          "caption": "Perbandingan rentang filter dan aplikasi"
+        }
+      }
+    },
+    "cta": {
+      "title": "Bermitra dengan iShine untuk Filter Optik Premium",
+      "description": "Kembangkan perangkat IPL dengan filter berkinerja tinggi yang aman dan memenuhi standar global.",
+      "button": "Mulai Proyek Anda"
+    },
+    "citable": {
+      "question": "Apa fungsi filter optik dalam perangkat IPL?",
+      "paragraph": "Filter optik dalam perangkat IPL membentuk keluaran cahaya dengan memblokir panjang gelombang yang tidak diinginkan dan meneruskan pita yang sesuai dengan posisi perawatan yang dituju. Secara praktis, filter membantu mengurangi paparan sinar UV dan dapat menyesuaikan rentang panjang gelombang efektif yang disalurkan melalui jendela perawatan (misalnya, opsi cut-on umum seperti 550 nm, 570 nm, atau 600 nm pada konfigurasi yang didukung). Desain filter memengaruhi margin keamanan pada berbagai warna kulit, kenyamanan yang dirasakan, serta keseimbangan antara efektivitas dan tolerabilitas pada berbagai pengaturan energi. Untuk produksi OEM/ODM, pemilihan filter diperlakukan sebagai bagian dari tumpukan optik yang terpadu dengan tabung lampu dan material jendela, karena perubahan kecil dapat memengaruhi konsistensi keluaran dan hasil verifikasi. iShine mendukung konfigurasi filter dalam program private-label untuk menyelaraskan target kinerja dengan dokumentasi pasar sasaran dan keterulangan manufaktur."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Komponen",
+      "lamp": "Kartrid Lampu"
+    },
+    "header": {
+      "title": "Kartrid Lampu",
+      "description": "Kartrid lampu IPL berkinerja tinggi dengan masa pakai panjang dan energi yang stabil"
+    },
+    "intro": {
+      "title": "Mendukung Perawatan IPL yang Efektif",
+      "paragraph": "Kartrid lampu menentukan kualitas keluaran energi dan masa pakai perangkat. Lampu berbasis xenon kami memberikan energi cahaya yang konsisten dan umur layanan yang panjang."
+    },
+    "highlight": {
+      "whyTitle": "Mengapa Kualitas Lampu Penting",
+      "paragraph": "Stabilitas energi, masa pakai, dan keselamatan sangat penting. Kartrid kami memastikan perawatan yang andal.",
+      "badge": "Mesin utama perangkat IPL",
+      "imageAlt": "Close-up Kartrid Lampu IPL"
+    },
+    "features": {
+      "title": "Fitur Utama",
+      "energy": {
+        "title": "Keluaran Energi yang Stabil",
+        "description": "Energi cahaya yang konsisten untuk perawatan yang efektif"
+      },
+      "lifespan": {
+        "title": "Masa Pakai Lebih Panjang",
+        "description": "Kinerja lampu yang tahan lama hingga ribuan kilatan"
+      },
+      "safety": {
+        "title": "Keamanan",
+        "description": "Dirancang untuk keamanan kelistrikan dan termal"
+      },
+      "integration": {
+        "title": "Integrasi Mudah",
+        "description": "Dirancang untuk terintegrasi dengan mulus ke berbagai arsitektur perangkat"
+      }
+    },
+    "specs": {
+      "title": "Spesifikasi Teknis",
+      "table": {
+        "parameter": "Parameter",
+        "value": "Nilai",
+        "notes": "Catatan"
+      },
+      "rows": [
+        {
+          "parameter": "Jumlah Kilatan",
+          "value": "999,000+",
+          "description": "Umur layanan yang panjang"
+        },
+        {
+          "parameter": "Sumber Cahaya",
+          "value": "Xenon",
+          "description": "Penyaluran energi berefisiensi tinggi"
+        },
+        {
+          "parameter": "Stabilitas Energi",
+          "value": "Tinggi",
+          "description": "Konsistensi sepanjang siklus hidup"
+        },
+        {
+          "parameter": "Manajemen Panas",
+          "value": "Dioptimalkan",
+          "description": "Keamanan termal saat diberi beban"
+        },
+        {
+          "parameter": "Faktor Bentuk",
+          "value": "Beragam",
+          "description": "Bentuk dan ukuran yang dapat disesuaikan"
+        },
+        {
+          "parameter": "Integrasi",
+          "value": "Fleksibel",
+          "description": "Cocok untuk berbagai desain perangkat"
+        }
+      ],
+      "footnote": "* Spesifikasi bergantung pada kebutuhan perangkat dan pasar."
+    },
+    "customization": {
+      "title": "Opsi Kustomisasi",
+      "description": "Kartrid lampu yang sepenuhnya dapat disesuaikan dengan merek dan arsitektur perangkat",
+      "options": {
+        "shape": {
+          "title": "Bentuk & Ukuran",
+          "description": "Disesuaikan dengan desain perangkat dan jendela perawatan"
+        },
+        "flashCount": {
+          "title": "Jumlah Kilatan",
+          "description": "Dikonfigurasi sesuai kebutuhan siklus hidup"
+        },
+        "branding": {
+          "title": "Branding",
+          "description": "Kemasan kustom dan identitas visual"
+        },
+        "integration": {
+          "title": "Integrasi",
+          "description": "Opsi antarmuka mekanis dan kelistrikan"
+        }
+      }
+    },
+    "quality": {
+      "title": "Kualitas & Pengujian",
+      "intertek": "Kemitraan Intertek",
+      "intertekDesc": "Validasi pihak ketiga untuk komponen lampu",
+      "paragraph": "Setiap lampu menjalani pengujian untuk memastikan stabilitas energi, umur panjang, dan keselamatan pengguna:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Pengujian Siklus Hidup",
+          "description": "Mensimulasikan penggunaan jangka panjang untuk memvalidasi kinerja"
+        },
+        "energy": {
+          "title": "Stabilitas Energi",
+          "description": "Mengukur konsistensi keluaran di setiap kilatan"
+        },
+        "heat": {
+          "title": "Ketahanan Panas",
+          "description": "Keamanan termal saat penggunaan intensif"
+        },
+        "qc": {
+          "title": "Kontrol Kualitas",
+          "description": "QC menyeluruh yang memastikan kepatuhan terhadap standar"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplikasi",
+      "items": {
+        "home": {
+          "title": "Penggunaan Rumahan",
+          "description": "Perangkat ringkas untuk penggunaan pribadi"
+        },
+        "multi": {
+          "title": "Multi-Fungsi",
+          "description": "Kartrid lampu untuk platform multifungsi"
+        },
+        "proConsumer": {
+          "title": "Pro-Konsumen",
+          "description": "Perangkat konsumen berkinerja tinggi"
+        },
+        "handpieces": {
+          "title": "Handpiece Profesional",
+          "description": "Modul lampu untuk peralatan kelas klinik"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Kepatuhan & Standar",
+      "paragraph": "Dirancang untuk memenuhi standar keselamatan dan kinerja global:",
+      "items": {
+        "ce": "Tanda CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Dukungan izin FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Kepatuhan MDR"
+      }
+    },
+    "visuals": {
+      "title": "Visual & Infografis",
+      "images": {
+        "exploded": {
+          "alt": "Tampilan terurai komponen kartrid lampu",
+          "caption": "Gambaran umum komponen tampilan terurai"
+        },
+        "lifecycle": {
+          "alt": "Bagan kinerja siklus hidup lampu",
+          "caption": "Bagan kinerja siklus hidup"
+        }
+      }
+    },
+    "cta": {
+      "title": "Bangun dengan Kartrid Lampu iShine",
+      "description": "Bermitra dengan kami untuk mengembangkan perangkat menggunakan kartrid lampu yang andal dan tahan lama.",
+      "button": "Hubungi Kami"
+    }
+  }
+}

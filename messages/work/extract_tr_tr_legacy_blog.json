@@ -1,0 +1,131 @@
+{
+  "blog": {
+    "common": {
+      "noImage": "Görsel Yok"
+    },
+    "meta": {
+      "title": "IPL Blog - En Güncel İçgörüler ve Sektör Trendleri | iShine",
+      "description": "Güzellik cihazı üreticilerine yönelik kapsamlı blogumuzda en güncel IPL teknolojisi trendlerini, üretim içgörülerini ve sektör yeniliklerini keşfedin."
+    },
+    "hero": {
+      "kicker": "İçgörüler ve Trendler",
+      "title": "Blog",
+      "description": "Teknoloji, uyumluluk ve pazar stratejisini değerlendiren IPL cihaz markaları için sektör içgörüleri, üretim trendleri ve uzman rehberliği.",
+      "cards": {
+        "focusLabel": "İçerik Odağı",
+        "focusTitle": "Teknoloji + Üretim",
+        "focusDescription": "IPL ürünleri ve tedarikçi kapasitesini araştıran güzellik markaları, satın alma ekipleri ve operatörler için tasarlandı.",
+        "discoveryLabel": "Keşif",
+        "discoveryDescription": "Bu Astro blog arşivinde halihazırda yayınlanmış makaleler.",
+        "useCaseLabel": "Kullanım Amacı",
+        "useCaseTitle": "Talep Öncesi Araştırma",
+        "useCaseDescription": "Ürün incelemesine, hizmetlere veya iletişime geçmeden önce uzmanlığı doğrulamak için bu arşivi kullanın."
+      }
+    },
+    "intro": {
+      "kicker": "En Son Makaleler",
+      "title": "Pratik rehberlik, pazar içgörüsü ve IPL ürün uzmanlığını keşfedin",
+      "description": "iShine ekibinden IPL teknolojisindeki en son trendleri, üretimde en iyi uygulamaları, uyumluluk hususlarını ve pazar içgörülerini keşfedin.",
+      "stats": {
+        "archiveLabel": "Arşiv",
+        "archiveHelp": "Mevcut kütüphanedeki makaleler",
+        "categoriesLabel": "Kategoriler",
+        "categoriesHelp": "Filtrelemeye uygun dinamik konular",
+        "modeLabel": "Okuma Modu",
+        "modeValue": "Öne Çıkan + Izgara",
+        "modeHelp": "Hızlı göz atma ve derinlemesine okuma için tasarlandı"
+      }
+    },
+    "search": {
+      "label": "Makale Ara",
+      "placeholder": "Başlık, kategori, özet veya yazara göre makale arayın...",
+      "clear": "Temizle",
+      "helper": "Sayfadan ayrılmadan konuya göre filtreleyin ve keşfedin"
+    },
+    "filters": {
+      "label": "Kategoriye Göre Filtrele",
+      "all": "Tümü",
+      "clear": "Filtreleri temizle",
+      "reset": "Filtreleri sıfırla",
+      "emptyTitle": "Makale bulunamadı",
+      "emptyDescription": "Aradığınız içeriği bulmak için aramanızı veya filtrelerinizi değiştirmeyi deneyin."
+    },
+    "featured": {
+      "label": "Öne Çıkan Makale",
+      "title": "En son yazıyla başlayın",
+      "cta": "Öne çıkan makaleyi okuyun →"
+    },
+    "grid": {
+      "label": "En Son Makaleler",
+      "title": "Arşivden daha fazlası",
+      "cta": "Makaleyi okuyun →"
+    },
+    "loadMore": "Daha Fazla Makale Yükle",
+    "results": {
+      "template": "Toplam {total} makaleden {shown} tanesi gösteriliyor",
+      "resultSingular": "sonuç",
+      "resultPlural": "sonuçlar",
+      "for": "için",
+      "in": "içinde"
+    },
+    "emptyArchive": {
+      "kicker": "Blog Arşivi",
+      "title": "Henüz makale yok",
+      "description": "Arşivi, öne çıkan makale alanını, filtreleri ve sonuç ızgarasını doldurmak için blog kaynak dizinine MDX içerik ekleyin."
+    },
+    "post": {
+      "authorLabel": "Makale yazarı",
+      "relatedTitle": "İlgili makaleler",
+      "relatedCta": "Okuyun →",
+      "backToBlog": "Bloga geri dön",
+      "tocTitle": "Bu sayfada",
+      "ctaTitle": "Projeye özel bir yanıt mı arıyorsunuz?",
+      "ctaHeading": "Üretim ekibimizle görüşün",
+      "ctaDescription": "Pazarınızı, hacimlerinizi, uyumluluk ihtiyaçlarınızı ve ürün yönünüzü görüşmek için ekibimizle iletişime geçin.",
+      "ctaPrimary": "Ekibimizle İletişime Geçin",
+      "ctaSecondary": "Tüm IPL ürünlerini görüntüleyin",
+      "keepExploringTitle": "Keşfetmeye devam edin",
+      "keepExploringDescription": "Kategoriye, anahtar kelimeye veya konu odağına göre yazılar bulmak için arşive göz atın.",
+      "nextStepsTitle": "Sonraki adımlar",
+      "nextStepsItems": [
+        "OEM ve ODM seçeneklerini karşılaştırın",
+        "Uyumluluk ve test gereksinimlerini doğrulayın",
+        "Ürün incelemesi veya numune planı talep edin"
+      ],
+      "continueReadingTitle": "Okumaya devam edin",
+      "viewAllArticles": "Tüm makaleleri görüntüleyin",
+      "citableEyebrow": "Alıntılanabilir Özet",
+      "citableQuestion": "Bu makale ne hakkında?",
+      "citableBody": "Bu makale, özel markalı IPL epilasyon ürünlerini değerlendiren veya geliştiren ekipler için {title} konusunu açıklamaktadır. Üretim tercihlerinin ürün deneyimini, uyumluluk planlamasını ve lansmana hazırlığı nasıl etkileyebileceği de dahil olmak üzere OEM/ODM yürütmeye ilişkin pratik hususları ele alır. Amaç, okuyucuların seçenekleri karşılaştırırken, RFQ hazırlarken veya iç paydaşları gereksinimler konusunda hizalarken başvurabileceği, kendi başına yeterli bir genel bakış sunmaktır. Konuyla ilgili olduğu yerlerde tartışma, bileşen düzeyindeki kararları (soğutma, filtreler, lamba kartuşları, sensörler ve güç tasarımı gibi) son kullanıcı konforu ve tekrarlanabilir üretim sonuçlarıyla ilişkilendirir. Ana çıkarım, riski azaltmak ve konseptten ölçeklenebilir üretime daha az yinelemeyle geçmek için kullanabileceğiniz daha net bir karar kriterleri dizisidir."
+    }
+  },
+  "contact": {
+    "title": "Ekibimizle İletişime Geçin",
+    "subtitle": "Ekibimizle iletişime geçin",
+    "description": "OEM/ODM projenizden, numune talebinizden veya tedarik gereksinimlerinizden bahsedin. Genellikle 24-48 saat içinde sonraki adım rehberliğiyle yanıt veririz.",
+    "form": {
+      "title": "Bize Mesaj Gönderin",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "company": "Şirket",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "messagePlaceholder": "Projenizden bahsedin...",
+      "send": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesaj başarıyla gönderildi!",
+      "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "address": "Adres",
+      "businessHours": "Çalışma Saatleri",
+      "mondayToFriday": "Pazartesi - Cuma: 09:00 - 18:00",
+      "saturday": "Cumartesi: 09:00 - 13:00",
+      "sunday": "Pazar: Kapalı"
+    }
+  }
+}

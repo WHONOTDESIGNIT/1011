@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "تنظیمات انرژی",
+          "value": "5 سطح"
+        },
+        "lamp": {
+          "label": "لامپ",
+          "value": "ارائه 999,999 فلاش"
+        },
+        "autoFlash": {
+          "label": "فلاش خودکار",
+          "value": "پشتیبانی می‌شود"
+        },
+        "pulseDuration": {
+          "label": "مدت زمان پالس (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "دمای خنک‌سازی",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "زمان رسیدن به دمای خنک‌سازی",
+          "value": "1 دقیقه"
+        },
+        "totalEnergyRange": {
+          "label": "محدوده انرژی کل",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "ولتاژ ورودی",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "آداپتور",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "فیلتر UV",
+          "value": "بله"
+        },
+        "safetySystem": {
+          "label": "سیستم ایمنی یکپارچه",
+          "value": "بله"
+        },
+        "skinToneSensor": {
+          "label": "سنسور رنگ پوست",
+          "value": "خیر"
+        },
+        "lampMaterial": {
+          "label": "جنس لامپ",
+          "value": "کوارتز"
+        },
+        "lampConfiguration": {
+          "label": "پیکربندی لامپ",
+          "value": "لامپ تکی"
+        },
+        "warranty": {
+          "label": "گارانتی",
+          "value": "گارانتی جهانی 2 ساله"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "حداکثر چگالی توان نوری",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "طول موج",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "ابعاد دستگاه",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "وزن خالص",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "حداقل سفارش عمده (دستگاه)",
+          "value": "500 دستگاه"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "برنامه‌ریزی متصل به اپلیکیشن",
+          "description": "برنامه درمانی خود را از طریق اپلیکیشن موبایل برنامه‌ریزی و پیگیری کنید تا نتایج پایداری بگیرید."
+        },
+        "progressTracking": {
+          "title": "پیگیری پیشرفت",
+          "description": "تاریخچه درمان و بهبود پوست خود را در طول زمان با تحلیل‌های دقیق زیر نظر بگیرید."
+        },
+        "multiColorDesign": {
+          "title": "طراحی چندرنگ",
+          "description": "در رنگ‌های سفید، مشکی، بژ و سبزآبی برای سفارشی‌سازی منعطف برند در دسترس است."
+        },
+        "dataDrivenResults": {
+          "title": "نتایج مبتنی بر داده",
+          "description": "داده‌های درمان به کاربران کمک می‌کند به برنامه خود پایبند بمانند و سریع‌تر به نتایج بهینه برسند."
+        }
+      },
+      "badge": "کنترل هوشمند از طریق اپلیکیشن",
+      "colors": [
+        "سفید",
+        "مشکی",
+        "بژ",
+        "سبزآبی"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "دستگاه IPL با راندمان بالا",
+      "description": "دستگاه IPL Alpha برای جلسات خانگی کارآمد با پشتیبانی خنک‌سازی حس یخ Sapphire و تحویل انرژی پایدار و قابل تکرار برای برنامه‌های برند اختصاصی طراحی شده است.",
+      "specs": {
+        "type": {
+          "label": "نوع",
+          "value": "IPL خانگی (لامپ کوارتز تکی)"
+        },
+        "cooling": {
+          "label": "خنک‌سازی",
+          "value": "پشتیبانی می‌شود، فناوری حس یخ Sapphire"
+        },
+        "window": {
+          "label": "پنجره نوردهی",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "انرژی",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "تنظیمات انرژی",
+          "value": "5 سطح"
+        },
+        "lamp": {
+          "label": "لامپ",
+          "value": "ارائه 999,999 فلاش"
+        },
+        "autoFlash": {
+          "label": "فلاش خودکار",
+          "value": "پشتیبانی می‌شود"
+        },
+        "pulseDuration": {
+          "label": "مدت زمان پالس (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "دمای خنک‌سازی",
+          "value": "5°C (دمای محیط 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "زمان رسیدن به دمای خنک‌سازی",
+          "value": "1 دقیقه"
+        },
+        "totalEnergyRange": {
+          "label": "محدوده انرژی کل",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "ولتاژ ورودی",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "آداپتور",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "فیلتر UV",
+          "value": "بله"
+        },
+        "safetySystem": {
+          "label": "سیستم ایمنی یکپارچه",
+          "value": "بله"
+        },
+        "skinToneSensor": {
+          "label": "سنسور رنگ پوست",
+          "value": "خیر"
+        },
+        "lampMaterial": {
+          "label": "جنس لامپ",
+          "value": "کوارتز"
+        },
+        "lampConfiguration": {
+          "label": "پیکربندی لامپ",
+          "value": "لامپ تکی"
+        },
+        "warranty": {
+          "label": "گارانتی",
+          "value": "گارانتی جهانی 2 ساله"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "حداکثر چگالی توان نوری",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "طول موج",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "ابعاد دستگاه",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "وزن خالص",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "حداقل سفارش عمده (دستگاه)",
+          "value": "500 دستگاه"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "خروجی کارآمد",
+          "description": "محدوده چگالی انرژی 2-5 J/cm² با 5 تنظیم برای برنامه‌های درمانی انعطاف‌پذیر."
+        }
+      }
+    }
+  }
+}

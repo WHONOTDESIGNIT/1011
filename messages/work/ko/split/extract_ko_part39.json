@@ -1,0 +1,206 @@
+{
+  "productDetail": {
+    "eirene": {
+      "features": {
+        "enhancedUvProtection": {
+          "description": "첨단 UV 차단 필터가 시술 중 민감한 피부를 추가로 보호합니다."
+        },
+        "gentleEnergyProfile": {
+          "title": "부드러운 에너지 프로필",
+          "description": "부드럽고 효과적인 제모를 위해 5-7 J/cm²와 570nm 컷오프로 최적화되었습니다."
+        },
+        "softColorPalette": {
+          "title": "부드러운 컬러 팔레트",
+          "description": "부드럽고 차분한 분위기를 위해 Soft Pink, Pearl White, Lavender 색상으로 제공됩니다."
+        }
+      },
+      "priceNote": "Eirene 플랫폼의 현재 공장 가격과 파일럿 주문 옵션에 대해 문의해 주세요.",
+      "badge": "부드러운 케어",
+      "colors": [
+        "Soft Pink",
+        "Pearl White",
+        "Lavender"
+      ]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (Wooden)",
+      "tagline": "우든 마감 럭셔리 컬렉션",
+      "description": "Golden Luxury는 하이엔드 포지셔닝과 럭셔리 언박싱 경험을 위해 설계된 프리미엄 우든 마감 IPL 플랫폼입니다.",
+      "specs": {
+        "type": {
+          "label": "유형",
+          "value": "럭셔리 미학"
+        },
+        "cooling": {
+          "label": "쿨링",
+          "value": "지원, 사파이어 아이스 쿨링 기술"
+        },
+        "window": {
+          "label": "조사창",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "에너지",
+          "value": "1-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "에너지 설정",
+          "value": "9단계"
+        },
+        "lamp": {
+          "label": "램프",
+          "value": "999,999회 플래시 제공"
+        },
+        "autoFlash": {
+          "label": "자동 플래시",
+          "value": "지원"
+        },
+        "pulseDuration": {
+          "label": "펄스 지속 시간 (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "쿨링 온도",
+          "value": "8°C (상온 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "쿨링 온도 도달 시간",
+          "value": "2분"
+        },
+        "totalEnergyRange": {
+          "label": "총 에너지 범위",
+          "value": "4-15 J"
+        },
+        "inputVoltage": {
+          "label": "입력 전압",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "어댑터",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "UV 필터",
+          "value": "예"
+        },
+        "safetySystem": {
+          "label": "통합 안전 시스템",
+          "value": "예"
+        },
+        "skinToneSensor": {
+          "label": "피부 톤 센서",
+          "value": "아니요"
+        },
+        "lampMaterial": {
+          "label": "램프 재질",
+          "value": "석영"
+        },
+        "lampConfiguration": {
+          "label": "램프 구성",
+          "value": "단일 램프"
+        },
+        "warranty": {
+          "label": "보증",
+          "value": "2년 글로벌 보증"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "최대 광출력 밀도",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "파장",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "기기 크기",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "순중량",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "대량 MOQ (기기)",
+          "value": "500대"
+        }
+      },
+      "features": {
+        "luxuryAesthetics": {
+          "title": "럭셔리 미학",
+          "description": "프리미엄 우든 마감과 골드 액센트가 럭셔리 뷰티 브랜드에 버금가는 언박싱 경험을 선사합니다."
+        },
+        "sapphireIceCooling": {
+          "title": "사파이어 아이스 쿨링",
+          "description": "첨단 사파이어 아이스 플레이트 기술이 매번 편안하고 통증 없는 트리트먼트를 보장합니다."
+        },
+        "premiumUnboxing": {
+          "title": "프리미엄 언박싱",
+          "description": "브랜드 이미지를 높여 주는 럭셔리한 패키징과 프레젠테이션으로 하이엔드 리테일을 위해 설계되었습니다."
+        },
+        "exclusiveColorSelection": {
+          "title": "독점 컬러 옵션",
+          "description": "진정한 프리미엄 외관을 위해 Gold, Rose Gold, Champagne 색상으로 제공됩니다."
+        }
+      },
+      "priceNote": "Golden Luxury 플랫폼의 현재 공장 가격, 화장품 옵션 및 패키징 견적에 대해 문의해 주세요.",
+      "badge": "럭셔리",
+      "colors": [
+        "Gold",
+        "Rose Gold",
+        "Champagne"
+      ]
+    },
+    "priceTierQuantities": {
+      "tier1": "1-99대",
+      "tier2": "100-999대",
+      "tier3": "1000-4999대",
+      "tier4": "5000대 이상"
+    },
+    "oemOdmReady": "OEM/ODM 지원",
+    "sampleSupport": "샘플 지원",
+    "factoryDirect": "공장 직판",
+    "pricingPayment": "가격 및 결제",
+    "perUnit": "/대",
+    "pricingRange": "시작 가격은 {firstQty} 기준입니다. 대량 구매 시 {lastQty} 기준 USD {lastPrice}까지 단가가 인하됩니다.",
+    "contactForQuote": "견적 요청",
+    "pricingDepends": "가격은 샘플링 범위, 화장품, 패키징 및 검증 요구 사항에 따라 달라집니다.",
+    "commercialBaseline": "상업 기준가",
+    "sampleMoq": "샘플 MOQ: 1대",
+    "bulkMoqLabel": "대량 MOQ: 500대",
+    "quantityHeader": "수량",
+    "unitPriceHeader": "단가 (USD)",
+    "acceptedPaymentMethods": "지원 결제 수단",
+    "paymentMethodsDescription": "PayPal, 은행 송금, Stripe, Alipay, 그리고 Mastercard, VISA, JCB, Discover, Diners Club, American Express 신용카드 또는 직불카드 결제를 지원합니다.",
+    "paymentMethods": [
+      "PayPal",
+      "Bank Transfer",
+      "Stripe",
+      "Alipay",
+      "Mastercard",
+      "VISA",
+      "JCB",
+      "Discover",
+      "Diners Club",
+      "American Express"
+    ],
+    "specifications": "제품 사양",
+    "availableColors": "제공 색상",
+    "featuresIntro": "{productName}이(가) 브랜드에 가장 적합한 선택인 이유를 확인하세요.",
+    "ctaTitle": "{productName}에 관심이 있으신가요?",
+    "ctaDescription": "브랜드에 맞는 맞춤 제작 옵션, MOQ, 가격 및 샘플 요청에 대해 상담하려면 저희 팀에 문의하세요.",
+    "requestFreeSample": "무료 샘플 요청",
+    "viewAllProducts": "전체 제품 보기",
+    "viewImage": "{productName} 이미지 보기",
+    "galleryAlt": "{productName} 갤러리 {index}",
+    "index": {
+      "page": {
+        "title": "프라이빗 라벨용 IPL 기기 플랫폼",
+        "description": "프라이빗 라벨용 iShine IPL 기기 플랫폼을 만나보세요: 쿨링, 스마트 앱 제어, 휴대용 디자인, 뷰티 브랜드를 위한 프리미엄 우든 마감 컬렉션을 갖춘 가정용 IPL 기기입니다."
+      },
+      "hero": {
+        "alt": "IPL 제품",
+        "title": "IPL 기기 플랫폼"
+      }
+    }
+  }
+}

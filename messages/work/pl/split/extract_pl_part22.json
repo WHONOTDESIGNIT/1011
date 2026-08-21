@@ -1,0 +1,383 @@
+{
+  "clientPage": {
+    "clients": {
+      "ku2": {
+        "industry": "Kosmetyki"
+      },
+      "happyskinco": {
+        "description": "Partner sprzedający bezpośrednio do konsumentów (DTC), współpracujący z iShine w zakresie szybkich iteracji, walidacji wydajności i wdrażania produktu na rynek.",
+        "region": "Międzynarodowy"
+      }
+    },
+    "testimonials": [
+      {
+        "quote": "iShine to wyjątkowy partner produkcyjny. Ich dbałość o szczegóły i zaangażowanie w jakość pomogły nam z sukcesem wprowadzić na rynek wiele produktów IPL.",
+        "author": "Menadżer produktu",
+        "company": "Wiodąca marka kosmetyczna"
+      },
+      {
+        "quote": "Zespół iShine rozumie, jak ważny jest szybki czas wejścia na rynek. Dostarczyli nasze autorskie urządzenie IPL zgodnie z harmonogramem i w wyjątkowej jakości.",
+        "author": "Właściciel marki",
+        "company": "Startup kosmetyczny DTC"
+      },
+      {
+        "quote": "Od projektu po dostawę iShine zapewnił nam kompleksowe wsparcie. Ich wiedza w zakresie produkcji urządzeń IPL jest nie do pobicia.",
+        "author": "Menedżer ds. zakupów",
+        "company": "Międzynarodowy detalista"
+      }
+    ],
+    "catalogue": {
+      "metaTitle": "Katalog produktów IPL i porównanie | iShine",
+      "metaDescription": "Porównaj platformy urządzeń IPL: chłodzenie, żywotność lampy, pozycjonowanie energetyczne, sterowanie aplikacją, detekcję skóry i najlepsze zastosowania. Stworzony z myślą o wyborze pod markę własną oraz OEM/ODM.",
+      "heroTitle": "Katalog produktów IPL",
+      "heroDescription": "Przeglądaj naszą pełną gamę urządzeń IPL do usuwania owłosienia. Każdy model został zaprojektowany pod konkretne zastosowanie — od bezbolesnego chłodzenia i detekcji opartej na sztucznej inteligencji po przenośne konstrukcje podróżne i programy luksusowych opakowań.",
+      "getAQuote": "Poproś o wycenę",
+      "startWithNoMoq": "Zacznij bez minimalnego zamówienia (MOQ)",
+      "exploreServices": "Poznaj nasze usługi",
+      "oemNote": "Wszystkie modele dostępne do personalizacji OEM/ODM. Minimalne ilości zamówień i terminy realizacji różnią się w zależności od modelu.",
+      "howToChoose": "Jak wybrać",
+      "howToChooseTitle": "Wybierz ścieżkę, a następnie zawęź listę modeli",
+      "howToChooseDescription": "Zacznij od pozycjonowania i kanału sprzedaży. Skorzystaj z poniższych linków, aby otworzyć strony z rekomendowanymi modelami.",
+      "citableSummaryTitle": "Jak marki powinny korzystać z tego katalogu IPL?",
+      "citableSummaryBody": "Ten katalog to porównanie platform urządzeń IPL firmy iShine, które pomaga zespołom marki własnej szybko zawęzić listę modeli do próbek i rozmów o OEM/ODM. Podkreśla praktyczne wyróżniki, takie jak sposób chłodzenia, żywotność lampy, pozycjonowanie energetyczne, łączność z aplikacją i funkcje detekcji skóry, a także przypadki zastosowań „best for”, dopasowane do segmentów rynku. Marki zwykle zaczynają od dopasowania koncepcji produktu do platformy (na przykład chłodzenia stawiającego komfort na pierwszym miejscu w porównaniu z rutynami prowadzonymi przez aplikację), a następnie potwierdzają wymagane specyfikacje, styl opakowania i potrzeby dokumentacyjne dla rynku docelowego. Po wybraniu platformy kolejne kroki to ocena próbek, określenie zakresu personalizacji oraz zaplanowanie MOQ, terminu realizacji i dokumentacji zgodności na potrzeby premiery.",
+      "model": "Model",
+      "cooling": "Chłodzenie",
+      "lampLife": "Żywotność lampy",
+      "energy": "Energia",
+      "appControl": "Sterowanie aplikacją",
+      "skinDetection": "Detekcja skóry",
+      "bestForTitle": "Najlepszy do",
+      "bestFor": {
+        "lumi2": "Precyzyjne działanie, analiza skóry w czasie rzeczywistym z łącznością z aplikacją",
+        "lumi": "Inteligentne sterowanie aplikacją, nowoczesny design, wygoda na co dzień",
+        "venus": "Bezbolesne chłodzenie, wrażliwe obszary, użytkownicy stawiający komfort na pierwszym miejscu",
+        "eirene": "Skóra nadwrażliwa, filtr blokujący promieniowanie UV, stopniowe zwiększanie mocy",
+        "wooden": "Estetyka premium, luksusowe rozpakowywanie, marka z wyższej półki",
+        "hebe": "Automatyczna intensywność, bezpieczeństwo oparte na AI, wszystkie odcienie skóry",
+        "hestia": "Śledzenie w aplikacji, planowanie zabiegów, użytkownicy ceniący dane",
+        "euno": "Podróże, praca bezprzewodowa, kompaktowe przechowywanie, lekka konstrukcja",
+        "emerald": "Wrażliwa skóra, delikatne zabiegi, reaktywne typy skóry",
+        "themis": "Efekty jak w salonie, profesjonalna wydajność, powiększone okno aplikatora",
+        "alpha": "Szybkie zabiegi na całe ciało, wydajność podwójnej lampy, okno 6.2 cm²"
+      },
+      "app": "Aplikacja",
+      "seeDetails": "Zobacz szczegóły →",
+      "seeModelDetails": "Zobacz szczegóły {name}",
+      "requestQuoteFor": "Poproś o wycenę dla {name}",
+      "modelsLabel": "Modele",
+      "modelsTitle": "Poznaj modele w szczegółach",
+      "modelsDescription": "Otwórz stronę modelu, aby zweryfikować specyfikacje, pozycjonowanie i zakres personalizacji.",
+      "howToReadTitle": "Jak czytać ten katalog",
+      "howToReadDescription": "Każdy model IPL jest zaprojektowany pod konkretny segment rynku. Tabela powyżej porównuje kluczowe specyfikacje, aby pomóc Ci znaleźć najlepsze dopasowanie do wymagań Twojej marki.",
+      "howToRead": [
+        {
+          "title": "Porównaj specyfikacje",
+          "description": "Skorzystaj z tabeli porównawczej, aby ocenić technologię chłodzenia, moc energii, żywotność lampy i funkcje inteligentne we wszystkich modelach."
+        },
+        {
+          "title": "Dopasuj do swojego rynku",
+          "description": "Weź pod uwagę grupę docelową, przedział cenowy i pozycjonowanie marki. Chłodzenie szafirowym kryształem (sapphire cooling) pasuje do marek premium; modele przenośne sprawdzą się w handlu podróżnym (travel retail)."
+        },
+        {
+          "title": "Poproś o personalizację",
+          "description": "Każdy model jest dostępny do personalizacji OEM/ODM. Skontaktuj się z nami, podając docelowy model i wolumen, aby otrzymać indywidualną wycenę."
+        }
+      ],
+      "customizeBox": "Spersonalizuj opakowanie i wkładki",
+      "shipDirectly": "Wysyłka bezpośrednio do klientów",
+      "faqLabel": "FAQ",
+      "faqTitle": "Pytania, które marki zadają przed zawężeniem listy modeli",
+      "faqDescription": "Krótkie odpowiedzi z bezpośrednimi linkami do odpowiednich stron.",
+      "coolingOptions": {
+        "standard": "Standardowe",
+        "icePlate": "Chłodzenie płytą lodową",
+        "active": "Aktywne chłodzenie",
+        "iceFeeling": "Technologia Ice Feeling"
+      },
+      "energyOptions": {
+        "adjustable5": "5 regulowanych",
+        "auto5": "Auto (5 poziomów)"
+      },
+      "skinDetectionOptions": {
+        "aiSensor": "Czujnik AI"
+      },
+      "tracks": [
+        {
+          "title": "Chłodzenie stawiające komfort na pierwszym miejscu",
+          "description": "Najlepsze dla marek sprzedających pozycjonowanie „bezbolesne” i komfort w obszarach wrażliwych.",
+          "links": [
+            "Venus (Chłodzenie płytą lodową)",
+            "Lumi 2 (Chłodzenie do 10°C)"
+          ]
+        },
+        {
+          "title": "Inteligentne rutyny prowadzone przez aplikację",
+          "description": "Najlepsze dla marek nastawionych na utrzymanie klientów, które korzystają z procesów i planowania w aplikacji.",
+          "links": [
+            "Hestia (Śledzenie w aplikacji)",
+            "Lumi (Inteligentne sterowanie aplikacją)"
+          ]
+        },
+        {
+          "title": "Przenośne / podróżne",
+          "description": "Najlepsze dla kompaktowego pozycjonowania i lekkich zestawów.",
+          "links": [
+            "Euno (Przenośny)"
+          ]
+        },
+        {
+          "title": "Luksusowe rozpakowywanie",
+          "description": "Najlepsze dla opakowań premium i pozycjonowania pod prezenty.",
+          "links": [
+            "Golden (Luksusowa edycja Wooden)"
+          ]
+        },
+        {
+          "title": "Profesjonalna wydajność",
+          "description": "Najlepsze dla pozycjonowania z wysoką wydajnością i szybszych zabiegów na całe ciało.",
+          "links": [
+            "Themis (Jakość salonowa)",
+            "Alpha (Wydajność podwójnej lampy)"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "answer": "Skorzystaj z tabeli, aby zawęzić listę platform pod kątem chłodzenia, żywotności lampy, pozycjonowania energetycznego, sterowania aplikacją i detekcji skóry. Następnie otwórz stronę ze szczegółami modelu, aby przed zamówieniem próbek potwierdzić specyfikacje, zakres brandingu i wymagania dotyczące opakowania."
+        },
+        {
+          "question": "Co ma największe znaczenie dla pozycjonowania „bezbolesne”?",
+          "answer": "Sposób chłodzenia i konstrukcja termiczna. Jeśli pozycjonowanie Twojej marki stawia komfort na pierwszym miejscu, priorytetowo traktuj modele z chłodzeniem płytą lodową / szafirowym kryształem i zweryfikuj wydajność podczas próbek.",
+          "links": [
+            "Zobacz Venus (Chłodzenie)"
+          ]
+        },
+        {
+          "question": "Czy modele sterowane aplikacją poprawiają utrzymanie klientów?",
+          "answer": "W przypadku wielu marek tak. Procesy w aplikacji mogą wspierać harmonogramy zabiegów, przypomnienia i śledzenie postępów, co poprawia systematyczność i zadowolenie klientów.",
+          "links": [
+            "Zobacz Hestia (Śledzenie w aplikacji)"
+          ]
+        },
+        {
+          "question": "Co powinniśmy spersonalizować w pierwszej kolejności: logo na urządzeniu, opakowanie czy instrukcję?",
+          "answer": "Zacznij od elementów marki, które klienci widzą jako pierwsze (logo i opakowanie), a następnie zadbaj o to, aby instrukcja ograniczała nieprawidłowe użytkowanie i zgłoszenia do wsparcia. Dopasuj je do wymagań Twojego kanału sprzedaży.",
+          "links": [
+            "Druk logo",
+            "Personalizacja opakowania",
+            "Personalizacja instrukcji obsługi"
+          ]
+        },
+        {
+          "question": "Czy możemy zacząć od małego zamówienia pilotażowego?",
+          "answer": "Tak. Wiele programów marki własnej może rozpocząć się od mniejszego zamówienia pilotażowego, aby zweryfikować popyt i pozycjonowanie, a następnie skalować dzięki przewidywalnemu uzupełnianiu zapasów."
+        },
+        {
+          "question": "Czy wspieracie dropshipping i logistykę eksportową?",
+          "answer": "Tak. Wspieramy pakowanie, etykietowanie, dokumenty eksportowe, koordynację wysyłki i procesy dropshippingu, w zależności od kanału sprzedaży i miejsca docelowego.",
+          "links": [
+            "Opakowania i logistyka",
+            "Dropshipping"
+          ]
+        }
+      ]
+    },
+    "backToClients": "Wróć do klientów",
+    "projectSnapshot": "Zarys projektu",
+    "caseStudyCitableSummaryTitle": "O czym jest to studium przypadku IPL OEM/ODM?",
+    "caseStudyCitableSummaryBody": "To studium przypadku opisuje, w jaki sposób iShine wspierał program urządzeń IPL partnera — od wymagań i ograniczeń rynkowych po realizację produkcji. Zakres projektu obejmuje zwykle uzgodnienia OEM/ODM, decyzje dotyczące funkcji i konfiguracji, integrację marki w urządzeniu i opakowaniu oraz planowanie zgodności dla rynku docelowego opisanego w zarysie projektu. Realizacja łączy zwykle prototypowanie, walidację i planowanie produkcji na większą skalę, a następnie koordynację logistyki dystrybucji. Wyniki mierzone są takimi rezultatami, jak krótszy czas wejścia na rynek, silniejsze pozycjonowanie i niezawodność łańcucha dostaw, a także wyróżnikami na poziomie urządzenia, takimi jak chłodzenie, inteligentne czujniki czy dostrajanie wydajności, w zależności od celów programu. Celem jest pokazanie powtarzalnego procesu dla startów urządzeń IPL pod marką własną, w którym doświadczenie produktu i spójność produkcji są zarządzane razem.",
+    "keyResultsTitle": "Kluczowe wyniki i najważniejsze osiągnięcia",
+    "challengeTitle": "Wyzwanie",
+    "deliveredTitle": "Co dostarczyliśmy",
+    "approachTitle": "Nasze podejście",
+    "technologyTitle": "Technologia i możliwości",
+    "resultsTitle": "Wyniki",
+    "clientPerspectiveTitle": "Perspektywa klienta",
+    "snapshot": {
+      "category": "Kategoria",
+      "market": "Rynek",
+      "model": "Model",
+      "timeline": "Harmonogram"
+    },
+    "caseStudies": {
+      "roseskin": {
+        "title": "RoseSkinCo × iShine: Ekskluzywne partnerstwo IPL w USA",
+        "subtitle": "Jak zostaliśmy wyłącznym dostawcą IPL dla wiodącej amerykańskiej marki kosmetycznej, dostarczając urządzenia z zatwierdzeniem FDA, które wzmocniły jej dominację rynkową.",
+        "snapshot": {
+          "categoryValue": "Produkty kosmetyczne dla konsumentów (IPL)",
+          "marketValue": "USA (sprzedaż detaliczna i e-commerce)",
+          "modelValue": "Wyłączny dostawca IPL",
+          "timelineValue": "Od analizy do pełnego wdrożenia"
+        },
+        "metrics": [
+          {
+            "title": "Ekskluzywne pozycjonowanie IPL",
+            "description": "Uzyskaliśmy status wyłącznego dostawcy na konkurencyjnym rynku amerykańskim"
+          },
+          {
+            "title": "Krótszy czas wejścia na rynek",
+            "description": "Skróciliśmy termin premiery produktu dzięki usprawnionym procesom"
+          },
+          {
+            "title": "Zwiększone zaufanie klientów",
+            "description": "Urządzenia z zatwierdzeniem FDA zwiększyły zaufanie konsumentów i sprzedaż"
+          },
+          {
+            "title": "Zgodność gotowa na sprzedaż detaliczną",
+            "description": "Zgodność z amerykańskimi standardami sprzedaży detalicznej i e-commerce"
+          }
+        ],
+        "challengeIntro": "RoseSkinCo, jedna z wiodących marek kosmetycznych w USA, potrzebowała zaufanego dostawcy IPL, aby utrzymać pozycję lidera na konkurencyjnym amerykańskim rynku beauty. Jako specjaliści w niszy urządzeń IPL do usuwania owłosienia, stanęli przed kilkoma kluczowymi wyzwaniami:",
+        "challengeBullets": [
+          "Wymagali urządzeń z zatwierdzeniem FDA, gotowych do sprzedaży detalicznej i spełniających surowe amerykańskie normy regulacyjne",
+          "Potrzebowali wyraźnego wyróżnienia w coraz bardziej konkurencyjnej niszy IPL",
+          "Poszukiwali wyłącznego partnerstwa, aby zapewnić niezawodność łańcucha dostaw i przewagę rynkową"
+        ],
+        "challengeAside": {
+          "title": "Kontekst rynkowy",
+          "quote": "Potrzebowaliśmy wyłącznego partnerstwa, aby chronić niezawodność naszego łańcucha dostaw, jakość produktów i wyróżnienie marki na szybko zmieniającym się rynku.",
+          "cite": "Zespół rynku beauty USA"
+        },
+        "delivered": [
+          {
+            "title": "Urządzenia IPL z zatwierdzeniem FDA",
+            "description": "Dostarczyliśmy w pełni zgodne urządzenia IPL, dopasowane do wymagań marki i pozycjonowania rynkowego RoseSkinCo."
+          },
+          {
+            "title": "Pełny branding niestandardowy",
+            "description": "Bezproblemowa integracja tożsamości marki w urządzeniu, opakowaniu i dokumentacji.",
+            "bullets": [
+              "Niestandardowy projekt opakowania i materiały",
+              "Kolory obudowy w kolorach marki i integracja logo",
+              "Dopasowane instrukcje obsługi i dokumentacja"
+            ]
+          },
+          {
+            "title": "Zaawansowane funkcje IPL",
+            "description": "Zestaw funkcji dopasowany do wydajności i oczekiwań konsumentów.",
+            "bullets": [
+              "Technologia podwójnej lampy dla zwiększonej wydajności",
+              "Inteligentny czujnik odcienia skóry dla bezpieczeństwa",
+              "Zaawansowany system chłodzenia lodem"
+            ]
+          },
+          {
+            "title": "Elastyczne operacje",
+            "description": "Elastyczność operacyjna ograniczająca ryzyko premiery i skalowania dystrybucji.",
+            "bullets": [
+              "Partie pilotażowe z niskim MOQ do testów rynkowych",
+              "Globalna wysyłka przez FedEx/UPS/DHL/Aramex"
+            ]
+          }
+        ],
+        "approach": [
+          {
+            "title": "Analiza i konsultacje",
+            "description": "Dogłębna analiza pozycji rynkowej, potrzeb klientów i krajobrazu konkurencyjnego RoseSkinCo."
+          },
+          {
+            "title": "Prototypowanie i zgodność",
+            "description": "Szybkie prototypowanie z równoczesną walidacją zgodności z FDA, aby zapewnić gotowość rynkową."
+          },
+          {
+            "title": "Integracja niestandardowego brandingu",
+            "description": "Bezproblemowa integracja tożsamości marki RoseSkinCo we wszystkich komponentach urządzenia i opakowaniu."
+          },
+          {
+            "title": "Premiera pilotażowa → pełne wdrożenie",
+            "description": "Strategiczne testy rynkowe, a następnie produkcja na większą skalę i ogólnokrajowa dystrybucja."
+          }
+        ],
+        "technology": [
+          {
+            "title": "Zaawansowana technologia IPL",
+            "bullets": [
+              "Precyzyjna kontrola energii",
+              "Systemy z podwójną lampą",
+              "Integracja inteligentnego chłodzenia",
+              "Inteligentne czujniki skóry"
+            ]
+          },
+          {
+            "title": "Ekspertyza konsultingowa",
+            "bullets": [
+              "Optymalizacja inżynieryjna",
+              "Projektowanie konstrukcyjne",
+              "Ocena ryzyka patentowego",
+              "Doradztwo regulacyjne"
+            ]
+          },
+          {
+            "title": "Elastyczność biznesowa",
+            "bullets": [
+              "Warunki płatności 80/20",
+              "Opcje niskiego MOQ",
+              "Globalna logistyka",
+              "Skalowalna produkcja"
+            ]
+          }
+        ],
+        "results": [
+          {
+            "title": "Wzmocnione przywództwo rynkowe",
+            "description": "Wzmocniliśmy pozycję lidera dzięki wyłącznemu partnerstwu i innowacyjnym funkcjom urządzeń."
+          },
+          {
+            "title": "Rozszerzone portfolio produktów",
+            "description": "Wprowadziliśmy na rynek urządzenia z zaawansowanym chłodzeniem i technologią czujników."
+          },
+          {
+            "title": "Zwiększone zaufanie konsumentów",
+            "description": "Urządzenia z zatwierdzeniem FDA i branding premium zwiększyły zaufanie i lojalność."
+          },
+          {
+            "title": "Lepsze pozycjonowanie w sprzedaży detalicznej",
+            "description": "Osiągnęliśmy silniejsze pozycjonowanie w sprzedaży detalicznej i e-commerce dzięki produktom gotowym na rynek."
+          }
+        ],
+        "testimonial": {
+          "quote": "Współpraca z iShine była dla naszego biznesu przełomowa. Ich wiedza w zakresie technologii IPL w połączeniu ze zrozumieniem wymagań rynku amerykańskiego pomogła nam utrzymać pozycję lidera, jednocześnie rozszerzając możliwości naszych produktów. Urządzenia z zatwierdzeniem FDA i niestandardowy branding przerosły nasze oczekiwania.",
+          "cite": "Wiceprezes ds. rozwoju produktu, RoseSkinCo"
+        },
+        "cta": {
+          "title": "Gotowy zdominować swoją niszę dzięki ekskluzywnym rozwiązaniom IPL?",
+          "description": "Współpracuj z nami, aby dostarczać innowacje, zgodność i szybkie wejście na rynek. Zbudujmy razem Twoją przewagę konkurencyjną.",
+          "button": "Rozpocznij współpracę"
+        }
+      },
+      "ku2": {
+        "title": "KU‑2 Cosmetics × iShine: Wspieranie sukcesu IPL w Niemczech",
+        "subtitle": "Jak zostaliśmy wyłącznym dostawcą IPL dla KU‑2 Cosmetics, dostarczając urządzenia z zatwierdzeniem FDA, technologią podwójnej lampy i niestandardowym brandingiem na niemiecki rynek beauty.",
+        "snapshot": {
+          "categoryValue": "Produkty kosmetyczne dla konsumentów (IPL)",
+          "marketValue": "Niemcy (sprzedaż detaliczna i e-commerce)",
+          "modelValue": "Wyłączny dostawca IPL",
+          "timelineValue": "Od analizy do wdrożenia"
+        },
+        "metrics": [
+          {
+            "title": "Krótszy czas wejścia na rynek",
+            "description": "Przyspieszona premiera dzięki partiom pilotażowym z niskim MOQ i usprawnionym procesom"
+          },
+          {
+            "title": "Ekskluzywne pozycjonowanie IPL",
+            "description": "Jedyna niemiecka marka kosmetyczna z wyłącznym partnerstwem z dostawcą IPL"
+          },
+          {
+            "title": "Zwiększone zaufanie klientów",
+            "description": "Urządzenia z zatwierdzeniem FDA i zgodnością CE dla pewności na rynku europejskim"
+          },
+          {
+            "title": "Zgodność gotowa na sprzedaż detaliczną",
+            "description": "Rozwiązania certyfikacyjne i opakowaniowe umożliwiające natychmiastowe wejście na rynek"
+          }
+        ],
+        "challengeBullets": [
+          "KU‑2 Cosmetics poszukiwało innowacyjnych rozwiązań IPL, aby rozszerzyć swoje portfolio produktów i zdobyć udział w rynku na konkurencyjnym niemieckim rynku beauty.",
+          "Potrzebowali zaufanego partnera z dogłębną wiedzą w zakresie zgodności, personalizacji i logistyki, aby poruszać się wśród europejskich przepisów.",
+          "Wyróżnienie się było kluczowe na rynku nasyconym generycznymi urządzeniami IPL — potrzebowali unikalnych funkcji i brandingu."
+        ]
+      }
+    }
+  }
+}

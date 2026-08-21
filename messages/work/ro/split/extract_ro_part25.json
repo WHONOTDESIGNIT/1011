@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "Un nou site web Develo și o metodă mai bună de a-l construi",
+          "alt": "Noul site web Develo",
+          "date": "10 februarie 2026"
+        },
+        "card14": {
+          "readTime": "4 min de citire",
+          "category": "HYVÄ THEMES",
+          "title": "Cum să optimizezi un site web Hyvä",
+          "alt": "Optimizează Hyva",
+          "date": "28 ianuarie 2026"
+        },
+        "card15": {
+          "readTime": "4 min de citire",
+          "category": "ECOMMERCE",
+          "title": "12 sfaturi de e-commerce pentru modă pentru site-uri elegante, cu rată de conversie ridicată",
+          "alt": "eCommerce în modă",
+          "date": "15 ianuarie 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Paginare",
+        "previous": "Anterior",
+        "next": "Următorul"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 sfaturi pentru optimizarea vitezei și performanței Magento | Blog Develo",
+      "pageDescription": "Metode practice pentru a face magazinul tău Magento mai rapid, mai fluent și mai profitabil.",
+      "breadcrumb": {
+        "ariaLabel": "Breadcrumb",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 sfaturi pentru optimizarea vitezei și performanței Magento",
+      "description": "Metode practice pentru a face magazinul tău Magento mai rapid, mai fluent și mai profitabil",
+      "author": "De Bethany Wood",
+      "date": "19 februarie 2026",
+      "readTime": "5 min de citire",
+      "updated": "Ultima actualizare: 19 februarie 2026",
+      "share": {
+        "label": "Distribuie acest articol",
+        "twitter": "Distribuie pe Twitter",
+        "linkedin": "Distribuie pe LinkedIn",
+        "facebook": "Distribuie pe Facebook"
+      },
+      "authorRole": "Manager Marketing",
+      "authorBio": "Beth lucrează în marketing din 2016, livrând campanii creative, orientate spre conversie, în mai multe industrii. Se specializează în marketing pe rețelele sociale, branding, e-mail marketing și redactare de texte publicitare (copywriting). În calitate de Manager Marketing al Develo, în cadrul departamentului comercial, Beth este responsabilă de gestionarea și livrarea activităților de marketing care susțin creșterea afacerii. Îi place să ducă proiectele de la concept la livrare, transformând ideile în campanii care generează rezultate măsurabile.",
+      "authorCompany": "Develo este o agenție de top specializată în Magento și o companie de dezvoltare web e-commerce cu sediul în Birmingham, Regatul Unit, care deservește clienți din întreaga lume din 2010.",
+      "cta": {
+        "text": "Ai nevoie de ajutor pentru optimizarea magazinului tău Magento? Hai să discutăm.",
+        "button": "Programează un apel"
+      },
+      "body": {
+        "para1Before": "Optimizarea vitezei și performanței site-ului Magento ar trebui să fie în fruntea listei de priorități a oricărui proprietar de afacere. De ce? Pentru că, în cazul clienților de astăzi, fiecare secundă contează. De fapt,",
+        "para1After": "atunci când paginile durează mai mult de trei secunde pentru a se încărca. Site-urile lente nu doar că îi irită pe clienți, ci afectează și experiența utilizatorului (UX) și poziționarea SEO a site-ului tău Magento, mai ales acum că viteza site-ului este un factor-cheie de poziționare în testarea Core Web Vitals de la Google.",
+        "para2": "Optimizarea site-ului Magento ajută la evitarea acestor probleme, ceea ce, la rândul său, îți crește vânzările și conversiile. În continuare, am pregătit 8 sfaturi esențiale pentru a te ajuta pe tine (sau pe dezvoltatorul tău!) să optimizezi viteza Magento și să te asiguri că site-ul tău este construit pentru performanță, indiferent de modul în care este configurat magazinul tău e-commerce.",
+        "section1Title": "Cum îți poți testa viteza și performanța Magento cu Core Web Vitals?",
+        "section1ParaBefore": "Înainte de a face orice modificare, îți recomandăm să rulezi un test Core Web Vitals. Cere dezvoltatorului tău să verifice problemele de viteză și îmbunătățirile folosind instrumente precum",
+        "section1ParaMiddle": "sau",
+        "section1ParaAfter": ". Acestea îți oferă o bază de referință pentru a măsura progresul și evidențiază orice zone care îți țin site-ul pe loc.",
+        "section2Title": "După ce ai terminat, urmează aceste 8 sfaturi de optimizare a performanței Magento.",
+        "tip1Title": "1. Activează toate tipurile de cache Magento și folosește Varnish",
+        "tip1Para1": "Magento vine cu mai multe opțiuni de cache încorporate. Activarea lor este una dintre cele mai rapide metode de a îmbunătăți performanța site-ului. Recomandarea noastră? Varnish, un instrument de cache puternic care reduce semnificativ timpul de încărcare a paginilor, stocând în memorie o versiune a site-ului tău web.",
+        "tip1Para2": "Aceasta înseamnă că vizitatorii recurenți nu vor trebui să reîncarce fiecare element al paginii, ceea ce îți economisește timp și resurse de server și reduce achizițiile abandonate.",
+        "tip2Title": "2. Activează Redis pentru stocarea sesiunilor și a cache-ului",
+        "tip2Para1": "Pe lângă Varnish, îți recomandăm ca dezvoltatorul tău să activeze Redis pentru stocarea sesiunilor și a cache-ului. Redis ajută la reducerea presiunii asupra bazei de date, stocând sesiunile și cache-ul în memorie, ceea ce accelerează recuperarea datelor și reduce încărcarea serverului.",
+        "tip2Para2": "De ce Varnish și Redis? Această combinație îmbunătățește atât capacitatea de răspuns a site-ului Magento în perioadele de trafic intens, cât și performanța backend-ului. Rezultatul net: o experiență mai fluentă pentru utilizatori și administratori.",
+        "tip3Title": "3. Alege hosting specializat pentru Magento",
+        "tip3Para1Before": "Magento este o platformă care consumă multe resurse, așa că beneficiază enorm de medii de hosting dedicate și optimizate. Din acest motiv, ia în considerare trecerea la un furnizor de hosting specializat în Magento, precum",
+        "tip3Para1After": ", UKFast sau Corefinity. Spre deosebire de furnizorii care „fac de toate”, ei vor cunoaște platforma pe dinafară și pot oferi suport și infrastructură adaptate optimizării performanței Magento.",
+        "tip3Para2": "Sfat bonus: asigură-te că furnizorul tău actual a activat fie Varnish, fie Redis și că folosește capacitatea de server potrivită pentru traficul tău.",
+        "tip4Title": "4. Folosește un CDN precum Cloudflare",
+        "tip4Para1": "O rețea de livrare a conținutului (CDN) stochează activele statice ale site-ului tău (precum imagini, CSS și JS) pe mai multe servere din întreaga lume. Când clienții vizitează site-ul tău, activele se încarcă de pe serverul cel mai apropiat, ceea ce reduce latența (timpul de încărcare) și îmbunătățește scorurile Core Web Vitals ale Magento, toate acestea contribuind la marja ta de vânzări.",
+        "tip4Para2Before": "La Develo, folosim",
+        "tip4Para2After": "pentru că este ușor de configurat, fiabil și are un nivel gratuit generos.",
+        "tip5Title": "5. Treci la indexarea „la program” (on schedule)",
+        "tip5Para": "Magento îți permite să alegi când sunt indexate datele: imediat („la salvare”) sau „la program”. Pentru majoritatea magazinelor, indexarea „la program” este mai rapidă și mai eficientă, reducând încărcarea administratorului și îmbunătățind experiența utilizatorului (UX), mai ales pentru clienții care navighează prin cataloage mari de produse.",
+        "tip6Title": "6. Optimizează imaginile și implementează încărcarea lenesă (lazy-load) pentru conținutul de sub pliu",
+        "tip6Para1": "Site-ul tău Magento are imagini mari? Dacă da, ele se pot încărca lent. Pentru a remedia acest lucru, recomandă dezvoltatorului tău să implementeze încărcarea lenesă (lazy-loading) pentru imaginile care apar mai jos pe pagină („sub pliu”) și să folosească formate precum WebP. Acest lucru reduce greutatea paginii, îmbunătățește scorurile testelor Core Web Vitals și, cel mai important, îți menține ratele de conversie pe drumul cel bun.",
+        "tip6Para2Before": "Recomandăm instrumente precum",
+        "tip6Para2After": "pentru a automatiza acest proces. De asemenea, ia în considerare găzduirea videoclipurilor extern (pe platforme precum YouTube sau Vimeo), unde sunt optimizate pentru livrare.",
+        "tip7Title": "7. Revizuiește și reduce scripturile terțe",
+        "tip7Para1Before": "O altă modalitate de a optimiza viteza Magento este să revizuiești (și, dacă este necesar, să elimini) extensiile site-ului și scripturile terțe, în special cele adăugate prin GTM sau direct în Magento. Scoaterea lor la iveală este ușoară cu",
+        "tip7Para1Middle": "sau",
+        "tip7Para1After": ", iar acest lucru va îmbunătăți timpul de încărcare a site-ului.",
+        "tip7Para2": "Ține minte: dacă un script este necesar doar pe o singură pagină (cum ar fi o pagină de produs sau checkout), nu este nevoie să fie încărcat pe tot site-ul.",
+        "tip8Title": "8. Curăță și optimizează baza de date Magento",
+        "tip8Para": "Sarcina dezvoltatorului tău este să curețe și să optimizeze în mod regulat baza de date Magento. Astfel, datele neutilizate, inclusiv jurnalele (logurile) și ofertele expirate, nu se vor mai acumula în timp. Acest lucru va îmbunătăți optimizarea site-ului tău Magento și va accelera interogările clienților.",
+        "bonusTitle": "Sfaturi bonus pentru Magento 2.4 și versiunile ulterioare",
+        "bonusItem1Strong": "Folosește Hyvä Themes:",
+        "bonusItem1Before": "Tema",
+        "bonusItem1After": "este o alegere excelentă pentru proprietarii de afaceri care doresc viteze mai mari decât Luma și rezultate remarcabile la testele Core Web Vitals. Tema îmbunătățește performanța web, reduce complexitatea pentru dezvoltatori și îmbunătățește UX-ul. Este o modernizare inteligentă, pregătită pentru viitor, pentru orice magazin Magento.",
+        "bonusItem2Strong": "Testează în mod regulat:",
+        "bonusItem2Before": "Rulează lunar teste de viteză folosind instrumente precum",
+        "bonusItem2Middle": ", și",
+        "bonusItem2After": ".",
+        "finalTitle": "Optimizarea site-ului Magento: gânduri finale",
+        "finalParaBefore": "Optimizarea site-ului Magento este o investiție continuă. Cu o configurare corectă și revizuiri regulate, îți poți menține magazinul rapid, sigur și în fața concurenței, așa cum demonstrează munca noastră cu",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Cariere | Develo Design",
+      "pageDescription": "Alătură-te echipei noastre în creștere. Căutăm mereu dezvoltatori, designeri și specialiști în e-commerce talentați, cărora le pasă să facă o treabă excelentă.",
+      "hero": {
+        "smallTitle": "Cariere",
+        "heading": "Alătură-te echipei noastre în creștere",
+        "subheading": "Căutăm mereu dezvoltatori, designeri și specialiști în e-commerce talentați, cărora le pasă să facă o treabă excelentă."
+      },
+      "noPositions": {
+        "heading": "Momentan nu avem poziții deschise",
+        "description": "Cu toate acestea, suntem mereu interesați să aflăm de persoane talentate. Dacă crezi că te-ai potrivi perfect echipei noastre, te rugăm să ne trimiți CV-ul și te vom contacta când vor apărea oportunități.",
+        "cta": "Trimite-ne CV-ul tău"
+      },
+      "footerCta": {
+        "heading": "Gata să începi proiectul tău?",
+        "description": "Ne-ar face plăcere să te ajutăm să îl faci rapid, scalabil și frumos.",
+        "button": "Contactează-ne"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Politica de confidențialitate și cookie-uri | Develo Design",
+      "pageDescription": "La Develo Design, suntem dedicați protejării confidențialității tale. Află cum colectăm, folosim și protejăm informațiile tale personale.",
+      "hero": {
+        "label": "Legal",
+        "title": "Politici de confidențialitate și cookie-uri",
+        "description": "Confidențialitatea ta este importantă pentru noi. Află cum colectăm, folosim și protejăm informațiile tale personale."
+      },
+      "body": {
+        "introTitle": "Introducere",
+        "introPara": "La Develo Design, suntem dedicați protejării confidențialității tale și asigurării unei experiențe pozitive pe site-ul nostru web. Această Politică de confidențialitate și cookie-uri explică modul în care colectăm, folosim și protejăm informațiile tale personale.",
+        "collectTitle": "Informațiile pe care le colectăm",
+        "collectIntro": "Colectăm informații în următoarele moduri:",
+        "collectProvidedTitle": "Informațiile pe care le furnizezi"
+      }
+    }
+  }
+}

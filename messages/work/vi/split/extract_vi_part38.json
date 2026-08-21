@@ -1,0 +1,227 @@
+{
+  "productDetail": {
+    "hebe": {
+      "specs": {
+        "pulseDuration": {
+          "value": "1-3.5 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Nhiệt độ làm mát",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Thời gian đạt nhiệt độ làm mát",
+          "value": "1 phút"
+        },
+        "totalEnergyRange": {
+          "label": "Dải năng lượng tổng",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Điện áp đầu vào",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Bộ đổi nguồn",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Bộ lọc tia UV",
+          "value": "Có"
+        },
+        "safetySystem": {
+          "label": "Hệ thống an toàn tích hợp",
+          "value": "Có"
+        },
+        "lampMaterial": {
+          "label": "Chất liệu đèn",
+          "value": "Thạch anh"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "Bảo hành toàn cầu 2 năm"
+        },
+        "wavelength": {
+          "label": "Bước sóng",
+          "value": "510-1100 nm"
+        }
+      },
+      "features": {
+        "comfortIceFeeling": {
+          "title": "Cảm giác mát lạnh dễ chịu",
+          "description": "Khả năng làm mát cảm giác mát lạnh bằng sapphire giúp cải thiện sự thoải mái khi điều trị ở các vùng da nhạy cảm hơn."
+        },
+        "safetyLockSupport": {
+          "title": "Hỗ trợ khóa an toàn",
+          "description": "Cơ chế khóa an toàn bổ sung hỗ trợ vận hành được kiểm soát trong quá trình điều trị."
+        },
+        "powerDelivery": {
+          "title": "Công suất 48W",
+          "description": "Bộ đổi nguồn 12V / 4000mA hỗ trợ công suất đầu ra ổn định và khả năng làm mát nhanh."
+        },
+        "premiumColorOptions": {
+          "title": "Các tùy chọn màu cao cấp",
+          "description": "Có sẵn các màu Tech Black, Future Silver và Cosmic Blue để trình bày bán lẻ cao cấp."
+        }
+      },
+      "badge": "Làm mát dễ chịu",
+      "colors": [
+        "Tech Black",
+        "Future Silver",
+        "Cosmic Blue"
+      ]
+    },
+    "helix": {
+      "name": "Helix IPL",
+      "tagline": "Làm mát băng giá + 9 mức cường độ",
+      "description": "Helix IPL kết hợp công nghệ làm mát băng giá bằng sapphire tiên tiến với màn hình kỹ thuật số và 9 mức cường độ, mang đến các liệu trình điều trị tại nhà chính xác và thoải mái.",
+      "specs": {
+        "type": {
+          "label": "Loại",
+          "value": "IPL sử dụng tại nhà (đèn thạch anh đơn)"
+        },
+        "cooling": {
+          "label": "Làm mát",
+          "value": "Hỗ trợ, công nghệ cảm giác mát lạnh bằng sapphire"
+        },
+        "window": {
+          "label": "Cửa sổ chiếu",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Năng lượng",
+          "value": "5.0 J/cm²"
+        },
+        "energySettings": {
+          "label": "Cài đặt năng lượng",
+          "value": "9 mức"
+        },
+        "lamp": {
+          "label": "Đèn",
+          "value": "Phát được 999.999 lần xung"
+        },
+        "autoFlash": {
+          "label": "Tự động phát xung",
+          "value": "Hỗ trợ"
+        },
+        "pulseDuration": {
+          "label": "Thời lượng xung (FWHM)",
+          "value": "1.0-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Nhiệt độ làm mát",
+          "value": "8°C (ambient 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Thời gian đạt nhiệt độ làm mát",
+          "value": "2 phút"
+        },
+        "totalEnergyRange": {
+          "label": "Dải năng lượng tổng",
+          "value": "15 J"
+        },
+        "inputVoltage": {
+          "label": "Điện áp đầu vào",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Bộ đổi nguồn",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Bộ lọc tia UV",
+          "value": "Có"
+        },
+        "safetySystem": {
+          "label": "Hệ thống an toàn tích hợp",
+          "value": "Có"
+        },
+        "lampMaterial": {
+          "label": "Chất liệu đèn",
+          "value": "Thạch anh"
+        },
+        "lampConfiguration": {
+          "label": "Cấu hình đèn",
+          "value": "Đèn đơn"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "Bảo hành toàn cầu 2 năm"
+        },
+        "wavelength": {
+          "label": "Bước sóng",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "Màn hình hiển thị",
+          "value": "Màn hình kỹ thuật số"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "Làm mát băng giá bằng sapphire",
+          "description": "Công nghệ làm mát bằng sapphire tiên tiến giữ cho da luôn thoải mái ở 8C, đạt nhiệt độ cài đặt chỉ trong 2 phút, mang lại trải nghiệm điều trị dịu nhẹ."
+        },
+        "intensityLevels": {
+          "title": "9 mức cường độ",
+          "description": "Kiểm soát năng lượng chính xác với 9 mức cường độ, nhiều hơn so với các thiết bị 5 mức tiêu chuẩn, cho phép cá nhân hóa liệu trình điều trị."
+        },
+        "digitalDisplay": {
+          "title": "Màn hình kỹ thuật số",
+          "description": "Màn hình kỹ thuật số tích hợp hiển thị mức năng lượng và trạng thái theo thời gian thực, giúp thao tác trực quan và kiểm soát điều trị chính xác."
+        },
+        "longLastingLamp": {
+          "title": "Đèn bền bỉ",
+          "description": "Đèn thạch anh phát được 999.999 lần xung, đảm bảo nhiều năm điều trị đáng tin cậy."
+        }
+      },
+      "badge": "Màn hình kỹ thuật số",
+      "colors": [
+        "Trắng",
+        "Vàng",
+        "Đen"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "Chăm sóc dịu nhẹ cho da nhạy cảm",
+      "description": "Eirene IPL được thiết kế chuyên biệt cho làn da quá nhạy cảm với mức năng lượng dịu nhẹ và khả năng bảo vệ tia UV tăng cường.",
+      "specs": {
+        "type": {
+          "label": "Loại",
+          "value": "Da quá nhạy cảm"
+        },
+        "cooling": {
+          "label": "Làm mát",
+          "value": "Tiêu chuẩn"
+        },
+        "energy": {
+          "label": "Năng lượng",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "Đèn",
+          "value": "800.000 lần xung"
+        },
+        "window": {
+          "label": "Cửa sổ chiếu",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "Bước sóng",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "Bộ lọc cắt tia UV",
+          "value": "Tăng cường"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "Tập trung vào da quá nhạy cảm",
+          "description": "Được thiết kế chuyên biệt cho làn da dễ kích ứng hoặc nhạy cảm, với mức cường độ tăng dần để mang lại sự thoải mái."
+        }
+      }
+    }
+  }
+}

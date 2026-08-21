@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "エネルギー設定",
+          "value": "5段階"
+        },
+        "lamp": {
+          "label": "ランプ",
+          "value": "999,999回フラッシュ照射可能"
+        },
+        "autoFlash": {
+          "label": "オートフラッシュ",
+          "value": "対応"
+        },
+        "pulseDuration": {
+          "label": "パルス幅 (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "冷却温度",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "冷却温度到達時間",
+          "value": "1分"
+        },
+        "totalEnergyRange": {
+          "label": "総エネルギー範囲",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "入力電圧",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "アダプター",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "UVフィルター",
+          "value": "あり"
+        },
+        "safetySystem": {
+          "label": "統合安全システム",
+          "value": "あり"
+        },
+        "skinToneSensor": {
+          "label": "肌色センサー",
+          "value": "なし"
+        },
+        "lampMaterial": {
+          "label": "ランプ素材",
+          "value": "石英"
+        },
+        "lampConfiguration": {
+          "label": "ランプ構成",
+          "value": "シングルランプ"
+        },
+        "warranty": {
+          "label": "保証",
+          "value": "2年間の国際保証"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "最大光出力密度",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "波長",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "本体サイズ",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "本体重量",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "一括MOQ（本体）",
+          "value": "500台"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "アプリ連携スケジュール管理",
+          "description": "モバイルアプリで治療スケジュールを計画・管理し、安定した効果を実現します。"
+        },
+        "progressTracking": {
+          "title": "進捗トラッキング",
+          "description": "詳細な分析データで、治療履歴と肌の改善を経時的にモニタリングできます。"
+        },
+        "multiColorDesign": {
+          "title": "マルチカラーデザイン",
+          "description": "ホワイト、ブラック、ベージュ、ティールの4色から選択でき、柔軟なブランドカスタマイズに対応します。"
+        },
+        "dataDrivenResults": {
+          "title": "データに基づく結果",
+          "description": "治療データにより、ユーザーはスケジュールを守りやすくなり、より早く最適な結果を得られます。"
+        }
+      },
+      "badge": "スマートアプリコントロール",
+      "colors": [
+        "ホワイト",
+        "ブラック",
+        "ベージュ",
+        "ティール"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "高効率IPLデバイス",
+      "description": "Alpha IPLデバイスは、サファイア氷冷感の冷却サポートと安定した反復照射エネルギーを備え、効率的な自宅ケアセッションとプライベートブランドプログラムのために設計されています。",
+      "specs": {
+        "type": {
+          "label": "タイプ",
+          "value": "家庭用IPL（シングル石英ランプ）"
+        },
+        "cooling": {
+          "label": "冷却",
+          "value": "対応（サファイア氷冷感テクノロジー）"
+        },
+        "window": {
+          "label": "照射窓",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "エネルギー",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "エネルギー設定",
+          "value": "5段階"
+        },
+        "lamp": {
+          "label": "ランプ",
+          "value": "999,999回フラッシュ照射可能"
+        },
+        "autoFlash": {
+          "label": "オートフラッシュ",
+          "value": "対応"
+        },
+        "pulseDuration": {
+          "label": "パルス幅 (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "冷却温度",
+          "value": "5°C (ambient 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "冷却温度到達時間",
+          "value": "1分"
+        },
+        "totalEnergyRange": {
+          "label": "総エネルギー範囲",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "入力電圧",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "アダプター",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "UVフィルター",
+          "value": "あり"
+        },
+        "safetySystem": {
+          "label": "統合安全システム",
+          "value": "あり"
+        },
+        "skinToneSensor": {
+          "label": "肌色センサー",
+          "value": "なし"
+        },
+        "lampMaterial": {
+          "label": "ランプ素材",
+          "value": "石英"
+        },
+        "lampConfiguration": {
+          "label": "ランプ構成",
+          "value": "シングルランプ"
+        },
+        "warranty": {
+          "label": "保証",
+          "value": "2年間の国際保証"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "最大光出力密度",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "波長",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "本体サイズ",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "本体重量",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "一括MOQ（本体）",
+          "value": "500台"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "高効率出力",
+          "description": "2-5 J/cm²のエネルギー密度範囲と5段階の設定により、柔軟なトリートメントプログラムに対応します。"
+        }
+      }
+    }
+  }
+}

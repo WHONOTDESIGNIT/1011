@@ -1,0 +1,250 @@
+{
+  "componentsFilter": {
+    "quality": {
+      "blocks": {
+        "transmission": {
+          "title": "Stabilita prostupu",
+          "description": "Dlouhodobé testování pro konzistentní optické vlastnosti po celou dobu životnosti"
+        },
+        "heat": {
+          "title": "Tepelná odolnost",
+          "description": "Testování tepelné zátěže pro ověření výkonu v intenzivních podmínkách"
+        },
+        "durability": {
+          "title": "Testy odolnosti",
+          "description": "Zrychlené stárnutí a testování mechanického namáhání pro dlouhodobou spolehlivost"
+        }
+      }
+    },
+    "applications": {
+      "title": "Oblasti použití",
+      "items": {
+        "hair": {
+          "title": "Odstranění chloupků",
+          "description": "Cílení na vlasové folikuly při ochraně okolní pokožky"
+        },
+        "skin": {
+          "title": "Omlazení pleti",
+          "description": "Filtry podporující tvorbu kolagenu a obnovu pleti"
+        },
+        "acne": {
+          "title": "Ošetření akné",
+          "description": "Světelná terapie zaměřená na záněty a bakterie"
+        },
+        "pigmentation": {
+          "title": "Redukce pigmentace",
+          "description": "Speciální vlnové délky pro bezpečné odbourávání melaninu"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Soulad s předpisy a normy",
+      "paragraph": "Naše filtry jsou navrhovány a vyráběny tak, aby splňovaly celosvětové normy bezpečnosti a výkonu:",
+      "items": {
+        "ce": "Označení CE pro trh EU",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Podpora schválení FDA",
+        "iec60601": "Elektrická bezpečnost IEC 60601",
+        "mdr": "Proces souladu s MDR"
+      }
+    },
+    "visuals": {
+      "title": "Vizualizace technologie filtrů",
+      "images": {
+        "wavelength": {
+          "alt": "Diagram znázorňující, jak filtry blokují škodlivé vlnové délky",
+          "caption": "Diagram blokování škodlivých vlnových délek"
+        },
+        "comparison": {
+          "alt": "Srovnávací graf různých rozsahů filtrů a oblastí použití",
+          "caption": "Srovnání rozsahů filtrů a oblastí použití"
+        }
+      }
+    },
+    "cta": {
+      "title": "Staňte se partnerem společnosti iShine pro prémiové optické filtry",
+      "description": "Vyvíjejte IPL přístroje s bezpečnými a vysoce výkonnými filtry, které splňují celosvětové normy.",
+      "button": "Zahájit projekt"
+    },
+    "citable": {
+      "question": "Jakou funkci plní optické filtry v IPL přístroji?",
+      "paragraph": "Optické filtry v IPL přístroji tvarují světelný výstup tím, že blokují nežádoucí vlnové délky a propouštějí pásma odpovídající zamýšlenému terapeutickému zaměření. V praxi filtry pomáhají snižovat expozici UV záření a umožňují ladit účinný rozsah vlnových délek dodávaných přes ošetřovací okno (například běžné varianty mezního pásma, jako je 550 nm, 570 nm nebo 600 nm v podporovaných konfiguracích). Konstrukce filtru ovlivňuje bezpečnostní rezervu u různých tónů pleti, vnímané pohodlí a rovnováhu mezi účinností a snášenlivostí při různých nastaveních energie. Při výrobě OEM/ODM se výběr filtru považuje za součást sladěného optického zásobníku spolu s lampovou trubicí a materiály okénka, protože i malé změny mohou ovlivnit konzistenci výstupu a výsledky ověřování. Společnost iShine podporuje konfiguraci filtrů v rámci programů privátních značek, aby byly cíle výkonu v souladu s dokumentací pro cílový trh a opakovatelností výroby."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Komponenty",
+      "lamp": "Lampové kazety"
+    },
+    "header": {
+      "title": "Lampové kazety",
+      "description": "Vysoce výkonné IPL lampové kazety s prodlouženou životností a stabilní energií"
+    },
+    "intro": {
+      "title": "Energie pro účinná IPL ošetření",
+      "paragraph": "Lampové kazety určují kvalitu energetického výstupu a životnost přístroje. Naše lampy na bázi xenonu poskytují konzistentní světelnou energii a dlouhou životnost."
+    },
+    "highlight": {
+      "whyTitle": "Proč záleží na kvalitě lampy",
+      "paragraph": "Stabilita energie, životnost a bezpečnost jsou klíčové. Naše kazety zajišťují spolehlivá ošetření.",
+      "badge": "Motor IPL přístrojů",
+      "imageAlt": "Detail IPL lampové kazety"
+    },
+    "features": {
+      "title": "Klíčové vlastnosti",
+      "energy": {
+        "title": "Stabilní energetický výstup",
+        "description": "Konzistentní světelná energie pro účinná ošetření"
+      },
+      "lifespan": {
+        "title": "Prodloužená životnost",
+        "description": "Dlouhotrvající výkon lampy po tisíce záblesků"
+      },
+      "safety": {
+        "title": "Bezpečnost",
+        "description": "Konstruováno pro elektrickou a tepelnou bezpečnost"
+      },
+      "integration": {
+        "title": "Snadná integrace",
+        "description": "Navrženo pro bezproblémovou integraci s různými architekturami přístrojů"
+      }
+    },
+    "specs": {
+      "title": "Technické specifikace",
+      "table": {
+        "parameter": "Parametr",
+        "value": "Hodnota",
+        "notes": "Poznámky"
+      },
+      "rows": [
+        {
+          "parameter": "Počet záblesků",
+          "value": "999 000+",
+          "description": "Prodloužená životnost"
+        },
+        {
+          "parameter": "Zdroj světla",
+          "value": "Xenon",
+          "description": "Vysoce účinný přenos energie"
+        },
+        {
+          "parameter": "Stabilita energie",
+          "value": "Vysoká",
+          "description": "Konzistence v průběhu životnosti"
+        },
+        {
+          "parameter": "Řízení tepla",
+          "value": "Optimalizováno",
+          "description": "Tepelná bezpečnost při zatížení"
+        },
+        {
+          "parameter": "Formátové faktory",
+          "value": "Více variant",
+          "description": "Přizpůsobitelné tvary a velikosti"
+        },
+        {
+          "parameter": "Integrace",
+          "value": "Flexibilní",
+          "description": "Pasuje na různé konstrukce přístrojů"
+        }
+      ],
+      "footnote": "* Specifikace závisí na požadavcích na přístroj a potřebách trhu."
+    },
+    "customization": {
+      "title": "Možnosti přizpůsobení",
+      "description": "Plně přizpůsobitelné lampové kazety odpovídající značce a architektuře přístroje",
+      "options": {
+        "shape": {
+          "title": "Tvar a velikost",
+          "description": "Přizpůsobeno konstrukci přístroje a ošetřovacímu oknu"
+        },
+        "flashCount": {
+          "title": "Počet záblesků",
+          "description": "Nakonfigurováno podle požadavků na životnost"
+        },
+        "branding": {
+          "title": "Branding",
+          "description": "Vlastní balení a vizuální identita"
+        },
+        "integration": {
+          "title": "Integrace",
+          "description": "Možnosti mechanického a elektrického rozhraní"
+        }
+      }
+    },
+    "quality": {
+      "title": "Kvalita a testování",
+      "intertek": "Partnerství se společností Intertek",
+      "intertekDesc": "Ověřování lampových komponent nezávislou třetí stranou",
+      "paragraph": "Každá lampa prochází testováním, aby byla zajištěna stabilita energie, dlouhá životnost a bezpečnost uživatele:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Testování životnosti",
+          "description": "Simulace dlouhodobého používání pro ověření výkonu"
+        },
+        "energy": {
+          "title": "Stabilita energie",
+          "description": "Měření konzistence výstupu napříč záblesky"
+        },
+        "heat": {
+          "title": "Tepelná odolnost",
+          "description": "Tepelná bezpečnost při intenzivním používání"
+        },
+        "qc": {
+          "title": "Kontrola kvality",
+          "description": "Komplexní kontrola kvality zajišťující soulad s normami"
+        }
+      }
+    },
+    "applications": {
+      "title": "Oblasti použití",
+      "items": {
+        "home": {
+          "title": "Domácí použití",
+          "description": "Kompaktní přístroje pro osobní použití"
+        },
+        "multi": {
+          "title": "Multifunkční",
+          "description": "Lampové kazety pro multifunkční platformy"
+        },
+        "proConsumer": {
+          "title": "Prosumer",
+          "description": "Vysoce výkonné spotřebitelské přístroje"
+        },
+        "handpieces": {
+          "title": "Profesionální ruční nástavce",
+          "description": "Lampové moduly pro přístroje na klinické úrovni"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Soulad s předpisy a normy",
+      "paragraph": "Navrženo tak, aby splňovalo celosvětové normy bezpečnosti a výkonu:",
+      "items": {
+        "ce": "Označení CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Podpora schválení FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Soulad s MDR"
+      }
+    },
+    "visuals": {
+      "title": "Vizuály a infografiky",
+      "images": {
+        "exploded": {
+          "alt": "Explodovaný pohled na komponenty lampové kazety",
+          "caption": "Přehled komponent v explodovaném pohledu"
+        },
+        "lifecycle": {
+          "alt": "Graf výkonu lampy v průběhu životnosti",
+          "caption": "Graf výkonu v průběhu životnosti"
+        }
+      }
+    },
+    "cta": {
+      "title": "Vyvíjejte s lampovými kazetami iShine",
+      "description": "Staňte se naším partnerem a vyvíjejte přístroje se spolehlivými lampovými kazetami s dlouhou životností.",
+      "button": "Kontaktujte nás"
+    }
+  }
+}

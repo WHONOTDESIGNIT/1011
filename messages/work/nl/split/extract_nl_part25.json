@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "Een nieuwe Develo-website, en een betere manier om die te bouwen",
+          "alt": "Nieuwe Develo-website",
+          "date": "10 feb 2026"
+        },
+        "card14": {
+          "readTime": "4 minuten leestijd",
+          "category": "HYVÄ THEMES",
+          "title": "Zo optimaliseer je een Hyvä-website",
+          "alt": "Hyva optimaliseren",
+          "date": "28 jan 2026"
+        },
+        "card15": {
+          "readTime": "4 minuten leestijd",
+          "category": "ECOMMERCE",
+          "title": "12 mode-eCommerce-tips voor stijlvolle sites met hoge conversie",
+          "alt": "Mode-eCommerce",
+          "date": "15 jan 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Paginering",
+        "previous": "Vorige",
+        "next": "Volgende"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 tips om de Magento-snelheid en -prestaties te optimaliseren | Develo Blog",
+      "pageDescription": "Praktische manieren om je Magento-winkel sneller, soepeler en winstgevender te maken.",
+      "breadcrumb": {
+        "ariaLabel": "Kruimelpad",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 tips om de Magento-snelheid en -prestaties te optimaliseren",
+      "description": "Praktische manieren om je Magento-winkel sneller, soepeler en winstgevender te maken",
+      "author": "Door Bethany Wood",
+      "date": "19 februari 2026",
+      "readTime": "5 minuten leestijd",
+      "updated": "Laatst bijgewerkt: 19 februari 2026",
+      "share": {
+        "label": "Deel dit artikel",
+        "twitter": "Delen op Twitter",
+        "linkedin": "Delen op LinkedIn",
+        "facebook": "Delen op Facebook"
+      },
+      "authorRole": "Marketingmanager",
+      "authorBio": "Beth werkt sinds 2016 in marketing en levert creatieve, conversiegerichte campagnes in meerdere branches. Ze is gespecialiseerd in socialmediamarketing, branding, e-mailmarketing en copywriting. Als Marketingmanager van Develo binnen de commerciële afdeling is Beth verantwoordelijk voor het opzetten en uitvoeren van marketingactiviteiten die de bedrijfsgroei ondersteunen. Ze geniet ervan om projecten van concept tot oplevering te brengen en ideeën om te vormen tot campagnes die meetbare resultaten opleveren.",
+      "authorCompany": "Develo is een toonaangevend Magento-bureau en eCommerce-webontwikkelingsbedrijf, gevestigd in Birmingham (Verenigd Koninkrijk), dat sinds 2010 klanten wereldwijd bedient.",
+      "cta": {
+        "text": "Hulp nodig bij het optimaliseren van je Magento-winkel? Laten we praten.",
+        "button": "Plan een gesprek"
+      },
+      "body": {
+        "para1Before": "Het optimaliseren van de snelheid en prestaties van je Magento-site zou bovenaan de prioriteitenlijst van elke ondernemer moeten staan. Waarom? Omdat elke seconde telt voor de klanten van vandaag. Sterker nog,",
+        "para1After": "wanneer pagina's er langer dan drie seconden over doen om te laden. Trage sites irriteren niet alleen klanten, ze schaden ook de gebruikerservaring (UX) en SEO-ranglijstposities van je Magento-site, zeker nu sitessnelheid een belangrijke ranglijstfactor is in Googles Core Web Vitals-testing.",
+        "para2": "Magento-siteoptimalisatie helpt deze problemen te voorkomen en verhoogt zo je omzet en conversies. Hieronder hebben we 8 essentiële tips op een rij gezet die jou (of je ontwikkelaar!) helpen om de Magento-snelheid te optimaliseren en ervoor te zorgen dat je site gebouwd is om te presteren, ongeacht hoe je eCommerce-winkel is ingericht.",
+        "section1Title": "Hoe test je de snelheid en prestaties van je Magento-site met Core Web Vitals?",
+        "section1ParaBefore": "Voordat je wijzigingen doorvoert, raden we aan om een Core Web Vitals-test uit te voeren. Vraag je ontwikkelaar om snelheidsproblemen en verbeterpunten te controleren met tools zoals",
+        "section1ParaMiddle": "of",
+        "section1ParaAfter": ". Deze geven je een basislijn om de voortgang te meten en brengen eventuele aandachtspunten in kaart die je site afremmen.",
+        "section2Title": "Zodra je klaar bent, volg je deze 8 tips voor het optimaliseren van Magento-prestaties.",
+        "tip1Title": "1. Schakel alle Magento-cachetypen in en gebruik Varnish",
+        "tip1Para1": "Magento wordt geleverd met verschillende ingebouwde cacheopties. Deze inschakelen is een van de snelste manieren om de siteprestaties te verbeteren. Onze aanbeveling? Varnish, een krachtige cachingtool die de laadtijden van pagina's aanzienlijk verkort door een versie van je website in het geheugen op te slaan.",
+        "tip1Para2": "Dit betekent dat terugkerende bezoekers niet elk paginaelement opnieuw hoeven te laden, wat tijd en serverbronnen bespaart en het aantal afgebroken aankopen vermindert.",
+        "tip2Title": "2. Schakel Redis in voor sessie- en cacheopslag",
+        "tip2Para1": "Naast Varnish raden we aan dat je ontwikkelaar Redis inschakelt voor sessie- en cacheopslag. Redis ontlast de database door sessies en cache in het geheugen op te slaan, waardoor gegevens sneller worden opgehaald en de serverbelasting afneemt.",
+        "tip2Para2": "Waarom Varnish en Redis? Deze combinatie verbetert zowel de responsiviteit van je Magento-site tijdens verkeerspieken als de backend-prestaties. Nettoresultaat: een soepelere ervaring voor gebruikers en beheerders.",
+        "tip3Title": "3. Kies voor gespecialiseerde Magento-hosting",
+        "tip3Para1Before": "Magento is een resource-intensief platform en heeft daarom veel baat bij dedicated, geoptimaliseerde hostingomgevingen. Overweeg daarom over te stappen op een gespecialiseerde Magento-hostingprovider zoals",
+        "tip3Para1After": ", UKFast of Corefinity. In tegenstelling tot providers die 'we doen alles' beloven, kennen zij het platform door en door en kunnen ze ondersteuning en infrastructuur bieden die zijn afgestemd op de optimalisatie van Magento-prestaties.",
+        "tip3Para2": "Bonustip: zorg ervoor dat je huidige provider Varnish of Redis heeft ingeschakeld en dat ze de juiste servercapaciteit voor jouw verkeer gebruiken.",
+        "tip4Title": "4. Gebruik een CDN zoals Cloudflare",
+        "tip4Para1": "Een Content Delivery Network (CDN) slaat de statische assets van je site (zoals afbeeldingen, CSS en JS) op meerdere servers over de hele wereld op. Wanneer klanten je site bezoeken, worden de assets vanaf de dichtstbijzijnde server geladen, waardoor de latentie (laadtijd) afneemt en je Magento Core Web Vitals-scores verbeteren – allemaal goed voor je verkoopmarge.",
+        "tip4Para2Before": "Bij Develo gebruiken we",
+        "tip4Para2After": "omdat het eenvoudig in te stellen is, betrouwbaar is en een royale gratis laag heeft.",
+        "tip5Title": "5. Schakel over op indexering 'op schema'",
+        "tip5Para": "Met Magento kies je zelf wanneer gegevens worden geïndexeerd: direct ('bij opslaan') of 'op schema'. Voor de meeste winkels is indexering 'op schema' sneller en efficiënter, vermindert het de beheerlast en verbetert het de gebruikerservaring (UX), vooral voor klanten die door grote productcatalogi bladeren.",
+        "tip6Title": "6. Optimaliseer afbeeldingen en pas lazy-loading toe voor content onder de vouw",
+        "tip6Para1": "Bevat je Magento-site grote afbeeldingen? Dan kunnen die traag laden. Om dit te verhelpen, laat je ontwikkelaar lazy-loading toepassen voor afbeeldingen die lager op de pagina staan ('onder de vouw') en formaten zoals WebP gebruiken. Dit verlaagt het paginagewicht, verbetert je Core Web Vitals-testscores en, belangrijker nog, houdt je conversiepercentages op peil.",
+        "tip6Para2Before": "We raden tools aan zoals",
+        "tip6Para2After": "om dit proces te automatiseren. Overweeg daarnaast om video's extern te hosten (op platforms zoals YouTube of Vimeo), waar ze geoptimaliseerd zijn voor levering.",
+        "tip7Title": "7. Controleer en verminder third-party scripts",
+        "tip7Para1Before": "Een andere manier om de Magento-snelheid te optimaliseren is het controleren (en zo nodig verwijderen) van site-extensies en third-party scripts, vooral scripts die via GTM of direct in Magento zijn toegevoegd. Deze opsporen is eenvoudig met",
+        "tip7Para1Middle": "of",
+        "tip7Para1After": ", en dat verbetert de laadtijden van je site.",
+        "tip7Para2": "Onthoud: als een script slechts op één pagina nodig is (zoals een PDP of de checkout), hoef je het niet op de hele site te laden.",
+        "tip8Title": "8. Ruim je Magento-database op en optimaliseer deze",
+        "tip8Para": "Laat je ontwikkelaar je Magento-database regelmatig opschonen en optimaliseren. Zo voorkom je dat ongebruikte gegevens, waaronder logs en verlopen offertes, zich in de loop der tijd opstapelen. Dit verbetert de optimalisatie van je Magento-site en versnelt klantquery's.",
+        "bonusTitle": "Bonustips voor Magento 2.4 en verder",
+        "bonusItem1Strong": "Gebruik Hyva Themes:",
+        "bonusItem1Before": "De",
+        "bonusItem1After": "is een uitstekende keuze voor ondernemers die op zoek zijn naar snelheden die Luma overtreffen en uitstekende Core Web Vitals-testresultaten. Het thema verbetert de webprestaties, vermindert de complexiteit voor ontwikkelaars en verbetert de UX. Het is een slimme, toekomstbestendige upgrade voor elke Magento-winkel.",
+        "bonusItem2Strong": "Test regelmatig:",
+        "bonusItem2Before": "Voer maandelijkse snelheidstests uit met tools zoals",
+        "bonusItem2Middle": "en",
+        "bonusItem2After": ".",
+        "finalTitle": "Magento-siteoptimalisatie: slotgedachten",
+        "finalParaBefore": "Magento-siteoptimalisatie is een doorlopende investering. Met de juiste configuratie en regelmatige controles kun je je winkel snel, veilig en concurrerend houden, zoals blijkt uit ons werk met",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Vacatures | Develo Design",
+      "pageDescription": "Word lid van ons groeiende team. We zijn altijd op zoek naar getalenteerde ontwikkelaars, ontwerpers en eCommerce-specialisten die kwaliteit belangrijk vinden.",
+      "hero": {
+        "smallTitle": "Vacatures",
+        "heading": "Word lid van ons groeiende team",
+        "subheading": "We zijn altijd op zoek naar getalenteerde ontwikkelaars, ontwerpers en eCommerce-specialisten die kwaliteit belangrijk vinden."
+      },
+      "noPositions": {
+        "heading": "Momenteel hebben we geen openstaande vacatures",
+        "description": "We zijn echter altijd geïnteresseerd in getalenteerde mensen. Als je denkt dat je goed in ons team past, stuur ons dan je cv en we nemen contact op zodra er mogelijkheden beschikbaar komen.",
+        "cta": "Stuur ons je cv"
+      },
+      "footerCta": {
+        "heading": "Klaar om je project te starten?",
+        "description": "We helpen je graag om het snel, schaalbaar en mooi te maken.",
+        "button": "Neem contact op"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Privacy- en cookiebeleid | Develo Design",
+      "pageDescription": "Bij Develo Design zetten we ons in voor de bescherming van jouw privacy. Lees hoe we jouw persoonlijke gegevens verzamelen, gebruiken en beschermen.",
+      "hero": {
+        "label": "Juridisch",
+        "title": "Privacy- en cookiebeleid",
+        "description": "Jouw privacy is belangrijk voor ons. Lees hoe we jouw persoonlijke gegevens verzamelen, gebruiken en beschermen."
+      },
+      "body": {
+        "introTitle": "Inleiding",
+        "introPara": "Bij Develo Design zetten we ons in voor de bescherming van jouw privacy en een positieve ervaring op onze website. Dit privacy- en cookiebeleid legt uit hoe we jouw persoonlijke gegevens verzamelen, gebruiken en beschermen.",
+        "collectTitle": "Informatie die we verzamelen",
+        "collectIntro": "We verzamelen informatie op de volgende manieren:",
+        "collectProvidedTitle": "Informatie die jij verstrekt"
+      }
+    }
+  }
+}

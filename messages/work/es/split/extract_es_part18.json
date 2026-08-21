@@ -1,0 +1,180 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "cards": {
+        "email": {
+          "label": "Correo electrónico",
+          "description": "Ideal para solicitudes de presupuesto (RFQ), peticiones de muestras y resúmenes de proyecto."
+        },
+        "phone1": {
+          "label": "Teléfono",
+          "description": "Eric, soporte comercial para consultas de fabricación activas."
+        },
+        "phone2": {
+          "label": "Teléfono",
+          "description": "Maurice, soporte para el seguimiento y la coordinación de proyectos."
+        },
+        "address": {
+          "label": "Dirección",
+          "description": "Shenzhen, Guangdong, China"
+        }
+      },
+      "heroTitle": "Hablemos",
+      "heroParagraph": "Cuéntenos sobre su proyecto OEM/ODM. Normalmente respondemos en un plazo de 24 a 48 horas con orientación sobre los siguientes pasos.",
+      "summaryTitle": "¿Cómo inicio una consulta OEM/ODM de IPL con iShine?",
+      "summaryDescription": "Para iniciar una consulta OEM/ODM de IPL con iShine, comparta un breve resumen del proyecto que incluya su mercado objetivo, el posicionamiento deseado, el rango de cantidad de pedido previsto y el cronograma. Los detalles útiles incluyen el concepto del dispositivo (conectado a la aplicación, enfocado en refrigeración, con detección de piel mediante IA o la referencia a un modelo concreto), el estilo de embalaje preferido y cualquier requisito normativo, como configuraciones con Marcado CE o necesidades de documentación para vías relacionadas con la FDA. Si ya dispone de una lista de materiales (BOM), fotos de referencia o referencias comparativas de la competencia, inclúyalas para reducir los intercambios de ida y vuelta. Tras recibir el resumen, el siguiente paso suele ser la selección de muestras y el análisis del alcance de la personalización, el pedido mínimo (MOQ), el plazo de entrega y la planificación de la documentación, de modo que el proyecto pueda pasar a la creación de prototipos y a la programación de la producción.",
+      "imageAlt": "Dispositivo IPL iShine",
+      "form": {
+        "title": "¡Pongámonos en contacto!",
+        "honeypotLabel": "No rellene este campo:",
+        "fullName": "Nombre completo",
+        "email": "Correo electrónico",
+        "companyName": "Nombre de la empresa",
+        "phoneNumber": "Número de teléfono",
+        "productInterest": "Producto de interés",
+        "expectedQuantity": "Cantidad prevista",
+        "projectTimeline": "Cronograma del proyecto",
+        "projectDetails": "Detalles del proyecto",
+        "send": "Enviar",
+        "productOptions": [
+          "Dispositivos de depilación IPL",
+          "Proyecto OEM/ODM personalizado",
+          "Solo componentes IPL",
+          "Dispositivo de rejuvenecimiento cutáneo",
+          "Aún no estoy seguro"
+        ],
+        "quantityOptions": [
+          "Una muestra gratuita",
+          "10~500 unidades",
+          "Todavía en planificación"
+        ],
+        "timelineOptions": [
+          "Lo antes posible",
+          "1 - 3 meses",
+          "3 - 6 meses",
+          "6 - 12 meses",
+          "Solo investigación"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Por qué la depilación IPL es segura | Evidencia, FDA, tipos de piel y seguridad del dispositivo",
+      "description": "Una página pilar centrada en la seguridad de la depilación IPL: evidencia clínica, contexto de la FDA, protocolo seguro para uso doméstico, tipos de piel Fitzpatrick, filtrado de UV, sensores, efectos secundarios, contraindicaciones y cuidados posteriores. Incluye enlaces directos a las plataformas de producto y a guías de análisis en profundidad.",
+      "breadcrumbLabel": "Por qué la depilación IPL es segura",
+      "cta": {
+        "explorePlatforms": "Explorar las plataformas de dispositivos IPL",
+        "compareModels": "Comparar todos los modelos"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Datos clínicos sobre la seguridad de la IPL",
+          "anchor": "Datos clínicos sobre la seguridad de la IPL",
+          "description": "Cómo describe la investigación las reacciones cutáneas típicas y su gravedad, y por qué la mayoría de los efectos secundarios son leves y temporales cuando se utiliza correctamente."
+        },
+        "fdaContext": {
+          "title": "Contexto de la FDA: qué significa realmente «FDA cleared»",
+          "anchor": "Verificación de la FDA (qué significa «FDA cleared»)",
+          "description": "Cómo interpretar la terminología de la FDA y por qué respalda las afirmaciones de seguridad sin exagerar lo que garantizan los organismos reguladores."
+        },
+        "atHomeProtocol": {
+          "title": "Protocolo seguro de IPL para uso doméstico (frecuencia, prueba de parche, ajustes)",
+          "anchor": "Protocolo seguro de IPL para uso doméstico (frecuencia, prueba de parche, ajustes)",
+          "description": "Las reglas prácticas de uso que mantienen el riesgo bajo: prueba de parche, aumento gradual, espaciar las sesiones y evitar los destellos repetidos."
+        },
+        "fitzpatrick": {
+          "title": "Tipos de piel Fitzpatrick y límites de seguridad de la IPL",
+          "anchor": "Tipos de piel Fitzpatrick y límites de seguridad de la IPL",
+          "description": "Por qué el tono de piel influye en el riesgo (física, no discriminación) y cómo deben comunicar las marcas la compatibilidad de forma responsable."
+        },
+        "iplVsLaser": {
+          "title": "IPL frente a láser: comparación de seguridad (y para quién es cada uno)",
+          "anchor": "IPL frente a láser: comparación de seguridad",
+          "description": "Una comparación equilibrada: clase de dispositivo, entrega de energía, riesgos habituales y por qué «más seguro» depende del tipo de piel y del protocolo."
+        },
+        "uvFiltering": {
+          "title": "Filtrado de UV y control de longitud de onda (por qué la IPL no es un bronceado con UV)",
+          "anchor": "Filtrado de UV y control de longitud de onda",
+          "description": "Cómo los filtros y el diseño de la longitud de onda reducen la radiación no deseada y mejoran los márgenes de seguridad durante el tratamiento."
+        },
+        "safetySensors": {
+          "title": "Sensores de seguridad: detección del tono de piel y sensores de contacto",
+          "anchor": "Sensores de seguridad (detección del tono de piel y sensores de contacto)",
+          "description": "Cómo la detección del tono de piel y los bloqueos de contacto reducen el riesgo de uso incorrecto, especialmente en tipos de piel Fitzpatrick más altos."
+        },
+        "sideEffects": {
+          "title": "Efectos secundarios de la IPL explicados (qué es normal y qué no)",
+          "anchor": "Efectos secundarios de la IPL explicados (qué es normal y qué no)",
+          "description": "Qué significa el enrojecimiento leve, cómo se manifiestan las quemaduras y el árbol de decisiones para hacer una pausa, reducir los ajustes o buscar ayuda."
+        },
+        "contraindications": {
+          "title": "Quién no debería usar IPL (contraindicaciones y factores de riesgo)",
+          "anchor": "Quién no debería usar IPL (contraindicaciones)",
+          "description": "Medicación, exposición al sol, tatuajes, afecciones cutáneas y otras situaciones en las que la IPL debe evitarse o retrasarse."
+        },
+        "beforeAfterCare": {
+          "title": "Cuidados previos y posteriores: cómo reducir la irritación y el riesgo",
+          "anchor": "Cuidados previos y posteriores para reducir los riesgos de la IPL",
+          "description": "Pasos sencillos de cuidado previo y posterior que reducen la inflamación y ayudan a evitar problemas de pigmentación tras las sesiones."
+        }
+      },
+      "heroKicker": "Pilar de seguridad",
+      "heroTitle": "Por qué la depilación IPL es segura (cuando se utiliza correctamente)",
+      "heroParagraph": "Este es un centro centrado en la seguridad, creado para marcas, equipos de abastecimiento y compradores minoristas. Conecta las preguntas de seguridad más buscadas con respuestas prácticas, contexto basado en evidencia y características de diseño del dispositivo que reducen el riesgo.",
+      "howToKicker": "Cómo usar esta página",
+      "howToTitle": "Lea en el mismo orden que sus compradores",
+      "howToSteps": [
+        "Empiece por la evidencia y el contexto de la FDA para fundamentar de forma responsable la afirmación de «seguro».",
+        "Confirme los límites por tipo de piel y el protocolo que mantiene el riesgo bajo para el uso doméstico.",
+        "A continuación, preseleccione plataformas en Productos y compare modelos en Catálogo."
+      ],
+      "topicMapKicker": "Mapa de temas",
+      "topicMapTitle": "10 temas de seguridad (enlaces profundos)",
+      "topicMapParagraph": "Cada tema siguiente enlaza con una guía dedicada. Utilice estos anclajes exactos en las páginas de apoyo para reforzar la relevancia.",
+      "guideLabel": "Guía",
+      "pillarKicker": "Secciones del pilar",
+      "pillarTitle": "Evidencia + protocolo + diseño del dispositivo",
+      "pillarParagraph": "Utilice esta estructura como página de respuesta de formato extenso y las guías enlazadas como contenido de clúster que la respalde.",
+      "readGuide": "Leer la guía",
+      "finalKicker": "¿Listo para preseleccionar un modelo?",
+      "finalTitle": "Compare todas las plataformas y elija la combinación de seguridad adecuada",
+      "finalParagraph": "Utilice la página de Productos para consultar los detalles de las plataformas y el Catálogo para comparar la refrigeración, el control mediante aplicación y la detección de seguridad entre modelos."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Plataforma de comercio de activos creativos digitales",
+      "pageDescription": "iShine Marketplace es una plataforma de confianza para el comercio de activos creativos digitales donde los creadores muestran, comercializan y hacen crecer sus obras digitales, con servicios y soporte para creadores basados en la convicción: ilumina la creatividad, conecta el valor.",
+      "brandSlogan": "Ilumina la creatividad, conecta el valor",
+      "contactCta": "Contactar con iShine",
+      "detailsCta": "Detalles",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Activos creativos digitales",
+        "heading": "Su plataforma de confianza para el comercio de activos creativos digitales",
+        "subheading": "Muestre sus obras digitales, comercie con confianza y crezca con los servicios para creadores, todo en un único mercado de confianza."
+      },
+      "product1": {
+        "imageAlt": "Exposición de obras digitales: galería de activos creativos",
+        "smallTitle": "Exposición de obras digitales",
+        "heading": "Exhiba sus creaciones digitales",
+        "description": "Publique y presente sus obras digitales (plantillas, diseños, ilustraciones y mucho más) en una galería magníficamente organizada que facilita que los compradores descubran sus creaciones."
+      },
+      "product2": {
+        "imageAlt": "Comercio seguro: transacciones de activos digitales",
+        "smallTitle": "Comercio digital seguro",
+        "heading": "Comercie activos digitales con confianza",
+        "description": "Compre y venda activos digitales mediante un flujo de transacción claro y seguro, con licencias transparentes, entrega instantánea y pagos protegidos."
+      },
+      "product3": {
+        "imageAlt": "Servicios para creadores: herramientas de análisis y crecimiento",
+        "smallTitle": "Servicios para creadores",
+        "heading": "Haga crecer su negocio creativo",
+        "description": "Desde herramientas de portafolio hasta análisis para vendedores, iShine Marketplace ofrece a los creadores los servicios y el soporte que necesitan para llegar a nuevas audiencias y escalar de forma sostenible."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Servicios oficiales",
+        "headingLine1": "Hable con el equipo de servicio de iShine",
+        "headingLine2": "sobre su"
+      }
+    }
+  }
+}

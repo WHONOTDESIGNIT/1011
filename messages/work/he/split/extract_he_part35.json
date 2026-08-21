@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "הגדרות אנרגיה",
+          "value": "5 רמות"
+        },
+        "lamp": {
+          "label": "מנורה",
+          "value": "מספקת 999,999 הבזקים"
+        },
+        "autoFlash": {
+          "label": "הבזק אוטומטי",
+          "value": "נתמך"
+        },
+        "pulseDuration": {
+          "label": "משך פולס (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "טמפרטורת קירור",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "זמן עד לטמפרטורת קירור",
+          "value": "דקה אחת"
+        },
+        "totalEnergyRange": {
+          "label": "טווח אנרגיה כולל",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "מתח כניסה",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "מתאם",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "מסנן UV",
+          "value": "כן"
+        },
+        "safetySystem": {
+          "label": "מערכת בטיחות משולבת",
+          "value": "כן"
+        },
+        "skinToneSensor": {
+          "label": "חיישן גוון עור",
+          "value": "לא"
+        },
+        "lampMaterial": {
+          "label": "חומר המנורה",
+          "value": "קוורץ"
+        },
+        "lampConfiguration": {
+          "label": "תצורת מנורה",
+          "value": "מנורה בודדת"
+        },
+        "warranty": {
+          "label": "אחריות",
+          "value": "שנתיים אחריות עולמית"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "צפיפות הספק אופטי מרבית",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "אורך גל",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "מידות המכשיר",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "משקל נטו",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ בכמות גדולה (מכשיר)",
+          "value": "500 יחידות"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "תזמון מחובר לאפליקציה",
+          "description": "תכננו ועקבו אחר לוח הטיפולים שלכם דרך האפליקציה לנייד לתוצאות עקביות."
+        },
+        "progressTracking": {
+          "title": "מעקב התקדמות",
+          "description": "עקבו אחר היסטוריית הטיפולים ושיפור העור לאורך זמן עם ניתוחים מפורטים."
+        },
+        "multiColorDesign": {
+          "title": "עיצוב רב-צבעוני",
+          "description": "זמין בלבן, שחור, בז׳ וטורקיז להתאמה גמישה למותג."
+        },
+        "dataDrivenResults": {
+          "title": "תוצאות מבוססות נתונים",
+          "description": "נתוני הטיפול עוזרים למשתמשים להיצמד ללוח הזמנים שלהם ולהשיג תוצאות מיטביות מהר יותר."
+        }
+      },
+      "badge": "שליטה חכמה באפליקציה",
+      "colors": [
+        "לבן",
+        "שחור",
+        "בז׳",
+        "טורקיז"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "מכשיר IPL ביעילות גבוהה",
+      "description": "מכשיר ה-IPL Alpha מעוצב לסשנים יעילים בבית, עם קירור בהרגשת קרח ספיר ומסירת אנרגיה יציבה וחוזרת עבור תוכניות של מותג פרטי.",
+      "specs": {
+        "type": {
+          "label": "סוג",
+          "value": "IPL לשימוש ביתי (מנורת קוורץ בודדת)"
+        },
+        "cooling": {
+          "label": "קירור",
+          "value": "נתמך, טכנולוגיית קירור בהרגשת קרח ספיר"
+        },
+        "window": {
+          "label": "חלון",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "אנרגיה",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "הגדרות אנרגיה",
+          "value": "5 רמות"
+        },
+        "lamp": {
+          "label": "מנורה",
+          "value": "מספקת 999,999 הבזקים"
+        },
+        "autoFlash": {
+          "label": "הבזק אוטומטי",
+          "value": "נתמך"
+        },
+        "pulseDuration": {
+          "label": "משך פולס (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "טמפרטורת קירור",
+          "value": "5°C (טמפרטורת סביבה 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "זמן עד לטמפרטורת קירור",
+          "value": "דקה אחת"
+        },
+        "totalEnergyRange": {
+          "label": "טווח אנרגיה כולל",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "מתח כניסה",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "מתאם",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "מסנן UV",
+          "value": "כן"
+        },
+        "safetySystem": {
+          "label": "מערכת בטיחות משולבת",
+          "value": "כן"
+        },
+        "skinToneSensor": {
+          "label": "חיישן גוון עור",
+          "value": "לא"
+        },
+        "lampMaterial": {
+          "label": "חומר המנורה",
+          "value": "קוורץ"
+        },
+        "lampConfiguration": {
+          "label": "תצורת מנורה",
+          "value": "מנורה בודדת"
+        },
+        "warranty": {
+          "label": "אחריות",
+          "value": "שנתיים אחריות עולמית"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "צפיפות הספק אופטי מרבית",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "אורך גל",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "מידות המכשיר",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "משקל נטו",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ בכמות גדולה (מכשיר)",
+          "value": "500 יחידות"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "תפוקה יעילה",
+          "description": "טווח צפיפות אנרגיה של 2-5 J/cm² עם 5 הגדרות לתוכניות טיפול גמישות."
+        }
+      }
+    }
+  }
+}

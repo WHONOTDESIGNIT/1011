@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "会社名",
+        "phoneNumber": "電話番号",
+        "productInterest": "ご関心のある製品",
+        "expectedQuantity": "予定数量",
+        "projectTimeline": "プロジェクトのスケジュール",
+        "projectDetails": "プロジェクトの詳細",
+        "send": "送信",
+        "productOptions": [
+          "IPL脱毛器",
+          "OEM/ODMカスタムプロジェクト",
+          "IPLコンポーネントのみ",
+          "美肌再生デバイス",
+          "まだ未定"
+        ],
+        "quantityOptions": [
+          "無料サンプル",
+          "10〜500台",
+          "検討中"
+        ],
+        "timelineOptions": [
+          "できるだけ早く",
+          "1〜3か月",
+          "3〜6か月",
+          "6〜12か月",
+          "リサーチのみ"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "IPL脱毛が安全な理由 | エビデンス、FDA、肌タイプとデバイスの安全性",
+      "description": "IPL脱毛の安全性を最優先に扱うピラーページ：臨床エビデンス、FDAの背景、自宅での安全な使用プロトコル、Fitzpatrickスキンタイプ、UVフィルタリング、センサー、副作用、禁忌、アフターケア。製品プラットフォームと詳細ガイドへの直接リンクも含みます。",
+      "breadcrumbLabel": "IPL脱毛が安全な理由",
+      "cta": {
+        "explorePlatforms": "IPLデバイスのプラットフォームを見る",
+        "compareModels": "全モデルを比較する"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "IPLの安全性に関する臨床データ",
+          "anchor": "IPLの安全性に関する臨床データ",
+          "description": "研究が典型的な皮膚反応や重症度をどのように説明しているか、また正しく使用した場合にほとんどの副作用が軽度で一時的である理由について。"
+        },
+        "fdaContext": {
+          "title": "FDAの位置づけ：「FDA認可」の実際の意味",
+          "anchor": "FDA認証（「FDA認可」の意味）",
+          "description": "FDAの表現をどう解釈するか、また規制当局が保証する範囲を誇張せずに安全性の主張を裏付ける理由。"
+        },
+        "atHomeProtocol": {
+          "title": "自宅で安全に使うIPLプロトコル（頻度、パッチテスト、設定）",
+          "anchor": "自宅で安全に使うIPLプロトコル（頻度、パッチテスト、設定）",
+          "description": "リスクを抑える実践的な使用ルール：パッチテスト、段階的な出力アップ、照射間隔の確保、連続フラッシュの回避。"
+        },
+        "fitzpatrick": {
+          "title": "FitzpatrickスキンタイプとIPLの安全基準",
+          "anchor": "FitzpatrickスキンタイプとIPLの安全基準",
+          "description": "肌のトーンがリスクに影響する理由（差別ではなく物理的要因）と、ブランドが適合性を責任を持って伝える方法。"
+        },
+        "iplVsLaser": {
+          "title": "IPLとレーザーの比較：安全性（それぞれに向いている人）",
+          "anchor": "IPLとレーザーの比較：安全性",
+          "description": "バランスの取れた比較：デバイスクラス、エネルギーの供給方法、一般的なリスク、そして「安全性」が肌タイプと使用プロトコルに依存する理由。"
+        },
+        "uvFiltering": {
+          "title": "UVフィルタリングと波長制御（IPLがUV日焼けではない理由）",
+          "anchor": "UVフィルタリングと波長制御",
+          "description": "フィルターと波長設計が不要な放射線を低減し、施術中の安全マージンを向上させる仕組み。"
+        },
+        "safetySensors": {
+          "title": "安全センサー：肌トーン検出と接触センサー",
+          "anchor": "安全センサー（肌トーン検出と接触センサー）",
+          "description": "肌トーン検知と接触インターロックが誤使用のリスクをどう低減するか。特にFitzpatrickスキンタイプが高い肌で重要。"
+        },
+        "sideEffects": {
+          "title": "IPLの副作用を解説（正常な反応と異常の見分け方）",
+          "anchor": "IPLの副作用を解説（正常な反応と異常の見分け方）",
+          "description": "軽度の赤みが何を意味するか、やけどの見た目、そして一時中止・出力低下・医療機関への相談の判断基準。"
+        },
+        "contraindications": {
+          "title": "IPLを使用すべきでない人（禁忌とリスク要因）",
+          "anchor": "IPLを使用すべきでない人（禁忌）",
+          "description": "服薬、日焼け、タトゥー、皮膚疾患など、IPLを避けるべき、または延期すべき状況。"
+        },
+        "beforeAfterCare": {
+          "title": "施術前後のケア：炎症とリスクを抑える方法",
+          "anchor": "IPLのリスクを抑える施術前後のケア",
+          "description": "炎症を抑え、施術後の色素トラブルを防ぐためのシンプルな施術前後のケア手順。"
+        }
+      },
+      "heroKicker": "安全性ピラー",
+      "heroTitle": "IPL脱毛が安全な理由（正しく使用した場合）",
+      "heroParagraph": "ブランド、調達チーム、小売バイヤー向けに構築された安全性最優先のハブです。よく検索される安全性の疑問を、実践的な回答、エビデンスに基づく背景、リスクを低減するデバイス設計上の特長へとつなぎます。",
+      "howToKicker": "このページの使い方",
+      "howToTitle": "バイヤーと同じ順番でお読みください",
+      "howToSteps": [
+        "まずはエビデンスとFDAの背景から「安全」という主張の根拠を確認します。",
+        "肌タイプ別の制限と、家庭での使用リスクを抑えるプロトコルを確認します。",
+        "その後、Productsページでプラットフォームを絞り込み、Catalogueでモデルを比較します。"
+      ],
+      "topicMapKicker": "トピックマップ",
+      "topicMapTitle": "安全性に関する10のトピック（ディープリンク）",
+      "topicMapParagraph": "以下の各トピックは専用ガイドにリンクしています。サポートページではこれらのアンカーをそのまま使用して関連性を強化してください。",
+      "guideLabel": "ガイド",
+      "pillarKicker": "ピラーのセクション",
+      "pillarTitle": "エビデンス＋プロトコル＋デバイス設計",
+      "pillarParagraph": "この構成を長文の回答ページとして使い、リンクしたガイドをそれを補完するクラスターコンテンツとして活用してください。",
+      "readGuide": "ガイドを読む",
+      "finalKicker": "モデルを絞り込みますか？",
+      "finalTitle": "すべてのプラットフォームを比較して、適切な安全機能の組み合わせを選びましょう",
+      "finalParagraph": "Productsページでプラットフォームの詳細を確認し、Catalogueで冷却機能、アプリ連携、安全性センシングをモデル間で比較してください。"
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | デジタルクリエイティブアセット取引プラットフォーム",
+      "pageDescription": "iShine Marketplaceは、クリエイターがデジタル作品を紹介・取引・成長させられる、信頼のデジタルクリエイティブアセット取引プラットフォームです。クリエイター向けサービスとサポートは「創造性に光を、価値をつなぐ」という信念のもとに構築されています。",
+      "brandSlogan": "創造性に光を、価値をつなぐ",
+      "contactCta": "iShineに問い合わせる",
+      "detailsCta": "詳細",
+      "hero": {
+        "smallTitle": "iShine Marketplace | デジタルクリエイティブアセット",
+        "heading": "信頼できるデジタルクリエイティブアセット取引プラットフォーム",
+        "subheading": "デジタル作品を紹介し、安心して取引し、クリエイターサービスで成長する。すべてをひとつの信頼できるマーケットプレイスで。"
+      },
+      "product1": {
+        "imageAlt": "デジタル作品の紹介 - クリエイティブアセットギャラリー",
+        "smallTitle": "デジタル作品の紹介",
+        "heading": "デジタル作品を紹介する",
+        "description": "テンプレート、デザイン、イラストなどのデジタル作品を、美しく整理されたギャラリーで公開・紹介。バイヤーがあなたの作品を見つけやすくなります。"
+      },
+      "product2": {
+        "imageAlt": "安全な取引 - デジタルアセット取引",
+        "smallTitle": "安全なデジタル取引",
+        "heading": "安心してデジタルアセットを取引",
+        "description": "明確で安全な取引フロー（透明なライセンス、即時納品、保護された決済）でデジタルアセットの売買ができます。"
+      },
+      "product3": {
+        "imageAlt": "クリエイターサービス - 分析と成長ツール",
+        "smallTitle": "クリエイターサービス",
+        "heading": "クリエイティブビジネスを成長させる",
+        "description": "ポートフォリオツールから売上分析まで、iShine Marketplaceはクリエイターが新たなオーディエンスにリーチし、持続的に規模を拡大するために必要なサービスとサポートを提供します。"
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | 公式サービス",
+        "headingLine1": "iShineのサービスチームに",
+        "headingLine2": "あなたの目標について",
+        "headingLine3": "ご相談ください",
+        "links": {
+          "privateLabel": "プライベートブランド",
+          "technologyPartner": "IPLテクノロジーパートナーを探す",
+          "buildNewIpl": "新しいIPLを開発する",
+          "maintainOrFixIpl": "IPLのメンテナンス・修理"
+        }
+      },
+      "blog": {
+        "smallTitle": "一緒に学びましょう",
+        "heading": "クリエイターコミュニティ",
+        "subheading": "デジタルクリエイティビティ、マーケットプレイスでの取引、iShine Marketplaceでビジネスを成長させる方法に関する役立つ記事。",
+        "learnCta": "詳しく見る",
+        "card1": {
+          "title": "スマートIPLデバイス：アプリ連携の革命",
+          "readTime": "5分で読める"
+        },
+        "card2": {
+          "title": "IPL研究の最新の進歩",
+          "readTime": "4分で読める"
+        },
+        "card3": {
+          "title": "OEMとODM：最適な製造モデルの選び方",
+          "readTime": "6分で読める"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ | iShine IPL製造",
+      "pageDescription": "OEM・ODMサービス、認証、MOQ、リードタイム、パッケージング、出荷、プライベートブランド美容機器プログラム向けのIPL製品の使い方についての回答をご覧いただけます。",
+      "hero": {
+        "smallTitle": "FAQとサポート"
+      }
+    }
+  }
+}

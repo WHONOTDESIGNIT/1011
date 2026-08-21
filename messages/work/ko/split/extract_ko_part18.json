@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "회사 이름",
+        "phoneNumber": "전화번호",
+        "productInterest": "관심 제품",
+        "expectedQuantity": "예상 수량",
+        "projectTimeline": "프로젝트 일정",
+        "projectDetails": "프로젝트 상세",
+        "send": "보내기",
+        "productOptions": [
+          "IPL 제모 기기",
+          "맞춤 OEM/ODM 프로젝트",
+          "IPL 부품만",
+          "피부 재생 기기",
+          "아직 잘 모르겠어요"
+        ],
+        "quantityOptions": [
+          "무료 샘플",
+          "10~500대",
+          "아직 계획 중"
+        ],
+        "timelineOptions": [
+          "가능한 한 빨리",
+          "1~3개월",
+          "3~6개월",
+          "6~12개월",
+          "조사 중"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "IPL 제모가 안전한 이유 | 근거, FDA, 피부 타입 및 기기 안전성",
+      "description": "IPL 제모를 위한 안전 우선 필러 페이지: 임상 근거, FDA 관련 맥락, 안전한 가정용 프로토콜, Fitzpatrick 피부 타입, UV 필터링, 센서, 부작용, 금기 사항, 전후 관리. 제품 플랫폼 및 심층 가이드로의 직접 링크를 포함합니다.",
+      "breadcrumbLabel": "IPL 제모가 안전한 이유",
+      "cta": {
+        "explorePlatforms": "IPL 기기 플랫폼 살펴보기",
+        "compareModels": "모든 모델 비교"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "IPL 안전성에 대한 임상 데이터",
+          "anchor": "IPL 안전성에 대한 임상 데이터",
+          "description": "연구가 일반적인 피부 반응과 중증도를 어떻게 설명하는지, 그리고 올바르게 사용했을 때 대부분의 부작용이 경미하고 일시적인 이유를 다룹니다."
+        },
+        "fdaContext": {
+          "title": "FDA 관련 맥락: \"FDA 승인\"이 실제로 의미하는 것",
+          "anchor": "FDA 검증(\"FDA 승인\"의 의미)",
+          "description": "FDA의 표현을 해석하는 방법과, 규제 기관이 보장하는 바를 과장하지 않으면서도 안전성 주장을 뒷받침하는 이유를 설명합니다."
+        },
+        "atHomeProtocol": {
+          "title": "안전한 가정용 IPL 프로토콜(빈도, 패치 테스트, 설정)",
+          "anchor": "안전한 가정용 IPL 프로토콜(빈도, 패치 테스트, 설정)",
+          "description": "위험을 낮추는 실질적인 사용 규칙: 패치 테스트, 점진적인 강도 증가, 세션 간격, 반복 플래시 방지."
+        },
+        "fitzpatrick": {
+          "title": "Fitzpatrick 피부 타입과 IPL 안전 한계",
+          "anchor": "Fitzpatrick 피부 타입과 IPL 안전 한계",
+          "description": "피부 톤이 위험에 영향을 미치는 이유(차별이 아닌 물리적 요인)와 브랜드가 호환성을 책임감 있게 전달해야 하는 방법을 설명합니다."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs 레이저: 안전성 비교(각각 어떤 사람에게 적합한지)",
+          "anchor": "IPL vs 레이저: 안전성 비교",
+          "description": "균형 잡힌 비교: 기기 등급, 에너지 전달, 일반적인 위험, 그리고 \"더 안전함\"이 피부 타입과 프로토콜에 따라 달라지는 이유."
+        },
+        "uvFiltering": {
+          "title": "UV 필터링 및 파장 제어(IPL이 UV 태닝이 아닌 이유)",
+          "anchor": "UV 필터링 및 파장 제어",
+          "description": "필터와 파장 설계가 불필요한 방사선을 줄이고 치료 중 안전 여유를 개선하는 방법을 설명합니다."
+        },
+        "safetySensors": {
+          "title": "안전 센서: 피부 톤 감지 및 접촉 센서",
+          "anchor": "안전 센서(피부 톤 감지 및 접촉 센서)",
+          "description": "피부 톤 감지와 접촉 인터록이 오용 위험을 줄이는 방법—특히 높은 Fitzpatrick 피부 타입에서."
+        },
+        "sideEffects": {
+          "title": "IPL 부작용 설명(정상 vs 비정상)",
+          "anchor": "IPL 부작용 설명(정상 vs 비정상)",
+          "description": "가벼운 발적이 무엇을 의미하는지, 화상은 어떤 모습인지, 사용을 중단하거나 설정을 낮추거나 도움을 요청해야 하는 판단 기준을 설명합니다."
+        },
+        "contraindications": {
+          "title": "IPL을 사용하면 안 되는 사람(금기 사항 및 위험 요인)",
+          "anchor": "IPL을 사용하면 안 되는 사람(금기 사항)",
+          "description": "약물 복용, 햇빛 노출, 문신, 피부 질환 등 IPL 사용을 피하거나 연기해야 하는 상황을 다룹니다."
+        },
+        "beforeAfterCare": {
+          "title": "전후 관리: 자극과 위험을 줄이는 방법",
+          "anchor": "IPL 위험을 줄이기 위한 전후 관리",
+          "description": "염증을 줄이고 세션 후 색소 문제를 예방하는 간단한 전후 관리 단계를 설명합니다."
+        }
+      },
+      "heroKicker": "안전성 필러",
+      "heroTitle": "IPL 제모가 안전한 이유(올바르게 사용했을 때)",
+      "heroParagraph": "이 페이지는 브랜드, 소싱 팀, 소매 구매자를 위해 구축된 안전 우선 허브입니다. 가장 많이 검색되는 안전 관련 질문을 실질적인 답변, 근거 기반 맥락, 위험을 줄이는 기기 설계 기능에 연결합니다.",
+      "howToKicker": "이 페이지 사용 방법",
+      "howToTitle": "구매자와 같은 순서로 읽어 보세요",
+      "howToSteps": [
+        "책임감 있게 \"안전\" 주장의 근거를 마련하기 위해 근거와 FDA 관련 맥락부터 시작하세요.",
+        "가정용 사용 시 위험을 낮추는 피부 타입 한계와 프로토콜을 확인하세요.",
+        "그런 다음 제품 페이지에서 플랫폼을 선정하고 카탈로그에서 모델을 비교하세요."
+      ],
+      "topicMapKicker": "주제 지도",
+      "topicMapTitle": "안전성 주제 10가지(심층 링크)",
+      "topicMapParagraph": "아래 각 주제는 전용 가이드로 연결됩니다. 지원 페이지에서 이 정확한 앵커를 사용하여 관련성을 강화하세요.",
+      "guideLabel": "가이드",
+      "pillarKicker": "필러 섹션",
+      "pillarTitle": "근거 + 프로토콜 + 기기 설계",
+      "pillarParagraph": "이 구조를 장문 답변 페이지로 사용하고, 연결된 가이드를 이를 뒷받침하는 클러스터 콘텐츠로 활용하세요.",
+      "readGuide": "가이드 읽기",
+      "finalKicker": "모델 선정 준비가 되셨나요?",
+      "finalTitle": "모든 플랫폼을 비교한 후 올바른 안전성 스택을 선택하세요",
+      "finalParagraph": "제품 페이지에서 플랫폼 상세 정보를 확인하고, 카탈로그에서 모델별 냉각, 앱 제어, 안전 감지 기능을 비교하세요."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | 디지털 창작 콘텐츠 거래 플랫폼",
+      "pageDescription": "iShine Marketplace는 크리에이터가 디지털 작품을 선보이고, 거래하고, 성장시킬 수 있는 신뢰할 수 있는 디지털 창작 콘텐츠 거래 플랫폼입니다. '창의성을 밝히고, 가치를 연결하다'는 신념을 바탕으로 크리에이터 서비스와 지원을 제공합니다.",
+      "brandSlogan": "창의성을 밝히고, 가치를 연결하다",
+      "contactCta": "iShine 문의하기",
+      "detailsCta": "자세히 보기",
+      "hero": {
+        "smallTitle": "iShine Marketplace | 디지털 창작 콘텐츠",
+        "heading": "신뢰할 수 있는 디지털 창작 콘텐츠 거래 플랫폼",
+        "subheading": "디지털 작품을 선보이고, 자신 있게 거래하며, 크리에이터 서비스와 함께 성장하세요 — 신뢰할 수 있는 하나의 마켓플레이스에서."
+      },
+      "product1": {
+        "imageAlt": "디지털 작품 쇼케이스 - 창작 콘텐츠 갤러리",
+        "smallTitle": "디지털 작품 쇼케이스",
+        "heading": "디지털 창작물을 선보이세요",
+        "description": "템플릿, 디자인, 일러스트레이션 등 다양한 디지털 작품을 아름답게 정리된 갤러리에 게시하고 선보여 구매자가 쉽게 발견할 수 있게 하세요."
+      },
+      "product2": {
+        "imageAlt": "안전한 거래 - 디지털 콘텐츠 거래",
+        "smallTitle": "안전한 디지털 거래",
+        "heading": "디지털 콘텐츠를 자신 있게 거래하세요",
+        "description": "투명한 라이선스, 즉시 배송, 안전한 결제가 보장된 명확하고 안전한 거래 프로세스를 통해 디지털 콘텐츠를 사고팔 수 있습니다."
+      },
+      "product3": {
+        "imageAlt": "크리에이터 서비스 - 분석 및 성장 도구",
+        "smallTitle": "크리에이터 서비스",
+        "heading": "창작 비즈니스를 성장시키세요",
+        "description": "포트폴리오 도구부터 판매자 분석까지, iShine Marketplace는 크리에이터가 새로운 고객에게 다가가 지속 가능하게 성장하는 데 필요한 서비스와 지원을 제공합니다."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | 공식 서비스",
+        "headingLine1": "iShine 서비스 팀과",
+        "headingLine2": "상담하여 여러분의",
+        "headingLine3": "목표를 이루세요",
+        "links": {
+          "privateLabel": "프라이빗 라벨",
+          "technologyPartner": "IPL 기술 파트너 찾기",
+          "buildNewIpl": "새로운 IPL 만들기",
+          "maintainOrFixIpl": "내 IPL 유지 또는 수리"
+        }
+      },
+      "blog": {
+        "smallTitle": "함께 배우기",
+        "heading": "크리에이터 커뮤니티",
+        "subheading": "디지털 창의성, 마켓플레이스 거래, iShine Marketplace로 비즈니스를 성장시키는 방법에 대한 유용한 아티클.",
+        "learnCta": "배우기",
+        "card1": {
+          "title": "스마트 IPL 기기: 앱 연결 혁명",
+          "readTime": "5분 분량"
+        },
+        "card2": {
+          "title": "IPL 연구의 최신 발전",
+          "readTime": "4분 분량"
+        },
+        "card3": {
+          "title": "OEM vs ODM: 올바른 제조 방식 선택",
+          "readTime": "6분 분량"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ | iShine IPL 제조",
+      "pageDescription": "프라이빗 라벨 뷰티 기기 프로그램을 위한 OEM 및 ODM 서비스, 규정 준수, MOQ, 납기, 포장, 배송, IPL 제품 사용에 대한 답변을 확인하세요.",
+      "hero": {
+        "smallTitle": "FAQ 및 지원"
+      }
+    }
+  }
+}

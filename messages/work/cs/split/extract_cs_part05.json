@@ -1,0 +1,159 @@
+{
+  "homepage": {
+    "footer": {
+      "companyName": "iShine Technology Ltd.",
+      "companyIntro": "Založena v roce 2008 v Šen-čenu, zajišťuje výrobu IPL přístrojů OEM/ODM pro kosmetické značky po celém světě.",
+      "fdaSupport": "Podpora dokumentace FDA 510(k)"
+    }
+  },
+  "blog": {
+    "common": {
+      "noImage": "Bez obrázku"
+    },
+    "meta": {
+      "title": "IPL blog – nejnovější poznatky a trendy v oboru | iShine",
+      "description": "Prozkoumejte nejnovější trendy technologie IPL, poznatky z výroby a inovace v oboru v našem obsáhlém blogu určeném výrobcům kosmetických přístrojů."
+    },
+    "hero": {
+      "kicker": "Poznatky a trendy",
+      "title": "Blog",
+      "description": "Poznatky z oboru, výrobní trendy a odborné poradenství pro značky IPL přístrojů, které zvažují technologii, soulad s předpisy a tržní strategii.",
+      "cards": {
+        "focusLabel": "Zaměření obsahu",
+        "focusTitle": "Technologie + výroba",
+        "focusDescription": "Vytvořeno pro kosmetické značky, nákupní týmy a provozovatele, kteří zkoumají produkty IPL a možnosti dodavatelů.",
+        "discoveryLabel": "Objevování",
+        "discoveryDescription": "Publikované články aktuálně dostupné v tomto blogovém archivu Astro.",
+        "useCaseLabel": "Případ použití",
+        "useCaseTitle": "Průzkum před poptávkou",
+        "useCaseDescription": "Využijte tento archiv k ověření odbornosti, než přejdete k recenzím produktů, službám nebo kontaktu."
+      }
+    },
+    "intro": {
+      "kicker": "Nejnovější články",
+      "title": "Prozkoumejte praktické rady, přehled o trhu a odborné znalosti produktů IPL",
+      "description": "Objevte nejnovější trendy v technologii IPL, osvědčené postupy ve výrobě, otázky souladu s předpisy a přehled o trhu od týmu iShine.",
+      "stats": {
+        "archiveLabel": "Archiv",
+        "archiveHelp": "Články v aktuální knihovně",
+        "categoriesLabel": "Kategorie",
+        "categoriesHelp": "Dynamická témata dostupná pro filtrování",
+        "modeLabel": "Režim čtení",
+        "modeValue": "Vybrané + mřížka",
+        "modeHelp": "Navrženo pro rychlé procházení i hlubší čtení"
+      }
+    },
+    "search": {
+      "label": "Hledat články",
+      "placeholder": "Hledejte články podle názvu, kategorie, úryvku nebo autora…",
+      "clear": "Vymazat",
+      "helper": "Filtrujte a objevujte podle tématu, aniž byste opustili stránku"
+    },
+    "filters": {
+      "label": "Filtrovat podle kategorie",
+      "all": "Vše",
+      "clear": "Vymazat filtry",
+      "reset": "Obnovit filtry",
+      "emptyTitle": "Nebyly nalezeny žádné články",
+      "emptyDescription": "Zkuste upravit vyhledávání nebo filtry, abyste našli hledaný obsah."
+    },
+    "featured": {
+      "label": "Vybraný článek",
+      "title": "Začněte nejnovějším příspěvkem",
+      "cta": "Přečíst vybraný článek →"
+    },
+    "grid": {
+      "label": "Nejnovější články",
+      "title": "Další z archivu",
+      "cta": "Přečíst článek →"
+    },
+    "loadMore": "Načíst další články",
+    "results": {
+      "template": "Zobrazuji {shown} z {total} článků",
+      "resultSingular": "výsledek",
+      "resultPlural": "výsledky",
+      "for": "pro",
+      "in": "v"
+    },
+    "emptyArchive": {
+      "kicker": "Blogový archiv",
+      "title": "Zatím nejsou dostupné žádné články",
+      "description": "Přidejte obsah MDX do zdrojového adresáře blogu, aby se naplnil archiv, oblast vybraných článků, filtry a mřížka výsledků."
+    },
+    "post": {
+      "authorLabel": "Autor článku",
+      "relatedTitle": "Související články",
+      "relatedCta": "Přečíst →",
+      "backToBlog": "Zpět na blog",
+      "tocTitle": "Na této stránce",
+      "ctaTitle": "Potřebujete odpověď specifickou pro váš projekt?",
+      "ctaHeading": "Obraťte se na náš výrobní tým",
+      "ctaDescription": "Kontaktujte tým a prodiskutujte svůj trh, objemy, požadavky na soulad s předpisy a směřování produktu.",
+      "ctaPrimary": "Kontaktujte náš tým",
+      "ctaSecondary": "Zobrazit všechny produkty IPL",
+      "keepExploringTitle": "Pokračujte v objevování",
+      "keepExploringDescription": "Procházejte archiv a najděte příspěvky podle kategorie, klíčového slova nebo zaměření tématu.",
+      "nextStepsTitle": "Další kroky",
+      "nextStepsItems": [
+        "Porovnejte možnosti OEM a ODM",
+        "Ověřte požadavky na soulad s předpisy a testování",
+        "Vyžádejte si recenzi produktu nebo plán vzorků"
+      ],
+      "continueReadingTitle": "Pokračovat ve čtení",
+      "viewAllArticles": "Zobrazit všechny články",
+      "citableEyebrow": "Citovatelné shrnutí",
+      "citableQuestion": "O čem tento článek je?",
+      "citableBody": "Tento článek vysvětluje {title} týmům, které zvažují nebo budují produkty na odstranění chloupků IPL pod privátní značkou. Zabývá se praktickými hledisky realizace OEM/ODM, včetně toho, jak mohou výrobní rozhodnutí ovlivnit uživatelský zážitek z produktu, plánování souladu s předpisy a připravenost na uvedení na trh. Cílem je poskytnout ucelený přehled, ke kterému se čtenáři mohou vracet při porovnávání možností, přípravě poptávek (RFQ) nebo slaďování interních zainteresovaných stran ohledně požadavků. Tam, kde je to relevantní, propojuje diskuze rozhodnutí na úrovni komponent (jako je chlazení, filtry, lampové kazety, senzory a návrh napájení) s pohodlím koncového uživatele a opakovatelnými výsledky výroby. Hlavním přínosem je jasnější soubor rozhodovacích kritérií, která můžete použít ke snížení rizika a přechodu od konceptu k škálovatelné výrobě s menším počtem iterací."
+    }
+  },
+  "contact": {
+    "title": "Kontaktujte náš tým",
+    "subtitle": "Spojte se s naším týmem",
+    "description": "Povězte nám o svém projektu OEM/ODM, žádosti o vzorek nebo požadavcích na sourcing. Obvykle odpovídáme do 24–48 hodin s pokyny k dalším krokům.",
+    "form": {
+      "title": "Pošlete nám zprávu",
+      "name": "Jméno",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "company": "Společnost",
+      "subject": "Předmět",
+      "message": "Zpráva",
+      "messagePlaceholder": "Povězte nám o svém projektu…",
+      "send": "Odeslat zprávu",
+      "sending": "Odesílání…",
+      "success": "Zpráva byla úspěšně odeslána!",
+      "error": "Odeslání zprávy se nezdařilo. Zkuste to prosím znovu."
+    },
+    "info": {
+      "title": "Kontaktní informace",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "address": "Adresa",
+      "businessHours": "Provozní doba",
+      "mondayToFriday": "Pondělí – pátek: 9:00 – 18:00",
+      "saturday": "Sobota: 9:00 – 13:00",
+      "sunday": "Neděle: zavřeno"
+    }
+  },
+  "componentsCooling": {
+    "header": {
+      "title": "Pokročilé chladicí systémy",
+      "description": "Nejmodernější chladicí technologie, včetně safírového a polovodičového chlazení, pro bezpečná a pohodlná ošetření IPL"
+    },
+    "breadcrumb": {
+      "components": "Komponenty",
+      "cooling": "Chladicí systém"
+    },
+    "intro": {
+      "title": "Převratná chladicí technologie",
+      "paragraph": "Naše pokročilé chladicí systémy představují vrchol technologie IPL v oblasti pohodlí a bezpečnosti. Díky integraci špičkového safírového kontaktního chlazení a inteligentní správy teploty zajišťujeme, že každé ošetření je nejen účinné, ale také mimořádně pohodlné pro uživatele."
+    },
+    "highlight": {
+      "whyTitle": "Proč na pokročilém chlazení záleží",
+      "paragraph": "Účinné chlazení je klíčové pro výkon IPL přístroje, pohodlí uživatele a bezpečnost ošetření. Naše systémy udržují optimální teplotu pokožky a zároveň maximalizují účinnost ošetření.",
+      "items": {
+        "comfort": "Zvýšené pohodlí uživatele během ošetření"
+      }
+    }
+  }
+}

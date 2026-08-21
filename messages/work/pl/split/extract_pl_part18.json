@@ -1,0 +1,185 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "companyName": "Nazwa firmy",
+        "phoneNumber": "Numer telefonu",
+        "productInterest": "Interesujący produkt",
+        "expectedQuantity": "Oczekiwana ilość",
+        "projectTimeline": "Harmonogram projektu",
+        "projectDetails": "Szczegóły projektu",
+        "send": "Wyślij",
+        "productOptions": [
+          "Urządzenia do depilacji IPL",
+          "Niestandardowy projekt OEM/ODM",
+          "Tylko komponenty IPL",
+          "Urządzenie do odmładzania skóry",
+          "Jeszcze nie wiem"
+        ],
+        "quantityOptions": [
+          "Darmowa próbka",
+          "10~500 sztuk",
+          "Wciąż planuję"
+        ],
+        "timelineOptions": [
+          "Jak najszybciej",
+          "1 - 3 miesiące",
+          "3 - 6 miesięcy",
+          "6 - 12 miesięcy",
+          "Tylko się rozglądam"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Dlaczego depilacja IPL jest bezpieczna | Dowody, FDA, typy skóry i bezpieczeństwo urządzenia",
+      "description": "Strona filarowa stawiająca bezpieczeństwo na pierwszym miejscu dla depilacji IPL: dowody kliniczne, kontekst FDA, bezpieczny protokół domowy, typy skóry wg skali Fitzpatricka, filtrowanie UV, czujniki, skutki uboczne, przeciwwskazania i pielęgnacja po zabiegu. Zawiera bezpośrednie linki do platform produktowych i szczegółowych poradników.",
+      "breadcrumbLabel": "Dlaczego depilacja IPL jest bezpieczna",
+      "cta": {
+        "explorePlatforms": "Poznaj platformy urządzeń IPL",
+        "compareModels": "Porównaj wszystkie modele"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Dane kliniczne dotyczące bezpieczeństwa IPL",
+          "anchor": "Dane kliniczne dotyczące bezpieczeństwa IPL",
+          "description": "Jak badania opisują typowe reakcje skórne, ich nasilenie oraz dlaczego większość skutków ubocznych jest łagodna i przejściowa przy prawidłowym stosowaniu."
+        },
+        "fdaContext": {
+          "title": "Kontekst FDA: co naprawdę oznacza \"FDA cleared\"",
+          "anchor": "Weryfikacja FDA (co oznacza \"FDA cleared\")",
+          "description": "Jak interpretować komunikaty FDA i dlaczego wspierają one twierdzenia o bezpieczeństwie, bez wyolbrzymiania gwarancji ze strony organów regulacyjnych."
+        },
+        "atHomeProtocol": {
+          "title": "Bezpieczny protokół domowej depilacji IPL (częstotliwość, test płatkowy, ustawienia)",
+          "anchor": "Bezpieczny protokół domowej depilacji IPL (częstotliwość, test płatkowy, ustawienia)",
+          "description": "Praktyczne zasady stosowania, które minimalizują ryzyko: testy płatkowe, stopniowe zwiększanie intensywności, zachowanie odstępów między sesjami i unikanie powtarzania błysków."
+        },
+        "fitzpatrick": {
+          "title": "Typy skóry wg skali Fitzpatricka a limity bezpieczeństwa IPL",
+          "anchor": "Typy skóry wg skali Fitzpatricka a limity bezpieczeństwa IPL",
+          "description": "Dlaczego karnacja wpływa na ryzyko (to fizyka, nie dyskryminacja) i jak marki powinny odpowiedzialnie komunikować kwestie kompatybilności."
+        },
+        "iplVsLaser": {
+          "title": "IPL a laser: porównanie bezpieczeństwa (i dla kogo przeznaczone jest każde z rozwiązań)",
+          "anchor": "IPL a laser: porównanie bezpieczeństwa",
+          "description": "Zrównoważone porównanie: klasa urządzenia, sposób dostarczania energii, typowe ryzyka oraz dlaczego \"większe bezpieczeństwo\" zależy od typu skóry i protokołu."
+        },
+        "uvFiltering": {
+          "title": "Filtrowanie UV i kontrola długości fali (dlaczego IPL to nie opalanie UV)",
+          "anchor": "Filtrowanie UV i kontrola długości fali",
+          "description": "Jak filtry i konstrukcja długości fali ograniczają niepożądane promieniowanie i zwiększają margines bezpieczeństwa podczas zabiegu."
+        },
+        "safetySensors": {
+          "title": "Czujniki bezpieczeństwa: wykrywanie karnacji i czujniki kontaktu",
+          "anchor": "Czujniki bezpieczeństwa (wykrywanie karnacji i czujniki kontaktu)",
+          "description": "Jak czujniki karnacji i blokady kontaktu ograniczają ryzyko niewłaściwego użytkowania — zwłaszcza w przypadku wyższych typów skóry wg skali Fitzpatricka."
+        },
+        "sideEffects": {
+          "title": "Skutki uboczne IPL wyjaśnione (co jest normalne, a co nie)",
+          "anchor": "Skutki uboczne IPL wyjaśnione (co jest normalne, a co nie)",
+          "description": "Co oznacza lekkie zaczerwienienie, jak wyglądają oparzenia oraz jak podejmować decyzje o przerwaniu zabiegów, obniżeniu ustawień lub konsultacji z lekarzem."
+        },
+        "contraindications": {
+          "title": "Kto nie powinien stosować IPL (przeciwwskazania i czynniki ryzyka)",
+          "anchor": "Kto nie powinien stosować IPL (przeciwwskazania)",
+          "description": "Leki, ekspozycja na słońce, tatuaże, choroby skóry i inne sytuacje, w których należy unikać IPL lub odroczyć zabieg."
+        },
+        "beforeAfterCare": {
+          "title": "Pielęgnacja przed i po zabiegu: jak zmniejszyć podrażnienia i ryzyko",
+          "anchor": "Pielęgnacja przed i po zabiegu ograniczająca ryzyko IPL",
+          "description": "Proste kroki pielęgnacji przed i po zabiegu, które zmniejszają stan zapalny i pomagają uniknąć problemów z pigmentacją po sesjach."
+        }
+      },
+      "heroKicker": "Filar bezpieczeństwa",
+      "heroTitle": "Dlaczego depilacja IPL jest bezpieczna (przy prawidłowym stosowaniu)",
+      "heroParagraph": "To centrum wiedzy stawiające bezpieczeństwo na pierwszym miejscu, stworzone dla marek, zespołów zakupowych i nabywców detalicznych. Łączy najczęściej wyszukiwane pytania dotyczące bezpieczeństwa z praktycznymi odpowiedziami, kontekstem opartym na dowodach i cechami konstrukcyjnymi urządzeń, które zmniejszają ryzyko.",
+      "howToKicker": "Jak korzystać z tej strony",
+      "howToTitle": "Czytaj w takiej kolejności, w jakiej robią to Twoi klienci",
+      "howToSteps": [
+        "Zacznij od dowodów i kontekstu FDA, aby odpowiedzialnie uzasadnić twierdzenie o \"bezpieczeństwie\".",
+        "Potwierdź limity typów skóry oraz protokół, który zapewnia niskie ryzyko przy użytkowaniu domowym.",
+        "Następnie wybierz platformy w sekcji Produkty i porównaj modele w Katalogu."
+      ],
+      "topicMapKicker": "Mapa tematów",
+      "topicMapTitle": "10 tematów dotyczących bezpieczeństwa (linki bezpośrednie)",
+      "topicMapParagraph": "Każdy z poniższych tematów prowadzi do dedykowanego przewodnika. Używaj tych dokładnych kotwic na stronach wspierających, aby wzmocnić ich trafność.",
+      "guideLabel": "Przewodnik",
+      "pillarKicker": "Sekcje filarowe",
+      "pillarTitle": "Dowody + protokół + konstrukcja urządzenia",
+      "pillarParagraph": "Wykorzystaj tę strukturę jako rozbudowaną stronę z odpowiedzią, a powiązane przewodniki jako treści klastrowe, które ją wspierają.",
+      "readGuide": "Przeczytaj przewodnik",
+      "finalKicker": "Gotowy, aby wybrać model?",
+      "finalTitle": "Porównaj wszystkie platformy, a następnie wybierz odpowiedni pakiet zabezpieczeń",
+      "finalParagraph": "Skorzystaj ze strony Produkty, aby poznać szczegóły platform, oraz z Katalogu, aby porównać chłodzenie, sterowanie aplikacją i czujniki bezpieczeństwa w poszczególnych modelach."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Platforma handlu cyfrowymi zasobami kreatywnymi",
+      "pageDescription": "iShine Marketplace to zaufana platforma handlu cyfrowymi zasobami kreatywnymi, na której twórcy prezentują, sprzedają i rozwijają swoje cyfrowe dzieła — z usługami i wsparciem dla twórców zbudowanymi wokół przekonania: Rozświetlaj kreatywność, łącz wartość.",
+      "brandSlogan": "Rozświetlaj kreatywność, łącz wartość",
+      "contactCta": "Skontaktuj się z iShine",
+      "detailsCta": "Szczegóły",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Cyfrowe zasoby kreatywne",
+        "heading": "Twoja zaufana platforma handlu cyfrowymi zasobami kreatywnymi",
+        "subheading": "Prezentuj swoje cyfrowe dzieła, handluj z pewnością siebie i rozwijaj się dzięki usługom dla twórców — wszystko na jednej zaufanej platformie."
+      },
+      "product1": {
+        "imageAlt": "Prezentacja dzieł cyfrowych - galeria zasobów kreatywnych",
+        "smallTitle": "Prezentacja dzieł cyfrowych",
+        "heading": "Prezentuj swoje cyfrowe dzieła",
+        "description": "Publikuj i prezentuj swoje cyfrowe dzieła — szablony, projekty, ilustracje i nie tylko — w pięknie zorganizowanej galerii, która ułatwia kupującym odkrywanie Twoich prac."
+      },
+      "product2": {
+        "imageAlt": "Bezpieczny handel - transakcje zasobami cyfrowymi",
+        "smallTitle": "Bezpieczny handel cyfrowy",
+        "heading": "Handluj zasobami cyfrowymi z pewnością siebie",
+        "description": "Kupuj i sprzedawaj zasoby cyfrowe dzięki przejrzystemu i bezpiecznemu procesowi transakcji, z transparentnym licencjonowaniem, natychmiastową dostawą i chronionymi płatnościami."
+      },
+      "product3": {
+        "imageAlt": "Usługi dla twórców - narzędzia analityczne i wzrostowe",
+        "smallTitle": "Usługi dla twórców",
+        "heading": "Rozwijaj swoją działalność kreatywną",
+        "description": "Od narzędzi do budowania portfolio po analitykę sprzedaży — iShine Marketplace zapewnia twórcom usługi i wsparcie, których potrzebują, aby dotrzeć do nowych odbiorców i rozwijać się w zrównoważony sposób."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Oficjalne usługi",
+        "headingLine1": "Porozmawiaj z naszym zespołem iShine",
+        "headingLine2": "o Twoich",
+        "headingLine3": "celach",
+        "links": {
+          "privateLabel": "Marka własna",
+          "technologyPartner": "Znajdź partnera technologicznego IPL",
+          "buildNewIpl": "Zbuduj nowe urządzenie IPL",
+          "maintainOrFixIpl": "Serwis lub naprawa mojego IPL"
+        }
+      },
+      "blog": {
+        "smallTitle": "Ucz się z nami",
+        "heading": "Społeczność twórców",
+        "subheading": "Przydatne artykuły o cyfrowej kreatywności, handlu na platformie i rozwijaniu biznesu z iShine Marketplace.",
+        "learnCta": "Dowiedz się więcej",
+        "card1": {
+          "title": "Inteligentne urządzenia IPL: rewolucja połączonych aplikacji",
+          "readTime": "5 min czytania"
+        },
+        "card2": {
+          "title": "Najnowsze osiągnięcia w badaniach nad IPL",
+          "readTime": "4 min czytania"
+        },
+        "card3": {
+          "title": "OEM a ODM: jak wybrać odpowiedni model produkcji",
+          "readTime": "6 min czytania"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "FAQ | Produkcja IPL iShine",
+      "pageDescription": "Znajdź odpowiedzi na pytania dotyczące usług OEM i ODM, zgodności z normami, MOQ, czasu realizacji, pakowania, wysyłki oraz użytkowania produktów IPL w programach urządzeń kosmetycznych pod marką własną.",
+      "hero": {
+        "smallTitle": "FAQ i wsparcie"
+      }
+    }
+  }
+}

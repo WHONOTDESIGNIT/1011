@@ -1,0 +1,222 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energySettings": {
+          "label": "Ρυθμίσεις ενέργειας",
+          "value": "5 επίπεδα"
+        },
+        "lamp": {
+          "label": "Λυχνία",
+          "value": "Παρέχει 999,999 λάμψεις"
+        },
+        "autoFlash": {
+          "label": "Αυτόματη λάμψη",
+          "value": "Υποστήριξη"
+        },
+        "pulseDuration": {
+          "label": "Διάρκεια παλμού (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Θερμοκρασία ψύξης",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Χρόνος έως τη θερμοκρασία ψύξης",
+          "value": "1 λεπτό"
+        },
+        "totalEnergyRange": {
+          "label": "Εύρος συνολικής ενέργειας",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Τάση εισόδου",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Τροφοδοτικό",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Φίλτρο UV",
+          "value": "Ναι"
+        },
+        "safetySystem": {
+          "label": "Ενσωματωμένο σύστημα ασφαλείας",
+          "value": "Ναι"
+        },
+        "skinToneSensor": {
+          "label": "Αισθητήρας τόνου δέρματος",
+          "value": "Όχι"
+        },
+        "lampMaterial": {
+          "label": "Υλικό λυχνίας",
+          "value": "Χαλαζίας"
+        },
+        "lampConfiguration": {
+          "label": "Διαμόρφωση λυχνίας",
+          "value": "Μονή λυχνία"
+        },
+        "warranty": {
+          "label": "Εγγύηση",
+          "value": "2 χρόνια παγκόσμια εγγύηση"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Μέγιστη οπτική πυκνότητα ισχύος",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Μήκος κύματος",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Μέγεθος συσκευής",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Καθαρό βάρος",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "Χονδρικό MOQ (συσκευή)",
+          "value": "500 μονάδες"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "Προγραμματισμός μέσω Εφαρμογής",
+          "description": "Προγραμματίστε και παρακολουθείτε το πρόγραμμα θεραπειών σας μέσω της εφαρμογής για κινητά για σταθερά αποτελέσματα."
+        },
+        "progressTracking": {
+          "title": "Παρακολούθηση Προόδου",
+          "description": "Παρακολουθήστε το ιστορικό θεραπειών και τη βελτίωση του δέρματός σας με την πάροδο του χρόνου μέσω λεπτομερούς ανάλυσης."
+        },
+        "multiColorDesign": {
+          "title": "Σχεδιασμός Πολλαπλών Χρωμάτων",
+          "description": "Διαθέσιμο σε White, Black, Beige και Teal για ευέλικτη προσαρμογή της επωνυμίας."
+        },
+        "dataDrivenResults": {
+          "title": "Αποτελέσματα βάσει Δεδομένων",
+          "description": "Τα δεδομένα θεραπείας βοηθούν τους χρήστες να τηρούν το πρόγραμμά τους και να επιτυγχάνουν βέλτιστα αποτελέσματα ταχύτερα."
+        }
+      },
+      "badge": "Έξυπνος Έλεγχος μέσω Εφαρμογής",
+      "colors": [
+        "Λευκό",
+        "Μαύρο",
+        "Μπεζ",
+        "Τιρκουάζ"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "Συσκευή IPL Υψηλής Απόδοσης",
+      "description": "Η συσκευή Alpha IPL σχεδιάστηκε για αποτελεσματικές συνεδρίες στο σπίτι, με υποστήριξη ψύξης αίσθησης πάγου Sapphire και σταθερή, επαναλαμβανόμενη ενεργειακή απόδοση για προγράμματα ιδιωτικής ετικέτας.",
+      "specs": {
+        "type": {
+          "label": "Τύπος",
+          "value": "IPL οικιακής χρήσης (μονή λυχνία χαλαζία)"
+        },
+        "cooling": {
+          "label": "Ψύξη",
+          "value": "Υποστήριξη, τεχνολογία αίσθησης πάγου Sapphire"
+        },
+        "window": {
+          "label": "Παράθυρο",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "Ενέργεια",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Ρυθμίσεις ενέργειας",
+          "value": "5 επίπεδα"
+        },
+        "lamp": {
+          "label": "Λυχνία",
+          "value": "Παρέχει 999,999 λάμψεις"
+        },
+        "autoFlash": {
+          "label": "Αυτόματη λάμψη",
+          "value": "Υποστήριξη"
+        },
+        "pulseDuration": {
+          "label": "Διάρκεια παλμού (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Θερμοκρασία ψύξης",
+          "value": "5°C (θερμοκρασία περιβάλλοντος 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Χρόνος έως τη θερμοκρασία ψύξης",
+          "value": "1 λεπτό"
+        },
+        "totalEnergyRange": {
+          "label": "Εύρος συνολικής ενέργειας",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Τάση εισόδου",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Τροφοδοτικό",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Φίλτρο UV",
+          "value": "Ναι"
+        },
+        "safetySystem": {
+          "label": "Ενσωματωμένο σύστημα ασφαλείας",
+          "value": "Ναι"
+        },
+        "skinToneSensor": {
+          "label": "Αισθητήρας τόνου δέρματος",
+          "value": "Όχι"
+        },
+        "lampMaterial": {
+          "label": "Υλικό λυχνίας",
+          "value": "Χαλαζίας"
+        },
+        "lampConfiguration": {
+          "label": "Διαμόρφωση λυχνίας",
+          "value": "Μονή λυχνία"
+        },
+        "warranty": {
+          "label": "Εγγύηση",
+          "value": "2 χρόνια παγκόσμια εγγύηση"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Μέγιστη οπτική πυκνότητα ισχύος",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Μήκος κύματος",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Μέγεθος συσκευής",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Καθαρό βάρος",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "Χονδρικό MOQ (συσκευή)",
+          "value": "500 μονάδες"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "Αποδοτική Απόδοση",
+          "description": "Εύρος ενεργειακής πυκνότητας 2-5 J/cm² με 5 ρυθμίσεις για ευέλικτα προγράμματα θεραπείας."
+        }
+      }
+    }
+  }
+}

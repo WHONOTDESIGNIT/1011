@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations } from '../i18n/ui';
+
+// 注意：本页面只有英文版（无 tr/services.astro）。
+// fallback 配置 tr → en 会让 /tr/services 渲染本页英文内容，用于验证回退机制。
+const currentLocale = Astro.currentLocale;
+const translate = useTranslations(currentLocale);
+const title = translate('services.title');
+---
+<Layout title={title}>
+  <h1>{translate('services.title')}</h1>
+  <p>{translate('services.desc')}</p>
+  <p class="meta">
+    {translate('meta.current')} = <code>{currentLocale}</code> · {translate('meta.url')} = <code>{Astro.url.pathname}</code>
+  </p>
+</Layout>

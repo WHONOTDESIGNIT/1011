@@ -1,0 +1,138 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card8": {
+          "date": "5 abr 2026"
+        },
+        "card9": {
+          "readTime": "5 min de lectura",
+          "category": "MAGENTO",
+          "title": "5 consejos para gestionar extensiones y plugins de Magento",
+          "alt": "Extensiones de Magento",
+          "date": "25 mar 2026"
+        },
+        "card10": {
+          "readTime": "6 min de lectura",
+          "category": "MAGENTO",
+          "title": "Parches de Magento para tu tienda: 9 pasos para propietarios de negocios",
+          "alt": "Parches de Magento",
+          "date": "15 mar 2026"
+        },
+        "card11": {
+          "readTime": "5 min de lectura",
+          "category": "MAGENTO",
+          "title": "8 consejos para optimizar la velocidad y el rendimiento de Magento",
+          "alt": "Velocidad de Magento",
+          "date": "1 mar 2026"
+        },
+        "card12": {
+          "readTime": "4 min de lectura",
+          "category": "HYVÄ THEMES",
+          "title": "Desarrollar Magento a la manera Hyvä: por qué las Hyvä AI Skills son un paso adelante positivo",
+          "alt": "Hyva AI Skills",
+          "date": "20 feb 2026"
+        },
+        "card13": {
+          "readTime": "4 min de lectura",
+          "category": "DEVELO",
+          "title": "Un nuevo sitio web de Develo y una mejor manera de construirlo",
+          "alt": "Nuevo sitio web de Develo",
+          "date": "10 feb 2026"
+        },
+        "card14": {
+          "readTime": "4 min de lectura",
+          "category": "HYVÄ THEMES",
+          "title": "Cómo optimizar un sitio web Hyvä",
+          "alt": "Optimizar Hyva",
+          "date": "28 ene 2026"
+        },
+        "card15": {
+          "readTime": "4 min de lectura",
+          "category": "COMERCIO ELECTRÓNICO",
+          "title": "12 consejos de eCommerce de moda para sitios elegantes y de alta conversión",
+          "alt": "eCommerce de moda",
+          "date": "15 ene 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Paginación",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 consejos para optimizar la velocidad y el rendimiento de Magento | Blog de Develo",
+      "pageDescription": "Formas prácticas de hacer que tu tienda Magento sea más rápida, fluida y rentable.",
+      "breadcrumb": {
+        "ariaLabel": "Ruta de navegación",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 consejos para optimizar la velocidad y el rendimiento de Magento",
+      "description": "Formas prácticas de hacer que tu tienda Magento sea más rápida, fluida y rentable",
+      "author": "Por Bethany Wood",
+      "date": "19 feb 2026",
+      "readTime": "5 min de lectura",
+      "updated": "Última actualización: 19 feb 2026",
+      "share": {
+        "label": "Comparte este artículo",
+        "twitter": "Compartir en Twitter",
+        "linkedin": "Compartir en LinkedIn",
+        "facebook": "Compartir en Facebook"
+      },
+      "authorRole": "Directora de Marketing",
+      "authorBio": "Beth trabaja en marketing desde 2016, desarrollando campañas creativas y centradas en la conversión en múltiples sectores. Se especializa en marketing en redes sociales, branding, email marketing y redacción publicitaria. Como Directora de Marketing de Develo en el departamento comercial, Beth es responsable de gestionar y ejecutar las actividades de marketing que impulsan el crecimiento del negocio. Disfruta llevando los proyectos desde el concepto hasta la entrega, moldeando ideas para convertirlas en campañas que generan resultados medibles.",
+      "authorCompany": "Develo es una agencia líder de Magento y una empresa de desarrollo web de comercio electrónico con sede en Birmingham (Reino Unido), que presta servicio a clientes de todo el mundo desde 2010.",
+      "cta": {
+        "text": "¿Necesitas ayuda para optimizar tu tienda Magento? Hablemos.",
+        "button": "Reservar una llamada"
+      },
+      "body": {
+        "para1Before": "Optimizar la velocidad y el rendimiento de un sitio Magento debería estar en lo más alto de la lista de prioridades de cualquier propietario de negocio. ¿Por qué? Porque, con los clientes de hoy, cada segundo cuenta. De hecho,",
+        "para1After": "cuando las páginas tardan más de tres segundos en cargar. Los sitios lentos no solo irritan a los clientes, sino que también perjudican la experiencia de usuario (UX) y el posicionamiento SEO de tu sitio Magento, especialmente ahora que la velocidad de carga es un factor clave de clasificación en las pruebas de Core Web Vitals de Google.",
+        "para2": "La optimización del sitio Magento ayuda a evitar estos problemas y, a su vez, impulsa tus ventas y conversiones. A continuación, hemos reunido 8 consejos esenciales para ayudarte a ti (¡o a tu desarrollador!) a optimizar la velocidad de Magento y garantizar que tu sitio esté construido para rendir, independientemente de cómo esté configurada tu tienda de comercio electrónico.",
+        "section1Title": "¿Cómo puedes probar la velocidad y el rendimiento de tu Magento con Core Web Vitals?",
+        "section1ParaBefore": "Antes de realizar cualquier cambio, recomendamos ejecutar una prueba de Core Web Vitals. Pide a tu desarrollador que compruebe los problemas de velocidad y las mejoras con herramientas como",
+        "section1ParaMiddle": "o",
+        "section1ParaAfter": ". Estas te ofrecen una referencia para medir el progreso y ponen de relieve las áreas que frenan tu sitio.",
+        "section2Title": "Cuando hayas terminado, sigue estos 8 consejos de optimización del rendimiento de Magento.",
+        "tip1Title": "1. Activa todos los tipos de caché de Magento y usa Varnish",
+        "tip1Para1": "Magento incluye varias opciones de caché integradas. Activarlas es una de las formas más rápidas de mejorar el rendimiento del sitio. ¿Nuestra recomendación? Varnish, una potente herramienta de caché que reduce de forma significativa los tiempos de carga de las páginas al almacenar una versión de tu sitio web en memoria.",
+        "tip1Para2": "Esto significa que los visitantes habituales no tendrán que volver a cargar cada elemento de la página, lo que te ahorra tiempo y recursos de servidor y reduce las compras abandonadas.",
+        "tip2Title": "2. Activa Redis para el almacenamiento de sesiones y caché",
+        "tip2Para1": "Además de Varnish, recomendamos que tu desarrollador active Redis para el almacenamiento de sesiones y caché. Redis ayuda a aliviar la carga de la base de datos al almacenar las sesiones y la caché en memoria, lo que acelera la recuperación de datos y reduce la carga del servidor.",
+        "tip2Para2": "¿Por qué Varnish y Redis? Esta combinación mejora tanto la capacidad de respuesta del sitio Magento durante los picos de tráfico como el rendimiento del backend. Resultado neto: una experiencia más fluida para usuarios y administradores.",
+        "tip3Title": "3. Elige un alojamiento especializado en Magento",
+        "tip3Para1Before": "Magento es una plataforma que consume muchos recursos, por lo que se beneficia enormemente de entornos de alojamiento dedicados y optimizados. Por este motivo, plantéate cambiar a un proveedor de alojamiento especializado en Magento como",
+        "tip3Para1After": ", UKFast o Corefinity. A diferencia de los proveedores «hacemos de todo», conocen la plataforma a fondo y pueden ofrecer soporte e infraestructura adaptados a la optimización del rendimiento de Magento.",
+        "tip3Para2": "Consejo extra: asegúrate de que tu proveedor actual haya activado Varnish o Redis y de que esté utilizando la capacidad de servidor adecuada para tu tráfico.",
+        "tip4Title": "4. Usa una CDN como Cloudflare",
+        "tip4Para1": "Una red de distribución de contenidos (CDN) almacena los recursos estáticos de tu sitio (como imágenes, CSS y JS) en múltiples servidores de todo el mundo. Cuando los clientes visitan tu sitio, los recursos se cargan desde el servidor más cercano, lo que reduce la latencia (tiempo de carga) y mejora tus puntuaciones de Core Web Vitals de Magento, todo lo cual favorece tu margen de ventas.",
+        "tip4Para2Before": "En Develo, utilizamos",
+        "tip4Para2After": "porque es sencillo de configurar, fiable y dispone de un plan gratuito generoso.",
+        "tip5Title": "5. Cambia a la indexación «según programación»",
+        "tip5Para": "Magento te permite elegir cuándo se indexan los datos: de forma inmediata («al guardar») o «según programación». Para la mayoría de las tiendas, la indexación «según programación» es más rápida y eficiente, reduce la carga administrativa y mejora la experiencia de usuario (UX), especialmente para los clientes que navegan por catálogos de productos extensos.",
+        "tip6Title": "6. Optimiza las imágenes y aplica la carga diferida bajo el pliegue",
+        "tip6Para1": "¿Tu sitio Magento tiene imágenes grandes? Si es así, pueden tardar en cargar. Para corregirlo, pide a tu desarrollador que implemente la carga diferida (lazy-loading) para las imágenes que aparecen más abajo en la página («bajo el pliegue») y que utilice formatos como WebP. Esto reduce el peso de la página, mejora tus puntuaciones en las pruebas de Core Web Vitals y, lo más importante, mantiene tus tasas de conversión en el buen camino.",
+        "tip6Para2Before": "Recomendamos herramientas como",
+        "tip6Para2After": "para automatizar este proceso. Además, plantéate alojar los vídeos externamente (en plataformas como YouTube o Vimeo), donde están optimizados para su distribución.",
+        "tip7Title": "7. Revisa y reduce los scripts de terceros",
+        "tip7Para1Before": "Otra forma de optimizar la velocidad de Magento es revisar (y, si es necesario, eliminar) las extensiones del sitio y los scripts de terceros, especialmente los añadidos a través de GTM o directamente en Magento. Detectarlos es fácil con",
+        "tip7Para1Middle": "o",
+        "tip7Para1After": ", y mejorará los tiempos de carga del sitio.",
+        "tip7Para2": "Recuerda: si un script solo se necesita en una sola página (como una PDP o el proceso de compra), no es necesario cargarlo en todo el sitio.",
+        "tip8Title": "8. Limpia y optimiza tu base de datos de Magento",
+        "tip8Para": "Encarga a tu desarrollador la limpieza y optimización periódica de tu base de datos de Magento. Esto evitará que se acumulen con el tiempo datos no utilizados, incluidos registros y presupuestos caducados. Esto mejorará la optimización de tu sitio Magento y acelerará las consultas de los clientes.",
+        "bonusTitle": "Consejos extra para Magento 2.4 y versiones posteriores",
+        "bonusItem1Strong": "Usa temas Hyvä:",
+        "bonusItem1Before": "El",
+        "bonusItem1After": "es una opción excelente para los propietarios de negocios que buscan velocidades superiores a las de Luma y resultados sobresalientes en las pruebas de Core Web Vitals. El tema mejora el rendimiento web, reduce la complejidad de desarrollo y mejora la UX. Es una mejora inteligente y preparada para el futuro para cualquier tienda Magento.",
+        "bonusItem2Strong": "Prueba con regularidad:",
+        "bonusItem2Before": "Ejecuta pruebas de velocidad mensuales con herramientas como",
+        "bonusItem2Middle": ", y",
+        "bonusItem2After": "."
+      }
+    }
+  }
+}

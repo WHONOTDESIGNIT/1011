@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "Situs Web Develo Baru, dan Cara yang Lebih Baik untuk Membangunnya",
+          "alt": "Situs Web Develo Baru",
+          "date": "10 Feb 2026"
+        },
+        "card14": {
+          "readTime": "4 menit baca",
+          "category": "HYVÄ THEMES",
+          "title": "Cara Mengoptimalkan Situs Web Hyvä",
+          "alt": "Optimalkan Hyva",
+          "date": "28 Jan 2026"
+        },
+        "card15": {
+          "readTime": "4 menit baca",
+          "category": "ECOMMERCE",
+          "title": "12 Tips eCommerce Fashion untuk Situs yang Bergaya dan Berkonversi Tinggi",
+          "alt": "Fashion eCommerce",
+          "date": "15 Jan 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Paginasi",
+        "previous": "Sebelumnya",
+        "next": "Berikutnya"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 Tips Mengoptimalkan Kecepatan dan Performa Magento | Blog Develo",
+      "pageDescription": "Cara praktis untuk membuat toko Magento Anda lebih cepat, lebih lancar, dan lebih menguntungkan.",
+      "breadcrumb": {
+        "ariaLabel": "Breadcrumb",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 Tips Mengoptimalkan Kecepatan dan Performa Magento",
+      "description": "Cara praktis untuk membuat toko Magento Anda lebih cepat, lebih lancar, dan lebih menguntungkan",
+      "author": "Oleh Bethany Wood",
+      "date": "19 Februari 2026",
+      "readTime": "5 menit baca",
+      "updated": "Terakhir diperbarui: 19 Februari 2026",
+      "share": {
+        "label": "Bagikan artikel ini",
+        "twitter": "Bagikan di Twitter",
+        "linkedin": "Bagikan di LinkedIn",
+        "facebook": "Bagikan di Facebook"
+      },
+      "authorRole": "Marketing Manager",
+      "authorBio": "Beth telah berkecimpung di bidang marketing sejak 2016, mengerjakan kampanye kreatif yang berfokus pada konversi di berbagai industri. Ia berspesialisasi dalam pemasaran media sosial, branding, email marketing, dan copywriting. Sebagai Marketing Manager Develo di departemen komersial, Beth bertanggung jawab mengelola dan menyampaikan aktivitas pemasaran yang mendukung pertumbuhan bisnis. Ia senang membawa proyek dari konsep hingga peluncuran, mengubah ide menjadi kampanye yang menghasilkan hasil terukur.",
+      "authorCompany": "Develo adalah agensi Magento terkemuka dan perusahaan pengembangan web eCommerce yang berpusat di Birmingham, Inggris, melayani klien secara global sejak 2010.",
+      "cta": {
+        "text": "Butuh bantuan mengoptimalkan toko Magento Anda? Mari bicara.",
+        "button": "Jadwalkan panggilan"
+      },
+      "body": {
+        "para1Before": "Mengoptimalkan kecepatan dan performa situs Magento seharusnya menjadi prioritas utama setiap pemilik bisnis. Mengapa? Karena bagi pelanggan saat ini, setiap detik sangat berharga. Faktanya,",
+        "para1After": "ketika halaman membutuhkan waktu lebih dari tiga detik untuk dimuat. Situs yang lambat tidak hanya membuat pelanggan jengkel, tetapi juga merusak pengalaman pengguna (UX) dan peringkat SEO situs Magento Anda, terutama sekarang kecepatan situs menjadi faktor peringkat utama dalam pengujian Core Web Vitals Google.",
+        "para2": "Optimasi situs Magento membantu menghindari masalah-masalah ini, sekaligus meningkatkan penjualan dan konversi Anda. Pada bagian berikut, kami telah menyusun 8 tips penting untuk membantu Anda (atau developer Anda!) mengoptimalkan kecepatan Magento dan memastikan situs Anda dibangun untuk tampil maksimal, apa pun pengaturan toko eCommerce Anda.",
+        "section1Title": "Bagaimana cara menguji kecepatan dan performa Magento Anda dengan Core Web Vitals?",
+        "section1ParaBefore": "Sebelum melakukan perubahan apa pun, kami menyarankan untuk menjalankan pengujian Core Web Vitals. Minta developer Anda untuk memeriksa masalah kecepatan dan peluang peningkatan menggunakan alat seperti",
+        "section1ParaMiddle": "atau",
+        "section1ParaAfter": ". Alat-alat ini memberi Anda dasar pengukuran untuk memantau kemajuan dan menyoroti area apa pun yang menghambat situs Anda.",
+        "section2Title": "Setelah selesai, ikuti 8 tips optimasi performa Magento berikut.",
+        "tip1Title": "1. Aktifkan Semua Jenis Cache Magento dan Gunakan Varnish",
+        "tip1Para1": "Magento dilengkapi dengan beberapa opsi caching bawaan. Mengaktifkannya adalah salah satu cara tercepat untuk meningkatkan performa situs. Rekomendasi kami? Varnish, alat caching canggih yang secara signifikan mengurangi waktu muat halaman dengan menyimpan versi situs web Anda di memori.",
+        "tip1Para2": "Artinya, pengunjung yang kembali tidak perlu memuat ulang setiap elemen halaman, sehingga menghemat waktu Anda, sumber daya server, dan mengurangi pembelian yang terbengkalai.",
+        "tip2Title": "2. Aktifkan Redis untuk Penyimpanan Sesi dan Cache",
+        "tip2Para1": "Selain Varnish, kami merekomendasikan developer Anda mengaktifkan Redis untuk penyimpanan sesi dan cache. Redis membantu meringankan beban database dengan menyimpan sesi dan cache di memori, yang mempercepat pengambilan data dan mengurangi beban server.",
+        "tip2Para2": "Mengapa Varnish dan Redis? Kombinasi ini meningkatkan daya tanggap situs Magento saat lonjakan trafik sekaligus performa backend. Hasil akhirnya: pengalaman yang lebih lancar bagi pengguna dan administrator.",
+        "tip3Title": "3. Pilih Hosting Spesialis Magento",
+        "tip3Para1Before": "Magento adalah platform yang membutuhkan banyak sumber daya, sehingga sangat diuntungkan oleh lingkungan hosting khusus yang dioptimalkan. Oleh karena itu, pertimbangkan untuk beralih ke penyedia hosting spesialis Magento seperti",
+        "tip3Para1After": ", UKFast, atau Corefinity. Berbeda dengan penyedia 'kami mengerjakan semuanya', mereka mengenal platform ini secara mendalam, dan dapat menawarkan dukungan serta infrastruktur yang disesuaikan dengan optimasi performa Magento.",
+        "tip3Para2": "Tips bonus: pastikan penyedia Anda saat ini telah mengaktifkan Varnish atau Redis, dan mereka menggunakan kapasitas server yang tepat untuk trafik Anda.",
+        "tip4Title": "4. Gunakan CDN Seperti Cloudflare",
+        "tip4Para1": "Content Delivery Network (CDN) menyimpan aset statis situs Anda (seperti gambar, CSS, dan JS) di berbagai server di seluruh dunia. Saat pelanggan mengunjungi situs Anda, aset dimuat dari server terdekat, sehingga mengurangi latensi (waktu muat) dan meningkatkan skor Core Web Vitals Magento Anda, yang semuanya membantu margin penjualan Anda.",
+        "tip4Para2Before": "Di Develo, kami menggunakan",
+        "tip4Para2After": "karena mudah disiapkan, andal, dan memiliki paket gratis yang murah hati.",
+        "tip5Title": "5. Beralih ke Pengindeksan 'On Schedule'",
+        "tip5Para": "Magento memungkinkan Anda memilih kapan data diindeks, baik secara langsung ('on save') atau 'on schedule'. Untuk sebagian besar toko, pengindeksan 'on schedule' lebih cepat dan lebih efisien, mengurangi beban admin dan meningkatkan pengalaman pengguna (UX), terutama bagi pelanggan yang menjelajahi katalog produk dalam jumlah besar.",
+        "tip6Title": "6. Optimalkan Gambar dan Lazy-Load Below the Fold",
+        "tip6Para1": "Apakah situs Magento Anda memiliki gambar berukuran besar? Jika ya, gambar-gambar tersebut mungkin lambat dimuat. Untuk mengatasinya, sarankan developer Anda menerapkan lazy-loading untuk gambar yang muncul lebih jauh di bawah halaman ('below the fold') dan gunakan format seperti WebP. Hal ini mengurangi bobot halaman, meningkatkan skor pengujian Core Web Vitals Anda, dan yang terpenting, menjaga tingkat konversi Anda tetap stabil.",
+        "tip6Para2Before": "Kami merekomendasikan alat seperti",
+        "tip6Para2After": "untuk mengotomatiskan proses ini. Selain itu, pertimbangkan untuk menghosting video secara eksternal (di platform seperti YouTube atau Vimeo) yang sudah dioptimalkan untuk pengiriman.",
+        "tip7Title": "7. Tinjau dan Kurangi Skrip Pihak Ketiga",
+        "tip7Para1Before": "Cara lain untuk mengoptimalkan kecepatan Magento adalah dengan meninjau (dan jika perlu, menghapus) ekstensi situs serta skrip pihak ketiga, terutama yang ditambahkan melalui GTM atau langsung ke Magento. Mengidentifikasi skrip-skrip ini mudah dilakukan dengan",
+        "tip7Para1Middle": "atau",
+        "tip7Para1After": ", dan akan meningkatkan waktu muat situs.",
+        "tip7Para2": "Ingat: jika skrip hanya diperlukan pada satu halaman (seperti PDP atau checkout), tidak perlu memuatnya di seluruh situs.",
+        "tip8Title": "8. Bersihkan dan Optimalkan Database Magento Anda",
+        "tip8Para": "Berikan tugas kepada developer Anda untuk membersihkan dan mengoptimalkan database Magento secara rutin. Hal ini akan mencegah penumpukan data yang tidak terpakai, termasuk log dan kutipan yang kedaluwarsa, seiring waktu. Ini akan meningkatkan optimasi situs Magento Anda dan mempercepat kueri pelanggan.",
+        "bonusTitle": "Tips Bonus untuk Magento 2.4 dan Seterusnya",
+        "bonusItem1Strong": "Gunakan Hyva Themes:",
+        "bonusItem1Before": "Tema",
+        "bonusItem1After": "adalah pilihan yang sangat baik bagi pemilik bisnis yang mencari kecepatan lebih cepat dari Luma dan hasil pengujian Core Web Vitals yang luar biasa. Tema ini meningkatkan performa web, mengurangi kompleksitas developer, dan meningkatkan UX. Ini adalah peningkatan yang cerdas dan siap masa depan untuk toko Magento mana pun.",
+        "bonusItem2Strong": "Uji secara rutin:",
+        "bonusItem2Before": "Jalankan uji kecepatan bulanan menggunakan alat seperti",
+        "bonusItem2Middle": ", dan",
+        "bonusItem2After": ".",
+        "finalTitle": "Optimasi Situs Magento: Pemikiran Akhir",
+        "finalParaBefore": "Optimasi situs Magento adalah investasi berkelanjutan. Dengan pengaturan yang tepat dan tinjauan rutin, Anda dapat menjaga toko Anda tetap cepat, aman, dan unggul dari persaingan, sebagaimana ditunjukkan oleh kerja sama kami dengan",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Karier | Develo Design",
+      "pageDescription": "Bergabunglah dengan tim kami yang terus berkembang. Kami selalu mencari developer, desainer, dan spesialis eCommerce berbakat yang peduli pada kualitas kerja.",
+      "hero": {
+        "smallTitle": "Karier",
+        "heading": "Bergabunglah dengan tim kami yang terus berkembang",
+        "subheading": "Kami selalu mencari developer, desainer, dan spesialis eCommerce berbakat yang peduli pada kualitas kerja."
+      },
+      "noPositions": {
+        "heading": "Saat ini, kami tidak memiliki lowongan posisi",
+        "description": "Namun, kami selalu tertarik untuk mendengar dari individu-individu berbakat. Jika Anda merasa cocok dengan tim kami, kirimkan CV Anda dan kami akan menghubungi Anda ketika ada peluang tersedia.",
+        "cta": "Kirim CV Anda"
+      },
+      "footerCta": {
+        "heading": "Siap memulai proyek Anda?",
+        "description": "Kami akan senang membantu Anda membuatnya cepat, dapat diskalakan, dan indah.",
+        "button": "Hubungi kami"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Kebijakan Privasi dan Cookies | Develo Design",
+      "pageDescription": "Di Develo Design, kami berkomitmen untuk melindungi privasi Anda. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.",
+      "hero": {
+        "label": "Legal",
+        "title": "Kebijakan Privasi dan Cookies",
+        "description": "Privasi Anda penting bagi kami. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda."
+      },
+      "body": {
+        "introTitle": "Pendahuluan",
+        "introPara": "Di Develo Design, kami berkomitmen untuk melindungi privasi Anda dan memastikan Anda mendapatkan pengalaman yang positif di situs web kami. Kebijakan Privasi dan Cookies ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.",
+        "collectTitle": "Informasi yang Kami Kumpulkan",
+        "collectIntro": "Kami mengumpulkan informasi melalui cara-cara berikut:",
+        "collectProvidedTitle": "Informasi yang Anda Berikan"
+      }
+    }
+  }
+}

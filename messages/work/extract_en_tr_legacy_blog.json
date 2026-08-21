@@ -1,0 +1,131 @@
+{
+  "blog": {
+    "common": {
+      "noImage": "No Image"
+    },
+    "meta": {
+      "title": "IPL Blog - Latest Insights & Industry Trends | iShine",
+      "description": "Explore the latest IPL technology trends, manufacturing insights, and industry innovations in our comprehensive blog for beauty device manufacturers."
+    },
+    "hero": {
+      "kicker": "Insights & Trends",
+      "title": "Blog",
+      "description": "Industry insights, manufacturing trends, and expert guidance for IPL device brands evaluating technology, compliance, and market strategy.",
+      "cards": {
+        "focusLabel": "Content Focus",
+        "focusTitle": "Technology + Manufacturing",
+        "focusDescription": "Built for beauty brands, sourcing teams, and operators researching IPL products and supplier capability.",
+        "discoveryLabel": "Discovery",
+        "discoveryDescription": "Published articles currently available in this Astro blog archive.",
+        "useCaseLabel": "Use Case",
+        "useCaseTitle": "Research Before Inquiry",
+        "useCaseDescription": "Use this archive to validate expertise before moving into product review, services, or contact."
+      }
+    },
+    "intro": {
+      "kicker": "Latest Articles",
+      "title": "Explore practical guidance, market insight, and IPL product expertise",
+      "description": "Discover the latest trends in IPL technology, manufacturing best practices, compliance considerations, and market insight from the iShine team.",
+      "stats": {
+        "archiveLabel": "Archive",
+        "archiveHelp": "Articles in the current library",
+        "categoriesLabel": "Categories",
+        "categoriesHelp": "Dynamic topics available to filter",
+        "modeLabel": "Reading Mode",
+        "modeValue": "Featured + Grid",
+        "modeHelp": "Designed for quick scanning and deeper reading"
+      }
+    },
+    "search": {
+      "label": "Search Articles",
+      "placeholder": "Search articles by title, category, excerpt, or author...",
+      "clear": "Clear",
+      "helper": "Filter and discover by topic without leaving the page"
+    },
+    "filters": {
+      "label": "Filter by Category",
+      "all": "All",
+      "clear": "Clear filters",
+      "reset": "Reset filters",
+      "emptyTitle": "No articles found",
+      "emptyDescription": "Try adjusting your search or filters to find the content you're looking for."
+    },
+    "featured": {
+      "label": "Featured Article",
+      "title": "Start with the latest post",
+      "cta": "Read featured article →"
+    },
+    "grid": {
+      "label": "Latest Articles",
+      "title": "More from the archive",
+      "cta": "Read article →"
+    },
+    "loadMore": "Load More Articles",
+    "results": {
+      "template": "Showing {shown} of {total} articles",
+      "resultSingular": "result",
+      "resultPlural": "results",
+      "for": "for",
+      "in": "in"
+    },
+    "emptyArchive": {
+      "kicker": "Blog Archive",
+      "title": "No articles available yet",
+      "description": "Add MDX content to the blog source directory to populate the archive, featured article area, filters, and results grid."
+    },
+    "post": {
+      "authorLabel": "Article author",
+      "relatedTitle": "Related articles",
+      "relatedCta": "Read →",
+      "backToBlog": "Back to blog",
+      "tocTitle": "On this page",
+      "ctaTitle": "Need a project-specific answer?",
+      "ctaHeading": "Talk to our manufacturing team",
+      "ctaDescription": "Contact the team to discuss your market, volume, compliance needs, and product direction.",
+      "ctaPrimary": "Contact Our Team",
+      "ctaSecondary": "View all ipl products",
+      "keepExploringTitle": "Keep exploring",
+      "keepExploringDescription": "Browse the archive to find posts by category, keyword, or topic focus.",
+      "nextStepsTitle": "Next steps",
+      "nextStepsItems": [
+        "Compare OEM and ODM options",
+        "Validate compliance and testing requirements",
+        "Request a product review or sample plan"
+      ],
+      "continueReadingTitle": "Continue reading",
+      "viewAllArticles": "View all articles",
+      "citableEyebrow": "Citable Summary",
+      "citableQuestion": "What is this article about?",
+      "citableBody": "This article explains {title} for teams evaluating or building private-label IPL hair removal products. It covers practical considerations for OEM/ODM execution, including how manufacturing choices can influence product experience, compliance planning, and launch readiness. The goal is to provide a self-contained overview that readers can reference when comparing options, preparing RFQs, or aligning internal stakeholders on requirements. Where relevant, the discussion connects component-level decisions (such as cooling, filters, lamp cartridges, sensors, and power design) with end-user comfort and repeatable production outcomes. The key takeaway is a clearer set of decision criteria you can use to reduce risk and move from concept to scalable manufacturing with fewer iterations."
+    }
+  },
+  "contact": {
+    "title": "Contact Our Team",
+    "subtitle": "Get in touch with our team",
+    "description": "Tell us about your OEM/ODM project, sample request, or sourcing requirements. We typically respond within 24-48 hours with next-step guidance.",
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "subject": "Subject",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "businessHours": "Business Hours",
+      "mondayToFriday": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "saturday": "Saturday: 9:00 AM - 1:00 PM",
+      "sunday": "Sunday: Closed"
+    }
+  }
+}

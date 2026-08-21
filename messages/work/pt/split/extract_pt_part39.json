@@ -1,0 +1,206 @@
+{
+  "productDetail": {
+    "eirene": {
+      "features": {
+        "enhancedUvProtection": {
+          "description": "O filtro avançado de corte UV proporciona proteção extra para a pele delicada durante o tratamento."
+        },
+        "gentleEnergyProfile": {
+          "title": "Perfil de Energia Suave",
+          "description": "Otimizado para 5-7 J/cm² com corte em 570 nm para uma redução de pelos suave mas eficaz."
+        },
+        "softColorPalette": {
+          "title": "Paleta de Cores Suaves",
+          "description": "Disponível em Rosa Suave, Branco Pérola e Lavanda para uma estética suave e calmante."
+        }
+      },
+      "priceNote": "Contacte-nos para saber os preços de fábrica atuais e as opções de encomenda-piloto para a plataforma Eirene.",
+      "badge": "Suave",
+      "colors": [
+        "Rosa Suave",
+        "Branco Pérola",
+        "Lavanda"
+      ]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (Madeira)",
+      "tagline": "Coleção de Luxo com Acabamento em Madeira",
+      "description": "A Golden Luxury é uma plataforma IPL premium com acabamento em madeira, concebida para um posicionamento de gama alta e experiências de unboxing luxuosas.",
+      "specs": {
+        "type": {
+          "label": "Tipo",
+          "value": "Estética de luxo"
+        },
+        "cooling": {
+          "label": "Arrefecimento",
+          "value": "Suporte, tecnologia de sensação de gelo de safira"
+        },
+        "window": {
+          "label": "Janela",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "Energia",
+          "value": "1-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Definições de energia",
+          "value": "9 níveis"
+        },
+        "lamp": {
+          "label": "Lâmpada",
+          "value": "Oferece 999,999 flashes"
+        },
+        "autoFlash": {
+          "label": "Flash automático",
+          "value": "Suporte"
+        },
+        "pulseDuration": {
+          "label": "Duração do pulso (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Temperatura de arrefecimento",
+          "value": "8°C (ambiente 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Tempo até à temperatura de arrefecimento",
+          "value": "2 minutos"
+        },
+        "totalEnergyRange": {
+          "label": "Intervalo de energia total",
+          "value": "4-15 J"
+        },
+        "inputVoltage": {
+          "label": "Tensão de entrada",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Adaptador",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Filtro UV",
+          "value": "Sim"
+        },
+        "safetySystem": {
+          "label": "Sistema de segurança integrado",
+          "value": "Sim"
+        },
+        "skinToneSensor": {
+          "label": "Sensor de tom de pele",
+          "value": "Não"
+        },
+        "lampMaterial": {
+          "label": "Material da lâmpada",
+          "value": "Quartzo"
+        },
+        "lampConfiguration": {
+          "label": "Configuração da lâmpada",
+          "value": "Lâmpada única"
+        },
+        "warranty": {
+          "label": "Garantia",
+          "value": "Garantia global de 2 anos"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Densidade de potência ótica máxima",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Comprimento de onda",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Dimensões do dispositivo",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Peso líquido",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ em volume (dispositivo)",
+          "value": "500 unidades"
+        }
+      },
+      "features": {
+        "luxuryAesthetics": {
+          "title": "Estética de Luxo",
+          "description": "O acabamento em madeira premium e os detalhes dourados criam uma experiência de unboxing à altura das marcas de beleza de luxo."
+        },
+        "sapphireIceCooling": {
+          "title": "Arrefecimento com Gelo de Safira",
+          "description": "A tecnologia avançada de placa de gelo de safira garante tratamentos confortáveis e sem dor em todas as utilizações."
+        },
+        "premiumUnboxing": {
+          "title": "Unboxing Premium",
+          "description": "Concebido para o retalho de gama alta com embalagem e apresentação luxuosas que elevam a perceção da marca."
+        },
+        "exclusiveColorSelection": {
+          "title": "Seleção Exclusiva de Cores",
+          "description": "Disponível em Dourado, Dourado Rosé e Champanhe para um aspeto verdadeiramente premium."
+        }
+      },
+      "priceNote": "Contacte-nos para saber os preços de fábrica atuais, as opções de cosmética e o orçamento de embalagem para a plataforma Golden Luxury.",
+      "badge": "Luxo",
+      "colors": [
+        "Dourado",
+        "Dourado Rosé",
+        "Champanhe"
+      ]
+    },
+    "priceTierQuantities": {
+      "tier1": "1-99 unidades",
+      "tier2": "100-999 unidades",
+      "tier3": "1000-4999 unidades",
+      "tier4": "5000+ unidades"
+    },
+    "oemOdmReady": "Pronto para OEM/ODM",
+    "sampleSupport": "Apoio a Amostras",
+    "factoryDirect": "Direto da Fábrica",
+    "pricingPayment": "Preços e Pagamento",
+    "perUnit": "/ unidade",
+    "pricingRange": "Preço inicial para {firstQty}. O preço por volume desce para USD {lastPrice} a partir de {lastQty}.",
+    "contactForQuote": "Contacte para obter um orçamento",
+    "pricingDepends": "Os preços dependem do âmbito da amostragem, da cosmética, da embalagem e dos requisitos de validação.",
+    "commercialBaseline": "Base comercial",
+    "sampleMoq": "MOQ de amostra: 1 unidade",
+    "bulkMoqLabel": "MOQ em volume: 500 unidades",
+    "quantityHeader": "Quantidade",
+    "unitPriceHeader": "Preço Unitário (USD)",
+    "acceptedPaymentMethods": "Métodos de Pagamento Aceites",
+    "paymentMethodsDescription": "Aceitamos PayPal, transferência bancária, Stripe, Alipay e pagamentos por cartão de crédito ou débito Mastercard, VISA, JCB, Discover, Diners Club e American Express.",
+    "paymentMethods": [
+      "PayPal",
+      "Transferência bancária",
+      "Stripe",
+      "Alipay",
+      "Mastercard",
+      "VISA",
+      "JCB",
+      "Discover",
+      "Diners Club",
+      "American Express"
+    ],
+    "specifications": "Especificações",
+    "availableColors": "Cores Disponíveis",
+    "featuresIntro": "O que torna {productName} a escolha certa para a sua marca.",
+    "ctaTitle": "Interessado em {productName}?",
+    "ctaDescription": "Contacte a nossa equipa para discutir opções de personalização, MOQ, preços e pedidos de amostras para a sua marca.",
+    "requestFreeSample": "Solicitar Amostra Grátis",
+    "viewAllProducts": "Ver Todos os Produtos",
+    "viewImage": "Ver imagem de {productName}",
+    "galleryAlt": "Galeria de {productName} {index}",
+    "index": {
+      "page": {
+        "title": "Plataformas de Dispositivos IPL para Marca Própria",
+        "description": "Explore as plataformas de dispositivos IPL da iShine para marca própria: dispositivos IPL de uso doméstico com arrefecimento, controlo por aplicação inteligente, designs portáteis e coleções premium com acabamento em madeira para marcas de beleza."
+      },
+      "hero": {
+        "alt": "Produtos IPL",
+        "title": "Plataformas de Dispositivos IPL"
+      }
+    }
+  }
+}

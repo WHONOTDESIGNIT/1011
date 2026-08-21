@@ -1,0 +1,180 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "cards": {
+        "email": {
+          "label": "E-mail",
+          "description": "Idéal pour les demandes de devis (RFQ), les demandes d'échantillons et les briefs de projet."
+        },
+        "phone1": {
+          "label": "Téléphone",
+          "description": "Éric, support commercial pour les demandes de fabrication en cours."
+        },
+        "phone2": {
+          "label": "Téléphone",
+          "description": "Maurice, support pour le suivi et la coordination des projets."
+        },
+        "address": {
+          "label": "Adresse",
+          "description": "Shenzhen, Guangdong, Chine"
+        }
+      },
+      "heroTitle": "Parlons-en",
+      "heroParagraph": "Parlez-nous de votre projet OEM/ODM. Nous répondons généralement sous 24 à 48 heures avec des conseils pour la suite.",
+      "summaryTitle": "Comment lancer une demande IPL OEM/ODM auprès d'iShine ?",
+      "summaryDescription": "Pour lancer une demande IPL OEM/ODM auprès d'iShine, partagez un bref résumé de projet comprenant votre marché cible, le positionnement souhaité, la fourchette de quantité commandée prévue et le calendrier. Les détails utiles incluent le concept de l'appareil (connecté à une application, axé sur le refroidissement, avec détection cutanée par IA, ou un modèle de référence précis), le style d'emballage préféré et toute exigence de conformité, comme des configurations marquées CE ou des besoins documentaires pour les parcours liés à la FDA. Si vous disposez déjà d'une nomenclature (BOM), de photos de référence ou de repères concurrentiels, incluez-les pour éviter les allers-retours. Une fois le résumé reçu, l'étape suivante consiste généralement à sélectionner les échantillons et à discuter de l'étendue de la personnalisation, du MOQ, des délais de production et de la planification documentaire, afin que le projet puisse passer à la phase de prototypage et de planification de la production.",
+      "imageAlt": "Appareil IPL iShine",
+      "form": {
+        "title": "Entrons en contact !",
+        "honeypotLabel": "Ne remplissez pas ce champ :",
+        "fullName": "Nom complet",
+        "email": "E-mail",
+        "companyName": "Nom de l'entreprise",
+        "phoneNumber": "Numéro de téléphone",
+        "productInterest": "Produit d'intérêt",
+        "expectedQuantity": "Quantité prévue",
+        "projectTimeline": "Calendrier du projet",
+        "projectDetails": "Détails du projet",
+        "send": "Envoyer",
+        "productOptions": [
+          "Appareils d'épilation IPL",
+          "Projet OEM/ODM personnalisé",
+          "Composants IPL uniquement",
+          "Appareil de rajeunissement cutané",
+          "Pas encore sûr"
+        ],
+        "quantityOptions": [
+          "Un échantillon gratuit",
+          "10~500 unités",
+          "Encore en phase de planification"
+        ],
+        "timelineOptions": [
+          "Dès que possible",
+          "1 - 3 mois",
+          "3 - 6 mois",
+          "6 - 12 mois",
+          "Recherche uniquement"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Pourquoi l'épilation IPL est sûre | Preuves, FDA, types de peau et sécurité des appareils",
+      "description": "Une page pilier plaçant la sécurité au premier plan pour l'épilation IPL : preuves cliniques, contexte FDA, protocole sécurisé à domicile, types de peau Fitzpatrick, filtrage UV, capteurs, effets secondaires, contre-indications et soins après séance. Inclut des liens directs vers les plateformes de produits et des guides approfondis.",
+      "breadcrumbLabel": "Pourquoi l'épilation IPL est sûre",
+      "cta": {
+        "explorePlatforms": "Découvrir les plateformes d'appareils IPL",
+        "compareModels": "Comparer tous les modèles"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Données cliniques sur la sécurité de l'IPL",
+          "anchor": "Données cliniques sur la sécurité de l'IPL",
+          "description": "Comment les études décrivent les réactions cutanées typiques et leur gravité, et pourquoi la plupart des effets secondaires sont légers et temporaires lorsqu'on utilise l'appareil correctement."
+        },
+        "fdaContext": {
+          "title": "Contexte FDA : ce que signifie réellement « FDA cleared »",
+          "anchor": "Vérification FDA (ce que signifie « FDA cleared »)",
+          "description": "Comment interpréter le langage de la FDA et pourquoi il étaye les allégations de sécurité sans exagérer ce que garantissent les autorités réglementaires."
+        },
+        "atHomeProtocol": {
+          "title": "Protocole IPL à domicile sûr (fréquence, test cutané, réglages)",
+          "anchor": "Protocole IPL à domicile sûr (fréquence, test cutané, réglages)",
+          "description": "Les règles d'utilisation pratiques qui maintiennent un risque faible : test cutané, montée progressive, espacement des séances et évitement des flashs répétés."
+        },
+        "fitzpatrick": {
+          "title": "Types de peau Fitzpatrick et limites de sécurité de l'IPL",
+          "anchor": "Types de peau Fitzpatrick et limites de sécurité de l'IPL",
+          "description": "Pourquoi le teint de la peau influence le risque (physique, et non discrimination) et comment les marques doivent communiquer sur la compatibilité de manière responsable."
+        },
+        "iplVsLaser": {
+          "title": "IPL vs laser : comparaison de sécurité (et à qui chacun convient)",
+          "anchor": "IPL vs laser : comparaison de sécurité",
+          "description": "Une comparaison équilibrée : classe de l'appareil, délivrance de l'énergie, risques courants, et pourquoi « plus sûr » dépend du type de peau et du protocole."
+        },
+        "uvFiltering": {
+          "title": "Filtrage UV et contrôle de la longueur d'onde (pourquoi l'IPL n'est pas un bronzage UV)",
+          "anchor": "Filtrage UV et contrôle de la longueur d'onde",
+          "description": "Comment les filtres et la conception de la longueur d'onde réduisent les rayonnements indésirables et améliorent les marges de sécurité pendant le traitement."
+        },
+        "safetySensors": {
+          "title": "Capteurs de sécurité : détection du teint de la peau et capteurs de contact",
+          "anchor": "Capteurs de sécurité (détection du teint de la peau et capteurs de contact)",
+          "description": "Comment la détection du teint et les verrouillages de contact réduisent le risque de mauvaise utilisation, en particulier pour les types de peau Fitzpatrick plus élevés."
+        },
+        "sideEffects": {
+          "title": "Effets secondaires de l'IPL expliqués (ce qui est normal ou non)",
+          "anchor": "Effets secondaires de l'IPL expliqués (ce qui est normal ou non)",
+          "description": "Ce que signifie une rougeur légère, à quoi ressemblent les brûlures, et l'arbre de décision pour faire une pause, réduire les réglages ou consulter un professionnel."
+        },
+        "contraindications": {
+          "title": "Qui ne devrait pas utiliser l'IPL (contre-indications et facteurs de risque)",
+          "anchor": "Qui ne devrait pas utiliser l'IPL (contre-indications)",
+          "description": "Médicaments, exposition au soleil, tatouages, affections cutanées et autres situations où l'IPL doit être évité ou différé."
+        },
+        "beforeAfterCare": {
+          "title": "Soins avant/après : comment réduire les irritations et les risques",
+          "anchor": "Soins avant/après pour réduire les risques de l'IPL",
+          "description": "Des étapes simples de soins avant et après qui réduisent l'inflammation et aident à éviter les problèmes de pigmentation après les séances."
+        }
+      },
+      "heroKicker": "Pilier sécurité",
+      "heroTitle": "Pourquoi l'épilation IPL est sûre (lorsqu'elle est utilisée correctement)",
+      "heroParagraph": "Ce hub place la sécurité au premier plan et s'adresse aux marques, aux équipes d'approvisionnement et aux acheteurs du commerce de détail. Il relie les questions de sécurité les plus recherchées à des réponses pratiques, à un contexte fondé sur des preuves et à des caractéristiques de conception des appareils qui réduisent les risques.",
+      "howToKicker": "Comment utiliser cette page",
+      "howToTitle": "Lisez dans le même ordre que vos acheteurs",
+      "howToSteps": [
+        "Commencez par les preuves et le contexte FDA pour étayer l'allégation « sûre » de manière responsable.",
+        "Confirmez les limites selon le type de peau et le protocole qui maintient un risque faible à domicile.",
+        "Sélectionnez ensuite les plateformes dans Produits et comparez les modèles dans Catalogue."
+      ],
+      "topicMapKicker": "Carte des sujets",
+      "topicMapTitle": "10 sujets de sécurité (liens profonds)",
+      "topicMapParagraph": "Chaque sujet ci-dessous renvoie à un guide dédié. Utilisez ces ancres exactes sur les pages de support pour renforcer la pertinence.",
+      "guideLabel": "Guide",
+      "pillarKicker": "Sections du pilier",
+      "pillarTitle": "Preuves + protocole + conception de l'appareil",
+      "pillarParagraph": "Utilisez cette structure comme page de réponse détaillée, et les guides liés comme contenu de cluster qui la soutient.",
+      "readGuide": "Lire le guide",
+      "finalKicker": "Prêt à présélectionner un modèle ?",
+      "finalTitle": "Comparez toutes les plateformes, puis choisissez la bonne combinaison de sécurité",
+      "finalParagraph": "Utilisez la page Produits pour consulter les détails des plateformes et le Catalogue pour comparer le refroidissement, le contrôle par application et la détection de sécurité entre les modèles."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Plateforme d'échange d'actifs créatifs numériques",
+      "pageDescription": "iShine Marketplace est une plateforme de confiance d'échange d'actifs créatifs numériques où les créateurs exposent, échangent et développent leurs œuvres numériques — avec des services et un accompagnement créateurs fondés sur la conviction : Illuminez la créativité, créez de la valeur.",
+      "brandSlogan": "Illuminez la créativité, créez de la valeur",
+      "contactCta": "Contacter iShine",
+      "detailsCta": "Détails",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Actifs créatifs numériques",
+        "heading": "Votre plateforme de confiance pour l'échange d'actifs créatifs numériques",
+        "subheading": "Exposez vos œuvres numériques, échangez en toute confiance et développez-vous grâce aux services créateurs — le tout sur une place de marché de confiance."
+      },
+      "product1": {
+        "imageAlt": "Vitrine d'œuvres numériques - galerie d'actifs créatifs",
+        "smallTitle": "Vitrine d'œuvres numériques",
+        "heading": "Exposez vos créations numériques",
+        "description": "Publiez et présentez vos œuvres numériques — modèles, designs, illustrations et plus encore — dans une galerie joliment organisée qui permet aux acheteurs de découvrir facilement vos créations."
+      },
+      "product2": {
+        "imageAlt": "Échange sécurisé - transactions d'actifs numériques",
+        "smallTitle": "Échange numérique sécurisé",
+        "heading": "Échangez des actifs numériques en toute confiance",
+        "description": "Achetez et vendez des actifs numériques via un processus de transaction clair et sécurisé, avec des licences transparentes, une livraison instantanée et des paiements protégés."
+      },
+      "product3": {
+        "imageAlt": "Services créateurs - outils d'analyse et de croissance",
+        "smallTitle": "Services créateurs",
+        "heading": "Développez votre activité créative",
+        "description": "Des outils de portfolio aux statistiques de vente, iShine Marketplace offre aux créateurs les services et l'accompagnement dont ils ont besoin pour toucher de nouveaux publics et se développer durablement."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Services officiels",
+        "headingLine1": "Parlez à notre équipe iShine",
+        "headingLine2": "à propos de votre"
+      }
+    }
+  }
+}

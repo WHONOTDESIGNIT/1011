@@ -1,0 +1,224 @@
+{
+  "productDetail": {
+    "hestia": {
+      "specs": {
+        "energy": {
+          "value": "5.0 J/cm²"
+        },
+        "energySettings": {
+          "label": "Cài đặt năng lượng",
+          "value": "5 mức"
+        },
+        "lamp": {
+          "label": "Đèn flash",
+          "value": "Cung cấp 999,999 lần xung"
+        },
+        "autoFlash": {
+          "label": "Xung tự động",
+          "value": "Hỗ trợ"
+        },
+        "pulseDuration": {
+          "label": "Thời lượng xung (FWHM)",
+          "value": "1-3 ms FWHM"
+        },
+        "coolingTemperature": {
+          "label": "Nhiệt độ làm mát",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Thời gian đạt nhiệt độ làm mát",
+          "value": "1 phút"
+        },
+        "totalEnergyRange": {
+          "label": "Tổng dải năng lượng",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Điện áp đầu vào",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Bộ đổi nguồn",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "Bộ lọc tia UV",
+          "value": "Có"
+        },
+        "safetySystem": {
+          "label": "Hệ thống an toàn tích hợp",
+          "value": "Có"
+        },
+        "skinToneSensor": {
+          "label": "Cảm biến tông màu da",
+          "value": "Không"
+        },
+        "lampMaterial": {
+          "label": "Chất liệu đèn",
+          "value": "Thạch anh"
+        },
+        "lampConfiguration": {
+          "label": "Cấu hình đèn",
+          "value": "Đèn đơn"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "Bảo hành toàn cầu 2 năm"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Mật độ công suất quang tối đa",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Bước sóng",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Kích thước thiết bị",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Trọng lượng tịnh",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ số lượng lớn (thiết bị)",
+          "value": "500 chiếc"
+        }
+      },
+      "features": {
+        "appConnectedScheduling": {
+          "title": "Lập lịch điều trị qua ứng dụng",
+          "description": "Lập kế hoạch và theo dõi lịch điều trị của bạn qua ứng dụng di động để đạt kết quả ổn định."
+        },
+        "progressTracking": {
+          "title": "Theo dõi tiến trình",
+          "description": "Theo dõi lịch sử điều trị và sự cải thiện của làn da theo thời gian với số liệu phân tích chi tiết."
+        },
+        "multiColorDesign": {
+          "title": "Thiết kế đa màu sắc",
+          "description": "Có sẵn các màu Trắng, Đen, Be và Xanh ngọc để linh hoạt tùy biến theo thương hiệu."
+        },
+        "dataDrivenResults": {
+          "title": "Kết quả dựa trên dữ liệu",
+          "description": "Dữ liệu điều trị giúp người dùng tuân thủ lịch trình và đạt kết quả tối ưu nhanh hơn."
+        }
+      },
+      "badge": "Điều khiển bằng ứng dụng thông minh",
+      "colors": [
+        "Trắng",
+        "Đen",
+        "Be",
+        "Xanh ngọc"
+      ]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "Thiết bị IPL hiệu suất cao",
+      "description": "Thiết bị Alpha IPL được thiết kế cho các phiên điều trị tại nhà hiệu quả với hệ thống làm mát cảm giác băng sapphire và khả năng cung cấp năng lượng ổn định, lặp lại cho các chương trình nhãn riêng (private label).",
+      "specs": {
+        "type": {
+          "label": "Loại",
+          "value": "IPL dùng tại nhà (đèn thạch anh đơn)"
+        },
+        "cooling": {
+          "label": "Làm mát",
+          "value": "Hỗ trợ, công nghệ cảm giác băng sapphire"
+        },
+        "window": {
+          "label": "Cửa sổ phát sáng",
+          "value": "3.3 cm²"
+        },
+        "energy": {
+          "label": "Năng lượng",
+          "value": "2-5 J/cm²"
+        },
+        "energySettings": {
+          "label": "Cài đặt năng lượng",
+          "value": "5 mức"
+        },
+        "lamp": {
+          "label": "Đèn flash",
+          "value": "Cung cấp 999,999 lần xung"
+        },
+        "autoFlash": {
+          "label": "Xung tự động",
+          "value": "Hỗ trợ"
+        },
+        "pulseDuration": {
+          "label": "Thời lượng xung (FWHM)",
+          "value": "1-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "Nhiệt độ làm mát",
+          "value": "5°C (nhiệt độ môi trường 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "Thời gian đạt nhiệt độ làm mát",
+          "value": "1 phút"
+        },
+        "totalEnergyRange": {
+          "label": "Tổng dải năng lượng",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "Điện áp đầu vào",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "Bộ đổi nguồn",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "Bộ lọc tia UV",
+          "value": "Có"
+        },
+        "safetySystem": {
+          "label": "Hệ thống an toàn tích hợp",
+          "value": "Có"
+        },
+        "skinToneSensor": {
+          "label": "Cảm biến tông màu da",
+          "value": "Không"
+        },
+        "lampMaterial": {
+          "label": "Chất liệu đèn",
+          "value": "Thạch anh"
+        },
+        "lampConfiguration": {
+          "label": "Cấu hình đèn",
+          "value": "Đèn đơn"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "Bảo hành toàn cầu 2 năm"
+        },
+        "maxOpticalPowerDensity": {
+          "label": "Mật độ công suất quang tối đa",
+          "value": "500 W/cm²"
+        },
+        "wavelength": {
+          "label": "Bước sóng",
+          "value": "510-1100 nm"
+        },
+        "deviceSize": {
+          "label": "Kích thước thiết bị",
+          "value": "169 × 69.3 × 38.8 mm"
+        },
+        "netWeight": {
+          "label": "Trọng lượng tịnh",
+          "value": "275 g"
+        },
+        "bulkMoq": {
+          "label": "MOQ số lượng lớn (thiết bị)",
+          "value": "500 chiếc"
+        }
+      },
+      "features": {
+        "efficientOutput": {
+          "title": "Hiệu suất cao"
+        }
+      }
+    }
+  }
+}

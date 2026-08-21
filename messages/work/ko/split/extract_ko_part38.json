@@ -1,0 +1,227 @@
+{
+  "productDetail": {
+    "hebe": {
+      "specs": {
+        "coolingTemperature": {
+          "label": "쿨링 온도",
+          "value": "5°C"
+        },
+        "timeToCoolingTemperature": {
+          "label": "쿨링 온도 도달 시간",
+          "value": "1분"
+        },
+        "totalEnergyRange": {
+          "label": "총 에너지 범위",
+          "value": "16.5 J"
+        },
+        "inputVoltage": {
+          "label": "입력 전압",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "어댑터",
+          "value": "12V / 4000mA (48W)"
+        },
+        "uvFilter": {
+          "label": "UV 필터",
+          "value": "예"
+        },
+        "safetySystem": {
+          "label": "통합 안전 시스템",
+          "value": "예"
+        },
+        "lampMaterial": {
+          "label": "램프 재질",
+          "value": "석영"
+        },
+        "warranty": {
+          "label": "보증",
+          "value": "2년 글로벌 보증"
+        },
+        "wavelength": {
+          "label": "파장",
+          "value": "510-1100 nm"
+        }
+      },
+      "features": {
+        "comfortIceFeeling": {
+          "title": "컴포트 아이스 쿨링",
+          "description": "사파이어 아이스 쿨링이 더 민감한 부위의 시술 편안함을 개선하는 데 도움을 줍니다."
+        },
+        "safetyLockSupport": {
+          "title": "안전 잠금 지원",
+          "description": "추가 안전 잠금 포지셔닝이 시술 중 안정적인 작동을 지원합니다."
+        },
+        "powerDelivery": {
+          "title": "48W 전력 공급",
+          "description": "12V / 4000mA 어댑터가 안정적인 출력과 빠른 쿨링 성능을 지원합니다."
+        },
+        "premiumColorOptions": {
+          "title": "프리미엄 컬러 옵션",
+          "description": "프리미엄 리테일 프레젠테이션을 위해 Tech Black, Future Silver, Cosmic Blue 색상으로 제공됩니다."
+        }
+      },
+      "badge": "컴포트 쿨링",
+      "colors": [
+        "Tech Black",
+        "Future Silver",
+        "Cosmic Blue"
+      ]
+    },
+    "helix": {
+      "name": "Helix IPL",
+      "tagline": "아이스 쿨링 + 9단계 강도",
+      "description": "Helix IPL은 첨단 사파이어 아이스 쿨링과 디지털 디스플레이, 9단계 강도를 결합하여 정밀하고 편안한 가정용 트리트먼트를 제공합니다.",
+      "specs": {
+        "type": {
+          "label": "유형",
+          "value": "가정용 IPL (단일 석영 램프)"
+        },
+        "cooling": {
+          "label": "쿨링",
+          "value": "지원, 사파이어 아이스 쿨링 기술"
+        },
+        "window": {
+          "label": "조사창",
+          "value": "3.0 cm²"
+        },
+        "energy": {
+          "label": "에너지",
+          "value": "5.0 J/cm²"
+        },
+        "energySettings": {
+          "label": "에너지 설정",
+          "value": "9단계"
+        },
+        "lamp": {
+          "label": "램프",
+          "value": "999,999회 플래시 제공"
+        },
+        "autoFlash": {
+          "label": "자동 플래시",
+          "value": "지원"
+        },
+        "pulseDuration": {
+          "label": "펄스 지속 시간 (FWHM)",
+          "value": "1.0-3.5 ms"
+        },
+        "coolingTemperature": {
+          "label": "쿨링 온도",
+          "value": "8°C (상온 25°C)"
+        },
+        "timeToCoolingTemperature": {
+          "label": "쿨링 온도 도달 시간",
+          "value": "2분"
+        },
+        "totalEnergyRange": {
+          "label": "총 에너지 범위",
+          "value": "15 J"
+        },
+        "inputVoltage": {
+          "label": "입력 전압",
+          "value": "100-240 V"
+        },
+        "adapter": {
+          "label": "어댑터",
+          "value": "12V / 3000mA (36W)"
+        },
+        "uvFilter": {
+          "label": "UV 필터",
+          "value": "예"
+        },
+        "safetySystem": {
+          "label": "통합 안전 시스템",
+          "value": "예"
+        },
+        "lampMaterial": {
+          "label": "램프 재질",
+          "value": "석영"
+        },
+        "lampConfiguration": {
+          "label": "램프 구성",
+          "value": "단일 램프"
+        },
+        "warranty": {
+          "label": "보증",
+          "value": "2년 글로벌 보증"
+        },
+        "wavelength": {
+          "label": "파장",
+          "value": "510-1100 nm"
+        },
+        "display": {
+          "label": "디스플레이",
+          "value": "디지털 디스플레이"
+        }
+      },
+      "features": {
+        "sapphireIceCooling": {
+          "title": "사파이어 아이스 쿨링",
+          "description": "첨단 사파이어 쿨링 기술이 피부를 8°C에서 편안하게 유지하며, 단 2분 만에 설정 온도에 도달하여 진정 효과 있는 트리트먼트를 제공합니다."
+        },
+        "intensityLevels": {
+          "title": "9단계 강도",
+          "description": "표준 5단계 기기보다 많은 9단계 강도 설정으로 정밀한 에너지 제어가 가능하며, 맞춤형 트리트먼트 프로그램을 지원합니다."
+        },
+        "digitalDisplay": {
+          "title": "디지털 디스플레이",
+          "description": "내장 디지털 디스플레이가 에너지 레벨과 상태를 실시간으로 표시하여 직관적인 조작과 정밀한 트리트먼트 제어를 지원합니다."
+        },
+        "longLastingLamp": {
+          "title": "장수명 램프",
+          "description": "석영 램프가 999,999회 플래시를 제공하여 수년간 안정적인 트리트먼트를 지원합니다."
+        }
+      },
+      "badge": "디지털 디스플레이",
+      "colors": [
+        "White",
+        "Gold",
+        "Black"
+      ]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "민감 피부를 위한 부드러운 케어",
+      "description": "Eirene IPL은 부드러운 에너지 프로필과 강화된 UV 보호 기능을 갖춰 초민감 피부를 위해 특별히 설계되었습니다.",
+      "specs": {
+        "type": {
+          "label": "유형",
+          "value": "초민감 피부"
+        },
+        "cooling": {
+          "label": "쿨링",
+          "value": "표준"
+        },
+        "energy": {
+          "label": "에너지",
+          "value": "5-7 J/cm²"
+        },
+        "lamp": {
+          "label": "램프",
+          "value": "800,000회 플래시"
+        },
+        "window": {
+          "label": "조사창",
+          "value": "4.0 cm²"
+        },
+        "wavelength": {
+          "label": "파장",
+          "value": "570-1200nm"
+        },
+        "uvCutFilter": {
+          "label": "UV 차단 필터",
+          "value": "강화"
+        }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": {
+          "title": "초민감 피부 맞춤",
+          "description": "반응성 또는 민감한 피부를 위해 특별히 설계되었으며, 편안함을 위해 강도를 점진적으로 높입니다."
+        },
+        "enhancedUvProtection": {
+          "title": "강화된 UV 보호"
+        }
+      }
+    }
+  }
+}

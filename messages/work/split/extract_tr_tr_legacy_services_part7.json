@@ -1,0 +1,224 @@
+{
+  "servicesPage": {
+    "packagingLogistics": {
+      "types": {
+        "items": {
+          "2": {
+            "applications": {
+              "3": "Profesyonel Kanallar"
+            },
+            "features": {
+              "0": "Maliyet Verimliliği",
+              "1": "Alan Optimizasyonu",
+              "2": "Kolay Taşıma",
+              "3": "Miktar Esnekliği"
+            }
+          }
+        }
+      },
+      "network": {
+        "heading": "Küresel lojistik ağı kapsamımız nedir?",
+        "sub": "Öngörülebilir teslimat ve net devir teslim için tasarlanmış kapsam, merkezler ve hizmetler.",
+        "hubsLabel": "Merkezler",
+        "servicesLabel": "Hizmetler",
+        "items": {
+          "0": {
+            "region": "Kuzey Amerika",
+            "coverage": "ABD, Kanada, Meksika",
+            "hubs": {
+              "0": "Los Angeles",
+              "1": "New York",
+              "2": "Toronto"
+            },
+            "deliveryTime": "2-5 iş günü",
+            "services": {
+              "0": "Ekspres Sevkiyat",
+              "1": "Kara Yoluyla Teslimat",
+              "2": "Beyaz Eldiven Hizmeti"
+            }
+          },
+          "1": {
+            "region": "Avrupa",
+            "coverage": "AB, Birleşik Krallık, İsviçre, Norveç",
+            "hubs": {
+              "0": "Frankfurt",
+              "1": "Londra",
+              "2": "Amsterdam"
+            },
+            "deliveryTime": "1-4 iş günü",
+            "services": {
+              "0": "Ertesi Gün Teslimat",
+              "1": "Standart Kargo",
+              "2": "Gümrük İşlemleri"
+            }
+          },
+          "2": {
+            "region": "Asya Pasifik",
+            "coverage": "Çin, Japonya, Avustralya, Güneydoğu Asya",
+            "hubs": {
+              "0": "Hong Kong",
+              "1": "Singapur",
+              "2": "Sidney"
+            },
+            "deliveryTime": "2-7 iş günü",
+            "services": {
+              "0": "Hava Kargo",
+              "1": "Deniz Kargo",
+              "2": "Bölgesel Dağıtım"
+            }
+          },
+          "3": {
+            "region": "Dünyanın Geri Kalanı",
+            "coverage": "Orta Doğu, Afrika, Güney Amerika",
+            "hubs": {
+              "0": "Dubai",
+              "1": "São Paulo",
+              "2": "Johannesburg"
+            },
+            "deliveryTime": "5-14 iş günü",
+            "services": {
+              "0": "Uluslararası Ekspres",
+              "1": "Ekonomik Kargo",
+              "2": "Kapıdan Kapıya"
+            }
+          }
+        }
+      },
+      "process": {
+        "heading": "Ambalajlama Süreci",
+        "sub": "Kaliteyi ve zaman çizelgelerini öngörülebilir kılan, tasarımdan teslimata tekrarlanabilir bir iş akışı.",
+        "items": {
+          "0": {
+            "step": "01",
+            "title": "Tasarım Danışmanlığı",
+            "description": "Mükemmel ambalaj stratejisini oluşturmak için markanızı, ürün gereksinimlerinizi ve hedef pazarınızı anlamak.",
+            "deliverables": {
+              "0": "Marka Analizi",
+              "1": "Pazar Araştırması",
+              "2": "Tasarım Özeti",
+              "3": "Malzeme Önerileri"
+            }
+          },
+          "1": {
+            "step": "02",
+            "title": "Konsept Geliştirme",
+            "description": "Korumayı, estetiği ve maliyet etkinliğini dengeleyen yenilikçi ambalaj konseptleri oluşturmak.",
+            "deliverables": {
+              "0": "Tasarım Konseptleri",
+              "1": "3D Görselleştirmeler",
+              "2": "Malzeme Numuneleri",
+              "3": "Maliyet Tahminleri"
+            }
+          },
+          "2": {
+            "step": "03",
+            "title": "Prototip ve Test",
+            "description": "Optimum koruma ve kullanıcı deneyimi sağlamak için prototipler geliştirmek ve titiz testler yürütmek.",
+            "deliverables": {
+              "0": "Fiziksel Prototipler",
+              "1": "Düşme Testi",
+              "2": "Kullanıcı Testi",
+              "3": "Tasarım İyileştirmeleri"
+            }
+          },
+          "3": {
+            "step": "04",
+            "title": "Üretim ve Teslimat",
+            "description": "Tam üretime ölçeklenmek ve kesintisiz teslimat için küresel lojistik ağımızla entegre olmak.",
+            "deliverables": {
+              "0": "Seri Üretim",
+              "1": "Kalite Kontrol",
+              "2": "Envanter Yönetimi",
+              "3": "Küresel Dağıtım"
+            }
+          }
+        }
+      },
+      "sustainability": {
+        "heading": "Sürdürülebilirlik",
+        "sub": "Malzeme verimliliğini artıran ve lojistik etkisini azaltan pratik sürdürülebilirlik seçenekleri.",
+        "items": {
+          "0": {
+            "title": "Çevre Dostu Malzemeler",
+            "description": "Korumadan ödün vermeden çevresel etkiyi azaltan sürdürülebilir ambalaj malzemeleri.",
+            "examples": {
+              "0": "Geri Dönüştürülmüş Karton",
+              "1": "Biyolojik Olarak Parçalanabilir Köpük",
+              "2": "Bitki Bazlı Plastikler",
+              "3": "Minimal Ambalaj"
+            }
+          },
+          "1": {
+            "title": "Döngüsel Tasarım",
+            "description": "Döngüsel ekonomi ilkelerini desteklemek için yeniden kullanım, geri dönüşüm veya kompostlama amacıyla tasarlanmış ambalaj.",
+            "examples": {
+              "0": "Yeniden Kullanılabilir Kutular",
+              "1": "Geri Dönüştürülebilir Bileşenler",
+              "2": "Kompostlanabilir Malzemeler",
+              "3": "Modüler Tasarım"
+            }
+          },
+          "2": {
+            "title": "Karbon Ayak İzi Azaltımı",
+            "description": "Tedarik zinciri boyunca karbon emisyonlarını en aza indirmek için optimize edilmiş lojistik ve ambalaj.",
+            "examples": {
+              "0": "Rota Optimizasyonu",
+              "1": "Birleştirilmiş Sevkiyat",
+              "2": "Yerel Tedarik",
+              "3": "Verimli Ambalaj"
+            }
+          }
+        }
+      },
+      "performance": {
+        "heading": "Performans",
+        "sub": "Tutarlı teslimatı ve düşük hasar oranını yansıtan metrikler.",
+        "items": {
+          "0": {
+            "metric": "99.8%",
+            "label": "Zamanında Teslimat"
+          },
+          "1": {
+            "metric": "0.02%",
+            "label": "Hasar Oranı"
+          },
+          "2": {
+            "metric": "50+",
+            "label": "Hizmet Verilen Ülke"
+          },
+          "3": {
+            "metric": "24/7",
+            "label": "Takip Desteği"
+          }
+        }
+      },
+      "cta": {
+        "title": "Güvenle Küresel Sevkiyata Hazır mısınız?",
+        "description": "Kanallarınıza, bölgelerinize ve teslimat zaman çizelgelerinize uygun bir ambalajlama ve lojistik planı alın.",
+        "start": "Lojistik Teklifi Alın",
+        "back": "Hizmetlere Geri Dön"
+      }
+    },
+    "noMoq": {
+      "meta": {
+        "title": "MOQ'suz Markalama Desteği | iShine",
+        "description": "IPL özel etiket lansmanları için MOQ'suz destek: küçük başlayın, talebi doğrulayın, ardından tekrarlanabilir ikmal ve markaya hazır ambalajla ölçeklenin."
+      },
+      "hero": {
+        "title1": "MOQ Yok,",
+        "title2": "Başlamanın Daha Akıllı Yolu",
+        "description": "Markalı IPL cihazınızı büyük stok yatırımlarına zorlamadan pazara sunun. Küçük bir pilot partiyle başlayın, hızla öğrenin, ardından istikrarlı bir ikmal iş akışıyla ölçeklenin.",
+        "cta1": "Bir Uzmanla Görüşün",
+        "cta2": "Hizmetlere Geri Dön"
+      },
+      "citable": {
+        "heading": "Özel etiketli bir IPL lansmanı için “MOQ Yok” ne anlama gelir?",
+        "body": "“MOQ Yok”, markalı bir IPL programına kanalınızı ve mesajlarınızı doğrulamak için daha küçük bir pilot miktarla başlayabileceğiniz, ardından büyük bir ön stok yatırımı yapmak yerine tekrarlanan siparişlerle üretimi ölçekleyebileceğiniz anlamına gelir. Pratik bir MOQ'suz kurulum; net markalama gereksinimlerini, tanımlı ambalaj ve kullanım kılavuzu içeriğini, istikrarlı malzeme listesi kontrolünü ve hacim arttıkça öngörülebilir teslim sürelerini destekleyen bir ikmal planını içerir. Amaç, profesyonel bir marka sunumu korurken lansman riskini azaltmaktır."
+      },
+      "highlights": {
+        "eyebrow": "Öne Çıkanlar",
+        "heading": "MOQ'suz destekle neler elde edersiniz?"
+      }
+    }
+  }
+}

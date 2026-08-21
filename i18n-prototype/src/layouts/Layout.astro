@@ -1,0 +1,58 @@
+---
+import { useTranslations } from '../i18n/ui';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const currentLocale = Astro.currentLocale;
+const translate = useTranslations(currentLocale);
+const homeUrl = currentLocale === 'tr' ? '/tr/' : '/';
+---
+<!doctype html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href={homeUrl}>iShine i18n</a>
+      <nav class="site-nav">
+        <a href={homeUrl}>{translate('nav.home')}</a>
+        <a href={currentLocale === 'tr' ? '/tr/about' : '/about'}>{translate('nav.about')}</a>
+        <a href={currentLocale === 'tr' ? '/tr/services' : '/services'}>{translate('nav.services')}</a>
+      </nav>
+      <LanguageSwitcher />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>{translate('footer.text')}</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #fff; color: #020303; }
+  .site-header { display: flex; align-items: center; gap: 24px; padding: 16px 32px; border-bottom: 1px solid #e5e7eb; }
+  .logo { font-weight: 700; text-decoration: none; color: #563cfa; font-size: 18px; }
+  .site-nav { display: flex; gap: 16px; }
+  .site-nav a { color: #4b5563; text-decoration: none; }
+  .site-nav a:hover { color: #563cfa; }
+  .lang-switcher { margin-left: auto; display: flex; gap: 8px; }
+  .lang-link { padding: 6px 14px; border: 1px solid #9ca3af; border-radius: 100px; text-decoration: none; color: #020303; font-size: 14px; transition: all 0.2s; }
+  .lang-link:hover { border-color: #563cfa; color: #563cfa; }
+  .lang-link.active { background: #563cfa; border-color: #563cfa; color: #fff; }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 16px; }
+  p { font-size: 17px; line-height: 1.7; color: #4b5563; }
+  .meta { font-size: 13px; color: #6b7280; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 14px; }
+  .meta code { background: #eef2ff; color: #4338ca; padding: 1px 6px; border-radius: 4px; }
+  .site-footer { border-top: 1px solid #e5e7eb; padding: 24px 32px; color: #6b7280; font-size: 13px; }
+  a { color: #563cfa; }
+</style>

@@ -1,0 +1,250 @@
+{
+  "componentsFilter": {
+    "quality": {
+      "blocks": {
+        "transmission": {
+          "title": "Estabilidade de Transmissão",
+          "description": "Testes de longa duração para propriedades óticas consistentes ao longo da vida útil"
+        },
+        "heat": {
+          "title": "Resistência ao Calor",
+          "description": "Testes de stress térmico para validar o desempenho em condições intensivas"
+        },
+        "durability": {
+          "title": "Testes de Durabilidade",
+          "description": "Envelhecimento acelerado e testes de stress mecânico para fiabilidade a longo prazo"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplicações",
+      "items": {
+        "hair": {
+          "title": "Remoção de Pelos",
+          "description": "Atua sobre os folículos pilosos enquanto protege a pele circundante"
+        },
+        "skin": {
+          "title": "Rejuvenescimento da Pele",
+          "description": "Filtros que apoiam a produção de colagénio e a renovação da pele"
+        },
+        "acne": {
+          "title": "Tratamento de Acne",
+          "description": "Terapia de luz que atua sobre a inflamação e as bactérias"
+        },
+        "pigmentation": {
+          "title": "Redução de Pigmentação",
+          "description": "Comprimentos de onda especiais para decompor a melanina em segurança"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformidade & Normas",
+      "paragraph": "Os nossos filtros são concebidos e fabricados para cumprir as normas globais de segurança e desempenho:",
+      "items": {
+        "ce": "Marcação CE para o mercado da UE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Apoio à autorização da FDA",
+        "iec60601": "Segurança elétrica IEC 60601",
+        "mdr": "Processo de conformidade com o MDR"
+      }
+    },
+    "visuals": {
+      "title": "Visualização da Tecnologia de Filtros",
+      "images": {
+        "wavelength": {
+          "alt": "Diagrama que mostra como os filtros bloqueiam comprimentos de onda nocivos",
+          "caption": "Diagrama do bloqueio de comprimentos de onda nocivos"
+        },
+        "comparison": {
+          "alt": "Gráfico comparativo de diferentes gamas de filtros e aplicações",
+          "caption": "Comparação de gamas de filtros e aplicações"
+        }
+      }
+    },
+    "cta": {
+      "title": "Faça Parceria com a iShine para Filtros Óticos Premium",
+      "description": "Desenvolva dispositivos IPL com filtros seguros e de alto desempenho que cumprem as normas globais.",
+      "button": "Inicie o Seu Projeto"
+    },
+    "citable": {
+      "question": "O que fazem os filtros óticos num dispositivo IPL?",
+      "paragraph": "Os filtros óticos num dispositivo IPL modelam a saída de luz, bloqueando comprimentos de onda indesejados e transmitindo as bandas que correspondem ao posicionamento de tratamento pretendido. Na prática, os filtros ajudam a reduzir a exposição aos UV e podem ajustar a gama de comprimentos de onda efetiva entregue através da janela de tratamento (por exemplo, opções de corte comuns como 550 nm, 570 nm ou 600 nm nas configurações suportadas). O design do filtro influencia a margem de segurança nos diferentes tons de pele, o conforto percecionado e o equilíbrio entre eficácia e tolerabilidade em diferentes definições de energia. Para a produção OEM/ODM, a seleção do filtro é tratada como parte de uma pilha ótica correspondente com o tubo da lâmpada e os materiais da janela, porque pequenas alterações podem afetar a consistência da saída e os resultados de verificação. A iShine apoia a configuração de filtros em programas de marca própria para alinhar os objetivos de desempenho com a documentação do mercado-alvo e a repetibilidade do fabrico."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Componentes",
+      "lamp": "Cartuchos de Lâmpada"
+    },
+    "header": {
+      "title": "Cartuchos de Lâmpada",
+      "description": "Cartuchos de lâmpada IPL de alto desempenho com vida útil alargada e energia estável"
+    },
+    "intro": {
+      "title": "A Impulsionar Tratamentos IPL Eficazes",
+      "paragraph": "Os cartuchos de lâmpada determinam a qualidade da saída de energia e a vida útil do dispositivo. As nossas lâmpadas à base de xénon fornecem energia luminosa consistente e uma longa vida útil."
+    },
+    "highlight": {
+      "whyTitle": "Porque é que a Qualidade da Lâmpada Importa",
+      "paragraph": "A estabilidade da energia, a vida útil e a segurança são fundamentais. Os nossos cartuchos garantem tratamentos fiáveis.",
+      "badge": "Motor dos dispositivos IPL",
+      "imageAlt": "Primeiro plano de um cartucho de lâmpada IPL"
+    },
+    "features": {
+      "title": "Principais Funcionalidades",
+      "energy": {
+        "title": "Saída de Energia Estável",
+        "description": "Energia luminosa consistente para tratamentos eficazes"
+      },
+      "lifespan": {
+        "title": "Vida Útil Alargada",
+        "description": "Desempenho duradouro da lâmpada ao longo de milhares de flashes"
+      },
+      "safety": {
+        "title": "Segurança",
+        "description": "Concebida para a segurança elétrica e térmica"
+      },
+      "integration": {
+        "title": "Integração Fácil",
+        "description": "Concebida para integrar perfeitamente com várias arquiteturas de dispositivos"
+      }
+    },
+    "specs": {
+      "title": "Especificações Técnicas",
+      "table": {
+        "parameter": "Parâmetro",
+        "value": "Valor",
+        "notes": "Notas"
+      },
+      "rows": [
+        {
+          "parameter": "Contagem de Flashes",
+          "value": "999,000+",
+          "description": "Vida útil alargada"
+        },
+        {
+          "parameter": "Fonte de Luz",
+          "value": "Xénon",
+          "description": "Entrega de energia de alta eficiência"
+        },
+        {
+          "parameter": "Estabilidade de Energia",
+          "value": "Alta",
+          "description": "Consistência ao longo do ciclo de vida"
+        },
+        {
+          "parameter": "Gestão de Calor",
+          "value": "Otimizado",
+          "description": "Segurança térmica sob carga"
+        },
+        {
+          "parameter": "Fatores de Forma",
+          "value": "Múltiplos",
+          "description": "Formas e tamanhos personalizáveis"
+        },
+        {
+          "parameter": "Integração",
+          "value": "Flexível",
+          "description": "Adapta-se a diversos designs de dispositivos"
+        }
+      ],
+      "footnote": "* As especificações dependem dos requisitos do dispositivo e das necessidades do mercado."
+    },
+    "customization": {
+      "title": "Opções de Personalização",
+      "description": "Cartuchos de lâmpada totalmente personalizáveis para corresponder à marca e à arquitetura do dispositivo",
+      "options": {
+        "shape": {
+          "title": "Forma & Tamanho",
+          "description": "Adaptado ao design do dispositivo e à janela de tratamento"
+        },
+        "flashCount": {
+          "title": "Contagem de Flashes",
+          "description": "Configurado para os requisitos do ciclo de vida"
+        },
+        "branding": {
+          "title": "Marca",
+          "description": "Embalagem personalizada e identidade visual"
+        },
+        "integration": {
+          "title": "Integração",
+          "description": "Opções de interface mecânica e elétrica"
+        }
+      }
+    },
+    "quality": {
+      "title": "Qualidade & Testes",
+      "intertek": "Parceria Intertek",
+      "intertekDesc": "Validação por terceiros dos componentes da lâmpada",
+      "paragraph": "Cada lâmpada é submetida a testes para garantir a estabilidade da energia, a longevidade e a segurança do utilizador:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Testes de Ciclo de Vida",
+          "description": "Simulação do uso a longo prazo para validar o desempenho"
+        },
+        "energy": {
+          "title": "Estabilidade de Energia",
+          "description": "Medição da consistência da saída entre flashes"
+        },
+        "heat": {
+          "title": "Resistência ao Calor",
+          "description": "Segurança térmica sob uso intensivo"
+        },
+        "qc": {
+          "title": "Controlo de Qualidade",
+          "description": "Controlo de qualidade de ponta a ponta que garante a conformidade com as normas"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplicações",
+      "items": {
+        "home": {
+          "title": "Uso Doméstico",
+          "description": "Dispositivos compactos para uso pessoal"
+        },
+        "multi": {
+          "title": "Multifunções",
+          "description": "Cartuchos de lâmpada para plataformas multifunções"
+        },
+        "proConsumer": {
+          "title": "Pro-Consumidor",
+          "description": "Dispositivos de consumo de alto desempenho"
+        },
+        "handpieces": {
+          "title": "Peças de Mão Profissionais",
+          "description": "Módulos de lâmpada para equipamento de nível clínico"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformidade & Normas",
+      "paragraph": "Concebidos para cumprir as normas globais de segurança e desempenho:",
+      "items": {
+        "ce": "Marcação CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Apoio à autorização da FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Conformidade com o MDR"
+      }
+    },
+    "visuals": {
+      "title": "Visualizações & Infografias",
+      "images": {
+        "exploded": {
+          "alt": "Vista explodida dos componentes do cartucho de lâmpada",
+          "caption": "Visão geral dos componentes em vista explodida"
+        },
+        "lifecycle": {
+          "alt": "Gráfico do desempenho do ciclo de vida da lâmpada",
+          "caption": "Gráfico de desempenho do ciclo de vida"
+        }
+      }
+    },
+    "cta": {
+      "title": "Construa com Cartuchos de Lâmpada iShine",
+      "description": "Faça parceria connosco para desenvolver dispositivos com cartuchos de lâmpada fiáveis e de longa duração.",
+      "button": "Contacte-nos"
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "componentsFilter": {
+    "quality": {
+      "blocks": {
+        "transmission": {
+          "title": "Stabilitatea transmiterii",
+          "description": "Testare pe durată lungă pentru proprietăți optice constante pe întreaga durată de viață"
+        },
+        "heat": {
+          "title": "Rezistență la căldură",
+          "description": "Testare sub stres termic pentru validarea performanței în condiții intensive"
+        },
+        "durability": {
+          "title": "Teste de durabilitate",
+          "description": "Îmbătrânire accelerată și testare sub stres mecanic pentru fiabilitate pe termen lung"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplicații",
+      "items": {
+        "hair": {
+          "title": "Epilare",
+          "description": "Țintește foliculii de păr protejând în același timp pielea din jur"
+        },
+        "skin": {
+          "title": "Întinerirea pielii",
+          "description": "Filtre care sprijină producția de colagen și regenerarea pielii"
+        },
+        "acne": {
+          "title": "Tratamentul acneei",
+          "description": "Terapie cu lumină care țintește inflamația și bacteriile"
+        },
+        "pigmentation": {
+          "title": "Reducerea pigmentării",
+          "description": "Lungimi de undă speciale care descompun melanina în siguranță"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformitate și standarde",
+      "paragraph": "Filtrele noastre sunt proiectate și fabricate pentru a respecta standardele globale de siguranță și performanță:",
+      "items": {
+        "ce": "Marcaj CE pentru piața UE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Suport pentru aprobarea FDA",
+        "iec60601": "Siguranță electrică IEC 60601",
+        "mdr": "Proces de conformitate MDR"
+      }
+    },
+    "visuals": {
+      "title": "Vizualizarea tehnologiei filtrelor",
+      "images": {
+        "wavelength": {
+          "alt": "Diagramă care arată cum filtrele blochează lungimile de undă dăunătoare",
+          "caption": "Diagramă privind blocarea lungimilor de undă dăunătoare"
+        },
+        "comparison": {
+          "alt": "Grafic comparativ al diferitelor game de filtre și aplicații",
+          "caption": "Comparație între gamele de filtre și aplicații"
+        }
+      }
+    },
+    "cta": {
+      "title": "Colaborează cu iShine pentru filtre optice premium",
+      "description": "Dezvoltă dispozitive IPL cu filtre sigure, de înaltă performanță, care respectă standardele globale.",
+      "button": "Începe-ți proiectul"
+    },
+    "citable": {
+      "question": "Ce fac filtrele optice într-un dispozitiv IPL?",
+      "paragraph": "Filtrele optice dintr-un dispozitiv IPL modelează lumina emisă prin blocarea lungimilor de undă nedorite și prin transmiterea benzilor care corespund poziționării terapeutice vizate. În termeni practici, filtrele contribuie la reducerea expunerii la UV și pot regla intervalul efectiv al lungimilor de undă livrate prin fereastra de tratament (de exemplu, opțiuni comune de tăiere, precum 550 nm, 570 nm sau 600 nm, în configurațiile acceptate). Designul filtrului influențează marja de siguranță pe diferite tonuri de piele, confortul perceput și echilibrul dintre eficacitate și tolerabilitate la diferite niveluri de energie. Pentru producția OEM/ODM, selecția filtrului este tratată ca parte a unui ansamblu optic unitar, împreună cu tubul lămpii și materialele ferestrei, deoarece modificările mici pot afecta constanța emisiei și rezultatele verificărilor. iShine sprijină configurarea filtrelor în cadrul programelor cu marcă proprie, pentru a alinia obiectivele de performanță cu documentația pieței țintă și cu repetabilitatea producției."
+    }
+  },
+  "componentsLamp": {
+    "breadcrumb": {
+      "components": "Componente",
+      "lamp": "Cartușe pentru lampă"
+    },
+    "header": {
+      "title": "Cartușe pentru lampă",
+      "description": "Cartușe pentru lampă IPL de înaltă performanță, cu durată de viață extinsă și energie stabilă"
+    },
+    "intro": {
+      "title": "Energie pentru tratamente IPL eficiente",
+      "paragraph": "Cartușele pentru lampă determină calitatea energiei emise și durata de viață a dispozitivului. Lămpile noastre cu xenon oferă energie luminoasă constantă și o durată lungă de funcționare."
+    },
+    "highlight": {
+      "whyTitle": "De ce contează calitatea lămpii",
+      "paragraph": "Stabilitatea energetică, durata de viață și siguranța sunt esențiale. Cartușele noastre asigură tratamente fiabile.",
+      "badge": "Motorul dispozitivelor IPL",
+      "imageAlt": "Prim-plan cartuș pentru lampă IPL"
+    },
+    "features": {
+      "title": "Caracteristici principale",
+      "energy": {
+        "title": "Emitere stabilă de energie",
+        "description": "Energie luminoasă constantă pentru tratamente eficiente"
+      },
+      "lifespan": {
+        "title": "Durată de viață extinsă",
+        "description": "Performanță de lungă durată a lămpii pe mii de fulgere"
+      },
+      "safety": {
+        "title": "Siguranță",
+        "description": "Proiectate pentru siguranță electrică și termică"
+      },
+      "integration": {
+        "title": "Integrare ușoară",
+        "description": "Proiectate pentru integrare perfectă în diverse arhitecturi de dispozitive"
+      }
+    },
+    "specs": {
+      "title": "Specificații tehnice",
+      "table": {
+        "parameter": "Parametru",
+        "value": "Valoare",
+        "notes": "Note"
+      },
+      "rows": [
+        {
+          "parameter": "Număr de fulgere",
+          "value": "999,000+",
+          "description": "Durată extinsă de funcționare"
+        },
+        {
+          "parameter": "Sursă de lumină",
+          "value": "Xenon",
+          "description": "Livrare a energiei de înaltă eficiență"
+        },
+        {
+          "parameter": "Stabilitate energetică",
+          "value": "Ridicată",
+          "description": "Constanță pe parcursul ciclului de viață"
+        },
+        {
+          "parameter": "Gestionarea căldurii",
+          "value": "Optimizată",
+          "description": "Siguranță termică sub sarcină"
+        },
+        {
+          "parameter": "Formate",
+          "value": "Multiple",
+          "description": "Forme și dimensiuni personalizabile"
+        },
+        {
+          "parameter": "Integrare",
+          "value": "Flexibilă",
+          "description": "Se potrivește diverselor designuri de dispozitive"
+        }
+      ],
+      "footnote": "* Specificațiile depind de cerințele dispozitivului și de nevoile pieței."
+    },
+    "customization": {
+      "title": "Opțiuni de personalizare",
+      "description": "Cartușe pentru lampă complet personalizabile, adaptate mărcii și arhitecturii dispozitivului",
+      "options": {
+        "shape": {
+          "title": "Formă și dimensiune",
+          "description": "Adaptate designului dispozitivului și ferestrei de tratament"
+        },
+        "flashCount": {
+          "title": "Număr de fulgere",
+          "description": "Configurate în funcție de cerințele ciclului de viață"
+        },
+        "branding": {
+          "title": "Branding",
+          "description": "Ambalaje personalizate și identitate vizuală"
+        },
+        "integration": {
+          "title": "Integrare",
+          "description": "Opțiuni de interfață mecanică și electrică"
+        }
+      }
+    },
+    "quality": {
+      "title": "Calitate și testare",
+      "intertek": "Parteneriat Intertek",
+      "intertekDesc": "Validare de către o terță parte a componentelor lămpii",
+      "paragraph": "Fiecare lampă este supusă unor teste pentru a asigura stabilitatea energetică, longevitatea și siguranța utilizatorului:",
+      "blocks": {
+        "lifeCycle": {
+          "title": "Testarea ciclului de viață",
+          "description": "Simularea utilizării pe termen lung pentru validarea performanței"
+        },
+        "energy": {
+          "title": "Stabilitate energetică",
+          "description": "Măsurarea constanței emisiei pe parcursul fulgerelor"
+        },
+        "heat": {
+          "title": "Rezistență la căldură",
+          "description": "Siguranță termică în condiții de utilizare intensivă"
+        },
+        "qc": {
+          "title": "Controlul calității",
+          "description": "Control complet al calității care asigură conformitatea cu standardele"
+        }
+      }
+    },
+    "applications": {
+      "title": "Aplicații",
+      "items": {
+        "home": {
+          "title": "Uz casnic",
+          "description": "Dispozitive compacte pentru uz personal"
+        },
+        "multi": {
+          "title": "Multifuncțional",
+          "description": "Cartușe pentru lampă pentru platforme multifuncționale"
+        },
+        "proConsumer": {
+          "title": "Pro-Consumator",
+          "description": "Dispozitive de consum de înaltă performanță"
+        },
+        "handpieces": {
+          "title": "Piese de mână profesionale",
+          "description": "Module de lampă pentru echipamente de nivel clinic"
+        }
+      }
+    },
+    "compliance": {
+      "title": "Conformitate și standarde",
+      "paragraph": "Proiectate pentru a respecta standardele globale de siguranță și performanță:",
+      "items": {
+        "ce": "Marcaj CE",
+        "iso13485": "ISO 13485 QMS",
+        "fda": "Suport pentru aprobarea FDA",
+        "iec60601": "IEC 60601",
+        "mdr": "Conformitate MDR"
+      }
+    },
+    "visuals": {
+      "title": "Imagini și infografice",
+      "images": {
+        "exploded": {
+          "alt": "Vedere explodată a componentelor cartușului pentru lampă",
+          "caption": "Prezentarea componentelor în vedere explodată"
+        },
+        "lifecycle": {
+          "alt": "Grafic al performanței lămpii pe ciclul de viață",
+          "caption": "Grafic al performanței pe ciclul de viață"
+        }
+      }
+    },
+    "cta": {
+      "title": "Construiește cu cartușele pentru lampă iShine",
+      "description": "Colaborează cu noi pentru a dezvolta dispozitive care utilizează cartușe pentru lampă fiabile, cu durată lungă de viață.",
+      "button": "Contactează-ne"
+    }
+  }
+}

@@ -1,0 +1,577 @@
+{
+  "productDetail": {
+    "lumi": {
+      "name": "Lumi IPL",
+      "tagline": "الأكثر مبيعًا لدى RoseSkinCo",
+      "description": "جهاز Lumi IPL هو جهاز مخصص صممته وصنعته iShine لصالح RoseSkinCo. وهو الجيل التالي من Lumi المصمم والمهندس والمصنع ليميز علامة RoseSkinCo عن طرازها الأصلي السابق OG، وينافس في فئة IPL الفاخرة في السوق الأمريكي.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "1.5-5 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "6 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "0.6-3 ms" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "4-15 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "نعم" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" }
+      },
+      "features": {
+        "smartAppControl": { "title": "التحكم الذكي عبر التطبيق", "description": "اتصل عبر Bluetooth 5.0 لتخطيط جلسات العلاج وتتبع التقدم واستلام تحليلات مخصصة للبشرة." },
+        "precisionTargeting": { "title": "الاستهداف الدقيق", "description": "يقرأ مستشعر البشرة الذكي درجة لونها ويضبط طاقة الإخراج لضمان علاج آمن وفعال في كل مرة." },
+        "rapidTreatment": { "title": "علاج سريع", "description": "نافذة علاج بمساحة 3.3 cm² تدعم تغطية فعالة للجلسات المنزلية." },
+        "longLastingLamp": { "title": "مصباح طويل العمر", "description": "يصدر 999,999 ومضة للاستخدام طويل الأمد." }
+      },
+      "colors": ["أبيض", "وردي"]
+    },
+    "lumi-2": {
+      "name": "Lumi 2 IPL",
+      "tagline": "مستشعر بشرة ذكي + تبريد البشرة حتى 10°C",
+      "description": "يجمع جهاز Lumi 2 IPL من الجيل التالي بين تقنية استشعار البشرة المتقدمة والتبريد النشط لتجربة إزالة شعر مريحة وفعالة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "متصل بتطبيق ذكي" },
+        "cooling": { "label": "التبريد", "value": "قياسي + تبريد البشرة حتى 10°C" },
+        "skinDetection": { "label": "اكتشاف البشرة", "value": "مستشعر ذكي" },
+        "energy": { "label": "الطاقة", "value": "5-9 J/cm²" },
+        "lamp": { "label": "المصباح", "value": "999,000 ومضة" },
+        "window": { "label": "نافذة العلاج", "value": "4.5 cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "550-1200nm" },
+        "connectivity": { "label": "الاتصال", "value": "تطبيق Bluetooth 5.0" }
+      },
+      "features": {
+        "skinCoolingTechnology": { "title": "تقنية تبريد البشرة", "description": "يبرد نظام التبريد النشط البشرة حتى 10°C قبل كل ومضة لتجربة علاج شبه غير مؤلمة." },
+        "smartSkinSensor": { "title": "مستشعر البشرة الذكي", "description": "يكتشف درجة لون البشرة في الوقت الفعلي ويضبط طاقة الإخراج تلقائيًا لضمان السلامة لجميع أنواع البشرة." },
+        "appConnectedPrecision": { "title": "دقة متصلة بالتطبيق", "description": "تتبع الجلسات واطلع على سجل العلاج واحصل على الإرشادات عبر تطبيق الهاتف المصاحب." },
+        "highFlashCapacity": { "title": "سعة وميض عالية", "description": "يوفر مصباح 999,000 ومضة سنوات من العلاجات، ما يجعله مثاليًا للاستخدام طويل الأمد." }
+      },
+      "priceNote": "تواصل معنا لمعرفة أسعار المصنع الحالية ونطاق العينات والتخطيط للحد الأدنى للطلب (MOQ) لمنصة Lumi 2.",
+      "colors": ["أبيض"]
+    },
+    "venus": {
+      "name": "Venus IPL",
+      "tagline": "إحساس جليدي + مصباح كوارتز",
+      "description": "يتميز جهاز Venus IPL بتقنية تبريد اللوح الجليدي المتقدمة، ما يوفر تجربة إزالة شعر مريحة وشبه غير مؤلمة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.0 cm²" },
+        "energy": { "label": "الطاقة", "value": "2-6 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3.5 ms" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "5°C (ambient 25°C)" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "1 minute" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "4-18 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 4000mA (48W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "icePlateCooling": { "title": "تبريد اللوح الجليدي", "description": "تحافظ تقنية تبريد اللوح الجليدي المتقدمة على راحة البشرة أثناء العلاج وتقلل الانزعاج." },
+        "energyDensityRange": { "title": "نطاق كثافة الطاقة", "description": "نطاق كثافة طاقة 2-6 J/cm² مع 5 إعدادات لبرامج علاج مرنة." },
+        "multipleColorOptions": { "title": "خيارات ألوان متعددة", "description": "متوفر بالأبيض اللؤلؤي والبنفسجي والوردي الناعم والأسود الليلي ليتناسب مع هوية أي علامة تجارية." },
+        "provenPerformance": { "title": "أداء مثبت", "description": "جهاز IPL الأكثر مبيعًا وموثوق به من العلامات التجارية والمستهلكين حول العالم لنتائجه الموثوقة." }
+      },
+      "badge": "الأكثر مبيعًا",
+      "colors": ["أبيض لؤلؤي", "بنفسجي", "وردي ناعم", "أسود ليلي"]
+    },
+    "hestia": {
+      "name": "Hestia IPL",
+      "tagline": "إزالة الشعر الذكية المتصلة بالتطبيق",
+      "description": "يجمع جهاز Hestia IPL بين الاتصال الذكي عبر التطبيق وتقنية إزالة الشعر المتقدمة لتجربة علاج مخصصة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "5.0 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3 ms FWHM" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "5°C" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "1 minute" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "16.5 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 4000mA (48W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "appConnectedScheduling": { "title": "جدولة متصلة بالتطبيق", "description": "خطط لتوقيت علاجك وتتبعه عبر تطبيق الهاتف لتحقيق نتائج منتظمة." },
+        "progressTracking": { "title": "تتبع التقدم", "description": "راقب سجل علاجك وتحسن بشرتك بمرور الوقت عبر تحليلات مفصلة." },
+        "multiColorDesign": { "title": "تصميم متعدد الألوان", "description": "متوفر بالأبيض والأسود والبيج والتركوازي لتخصيص مرن للعلامة التجارية." },
+        "dataDrivenResults": { "title": "نتائج مدفوعة بالبيانات", "description": "تساعد بيانات العلاج المستخدمين على الالتزام بجدولهم وتحقيق النتائج المثلى بشكل أسرع." }
+      },
+      "badge": "التحكم الذكي عبر التطبيق",
+      "colors": ["أبيض", "أسود", "بيج", "تركوازي"]
+    },
+    "alpha": {
+      "name": "Alpha IPL",
+      "tagline": "جهاز IPL عالي الكفاءة",
+      "description": "صمم جهاز Alpha IPL لجلسات منزلية فعالة مع دعم تبريد الإحساس الجليدي بالسافير وإخراج طاقة مستقر وقابل للتكرار لبرامج العلامة الخاصة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "2-5 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3.5 ms" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "5°C (ambient 25°C)" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "1 minute" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "16.5 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "efficientOutput": { "title": "إخراج فعال", "description": "نطاق كثافة طاقة 2-5 J/cm² مع 5 إعدادات لبرامج علاج مرنة." },
+        "sapphireIceFeelingCooling": { "title": "تبريد الإحساس الجليدي بالسافير", "description": "يساعد دعم التبريد على تحسين الراحة، مع هدف نموذجي يبلغ 5°C عند ظروف محيطة 25°C." },
+        "longLastingLamp": { "title": "مصباح طويل العمر", "description": "مصباح كوارتز مفرد مصمم ليصدر حتى 999,999 ومضة." },
+        "privateLabelReady": { "title": "جاهز للعلامة الخاصة", "description": "يدعم فلترة الأشعة فوق البنفسجية ونظام أمان متكامل لبرامج OEM/ODM." }
+      },
+      "badge": "احترافي",
+      "colors": ["أسود مطفي", "فضي", "أزرق كحلي"]
+    },
+    "emerald": {
+      "name": "Emerald IPL",
+      "tagline": "تبريد متقدم للبشرة الحساسة",
+      "description": "صمم جهاز Emerald IPL لتحديد موضعه كخيار للبشرة الحساسة مع دعم تبريد الإحساس الجليدي بالسافير ونطاق كثافة طاقة لطيف.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "5.0 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3 ms" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "16.5 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "sapphireIceFeelingCooling": { "title": "تبريد الإحساس الجليدي بالسافير", "description": "يساعد دعم التبريد على تحسين الراحة أثناء جلسات العلاج." },
+        "gentleEnergyDensity": { "title": "كثافة طاقة لطيفة", "description": "نطاق كثافة طاقة 2-5 J/cm² مع 5 إعدادات لتحديد موضع البشرة الحساسة." },
+        "elegantColorOptions": { "title": "خيارات ألوان أنيقة", "description": "متوفر بالأخضر الزمردي والأبيض اللؤلؤي والفضي لمظهر راقٍ." },
+        "safetyFirstDesign": { "title": "تصميم يراعي السلامة أولًا", "description": "تضمن ميزات الأمان المدمجة علاجًا لطيفًا حتى على المناطق الحساسة." }
+      },
+      "badge": "للبشرة الحساسة",
+      "colors": ["أخضر زمردي", "أبيض لؤلؤي", "فضي"]
+    },
+    "euno": {
+      "name": "Euno IPL",
+      "tagline": "تصميم مدمج ومحمول",
+      "description": "جهاز Euno IPL مدمج وصديق للسفر، مصمم للاستخدام المنزلي المريح دون المساس بالأداء.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "قياسي" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "4.5 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "0.8-3 ms FWHM" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "14.5 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "power": { "label": "مصدر الطاقة", "value": "سلكي" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "truePortability": { "title": "قابلية حمل حقيقية", "description": "عامل شكل مدمج ووزن صافٍ يبلغ 275 g يدعمان تحديد موضع صديق للسفر." },
+        "cordedPower": { "title": "طاقة سلكية", "description": "يدعم التكوين السلكي توصيل طاقة مستقر أثناء الجلسات." },
+        "compactYetEffective": { "title": "مدمج وفعال", "description": "نطاق كثافة طاقة 2-4.5 J/cm² مع 9 إعدادات لبرامج مرنة." },
+        "freshColorOptions": { "title": "خيارات ألوان منعشة", "description": "متوفر بالأبيض السفري والوردي الناعم والنعناعي لمظهر أنيق." }
+      },
+      "priceNote": "يتوفر أيضًا إصدار محول الطاقة القياسي، بأسعار الجملة من 26.39 إلى 22.35 دولارًا أمريكيًا للوحدة حسب الكمية.",
+      "badge": "محمول",
+      "colors": ["أبيض سفري", "وردي ناعم", "نعناعي"]
+    },
+    "themis": {
+      "name": "Themis IPL",
+      "tagline": "علاج احترافي بإحساس جليدي",
+      "description": "يقدم جهاز Themis IPL تقنية الإحساس الجليدي بدرجة احترافية لنتائج بجودة الصالونات في راحة المنزل.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "1.5-5.5 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "9 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3.5 ms" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "5°C (ambient 25°C)" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "1 minute" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "5-18 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 4000mA (48W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "iceFeelingTechnology": { "title": "تقنية الإحساس الجليدي", "description": "يوفر نظام التبريد بدرجة احترافية إحساسًا مهدئًا أثناء العلاج مع تقليل الانزعاج." },
+        "energyDensityRange": { "title": "نطاق كثافة الطاقة", "description": "نطاق كثافة طاقة 1.5-5.5 J/cm² مع 9 إعدادات لبرامج علاج مرنة." },
+        "salonGradeResults": { "title": "نتائج بمستوى الصالونات", "description": "مصمم لمطابقة أداء الصالونات الاحترافي لعلاجات منزلية متميزة." },
+        "premiumDesign": { "title": "تصميم فاخر", "description": "متوفر بالأسود المطفي والفضي والأزرق الكحلي لجمالية راقية." }
+      },
+      "priceNote": "تظهر أسعار فئتي 100-999 و1000-4999 كما هي مدرجة تمامًا في الكتالوج المصدر.",
+      "badge": "خيار المحترفين",
+      "colors": ["أسود مطفي", "فضي", "أزرق كحلي"]
+    },
+    "hebe": {
+      "name": "Hebe IPL",
+      "tagline": "إحساس جليدي مريح + قفل أمان",
+      "description": "جهاز Hebe IPL منصة تبريد تركز على الراحة مع دعم قفل الأمان، موجهة للعلامات التجارية التي تريد تجربة علاج أكثر تميزًا وطمأنينة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.3 cm²" },
+        "energy": { "label": "الطاقة", "value": "5.0 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "5 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3.5 ms FWHM" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "5°C" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "1 minute" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "16.5 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 4000mA (48W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" }
+      },
+      "features": {
+        "comfortIceFeeling": { "title": "إحساس جليدي مريح", "description": "يساعد تبريد الإحساس الجليدي بالسافير على تحسين راحة العلاج للمناطق الأكثر حساسية." },
+        "safetyLockSupport": { "title": "دعم قفل الأمان", "description": "يدعم تحديد موضع قفل أمان إضافي تشغيلًا محكمًا أثناء العلاج." },
+        "powerDelivery": { "title": "توصيل طاقة 48W", "description": "يدعم محول 12V / 4000mA إخراجًا مستقرًا وأداء تبريد سريعًا." },
+        "premiumColorOptions": { "title": "خيارات ألوان فاخرة", "description": "متوفر بالأسود التقني والفضي المستقبلي والأزرق الكوني لعرض تجزئة فاخر." }
+      },
+      "badge": "تبريد مريح",
+      "colors": ["أسود تقني", "فضي مستقبلي", "أزرق كوني"]
+    },
+    "helix": {
+      "name": "Helix IPL",
+      "tagline": "تبريد جليدي + 9 مستويات شدة",
+      "description": "يجمع جهاز Helix IPL بين تبريد السافير الجليدي المتقدم وشاشة رقمية و9 مستويات شدة لعلاجات منزلية دقيقة ومريحة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "جهاز IPL منزلي (مصباح كوارتز واحد)" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.0 cm²" },
+        "energy": { "label": "الطاقة", "value": "5.0 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "9 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1.0-3.5 ms" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "8°C (ambient 25°C)" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "2 minutes" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "15 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "display": { "label": "الشاشة", "value": "شاشة رقمية" }
+      },
+      "features": {
+        "sapphireIceCooling": { "title": "تبريد السافير الجليدي", "description": "تحافظ تقنية تبريد السافير المتقدمة على راحة البشرة عند 8°C، وتصل إلى درجة الهدف في دقيقتين فقط لعلاج مريح." },
+        "intensityLevels": { "title": "9 مستويات شدة", "description": "تحكم دقيق في الطاقة مع 9 إعدادات شدة، أكثر من الأجهزة القياسية ذات 5 مستويات، لبرامج علاج مخصصة." },
+        "digitalDisplay": { "title": "شاشة رقمية", "description": "تعرض الشاشة الرقمية المدمجة مستوى الطاقة والحالة في الوقت الفعلي لتشغيل بديهي وتحكم دقيق في العلاج." },
+        "longLastingLamp": { "title": "مصباح طويل العمر", "description": "يصدر مصباح الكوارتز 999,999 ومضة لسنوات من العلاجات الموثوقة." }
+      },
+      "badge": "شاشة رقمية",
+      "colors": ["أبيض", "ذهبي", "أسود"]
+    },
+    "eirene": {
+      "name": "Eirene IPL",
+      "tagline": "عناية لطيفة للبشرة الحساسة",
+      "description": "صمم جهاز Eirene IPL خصيصًا للبشرة شديدة الحساسية مع ملف طاقة لطيف وحماية معززة من الأشعة فوق البنفسجية.",
+      "specs": {
+        "type": { "label": "النوع", "value": "للبشرة شديدة الحساسية" },
+        "cooling": { "label": "التبريد", "value": "قياسي" },
+        "energy": { "label": "الطاقة", "value": "5-7 J/cm²" },
+        "lamp": { "label": "المصباح", "value": "800,000 ومضة" },
+        "window": { "label": "نافذة العلاج", "value": "4.0 cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "570-1200nm" },
+        "uvCutFilter": { "label": "فلتر قطع الأشعة فوق البنفسجية", "value": "معزز" }
+      },
+      "features": {
+        "hypersensitiveSkinFocus": { "title": "تركيز على البشرة شديدة الحساسية", "description": "مصمم خصيصًا لأصحاب البشرة التفاعلية أو الحساسة، مع زيادة تدريجية في الشدة لضمان الراحة." },
+        "enhancedUvProtection": { "title": "حماية معززة من الأشعة فوق البنفسجية", "description": "يوفر فلتر قطع الأشعة فوق البنفسجية المتقدم حماية إضافية للبشرة الحساسة أثناء العلاج." },
+        "gentleEnergyProfile": { "title": "ملف طاقة لطيف", "description": "5-7 J/cm² محسن مع قطع عند 570nm لإزالة شعر لطيفة وفعالة." },
+        "softColorPalette": { "title": "لوحة ألوان ناعمة", "description": "متوفر بالوردي الفاتح والأبيض اللؤلؤي والبنفسجي الفاتح لجمالية لطيفة ومهدئة." }
+      },
+      "priceNote": "تواصل معنا لمعرفة أسعار المصنع الحالية وخيارات الطلبات التجريبية لمنصة Eirene.",
+      "badge": "لطيف",
+      "colors": ["وردي فاتح", "أبيض لؤلؤي", "بنفسجي فاتح"]
+    },
+    "wooden": {
+      "name": "Golden Luxury IPL (Wooden)",
+      "tagline": "مجموعة فاخرة بلمسة خشبية",
+      "description": "Golden Luxury منصة IPL فاخرة بلمسة خشبية، مصممة لتحديد الموضع الراقي وتجارب فتح علبة فاخرة.",
+      "specs": {
+        "type": { "label": "النوع", "value": "تصميم فاخر" },
+        "cooling": { "label": "التبريد", "value": "مدعوم بتقنية الإحساس الجليدي بالسافير" },
+        "window": { "label": "نافذة العلاج", "value": "3.0 cm²" },
+        "energy": { "label": "الطاقة", "value": "1-5 J/cm²" },
+        "energySettings": { "label": "إعدادات الطاقة", "value": "9 levels" },
+        "lamp": { "label": "المصباح", "value": "يصدر 999,999 ومضة" },
+        "autoFlash": { "label": "الوميض التلقائي", "value": "مدعوم" },
+        "pulseDuration": { "label": "مدة النبضة (FWHM)", "value": "1-3.5 ms" },
+        "coolingTemperature": { "label": "درجة حرارة التبريد", "value": "8°C (ambient 25°C)" },
+        "timeToCoolingTemperature": { "label": "الزمن حتى درجة حرارة التبريد", "value": "2 minutes" },
+        "totalEnergyRange": { "label": "نطاق الطاقة الإجمالي", "value": "4-15 J" },
+        "inputVoltage": { "label": "جهد الإدخال", "value": "100-240 V" },
+        "adapter": { "label": "المحول", "value": "12V / 3000mA (36W)" },
+        "uvFilter": { "label": "فلتر الأشعة فوق البنفسجية", "value": "نعم" },
+        "safetySystem": { "label": "نظام الأمان المتكامل", "value": "نعم" },
+        "skinToneSensor": { "label": "مستشعر درجة لون البشرة", "value": "لا" },
+        "lampMaterial": { "label": "مادة المصباح", "value": "كوارتز" },
+        "lampConfiguration": { "label": "تكوين المصباح", "value": "مصباح واحد" },
+        "warranty": { "label": "الضمان", "value": "ضمان عالمي لمدة سنتين" },
+        "maxOpticalPowerDensity": { "label": "أقصى كثافة للطاقة الضوئية", "value": "500 W/cm²" },
+        "wavelength": { "label": "الطول الموجي", "value": "510-1100 nm" },
+        "deviceSize": { "label": "أبعاد الجهاز", "value": "169 × 69.3 × 38.8 mm" },
+        "netWeight": { "label": "الوزن الصافي", "value": "275 g" },
+        "bulkMoq": { "label": "الحد الأدنى لطلب الجملة (MOQ) للجهاز", "value": "500 units" }
+      },
+      "features": {
+        "luxuryAesthetics": { "title": "جماليات فاخرة", "description": "تخلق اللمسة الخشبية الفاخرة واللمسات الذهبية تجربة فتح علبة تنافس علامات التجميل الفاخرة." },
+        "sapphireIceCooling": { "title": "تبريد السافير الجليدي", "description": "تضمن تقنية لوح السافير الجليدي المتقدمة علاجات مريحة وخالية من الألم في كل مرة." },
+        "premiumUnboxing": { "title": "فتح علبة فاخر", "description": "مصمم لتجزئة راقية مع تغليف فاخر وعرض يرفع من إدراك العلامة التجارية." },
+        "exclusiveColorSelection": { "title": "اختيار ألوان حصري", "description": "متوفر بالذهبي والذهبي الوردي والشمبانيا لمظهر فاخر حقًا." }
+      },
+      "priceNote": "تواصل معنا لمعرفة أسعار المصنع الحالية وخيارات التجميل وعرض أسعار التغليف لمنصة Golden Luxury.",
+      "badge": "فاخر",
+      "colors": ["ذهبي", "ذهبي وردي", "شمبانيا"]
+    },
+    "priceTierQuantities": {
+      "tier1": "1-99 units",
+      "tier2": "100-999 units",
+      "tier3": "1000-4999 units",
+      "tier4": "5000+ units"
+    },
+    "oemOdmReady": "جاهز لـ OEM/ODM",
+    "sampleSupport": "دعم العينات",
+    "factoryDirect": "مباشرة من المصنع",
+    "pricingPayment": "الأسعار والدفع",
+    "perUnit": "/ وحدة",
+    "pricingRange": "يبدأ السعر من {firstQty}. وينخفض سعر الكميات الكبيرة إلى {lastPrice} دولارًا أمريكيًا عند {lastQty}.",
+    "contactForQuote": "تواصل للحصول على عرض سعر",
+    "pricingDepends": "تعتمد الأسعار على نطاق العينات والتجميل والتغليف ومتطلبات التحقق.",
+    "commercialBaseline": "الأساس التجاري",
+    "sampleMoq": "عينة MOQ: وحدة واحدة",
+    "bulkMoqLabel": "MOQ للجملة: 500 وحدة",
+    "quantityHeader": "الكمية",
+    "unitPriceHeader": "سعر الوحدة (USD)",
+    "acceptedPaymentMethods": "طرق الدفع المقبولة",
+    "paymentMethodsDescription": "ندعم PayPal والتحويل البنكي وStripe وAlipay ومدفوعات البطاقات لبطاقات Mastercard وVISA وJCB وDiscover وDiners Club وAmerican Express الائتمانية أو المدينة.",
+    "paymentMethods": ["PayPal", "Bank Transfer", "Stripe", "Alipay", "Mastercard", "VISA", "JCB", "Discover", "Diners Club", "American Express"],
+    "specifications": "المواصفات",
+    "availableColors": "الألوان المتاحة",
+    "featuresIntro": "لماذا يعد {productName} الخيار الأنسب لعلامتك التجارية.",
+    "ctaTitle": "هل أنت مهتم بـ {productName}؟",
+    "ctaDescription": "تواصل مع فريقنا لمناقشة خيارات التخصيص والحد الأدنى للطلب (MOQ) والأسعار وطلبات العينات لعلامتك التجارية.",
+    "requestFreeSample": "اطلب عينة مجانية",
+    "viewAllProducts": "عرض جميع المنتجات",
+    "viewImage": "عرض صورة {productName}",
+    "galleryAlt": "معرض {productName} {index}",
+    "index": {
+      "page": {
+        "title": "منصات أجهزة IPL للعلامة الخاصة",
+        "description": "استكشف منصات أجهزة IPL من iShine للعلامة الخاصة: أجهزة IPL منزلية مع التبريد والتحكم الذكي عبر التطبيق والتصاميم المحمولة ومجموعات اللمسة الخشبية الفاخرة لعلامات التجميل."
+      },
+      "hero": {
+        "alt": "منتجات IPL",
+        "title": "منصات أجهزة IPL",
+        "description": "اختر منصة تناسب موقعك في السوق. كل جهاز جاهز لـ OEM/ODM: طباعة الشعار وأدلة المستخدم وإدخالات العلبة وتغليف التصدير.",
+        "compareModels": "قارن الطرازات",
+        "exploreServices": "استكشف الخدمات",
+        "getAQuote": "اطلب عرض سعر"
+      },
+      "summary": {
+        "title": "ما أنواع المنتجات التي تقدمها iShine لـ IPL بالعلامة الخاصة؟",
+        "description": "تقدم iShine مجموعة من منصات أجهزة IPL المنزلية تغطي تبريد الإحساس الجليدي والاتصال الذكي عبر التطبيق والتصاميم المدمجة للسفر ونطاقات الطاقة الاحترافية وإصدارات اللمسة الخشبية الفاخرة. كل منصة مبنية للتخصيص عبر OEM/ODM — طباعة الشعار وأدلة المستخدم وإدخالات العلبة وتغليف التصدير — حتى تنطلق العلامة التجارية بسرعة دون تصميم جهاز من الصفر."
+      },
+      "choose": {
+        "kicker": "كيف تختار",
+        "title": "اختر مسارًا، ثم افتح صفحات المنصات",
+        "description": "استخدم الروابط أدناه للانتقال مباشرة إلى المنصات الأكثر صلة."
+      },
+      "tracks": {
+        "comfort": {
+          "title": "تبريد مريح في المقام الأول",
+          "description": "يحافظ التبريد الجليدي على راحة العلاج. الأفضل للعلامات التجارية التي تضع نفسها حول جلسات غير مؤلمة تشبه تجربة السبا.",
+          "linkVenus": "Venus (تبريد)",
+          "linkLumi2": "Lumi 2 (تبريد حتى 10°C)"
+        },
+        "smartApp": {
+          "title": "برامج ذكية موجهة بالتطبيق",
+          "description": "تحكم عبر تطبيق Bluetooth مع الجدولة وتتبع التقدم. الأفضل للعلامات التجارية التي تريد تجربة عملاء تعتمد على التطبيق.",
+          "linkHestia": "Hestia (تتبع بالتطبيق)",
+          "linkLumi": "Lumi (تحكم ذكي بالتطبيق)"
+        },
+        "portable": {
+          "title": "محمول / للسفر",
+          "description": "أجهزة مدمجة صديقة للسفر للمستهلكين أثناء التنقل. الأفضل لقنوات السفر والضيافة وشراء الاندفاعي.",
+          "linkEuno": "Euno (محمول)"
+        },
+        "luxury": {
+          "title": "فتح علبة فاخر",
+          "description": "مواد وتغليف فاخر للهدايا الراقية والتجزئة المتميزة. الأفضل للعلامات التجارية التي تبيع بنقاط سعر فاخرة.",
+          "linkWooden": "Golden (فخامة خشبية)"
+        },
+        "professional": {
+          "title": "أداء احترافي",
+          "description": "كثافة طاقة أعلى وخيارات تبريد للمستهلكين الذين يريدون نتائج بمستوى الصالونات في المنزل. الأفضل للعلامات التجارية التي تضع الأداء أولًا.",
+          "linkThemis": "Themis (بمستوى الصالونات)",
+          "linkAlpha": "Alpha (كفاءة المصباح المزدوج)"
+        }
+      },
+      "cards": {
+        "venus": { "tagline": "إحساس جليدي مريح" },
+        "alpha": { "tagline": "IPL بسيط ونظيف" },
+        "emerald": { "tagline": "كن جريئًا — أول طراز IPL بأسلوب Emerald" },
+        "hebe": { "tagline": "اكتشاف بشرة مدعوم بالذكاء الاصطناعي" },
+        "eirene": { "tagline": "IPL ببطارية مدمجة، بدون سلك" },
+        "wooden": { "tagline": "تصميم طبيعي، مستوحى من Whynotdesign." }
+      },
+      "nextStep": {
+        "kicker": "الخطوة التالية",
+        "title": "حوّل المنصة إلى منتج جاهز للعلامة",
+        "description": "بعد اختيار منصة، تتولى iShine الباقي: طباعة الشعار المخصص وأدلة المستخدم ثنائية اللغة وإدخالات العلبة المخصصة وتغليف التصدير. هكذا تطلق العلامات التجارية خط إنتاج كاملًا دون بناء مصنع أو تصميم جهاز.",
+        "startNoMoq": "ابدأ بدون حد أدنى للطلب",
+        "customizeBox": "خصص العلبة والإدخالات",
+        "shipDirectly": "الشحن المباشر إلى العملاء"
+      },
+      "fastLinks": {
+        "kicker": "روابط سريعة",
+        "logoPrinting": "أضف طباعة الشعار",
+        "userManual": "تخصيص دليل المستخدم",
+        "packagingLogistics": "التغليف ولوجستيات التصدير",
+        "getAQuote": "اطلب عرض سعر"
+      },
+      "faq": {
+        "kicker": "الأسئلة الشائعة",
+        "title": "أسئلة تطرحها العلامات التجارية قبل اختيار منصة",
+        "description": "إجابات مختصرة مع روابط مباشرة للصفحات ذات الصلة.",
+        "items": [
+          {
+            "question": "كيف نختار بين Lumi وVenus وThemis؟",
+            "answer": "ابدأ بالفئات الرئيسية الثلاث: التبريد (Venus)، والبرامج الموجهة بالتطبيق (Lumi)، والطاقة الاحترافية (Themis). قارن التشكيلة الكاملة في الكتالوج، ثم اطلب عينة من أقرب خيارين.",
+            "links": ["قارن الطرازات في الكتالوج"]
+          },
+          {
+            "question": "ما الذي يمكن تخصيصه في كل منصة؟",
+            "answer": "تدعم كل منصة طباعة الشعار وتخصيص دليل المستخدم وتخصيص إدخالات العلبة. التغييرات التجميلية (اللون واللمسة النهائية والمواد) متاحة في معظم المنصات.",
+            "links": ["طباعة الشعار", "تخصيص العلبة", "تخصيص دليل المستخدم"]
+          },
+          {
+            "question": "هل يمكننا البدء بطلب تجريبي صغير؟",
+            "answer": "نعم. ابدأ بدون حد أدنى للطلب وبوحدة واحدة للعينات. بعد التحقق، انتقل إلى فئات أسعار الجملة.",
+            "links": ["ابدأ بدون حد أدنى للطلب"]
+          },
+          {
+            "question": "هل تدعمون الشحن المباشر (Dropshipping) إلى عملائنا؟",
+            "answer": "نعم. تدعم iShine التعبئة والشحن مباشرة إلى عملائك، بما في ذلك الإدخالات المخصصة والتجميع.",
+            "links": ["التغليف واللوجستيات", "الشحن المباشر"]
+          }
+        ]
+      },
+      "safety": {
+        "kicker": "موارد السلامة",
+        "title": "لماذا تعد إزالة الشعر بـ IPL آمنة (وكيف تشرح ذلك)",
+        "description": "استخدم الصفحة الرئيسية والأدلة المرتبطة أدناه للإجابة عن أسئلة المشترين وتقليل مخاطر الدعم أثناء الإطلاق.",
+        "pillar": "لماذا تعد إزالة الشعر بـ IPL آمنة (الصفحة الرئيسية)",
+        "deepLinks": "روابط متعمقة",
+        "links": [
+          "بيانات سريرية حول سلامة IPL",
+          "IPL مقابل الليزر: ماذا يعني الفرق للسلامة",
+          "تسجيل FDA لأجهزة IPL",
+          "شهادات سلامة IPL (CE, ISO 13485)",
+          "فلترة الأشعة فوق البنفسجية في أجهزة IPL",
+          "اكتشاف درجة لون البشرة وأقفال الأمان",
+          "كيف يحسن التبريد الجليدي سلامة العلاج",
+          "سلامة IPL للبشرة الحساسة",
+          "موانع استخدام IPL: من لا يجب أن يستخدم IPL",
+          "وثائق السلامة لـ OEM/ODM"
+        ]
+      },
+      "freeSampleAlt": "عرض منتج IPL للعينة المجانية"
+    }
+  }
+}

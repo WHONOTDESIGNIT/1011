@@ -1,0 +1,183 @@
+{
+  "aboutPages": {
+    "contactPage": {
+      "form": {
+        "email": "Email",
+        "companyName": "Tên công ty",
+        "phoneNumber": "Số điện thoại",
+        "productInterest": "Sản phẩm quan tâm",
+        "expectedQuantity": "Số lượng dự kiến",
+        "projectTimeline": "Tiến độ dự án",
+        "projectDetails": "Chi tiết dự án",
+        "send": "Gửi",
+        "productOptions": [
+          "Thiết bị triệt lông IPL",
+          "Dự án OEM/ODM tùy chỉnh",
+          "Chỉ linh kiện IPL",
+          "Thiết bị trẻ hóa da",
+          "Chưa chắc chắn"
+        ],
+        "quantityOptions": [
+          "Một mẫu miễn phí",
+          "10~500 đơn vị",
+          "Vẫn đang lên kế hoạch"
+        ],
+        "timelineOptions": [
+          "Càng sớm càng tốt",
+          "1 - 3 tháng",
+          "3 - 6 tháng",
+          "6 - 12 tháng",
+          "Chỉ đang nghiên cứu"
+        ]
+      }
+    },
+    "iplSafety": {
+      "title": "Vì sao triệt lông IPL an toàn | Bằng chứng, FDA, các loại da & An toàn thiết bị",
+      "description": "Trang trụ cột ưu tiên an toàn cho triệt lông IPL: bằng chứng lâm sàng, bối cảnh FDA, quy trình an toàn tại nhà, các loại da Fitzpatrick, lọc tia UV, cảm biến, tác dụng phụ, chống chỉ định và chăm sóc sau điều trị. Bao gồm các liên kết trực tiếp đến nền tảng sản phẩm và hướng dẫn chuyên sâu.",
+      "breadcrumbLabel": "Vì sao triệt lông IPL an toàn",
+      "cta": {
+        "explorePlatforms": "Khám phá nền tảng thiết bị IPL",
+        "compareModels": "So sánh tất cả các dòng máy"
+      },
+      "topics": {
+        "clinicalData": {
+          "title": "Dữ liệu lâm sàng về an toàn IPL",
+          "anchor": "Dữ liệu lâm sàng về an toàn IPL",
+          "description": "Cách nghiên cứu mô tả các phản ứng da điển hình, mức độ nghiêm trọng và lý do vì sao hầu hết các tác dụng phụ đều nhẹ và tạm thời khi sử dụng đúng cách."
+        },
+        "fdaContext": {
+          "title": "Bối cảnh FDA: \"FDA cleared\" thực sự có nghĩa là gì",
+          "anchor": "Xác minh FDA (ý nghĩa của \"FDA cleared\")",
+          "description": "Cách diễn giải ngôn ngữ của FDA và lý do vì sao nó hỗ trợ các tuyên bố về an toàn mà không phóng đại những gì cơ quan quản lý đảm bảo."
+        },
+        "atHomeProtocol": {
+          "title": "Quy trình IPL tại nhà an toàn (tần suất, kiểm tra vùng da nhỏ, cài đặt)",
+          "anchor": "Quy trình IPL tại nhà an toàn (tần suất, kiểm tra vùng da nhỏ, cài đặt)",
+          "description": "Các quy tắc sử dụng thực tế giúp giảm rủi ro: kiểm tra vùng da nhỏ, tăng dần cường độ, giãn cách các buổi trị liệu và tránh chiếu lặp lại."
+        },
+        "fitzpatrick": {
+          "title": "Các loại da Fitzpatrick & giới hạn an toàn của IPL",
+          "anchor": "Các loại da Fitzpatrick & giới hạn an toàn của IPL",
+          "description": "Vì sao tông màu da ảnh hưởng đến rủi ro (vật lý, không phải phân biệt đối xử) và các thương hiệu nên truyền đạt khả năng tương thích một cách có trách nhiệm."
+        },
+        "iplVsLaser": {
+          "title": "IPL so với laser: so sánh độ an toàn (và mỗi loại phù hợp với ai)",
+          "anchor": "IPL so với laser: so sánh độ an toàn",
+          "description": "Một sự so sánh cân bằng: hạng thiết bị, cách truyền năng lượng, các rủi ro phổ biến và lý do vì sao \"an toàn hơn\" phụ thuộc vào loại da và quy trình."
+        },
+        "uvFiltering": {
+          "title": "Lọc tia UV & kiểm soát bước sóng (vì sao IPL không phải là làm rám nắng bằng UV)",
+          "anchor": "Lọc tia UV & kiểm soát bước sóng",
+          "description": "Cách bộ lọc và thiết kế bước sóng giảm bức xạ không mong muốn và cải thiện biên độ an toàn trong quá trình điều trị."
+        },
+        "safetySensors": {
+          "title": "Cảm biến an toàn: phát hiện tông màu da & cảm biến tiếp xúc",
+          "anchor": "Cảm biến an toàn (phát hiện tông màu da & cảm biến tiếp xúc)",
+          "description": "Cách cảm biến tông màu da và cơ chế khóa tiếp xúc giảm nguy cơ sử dụng sai—đặc biệt ở các loại da Fitzpatrick cao hơn."
+        },
+        "sideEffects": {
+          "title": "Giải thích tác dụng phụ của IPL (điều gì bình thường và điều gì không)",
+          "anchor": "Giải thích tác dụng phụ của IPL (điều gì bình thường và điều gì không)",
+          "description": "Đỏ da nhẹ nghĩa là gì, vết bỏng trông như thế nào, và quy trình quyết định để tạm dừng, giảm cài đặt hoặc tìm kiếm sự trợ giúp."
+        },
+        "contraindications": {
+          "title": "Những ai không nên sử dụng IPL (chống chỉ định & yếu tố rủi ro)",
+          "anchor": "Những ai không nên sử dụng IPL (chống chỉ định)",
+          "description": "Thuốc, tiếp xúc với ánh nắng, hình xăm, tình trạng da và các trường hợp khác khi nên tránh hoặc hoãn sử dụng IPL."
+        },
+        "beforeAfterCare": {
+          "title": "Chăm sóc trước/sau: cách giảm kích ứng và rủi ro",
+          "anchor": "Chăm sóc trước/sau để giảm rủi ro IPL",
+          "description": "Các bước chăm sóc trước và sau đơn giản giúp giảm viêm và tránh các vấn đề về sắc tố sau các buổi trị liệu."
+        }
+      },
+      "heroKicker": "Trụ cột an toàn",
+      "heroTitle": "Vì sao triệt lông IPL an toàn (khi sử dụng đúng cách)",
+      "heroParagraph": "Đây là trung tâm ưu tiên an toàn được xây dựng cho các thương hiệu, đội ngũ tìm nguồn cung ứng và người mua bán lẻ. Trang kết nối các câu hỏi an toàn được tìm kiếm nhiều nhất với câu trả lời thực tế, bối cảnh dựa trên bằng chứng và các tính năng thiết kế thiết bị giúp giảm rủi ro.",
+      "howToKicker": "Cách sử dụng trang này",
+      "howToTitle": "Đọc theo cùng thứ tự mà người mua của bạn đọc",
+      "howToSteps": [
+        "Bắt đầu với bằng chứng và bối cảnh FDA để củng cố tuyên bố \"an toàn\" một cách có trách nhiệm.",
+        "Xác nhận giới hạn loại da và quy trình giữ rủi ro thấp khi sử dụng tại nhà.",
+        "Sau đó chọn lọc nền tảng trong phần Sản phẩm và so sánh các dòng máy trong Danh mục."
+      ],
+      "topicMapKicker": "Bản đồ chủ đề",
+      "topicMapTitle": "10 chủ đề an toàn (liên kết sâu)",
+      "topicMapParagraph": "Mỗi chủ đề bên dưới liên kết đến một hướng dẫn riêng. Sử dụng chính các neo này trên các trang hỗ trợ để củng cố mức độ liên quan.",
+      "guideLabel": "Hướng dẫn",
+      "pillarKicker": "Các phần trụ cột",
+      "pillarTitle": "Bằng chứng + quy trình + thiết kế thiết bị",
+      "pillarParagraph": "Sử dụng cấu trúc này làm trang trả lời dài, và các hướng dẫn liên kết làm nội dung cụm hỗ trợ cho trang đó.",
+      "readGuide": "Đọc hướng dẫn",
+      "finalKicker": "Sẵn sàng chọn lọc một dòng máy?",
+      "finalTitle": "So sánh tất cả các nền tảng, sau đó chọn tổ hợp an toàn phù hợp",
+      "finalParagraph": "Sử dụng trang Sản phẩm để xem chi tiết nền tảng và Danh mục để so sánh khả năng làm mát, điều khiển qua ứng dụng và cảm biến an toàn giữa các dòng máy."
+    }
+  },
+  "auxPages": {
+    "marketplace": {
+      "pageTitle": "iShine Marketplace | Nền tảng giao dịch tài sản sáng tạo kỹ thuật số",
+      "pageDescription": "iShine Marketplace là nền tảng giao dịch tài sản sáng tạo kỹ thuật số đáng tin cậy, nơi các nhà sáng tạo trưng bày, giao dịch và phát triển các tác phẩm kỹ thuật số của mình — với các dịch vụ và hỗ trợ dành cho nhà sáng tạo được xây dựng trên niềm tin: Thắp sáng sáng tạo, kết nối giá trị.",
+      "brandSlogan": "Thắp sáng sáng tạo, kết nối giá trị",
+      "contactCta": "Liên hệ iShine",
+      "detailsCta": "Chi tiết",
+      "hero": {
+        "smallTitle": "iShine Marketplace | Tài sản sáng tạo kỹ thuật số",
+        "heading": "Nền tảng giao dịch tài sản sáng tạo kỹ thuật số đáng tin cậy của bạn",
+        "subheading": "Trưng bày các tác phẩm kỹ thuật số của bạn, giao dịch một cách tự tin và phát triển cùng các dịch vụ dành cho nhà sáng tạo — tất cả trong một thị trường đáng tin cậy."
+      },
+      "product1": {
+        "imageAlt": "Trưng bày tác phẩm kỹ thuật số - thư viện tài sản sáng tạo",
+        "smallTitle": "Trưng bày tác phẩm kỹ thuật số",
+        "heading": "Trưng bày các sáng tạo kỹ thuật số của bạn",
+        "description": "Xuất bản và giới thiệu các tác phẩm kỹ thuật số của bạn — mẫu thiết kế, thiết kế, minh họa và hơn thế nữa — trong một thư viện được tổ chức đẹp mắt, giúp người mua dễ dàng khám phá các sáng tạo của bạn."
+      },
+      "product2": {
+        "imageAlt": "Giao dịch an toàn - các giao dịch tài sản kỹ thuật số",
+        "smallTitle": "Giao dịch kỹ thuật số an toàn",
+        "heading": "Giao dịch tài sản kỹ thuật số một cách tự tin",
+        "description": "Mua và bán tài sản kỹ thuật số thông qua quy trình giao dịch rõ ràng, an toàn với cấp phép minh bạch, giao hàng tức thì và thanh toán được bảo vệ."
+      },
+      "product3": {
+        "imageAlt": "Dịch vụ dành cho nhà sáng tạo - công cụ phân tích và phát triển",
+        "smallTitle": "Dịch vụ dành cho nhà sáng tạo",
+        "heading": "Phát triển hoạt động kinh doanh sáng tạo của bạn",
+        "description": "Từ công cụ hồ sơ danh mục đến phân tích người bán, iShine Marketplace cung cấp cho các nhà sáng tạo các dịch vụ và hỗ trợ cần thiết để tiếp cận đối tượng mới và mở rộng quy mô bền vững."
+      },
+      "cta": {
+        "smallTitle": "iShine Marketplace | Các dịch vụ chính thức",
+        "headingLine1": "Trao đổi với đội ngũ dịch vụ",
+        "headingLine2": "iShine về",
+        "headingLine3": "mục tiêu của bạn",
+        "links": {
+          "privateLabel": "Nhãn riêng",
+          "technologyPartner": "Tìm đối tác công nghệ IPL",
+          "buildNewIpl": "Xây dựng IPL mới",
+          "maintainOrFixIpl": "Bảo trì hoặc sửa chữa IPL của tôi"
+        }
+      },
+      "blog": {
+        "smallTitle": "Học hỏi cùng chúng tôi",
+        "heading": "Cộng đồng nhà sáng tạo",
+        "subheading": "Các bài viết hữu ích về sáng tạo kỹ thuật số, giao dịch trên thị trường và phát triển hoạt động kinh doanh của bạn cùng iShine Marketplace.",
+        "learnCta": "Tìm hiểu",
+        "card1": {
+          "title": "Thiết bị IPL thông minh: Cuộc cách mạng kết nối ứng dụng",
+          "readTime": "5 phút đọc"
+        },
+        "card2": {
+          "title": "Những tiến bộ mới nhất trong nghiên cứu IPL",
+          "readTime": "4 phút đọc"
+        },
+        "card3": {
+          "title": "OEM so với ODM: Chọn đúng mô hình sản xuất",
+          "readTime": "6 phút đọc"
+        }
+      }
+    },
+    "faq": {
+      "pageTitle": "Câu hỏi thường gặp | iShine Sản xuất IPL",
+      "pageDescription": "Nhận câu trả lời về dịch vụ OEM và ODM, tuân thủ quy định, MOQ, thời gian giao hàng, đóng gói, vận chuyển và cách sử dụng sản phẩm IPL cho các chương trình thiết bị làm đẹp nhãn riêng."
+    }
+  }
+}

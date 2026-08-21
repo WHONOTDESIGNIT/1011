@@ -1,0 +1,143 @@
+{
+  "develoContent": {
+    "blog": {
+      "browse": {
+        "card13": {
+          "title": "Nové webové stránky Develo a lepší způsob jejich tvorby",
+          "alt": "Nové webové stránky Develo",
+          "date": "10. února 2026"
+        },
+        "card14": {
+          "readTime": "4 min čtení",
+          "category": "HYVÄ THEMES",
+          "title": "Jak optimalizovat webové stránky na Hyvä",
+          "alt": "Optimalizace Hyva",
+          "date": "28. ledna 2026"
+        },
+        "card15": {
+          "readTime": "4 min čtení",
+          "category": "ECOMMERCE",
+          "title": "12 tipů pro módní eCommerce: stylové weby s vysokou konverzí",
+          "alt": "Módní eCommerce",
+          "date": "15. ledna 2026"
+        }
+      },
+      "pagination": {
+        "ariaLabel": "Stránkování",
+        "previous": "Předchozí",
+        "next": "Další"
+      }
+    },
+    "blogDetail": {
+      "pageTitle": "8 tipů pro optimalizaci rychlosti a výkonu Magento | Blog Develo",
+      "pageDescription": "Praktické způsoby, jak zrychlit váš obchod na Magento, zlepšit jeho plynulost a zvýšit ziskovost.",
+      "breadcrumb": {
+        "ariaLabel": "Drobečková navigace",
+        "blog": "Blog"
+      },
+      "category": "MAGENTO",
+      "title": "8 tipů pro optimalizaci rychlosti a výkonu Magento",
+      "description": "Praktické způsoby, jak zrychlit váš obchod na Magento, zlepšit jeho plynulost a zvýšit ziskovost",
+      "author": "Autor: Bethany Wood",
+      "date": "19. února 2026",
+      "readTime": "5 min čtení",
+      "updated": "Poslední aktualizace: 19. února 2026",
+      "share": {
+        "label": "Sdílet tento článek",
+        "twitter": "Sdílet na Twitteru",
+        "linkedin": "Sdílet na LinkedInu",
+        "facebook": "Sdílet na Facebooku"
+      },
+      "authorRole": "Marketingová manažerka",
+      "authorBio": "Beth pracuje v marketingu od roku 2016, kde realizuje kreativní kampaně zaměřené na konverze napříč mnoha odvětvími. Specializuje se na marketing na sociálních sítích, branding, e-mailový marketing a copywriting. Jako marketingová manažerka společnosti Develo v komerčním oddělení odpovídá za řízení a realizaci marketingových aktivit, které podporují růst firmy. Ráda vede projekty od konceptu až po realizaci a proměňuje nápady v kampaně s měřitelnými výsledky.",
+      "authorCompany": "Develo je přední agentura pro Magento a společnost zabývající se vývojem eCommerce webů se sídlem v Birminghamu ve Velké Británii, která od roku 2010 obsluhuje klienty po celém světě.",
+      "cta": {
+        "text": "Potřebujete pomoc s optimalizací vašeho obchodu na Magento? Pojďme si promluvit.",
+        "button": "Rezervovat hovor"
+      },
+      "body": {
+        "para1Before": "Optimalizace rychlosti a výkonu webu na Magento by měla být na vrcholu seznamu priorit každého majitele firmy. Proč? Protože u dnešních zákazníků rozhoduje každá vteřina. Ve skutečnosti,",
+        "para1After": "když načtení stránky trvá déle než tři sekundy. Pomalé weby zákazníky nejen rozčilují, ale také poškozují uživatelský komfort (UX) vašeho webu na Magento a jeho pozice v SEO, zejména nyní, kdy je rychlost webu klíčovým hodnotícím faktorem v testech Google Core Web Vitals.",
+        "para2": "Optimalizace webu na Magento pomáhá těmto problémům předcházet a zároveň zvyšuje vaše tržby a konverze. Níže jsme pro vás připravili 8 zásadních tipů, které vám (nebo vašemu vývojáři!) pomohou optimalizovat rychlost Magento a zajistit, aby byl váš web postaven pro maximální výkon, ať je váš eCommerce obchod nastaven jakkoli.",
+        "section1Title": "Jak můžete otestovat rychlost a výkon vašeho Magento pomocí Core Web Vitals?",
+        "section1ParaBefore": "Než provedete jakékoli změny, doporučujeme spustit test Core Web Vitals. Požádejte svého vývojáře, aby pomocí nástrojů, jako jsou",
+        "section1ParaMiddle": "nebo",
+        "section1ParaAfter": ", zkontroloval problémy s rychlostí a možnosti zlepšení. Tyto nástroje vám poskytnou výchozí hodnoty pro měření pokroku a upozorní na oblasti, které váš web brzdí.",
+        "section2Title": "Až budete hotovi, postupujte podle těchto 8 tipů pro optimalizaci výkonu Magento.",
+        "tip1Title": "1. Povolte všechny typy mezipaměti Magento a použijte Varnish",
+        "tip1Para1": "Magento obsahuje několik vestavěných možností mezipaměti. Jejich povolení je jedním z nejrychlejších způsobů, jak zvýšit výkon webu. Naše doporučení? Varnish – výkonný nástroj pro mezipaměť, který výrazně zkracuje dobu načítání stránek tím, že ukládá verzi vašeho webu do paměti.",
+        "tip1Para2": "To znamená, že vracející se návštěvníci nebudou muset znovu načítat každý prvek stránky, což vám ušetří čas a serverové prostředky a sníží počet opuštěných nákupů.",
+        "tip2Title": "2. Povolte Redis pro ukládání relací a mezipaměti",
+        "tip2Para1": "Kromě Varnish doporučujeme, aby váš vývojář povolil Redis pro ukládání relací a mezipaměti. Redis odlehčuje databázi tím, že ukládá relace a mezipaměť do paměti, což urychluje načítání dat a snižuje zátěž serveru.",
+        "tip2Para2": "Proč Varnish a Redis? Tato kombinace zlepšuje jak odezvu webu na Magento během špiček návštěvnosti, tak výkon backendu. Výsledek: plynulejší zážitek pro uživatele i administrátory.",
+        "tip3Title": "3. Zvolte specializovaný hosting pro Magento",
+        "tip3Para1Before": "Magento je platforma náročná na prostředky, a proto velmi těží z vyhrazených a optimalizovaných hostingových prostředí. Z tohoto důvodu zvažte přechod k poskytovateli hostingu specializovanému na Magento, jako jsou",
+        "tip3Para1After": ", UKFast nebo Corefinity. Na rozdíl od poskytovatelů, kteří „dělají všechno“, znají tuto platformu do detailu a dokážou nabídnout podporu a infrastrukturu šitou na míru optimalizaci výkonu Magento.",
+        "tip3Para2": "Bonusový tip: ověřte, že váš současný poskytovatel povolil Varnish nebo Redis a že používá správnou kapacitu serveru pro vaši návštěvnost.",
+        "tip4Title": "4. Použijte CDN, jako je Cloudflare",
+        "tip4Para1": "Síť pro doručování obsahu (CDN) ukládá statické soubory vašeho webu (např. obrázky, CSS a JS) na více serverů po celém světě. Když zákazníci navštíví váš web, soubory se načítají z nejbližšího serveru, což snižuje latenci (dobu načítání) a zlepšuje skóre Magento Core Web Vitals – to vše přispívá k vaší obchodní marži.",
+        "tip4Para2Before": "Ve společnosti Develo používáme",
+        "tip4Para2After": ", protože je jednoduchý na nastavení, spolehlivý a nabízí štědrý bezplatný tarif.",
+        "tip5Title": "5. Přepněte na indexaci „On Schedule“",
+        "tip5Para": "Magento vám umožňuje zvolit, kdy budou data indexována – buď okamžitě („on save“), nebo „on schedule“. Pro většinu obchodů je indexace „on schedule“ rychlejší a efektivnější, snižuje zátěž administrace a zlepšuje uživatelský komfort (UX), zejména pro zákazníky procházející velké katalogy produktů.",
+        "tip6Title": "6. Optimalizujte obrázky a líné načítání pod záhybem stránky",
+        "tip6Para1": "Má váš web na Magento velké obrázky? Pokud ano, mohou se načítat pomalu. Požádejte proto svého vývojáře, aby zavedl líné načítání obrázků, které se nacházejí níže na stránce („below the fold“), a používal formáty jako WebP. Tím se sníží hmotnost stránky, zlepší skóre testů Core Web Vitals a – což je nejdůležitější – vaše konverzní poměry zůstanou na správné úrovni.",
+        "tip6Para2Before": "Doporučujeme nástroje, jako jsou",
+        "tip6Para2After": "pro automatizaci tohoto procesu. Zvažte také hostování videí externě (na platformách jako YouTube nebo Vimeo), kde jsou optimalizována pro doručování.",
+        "tip7Title": "7. Zkontrolujte a omezte skripty třetích stran",
+        "tip7Para1Before": "Dalším způsobem, jak optimalizovat rychlost Magento, je zkontrolovat (a v případě potřeby odstranit) rozšíření webu a skripty třetích stran, zejména ty přidané přes GTM nebo přímo do Magento. Jejich odhalení je snadné pomocí",
+        "tip7Para1Middle": "nebo",
+        "tip7Para1After": ", a zlepšíte tak dobu načítání webu.",
+        "tip7Para2": "Pamatujte: pokud je skript potřeba pouze na jedné stránce (např. na stránce produktu PDP nebo při dokončení objednávky), není nutné jej načítat na celém webu.",
+        "tip8Title": "8. Vyčistěte a optimalizujte databázi Magento",
+        "tip8Para": "Pověřte svého vývojáře pravidelným čištěním a optimalizací databáze Magento. Zabráníte tak hromadění nepoužívaných dat, včetně logů a prošlých nabídek. Tím se zlepší optimalizace vašeho webu na Magento a urychlí se dotazy zákazníků.",
+        "bonusTitle": "Bonusové tipy pro Magento 2.4 a novější",
+        "bonusItem1Strong": "Používejte motivy Hyva:",
+        "bonusItem1Before": "Téma",
+        "bonusItem1After": "je vynikající volbou pro majitele firem, kteří hledají rychlost vyšší než u tématu Luma a vynikající výsledky testů Core Web Vitals. Tento motiv zlepšuje výkon webu, snižuje složitost pro vývojáře a zlepšuje UX. Je to chytrý upgrade připravený na budoucnost pro každý obchod na Magento.",
+        "bonusItem2Strong": "Pravidelně testujte:",
+        "bonusItem2Before": "Provádějte měsíční testy rychlosti pomocí nástrojů, jako jsou",
+        "bonusItem2Middle": "a",
+        "bonusItem2After": ".",
+        "finalTitle": "Optimalizace webu na Magento: Závěrečné shrnutí",
+        "finalParaBefore": "Optimalizace webu na Magento je dlouhodobá investice. Se správným nastavením a pravidelnými kontrolami udržíte svůj obchod rychlý, bezpečný a napřed před konkurencí, jak dokládá naše spolupráce s",
+        "finalParaAfter": "."
+      }
+    },
+    "careers": {
+      "pageTitle": "Kariéra | Develo Design",
+      "pageDescription": "Přidejte se k našemu rostoucímu týmu. Stále hledáme talentované vývojáře, designéry a specialisty na eCommerce, kterým záleží na skvělé práci.",
+      "hero": {
+        "smallTitle": "Kariéra",
+        "heading": "Přidejte se k našemu rostoucímu týmu",
+        "subheading": "Stále hledáme talentované vývojáře, designéry a specialisty na eCommerce, kterým záleží na skvělé práci."
+      },
+      "noPositions": {
+        "heading": "V současné době nemáme žádná volná místa",
+        "description": "Přesto nás vždy zajímají talentovaní jednotlivci. Pokud si myslíte, že byste se k našemu týmu hodili, pošlete nám svůj životopis a my se vám ozveme, jakmile budou volné pozice k dispozici.",
+        "cta": "Pošlete nám svůj životopis"
+      },
+      "footerCta": {
+        "heading": "Jste připraveni zahájit svůj projekt?",
+        "description": "Rádi vám pomůžeme vytvořit projekt, který bude rychlý, škálovatelný a krásný.",
+        "button": "Kontaktujte nás"
+      }
+    },
+    "privacy": {
+      "pageTitle": "Zásady ochrany osobních údajů a cookies | Develo Design",
+      "pageDescription": "Ve společnosti Develo Design jsme odhodláni chránit vaše soukromí. Zjistěte, jak shromažďujeme, používáme a chráníme vaše osobní údaje.",
+      "hero": {
+        "label": "Právní informace",
+        "title": "Zásady ochrany osobních údajů a cookies",
+        "description": "Vaše soukromí je pro nás důležité. Zjistěte, jak shromažďujeme, používáme a chráníme vaše osobní údaje."
+      },
+      "body": {
+        "introTitle": "Úvod",
+        "introPara": "Ve společnosti Develo Design jsme odhodláni chránit vaše soukromí a zajistit, abyste měli na našem webu pozitivní zkušenost. Tyto zásady ochrany osobních údajů a cookies vysvětlují, jak shromažďujeme, používáme a chráníme vaše osobní údaje.",
+        "collectTitle": "Informace, které shromažďujeme",
+        "collectIntro": "Informace shromažďujeme následujícími způsoby:",
+        "collectProvidedTitle": "Informace, které nám poskytnete"
+      }
+    }
+  }
+}
