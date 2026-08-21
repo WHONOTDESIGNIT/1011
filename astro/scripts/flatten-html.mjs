@@ -134,9 +134,11 @@ function buildRedirects(dist) {
   // 因此将 /en/* 与 404 兜底一并写入 _redirects（文件优先级最高、必然生效）。
   rules.push('/en/* /:splat 301!');
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
-  // 末尾追加 !（force）确保强制生效，防止 Netlify shadowing（from 路径命中现有静态
-  // 文件时规则被忽略）；规则置于文件末尾（更具体规则在上，宽泛兜底在下）。
-  rules.push('/* /404.html 404!');
+  // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
+  // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
+  // 去掉后 shadowing 恢复正常——有文件就服务文件，无文件才落入兜底。规则置于文件末尾
+  // （更具体规则在上，宽泛兜底在下）。
+  rules.push('/* /404.html 404');
   return rules;
 }
 
