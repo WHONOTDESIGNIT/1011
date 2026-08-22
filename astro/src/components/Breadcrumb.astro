@@ -18,7 +18,7 @@ const currentLabel = items[items.length - 1]?.label ?? '';
 
 const ancestorClass = variant === 'dark'
   ? 'text-white/60 transition hover:text-white/90'
-  : 'text-slate-500 transition hover:text-slate-800';
+  : 'bc-ancestor transition';
 
 const currentClass = variant === 'dark'
   ? 'font-semibold text-white/95'
@@ -153,3 +153,11 @@ const subLinkClass = variant === 'dark'
     `}
   </script>
 </nav>
+<style>
+  .bc-ancestor {
+    color: #4b5563 !important;
+  }
+  .bc-ancestor:hover {
+    color: #1e293b !important;
+  }
+</style>

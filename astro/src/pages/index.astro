@@ -557,7 +557,7 @@ a{text-decoration:none;color:inherit}
 .footer-col h4{font-family:Manrope,sans-serif;font-size:18px;font-weight:600;color:#fff;line-height:27px;margin-bottom:16px}
 .footer-col a{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0;transition:color .2s}
 .footer-col a:hover{color:#b4b4b4}
-.footer-col-cta h4{font-size:42px;line-height:50px;font-weight:600;margin-bottom:12px}
+.footer-col-cta h2{font-size:42px;line-height:50px;font-weight:600;margin-bottom:12px}
 .footer-col-cta p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)}
 .footer-col-cta .btn-primary{color:#fff;background:var(--blue)}
 .footer-cta-arrow{display:inline-flex;align-items:center}
@@ -567,8 +567,8 @@ a{text-decoration:none;color:inherit}
 .footer-company-info{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#fff;margin-bottom:8px}
 .footer-col-info a{font-size:14px;line-height:21px;padding:2px 0;color:#fff;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px}
 .footer-col-info a:hover{text-decoration-color:transparent}
-@media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h4{font-size:30px;line-height:38px}}
-@media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
+@media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h2{font-size:30px;line-height:38px}}
+@media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h2{font-size:26px;line-height:34px}}
 
 </style>
 </head>
@@ -577,7 +577,7 @@ a{text-decoration:none;color:inherit}
 <div class="gradient-bg"></div>
 
 <!-- ═══ 1. TRUST BAR ═══ -->
-<div class="trust-bar" id="trust-bar">
+<div class="trust-bar" id="trust-bar" role="region" aria-label="Site trust badges">
   <div class="trust-bar-inner">
     <div class="trust-slide" data-slide="shipping">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -876,6 +876,7 @@ a{text-decoration:none;color:inherit}
     </clipPath>
   </defs>
 </svg>
+<main>
 <section class="hero" id="hero-section">
   <div class="hero-white-container">
     <div class="hero-content-card">
@@ -1271,12 +1272,14 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
+</main>
+
 <!-- ═══ 11. FOOTER ═══ -->
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h4>{t(locale, 'homepage.footer.heading')}</h4>
+        <h2>{t(locale, 'homepage.footer.heading')}</h2>
         <p>{t(locale, 'homepage.footer.sub')}</p>
         <a class="our-work-link" href={loc("/contact")} style="margin-top:12px">{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>

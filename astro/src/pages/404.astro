@@ -6,12 +6,12 @@ const homeHref = locale === 'en' ? '/' : `/${locale}/`;
 ---
 <BaseLayout title="404 · Page Not Found" lang={locale} description="Page not found" showCornerMarkers={false}>
   <meta slot="head" name="robots" content="noindex, nofollow" />
-  <main class="not-found">
+  <div class="not-found">
     <p class="not-found-code">404</p>
     <h1>Page Not Found</h1>
     <p>The page you are looking for doesn&rsquo;t exist or has been moved.</p>
     <a class="not-found-btn" href={homeHref}>Back to Home</a>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>

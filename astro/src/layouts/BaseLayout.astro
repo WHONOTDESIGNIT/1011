@@ -46,10 +46,10 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
     <SiteHeader lang={lang} />
-    <div class="content-area mx-auto max-w-6xl px-6 pb-10">
+    <main class="content-area mx-auto max-w-6xl px-6 pb-10">
     <slot />
     {showCornerMarkers && <CornerMarker />}
-    </div>
+    </main>
     <SiteFooter lang={lang} />
     <StickyContact />
     <CookieConsent lang={lang} />

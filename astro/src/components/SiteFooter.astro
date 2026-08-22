@@ -59,7 +59,7 @@ const loc = (p: string) => getLocalizedPath(lang, p);
   .footer-col a:hover {
     color: #b4b4b4;
   }
-  .footer-col-cta h4 {
+  .footer-col-cta h2 {
     font-size: 42px;
     line-height: 50px;
     font-weight: 600;
@@ -148,7 +148,7 @@ const loc = (p: string) => getLocalizedPath(lang, p);
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
-    .footer-col-cta h4 {
+    .footer-col-cta h2 {
       font-size: 30px;
       line-height: 38px;
     }
@@ -161,7 +161,7 @@ const loc = (p: string) => getLocalizedPath(lang, p);
       grid-template-columns: 1fr;
       gap: 32px;
     }
-    .footer-col-cta h4 {
+    .footer-col-cta h2 {
       font-size: 26px;
       line-height: 34px;
     }
@@ -172,7 +172,7 @@ const loc = (p: string) => getLocalizedPath(lang, p);
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h4>{t(locale, 'homepage.footer.heading')}</h4>
+        <h2>{t(locale, 'homepage.footer.heading')}</h2>
         <p>{t(locale, 'homepage.footer.sub')}</p>
         <a class="our-work-link" href={loc("/contact")} style="margin-top:12px">{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
