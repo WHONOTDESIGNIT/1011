@@ -8,6 +8,14 @@ export default {
         display: ['Syne', ...fontFamily.sans],
         sans: ['Manrope', ...fontFamily.sans],
       },
+      maxWidth: {
+        xl: '691px',
+        '2xl': '806px',
+        '3xl': '922px',
+        '4xl': '1075px',
+        '5xl': '1229px',
+        '6xl': '1382px',
+      },
       colors: {
         brand: {
           primary: '#563cfa',
