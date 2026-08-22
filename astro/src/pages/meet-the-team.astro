@@ -3,6 +3,7 @@
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import { t } from '../lib/i18n';
 import SeoHead from '../components/SeoHead.astro';
+import fontsCss from '../styles/fonts.css?raw';
 
 // 页面不经过 BaseLayout，内联实现自取当前语言：
 // en 无前缀；/tr/、/ar/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr/ar
@@ -57,9 +58,8 @@ const loc = (p: string) => getLocalizedPath(locale, p);
 <meta name="description" content={t(locale, 'teamPage.meta.description')} />
 <SeoHead title={t(locale, 'teamPage.meta.title')} lang={locale} description={t(locale, 'teamPage.meta.description')} video={{ name: t(locale, 'teamPage.meta.title') }} />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<style is:inline set:html={fontsCss} />
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}

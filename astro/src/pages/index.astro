@@ -4,6 +4,7 @@ import { getLocalizedPath } from '../lib/breadcrumbs';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import SeoHead from '../components/SeoHead.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import fontsCss from '../styles/fonts.css?raw';
 import { t } from '../lib/i18n';
 
 // 首页不经过 BaseLayout/SiteHeader 组件，内联实现自取当前语言：
@@ -19,9 +20,8 @@ const pageDescription = t(locale, 'home.page.description');
 <html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
 <SeoHead title={pageTitle} lang={locale} description={pageDescription} video={{ name: pageTitle }} />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<style is:inline set:html={fontsCss} />
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -1405,7 +1405,16 @@ a{text-decoration:none;color:inherit}
     hero.classList.toggle('hero-title-compact', shouldCompactTitle);
   }
 
+  // Disable width transition on first paint to avoid layout shift, then restore after double rAF.
+  if (heroContainer) heroContainer.style.transition = 'none';
   updateHeroContainerLayout();
+  if (heroContainer) {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        heroContainer.style.transition = '';
+      });
+    });
+  }
   window.addEventListener('resize', updateHeroContainerLayout);
   window.addEventListener('layout:header-metrics', updateHeroContainerLayout);
 

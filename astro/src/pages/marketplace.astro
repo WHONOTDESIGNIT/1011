@@ -6,6 +6,7 @@ import SeoHead from '../components/SeoHead.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import fontsCss from '../styles/fonts.css?raw';
 
 const locale = Astro.currentLocale ?? 'en';
 ---
@@ -52,8 +53,9 @@ const locale = Astro.currentLocale ?? 'en';
 <title>{t(locale, 'auxPages.marketplace.pageTitle')}</title>
 <meta name="description" content={t(locale, 'auxPages.marketplace.pageDescription')} />
 <SeoHead title={t(locale, 'auxPages.marketplace.pageTitle')} lang={locale} description={t(locale, 'auxPages.marketplace.pageDescription')} />
-<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+{/* 字体内联（2026-08-21 CLS 优化）：替代 Google Fonts 外链，提前字体下载、避免 render-blocking */}
+<style is:inline set:html={fontsCss} />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--blue:#563cfa;--black:#020303;--white:#fff;--max-w:1536px;--pad-100:100px}

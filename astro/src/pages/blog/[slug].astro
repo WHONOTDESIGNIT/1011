@@ -10,10 +10,25 @@ const urlLocale = Astro.currentLocale ?? 'en';
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-  // 三语文章各自的独立 slug 都注册为路由；Astro 会为每个 locale 前缀复制同一 slug，
-  // 组合不匹配的（如 /tr/blog/<en-slug>）在页面内 301 重定向到该文章的正确语言 URL。
+  // 修复：只返回与语言前缀绑定的条目（每语言只含该语言实际拥有的文章 slug），
+  // 避免 Astro i18n 对同一 slug 的多语言版本只保留一个 props 导致 articleLocale 错乱
+  // （此前所有语言的所有 slug 混在一起，/de/blog/x 的 articleLocale 可能被判成 ar 等，
+  //  触发错误重定向，多语言博客页全部变成 redirect 壳）。
   const versions = await getAllArticleVersions();
-  return versions.map((v) => ({ params: { slug: v.slug }, props: { articleLocale: v.locale } }));
+  // 对每个语言前缀，只保留该语言实际拥有的 slug（去重，避免 Astro 多语言复制）
+  const byLocale = new Map<string, { slug: string; canonicalSlug: string }[]>();
+  for (const v of versions) {
+    if (!byLocale.has(v.locale)) byLocale.set(v.locale, []);
+    const arr = byLocale.get(v.locale)!;
+    if (!arr.some((x) => x.slug === v.slug)) arr.push({ slug: v.slug, canonicalSlug: v.canonicalSlug });
+  }
+  const paths: { params: { slug: string }; props: { articleLocale: string } }[] = [];
+  for (const [locale, list] of byLocale) {
+    for (const item of list) {
+      paths.push({ params: { slug: item.slug }, props: { articleLocale: locale } });
+    }
+  }
+  return paths;
 }
 
 const { articleLocale } = Astro.props as { articleLocale: string };

@@ -7,6 +7,7 @@ import CookieConsent from '../components/CookieConsent.astro';
 // TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复
 // import Chat from '../components/react/Chat';
 import criticalCss from '../styles/critical.css?raw';
+import fontsCss from '../styles/fonts.css?raw';
 import globalCssUrl from '../styles/global.css?url';
 import SeoHead from '../components/SeoHead.astro';
 
@@ -24,21 +25,21 @@ type Props = {
 };
 
 const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs } = Astro.props as Props;
-const fontStylesheetUrl = 'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap';
+// 字体策略（2026-08-21 优化 CLS）：
+// 之前用 Google Fonts 外链 + media="print" onload 延迟加载，字体文件在页面 load 后才开始下载，
+// font-display:swap 造成首屏大标题换行重排（CLS）。现改为内联 @font-face（fonts.css，含
+// unicode-range 分片），浏览器解析内联 CSS 后立即并行下载所需 woff2，缩小 swap 窗口。
 ---
 
 <!doctype html>
 <html lang={lang} dir={lang === 'ar' || lang === 'he' || lang === 'fa' ? 'rtl' : 'ltr'}>
   <head>
     <SeoHead title={title} lang={lang} description={description} canonical={canonical} image={image} type={type} hreflangs={hreflangs} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="preload" href={fontStylesheetUrl} as="style" />
-    <link rel="stylesheet" href={fontStylesheetUrl} media="print" onload="this.media='all'" />
+    <style is:inline set:html={fontsCss} />
     <style is:inline set:html={criticalCss} />
     <link rel="stylesheet" href={globalCssUrl} media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href={fontStylesheetUrl} />
       <link rel="stylesheet" href={globalCssUrl} />
     </noscript>
     <slot name="head" />
