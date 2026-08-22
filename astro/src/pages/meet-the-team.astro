@@ -116,7 +116,8 @@ a{text-decoration:none;color:inherit}
 /* ═══ 2. HEADER / NAV ═══ */
 .site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:var(--max-w);z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
 .site-header.site-header-top-hidden{top:0}
-.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0;transition:background .35s ease,box-shadow .35s ease}
+.site-header.header-scrolled .header-inner{background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 24px rgba(2,3,3,.08)}
 .header-logo{display:flex;align-items:center;flex:0 0 auto;height:calc(100% - 12px);max-width:100%;margin-right:0;min-width:0}
 .header-logo img{display:block;width:auto;height:100%;max-width:100%;object-fit:contain}
 .header-main-nav{display:flex;align-items:center;justify-content:flex-end;gap:38px;flex:0 0 auto;min-width:max-content;margin-left:auto;opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
@@ -1401,6 +1402,14 @@ a{text-decoration:none;color:inherit}
     } else if (lastScrollY === 0) {
       // Just left the top -> hide
       setTopBarVisible(false);
+    }
+    // Header background 80% opaque: only when scrolling down past 8px, restore when scrolling up
+    if (topBarHeader) {
+      if (y > lastScrollY && y > 8) {
+        topBarHeader.classList.add('header-scrolled');
+      } else if (y < lastScrollY || y === 0) {
+        topBarHeader.classList.remove('header-scrolled');
+      }
     }
     lastScrollY = y;
   }
