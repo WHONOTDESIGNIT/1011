@@ -20,9 +20,15 @@ const pageDescription = t(locale, 'home.page.description');
 <html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
 <SeoHead title={pageTitle} lang={locale} description={pageDescription} video={locale === 'en' ? { name: pageTitle } : undefined} />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+{/* 与 BaseLayout 同款字体策略：内联 @font-face（unicode-range 分片），浏览器解析后立即并行下载所需 woff2，缩小 font-display:swap 的 CLS 窗口 */}
+<style is:inline set:html={fontsCss} />
+{locale === 'en' && (
+  <>
+    <link rel="preload" href="https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9A.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  </>
+)}
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -272,6 +278,13 @@ a{text-decoration:none;color:inherit}
 .video-section{position:relative;z-index:2;width:100%;max-width:960px;margin-top:calc(var(--hero-video-overlap) * -1)}
 .video-placeholder{position:relative;width:100%;overflow:hidden;border-radius:20px;background:#e5e7eb}
 .video-placeholder video{display:block;width:100%;height:auto;object-fit:cover;border-radius:20px}
+.video-control{position:absolute;top:12px;right:12px;z-index:3;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(2,3,3,.55);color:#fff;border:none;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .2s,opacity .2s}
+.video-control:hover{background:rgba(2,3,3,.75)}
+.video-control:focus-visible{outline:2px solid rgba(255,255,255,.9);outline-offset:2px}
+.video-control svg{display:block}
+.video-control .icon-play{display:none}
+.video-control.is-paused .icon-pause{display:none}
+.video-control.is-paused .icon-play{display:block}
 
 @media(max-width:1279px){
   .hero-white-container{min-width:320px}
@@ -906,9 +919,33 @@ a{text-decoration:none;color:inherit}
   <div class="hero-wrapper">
     <div class="video-section">
       <div class="video-placeholder">
-        <video autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
+        <video id="hero-video" autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
           <source src="/videos/head-video.mp4" type="video/mp4" />
         </video>
+        <button id="video-control" class="video-control" type="button" aria-label="Pause" aria-pressed="false">
+          <svg class="icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
+          <svg class="icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 2.5v11a.8.8 0 0 0 1.22.68l8.5-5.5a.8.8 0 0 0 0-1.36l-8.5-5.5A.8.8 0 0 0 5 2.5z"/></svg>
+        </button>
+        <script is:inline>
+          (function () {
+            var video = document.getElementById('hero-video');
+            var btn = document.getElementById('video-control');
+            if (!video || !btn) return;
+            btn.addEventListener('click', function () {
+              if (video.paused) {
+                video.play();
+                btn.classList.remove('is-paused');
+                btn.setAttribute('aria-pressed', 'false');
+                btn.setAttribute('aria-label', 'Pause');
+              } else {
+                video.pause();
+                btn.classList.add('is-paused');
+                btn.setAttribute('aria-pressed', 'true');
+                btn.setAttribute('aria-label', 'Play');
+              }
+            });
+          })();
+        </script>
       </div>
     </div>
   </div>
