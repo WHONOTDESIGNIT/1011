@@ -377,6 +377,47 @@ const breadcrumbSchema = {
   })),
 };
 
+// —— offers 增强字段：商家退换货政策 + 物流信息（Google Merchant Listing 富媒体增强）
+// 数据来源：https://iplmanufacturer.com/return-policy（15 天退货窗口、缺陷品免退货运费、非缺陷品买家承担运费）
+const merchantReturnPolicy = {
+  '@type': 'MerchantReturnPolicy',
+  applicableCountry: 'US',
+  returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+  merchantReturnDays: 15,
+  returnMethod: 'https://schema.org/ReturnByMail',
+  returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
+  merchantReturnLink: 'https://iplmanufacturer.com/return-policy',
+};
+
+// 全球直邮：处理 0-1 个工作日 + 国际运输 5-14 个工作日（与 messages/en.json 物流 deliveryTime 一致）
+const shippingDetails = {
+  '@type': 'OfferShippingDetails',
+  shippingRate: {
+    '@type': 'MonetaryAmount',
+    value: '0',
+    currency: 'USD',
+  },
+  shippingDestination: {
+    '@type': 'DefinedRegion',
+    addressCountry: 'US',
+  },
+  deliveryTime: {
+    '@type': 'ShippingDeliveryTime',
+    handlingTime: {
+      '@type': 'QuantitativeValue',
+      minValue: 0,
+      maxValue: 1,
+      unitCode: 'DAY',
+    },
+    transitTime: {
+      '@type': 'QuantitativeValue',
+      minValue: 5,
+      maxValue: 14,
+      unitCode: 'DAY',
+    },
+  },
+};
+
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -395,12 +436,16 @@ const productSchema = {
         highPrice: product.priceTiers[0]?.unitPrice,
         offerCount: product.priceTiers.length,
         availability: 'https://schema.org/InStock',
+        hasMerchantReturnPolicy: merchantReturnPolicy,
+        shippingDetails,
       }
     : {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
+        hasMerchantReturnPolicy: merchantReturnPolicy,
+        shippingDetails,
       },
   ...(product.badge ? { award: product.badge } : {}),
 };
