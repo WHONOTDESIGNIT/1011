@@ -19,9 +19,10 @@ const pageDescription = t(locale, 'home.page.description');
 <!doctype html>
 <html lang={locale} dir={locale === 'ar' || locale === 'he' || locale === 'fa' ? 'rtl' : 'ltr'}>
 <head>
-<SeoHead title={pageTitle} lang={locale} description={pageDescription} video={{ name: pageTitle }} />
+<SeoHead title={pageTitle} lang={locale} description={pageDescription} video={locale === 'en' ? { name: pageTitle } : undefined} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<style is:inline set:html={fontsCss} />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,7 +41,7 @@ const pageDescription = t(locale, 'home.page.description');
   --pad-24:24px;
   --nav-top:66px;
   --nav-h:70px;
-  --max-w:1843px;
+  --max-w:1536px;
 }
 @media(max-width:767px){
   :root{--nav-h:56px;--pad-100:var(--pad-24)}
@@ -76,10 +77,9 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.trust-slide{padding:10px 16px}.trust-text{font-size:14px;line-height:21px}}
 
 /* ═══ 2. HEADER / NAV ═══ */
-.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:var(--max-w);z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
 .site-header.site-header-top-hidden{top:0}
-.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0;transition:background .35s ease,box-shadow .35s ease}
-.site-header.header-scrolled .header-inner{background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 24px rgba(2,3,3,.08)}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
 .header-logo{display:flex;align-items:center;flex:0 0 auto;height:calc(100% - 12px);max-width:100%;margin-right:0;min-width:0}
 .header-logo img{display:block;width:auto;height:100%;max-width:100%;object-fit:contain}
 .header-main-nav{display:flex;align-items:center;justify-content:flex-end;gap:38px;flex:0 0 auto;min-width:max-content;margin-left:auto;opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
@@ -139,7 +139,10 @@ a{text-decoration:none;color:inherit}
 .mega-left--cols2 .mega-link{padding:10px 12px}
 
 /* Products dropdown: wider panel, product series + components zone + feature card */
-.mega-dropdown--wide{min-width:0}
+.mega-dropdown--wide{min-width:800px;left:0;transform:translateY(4px)}
+.nav-dropdown-wrapper:hover .mega-dropdown--wide,.mega-dropdown--wide.open{transform:translateY(0)}
+@media(max-width:1279px){.mega-dropdown--wide{min-width:720px}}
+@media(max-width:1099px){.mega-dropdown--wide{min-width:640px}}
 .mega-inner--products{gap:0;padding:24px 24px 24px 28px}
 .mega-left--products{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
 .mega-products-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;align-content:start;min-width:0}
@@ -176,7 +179,7 @@ a{text-decoration:none;color:inherit}
 
 /* Mobile menu panel */
 .nav-collapse-btn.open{background:#374151}
-.mobile-menu-overlay{position:fixed;inset:0;background:rgba(86,60,250,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(74,98,211,.1);opacity:0;visibility:hidden;pointer-events:none;z-index:108;transition:opacity .2s ease,visibility 0s .2s}
 .mobile-menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
 .mobile-menu-panel{position:fixed;top:148px;left:50%;transform:translateX(-50%) translateY(-8px);width:calc(100% - 48px);max-width:520px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);padding:20px;display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;z-index:115;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
 .mobile-menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
@@ -224,7 +227,7 @@ a{text-decoration:none;color:inherit}
 }
 @media(min-width:1280px){
   /* 破框全宽：Hero 区块突破 1400px 容器限制，背景与装饰延伸至屏幕边缘（develo 风格开阔布局） */
-  .hero{width:100vw;max-width:none;margin-left:calc(-50vw + 50%);margin-right:0;padding-left:0;padding-right:calc(100vw - var(--hero-container-left) - var(--max-w));gap:48px;
+  .hero{width:100vw;max-width:none;margin-left:calc(-50vw + 50%);margin-right:0;padding-left:0;padding-right:0;gap:32px;
     /* 桌面断点下用 CSS 覆盖 JS 动态宽度：卡片随视口自适应加宽（!important 优先于 inline CSS 变量） */
     --hero-container-width:clamp(700px,calc(100vw - 1000px),860px) !important;
     --hero-container-left:max(24px,calc(50vw - 880px)) !important}
@@ -233,9 +236,8 @@ a{text-decoration:none;color:inherit}
     radial-gradient(55% 45% at 10% 20%,rgba(86,60,250,.10),transparent 70%),
     radial-gradient(45% 40% at 90% 25%,rgba(86,60,250,.07),transparent 70%),
     radial-gradient(65% 55% at 50% 100%,rgba(86,60,250,.06),transparent 75%)}
-  .hero-white-container{width:var(--hero-container-width);max-width:var(--hero-container-width);margin-left:var(--hero-container-left) !important}
-  .hero-wrapper{flex:1 1 0;max-width:none;align-items:flex-start}
-  .hero-wrapper .video-section{max-width:min(672px,56%);margin-left:0;margin-right:0}
+  .hero-white-container{width:var(--hero-container-width);max-width:var(--hero-container-width)}
+  .hero-wrapper{flex:1 1 0;max-width:none}
   .hero-content-card{padding:44px 44px 38px}
 }
 
@@ -566,7 +568,7 @@ a{text-decoration:none;color:inherit}
 .footer-col h4{font-family:Manrope,sans-serif;font-size:18px;font-weight:600;color:#fff;line-height:27px;margin-bottom:16px}
 .footer-col a{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0;transition:color .2s}
 .footer-col a:hover{color:#b4b4b4}
-.footer-col-cta h2{font-size:42px;line-height:50px;font-weight:600;margin-bottom:12px}
+.footer-col-cta h4{font-size:42px;line-height:50px;font-weight:600;margin-bottom:12px}
 .footer-col-cta p{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black)}
 .footer-col-cta .btn-primary{color:#fff;background:var(--blue)}
 .footer-cta-arrow{display:inline-flex;align-items:center}
@@ -576,8 +578,8 @@ a{text-decoration:none;color:inherit}
 .footer-company-info{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#fff;margin-bottom:8px}
 .footer-col-info a{font-size:14px;line-height:21px;padding:2px 0;color:#fff;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px}
 .footer-col-info a:hover{text-decoration-color:transparent}
-@media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h2{font-size:30px;line-height:38px}}
-@media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h2{font-size:26px;line-height:34px}}
+@media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h4{font-size:30px;line-height:38px}}
+@media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
 
 </style>
 </head>
@@ -586,7 +588,7 @@ a{text-decoration:none;color:inherit}
 <div class="gradient-bg"></div>
 
 <!-- ═══ 1. TRUST BAR ═══ -->
-<div class="trust-bar" id="trust-bar" role="region" aria-label="Site trust badges">
+<div class="trust-bar" id="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-slide" data-slide="shipping">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -885,7 +887,6 @@ a{text-decoration:none;color:inherit}
     </clipPath>
   </defs>
 </svg>
-<main>
 <section class="hero" id="hero-section">
   <div class="hero-white-container">
     <div class="hero-content-card">
@@ -1280,7 +1281,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
-
 </main>
 
 <!-- ═══ 11. FOOTER ═══ -->
@@ -1288,7 +1288,7 @@ a{text-decoration:none;color:inherit}
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-col footer-col-cta">
-        <h2>{t(locale, 'homepage.footer.heading')}</h2>
+        <h4>{t(locale, 'homepage.footer.heading')}</h4>
         <p>{t(locale, 'homepage.footer.sub')}</p>
         <a class="our-work-link" href={loc("/contact")} style="margin-top:12px">{t(locale, 'homepage.nav.getInTouch')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1358,14 +1358,6 @@ a{text-decoration:none;color:inherit}
       // Just left the top -> hide
       setTopBarVisible(false);
     }
-    // Header background 80% opaque: only when scrolling down past 8px, restore when scrolling up
-    if (topBarHeader) {
-      if (y > lastScrollY && y > 8) {
-        topBarHeader.classList.add('header-scrolled');
-      } else if (y < lastScrollY || y === 0) {
-        topBarHeader.classList.remove('header-scrolled');
-      }
-    }
     lastScrollY = y;
   }
 
@@ -1425,7 +1417,8 @@ a{text-decoration:none;color:inherit}
     hero.classList.toggle('hero-title-compact', shouldCompactTitle);
   }
 
-  // Disable width transition on first paint to avoid layout shift, then restore after double rAF.
+  // 首帧计算直接设置最终宽度，禁用 width 过渡避免加载期布局抖动（CLS 优化 2026-08-21）；
+  // 渲染完成后（双 rAF）恢复过渡，后续 resize / header-metrics 仍平滑。
   if (heroContainer) heroContainer.style.transition = 'none';
   updateHeroContainerLayout();
   if (heroContainer) {
@@ -1721,39 +1714,21 @@ a{text-decoration:none;color:inherit}
   var wrappers = document.querySelectorAll('.nav-dropdown-wrapper');
   if (!skyOverlay || !wrappers.length) return;
   var hideTimer = null;
-  function closeAll() {
+  function showSky() {
     clearTimeout(hideTimer);
-    skyOverlay.classList.remove('open');
-    skyOverlay.setAttribute('aria-hidden', 'true');
-    wrappers.forEach(function(w) {
-      var p = w.querySelector('.mega-dropdown');
-      if (p) p.classList.remove('open');
-    });
-  }
-  function openFor(wrapper) {
-    clearTimeout(hideTimer);
-    wrappers.forEach(function(w) {
-      var p = w.querySelector('.mega-dropdown');
-      if (p) p.classList.toggle('open', w === wrapper);
-    });
     skyOverlay.classList.add('open');
     skyOverlay.setAttribute('aria-hidden', 'false');
   }
-  function hideLater() {
+  function hideSky() {
     clearTimeout(hideTimer);
-    hideTimer = setTimeout(closeAll, 2000);
+    hideTimer = setTimeout(function() {
+      skyOverlay.classList.remove('open');
+      skyOverlay.setAttribute('aria-hidden', 'true');
+    }, 400);
   }
   wrappers.forEach(function(wrapper) {
-    var panel = wrapper.querySelector('.mega-dropdown');
-    wrapper.addEventListener('mouseenter', function() { openFor(wrapper); });
-    wrapper.addEventListener('mouseleave', hideLater);
-    if (panel) {
-      panel.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
-      panel.addEventListener('mouseleave', function(e) {
-        if (wrapper.contains(e.relatedTarget)) return;
-        closeAll();
-      });
-    }
+    wrapper.addEventListener('mouseenter', showSky);
+    wrapper.addEventListener('mouseleave', hideSky);
   });
 })();
 </script>
