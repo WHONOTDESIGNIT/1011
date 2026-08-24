@@ -1,12 +1,15 @@
 ---
 import { t } from '../lib/i18n';
+// 预填的邮件链接（主题 + 正文）与 WhatsApp 直达链接，全站统一
+const MAILTO_HREF = `mailto:service@ishineco.com?subject=${encodeURIComponent('IPL Device Manufacturer Inquiry')}&body=${encodeURIComponent('Hi iShine Team, I am looking for at-home ipl hair removal and beauty device manufacturer, and would like to know more details about...')}`;
+const WHATSAPP_HREF = 'https://wa.me/8615012891148';
 // 从 URL 自动推导当前语言
 const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : 'en');
 ---
 <div class="sticky-contact" role="region" aria-label="Quick contact options">
   <div class="contact-part" data-type="email">
-    <div class="tooltip" data-tooltip>
-      <span>service@ishineco.com</span>
+    <div class="tooltip popup" data-tooltip>
+      <a class="popup-link" href={MAILTO_HREF}>service@ishineco.com</a>
     </div>
     <div class="icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -37,8 +40,8 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     </div>
   </div>
   <div class="contact-part" data-type="whatsapp">
-    <div class="tooltip" data-tooltip>
-      <span>{t(locale, 'stickyContact.whatsappTip')}</span>
+    <div class="tooltip popup" data-tooltip>
+      <a class="popup-link" href={WHATSAPP_HREF} target="_blank" rel="noopener">chat on whatsapp</a>
     </div>
     <div class="icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -85,12 +88,57 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     });
   };
 
+  const initStickyContactPopups = () => {
+    const POPUP_HIDE_DELAY = 2000;
+    let hideTimer = null;
+
+    const emailPart = document.querySelector('[data-type="email"]');
+    const waPart = document.querySelector('[data-type="whatsapp"]');
+
+    // 点击 icon 本身：email 唤起 mailto，whatsapp 直达 wa.me（弹窗内链接点击走 a 默认行为，这里跳过）
+    if (emailPart instanceof HTMLElement) {
+      emailPart.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        window.location.href = 'mailto:service@ishineco.com?subject=' + encodeURIComponent('IPL Device Manufacturer Inquiry') + '&body=' + encodeURIComponent('Hi iShine Team, I am looking for at-home ipl hair removal and beauty device manufacturer, and would like to know more details about...');
+      });
+    }
+    if (waPart instanceof HTMLElement) {
+      waPart.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        window.open('https://wa.me/8615012891148', '_blank', 'noopener');
+      });
+    }
+
+    // 弹窗显示/消失：移入显示，从 icon 或弹窗移出 2s 后消失
+    const bindPopup = (part) => {
+      if (!(part instanceof HTMLElement)) return;
+      const tip = part.querySelector('[data-tooltip]');
+      if (!tip) return;
+      const show = () => {
+        if (hideTimer) clearTimeout(hideTimer);
+        part.classList.add('popup-open');
+      };
+      const scheduleHide = () => {
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => part.classList.remove('popup-open'), POPUP_HIDE_DELAY);
+      };
+      part.addEventListener('mouseenter', show);
+      part.addEventListener('mouseleave', scheduleHide);
+      tip.addEventListener('mouseenter', show);
+      tip.addEventListener('mouseleave', scheduleHide);
+    };
+
+    bindPopup(emailPart);
+    bindPopup(waPart);
+  };
+
   const scheduleStickyContactOverlay =
     'requestIdleCallback' in window
       ? window.requestIdleCallback.bind(window)
       : (callback) => window.setTimeout(callback, 1);
 
   scheduleStickyContactOverlay(initStickyContactOverlay);
+  scheduleStickyContactOverlay(initStickyContactPopups);
 </script>
 
 <style>
@@ -184,11 +232,60 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     transform: translateY(-50%) translateX(0);
   }
 
-  .contact-part[data-type="email"] .tooltip,
   .contact-part[data-type="phone"] .tooltip {
     --tooltip-bg: var(--color-black, #000000);
     background: var(--color-black, #000000);
     pointer-events: none;
+  }
+
+  /* email / whatsapp 弹窗：白底卡片，可点击链接，默认隐藏，popup-open 时显示（移出 2s 后由 JS 移除） */
+  .contact-part[data-type="email"] .tooltip,
+  .contact-part[data-type="whatsapp"] .tooltip {
+    --tooltip-bg: #ffffff;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #e5e7eb;
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    pointer-events: auto;
+  }
+
+  .contact-part[data-type="email"]:not(.popup-open) .tooltip,
+  .contact-part[data-type="whatsapp"]:not(.popup-open) .tooltip {
+    opacity: 0;
+    transform: translateY(-50%) translateX(10px);
+    pointer-events: none;
+  }
+
+  .contact-part[data-type="email"].popup-open .tooltip,
+  .contact-part[data-type="whatsapp"].popup-open .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    pointer-events: auto;
+  }
+
+  .popup-link {
+    display: block;
+    font-family: Manrope, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-color: #563cfa;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+    transition: text-decoration-color 0.2s ease;
+  }
+  .popup-link:hover {
+    text-decoration-color: transparent;
+  }
+  .popup-link:focus-visible {
+    outline: 2px solid #563cfa;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   .contact-part[data-type="wechat"] .tooltip {
@@ -203,11 +300,6 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     top: -8px;
     bottom: -8px;
     width: 24px;
-  }
-
-  .contact-part[data-type="whatsapp"] .tooltip {
-    --tooltip-bg: var(--color-black, #000000);
-    background: var(--color-black, #000000);
   }
 
   .contact-part[data-type="wechat"]:hover .tooltip {

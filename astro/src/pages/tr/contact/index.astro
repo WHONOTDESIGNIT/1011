@@ -39,6 +39,9 @@ const selectOptions = {
 };
 
 const messagePlaceholder = 'Projeniz hakkında detayları paylaşın: hedef pazar, konumlandırma, beklenen adet ve zamanlama…';
+
+// 图片下方替代表单的联系卡片：mailto 预填主题 + 正文，WhatsApp 直达
+const altMailtoHref = `mailto:service@ishineco.com?subject=${encodeURIComponent('IPL Device Manufacturer Inquiry')}&body=${encodeURIComponent('Hi iShine Team, I am looking for at-home ipl hair removal and beauty device manufacturer, and would like to know more details about...')}`;
 ---
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
 
@@ -74,6 +77,17 @@ const messagePlaceholder = 'Projeniz hakkında detayları paylaşın: hedef paza
             width={1200}
             height={900}
           />
+        </div>
+
+        <div class="mt-4 rounded-[1.75rem] border border-slate-200 bg-[#f9fafb] p-6 shadow-sm">
+          <p class="text-base font-bold text-slate-900">Don't like forms?</p>
+          <p class="mt-1 text-sm text-slate-600">Drop us an email or a call.</p>
+          <p class="mt-4 text-sm leading-relaxed text-slate-700">
+            Mail to: <a class="contact-alt-link" href={altMailtoHref}>service@ishineco.com</a>
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            WhatsApp/Wechat: <a class="contact-alt-link" href="https://wa.me/8615012891148" target="_blank" rel="noopener">+86 150 1289 1148</a>
+          </p>
         </div>
       </div>
 
@@ -162,3 +176,23 @@ const messagePlaceholder = 'Projeniz hakkında detayları paylaşın: hedef paza
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .contact-alt-link {
+    color: #334155;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #563cfa;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+  }
+  .contact-alt-link:hover {
+    text-decoration-color: transparent;
+  }
+  .contact-alt-link:focus-visible {
+    outline: 2px solid #563cfa;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+</style>

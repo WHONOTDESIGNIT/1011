@@ -13,17 +13,9 @@ function resolveBaseUrl() {
   return process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com';
 }
 
-// Pages that embed /videos/head-video.mp4 (paths relative to each locale prefix).
-// These URLs get a video:video extension (video sitemap protocol) - the most
-// reliable way to get Google to index the videos on these pages.
-const VIDEO_PAGES = new Set([
-  '',
-  '/meet-the-team',
-  '/services/private-label',
-  '/services/build-a-new-ipl',
-  '/services/find-a-technology-partner',
-  '/services/maintain-or-fix-ipl-project',
-]);
+// 全站仅有 1 个视频（/videos/head-video.mp4），曾被标记在 6 个页面模板 × 22 语言上，
+// 导致 Google 把同一视频计为 124 个重复视频。现只在英文首页标记一次（video sitemap 协议）。
+const VIDEO_PAGES = new Set(['']);
 const VIDEO = {
   contentLoc: '/videos/head-video.mp4',
   thumbnailLoc: '/images/home/head-video-poster.webp',
@@ -102,7 +94,7 @@ export async function GET() {
     ];
 
     for (const p of staticPaths) {
-      entries.push({ url: `${root}${p}`, hasVideo: VIDEO_PAGES.has(p) });
+      entries.push({ url: `${root}${p}`, hasVideo: locale === 'en' && VIDEO_PAGES.has(p) });
     }
 
     const posts = await getAllPosts(locale);
