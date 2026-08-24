@@ -74,7 +74,7 @@ const loc = (p: string) => getLocalizedPath(locale, p);
   --pad-24:24px;
   --nav-top:66px;
   --nav-h:70px;
-  --max-w:1536px;
+  --max-w:1843px;
 }
 @media(max-width:767px){
   :root{--nav-h:56px;--pad-100:var(--pad-24)}
@@ -110,9 +110,10 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.trust-slide{padding:10px 16px}.trust-text{font-size:14px;line-height:21px}}
 
 /* ═══ 2. HEADER / NAV ═══ */
-.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:1400px;z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:var(--max-w);z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
 .site-header.site-header-top-hidden{top:0}
-.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0;transition:background .35s ease,box-shadow .35s ease}
+.site-header.header-scrolled .header-inner{background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 24px rgba(2,3,3,.08)}
 .header-logo{display:flex;align-items:center;flex:0 0 auto;height:calc(100% - 12px);max-width:100%;margin-right:0;min-width:0}
 .header-logo img{display:block;width:auto;height:100%;max-width:100%;object-fit:contain}
 .header-main-nav{display:flex;align-items:center;justify-content:flex-end;gap:38px;flex:0 0 auto;min-width:max-content;margin-left:auto;opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s}
@@ -144,8 +145,8 @@ a{text-decoration:none;color:inherit}
 .nav-has-dropdown{gap:6px}
 .nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
 .nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
-.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);min-width:640px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
-.nav-dropdown-wrapper:hover .mega-dropdown,.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);width:calc(var(--max-w,1843px) / 2);min-width:0;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
 .mega-inner{display:flex;gap:60px;padding:36px 40px}
 .mega-left{flex:1;display:flex;flex-direction:column}
 .mega-link-group{display:flex;flex-direction:column;gap:4px}
@@ -169,10 +170,10 @@ a{text-decoration:none;color:inherit}
 .mega-left--cols2 .mega-link{padding:10px 12px}
 
 /* Products dropdown: wider panel, product series + components zone + feature card */
-.mega-dropdown--wide{min-width:800px;left:0;transform:translateY(4px)}
-.nav-dropdown-wrapper:hover .mega-dropdown--wide,.mega-dropdown--wide.open{transform:translateY(0)}
-@media(max-width:1279px){.mega-dropdown--wide{min-width:720px}}
-@media(max-width:1099px){.mega-dropdown--wide{min-width:640px}}
+.mega-dropdown--wide{min-width:0}
+
+
+
 .mega-inner--products{gap:0;padding:24px 24px 24px 28px}
 .mega-left--products{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
 .mega-products-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;align-content:start;min-width:0}
@@ -256,7 +257,7 @@ a{text-decoration:none;color:inherit}
   .hero-wrapper .video-section{margin-top:0;max-width:80%;margin-left:auto;margin-right:auto}
 }
 @media(min-width:1280px){
-  .hero{width:calc(100% - 48px);max-width:1400px;margin-left:auto;margin-right:auto;padding-left:0;padding-right:0;gap:32px}
+  .hero{width:calc(100% - 48px);max-width:var(--max-w);margin-left:auto;margin-right:auto;padding-left:0;padding-right:0;gap:32px}
   .hero-white-container{width:700px;max-width:700px}
   .hero-wrapper{flex:1 1 0;max-width:none}
 }
@@ -1374,6 +1375,14 @@ a{text-decoration:none;color:inherit}
       // Just left the top -> hide
       setTopBarVisible(false);
     }
+    // Header background 80% opaque: only when scrolling down past 8px, restore when scrolling up
+    if (topBarHeader) {
+      if (y > lastScrollY && y > 8) {
+        topBarHeader.classList.add('header-scrolled');
+      } else if (y < lastScrollY || y === 0) {
+        topBarHeader.classList.remove('header-scrolled');
+      }
+    }
     lastScrollY = y;
   }
 
@@ -1713,5 +1722,40 @@ a{text-decoration:none;color:inherit}
 })();
 </script>
 <CookieConsent lang={locale} />
-</body>
+<script is:inline>
+(function() {
+  var hideTimer = null;
+  var wrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+  function closeAll() {
+    clearTimeout(hideTimer);
+    wrappers.forEach(function(w) {
+      var p = w.querySelector('.mega-dropdown');
+      if (p) p.classList.remove('open');
+    });
+  }
+  function openFor(wrapper) {
+    clearTimeout(hideTimer);
+    wrappers.forEach(function(w) {
+      var p = w.querySelector('.mega-dropdown');
+      if (p) p.classList.toggle('open', w === wrapper);
+    });
+  }
+  function hideLater() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(closeAll, 2000);
+  }
+  wrappers.forEach(function(wrapper) {
+    var panel = wrapper.querySelector('.mega-dropdown');
+    wrapper.addEventListener('mouseenter', function() { openFor(wrapper); });
+    wrapper.addEventListener('mouseleave', hideLater);
+    if (panel) {
+      panel.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
+      panel.addEventListener('mouseleave', function(e) {
+        if (wrapper.contains(e.relatedTarget)) return;
+        closeAll();
+      });
+    }
+  });
+})();
+</script></body>
 </html>

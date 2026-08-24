@@ -178,15 +178,15 @@ export function getProductSchema(
     } as AggregateRating;
   }
 
-  if (product.inStock !== undefined || product.price) {
-    schema.offers = {
-      "@type": "Offer",
-      priceCurrency: product.currency || "USD",
-      price: product.price ?? "0",
-      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: `${SITE_URL}/${locale}/products/${product.sku ?? ""}`,
-    } as Offer;
-  }
+  // Product 富媒体要求 offers / review / aggregateRating 三者至少其一，缺失将报
+  // "必须指定 offers、review 或 aggregateRating"。因此始终输出 offers（无价格时兜底为 "0"）。
+  schema.offers = {
+    "@type": "Offer",
+    priceCurrency: product.currency || "USD",
+    price: product.price ?? "0",
+    availability: product.inStock === undefined ? "https://schema.org/InStock" : (product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"),
+    url: `${SITE_URL}/${locale}/products/${product.sku ?? ""}`,
+  } as Offer;
 
   return schema;
 }

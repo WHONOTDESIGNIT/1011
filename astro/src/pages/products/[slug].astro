@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+import enMessages from '../../../../messages/en.json';
 
 const locale = Astro.currentLocale ?? 'en'; const { slug } = Astro.params;
 
@@ -18,6 +19,12 @@ interface ProductData {
   priceNote?: string;
   badge?: string;
   colors: string[];
+  story?: {
+    kicker: string;
+    title: string;
+    paragraphs: string[];
+    cta?: { label: string; href: string };
+  };
 }
 
 function netlifyImage(path: string, width: number, format: 'avif' | 'webp', quality = 80) {
@@ -282,6 +289,27 @@ const PRODUCT_ASSETS: Record<
 const HIDDEN_SPEC_KEYS = new Set(['maxOpticalPowerDensity', 'deviceSize', 'netWeight', 'bulkMoq']);
 const TIER_KEYS = ['tier1', 'tier2', 'tier3', 'tier4'];
 
+/** 读取可选品牌故事（story）——仅当 en 消息中存在该产品的 story 时才渲染 */
+function getStory(slug: string): ProductData['story'] | undefined {
+  const root = enMessages as { productDetail?: Record<string, { story?: { paragraphs?: unknown[]; cta?: { href?: string } } }> };
+  const story = root?.productDetail?.[slug]?.story;
+  if (!story || !Array.isArray(story.paragraphs) || story.paragraphs.length === 0) return undefined;
+  const base = `productDetail.${slug}.story`;
+  return {
+    kicker: t(locale, `${base}.kicker`),
+    title: t(locale, `${base}.title`),
+    paragraphs: story.paragraphs.map((_, index) => t(locale, `${base}.paragraphs.${index}`)),
+    ...(story.cta?.href
+      ? {
+          cta: {
+            label: t(locale, `${base}.cta.label`),
+            href: story.cta.href,
+          },
+        }
+      : {}),
+  };
+}
+
 /** 用 messages 键构建产品数据（全语言经 t() 本地化） */
 function buildProduct(slug: string): ProductData {
   const base = `productDetail.${slug}`;
@@ -311,6 +339,7 @@ function buildProduct(slug: string): ProductData {
     priceNote: assets.priceNote ? t(locale, `${base}.priceNote`) : undefined,
     badge: assets.badge ? t(locale, `${base}.badge`) : undefined,
     colors: Array.from({ length: assets.colorCount }, (_, i) => t(locale, `${base}.colors.${i}`)),
+    story: getStory(slug),
   };
 }
 
@@ -348,6 +377,47 @@ const breadcrumbSchema = {
   })),
 };
 
+// —— offers 增强字段：商家退换货政策 + 物流信息（Google Merchant Listing 富媒体增强）
+// 数据来源：https://iplmanufacturer.com/return-policy（15 天退货窗口、缺陷品免退货运费、非缺陷品买家承担运费）
+const merchantReturnPolicy = {
+  '@type': 'MerchantReturnPolicy',
+  applicableCountry: 'US',
+  returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+  merchantReturnDays: 15,
+  returnMethod: 'https://schema.org/ReturnByMail',
+  returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
+  merchantReturnLink: 'https://iplmanufacturer.com/return-policy',
+};
+
+// 全球直邮：处理 0-1 个工作日 + 国际运输 5-14 个工作日（与 messages/en.json 物流 deliveryTime 一致）
+const shippingDetails = {
+  '@type': 'OfferShippingDetails',
+  shippingRate: {
+    '@type': 'MonetaryAmount',
+    value: '0',
+    currency: 'USD',
+  },
+  shippingDestination: {
+    '@type': 'DefinedRegion',
+    addressCountry: 'US',
+  },
+  deliveryTime: {
+    '@type': 'ShippingDeliveryTime',
+    handlingTime: {
+      '@type': 'QuantitativeValue',
+      minValue: 0,
+      maxValue: 1,
+      unitCode: 'DAY',
+    },
+    transitTime: {
+      '@type': 'QuantitativeValue',
+      minValue: 5,
+      maxValue: 14,
+      unitCode: 'DAY',
+    },
+  },
+};
+
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -366,12 +436,16 @@ const productSchema = {
         highPrice: product.priceTiers[0]?.unitPrice,
         offerCount: product.priceTiers.length,
         availability: 'https://schema.org/InStock',
+        hasMerchantReturnPolicy: merchantReturnPolicy,
+        shippingDetails,
       }
     : {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
+        hasMerchantReturnPolicy: merchantReturnPolicy,
+        shippingDetails,
       },
   ...(product.badge ? { award: product.badge } : {}),
 };
@@ -602,6 +676,28 @@ const productSchema = {
         ))}
       </div>
     </section>
+
+    {product.story && (
+      <section class="space-y-8">
+        <div class="rounded-2xl border border-amber-200 bg-amber-50 p-8 shadow-sm md:p-10">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700">{product.story.kicker}</div>
+          <h2 class="mt-3 text-3xl font-bold text-slate-900">{product.story.title}</h2>
+          <div class="mt-4 space-y-4 text-base leading-relaxed text-slate-700">
+            {product.story.paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+          {product.story.cta && (
+            <a
+              class="mt-6 inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              href={getLocalizedPath(locale, product.story.cta.href)}
+            >
+              {product.story.cta.label}
+            </a>
+          )}
+        </div>
+      </section>
+    )}
 
     <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
       <h2 class="text-3xl font-bold md:text-4xl">{fill(t(locale, 'productDetail.ctaTitle'), { productName: product.name })}</h2>
