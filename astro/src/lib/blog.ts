@@ -11,6 +11,8 @@ type BlogFrontmatter = {
   /** 英文 slug，用于跨语言关联同一篇文章 */
   canonicalSlug?: string;
   readTime?: string;
+  /** 文章专属 FAQ（可选，渲染为折叠框；英文数据，其他语言未提供时回退） */
+  faqs?: { q: string; a: string }[];
 };
 
 export type BlogPostSummary = {
@@ -32,6 +34,8 @@ export type BlogPostSummary = {
 export type BlogPost = {
   meta: BlogPostSummary;
   Content: unknown;
+  /** 文章专属 FAQ（可选，渲染为折叠框） */
+  faqs: { q: string; a: string }[];
 };
 
 type BlogMdxModule = {
@@ -127,6 +131,7 @@ export async function getPostBySlug(locale: string, slug: string): Promise<BlogP
       return {
         meta: normalizeSummary(effectiveLocale, fm),
         Content: mod.default,
+        faqs: fm.faqs ?? [],
       };
     }
   }
@@ -147,6 +152,8 @@ export type PostTranslationLink = {
   locale: string;
   href: string;
   title: string;
+  /** 该语言下的文章 slug（用于按语言加载内容） */
+  slug: string;
 };
 
 /**
@@ -167,6 +174,7 @@ export async function getPostTranslations(slug: string): Promise<PostTranslation
       locale: pathToCode(fileLocale),
       href: postHref(fileLocale, mod.frontmatter.slug),
       title: mod.frontmatter.title ?? mod.frontmatter.slug,
+      slug: mod.frontmatter.slug,
     }));
 }
 
