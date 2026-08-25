@@ -66,6 +66,19 @@ Back to 510 vs 610. Filtering from 510 to 610 changes two things you can measure
 
 For dark or tanned skin (Fitzpatrick IV–VI), the longer-wavelength profile is the safer choice — more energy reaches the follicle instead of the pigment-rich epidermis. Clinical comparisons of light-based hair removal support this: the wavelengths considered safest on darker skin are the longer ones, like the 810nm diode and 1064nm Nd:YAG, precisely because they penetrate deeper while sparing the melanin-rich epidermis ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). The skin type scale itself comes from dermatologist Thomas Fitzpatrick's original classification, which remains the industry's reference for setting device parameters ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). For fair skin, either window works.
 
+## What Years of Clinical Use Taught Us: Filter Cutoffs and Skin Tone
+
+Theory tells you the direction — shorter wavelengths hit the surface, longer ones go deep. Years of clinical use at iShine tell you the practical mapping:
+
+- **510nm and 530nm filters are for fair skin.** On lighter skin they're actually *more efficient* than 560nm or 600nm filters — more of the flash's energy is used, because less is filtered away.
+- **560nm and 600nm filters are for darker skin.** The higher cutoff keeps the most irritating short wavelengths off the skin's surface.
+- **The sensation is symmetrical.** Fair skin on a 510/530 filter feels about the same as darker skin on a 560/600 filter — both are comfortable.
+- **The direction matters, and it's one-way.** Fair skin on a 560/600 filter feels fine — just slightly less efficient. But darker skin on a 510/530 filter feels noticeably more painful, because the surface absorbs far more of that short-wavelength energy.
+
+![iShine IPL spectrum measured with an OHSP-350FA spectrometer — the energy is spread across the visible and near-infrared bands](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Measured on our production line with an OHSP-350FA spectrometer: dominant wavelength 571nm, peak 825nm, center wavelength 828.6nm. A large share of the spectrum's energy sits in the lower (visible) bands — which is exactly why raising the filter cutoff costs you real energy.*
+
 ## Which One Should You Choose?
 
 If you're buying a device for yourself:
@@ -73,6 +86,7 @@ If you're buying a device for yourself:
 - **Fair skin, sensitive to stinging → 610–1200nm** is usually the more comfortable choice.
 - **Darker skin or tan → lean 610–1200nm or longer** for the safety margin.
 - **You want maximum versatility → 510–1200nm** keeps more of the spectrum available, at the cost of slightly more surface sensation.
+- **Know your filter, not just the printed range** — on iShine devices, fair skin pairs best with 510/530nm filters, darker skin with 560/600nm filters.
 
 But honestly — the wavelength range is the second question. Ask about **pulse width first**, then **energy density**, then the **wavelength range**. That ordering reflects what your skin actually feels.
 
@@ -81,6 +95,16 @@ But honestly — the wavelength range is the second question. Ask about **pulse 
 If you're a brand owner sourcing IPL devices, this distinction is where you win or lose on reviews. Customers return devices that sting. They keep devices that feel like a warm pulse and still show results. The difference is rarely the wavelength range printed on the box — it's whether the pulse width was engineered for comfort.
 
 That's the kind of spec we test on the line at iShine, not just quote. When we build a device for a brand, we tune the lamp current, capacitor bank, and filter together so the published numbers match what the skin actually feels. If you're evaluating suppliers, ask how they set pulse width, and whether they can show you the measured waveform — not just the datasheet.
+
+## The Engineering Trade-Off Nobody Prints on the Box
+
+Moving the cutoff from 510 to 610 isn't just a filter swap. Because the spectrum concentrates much of its energy in the lower bands (see the measurement above), a 560nm or 600nm filter throws away a meaningful share of the light — and that energy has to be replaced somewhere:
+
+- **Bigger capacitor.** The filtered-out energy is compensated by a larger storage capacitor, so the flash still delivers enough power to the skin.
+- **Higher system temperature.** A bigger capacitor means more heat inside the device, so the whole system's temperature rise goes up.
+- **Stronger heat dissipation.** More heat demands a beefier cooling solution — larger heat sink, fan, or airflow design — which affects size, cost, and noise.
+
+That's the trade-off behind "610–1200nm feels gentler": comfort is paid for with a heavier, hotter, more expensive system. It's also why low-cutoff devices can be lighter, cheaper, and more efficient — they shift the "picks its skin tones" cost onto the user instead of the machine.
 
 Want to compare wavelength, pulse width, and energy specs across real platforms? Browse our [IPL hair removal devices](/products), or start with [how to choose the wavelength for an IPL device](/blog/05-choosing-the-right-wavelength-for-ipl-devices), where I covered the broader decision framework. If you have a spec sheet you want a second opinion on, [send it to us](/contact) — we'll tell you what the numbers mean.
 
