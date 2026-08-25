@@ -2,62 +2,64 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleVote from '../../components/ArticleVote.astro';
-import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts } from '../../lib/blog';
+import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, postHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
+// 注意：i18n fallback 路由（/vi/blog/x 等）渲染时 Astro.url 会被重写为无前缀路径
+// （Astro.url.pathname === '/blog/x'），而 Astro.currentLocale 才是该 URL 的实际语言。
+// 因此「当前 URL」必须用 postHref(urlLocale, slug) 重建，不能读 Astro.url.pathname。
 const urlLocale = Astro.currentLocale ?? 'en';
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-  // 修复：只返回与语言前缀绑定的条目（每语言只含该语言实际拥有的文章 slug），
-  // 避免 Astro i18n 对同一 slug 的多语言版本只保留一个 props 导致 articleLocale 错乱
-  // （此前所有语言的所有 slug 混在一起，/de/blog/x 的 articleLocale 可能被判成 ar 等，
-  //  触发错误重定向，多语言博客页全部变成 redirect 壳）。
+  // 聚合全站（所有语言）全部文章 slug，每个 slug 至多一次。
+  // Astro i18n fallback 会为主路由 /blog/[slug] 按语言克隆出 /<locale>/blog/[slug]，
+  // 因此每个 slug 会同时生成 en 与全部语言前缀下的页面；
+  // 页面内再按 (urlLocale, slug) 决定渲染哪种语言，或 301 到该语言正确地址。
   const versions = await getAllArticleVersions();
-  // 对每个语言前缀，只保留该语言实际拥有的 slug（去重，避免 Astro 多语言复制）
-  const byLocale = new Map<string, { slug: string; canonicalSlug: string }[]>();
+  const seen = new Set<string>();
+  const paths: { params: { slug: string } }[] = [];
   for (const v of versions) {
-    if (!byLocale.has(v.locale)) byLocale.set(v.locale, []);
-    const arr = byLocale.get(v.locale)!;
-    if (!arr.some((x) => x.slug === v.slug)) arr.push({ slug: v.slug, canonicalSlug: v.canonicalSlug });
-  }
-  const paths: { params: { slug: string }; props: { articleLocale: string } }[] = [];
-  for (const [locale, list] of byLocale) {
-    for (const item of list) {
-      paths.push({ params: { slug: item.slug }, props: { articleLocale: locale } });
-    }
+    if (seen.has(v.slug)) continue;
+    seen.add(v.slug);
+    paths.push({ params: { slug: v.slug } });
   }
   return paths;
 }
 
-const { articleLocale } = Astro.props as { articleLocale: string };
-
-// 跨语言组合重定向：URL 前缀语言 ≠ slug 归属语言时，跳到该文章在 URL 前缀语言下的正确地址
-if (articleLocale !== urlLocale) {
-  const translations = await getPostTranslations(slug);
-  const target = translations.find((x) => x.locale === urlLocale);
-  if (target) {
-    return Astro.redirect(target.href, 301);
-  }
-  // 当前语言无该文章翻译时（fallback 语言）回退到英文原文，
-  // 避免生成 "Not found" 死页（与 i18n fallback 语义一致）
-  const enTarget = translations.find((x) => x.locale === 'en');
-  if (enTarget) {
-    return Astro.redirect(enTarget.href, 301);
-  }
+// 文章的多语言 URL 映射（用于定位正确语言版本 + hreflang）
+const translations = await getPostTranslations(slug);
+if (!translations.length) {
   return new Response('Not found', { status: 404 });
 }
 
-const locale = articleLocale;
+// 跨语言解析：以「URL 语言 + URL slug」为唯一依据（不再依赖 Astro.props，
+// 因为 i18n fallback 路由下 props 按 params 去重后不可靠）。
+const urlTarget = translations.find((x) => x.locale === urlLocale);
+let locale: string;
+let postSlug: string;
+if (urlTarget) {
+  // 该语言存在此文章：URL 已是该语言正确地址则直接渲染；否则 301 到正确地址
+  if (urlTarget.href !== postHref(urlLocale, slug)) {
+    return Astro.redirect(urlTarget.href, 301);
+  }
+  locale = urlTarget.locale;
+  postSlug = urlTarget.slug;
+} else {
+  // 该语言无此文章翻译：按 i18n fallback（rewrite）语义渲染英文原文，URL 保持不变
+  const enTarget = translations.find((x) => x.locale === 'en');
+  if (!enTarget) {
+    return new Response('Not found', { status: 404 });
+  }
+  locale = 'en';
+  postSlug = enTarget.slug;
+}
 
-const post = await getPostBySlug(locale, slug);
+const post = await getPostBySlug(locale, postSlug);
 if (!post) {
   return new Response('Not found', { status: 404 });
 }
-
-// 文章的三语 URL 映射（hreflang / canonical）
-const translations = await getPostTranslations(slug);
 
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
@@ -226,6 +228,27 @@ const articleSchema = {
       <div class="blog-content">
         <Content />
       </div>
+
+      {post.faqs.length
+        ? (
+          <section class="mt-12">
+            <h2 class="text-2xl font-bold text-slate-900">{t(locale, 'blog.post.faqTitle')}</h2>
+            <div class="mt-6 space-y-3">
+              {post.faqs.map((item) => (
+                <details class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition open:border-slate-300">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-800">
+                    <span>{item.q}</span>
+                    <svg class="h-5 w-5 flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </summary>
+                  <p class="border-t border-slate-100 px-5 py-4 leading-relaxed text-slate-600">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )
+        : null}
 
       <div class="mt-14 rounded-2xl bg-slate-950 px-8 py-10 text-white">
         <div class="mx-auto max-w-xl text-center">
