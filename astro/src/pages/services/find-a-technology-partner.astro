@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { t } from '../../lib/i18n';
+import { responsiveImageSources } from '../../lib/netlify-images';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import SeoHead from '../../components/SeoHead.astro';
 import CookieConsent from '../../components/CookieConsent.astro';
@@ -9,6 +10,16 @@ import fontsCss from '../../styles/fonts.css?raw';
 const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
 const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : startsWith('/de') ? 'de' : 'en');
 const loc = (p: string) => getLocalizedPath(locale, p);
+// mega 菜单图片：全站共享组件高频加载，接入 Netlify Image CDN 按显示尺寸缩放
+// （mega-product-img 60×60 / mega-component-img 44×44 / mega-products-card-img ~260×150）
+const megaImg = (path: string) => {
+  const s = responsiveImageSources(path, [128, 256], 128);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
+const megaCardImg = (path: string) => {
+  const s = responsiveImageSources(path, [256, 512], 256);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 ---
 
 <!doctype html>
@@ -649,56 +660,56 @@ a{text-decoration:none;color:inherit}
                     <span class="mega-product-model">{t(locale, 'homepage.mega.lumi2.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi2.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi-2/lumi-2-images-1.webp" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/lumi-2/lumi-2-images-1.webp').src} srcset={megaImg('/images/products/lumi-2/lumi-2-images-1.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(2).webp'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/lumi")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.lumi.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.lumi.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').src} srcset={megaImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/venus")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.venus.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.venus.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').src} srcset={megaImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/themis")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.themis.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.themis.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Themis/golden-luxury-front-view.jpg').src} srcset={megaImg('/images/products/Themis/golden-luxury-front-view.jpg').srcset} sizes="60px" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Themis/golden-luxury-2.jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/emerald")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.emerald.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.emerald.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').src} srcset={megaImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Emerald/emerald%20ipl%20packaging.jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/eirene")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.eirene.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.eirene.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg" alt={t(locale, 'homepage.mega.eirene.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg').src} srcset={megaImg('/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg').srcset} sizes="60px" alt={t(locale, 'homepage.mega.eirene.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Eirene/battery-built-in%20ipl%20device%20back.jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/wooden")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.golden.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.golden.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt={t(locale, 'homepage.mega.golden.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').src} srcset={megaImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.golden.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/Wooden/wooden%20ipl%20holding.jpg'" />
                 </a>
                 <a class="mega-product-card" href={loc("/products/hebe")}>
                   <span class="mega-product-info">
                     <span class="mega-product-model">{t(locale, 'homepage.mega.hebe.name')}</span>
                     <span class="mega-product-tagline">{t(locale, 'homepage.mega.hebe.tagline')}</span>
                   </span>
-                  <img class="mega-product-img" src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                  <img class="mega-product-img" src={megaImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').src} srcset={megaImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').srcset} sizes="60px" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 </a>
               </div>
               <div class="mega-divider-h" role="separator"></div>
@@ -706,19 +717,19 @@ a{text-decoration:none;color:inherit}
                 <h4 class="mega-components-heading">{t(locale, 'homepage.mega.components.heading')}</h4>
                 <div class="mega-components-grid">
                   <a class="mega-component-card" href={loc("/components/lamp-cartridges")}>
-                    <img class="mega-component-img" src="/images/components/lamp-cartridge.jpg" alt={t(locale, 'homepage.mega.components.lamp')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
+                    <img class="mega-component-img" src={megaImg('/images/components/lamp-cartridge.jpg').src} srcset={megaImg('/images/components/lamp-cartridge.jpg').srcset} sizes="44px" alt={t(locale, 'homepage.mega.components.lamp')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/lamp-cartridge-closeup.jpg'" />
                     <span class="mega-component-name">{t(locale, 'homepage.mega.components.lamp')}</span>
                   </a>
                   <a class="mega-component-card" href={loc("/components/optical-filters")}>
-                    <img class="mega-component-img" src="/images/components/optical-filters.jpg" alt={t(locale, 'homepage.mega.components.filter')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
+                    <img class="mega-component-img" src={megaImg('/images/components/optical-filters.jpg').src} srcset={megaImg('/images/components/optical-filters.jpg').srcset} sizes="44px" alt={t(locale, 'homepage.mega.components.filter')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/component-quality-determines-device-performance.webp'" />
                     <span class="mega-component-name">{t(locale, 'homepage.mega.components.filter')}</span>
                   </a>
                   <a class="mega-component-card" href={loc("/components/cooling-system")}>
-                    <img class="mega-component-img" src="/images/components/cooling-system.jpg" alt={t(locale, 'homepage.mega.components.cooling')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
+                    <img class="mega-component-img" src={megaImg('/images/components/cooling-system.jpg').src} srcset={megaImg('/images/components/cooling-system.jpg').srcset} sizes="44px" alt={t(locale, 'homepage.mega.components.cooling')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system-closeup.jpg'" />
                     <span class="mega-component-name">{t(locale, 'homepage.mega.components.cooling')}</span>
                   </a>
                   <a class="mega-component-card" href={loc("/components/power-supply")}>
-                    <img class="mega-component-img" src="/images/components/power-supply.jpg" alt={t(locale, 'homepage.mega.components.power')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
+                    <img class="mega-component-img" src={megaImg('/images/components/power-supply.jpg').src} srcset={megaImg('/images/components/power-supply.jpg').srcset} sizes="44px" alt={t(locale, 'homepage.mega.components.power')} loading="lazy" onerror="this.onerror=null;this.src='/images/components/cooling-system.jpg'" />
                     <span class="mega-component-name">{t(locale, 'homepage.mega.components.power')}</span>
                   </a>
                 </div>
@@ -727,7 +738,7 @@ a{text-decoration:none;color:inherit}
             <div class="mega-divider" role="separator"></div>
             <div class="mega-right">
               <div class="mega-card">
-                <img class="mega-products-card-img" src="/images/products/lumi-2/lumi-2-images%20(2).webp" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
+                <img class="mega-products-card-img" src={megaCardImg('/images/products/lumi-2/lumi-2-images%20(2).webp').src} srcset={megaCardImg('/images/products/lumi-2/lumi-2-images%20(2).webp').srcset} sizes="260px" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" onerror="this.onerror=null;this.src='/images/products/lumi-2/lumi-2-images%20(1).jpg'" />
                 <h4 class="mega-card-heading">{t(locale, 'homepage.mega.card1.heading')}</h4>
                 <p class="mega-card-desc">{t(locale, 'homepage.mega.card1.desc')}</p>
                 <a class="mega-card-btn" href={loc("/products/lumi-2")}>{t(locale, 'homepage.mega.card1.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
