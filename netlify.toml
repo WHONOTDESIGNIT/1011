@@ -65,6 +65,19 @@
   [headers.values]
     Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
 
+# 全站存量图片（public/images/ 下静态文件）接入 Netlify Image CDN：
+# 边缘重写 /.netlify/images?url=<同站路径>，自动内容协商（AVIF/WebP）+ 按需压缩 + 边缘缓存。
+# force=true 必须：Netlify shadowing 默认"存在文件优先于重定向"，不加 force 时静态文件
+# 会绕过重写直接返回原图，重写规则形同虚设。加 force 后所有 /images/* 请求统一走 CDN。
+# 注：images 目录已被 flatten-html.mjs 白名单排除（不会命中页面通配规则），
+# 且 /images/* 比 _redirects 兜底 /* 404 更具体，规则优先级无冲突。
+# 2026-08-26 实测 /.netlify/images?url=/images/... 本地图可正常缩放（200）。
+[[redirects]]
+  from = "/images/*"
+  to = "/.netlify/images?url=/images/:splat"
+  status = 200
+  force = true
+
 # /en/* 301 跳转到无前缀版本（兼容旧链接）
 [[redirects]]
   from = "/en/*"

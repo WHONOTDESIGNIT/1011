@@ -1,5 +1,7 @@
 ---
 // iShine Homepage — Develo-style design
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import { t } from '../lib/i18n';
 import SeoHead from '../components/SeoHead.astro';
@@ -7,6 +9,7 @@ import fontsCss from '../styles/fonts.css?raw';
 
 // 页面不经过 BaseLayout，内联实现自取当前语言：
 // en 无前缀；/tr/、/ar/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr/ar
+const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
 const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : startsWith('/de') ? 'de' : 'en');
 // 按当前语言为站内链接加前缀（en 无前缀，tr/ar 自动带前缀）
 const loc = (p: string) => getLocalizedPath(locale, p);
@@ -1198,10 +1201,10 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="expertise-right">
       <div class="expertise-logo-placeholders">
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo-print.webp" alt={t(locale, 'teamPage.expertise.logoAlts.logoPrint')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/box-custom.webp" alt={t(locale, 'teamPage.expertise.logoAlts.boxCustom')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.webp" alt={t(locale, 'teamPage.expertise.logoAlts.globalExpress')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.webp" alt={t(locale, 'teamPage.expertise.logoAlts.dropshipping')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/logo-print.webp']} alt={t(locale, 'teamPage.expertise.logoAlts.logoPrint')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/box-custom.webp']} alt={t(locale, 'teamPage.expertise.logoAlts.boxCustom')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/global-express.webp']} alt={t(locale, 'teamPage.expertise.logoAlts.globalExpress')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/dropshipping.webp']} alt={t(locale, 'teamPage.expertise.logoAlts.dropshipping')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
       </div>
       <p class="expertise-desc">{t(locale, 'teamPage.expertise.description')}</p>
       <a class="expertise-btn" href={loc("/services")}>{t(locale, 'teamPage.expertise.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1224,32 +1227,32 @@ a{text-decoration:none;color:inherit}
     <div class="partner-right">
       <div class="partner-grid">
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/ice-feeling.webp" alt={t(locale, 'teamPage.tech.cards.sapphire.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/ice-feeling.webp']} alt={t(locale, 'teamPage.tech.cards.sapphire.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.sapphire.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.sapphire.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/glide-mode.webp" alt={t(locale, 'teamPage.tech.cards.glide.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/glide-mode.webp']} alt={t(locale, 'teamPage.tech.cards.glide.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.glide.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.glide.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/smart-app.webp" alt={t(locale, 'teamPage.tech.cards.appControl.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/smart-app.webp']} alt={t(locale, 'teamPage.tech.cards.appControl.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.appControl.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.appControl.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/dual-lamp.webp" alt={t(locale, 'teamPage.tech.cards.dualLamp.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/dual-lamp.webp']} alt={t(locale, 'teamPage.tech.cards.dualLamp.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.dualLamp.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.dualLamp.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/skin-sensor.webp" alt={t(locale, 'teamPage.tech.cards.skinSensor.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/skin-sensor.webp']} alt={t(locale, 'teamPage.tech.cards.skinSensor.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.skinSensor.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.skinSensor.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/safety-lock.webp" alt={t(locale, 'teamPage.tech.cards.safetyLock.title')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/safety-lock.webp']} alt={t(locale, 'teamPage.tech.cards.safetyLock.title')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'teamPage.tech.cards.safetyLock.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'teamPage.tech.cards.safetyLock.desc')}</span>
         </div>

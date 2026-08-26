@@ -1,8 +1,11 @@
 ---
 // Develo Design Clone — exact CSS from getComputedStyle() extraction
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { t } from '../lib/i18n';
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import SiteHeader from '../components/SiteHeader.astro';
+const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
 const locale = Astro.currentLocale ?? 'en';
 ---
 
@@ -885,10 +888,10 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="expertise-right">
       <div class="expertise-logo-placeholders">
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/logo-print.webp" alt={t(locale, 'develoCore.clone.expertise.altLogoPrint')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/box-custom.webp" alt={t(locale, 'develoCore.clone.expertise.altBoxCustom')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/global-express.webp" alt={t(locale, 'develoCore.clone.expertise.altGlobalExpress')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
-        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><img src="/images/icons/dropshipping.webp" alt={t(locale, 'develoCore.clone.expertise.altDropshipping')} style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/logo-print.webp']} alt={t(locale, 'develoCore.clone.expertise.altLogoPrint')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/box-custom.webp']} alt={t(locale, 'develoCore.clone.expertise.altBoxCustom')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/global-express.webp']} alt={t(locale, 'develoCore.clone.expertise.altGlobalExpress')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
+        <div class="expertise-logo-ph" style="overflow:hidden;background:transparent"><Image src={icons['/src/assets/icons/dropshipping.webp']} alt={t(locale, 'develoCore.clone.expertise.altDropshipping')} width={96} height={96} widths={[96, 192, 384]} sizes="(min-width:768px) 96px, 45vw" style="width:100%;height:100%;object-fit:fill" loading="lazy" /></div>
       </div>
       <p class="expertise-desc">{t(locale, 'develoCore.clone.expertise.desc')}</p>
       <a class="expertise-btn" href={getLocalizedPath(locale, '/services')}>{t(locale, 'develoCore.clone.expertise.cta')} <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -911,32 +914,32 @@ a{text-decoration:none;color:inherit}
     <div class="partner-right">
       <div class="partner-grid">
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/ice-feeling.webp" alt={t(locale, 'develoCore.clone.tech.card1.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/ice-feeling.webp']} alt={t(locale, 'develoCore.clone.tech.card1.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card1.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card1.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/glide-mode.webp" alt={t(locale, 'develoCore.clone.tech.card2.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/glide-mode.webp']} alt={t(locale, 'develoCore.clone.tech.card2.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card2.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card2.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/smart-app.webp" alt={t(locale, 'develoCore.clone.tech.card3.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/smart-app.webp']} alt={t(locale, 'develoCore.clone.tech.card3.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card3.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card3.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/dual-lamp.webp" alt={t(locale, 'develoCore.clone.tech.card4.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/dual-lamp.webp']} alt={t(locale, 'develoCore.clone.tech.card4.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card4.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card4.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/skin-sensor.webp" alt={t(locale, 'develoCore.clone.tech.card5.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/skin-sensor.webp']} alt={t(locale, 'develoCore.clone.tech.card5.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card5.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card5.desc')}</span>
         </div>
         <div class="tech-card">
-          <div class="tech-icon"><img src="/images/icons/safety-lock.webp" alt={t(locale, 'develoCore.clone.tech.card6.alt')} style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
+          <div class="tech-icon"><Image src={icons['/src/assets/icons/safety-lock.webp']} alt={t(locale, 'develoCore.clone.tech.card6.alt')} width={192} height={192} widths={[192, 384]} sizes="(min-width:768px) 192px, 150px" style="width:100%;height:100%;object-fit:contain" loading="lazy" /></div>
           <span style="font-family:Syne,sans-serif;font-size:16px;font-weight:400">{t(locale, 'develoCore.clone.tech.card6.title')}</span>
           <span style="font-family:Manrope,sans-serif;font-size:13px;color:#6b7280;line-height:18px">{t(locale, 'develoCore.clone.tech.card6.desc')}</span>
         </div>
