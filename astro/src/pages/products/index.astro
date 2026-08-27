@@ -38,7 +38,7 @@ const products = [
 ].map((product) => ({
   ...product,
   taglineKey: `productDetail.index.cards.${product.slug}.tagline`,
-  imageSources: responsiveImageSources(product.firstImage),
+  imageSources: responsiveImageSources(product.firstImage, [256, 512], 512),
 }));
 const freeSampleImage = responsiveImageSources('/images/products/free_sample.jpg', [400, 800, 1200], 1200);
 

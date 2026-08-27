@@ -332,18 +332,18 @@ const uiText = {
           const netlifyImage = (path, width, format = 'webp', quality = 80) =>
             '/.netlify/images?url=' + encodeURIComponent(path) + '&w=' + width + '&fm=' + format + '&q=' + quality;
 
-          const buildSrcSet = (path, format) =>
-            [400, 800, 1200]
+          const buildSrcSet = (path, format, widths = [256, 512]) =>
+            widths
               .map((width) => escapeHtml(netlifyImage(path, width, format)) + ' ' + width + 'w')
               .join(', ');
 
           const readTimeLabel = (post) => escapeHtml(post.readTime || '5 min read');
 
-          const imageMarkup = (post, containerClass, sizes, width, height, loading = 'lazy') => {
+          const imageMarkup = (post, containerClass, sizes, width, height, loading = 'lazy', widths = [256, 512]) => {
             if (post.image) {
-              const avifSrcSet = buildSrcSet(post.image, 'avif');
-              const webpSrcSet = buildSrcSet(post.image, 'webp');
-              const fallbackSrc = escapeHtml(netlifyImage(post.image, 800, 'webp'));
+              const avifSrcSet = buildSrcSet(post.image, 'avif', widths);
+              const webpSrcSet = buildSrcSet(post.image, 'webp', widths);
+              const fallbackSrc = escapeHtml(netlifyImage(post.image, widths[widths.length - 1], 'webp'));
               return (
                 '<div class="' + containerClass + '">' +
                 '<picture>' +
@@ -372,7 +372,7 @@ const uiText = {
             featuredSection.classList.remove('hidden');
             featuredContainer.innerHTML =
               '<a class="featured-card" href="' + escapeHtml(post.href) + '">' +
-                imageMarkup(post, 'blog-card-img blog-card-img-featured', '(min-width: 1024px) 50vw, 100vw', 1200, 750, 'eager') +
+                imageMarkup(post, 'blog-card-img blog-card-img-featured', '(min-width: 1024px) 50vw, 100vw', 1200, 750, 'eager', [400, 800]) +
                 '<span class="blog-read-time">' + readTimeLabel(post) + '</span>' +
                 (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
                 '<h2>' + escapeHtml(post.title) + '</h2>' +
