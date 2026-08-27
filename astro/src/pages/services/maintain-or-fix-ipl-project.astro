@@ -20,6 +20,14 @@ const megaCardImg = (path: string) => {
   const s = responsiveImageSources(path, [256, 512], 256);
   return { src: s.src, srcset: s.webpSrcSet };
 };
+const wwdImg = (path: string) => {
+  const s = responsiveImageSources(path, [400, 800], 400);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
+const logoImg = (path: string) => {
+  const s = responsiveImageSources(path, [256, 512], 256);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 ---
 
 <!doctype html>
@@ -999,16 +1007,16 @@ a{text-decoration:none;color:inherit}
     <div class="what-we-do-right">
       <div class="wwd-visuals" aria-live="polite">
         <div class="wwd-visual active" data-index="0">
-          <img src="/images/client/client-witness-ku2-cosmetics-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual1Alt')} loading="lazy" />
+          <img src={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').src} srcset={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual1Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="1">
-          <img src="/images/client/client-witness-lux-skin-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual2Alt')} loading="lazy" />
+          <img src={wwdImg('/images/client/client-witness-lux-skin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-lux-skin-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual2Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="2">
-          <img src="/images/client/client-witness-mandyskin-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual3Alt')} loading="lazy" />
+          <img src={wwdImg('/images/client/client-witness-mandyskin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-mandyskin-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual3Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="3">
-          <img src="/images/client/client-witness-roseskinco-brand.webp" alt={t(locale, 'homepage.whatWeDo.visual4Alt')} loading="lazy" />
+          <img src={wwdImg('/images/client/client-witness-roseskinco-brand.webp').src} srcset={wwdImg('/images/client/client-witness-roseskinco-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual4Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
       </div>
     </div>
@@ -1030,35 +1038,35 @@ a{text-decoration:none;color:inherit}
       <div class="product-carousel-viewport">
         <div class="product-carousel-track" id="product-carousel-track">
           <a class="product-card-item" href={loc("/products/lumi-2")}>
-            <div class="product-card-img"><img src="/images/products/lumi-2/lumi-2-images-1.webp" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/lumi-2/lumi-2-images-1.webp').src} srcset={megaCardImg('/images/products/lumi-2/lumi-2-images-1.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.lumi2.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.lumi2.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.lumi2Tagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/venus")}>
-            <div class="product-card-img"><img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').src} srcset={megaCardImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.venus.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.venus.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.venus.tagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/lumi")}>
-            <div class="product-card-img"><img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').src} srcset={megaCardImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.lumi.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.lumi.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.lumi.tagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/helix")}>
-            <div class="product-card-img"><img src="/images/products/Helix/helix-ipl-front-view.jpg" alt={t(locale, 'nav.helix')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Helix/helix-ipl-front-view.jpg').src} srcset={megaCardImg('/images/products/Helix/helix-ipl-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'nav.helix')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'nav.helix')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.helixTagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/themis")}>
-            <div class="product-card-img"><img src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Themis/golden-luxury-front-view.jpg').src} srcset={megaCardImg('/images/products/Themis/golden-luxury-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.themis.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.themis.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.themis.tagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/emerald")}>
-            <div class="product-card-img"><img src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').src} srcset={megaCardImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.emerald.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.emerald.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.emerald.tagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/alpha")}>
-            <div class="product-card-img"><img src="/images/products/Alpha/alpha-ipl-device-front-view.jpg" alt={t(locale, 'nav.alpha')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Alpha/alpha-ipl-device-front-view.jpg').src} srcset={megaCardImg('/images/products/Alpha/alpha-ipl-device-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'nav.alpha')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'nav.alpha')}</h3><p class="product-card-tagline">{t(locale, 'homepage.showcase.alphaTagline')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/hebe")}>
-            <div class="product-card-img"><img src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').src} srcset={megaCardImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt={t(locale, 'homepage.mega.hebe.name')} loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">{t(locale, 'homepage.mega.hebe.name')}</h3><p class="product-card-tagline">{t(locale, 'homepage.mega.hebe.tagline')}</p></div>
           </a>
         </div>
@@ -1082,7 +1090,7 @@ a{text-decoration:none;color:inherit}
       <img src="/images/logos/costco-logo.svg" alt={t(locale, 'homepage.work.costco')} loading="lazy" />
       <img src="/images/logos/roseskin-logo.svg" alt={t(locale, 'homepage.clients.roseskincoAlt')} loading="lazy" />
       <img src="/images/logos/KU-2%20logo.svg" alt={t(locale, 'servicesPage.common.ku2Alt')} loading="lazy" />
-      <img src="/images/logos/happyskin-logo.webp" alt={t(locale, 'homepage.work.happyskinco')} loading="lazy" />
+      <img src={logoImg('/images/logos/happyskin-logo.webp').src} srcset={logoImg('/images/logos/happyskin-logo.webp').srcset} sizes="221px" alt={t(locale, 'homepage.work.happyskinco')} loading="lazy" decoding="async" width="221" height="23" />
     </div>
   </div>
 </section>

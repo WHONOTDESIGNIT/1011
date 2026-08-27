@@ -24,6 +24,14 @@ const megaCardImg = (path: string) => {
   const s = responsiveImageSources(path, [256, 512], 256);
   return { src: s.src, srcset: s.webpSrcSet };
 };
+const wwdImg = (path: string) => {
+  const s = responsiveImageSources(path, [400, 800], 400);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
+const logoImg = (path: string) => {
+  const s = responsiveImageSources(path, [256, 512], 256);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 ---
 
 <!doctype html>
@@ -1059,35 +1067,35 @@ a{text-decoration:none;color:inherit}
       <div class="product-carousel-viewport">
         <div class="product-carousel-track" id="product-carousel-track">
           <a class="product-card-item" href={loc("/products/lumi-2")}>
-            <div class="product-card-img"><img src="/images/products/lumi-2/lumi-2-images-1.webp" alt="Lumi 2" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/lumi-2/lumi-2-images-1.webp').src} srcset={megaCardImg('/images/products/lumi-2/lumi-2-images-1.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Lumi 2" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Lumi 2</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.lumi2')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/venus")}>
-            <div class="product-card-img"><img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Venus" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').src} srcset={megaCardImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Venus" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Venus</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.venus')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/lumi")}>
-            <div class="product-card-img"><img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="Lumi" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').src} srcset={megaCardImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Lumi" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Lumi</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.lumi')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/helix")}>
-            <div class="product-card-img"><img src="/images/products/Helix/helix-ipl-front-view.jpg" alt="Helix" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Helix/helix-ipl-front-view.jpg').src} srcset={megaCardImg('/images/products/Helix/helix-ipl-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Helix" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Helix</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.helix')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/themis")}>
-            <div class="product-card-img"><img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="Themis" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Themis/golden-luxury-front-view.jpg').src} srcset={megaCardImg('/images/products/Themis/golden-luxury-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Themis" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Themis</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.themis')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/emerald")}>
-            <div class="product-card-img"><img src="/images/products/Emerald/emerald%20ipl%20white%20color.webp" alt="Emerald" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').src} srcset={megaCardImg('/images/products/Emerald/emerald%20ipl%20white%20color.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Emerald" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Emerald</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.emerald')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/alpha")}>
-            <div class="product-card-img"><img src="/images/products/Alpha/alpha-ipl-device-front-view.jpg" alt="Alpha" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Alpha/alpha-ipl-device-front-view.jpg').src} srcset={megaCardImg('/images/products/Alpha/alpha-ipl-device-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Alpha" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Alpha</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.alpha')}</p></div>
           </a>
           <a class="product-card-item" href={loc("/products/hebe")}>
-            <div class="product-card-img"><img src="/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp" alt="Hebe" loading="lazy" /></div>
+            <div class="product-card-img"><img src={megaCardImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').src} srcset={megaCardImg('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20color.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 80vw" alt="Hebe" loading="lazy" decoding="async" width="300" height="375" /></div>
             <div class="product-card-info"><h3 class="product-card-name">Hebe</h3><p class="product-card-tagline">{t(locale, 'teamPage.showcase.taglines.hebe')}</p></div>
           </a>
         </div>
@@ -1111,7 +1119,7 @@ a{text-decoration:none;color:inherit}
       <img src="/images/logos/costco-logo.svg" alt="Costco" loading="lazy" />
       <img src="/images/logos/roseskin-logo.svg" alt="RoseSkinCo" loading="lazy" />
       <img src="/images/logos/KU-2%20logo.svg" alt="KU-2 Cosmetics" loading="lazy" />
-      <img src="/images/logos/happyskin-logo.webp" alt="HappySkinCo" loading="lazy" />
+      <img src={logoImg('/images/logos/happyskin-logo.webp').src} srcset={logoImg('/images/logos/happyskin-logo.webp').srcset} sizes="221px" alt="HappySkinCo" loading="lazy" decoding="async" width="221" height="23" />
     </div>
   </div>
 </section>

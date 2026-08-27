@@ -2,7 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
-import { Image } from 'astro:assets';
+import { responsiveImageSources } from '../../lib/netlify-images';
+const respImg = (path: string) => {
+  const s = responsiveImageSources(path, [400, 800, 1200], 800);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 import { Zap, Lock, Headphones } from '@lucide/astro';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -68,14 +72,7 @@ const selectOptions = {
     <section class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
       <div class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm lg:sticky lg:top-24 lg:self-start">
         <div class="relative aspect-[4/3] bg-slate-100">
-          <Image
-            src="/images/home/themis-ice-feeling-ipl-device.jpg"
-            alt={t(locale, 'aboutPages.contactPage.imageAlt')}
-            class="absolute inset-0 h-full w-full object-cover"
-            loading="lazy"
-            width={1200}
-            height={900}
-          />
+          <img src={respImg('/images/home/themis-ice-feeling-ipl-device.jpg').src} srcset={respImg('/images/home/themis-ice-feeling-ipl-device.jpg').srcset} sizes="(min-width:1024px) 45vw, 100vw" alt={t(locale, 'aboutPages.contactPage.imageAlt')} loading="lazy" decoding="async" width="1200" height="900" class="absolute inset-0 h-full w-full object-cover" />
         </div>
 
         <div class="mt-4 rounded-[1.75rem] border border-slate-200 bg-[#f9fafb] p-6 shadow-sm">
