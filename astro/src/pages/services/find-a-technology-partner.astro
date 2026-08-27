@@ -2,13 +2,14 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { t } from '../../lib/i18n';
+import { getPageLocale } from '../../lib/locale';
 import { responsiveImageSources } from '../../lib/netlify-images';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import SeoHead from '../../components/SeoHead.astro';
 import CookieConsent from '../../components/CookieConsent.astro';
 import fontsCss from '../../styles/fonts.css?raw';
 const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
-const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-BR') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-PT') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : startsWith('/de') ? 'de' : 'en');
+const locale = getPageLocale(Astro.currentLocale, Astro.url.pathname);
 const loc = (p: string) => getLocalizedPath(locale, p);
 // mega 菜单图片：全站共享组件高频加载，接入 Netlify Image CDN 按显示尺寸缩放
 // （mega-product-img 60×60 / mega-component-img 44×44 / mega-products-card-img ~260×150）

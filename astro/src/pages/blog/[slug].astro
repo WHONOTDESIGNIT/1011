@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleVote from '../../components/ArticleVote.astro';
+import MdxImage from '../../components/MdxImage.astro';
 import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, postHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
@@ -85,6 +86,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
+const hreflangEntries = translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }));
 const blogImageWidths = [400, 800, 1200];
 const articleHeroImage = post.meta.image
   ? {
@@ -93,6 +95,7 @@ const articleHeroImage = post.meta.image
       avifSrcSet: buildSrcSet(post.meta.image, blogImageWidths, 'avif'),
     }
   : null;
+const articleImageUrl = post.meta.image ? new URL(post.meta.image, `${resolveBaseUrl()}/`).href : undefined;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -108,21 +111,26 @@ const breadcrumbSchema = {
 const webPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
+  '@id': canonical,
   name: pageTitle,
   description: pageDescription,
   url: canonical,
   inLanguage: locale,
+  isPartOf: {
+    '@id': 'https://iplmanufacturer.com/#website',
+  },
 };
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': canonical + '#article',
+  identifier: post.meta.translationKey,
   headline: post.meta.title,
   description: pageDescription,
   url: canonical,
   datePublished: post.meta.date || undefined,
-  dateModified: post.meta.date || undefined,
+  dateModified: post.meta.updatedDate || post.meta.date || undefined,
   author: {
     '@type': 'Person',
     name: post.meta.author || 'iShine Team',
@@ -132,22 +140,49 @@ const articleSchema = {
     '@type': 'Organization',
     '@id': 'https://iplmanufacturer.com/#organization',
     name: 'iShine Technology Ltd',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${resolveBaseUrl()}/images/logos/ishine-logo.webp`,
+      width: 444,
+      height: 160,
+    },
   },
-  ...(post.meta.image ? { image: post.meta.image } : {}),
+  ...(articleImageUrl ? { image: articleImageUrl } : {}),
   ...(post.meta.category ? { articleSection: post.meta.category } : {}),
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonical,
   },
   inLanguage: locale,
+  isPartOf: {
+    '@id': 'https://iplmanufacturer.com/#website',
+  },
 };
+
+const faqSchema = post.faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': canonical + '#faq',
+      inLanguage: locale,
+      mainEntity: post.faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }))}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={hreflangEntries}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema ? <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} /> : null}
   </Fragment>
 
   <article class="mx-auto max-w-5xl space-y-42">
@@ -226,7 +261,7 @@ const articleSchema = {
 
     <div class="mx-auto max-w-3xl">
       <div class="blog-content">
-        <Content />
+        <Content components={{ img: MdxImage }} />
       </div>
 
       {post.faqs.length
@@ -237,12 +272,12 @@ const articleSchema = {
               {post.faqs.map((item) => (
                 <details class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition open:border-slate-300">
                   <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-800">
-                    <span>{item.q}</span>
+                    <span>{item.question}</span>
                     <svg class="h-5 w-5 flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                       <path d="M10 4v12M4 10h12" />
                     </svg>
                   </summary>
-                  <p class="border-t border-slate-100 px-5 py-4 leading-relaxed text-slate-600">{item.a}</p>
+                  <p class="border-t border-slate-100 px-5 py-4 leading-relaxed text-slate-600">{item.answer}</p>
                 </details>
               ))}
             </div>
@@ -272,7 +307,7 @@ const articleSchema = {
         </div>
       </div>
 
-      <ArticleVote slug={post.meta.canonicalSlug} lang={locale} />
+      <ArticleVote slug={post.meta.translationKey} lang={locale} />
     </div>
 
     {related.length

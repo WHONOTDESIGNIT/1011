@@ -1,6 +1,6 @@
 ---
 // 文章投票组件：点赞/差评计数（Netlify Blobs）+ 差评原因收集（Netlify Forms）
-// - slug 建议传 post.meta.canonicalSlug（英文 slug），同一篇文章的多种语言共享同一份计数
+// - slug 建议传 post.meta.translationKey，同一篇文章的多种语言共享同一份计数
 // - 隐藏 form name="bad-review" 随本组件输出到每篇博客文章页，
 //   Netlify 构建时扫描 dist HTML 即可识别表单（等效于独立 _forms 页面，
 //   但 Astro 会忽略 src/pages 下划线前缀文件，不生成路由，故内嵌到组件）
