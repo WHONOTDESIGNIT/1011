@@ -103,7 +103,6 @@ const logoImg = (path: string) => {
   --pad-24:24px;
   --nav-top:66px;
   --nav-h:70px;
-  --max-w:1536px;
 }
 @media(max-width:767px){
   :root{--nav-h:56px;--pad-100:var(--pad-24)}
@@ -342,7 +341,7 @@ a{text-decoration:none;color:inherit}
 /* ═══ 4. WHAT WE DO ═══ */
 .what-we-do{position:relative;contain:content}
 .what-we-do::before{content:"";position:absolute;inset:0 50%;margin-left:-50vw;margin-right:-50vw;background:#fff;z-index:0}
-.what-we-do-container{position:relative;z-index:1;display:flex;width:100%;max-width:var(--max-w);margin:0 auto;padding:60px var(--pad-100);gap:40px;align-items:flex-start}
+.what-we-do-container{position:relative;z-index:1;display:flex;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto;padding:60px var(--pad-100);gap:40px;align-items:flex-start}
 .what-we-do-left{width:50%;display:flex;flex-direction:column}
 .what-we-do-right{width:50%;display:flex;align-items:center;justify-content:center;position:sticky;top:136px;height:fit-content}
 .wwd-visuals{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:16px}
@@ -388,7 +387,7 @@ a{text-decoration:none;color:inherit}
 /* ═══ TEAM ═══ */
 .team-section{position:relative;contain:content}
 .team-section::before{content:"";position:absolute;inset:0 50%;margin-left:-50vw;margin-right:-50vw;background:#fff;z-index:0}
-.team-section-container{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:var(--max-w);margin:0 auto;padding:60px var(--pad-100)}
+.team-section-container{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto;padding:60px var(--pad-100)}
 .team-section-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#6b7280;max-width:640px;margin-bottom:32px}
 .team-section-note{font-family:Manrope,sans-serif;font-size:14px;font-weight:500;line-height:21px;color:#92400e;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;margin-bottom:20px;max-width:640px}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
@@ -405,7 +404,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ PRODUCT SHOWCASE ═══ */
 .product-showcase{width:100%;background:#fff;padding:60px 0;overflow:hidden}
-.product-showcase-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.product-showcase-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0 var(--pad-100)}
 .product-showcase-header{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:40px}
 .product-showcase-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:var(--black);margin:0 0 12px}
 .product-showcase-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#6b7280;max-width:600px;margin:0}
@@ -431,7 +430,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 5. OUR CLIENTS ═══ */
 .our-clients{background:var(--black);display:flex;justify-content:center;padding:0}
-.our-clients-container{display:flex;flex-direction:row;gap:40px;width:100%;max-width:var(--max-w);margin:0 auto;padding:72px var(--pad-100)}
+.our-clients-container{display:flex;flex-direction:row;gap:40px;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto;padding:72px var(--pad-100)}
 .our-clients-left{flex:0 0 auto}
 .our-clients-heading{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#fff;margin:0}
 .our-clients-sub{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:#fff;margin:12px 0 0}
@@ -451,7 +450,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 6. STAT CARDS ═══ */
 .stat-cards{width:100%;background:#fff;padding:40px 0}
-.stat-cards-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100);display:flex;flex-direction:column;gap:0}
+.stat-cards-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0 var(--pad-100);display:flex;flex-direction:column;gap:0}
 .stat-cards-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,600px);align-items:flex-start;gap:40px}
 .stat-cards-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:var(--black);max-width:550px;margin:0;flex-shrink:0}
 .stat-cards-desc-col{display:flex;flex-direction:column;align-items:flex-start;gap:24px;max-width:600px}
@@ -490,7 +489,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ QUALITY & CERTIFICATIONS ═══ */
 .quality-certs{width:100%;background:#fff;padding:60px 0}
-.quality-certs-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100);display:flex;gap:60px}
+.quality-certs-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0 var(--pad-100);display:flex;gap:60px}
 .quality-certs-left{flex:1;max-width:580px}
 .quality-certs-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:var(--black);margin:0 0 16px}
 .quality-certs-desc{font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:25px;color:var(--black);margin:0 0 32px}
@@ -513,7 +512,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 7. EXPERTISE ═══ */
 .expertise{width:100%;margin:0;padding:0;background:var(--black)}
-.expertise-container{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,600px);column-gap:40px;row-gap:24px;padding:240px 100px}
+.expertise-container{max-width:var(--max-w-page, 1843px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,600px);column-gap:40px;row-gap:24px;padding:240px 100px}
 .expertise-left{display:flex;flex-direction:column;gap:24px;max-width:700px}
 .expertise-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;letter-spacing:-.48px;color:#fff;margin:0}
 .expertise-right{display:flex;flex-direction:column;align-items:flex-start;gap:24px;max-width:600px;grid-column:2;grid-row:1 / span 2}
@@ -540,7 +539,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 8. PARTNER INTEGRATIONS ═══ */
 .partner-integrations{width:100%;background:#fff}
-.partner-integrations-row{max-width:var(--max-w);margin:0 auto;padding:60px var(--pad-100);display:flex;gap:60px;align-items:flex-start}
+.partner-integrations-row{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:60px var(--pad-100);display:flex;gap:60px;align-items:flex-start}
 .partner-left{flex:1;max-width:500px;display:flex;flex-direction:column;gap:20px}
 .partner-right{flex:1;display:flex;align-items:flex-start;padding-top:49px}
 .partner-integrations-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:var(--black);margin:0}
@@ -568,7 +567,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 9. OUR WORK ═══ */
 .our-work{width:100%;background:var(--black);padding:60px 0}
-.our-work-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
+.our-work-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0 var(--pad-100)}
 .our-work-header{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-bottom:40px}
 .our-work-heading{font-family:Syne,sans-serif;font-size:48px;font-weight:400;line-height:52px;color:#fff;margin:0}
 .our-work-link{display:inline-flex;align-items:center;gap:6px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:var(--blue);background:transparent;padding:12px 20px;border:1px solid var(--blue);border-radius:100px;transition:all .2s;white-space:nowrap}
@@ -598,7 +597,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 10. TESTIMONIALS ═══ */
 .testimonials{display:flex;width:100%;flex-direction:column;align-items:center;background:var(--grey-50);position:relative;padding:0}
-.testimonials-container{display:flex;align-items:flex-start;width:100%;max-width:var(--max-w);margin:0 auto;padding:40px var(--pad-100) 124px;overflow:hidden;position:relative;gap:60px}
+.testimonials-container{display:flex;align-items:flex-start;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto;padding:40px var(--pad-100) 124px;overflow:hidden;position:relative;gap:60px}
 .testimonial-main{flex:1;display:flex;flex-direction:column}
 .testimonial-quote-icon{position:absolute;right:184px;bottom:24px;margin-bottom:0}
 .testimonial-quote{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:30px;color:var(--black);margin-bottom:24px}
@@ -630,7 +629,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 11. FOOTER ═══ */
 .site-footer{background:var(--black);color:#fff;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0}
-.footer-container{padding:0 var(--pad-100);max-width:var(--max-w);margin:0 auto}
+.footer-container{padding:0 var(--pad-100);max-width:var(--max-w-page, 1843px);margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:60px}
 .footer-col h4{font-family:Manrope,sans-serif;font-size:18px;font-weight:600;color:#fff;line-height:27px;margin-bottom:16px}
 .footer-col a{display:block;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;color:#fff;line-height:25px;padding:6px 0;transition:color .2s}

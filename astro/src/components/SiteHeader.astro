@@ -569,7 +569,7 @@ const megaCardImg = (path: string) => {
 @media(max-width:768px){.trust-slide{padding:10px 16px}.trust-text{font-size:14px;line-height:21px}}
 
 /* ═══ 2. HEADER / NAV ═══ */
-.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:var(--max-w, 1843px);z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
+.site-header{position:fixed;top:66px;left:50%;transform:translate(-50%);width:calc(100% - 48px);max-width:var(--max-w-page, 1843px);z-index:110;transition:top .1s ease;will-change:top;--header-nav-safe-gap:8px}
 .site-header.site-header-top-hidden{top:0}
 .header-inner{position:relative;display:flex;align-items:center;justify-content:flex-start;height:70px;padding:0 24px 0 40px;background:#fff;border-radius:40px;box-shadow:0 10px 24px rgba(2,3,3,.06);gap:0;transition:background .35s ease,box-shadow .35s ease}
 .site-header.header-scrolled .header-inner{background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 24px rgba(2,3,3,.08)}
@@ -607,7 +607,7 @@ const megaCardImg = (path: string) => {
 .nav-has-dropdown{gap:6px}
 .nav-dropdown-chevron{width:12px;height:7px;transition:transform .25s ease;flex-shrink:0}
 .nav-dropdown-wrapper:hover .nav-dropdown-chevron{transform:rotate(180deg)}
-.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);width:calc(var(--max-w,1843px) / 2);min-width:0;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
+.mega-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);width:calc(var(--max-w-page, 1843px) / 2);min-width:0;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(2,3,3,.15);opacity:0;visibility:hidden;pointer-events:none;z-index:120;transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
 .mega-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .25s ease,visibility 0s 0s}
 .mega-inner{display:flex;gap:60px;padding:36px 40px}
 .mega-left{flex:1;display:flex;flex-direction:column}
