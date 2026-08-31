@@ -114,43 +114,41 @@ const subLinkClass = variant === 'dark'
   </div>
 
   <script is:inline>
-    {`
-      (() => {
-        var root = document.querySelector('[data-bc-root="${id}"]');
-        if (!root) return;
-        var trigger = root.querySelector('[data-bc-trigger="${id}"]');
-        var overlay = root.querySelector('[data-bc-overlay="${id}"]');
-        var backdrop = root.querySelector('[data-bc-backdrop="${id}"]');
-        var close = root.querySelector('[data-bc-close="${id}"]');
-        if (!trigger || !overlay) return;
+    (() => {
+      var root = document.currentScript && document.currentScript.closest('[data-bc-root]');
+      if (!root) return;
+      var trigger = root.querySelector('[data-bc-trigger]');
+      var overlay = root.querySelector('[data-bc-overlay]');
+      var backdrop = root.querySelector('[data-bc-backdrop]');
+      var close = root.querySelector('[data-bc-close]');
+      if (!trigger || !overlay) return;
 
-        function open() {
-          overlay.classList.remove('hidden');
-          overlay.setAttribute('aria-hidden', 'false');
-          trigger.setAttribute('aria-expanded', 'true');
-          document.documentElement.style.overflow = 'hidden';
-        }
+      function open() {
+        overlay.classList.remove('hidden');
+        overlay.setAttribute('aria-hidden', 'false');
+        trigger.setAttribute('aria-expanded', 'true');
+        document.documentElement.style.overflow = 'hidden';
+      }
 
-        function hide() {
-          overlay.classList.add('hidden');
-          overlay.setAttribute('aria-hidden', 'true');
-          trigger.setAttribute('aria-expanded', 'false');
-          document.documentElement.style.overflow = '';
-        }
+      function hide() {
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        trigger.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+      }
 
-        trigger.addEventListener('click', function () {
-          var open_ = overlay.getAttribute('aria-hidden') === 'false';
-          if (open_) hide(); else open();
-        });
-        if (close) close.addEventListener('click', hide);
-        if (backdrop) backdrop.addEventListener('click', hide);
-        document.addEventListener('keydown', function (e) {
-          if (e.key !== 'Escape') return;
-          if (overlay.getAttribute('aria-hidden') !== 'false') return;
-          hide();
-        });
-      })();
-    `}
+      trigger.addEventListener('click', function () {
+        var open_ = overlay.getAttribute('aria-hidden') === 'false';
+        if (open_) hide(); else open();
+      });
+      if (close) close.addEventListener('click', hide);
+      if (backdrop) backdrop.addEventListener('click', hide);
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (overlay.getAttribute('aria-hidden') !== 'false') return;
+        hide();
+      });
+    })();
   </script>
 </nav>
 <style>
