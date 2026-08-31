@@ -35,8 +35,10 @@ export default defineConfig({
       'he',
       'fa',
       'el',
-      'pt-BR',
-      'pt-PT',
+      // 葡萄牙语：URL 前缀小写（/pt-br/、/pt-pt/，Netlify Linux 文件系统友好），
+      // codes[0] 即内部 locale（pt-BR，currentLocale / messages / 内容目录一致）
+      { path: 'pt-br', codes: ['pt-BR'] },
+      { path: 'pt-pt', codes: ['pt-PT'] },
       'nl',
       'id',
       'th',
@@ -62,8 +64,8 @@ export default defineConfig({
       he: 'en',
       fa: 'en',
       el: 'en',
-      'pt-BR': 'en',
-      'pt-PT': 'en',
+      'pt-br': 'en',
+      'pt-pt': 'en',
       nl: 'en',
       id: 'en',
       th: 'en',

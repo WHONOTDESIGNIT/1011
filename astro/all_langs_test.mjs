@@ -12,7 +12,7 @@ const LOCALES = [
   { prefix: '/fr', code: 'fr', dir: 'ltr' },
   { prefix: '/ru', code: 'ru', dir: 'ltr' },
   { prefix: '/he', code: 'he', dir: 'rtl' },
-  { prefix: '/pt-BR', code: 'pt-BR', dir: 'ltr' },
+  { prefix: '/pt-br', code: 'pt-BR', dir: 'ltr' },
   { prefix: '/nl', code: 'nl', dir: 'ltr' },
 ];
 const PAGES = ['/', '/products/lumi/', '/faq/', '/contact/'];

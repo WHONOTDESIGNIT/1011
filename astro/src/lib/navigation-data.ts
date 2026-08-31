@@ -1,4 +1,5 @@
 import { getLocalizedPath } from './breadcrumbs';
+import { localeToPath } from './locale';
 import { t } from './i18n';
 
 export type NavigationLink = {
@@ -8,7 +9,9 @@ export type NavigationLink = {
 
 function normalizeLocalizedHref(locale: string, href: string): string {
   if (!href) return '/';
-  const prefix = `/${locale}`;
+  // 当前语言可能是内部 code（pt-BR / es-ES），需转为小写 URL path 才能正确剥前缀
+  const pathLocale = localeToPath[locale] ?? locale;
+  const prefix = `/${pathLocale}`;
   if (href === prefix) return '/';
   if (href.startsWith(`${prefix}/`)) return href.slice(prefix.length) || '/';
   return href;

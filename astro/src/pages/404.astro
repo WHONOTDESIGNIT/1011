@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { localeToPath } from '../lib/locale';
 
 const locale = Astro.currentLocale ?? 'en';
-const homeHref = locale === 'en' ? '/' : `/${locale}/`;
+// URL path 小写化（pt-BR → pt-br / es-ES → es），en 无前缀
+const pathLocale = localeToPath[locale] ?? locale;
+const homeHref = pathLocale === 'en' ? '/' : `/${pathLocale}/`;
 ---
 <BaseLayout title="404 · Page Not Found" lang={locale} description="Page not found" showCornerMarkers={false}>
   <meta slot="head" name="robots" content="noindex, nofollow" />

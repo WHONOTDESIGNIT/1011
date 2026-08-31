@@ -4,6 +4,7 @@
 // light palette, Accept-all / Decline buttons, remembered in localStorage.
 // Copy lives in messages/*.json under the `cookieConsent` key (19 languages).
 import { t } from '../lib/i18n';
+import { localeToPath } from '../lib/locale';
 
 interface Props {
   lang?: string;
@@ -11,6 +12,8 @@ interface Props {
 
 const { lang = 'en' } = Astro.props as Props;
 const locale = lang;
+// 内部 locale 可能是 BCP47（pt-BR / es-ES），URL 前缀需转为小写路径段（pt-br / es）
+const localePath = localeToPath[locale] ?? locale;
 const copy = {
   message: t(locale, 'cookieConsent.message'),
   accept: t(locale, 'cookieConsent.accept'),
@@ -28,7 +31,7 @@ const consentKey = 'ishine_cookie_consent_v1';
   <div class="cc-inner">
     <div class="cc-text">
       <p class="cc-message">{copy.message}</p>
-      <a class="cc-privacy" href={`/${locale === 'en' ? '' : locale + '/'}privacy-policy`}>
+      <a class="cc-privacy" href={`/${localePath === 'en' ? '' : localePath + '/'}privacy-policy`}>
         {copy.privacyLink}
       </a>
     </div>

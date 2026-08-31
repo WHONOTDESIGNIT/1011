@@ -54,20 +54,38 @@ type BlogFrontmatterRecord = {
 export const SUPPORTED_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'] as const;
 export type BlogLocale = (typeof SUPPORTED_LOCALES)[number];
 
-const LOCALE_CODE_TO_PATH: Record<string, string> = { 'es-ES': 'es' };
-const LOCALE_PATH_TO_CODE: Record<string, string> = { es: 'es-ES' };
+// 三层解耦（与 src/lib/locale.ts 同构，作用域为博客层）：
+// 内容目录名（pt-BR，大小写敏感）↔ 内部 locale（BCP47）↔ URL path（小写，/pt-br/）。
+// 页面 locale 输入可能是：currentLocale 的内部 code（pt-BR / es-ES）、URL path（pt-br）、
+// 或简单 code（es）。统一经 resolveBlogLocale 归一化为「博客目录名」（BlogLocale）。
+const BLOG_DIR_TO_URL_PATH: Record<string, string> = {
+  'pt-BR': 'pt-br',
+  'pt-PT': 'pt-pt',
+};
+const URL_PATH_TO_BLOG_DIR: Record<string, string> = {
+  'pt-br': 'pt-BR',
+  'pt-pt': 'pt-PT',
+};
+// 注意：es 的博客目录名/内部 code 是 es，而 currentLocale 返回 BCP47 的 es-ES，需归一到 es
+const BCP47_TO_BLOG_DIR: Record<string, string> = {
+  'es-ES': 'es',
+};
 const blogContentRoot = path.resolve(process.cwd(), 'src/content/blog');
 const blogContentModules = import.meta.glob('../content/blog/**/*.mdx');
 
 let blogIndexCache: Promise<BlogIndexRecord[]> | undefined;
 
-export const localeToPath = (locale: string) => LOCALE_CODE_TO_PATH[locale] ?? locale;
-export const pathToCode = (pathLocale: string) => LOCALE_PATH_TO_CODE[pathLocale] ?? pathLocale;
-
-function resolveBlogLocale(locale: string): BlogLocale {
-  const pathLocale = localeToPath(locale);
-  return (SUPPORTED_LOCALES as readonly string[]).includes(pathLocale) ? (pathLocale as BlogLocale) : 'en';
+/** 任意 locale 形态 → 博客目录名（未识别回退 en） */
+function resolveBlogLocale(input: string): BlogLocale {
+  const fromUrlPath = URL_PATH_TO_BLOG_DIR[input];
+  if (fromUrlPath) return fromUrlPath as BlogLocale;
+  const fromBcp47 = BCP47_TO_BLOG_DIR[input];
+  if (fromBcp47) return fromBcp47 as BlogLocale;
+  return (SUPPORTED_LOCALES as readonly string[]).includes(input) ? (input as BlogLocale) : 'en';
 }
+
+/** 博客目录名 / 内部 locale → 小写 URL path（sitemap 等 URL 输出用；en 返回原值） */
+export const blogUrlPath = (locale: string) => BLOG_DIR_TO_URL_PATH[locale] ?? locale;
 
 function extractLocaleFromPath(filePath: string): BlogLocale {
   const normalized = filePath.replace(/\\/g, '/');
@@ -87,9 +105,11 @@ function formatDateValue(value: Date | string | undefined) {
   return date.toISOString().slice(0, 10);
 }
 
-function postHref(locale: string, slug: string): string {
-  const pathLocale = resolveBlogLocale(locale);
-  return pathLocale === 'en' ? `/blog/${slug}` : `/${pathLocale}/blog/${slug}`;
+function postHref(localeOrDir: string, slug: string): string {
+  const dir = resolveBlogLocale(localeOrDir);
+  if (dir === 'en') return `/blog/${slug}`;
+  const urlPath = BLOG_DIR_TO_URL_PATH[dir] ?? dir;
+  return `/${urlPath}/blog/${slug}`;
 }
 
 function normalizeFaqs(rawFaqs: BlogFrontmatterRecord['faqs']) {
@@ -131,7 +151,8 @@ async function loadBlogIndex() {
           if (!frontmatter?.slug || !frontmatter.translationKey) return null;
 
           const localePath = extractLocaleFromPath(filePath);
-          const locale = pathToCode(localePath);
+          // 目录名 → BCP47 code（getPostTranslations 的 x.locale 用于与 currentLocale 比对）
+          const locale = localePath === 'es' ? 'es-ES' : localePath;
           const slug = frontmatter.slug;
           const translationKey = frontmatter.translationKey;
           const excerpt = frontmatter.description ?? '';

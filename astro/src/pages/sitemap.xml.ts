@@ -1,4 +1,4 @@
-import { getAllPosts, SUPPORTED_LOCALES } from '../lib/blog';
+import { getAllPosts, SUPPORTED_LOCALES, blogUrlPath } from '../lib/blog';
 
 function escapeXml(value: string) {
   return value
@@ -35,7 +35,9 @@ export async function GET() {
   const entries: Entry[] = [];
 
   for (const locale of SUPPORTED_LOCALES) {
-    const prefix = locale === 'en' ? '' : `/${locale}`;
+    // URL path 小写化（pt-BR → pt-br），en 无前缀
+    const urlPath = blogUrlPath(locale);
+    const prefix = urlPath === 'en' ? '' : `/${urlPath}`;
     const root = `${base}${prefix}`;
 
     const staticPaths = [
