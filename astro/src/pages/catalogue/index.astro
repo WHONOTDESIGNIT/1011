@@ -122,21 +122,21 @@ const catalogueFaq = [
   description={t(locale, 'clientPage.catalogue.metaDescription')}
 >
   <div class="space-y-36">
-    <section class="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10">
+    <section class="rounded-2xl bg-gradient-to-br from-neutral-50 via-white to-sky-50 px-8 py-12 shadow-sm md:px-10">
       <Breadcrumb items={breadcrumbs} locale={locale} />
       <div class="mt-8 max-w-4xl">
-        <h1 class="text-4xl font-bold text-slate-900 md:text-5xl">{t(locale, 'clientPage.catalogue.heroTitle')}</h1>
-        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
+        <h1 class="text-4xl font-bold text-ink-900 md:text-5xl">{t(locale, 'clientPage.catalogue.heroTitle')}</h1>
+        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
           {t(locale, 'clientPage.catalogue.heroDescription')}
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a class="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+          <a class="rounded-2xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={getLocalizedPath(locale, '/contact')}>
             {t(locale, 'clientPage.catalogue.getAQuote')}
           </a>
-          <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/no-moq')}>
+          <a class="rounded-2xl border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services/no-moq')}>
             {t(locale, 'clientPage.catalogue.startWithNoMoq')}
           </a>
-          <a class="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services')}>
+          <a class="rounded-2xl border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services')}>
             {t(locale, 'clientPage.catalogue.exploreServices')}
           </a>
         </div>
@@ -149,20 +149,20 @@ const catalogueFaq = [
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'clientPage.catalogue.howToChoose')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'clientPage.catalogue.howToChooseTitle')}</h2>
-        <p class="mt-4 text-lg text-slate-700">
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'clientPage.catalogue.howToChooseTitle')}</h2>
+        <p class="mt-4 text-lg text-neutral-700">
           {t(locale, 'clientPage.catalogue.howToChooseDescription')}
         </p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {recommendationTracks.map((track) => (
-          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-2xl font-semibold text-slate-900">{track.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">{track.description}</p>
-            <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
+          <article class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-semibold text-ink-900">{track.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{track.description}</p>
+            <ul class="mt-6 space-y-3 text-sm font-semibold text-ink-900">
               {track.links.map((link) => (
                 <li>
-                  <a class="inline-flex items-center gap-2 text-slate-900 transition hover:text-violet-700" href={link.href}>
+                  <a class="inline-flex items-center gap-2 text-ink-900 transition hover:text-violet-700" href={link.href}>
                     <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
                     <span>{link.label}</span>
                   </a>
@@ -175,22 +175,22 @@ const catalogueFaq = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'clientPage.catalogue.citableSummaryTitle')}</h3>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'clientPage.catalogue.citableSummaryTitle')}</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
         {t(locale, 'clientPage.catalogue.citableSummaryBody')}
       </p>
     </section>
 
     <section class="overflow-x-auto px-4 md:px-0">
       <div class="min-w-[900px]">
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-slate-200 bg-slate-200">
-          <div class="rounded-tl-2xl bg-slate-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.model')}</div>
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-neutral-200 bg-neutral-200">
+          <div class="rounded-tl-2xl bg-neutral-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.model')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-slate-50 p-4 text-center text-sm font-semibold text-slate-900">
+            <div class="bg-neutral-50 p-4 text-center text-sm font-semibold text-ink-900">
               <a class="transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>{item.name}</a>
               <div class="mt-2">
-                <a class="text-xs font-semibold text-slate-600 transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
+                <a class="text-xs font-semibold text-neutral-600 transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
                   {t(locale, 'clientPage.catalogue.seeDetails')}
                 </a>
               </div>
@@ -198,45 +198,45 @@ const catalogueFaq = [
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.cooling')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.cooling}</div>
+            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.cooling}</div>
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.lampLife')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.lampType}</div>
+            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.lampType}</div>
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.energy')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.energy}</div>
+            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.energy}</div>
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.appControl')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.app || '—'}</div>
+            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.app || '—'}</div>
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.skinDetection')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-slate-700">{item.skinDetection || '—'}</div>
+            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.skinDetection || '—'}</div>
           ))}
         </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-slate-200 bg-slate-200">
+        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
           <div class="rounded-bl-2xl bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.bestForTitle')}</div>
           {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-xs leading-relaxed text-slate-600">{item.bestFor}</div>
+            <div class="bg-white p-4 text-center text-xs leading-relaxed text-neutral-600">{item.bestFor}</div>
           ))}
         </div>
       </div>
@@ -245,34 +245,34 @@ const catalogueFaq = [
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'clientPage.catalogue.modelsLabel')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'clientPage.catalogue.modelsTitle')}</h2>
-        <p class="mt-4 text-lg text-slate-700">{t(locale, 'clientPage.catalogue.modelsDescription')}</p>
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'clientPage.catalogue.modelsTitle')}</h2>
+        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'clientPage.catalogue.modelsDescription')}</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {catalogueItems.map((item) => (
-          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
+          <article class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
             <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">{t(locale, 'clientPage.catalogue.model')}</div>
-            <h3 class="mt-3 text-2xl font-semibold text-slate-900">{item.name}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">{item.bestFor}</p>
-            <dl class="mt-6 grid gap-3 text-sm text-slate-700">
+            <h3 class="mt-3 text-2xl font-semibold text-ink-900">{item.name}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{item.bestFor}</p>
+            <dl class="mt-6 grid gap-3 text-sm text-neutral-700">
               <div class="flex items-center justify-between gap-4">
                 <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.cooling')}</dt>
-                <dd class="font-semibold text-slate-900">{item.cooling}</dd>
+                <dd class="font-semibold text-ink-900">{item.cooling}</dd>
               </div>
               <div class="flex items-center justify-between gap-4">
                 <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.energy')}</dt>
-                <dd class="font-semibold text-slate-900">{item.energy || '—'}</dd>
+                <dd class="font-semibold text-ink-900">{item.energy || '—'}</dd>
               </div>
               <div class="flex items-center justify-between gap-4">
                 <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.app')}</dt>
-                <dd class="font-semibold text-slate-900">{item.app || '—'}</dd>
+                <dd class="font-semibold text-ink-900">{item.app || '—'}</dd>
               </div>
             </dl>
             <div class="mt-8 grid gap-3">
-              <a class="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
+              <a class="inline-flex w-full items-center justify-center rounded-2xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={getLocalizedPath(locale, `/products/${item.slug}`)}>
                 {t(locale, 'clientPage.catalogue.seeModelDetails').replace('{name}', item.name)}
               </a>
-              <a class="inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/contact')}>
+              <a class="inline-flex w-full items-center justify-center rounded-2xl border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/contact')}>
                 {t(locale, 'clientPage.catalogue.requestQuoteFor').replace('{name}', item.name)}
               </a>
             </div>
@@ -281,39 +281,39 @@ const catalogueFaq = [
       </div>
     </section>
 
-    <section class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+    <section class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:p-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'clientPage.catalogue.howToReadTitle')}</h2>
-        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'clientPage.catalogue.howToReadTitle')}</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-neutral-700">
           {t(locale, 'clientPage.catalogue.howToReadDescription')}
         </p>
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <div class="rounded-xl border border-neutral-200 bg-neutral-50 p-6">
           <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-lg font-bold text-sky-700">1</div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">{t(locale, 'clientPage.catalogue.howToRead.0.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-700">{t(locale, 'clientPage.catalogue.howToRead.0.description')}</p>
+          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'clientPage.catalogue.howToRead.0.title')}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-700">{t(locale, 'clientPage.catalogue.howToRead.0.description')}</p>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <div class="rounded-xl border border-neutral-200 bg-neutral-50 p-6">
           <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-lg font-bold text-sky-700">2</div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">{t(locale, 'clientPage.catalogue.howToRead.1.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-700">{t(locale, 'clientPage.catalogue.howToRead.1.description')}</p>
+          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'clientPage.catalogue.howToRead.1.title')}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-700">{t(locale, 'clientPage.catalogue.howToRead.1.description')}</p>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <div class="rounded-xl border border-neutral-200 bg-neutral-50 p-6">
           <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-lg font-bold text-sky-700">3</div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">{t(locale, 'clientPage.catalogue.howToRead.2.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-700">{t(locale, 'clientPage.catalogue.howToRead.2.description')}</p>
+          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'clientPage.catalogue.howToRead.2.title')}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-700">{t(locale, 'clientPage.catalogue.howToRead.2.description')}</p>
         </div>
       </div>
       <div class="mt-10 text-center">
         <div class="flex flex-wrap justify-center gap-3">
-          <a class="inline-flex rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/contact')}>
+          <a class="inline-flex rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={getLocalizedPath(locale, '/contact')}>
             {t(locale, 'clientPage.catalogue.getAQuote')}
           </a>
-          <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/box-custom')}>
+          <a class="inline-flex rounded-2xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services/box-custom')}>
             {t(locale, 'clientPage.catalogue.customizeBox')}
           </a>
-          <a class="inline-flex rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
+          <a class="inline-flex rounded-2xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
             {t(locale, 'clientPage.catalogue.shipDirectly')}
           </a>
         </div>
@@ -323,23 +323,23 @@ const catalogueFaq = [
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'clientPage.catalogue.faqLabel')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'clientPage.catalogue.faqTitle')}</h2>
-        <p class="mt-4 text-lg text-slate-700">{t(locale, 'clientPage.catalogue.faqDescription')}</p>
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'clientPage.catalogue.faqTitle')}</h2>
+        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'clientPage.catalogue.faqDescription')}</p>
       </div>
       <div class="mx-auto grid max-w-4xl gap-4">
         {catalogueFaq.map((item) => (
-          <details class="group rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+          <details class="group rounded-[1.5rem] border border-neutral-200 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-ink-900">
               <div class="flex items-start justify-between gap-4">
                 <span>{item.question}</span>
                 <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
               </div>
             </summary>
-            <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate-700">
+            <div class="mt-4 space-y-4 text-sm leading-relaxed text-neutral-700">
               <p>{item.answer}</p>
               <div class="flex flex-wrap gap-3">
                 {item.links.map((link) => (
-                  <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={link.href}>
+                  <a class="inline-flex items-center rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-ink-900 transition hover:border-neutral-300 hover:bg-neutral-50" href={link.href}>
                     {link.label}
                   </a>
                 ))}

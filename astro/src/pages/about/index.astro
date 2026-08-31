@@ -41,7 +41,7 @@ const aboutFacilityImage = responsiveImageSources(
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
   <style is:inline>
     /* ═══ iShine About — Develo Design 风格（对齐 develo-blog.astro） ═══ */
-    .about-page{background:#fff;color:#020303;font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    .about-page{background:var(--color-white);color:var(--color-ink);font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
     .about-page a{text-decoration:none;color:inherit}
     .content-area{max-width:var(--max-w-page,1843px);padding-left:0;padding-right:0}
     @media(max-width:1279px){.content-area{max-width:100%}}
@@ -51,56 +51,56 @@ const aboutFacilityImage = responsiveImageSources(
     .about-hero-inner{display:flex;flex-direction:column;gap:8px}
     .about-hero-label{display:flex;align-items:center;gap:12px;padding:3px 12px;margin-bottom:16px}
     .about-hero-label svg{flex-shrink:0}
-    .about-hero-label span{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;color:#020303;line-height:26px}
-    .about-hero h1{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:#020303;margin:0}
-    .about-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:#4b5563;max-width:600px}
+    .about-hero-label span{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;color:var(--color-ink);line-height:26px}
+    .about-hero h1{font-family:Syne,sans-serif;font-size:62px;font-weight:400;line-height:68px;letter-spacing:-.61px;color:var(--color-ink);margin:0}
+    .about-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:var(--color-gray-600);max-width:600px}
 
     /* Citable Summary */
     .about-summary{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px 48px}
-    .about-summary-kicker{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#563cfa;text-transform:uppercase;letter-spacing:.5px}
-    .about-summary-title{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:31px;color:#020303;margin:8px 0 0}
-    .about-summary-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:900px;margin:12px 0 0}
+    .about-summary-kicker{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--color-primary);text-transform:uppercase;letter-spacing:.5px}
+    .about-summary-title{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:31px;color:var(--color-ink);margin:8px 0 0}
+    .about-summary-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-600);max-width:900px;margin:12px 0 0}
 
     /* Full-stack partner（左文右图） */
     .about-partner-section{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px 100px;display:flex;gap:60px;align-items:flex-start}
     .about-partner-text{flex:1}
-    .about-partner-text h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
-    .about-partner-text p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;margin:20px 0 0}
-    .about-partner-text p strong{font-weight:600;color:#020303}
-    .about-partner-image{width:46%;flex-shrink:0;border-radius:20px;overflow:hidden;background:#e5e7eb}
+    .about-partner-text h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--color-ink);margin:0}
+    .about-partner-text p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-600);margin:20px 0 0}
+    .about-partner-text p strong{font-weight:600;color:var(--color-ink)}
+    .about-partner-image{width:46%;flex-shrink:0;border-radius:20px;overflow:hidden;background:var(--color-gray-200)}
     .about-partner-image img{width:100%;height:100%;object-fit:cover}
 
     /* Core Values（grey-50 底） */
-    .about-values-section{background:#f9fafb;padding:60px 0 80px}
+    .about-values-section{background:var(--color-gray-50);padding:60px 0 80px}
     .about-values-container{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px}
     .about-section-header{margin-bottom:40px}
-    .about-section-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
-    .about-section-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:560px;margin:8px 0 0}
+    .about-section-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--color-ink);margin:0}
+    .about-section-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-600);max-width:560px;margin:8px 0 0}
     .about-values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    .about-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;transition:transform .2s}
+    .about-card{background:var(--color-white);border:1px solid var(--color-gray-200);border-radius:16px;padding:24px;transition:transform .2s}
     .about-card:hover{transform:translateY(-4px)}
-    .about-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303;margin:0;transition:color .2s}
-    .about-card:hover h3{color:#563cfa}
-    .about-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;margin:8px 0 0}
+    .about-card h3{font-family:Syne,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--color-ink);margin:0;transition:color .2s}
+    .about-card:hover h3{color:var(--color-primary)}
+    .about-card p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-600);margin:8px 0 0}
 
     /* Stats */
     .about-stats-section{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px 100px}
     .about-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .about-stat{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:32px 24px;text-align:center;transition:transform .2s}
+    .about-stat{background:var(--color-white);border:1px solid var(--color-gray-200);border-radius:16px;padding:32px 24px;text-align:center;transition:transform .2s}
     .about-stat:hover{transform:translateY(-4px)}
-    .about-stat-value{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303}
-    .about-stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#6b7280;margin-top:4px}
+    .about-stat-value{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--color-ink)}
+    .about-stat-label{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--color-gray-500);margin-top:4px}
 
     /* Journey（黑底） */
     .about-journey-section{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px 100px}
-    .about-journey-card{background:#020303;border-radius:20px;padding:60px}
-    .about-journey-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#fff;margin:0}
-    .about-journey-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#9ca3af;max-width:560px;margin:8px 0 0}
+    .about-journey-card{background:var(--color-ink);border-radius:20px;padding:60px}
+    .about-journey-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--color-white);margin:0}
+    .about-journey-header p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-400);max-width:560px;margin:8px 0 0}
     .about-journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
     .about-milestone{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px;transition:transform .2s}
     .about-milestone:hover{transform:translateY(-4px)}
-    .about-milestone-year{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:28px;color:#563cfa}
-    .about-milestone-event{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#e5e7eb;margin-top:8px}
+    .about-milestone-year{font-family:Syne,sans-serif;font-size:22px;font-weight:400;line-height:28px;color:var(--color-primary)}
+    .about-milestone-event{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-200);margin-top:8px}
 
     /* Responsive — 与 develo-blog.astro 断点一致 */
     @media(max-width:1279px){

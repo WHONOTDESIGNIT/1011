@@ -241,10 +241,10 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
   /* email / whatsapp 弹窗：白底卡片，可点击链接，默认隐藏，popup-open 时显示（移出 2s 后由 JS 移除） */
   .contact-part[data-type="email"] .tooltip,
   .contact-part[data-type="whatsapp"] .tooltip {
-    --tooltip-bg: #ffffff;
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid #e5e7eb;
+    --tooltip-bg: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-ink-900);
+    border: 1px solid var(--color-gray-200);
     padding: 10px 14px;
     border-radius: 10px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
@@ -270,10 +270,10 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     font-family: Manrope, sans-serif;
     font-size: 13px;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--color-ink-900);
     line-height: 1.5;
     text-decoration: underline;
-    text-decoration-color: #563cfa;
+    text-decoration-color: var(--color-primary);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     white-space: nowrap;
@@ -283,7 +283,7 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
     text-decoration-color: transparent;
   }
   .popup-link:focus-visible {
-    outline: 2px solid #563cfa;
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -320,7 +320,7 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
   }
 
   .contact-part + .contact-part {
-    border-top: 1px solid #563cfa;
+    border-top: 1px solid var(--color-primary);
   }
 
   .overlay {
@@ -343,7 +343,7 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
   .overlay-backdrop {
     position: absolute;
     inset: 0;
-    background: #666666;
+    background: var(--lighter-text-color);
     opacity: 0.85;
   }
 

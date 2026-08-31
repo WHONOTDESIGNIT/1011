@@ -196,11 +196,11 @@ const testingProcedures = [
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">
-        <h1 class="text-4xl font-bold text-slate-900 md:text-6xl">
+        <h1 class="text-4xl font-bold text-ink-900 md:text-6xl">
           {t(locale, 'servicesPage.productionAssembly.hero.title1')}
           <span class="block bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t(locale, 'servicesPage.productionAssembly.hero.title2')}</span>
         </h1>
-        <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+        <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.hero.description')}
         </p>
         <div class="mt-10 flex justify-center">
@@ -210,29 +210,29 @@ const testingProcedures = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'servicesPage.productionAssembly.citable.heading')}</h3>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'servicesPage.productionAssembly.citable.heading')}</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
         {t(locale, 'servicesPage.productionAssembly.citable.body')}
       </p>
     </section>
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.capabilities.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.capabilities.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.capabilities.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
         {productionCapabilities.map((cap) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
             <div class={`mb-6 h-16 w-16 rounded-2xl bg-gradient-to-r ${cap.gradient}`} />
-            <h3 class="text-2xl font-bold text-slate-900">{cap.title}</h3>
-            <p class="mt-4 text-slate-700">{cap.description}</p>
+            <h3 class="text-2xl font-bold text-ink-900">{cap.title}</h3>
+            <p class="mt-4 text-neutral-700">{cap.description}</p>
             <div class="mt-6 grid grid-cols-2 gap-3">
               {cap.features.map((f) => (
-                <div class="flex items-center gap-2 text-sm text-slate-700">
+                <div class="flex items-center gap-2 text-sm text-neutral-700">
                   <span class="h-2 w-2 rounded-2xl bg-emerald-500" />
                   <span>{f}</span>
                 </div>
@@ -243,31 +243,31 @@ const testingProcedures = [
       </div>
     </section>
 
-    <section class="rounded-2xl bg-slate-50 px-8 py-16">
+    <section class="rounded-2xl bg-neutral-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.process.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.process.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.process.sub')}
         </p>
       </div>
       <div class="mt-12 space-y-6">
         {productionStages.map((stage) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg">
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-lg">
             <div class="grid gap-6 lg:grid-cols-[260px_1fr]">
               <div class="flex items-center gap-6">
                 <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600">
                   <span class="text-xl font-bold text-white">{stage.stage}</span>
                 </div>
                 <div>
-                  <div class="text-xl font-bold text-slate-900">{stage.title}</div>
+                  <div class="text-xl font-bold text-ink-900">{stage.title}</div>
                   <div class="mt-1 font-medium text-emerald-600">{stage.duration}</div>
                 </div>
               </div>
               <div>
-                <p class="text-slate-700">{stage.description}</p>
+                <p class="text-neutral-700">{stage.description}</p>
                 <div class="mt-4 grid grid-cols-2 gap-2">
                   {stage.details.map((d) => (
-                    <div class="flex items-center gap-2 text-sm text-slate-700">
+                    <div class="flex items-center gap-2 text-sm text-neutral-700">
                       <span class="h-2 w-2 rounded-2xl bg-emerald-400" />
                       <span>{d}</span>
                     </div>
@@ -282,18 +282,18 @@ const testingProcedures = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.standards.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.standards.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.standards.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
         {qualityStandards.map((s) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
             <div class="inline-flex rounded-2xl border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-medium text-sky-700">{s.standard}</div>
-            <h3 class="mt-4 text-xl font-bold text-slate-900">{s.title}</h3>
-            <p class="mt-3 text-slate-700">{s.description}</p>
-            <div class="mt-4 text-sm text-slate-600"><span class="font-semibold text-slate-700">{t(locale, 'servicesPage.productionAssembly.standards.scopeLabel')}</span> {s.scope}</div>
+            <h3 class="mt-4 text-xl font-bold text-ink-900">{s.title}</h3>
+            <p class="mt-3 text-neutral-700">{s.description}</p>
+            <div class="mt-4 text-sm text-neutral-600"><span class="font-semibold text-neutral-700">{t(locale, 'servicesPage.productionAssembly.standards.scopeLabel')}</span> {s.scope}</div>
           </div>
         ))}
       </div>
@@ -301,17 +301,17 @@ const testingProcedures = [
 
     <section class="rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 px-8 py-16">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.metrics.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.metrics.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.metrics.sub')}
         </p>
       </div>
       <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {productionMetrics.map((m) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg">
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 text-center shadow-lg">
             <div class="text-4xl font-bold text-emerald-600">{m.metric}</div>
-            <div class="mt-2 font-semibold text-slate-900">{m.label}</div>
-            <div class="mt-2 text-sm text-slate-700">{m.description}</div>
+            <div class="mt-2 font-semibold text-ink-900">{m.label}</div>
+            <div class="mt-2 text-sm text-neutral-700">{m.description}</div>
           </div>
         ))}
       </div>
@@ -319,16 +319,16 @@ const testingProcedures = [
 
     <section class="space-y-10">
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.testing.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.productionAssembly.testing.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
           {t(locale, 'servicesPage.productionAssembly.testing.sub')}
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
         {testingProcedures.map((t) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 class="text-xl font-bold text-slate-900">{t.category}</h3>
-            <ul class="mt-5 space-y-2 text-slate-700">
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-ink-900">{t.category}</h3>
+            <ul class="mt-5 space-y-2 text-neutral-700">
               {t.tests.map((x) => (
                 <li class="flex items-start gap-3">
                   <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-2xl bg-emerald-500" />
@@ -341,10 +341,10 @@ const testingProcedures = [
       </div>
     </section>
 
-    <section class="rounded-2xl bg-slate-900 px-8 py-16 text-white">
+    <section class="rounded-2xl bg-ink-900 px-8 py-16 text-white">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold md:text-4xl">{t(locale, 'servicesPage.productionAssembly.cta.title')}</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-xl text-slate-200">
+        <p class="mx-auto mt-4 max-w-2xl text-xl text-neutral-200">
           {t(locale, 'servicesPage.productionAssembly.cta.description')}
         </p>
         <div class="mt-10 flex justify-center gap-3">

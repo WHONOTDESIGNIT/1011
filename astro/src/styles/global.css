@@ -30,6 +30,13 @@
 
   /* 站点近黑墨色（文字级，区别于纯黑 --color-black） */
   --color-ink: #020303;
+  /* 深墨色标题（第二批：slate-900 归入 ink 族，值与原 slate-900 相同） */
+  --color-ink-900: #0f172a;
+
+  /* 蓝灰辅助色（第二批：slate-500 保原值，色相与 gray 系不同） */
+  --color-slate-500: #64748b;
+  /* 极深蓝黑（第二批：slate-950 保原值，无 gray 对应档位） */
+  --color-slate-950: #020617;
 
   /* iShine 主题紫（参照首页 --blue: #563cfa） */
   --primary-color: var(--color-primary);

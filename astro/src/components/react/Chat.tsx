@@ -234,8 +234,8 @@ export default function Chat() {
   return (
     <div className="fixed bottom-4 right-4 z-[1000] flex flex-col items-end gap-3">
       {isOpen ? (
-        <div className="flex h-[min(70vh,38rem)] w-[min(92vw,24rem)] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl ring-1 ring-black/5">
-          <div className="flex items-start justify-between gap-3 border-b border-slate-200 bg-slate-900 px-4 py-4 text-white">
+        <div className="flex h-[min(70vh,38rem)] w-[min(92vw,24rem)] flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-2xl ring-1 ring-black/5">
+          <div className="flex items-start justify-between gap-3 border-b border-neutral-200 bg-ink-900 px-4 py-4 text-white">
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold">
                 <IconSpark />
@@ -263,14 +263,14 @@ export default function Chat() {
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto bg-slate-50 px-4 py-4">
+          <div className="flex-1 overflow-y-auto bg-neutral-50 px-4 py-4">
             {isHistoryLoading ? (
-              <div className="mb-3 rounded-2xl border border-slate-200 bg-white p-3 text-sm text-slate-500">
+              <div className="mb-3 rounded-2xl border border-neutral-200 bg-white p-3 text-sm text-slate-500">
                 Loading saved conversation...
               </div>
             ) : null}
             {messages.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4 text-sm text-slate-600">
+              <div className="rounded-2xl border border-dashed border-neutral-300 bg-white p-4 text-sm text-neutral-600">
                 Ask about OEM/ODM, product differences, compliance, MOQ, packaging, or manufacturing capabilities.
               </div>
             ) : null}
@@ -285,7 +285,7 @@ export default function Chat() {
                     className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
                       message.role === 'user'
                         ? 'bg-sky-600 text-white'
-                        : 'bg-white text-slate-800 ring-1 ring-slate-200'
+                        : 'bg-white text-neutral-800 ring-1 ring-neutral-200'
                     }`}
                   >
                     {message.content || (message.role === 'assistant' && isLoading ? '...' : '')}
@@ -296,7 +296,7 @@ export default function Chat() {
             </div>
           </div>
 
-          <div className="border-t border-slate-200 bg-white px-4 py-3">
+          <div className="border-t border-neutral-200 bg-white px-4 py-3">
             {error ? <p className="mb-2 text-xs text-red-600">{error}</p> : null}
             <form onSubmit={handleSubmit} className="flex items-end gap-2">
               <input
@@ -306,12 +306,12 @@ export default function Chat() {
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask anything..."
                 disabled={isLoading || isHistoryLoading}
-                className="min-h-11 flex-1 rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 disabled:cursor-not-allowed disabled:bg-slate-100"
+                className="min-h-11 flex-1 rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 outline-none transition placeholder:text-neutral-400 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 disabled:cursor-not-allowed disabled:bg-neutral-100"
               />
               <button
                 type="submit"
                 disabled={!canSend || isHistoryLoading || !conversationId}
-                className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+                className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-ink-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-400"
               >
                 {isLoading ? '...' : 'Send'}
               </button>
@@ -322,7 +322,7 @@ export default function Chat() {
 
       <button
         type="button"
-        className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-xl transition hover:bg-slate-800"
+        className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-5 py-3 text-sm font-medium text-white shadow-xl transition hover:bg-neutral-800"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >

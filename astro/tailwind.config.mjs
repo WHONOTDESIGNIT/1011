@@ -42,6 +42,23 @@ export default {
           800: 'var(--color-gray-800)',
           900: 'var(--color-gray-900)',
         },
+        // slate 色板映射到 token：500/900/950 保原值，其余归并 neutral 灰阶
+        slate: {
+          50: 'var(--color-gray-50)',
+          100: 'var(--color-gray-100)',
+          200: 'var(--color-gray-200)',
+          300: 'var(--color-gray-300)',
+          400: 'var(--color-gray-400)',
+          500: 'var(--color-slate-500)',
+          600: 'var(--color-gray-600)',
+          700: 'var(--color-gray-700)',
+          800: 'var(--color-gray-800)',
+          900: 'var(--color-ink-900)',
+          950: 'var(--color-slate-950)',
+        },
+        ink: {
+          900: 'var(--color-ink-900)',
+        },
         develo: {
           black: 'var(--color-ink)',
           white: 'var(--color-white)',

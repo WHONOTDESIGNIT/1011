@@ -11,7 +11,7 @@ interface UploadedImage {
 
 function IconSpinner() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 animate-spin text-slate-400" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 animate-spin text-neutral-400" fill="none" aria-hidden="true">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
@@ -136,10 +136,10 @@ export default function UploadForm() {
 
   const dropZoneClassName =
     status === 'uploading'
-      ? 'border-slate-300 bg-slate-50'
+      ? 'border-neutral-300 bg-neutral-50'
       : dragActive
         ? 'border-teal-500 bg-teal-50'
-        : 'border-slate-300 bg-white hover:border-slate-400';
+        : 'border-neutral-300 bg-white hover:border-neutral-400';
 
   return (
     <div className="max-w-xl">
@@ -158,15 +158,15 @@ export default function UploadForm() {
             </div>
           ) : (
             <div className="flex flex-col items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-500">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-neutral-100 text-slate-500">
                 <span className="text-sm font-semibold">IMG</span>
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-700">
+                <p className="text-sm font-medium text-neutral-700">
                   Drag and drop an image here, or{' '}
                   <button
                     type="button"
-                    className="underline decoration-slate-400 underline-offset-2 hover:text-slate-900"
+                    className="underline decoration-neutral-400 underline-offset-2 hover:text-ink-900"
                     onClick={() => fileInputRef.current?.click()}
                   >
                     browse
@@ -199,14 +199,14 @@ export default function UploadForm() {
 
       {uploadedImages.length > 0 && (
         <div className="mt-8 space-y-3">
-          <h2 className="text-sm font-semibold text-slate-700">Uploaded ({uploadedImages.length})</h2>
+          <h2 className="text-sm font-semibold text-neutral-700">Uploaded ({uploadedImages.length})</h2>
           {uploadedImages.map((img, i) => (
-            <div key={`${img.url}-${i}`} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3">
-              <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+            <div key={`${img.url}-${i}`} className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white p-3">
+              <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50">
                 <img src={img.url} alt={img.filename} className="h-full w-full object-cover" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-slate-800">{img.filename}</p>
+                <p className="truncate text-sm font-medium text-neutral-800">{img.filename}</p>
                 <p className="truncate font-mono text-xs text-slate-500">{img.url}</p>
               </div>
               <div className="flex items-center gap-2">
@@ -214,7 +214,7 @@ export default function UploadForm() {
                 <button
                   type="button"
                   onClick={() => handleCopy(img.url)}
-                  className="rounded-lg p-2 hover:bg-slate-100"
+                  className="rounded-lg p-2 hover:bg-neutral-100"
                   title="Copy URL"
                 >
                   {copiedUrl === img.url ? <IconCheck /> : <IconCopy />}

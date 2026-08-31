@@ -79,22 +79,22 @@ export default function AdminPostForm() {
       <form onSubmit={onSubmit} className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2 sm:col-span-2">
-            <label className="text-sm font-medium text-slate-700">Title</label>
+            <label className="text-sm font-medium text-neutral-700">Title</label>
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder="Post title"
               autoComplete="off"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">Slug</label>
+            <label className="text-sm font-medium text-neutral-700">Slug</label>
             <input
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder={suggestedSlug || 'my-post-slug'}
               autoComplete="off"
             />
@@ -102,44 +102,44 @@ export default function AdminPostForm() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">Category (optional)</label>
+            <label className="text-sm font-medium text-neutral-700">Category (optional)</label>
             <input
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder="e.g. Manufacturing"
               autoComplete="off"
             />
           </div>
 
           <div className="space-y-2 sm:col-span-2">
-            <label className="text-sm font-medium text-slate-700">Excerpt (optional)</label>
+            <label className="text-sm font-medium text-neutral-700">Excerpt (optional)</label>
             <input
               value={excerpt}
               onChange={(e) => setExcerpt(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder="Short summary shown on the blog list"
               autoComplete="off"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">Tags (comma-separated)</label>
+            <label className="text-sm font-medium text-neutral-700">Tags (comma-separated)</label>
             <input
               value={tags}
               onChange={(e) => setTags(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder="ipl, oem, compliance"
               autoComplete="off"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">Cover Image URL (optional)</label>
+            <label className="text-sm font-medium text-neutral-700">Cover Image URL (optional)</label>
             <input
               value={coverImage}
               onChange={(e) => setCoverImage(e.target.value)}
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
               placeholder="/images/..."
               autoComplete="off"
             />
@@ -147,11 +147,11 @@ export default function AdminPostForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700">Content (Markdown/MDX)</label>
+          <label className="text-sm font-medium text-neutral-700">Content (Markdown/MDX)</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="min-h-[320px] w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-mono text-sm text-slate-900 focus:border-slate-400 focus:outline-none"
+            className="min-h-[320px] w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 font-mono text-sm text-ink-900 focus:border-neutral-400 focus:outline-none"
             placeholder="Write your post body here..."
           />
         </div>
@@ -160,11 +160,11 @@ export default function AdminPostForm() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
+            className="rounded-xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {status === 'submitting' ? 'Publishing...' : 'Publish'}
           </button>
-          <a className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="/blog">
+          <a className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-semibold text-ink-900 hover:bg-neutral-50" href="/blog">
             View Blog
           </a>
         </div>
@@ -176,7 +176,7 @@ export default function AdminPostForm() {
                 ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
                 : status === 'error'
                   ? 'border-red-200 bg-red-50 text-red-800'
-                  : 'border-slate-200 bg-slate-50 text-slate-700'
+                  : 'border-neutral-200 bg-neutral-50 text-neutral-700'
             }`}
           >
             {message}
