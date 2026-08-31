@@ -103,6 +103,13 @@ const articleImageUrl = post.meta.image
   ? new URL(netlifyImage(post.meta.image, 1200, 'webp'), `${resolveBaseUrl()}/`).href
   : new URL(`/.netlify/images?url=${encodeURIComponent(DEFAULT_OG_IMAGE_PATH)}&w=1200&h=630&fit=cover&fm=png`, `${resolveBaseUrl()}/`).href;
 
+// 3.3 修复：Google Article 要求 ISO 8601 日期时间（带时区）。纯日期（YYYY-MM-DD）
+// 会触发「日期时间值无效」+「缺少时区信息」两条非严重警告，统一补全为 UTC 午夜。
+const toIsoDateTime = (value: string | undefined) => {
+  if (!value) return undefined;
+  return /^\d{4}-\d{2}-\d{2}$/.test(value) ? `${value}T00:00:00Z` : value;
+};
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -135,8 +142,8 @@ const articleSchema = {
   headline: post.meta.title,
   description: pageDescription,
   url: canonical,
-  datePublished: post.meta.date || undefined,
-  dateModified: post.meta.updatedDate || post.meta.date || undefined,
+  datePublished: toIsoDateTime(post.meta.date),
+  dateModified: toIsoDateTime(post.meta.updatedDate || post.meta.date),
   author: {
     '@type': 'Person',
     name: post.meta.author || 'iShine Team',
