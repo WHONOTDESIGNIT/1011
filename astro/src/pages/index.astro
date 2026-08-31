@@ -60,6 +60,23 @@ const pageDescription = t(locale, 'home.page.description');
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
+  /* ═══ 色彩令牌（首页本地镜像）═══════════════════════
+     首页绕过 BaseLayout，不加载 global.css，因此在此镜像
+     global.css :root 单一事实源中的令牌（仅首页实际引用集），
+     供下方 var() 别名及全站 var(--color-*) 引用解析。 */
+  --color-primary:#563cfa;
+  --color-primary-100:#c6bff8;
+  --color-primary-50:#edebfc;
+  --color-ink:#020303;
+  --color-ink-900:#0f172a;
+  --color-white:#FFFFFF;
+  --color-gray-50:#f9fafb;
+  --color-gray-100:#f3f4f6;
+  --color-gray-200:#e5e7eb;
+  --color-gray-500:#6b7380;
+  --color-gray-700:#374151;
+  --border-color:#E5E5E5;
+  --max-w-page:1843px;
   --blue:var(--color-primary);
   --blue-100:var(--color-primary-100);
   --blue-50:var(--color-primary-50);
