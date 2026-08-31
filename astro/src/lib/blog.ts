@@ -1,9 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { load as loadYaml } from 'js-yaml';
-
-type BlogEntry = CollectionEntry<'blog'>;
 type BlogFaq = { question: string; answer: string };
 
 export type BlogPostSummary = {
@@ -60,6 +57,7 @@ export type BlogLocale = (typeof SUPPORTED_LOCALES)[number];
 const LOCALE_CODE_TO_PATH: Record<string, string> = { 'es-ES': 'es' };
 const LOCALE_PATH_TO_CODE: Record<string, string> = { es: 'es-ES' };
 const blogContentRoot = path.resolve(process.cwd(), 'src/content/blog');
+const blogContentModules = import.meta.glob('../content/blog/**/*.mdx');
 
 let blogIndexCache: Promise<BlogIndexRecord[]> | undefined;
 
@@ -73,7 +71,9 @@ function resolveBlogLocale(locale: string): BlogLocale {
 
 function extractLocaleFromPath(filePath: string): BlogLocale {
   const normalized = filePath.replace(/\\/g, '/');
-  const match = normalized.match(/\/blog\/(en|tr|ro|ar|es|fr|ru|he|fa|el|pt-BR|pt-PT|nl|id|th|pl|ja|ko|cs|vi|de|it)\//);
+  const match = normalized.match(
+    /(?:^|\/)(en|tr|ro|ar|es|fr|ru|he|fa|el|pt-BR|pt-PT|nl|id|th|pl|ja|ko|cs|vi|de|it)(?:\/)/
+  );
   return match ? (match[1] as BlogLocale) : 'en';
 }
 
@@ -184,10 +184,6 @@ export async function getAllPosts(locale: string): Promise<BlogPostSummary[]> {
     .sort(compareByDateDesc);
 }
 
-function resolveEntrySlug(entry: BlogEntry) {
-  return entry.data.slug ?? entry.slug;
-}
-
 export async function getPostBySlug(locale: string, slug: string): Promise<BlogPost | null> {
   const effectiveLocale = resolveBlogLocale(locale);
   const posts = await loadBlogIndex();
@@ -197,13 +193,14 @@ export async function getPostBySlug(locale: string, slug: string): Promise<BlogP
   );
   if (!record) return null;
 
-  const entries = await getCollection('blog');
-  const entry = entries.find((item) =>
-    resolveEntrySlug(item) === record.slug || item.data.translationKey === record.translationKey
-  );
-  if (!entry) return null;
+  const modulePath = `../content/blog/${record.localePath}/${path.basename(record.filePath)}`;
+  const loadModule = blogContentModules[modulePath];
+  if (!loadModule) return null;
 
-  const { Content } = await render(entry);
+  const mod = (await loadModule()) as { default?: unknown };
+  const Content = mod.default;
+  if (!Content) return null;
+
   return {
     meta: record.meta,
     Content,
