@@ -84,12 +84,12 @@ const uiText = {
     /* ═══ iShine Blog — Develo Design 风格（对齐 develo-blog.astro） ═══ */
     .blog-page{background:#fff;color:#020303;font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
     .blog-page a{text-decoration:none;color:inherit}
-    .content-area{max-width:1843px;padding-left:0;padding-right:0}
+    .content-area{max-width:var(--max-w-page,1843px);padding-left:0;padding-right:0}
     @media(max-width:1279px){.content-area{max-width:100%}}
     .hidden{display:none !important}
 
     /* Hero */
-    .blog-hero{width:100%;max-width:1843px;margin:0 auto 24px;padding:0 100px}
+    .blog-hero{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto 24px;padding:0 100px}
     .blog-hero-inner{display:flex;flex-direction:column;gap:8px}
     .blog-hero-label{display:flex;align-items:center;gap:12px;padding:3px 12px;margin-bottom:16px}
     .blog-hero-label svg{flex-shrink:0}
@@ -98,14 +98,14 @@ const uiText = {
     .blog-hero-desc{font-family:Manrope,sans-serif;font-size:20px;font-weight:400;line-height:30px;color:#4b5563;max-width:600px}
 
     /* Citable Summary */
-    .blog-summary{width:100%;max-width:1843px;margin:0 auto;padding:0 100px 48px}
+    .blog-summary{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px 48px}
     .blog-summary-kicker{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:#563cfa;text-transform:uppercase;letter-spacing:.5px}
     .blog-summary-title{font-family:Syne,sans-serif;font-size:24px;font-weight:400;line-height:31px;color:#020303;margin:8px 0 0}
     .blog-summary-desc{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:#4b5563;max-width:900px;margin:12px 0 0}
 
     /* Featured + Latest */
     .featured-latest-section{background:#fff;padding:0 0 100px}
-    .featured-latest-container{width:100%;max-width:1843px;margin:0 auto;padding:0 100px;display:flex;gap:60px;align-items:flex-start}
+    .featured-latest-container{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px;display:flex;gap:60px;align-items:flex-start}
     .featured-col{flex:1;display:flex;flex-direction:column;gap:8px}
     .featured-card{display:flex;flex-direction:column;gap:16px}
     .blog-card-img{width:100%;overflow:hidden;background:#e5e7eb}
@@ -134,7 +134,7 @@ const uiText = {
 
     /* Browse all */
     .browse-all-section{background:#f9fafb;padding:60px 0 80px}
-    .browse-all-container{width:100%;max-width:1843px;margin:0 auto;padding:0 100px}
+    .browse-all-container{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px}
     .browse-all-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:24px}
     .browse-all-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:#020303;margin:0}
     .browse-categories{display:flex;gap:8px;flex-wrap:wrap}

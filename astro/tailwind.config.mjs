@@ -14,7 +14,8 @@ export default {
         '3xl': '922px',
         '4xl': '1075px',
         '5xl': '1229px',
-        '6xl': '1382px',
+        // 内容级版心 = global.css :root 的 --max-w-content（1382px）
+        '6xl': 'var(--max-w-content)',
       },
       colors: {
         brand: {

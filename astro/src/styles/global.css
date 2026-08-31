@@ -25,6 +25,12 @@
 
   --divider-color: #eeeeee;
 
+  /* ── 版心层级（3.1 版心统一）──────────────────────
+     页面级：Header / Footer / Hero / 博客列表 / 关于页 全宽容器
+     内容级：section 主体（= tailwind max-w-6xl）          */
+  --max-w-page: 1843px;
+  --max-w-content: 1382px;
+
   /* Develo design tokens */
   --develo-primary: #563cfa;
   --develo-black: #020303;
