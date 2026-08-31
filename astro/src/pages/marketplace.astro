@@ -27,8 +27,8 @@ const locale = Astro.currentLocale ?? 'en';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
-      var CODE_PATH = { 'es-ES': 'es' };
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-br', 'pt-pt', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
+      var CODE_PATH = { 'es-ES': 'es', 'pt-BR': 'pt-br', 'pt-PT': 'pt-pt' };
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {
@@ -63,9 +63,9 @@ const locale = Astro.currentLocale ?? 'en';
 <style is:inline set:html={fontsCss} />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--blue:#563cfa;--black:#020303;--white:#fff;--max-w:1843px;--pad-100:100px}
+:root{--blue:var(--color-primary);--black:var(--color-ink);--white:var(--color-white);--pad-100:100px}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;font-size:16px;font-weight:400;color:#000;background:var(--color-white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
 h1,h2,h3{font-weight:400}
 
@@ -82,70 +82,70 @@ h1,h2,h3{font-weight:400}
 .btn-base{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;font-family:Manrope,sans-serif;font-size:16px;font-weight:400;line-height:16px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
 .btn-base:hover{gap:16px}
 .btn-base .arrow-icon{width:16px;height:16px;display:block;flex-shrink:0}
-.btn-primary-dark{background:var(--blue);color:#fff}
-.btn-primary-light{background:#fff;color:var(--black)}
+.btn-primary-dark{background:var(--blue);color:var(--color-white)}
+.btn-primary-light{background:var(--color-white);color:var(--black)}
 
 /* ═══ HERO ═══ */
-.hero-content-simple-container{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100)}
+.hero-content-simple-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:120px var(--pad-100)}
 .content-col{max-width:1000px;display:flex;flex-direction:column;gap:16px}
 .small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
 .small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
-.hero-content-simple-container .small-title-text{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#020303}
-.hero-content-simple-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:#020303}
-.hero-content-simple-container .subheading{padding-top:16px;font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#374151}
-.brand-slogan{font-family:Syne,sans-serif;font-size:16px;line-height:24px;color:#563cfa;padding-top:8px}
+.hero-content-simple-container .small-title-text{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:var(--color-ink)}
+.hero-content-simple-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:var(--color-ink)}
+.hero-content-simple-container .subheading{padding-top:16px;font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:var(--color-gray-700)}
+.brand-slogan{font-family:Syne,sans-serif;font-size:16px;line-height:24px;color:var(--color-primary);padding-top:8px}
 .button-group{display:flex;flex-direction:row;align-items:flex-start;gap:8px;padding-top:18px}
 
 /* ═══ 产品卡片 ═══ */
-.product-card-section{background:#fff;padding:60px 0}
-.section-container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-100)}
-.product-card-wrapper{display:flex;flex-direction:row;align-items:center;gap:40px;padding:0 40px 0 0;background:#fff}
+.product-card-section{background:var(--color-white);padding:60px 0}
+.section-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0 var(--pad-100)}
+.product-card-wrapper{display:flex;flex-direction:row;align-items:center;gap:40px;padding:0 40px 0 0;background:var(--color-white)}
 .product-image-col{display:block;flex-shrink:0}
 .product-image{width:330px;height:330px;object-fit:cover;display:block}
 .product-content-col{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:60px 0}
 .product-small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
 .product-small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
-.product-small-title .small-title-text{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:22px;color:#020303}
+.product-small-title .small-title-text{font-family:Manrope,sans-serif;font-size:17px;font-weight:400;line-height:22px;color:var(--color-ink)}
 .product-heading-link{display:block}
-.product-heading{font-family:Syne,sans-serif;font-size:32px;line-height:38px;letter-spacing:-.31px;color:#020303}
-.product-description{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#020303}
+.product-heading{font-family:Syne,sans-serif;font-size:32px;line-height:38px;letter-spacing:-.31px;color:var(--color-ink)}
+.product-description{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:var(--color-ink)}
 .product-cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:18px}
 .product-link{display:inline-flex}
 
 /* ═══ 底部深色 CTA ═══ */
 .hero-content-links-wrapper{background:var(--black)}
-.hero-content-links-container{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:row;align-items:flex-start;gap:80px}
+.hero-content-links-container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:row;align-items:flex-start;gap:80px}
 .left-col{display:flex;flex-direction:column;gap:16px}
 .hero-content-links-container .small-title{display:flex;align-items:center;gap:12px;padding:3px 12px}
 .hero-content-links-container .small-title .shape-icon{width:16px;height:16px;display:block;flex-shrink:0}
-.hero-content-links-container .small-title span{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#fff}
-.hero-content-links-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:#fff}
-.hero-content-links-container .brand-slogan{color:#fff}
+.hero-content-links-container .small-title span{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:var(--color-white)}
+.hero-content-links-container .heading{font-family:Syne,sans-serif;font-size:62px;line-height:68px;letter-spacing:-.61px;color:var(--color-white)}
+.hero-content-links-container .brand-slogan{color:var(--color-white)}
 .right-col{display:flex;flex-direction:column;max-width:520px;min-width:300px}
 /* 参考首页 What We Do 服务标题的交互与排版 */
 .mp-link{display:block;padding:12px 0}
-.mp-link-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:#fff;display:inline-flex;align-items:center;position:relative;padding-bottom:4px;border-bottom:1px solid #fff;transition:padding-right .3s ease}
+.mp-link-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:var(--color-white);display:inline-flex;align-items:center;position:relative;padding-bottom:4px;border-bottom:1px solid var(--color-white);transition:padding-right .3s ease}
 .mp-link-arrow{position:absolute;top:50%;transform:translateY(-50%);right:0;width:16px;height:16px;opacity:0;transition:opacity .3s ease;pointer-events:none}
 .mp-link-arrow svg{width:16px;height:16px;display:block}
 .mp-link:hover .mp-link-title{padding-right:2em}
 .mp-link:hover .mp-link-arrow{opacity:1}
 
 /* ═══ BLOG ═══ */
-.blog-template{background:#fff}
-.blog-template .container{max-width:var(--max-w);margin:0 auto;padding:0}
-.content-wrapper{max-width:var(--max-w);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:column;gap:24px}
+.blog-template{background:var(--color-white)}
+.blog-template .container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0}
+.content-wrapper{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:column;gap:24px}
 .blog-header{display:flex;flex-direction:column;gap:8px}
-.blog-header .small-title{display:flex;align-items:center;gap:12px;padding:3px 0;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:#020303}
+.blog-header .small-title{display:flex;align-items:center;gap:12px;padding:3px 0;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--color-ink)}
 .blog-header .diamond-icon{width:16px;height:16px;display:block;flex-shrink:0}
-.blog-header .heading{font-family:Syne,sans-serif;font-size:38px;line-height:44px;letter-spacing:-.37px;color:#020303}
-.blog-header .sub-heading{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:#020303}
+.blog-header .heading{font-family:Syne,sans-serif;font-size:38px;line-height:44px;letter-spacing:-.37px;color:var(--color-ink)}
+.blog-header .sub-heading{font-family:Manrope,sans-serif;font-size:18px;line-height:26px;color:var(--color-ink)}
 .blog-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .blog-card{display:flex;flex-direction:column;gap:12px}
 .card-image{aspect-ratio:16/9;overflow:hidden;background:#f3f4f6;border-radius:12px}
 .card-image img{width:100%;height:100%;object-fit:cover;display:block}
 .card-content{display:flex;flex-direction:column;gap:8px}
-.read-time{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:#020303}
-.card-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:#020303}
+.read-time{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--color-ink)}
+.card-title{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;letter-spacing:-.21px;color:var(--color-ink)}
 .blog-cta{display:flex;padding:18px 0 0}
 
 /* ═══ 平板（≤1279px）：容器变窄 ═══ */

@@ -94,11 +94,11 @@ const {
   #usp-accordion-section {
     position: relative;
     padding: 80px 24px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
   }
 
   .usp-container {
-    max-width: 1280px;
+    max-width: var(--max-w-content, 1382px);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
@@ -121,7 +121,7 @@ const {
     font-family: Manrope, sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #563cfa;
+    color: var(--color-primary);
     letter-spacing: 0.08px;
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -133,7 +133,7 @@ const {
     font-weight: 400;
     line-height: 44px;
     letter-spacing: -0.37px;
-    color: #020303;
+    color: var(--color-ink);
     margin: 0 0 16px 0;
   }
 
@@ -149,7 +149,7 @@ const {
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
-    color: #4b5563;
+    color: var(--color-gray-600);
     margin: 0;
   }
 
@@ -167,7 +167,7 @@ const {
   }
 
   .accordion-item {
-    border-bottom: 0.67px solid #020303;
+    border-bottom: 0.67px solid var(--color-ink);
   }
 
   .accordion-header {
@@ -179,7 +179,7 @@ const {
     font-family: Manrope, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #020303;
+    color: var(--color-ink);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -188,27 +188,27 @@ const {
   }
 
   .accordion-header:hover {
-    color: #563cfa;
+    color: var(--color-primary);
   }
 
   .accordion-header.active {
-    color: #563cfa;
+    color: var(--color-primary);
     font-weight: 500;
   }
 
   .accordion-icon {
     flex-shrink: 0;
-    color: #020303;
+    color: var(--color-ink);
     transition: transform 0.3s ease, color 0.2s;
   }
 
   .accordion-header:hover .accordion-icon {
-    color: #563cfa;
+    color: var(--color-primary);
   }
 
   .accordion-icon.active {
     transform: rotate(45deg);
-    color: #563cfa;
+    color: var(--color-primary);
   }
 
   .accordion-content {
@@ -233,7 +233,7 @@ const {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
-    color: #4b5563;
+    color: var(--color-gray-600);
     margin: 0;
     max-width: 520px;
   }

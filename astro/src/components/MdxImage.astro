@@ -1,0 +1,40 @@
+---
+import { getLocalImageDimensions, responsiveImageSources } from '../lib/netlify-images';
+
+interface Props {
+  src: string;
+  alt?: string;
+  title?: string;
+}
+
+const { src, alt = '', title } = Astro.props;
+const dimensions = getLocalImageDimensions(src);
+const requestedWidths = [400, 800, 1200];
+const maxUsefulWidth = dimensions ? Math.min(Math.max(dimensions.width * 2, 400), 1200) : 1200;
+const widths = requestedWidths.filter((width) => width <= maxUsefulWidth);
+const responsiveWidths = widths.length ? widths : [Math.min(maxUsefulWidth, 1200)];
+const defaultWidth = responsiveWidths.includes(800)
+  ? 800
+  : responsiveWidths[responsiveWidths.length - 1];
+const image = responsiveImageSources(src, responsiveWidths, defaultWidth);
+const sizes = '(max-width: 768px) calc(100vw - 2rem), 768px';
+const fallbackRatio = '16 / 9';
+const imgStyle = dimensions ? undefined : `aspect-ratio: ${fallbackRatio}; object-fit: cover;`;
+---
+
+<picture>
+  <source srcset={image.avifSrcSet} sizes={sizes} type="image/avif" />
+  <source srcset={image.webpSrcSet} sizes={sizes} type="image/webp" />
+  <img
+    src={image.src}
+    srcset={image.webpSrcSet}
+    sizes={sizes}
+    alt={alt}
+    title={title}
+    loading="lazy"
+    decoding="async"
+    width={dimensions?.width}
+    height={dimensions?.height}
+    style={imgStyle}
+  />
+</picture>

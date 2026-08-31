@@ -465,7 +465,7 @@ const productSchema = {
 
       <div class="grid gap-8 lg:grid-cols-2">
         <div class="space-y-4" data-product-gallery>
-          <div class="overflow-hidden rounded-2xl bg-slate-100">
+          <div class="overflow-hidden rounded-2xl bg-neutral-100">
             <picture>
               <source
                 id="product-hero-image-avif"
@@ -500,7 +500,7 @@ const productSchema = {
               {productGallery.map((img, index) => (
                 <button
                   type="button"
-                  class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100"
+                  class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-neutral-100"
                   data-product-gallery-thumb
                   data-img={img.src}
                   data-img-srcset={img.webpSrcSet}
@@ -566,56 +566,56 @@ const productSchema = {
                 {product.badge}
               </span>
             )}
-            <h1 class="text-4xl font-bold text-slate-900 md:text-5xl">{product.name}</h1>
+            <h1 class="text-4xl font-bold text-ink-900 md:text-5xl">{product.name}</h1>
             <p class="text-xl text-sky-600 font-medium">{product.tagline}</p>
-            <p class="text-base leading-relaxed text-slate-700">{product.description}</p>
+            <p class="text-base leading-relaxed text-neutral-700">{product.description}</p>
             <div class="flex flex-wrap gap-2 pt-2">
-              <span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">{t(locale, 'productDetail.oemOdmReady')}</span>
-              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">{t(locale, 'productDetail.sampleSupport')}</span>
-              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">{t(locale, 'productDetail.factoryDirect')}</span>
+              <span class="rounded-full bg-ink-900 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">{t(locale, 'productDetail.oemOdmReady')}</span>
+              <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-neutral-700">{t(locale, 'productDetail.sampleSupport')}</span>
+              <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-neutral-700">{t(locale, 'productDetail.factoryDirect')}</span>
             </div>
           </div>
 
-          <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="rounded-[1.5rem] border border-neutral-200 bg-white p-6 shadow-sm">
             <div class="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <div class="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">{t(locale, 'productDetail.pricingPayment')}</div>
                 {displayPricing ? (
                   <>
-                    <div class="mt-3 text-3xl font-bold text-slate-900">
+                    <div class="mt-3 text-3xl font-bold text-ink-900">
                       USD {displayPricing.firstTier.unitPrice}
                       <span class="ml-2 text-base font-medium text-slate-500">{t(locale, 'productDetail.perUnit')}</span>
                     </div>
-                    <p class="mt-1 text-sm text-slate-600">{fill(t(locale, 'productDetail.pricingRange'), { firstQty: displayPricing.firstTier.quantity, lastPrice: displayPricing.lastTier.unitPrice, lastQty: displayPricing.lastTier.quantity })}</p>
+                    <p class="mt-1 text-sm text-neutral-600">{fill(t(locale, 'productDetail.pricingRange'), { firstQty: displayPricing.firstTier.quantity, lastPrice: displayPricing.lastTier.unitPrice, lastQty: displayPricing.lastTier.quantity })}</p>
                   </>
                 ) : (
                   <>
-                    <div class="mt-3 text-2xl font-bold text-slate-900">{t(locale, 'productDetail.contactForQuote')}</div>
-                    <p class="mt-1 text-sm text-slate-600">{product.priceNote || t(locale, 'productDetail.pricingDepends')}</p>
+                    <div class="mt-3 text-2xl font-bold text-ink-900">{t(locale, 'productDetail.contactForQuote')}</div>
+                    <p class="mt-1 text-sm text-neutral-600">{product.priceNote || t(locale, 'productDetail.pricingDepends')}</p>
                   </>
                 )}
               </div>
-              <div class="rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                <div class="font-semibold text-slate-900">{t(locale, 'productDetail.commercialBaseline')}</div>
+              <div class="rounded-2xl bg-neutral-50 px-4 py-3 text-sm text-neutral-700">
+                <div class="font-semibold text-ink-900">{t(locale, 'productDetail.commercialBaseline')}</div>
                 <div class="mt-1">{t(locale, 'productDetail.sampleMoq')}</div>
                 <div>{t(locale, 'productDetail.bulkMoqLabel')}</div>
               </div>
             </div>
 
             {product.priceTiers?.length ? (
-              <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
-                <table class="min-w-full divide-y divide-slate-200 text-sm">
-                  <thead class="bg-slate-50">
+              <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200">
+                <table class="min-w-full divide-y divide-neutral-200 text-sm">
+                  <thead class="bg-neutral-50">
                     <tr>
-                      <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, 'productDetail.quantityHeader')}</th>
-                      <th class="px-4 py-3 text-right font-semibold text-slate-900">{t(locale, 'productDetail.unitPriceHeader')}</th>
+                      <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, 'productDetail.quantityHeader')}</th>
+                      <th class="px-4 py-3 text-right font-semibold text-ink-900">{t(locale, 'productDetail.unitPriceHeader')}</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-slate-200 bg-white">
+                  <tbody class="divide-y divide-neutral-200 bg-white">
                     {product.priceTiers.map((tier, index) => (
-                      <tr class={index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
-                        <td class="px-4 py-3 text-slate-700">{tier.quantity}</td>
-                        <td class="px-4 py-3 text-right font-semibold text-slate-900">{tier.unitPrice}</td>
+                      <tr class={index % 2 === 0 ? 'bg-white' : 'bg-neutral-50/60'}>
+                        <td class="px-4 py-3 text-neutral-700">{tier.quantity}</td>
+                        <td class="px-4 py-3 text-right font-semibold text-ink-900">{tier.unitPrice}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -623,37 +623,37 @@ const productSchema = {
               </div>
             ) : null}
 
-            {product.priceNote ? <p class="mt-4 text-sm leading-relaxed text-slate-600">{product.priceNote}</p> : null}
+            {product.priceNote ? <p class="mt-4 text-sm leading-relaxed text-neutral-600">{product.priceNote}</p> : null}
 
-            <div class="mt-6 border-t border-slate-200 pt-6">
-              <h2 class="text-lg font-semibold text-slate-900">{t(locale, 'productDetail.acceptedPaymentMethods')}</h2>
-              <p class="mt-2 text-sm text-slate-600">{t(locale, 'productDetail.paymentMethodsDescription')}</p>
+            <div class="mt-6 border-t border-neutral-200 pt-6">
+              <h2 class="text-lg font-semibold text-ink-900">{t(locale, 'productDetail.acceptedPaymentMethods')}</h2>
+              <p class="mt-2 text-sm text-neutral-600">{t(locale, 'productDetail.paymentMethodsDescription')}</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 {acceptedPayments.map((method) => (
-                  <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">{method}</span>
+                  <span class="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-700">{method}</span>
                 ))}
               </div>
             </div>
           </div>
 
-          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-semibold text-slate-900">{t(locale, 'productDetail.specifications')}</h2>
-            <dl class="mt-4 divide-y divide-slate-100">
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-ink-900">{t(locale, 'productDetail.specifications')}</h2>
+            <dl class="mt-4 divide-y divide-neutral-100">
               {product.specs.map((spec) => (
                 <div class="flex justify-between py-3 text-sm">
-                  <dt class="text-slate-600">{spec.label}</dt>
-                  <dd class="ml-4 text-right font-medium text-slate-900">{spec.value}</dd>
+                  <dt class="text-neutral-600">{spec.label}</dt>
+                  <dd class="ml-4 text-right font-medium text-ink-900">{spec.value}</dd>
                 </div>
               ))}
             </dl>
           </div>
 
           {product.colors.length > 0 && (
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 class="text-lg font-semibold text-slate-900">{t(locale, 'productDetail.availableColors')}</h2>
+            <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <h2 class="text-lg font-semibold text-ink-900">{t(locale, 'productDetail.availableColors')}</h2>
               <div class="mt-3 flex flex-wrap gap-2">
                 {product.colors.map((color) => (
-                  <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm text-slate-700">{color}</span>
+                  <span class="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-700">{color}</span>
                 ))}
               </div>
             </div>
@@ -664,14 +664,14 @@ const productSchema = {
 
     <section class="space-y-8">
       <div class="max-w-3xl">
-        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'common.keyFeatures')}</h2>
-        <p class="mt-3 text-lg text-slate-700">{fill(t(locale, 'productDetail.featuresIntro'), { productName: product.name })}</p>
+        <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'common.keyFeatures')}</h2>
+        <p class="mt-3 text-lg text-neutral-700">{fill(t(locale, 'productDetail.featuresIntro'), { productName: product.name })}</p>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
         {product.features.map((feature) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h3 class="text-xl font-semibold text-slate-900">{feature.title}</h3>
-            <p class="mt-3 text-slate-700">{feature.description}</p>
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-ink-900">{feature.title}</h3>
+            <p class="mt-3 text-neutral-700">{feature.description}</p>
           </div>
         ))}
       </div>
@@ -681,15 +681,15 @@ const productSchema = {
       <section class="space-y-8">
         <div class="rounded-2xl border border-amber-200 bg-amber-50 p-8 shadow-sm md:p-10">
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700">{product.story.kicker}</div>
-          <h2 class="mt-3 text-3xl font-bold text-slate-900">{product.story.title}</h2>
-          <div class="mt-4 space-y-4 text-base leading-relaxed text-slate-700">
+          <h2 class="mt-3 text-3xl font-bold text-ink-900">{product.story.title}</h2>
+          <div class="mt-4 space-y-4 text-base leading-relaxed text-neutral-700">
             {product.story.paragraphs.map((paragraph) => (
               <p>{paragraph}</p>
             ))}
           </div>
           {product.story.cta && (
             <a
-              class="mt-6 inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              class="mt-6 inline-flex items-center justify-center rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800"
               href={getLocalizedPath(locale, product.story.cta.href)}
             >
               {product.story.cta.label}

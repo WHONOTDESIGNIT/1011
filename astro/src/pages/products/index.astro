@@ -169,7 +169,7 @@ const siteBaseUrl = (
             {t(locale, 'productDetail.index.hero.description')}
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100" href={getLocalizedPath(locale, '/catalogue')}>
+            <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100" href={getLocalizedPath(locale, '/catalogue')}>
               {t(locale, 'productDetail.index.hero.compareModels')}
             </a>
             <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/services')}>
@@ -184,8 +184,8 @@ const siteBaseUrl = (
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'productDetail.index.summary.title')}</h2>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+      <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'productDetail.index.summary.title')}</h2>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
         {t(locale, 'productDetail.index.summary.description')}
       </p>
     </section>
@@ -193,18 +193,18 @@ const siteBaseUrl = (
     <section class="space-y-10">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.choose.kicker')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.choose.title')}</h2>
-        <p class="mt-4 text-lg text-slate-700">{t(locale, 'productDetail.index.choose.description')}</p>
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.choose.title')}</h2>
+        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'productDetail.index.choose.description')}</p>
       </div>
       <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {platformTracks.map((track) => (
-          <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-2xl font-semibold text-slate-900">{t(locale, track.titleKey)}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">{t(locale, track.descriptionKey)}</p>
-            <ul class="mt-6 space-y-3 text-sm font-semibold text-slate-900">
+          <article class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-semibold text-ink-900">{t(locale, track.titleKey)}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{t(locale, track.descriptionKey)}</p>
+            <ul class="mt-6 space-y-3 text-sm font-semibold text-ink-900">
               {track.links.map((link) => (
                 <li>
-                  <a class="inline-flex items-center gap-2 text-slate-900 transition hover:text-violet-700" href={link.href}>
+                  <a class="inline-flex items-center gap-2 text-ink-900 transition hover:text-violet-700" href={link.href}>
                     <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
                     <span>{t(locale, link.labelKey)}</span>
                   </a>
@@ -222,7 +222,7 @@ const siteBaseUrl = (
           class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
           href={getLocalizedPath(locale, '/products/' + product.slug)}
         >
-          <div class="relative bg-slate-100" style="aspect-ratio:1000/806">
+          <div class="relative bg-neutral-100" style="aspect-ratio:1000/806">
             <picture>
               <source
                 srcset={product.imageSources.avifSrcSet}
@@ -249,8 +249,8 @@ const siteBaseUrl = (
           </div>
           <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
             <div>
-              <h2 class="text-xl font-semibold text-slate-900">{t(locale, product.nameKey)}</h2>
-              <p class="mt-1 text-sm text-slate-700">{t(locale, product.taglineKey)}</p>
+              <h2 class="text-xl font-semibold text-ink-900">{t(locale, product.nameKey)}</h2>
+              <p class="mt-1 text-sm text-neutral-700">{t(locale, product.taglineKey)}</p>
             </div>
           </div>
         </a>
@@ -258,28 +258,28 @@ const siteBaseUrl = (
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-3 md:p-10">
+      <div class="grid gap-6 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:grid-cols-3 md:p-10">
         <div class="md:col-span-2">
           <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.nextStep.kicker')}</div>
-          <h2 class="mt-3 text-3xl font-bold text-slate-900">{t(locale, 'productDetail.index.nextStep.title')}</h2>
-          <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
+          <h2 class="mt-3 text-3xl font-bold text-ink-900">{t(locale, 'productDetail.index.nextStep.title')}</h2>
+          <p class="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
             {t(locale, 'productDetail.index.nextStep.description')}
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={getLocalizedPath(locale, '/services/no-moq')}>
+            <a class="rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={getLocalizedPath(locale, '/services/no-moq')}>
               {t(locale, 'productDetail.index.nextStep.startNoMoq')}
             </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/box-custom')}>
+            <a class="rounded-2xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services/box-custom')}>
               {t(locale, 'productDetail.index.nextStep.customizeBox')}
             </a>
-            <a class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
+            <a class="rounded-2xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-neutral-400 hover:bg-neutral-50" href={getLocalizedPath(locale, '/services/dropshipping')}>
               {t(locale, 'productDetail.index.nextStep.shipDirectly')}
             </a>
           </div>
         </div>
-        <div class="rounded-2xl bg-slate-50 p-6">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'productDetail.index.fastLinks.kicker')}</div>
-          <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-900">
+        <div class="rounded-2xl bg-neutral-50 p-6">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'productDetail.index.fastLinks.kicker')}</div>
+          <ul class="mt-4 space-y-3 text-sm font-semibold text-ink-900">
             <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/logo-printing')}>{t(locale, 'productDetail.index.fastLinks.logoPrinting')}</a></li>
             <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/user-manual-guide-custom')}>{t(locale, 'productDetail.index.fastLinks.userManual')}</a></li>
             <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/packaging-logistics')}>{t(locale, 'productDetail.index.fastLinks.packagingLogistics')}</a></li>
@@ -292,23 +292,23 @@ const siteBaseUrl = (
     <section class="space-y-8">
       <div class="mx-auto max-w-3xl text-center">
         <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.faq.kicker')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.faq.title')}</h2>
-        <p class="mt-4 text-lg text-slate-700">{t(locale, 'productDetail.index.faq.description')}</p>
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.faq.title')}</h2>
+        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'productDetail.index.faq.description')}</p>
       </div>
       <div class="mx-auto grid max-w-4xl gap-4">
         {productFaq.map((item) => (
-          <details class="group rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+          <details class="group rounded-[1.5rem] border border-neutral-200 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-ink-900">
               <div class="flex items-start justify-between gap-4">
                 <span>{item.question}</span>
                 <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
               </div>
             </summary>
-            <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate-700">
+            <div class="mt-4 space-y-4 text-sm leading-relaxed text-neutral-700">
               <p>{item.answer}</p>
               <div class="flex flex-wrap gap-3">
                 {item.links.map((link) => (
-                  <a class="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50" href={link.href}>
+                  <a class="inline-flex items-center rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-ink-900 transition hover:border-neutral-300 hover:bg-neutral-50" href={link.href}>
                     {link.label}
                   </a>
                 ))}
@@ -320,23 +320,23 @@ const siteBaseUrl = (
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+      <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:p-10">
         <div class="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
             <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.safety.kicker')}</div>
-            <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">{t(locale, 'productDetail.index.safety.title')}</h2>
-            <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
+            <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.safety.title')}</h2>
+            <p class="mt-4 max-w-2xl text-lg leading-relaxed text-neutral-700">
               {t(locale, 'productDetail.index.safety.description')}
             </p>
             <div class="mt-8">
-              <a class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800" href={safetyPillar.href}>
+              <a class="inline-flex items-center justify-center rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={safetyPillar.href}>
                 {t(locale, safetyPillar.labelKey)}
               </a>
             </div>
           </div>
-          <div class="rounded-[1.75rem] bg-slate-50 p-7">
-            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'productDetail.index.safety.deepLinks')}</div>
-            <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-900">
+          <div class="rounded-[1.75rem] bg-neutral-50 p-7">
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'productDetail.index.safety.deepLinks')}</div>
+            <ul class="mt-4 space-y-3 text-sm font-semibold text-ink-900">
               {safetyResources.map((item) => (
                 <li>
                   <a class="transition hover:text-violet-700" href={item.href}>
@@ -351,7 +351,7 @@ const siteBaseUrl = (
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <div class="w-full overflow-hidden rounded-2xl bg-slate-100">
+      <div class="w-full overflow-hidden rounded-2xl bg-neutral-100">
         <picture>
           <source srcset={freeSampleImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
           <source srcset={freeSampleImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />

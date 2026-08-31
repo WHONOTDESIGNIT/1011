@@ -77,7 +77,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
 <BaseLayout title={title} lang={locale} description={description}>
   <div class="space-y-48">
-    <section class="relative overflow-hidden rounded-2xl bg-slate-900 px-8 py-14 text-white">
+    <section class="relative overflow-hidden rounded-2xl bg-ink-900 px-8 py-14 text-white">
       <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-30" aria-hidden="true">
         <source srcset={heroBackgroundImageSources.avifSrcSet} sizes="100vw" type="image/avif" />
         <source srcset={heroBackgroundImageSources.webpSrcSet} sizes="100vw" type="image/webp" />
@@ -98,9 +98,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
       <div class="relative">
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
         <h1 class="mt-4 text-3xl font-bold md:text-4xl">{title}</h1>
-        <p class="mt-4 max-w-3xl text-lg text-slate-200">{description}</p>
+        <p class="mt-4 max-w-3xl text-lg text-neutral-200">{description}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a class="rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>
+          <a class="rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>
             {ns === 'componentsCooling'
               ? t(locale, `${ns}.cta.button`)
               : ns === 'componentsFilter'
@@ -115,8 +115,8 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div class="aspect-[16/9] bg-slate-100">
+      <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+        <div class="aspect-[16/9] bg-neutral-100">
           <picture>
             <source srcset={heroImageSources.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
             <source srcset={heroImageSources.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
@@ -139,9 +139,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
     {slug === 'lamp-cartridges' && (
       <section class="mx-auto max-w-6xl px-6">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-        <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'componentsLamp.citable.question')}</h3>
-        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+        <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'componentsLamp.citable.question')}</h3>
+        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
           {t(locale, 'componentsLamp.citable.paragraph')}
         </p>
       </section>
@@ -149,9 +149,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
     {slug === 'optical-filters' && (
       <section class="mx-auto max-w-6xl px-6">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-        <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'componentsFilter.citable.question')}</h3>
-        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+        <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'componentsFilter.citable.question')}</h3>
+        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
           {t(locale, 'componentsFilter.citable.paragraph')}
         </p>
       </section>
@@ -159,9 +159,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
     {slug === 'cooling-system' && (
       <section class="mx-auto max-w-6xl px-6">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-        <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'componentsCooling.citable.question')}</h3>
-        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+        <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'componentsCooling.citable.question')}</h3>
+        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
           {t(locale, 'componentsCooling.citable.paragraph')}
         </p>
       </section>
@@ -169,9 +169,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
     {slug === 'power-supply' && (
       <section class="mx-auto max-w-6xl px-6">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-        <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'componentsPower.citable.question')}</h3>
-        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+        <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'componentsPower.citable.question')}</h3>
+        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
           {t(locale, 'componentsPower.citable.paragraph')}
         </p>
       </section>
@@ -180,12 +180,12 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     {showIntro && (
       <section class="space-y-10">
         <div class="text-center">
-          <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.intro.title`)}</h2>
-          <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{t(locale, `${ns}.intro.paragraph`)}</p>
+          <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.intro.title`)}</h2>
+          <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">{t(locale, `${ns}.intro.paragraph`)}</p>
         </div>
 
         {ns === 'componentsPower' && (
-          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <div class="aspect-[16/9]">
               <picture>
                 <source srcset={componentsDiagramImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
@@ -213,24 +213,24 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         <section class="rounded-2xl bg-sky-50 px-8 py-12">
           <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 class="text-2xl font-bold text-slate-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
-              <p class="mt-4 text-slate-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
-              <ul class="mt-6 space-y-3 text-slate-700">
+              <h2 class="text-2xl font-bold text-ink-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
+              <p class="mt-4 text-neutral-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
+              <ul class="mt-6 space-y-3 text-neutral-700">
                 <li class="flex items-start gap-2">
-                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-slate-900" />
+                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-ink-900" />
                   <span>{t(locale, `${ns}.highlight.items.comfort`)}</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-slate-900" />
+                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-ink-900" />
                   <span>{t(locale, `${ns}.highlight.items.safety`)}</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-slate-900" />
+                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-2xl bg-ink-900" />
                   <span>{t(locale, `${ns}.highlight.items.performance`)}</span>
                 </li>
               </ul>
             </div>
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/cooling-system-closeup.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
@@ -240,8 +240,8 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
         <section class="space-y-8">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.tech.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.tech.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.tech.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.tech.description`)}</p>
           </div>
           <div class="grid gap-6 md:grid-cols-3">
             {[
@@ -249,9 +249,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.tech.items.sapphire.title`), description: t(locale, `${ns}.tech.items.sapphire.description`) },
               { title: t(locale, `${ns}.tech.items.semiconductor.title`), description: t(locale, `${ns}.tech.items.semiconductor.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
@@ -259,36 +259,36 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
         <section class="space-y-6">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.specs.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.specs.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.specs.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.specs.description`)}</p>
           </div>
-          <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
-            <table class="min-w-full divide-y divide-slate-200 text-sm">
-              <thead class="bg-slate-50">
+          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white">
+            <table class="min-w-full divide-y divide-neutral-200 text-sm">
+              <thead class="bg-neutral-50">
                 <tr>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.value`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.notes`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.value`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.notes`)}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-200">
+              <tbody class="divide-y divide-neutral-200">
                 {specsRows.map((row, idx) => (
-                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td class="px-4 py-3 font-medium text-slate-900">{row.parameter}</td>
-                    <td class="px-4 py-3 text-slate-700">{row.value}</td>
-                    <td class="px-4 py-3 text-slate-600">{row.notes}</td>
+                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
+                    <td class="px-4 py-3 font-medium text-ink-900">{row.parameter}</td>
+                    <td class="px-4 py-3 text-neutral-700">{row.value}</td>
+                    <td class="px-4 py-3 text-neutral-600">{row.notes}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div class="text-sm italic text-slate-600">{t(locale, `${ns}.specs.footnote`)}</div>
+          <div class="text-sm italic text-neutral-600">{t(locale, `${ns}.specs.footnote`)}</div>
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.customization.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.customization.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.customization.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.customization.description`)}</p>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {[
@@ -297,9 +297,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.customization.blocks.integration.title`), description: t(locale, `${ns}.customization.blocks.integration.description`) },
               { title: t(locale, `${ns}.customization.blocks.temperature.title`), description: t(locale, `${ns}.customization.blocks.temperature.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
@@ -307,8 +307,8 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
         <section class="space-y-8">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.applications.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.applications.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.applications.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.applications.description`)}</p>
           </div>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
@@ -317,56 +317,56 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.applications.items.pro.title`), description: t(locale, `${ns}.applications.items.pro.description`) },
               { title: t(locale, `${ns}.applications.items.sensitive.title`), description: t(locale, `${ns}.applications.items.sensitive.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, `${ns}.compliance.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, `${ns}.compliance.title`)}</h2>
+          <p class="mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
           <ul class="mt-6 grid gap-3 md:grid-cols-2">
             {complianceItems.map((item) => (
-              <li class="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-700">{item}</li>
+              <li class="rounded-lg bg-neutral-50 px-4 py-3 text-sm text-neutral-700">{item}</li>
             ))}
           </ul>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.visuals.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.visuals.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2">
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/cooling-plate-diagram.jpg" alt={t(locale, `${ns}.visuals.images.plate.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">
+              <div class="p-4 text-sm text-neutral-700">
                 <div class="font-semibold">{t(locale, `${ns}.visuals.images.plate.title`)}</div>
-                <div class="mt-1 text-slate-600">{t(locale, `${ns}.visuals.images.plate.caption`)}</div>
+                <div class="mt-1 text-neutral-600">{t(locale, `${ns}.visuals.images.plate.caption`)}</div>
               </div>
             </div>
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/ipl-cooling-integration.jpg" alt={t(locale, `${ns}.visuals.images.integration.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">
+              <div class="p-4 text-sm text-neutral-700">
                 <div class="font-semibold">{t(locale, `${ns}.visuals.images.integration.title`)}</div>
-                <div class="mt-1 text-slate-600">{t(locale, `${ns}.visuals.images.integration.caption`)}</div>
+                <div class="mt-1 text-neutral-600">{t(locale, `${ns}.visuals.images.integration.caption`)}</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.quality.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.quality.paragraph`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.quality.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.quality.paragraph`)}</p>
           </div>
-          <div class="mt-6 text-center text-sm text-slate-700">
+          <div class="mt-6 text-center text-sm text-neutral-700">
             <div class="font-semibold">{t(locale, `${ns}.quality.intertek`)}</div>
-            <div class="mt-1 text-slate-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
+            <div class="mt-1 text-neutral-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {[
@@ -375,19 +375,19 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.quality.blocks.contact.title`), description: t(locale, `${ns}.quality.blocks.contact.description`) },
               { title: t(locale, `${ns}.quality.blocks.cycling.title`), description: t(locale, `${ns}.quality.blocks.cycling.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-900 px-8 py-12 text-white">
+        <section class="rounded-2xl bg-ink-900 px-8 py-12 text-white">
           <h2 class="text-2xl font-bold">{t(locale, `${ns}.cta.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-200">{t(locale, `${ns}.cta.description`)}</p>
+          <p class="mt-3 max-w-3xl text-neutral-200">{t(locale, `${ns}.cta.description`)}</p>
           <div class="mt-6">
-            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
+            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
           </div>
         </section>
       </div>
@@ -396,12 +396,12 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     {ns === 'componentsFilter' && (
       <div class="space-y-16">
         <section class="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div class="inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-xs text-slate-700">{t(locale, `${ns}.highlight.badge`)}</div>
-            <h2 class="mt-4 text-2xl font-bold text-slate-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
-            <p class="mt-4 text-slate-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+            <div class="inline-flex rounded-2xl bg-neutral-100 px-3 py-1 text-xs text-neutral-700">{t(locale, `${ns}.highlight.badge`)}</div>
+            <h2 class="mt-4 text-2xl font-bold text-ink-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
+            <p class="mt-4 text-neutral-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
           </div>
-          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <div class="aspect-[4/3]">
               <Image src="/images/components/optical-filter-closeup.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
             </div>
@@ -409,7 +409,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         </section>
 
         <section class="space-y-8">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.features.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.features.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { title: t(locale, `${ns}.features.safety.title`), description: t(locale, `${ns}.features.safety.description`) },
@@ -417,43 +417,43 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.features.performance.title`), description: t(locale, `${ns}.features.performance.description`) },
               { title: t(locale, `${ns}.features.durability.title`), description: t(locale, `${ns}.features.durability.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.specs.title`)}</h2>
-          <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
-            <table class="min-w-full divide-y divide-slate-200 text-sm">
-              <thead class="bg-slate-50">
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.specs.title`)}</h2>
+          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white">
+            <table class="min-w-full divide-y divide-neutral-200 text-sm">
+              <thead class="bg-neutral-50">
                 <tr>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.value`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.notes`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.value`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.notes`)}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-200">
+              <tbody class="divide-y divide-neutral-200">
                 {specsRows.map((row, idx) => (
-                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td class="px-4 py-3 font-medium text-slate-900">{row.parameter}</td>
-                    <td class="px-4 py-3 text-slate-700">{row.value}</td>
-                    <td class="px-4 py-3 text-slate-600">{row.notes}</td>
+                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
+                    <td class="px-4 py-3 font-medium text-ink-900">{row.parameter}</td>
+                    <td class="px-4 py-3 text-neutral-700">{row.value}</td>
+                    <td class="px-4 py-3 text-neutral-600">{row.notes}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div class="text-sm italic text-slate-600">{t(locale, `${ns}.specs.footnote`)}</div>
+          <div class="text-sm italic text-neutral-600">{t(locale, `${ns}.specs.footnote`)}</div>
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.types.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.types.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.types.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.types.description`)}</p>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-3">
             {[
@@ -461,16 +461,16 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.types.replaceable.title`), description: t(locale, `${ns}.types.replaceable.description`) },
               { title: t(locale, `${ns}.types.specialized.title`), description: t(locale, `${ns}.types.specialized.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, `${ns}.customization.title`)}</h2>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, `${ns}.customization.title`)}</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-2">
             {[
               { title: t(locale, `${ns}.customization.blocks.wavelengths.title`), description: t(locale, `${ns}.customization.blocks.wavelengths.description`) },
@@ -478,22 +478,22 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.customization.blocks.material.title`), description: t(locale, `${ns}.customization.blocks.material.description`) },
               { title: t(locale, `${ns}.customization.blocks.branding.title`), description: t(locale, `${ns}.customization.blocks.branding.description`) },
             ].map((item) => (
-              <div class="rounded-xl bg-slate-50 p-6">
+              <div class="rounded-xl bg-neutral-50 p-6">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.quality.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.quality.paragraph`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.quality.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.quality.paragraph`)}</p>
           </div>
-          <div class="mt-6 text-center text-sm text-slate-700">
+          <div class="mt-6 text-center text-sm text-neutral-700">
             <div class="font-semibold">{t(locale, `${ns}.quality.intertek`)}</div>
-            <div class="mt-1 text-slate-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
+            <div class="mt-1 text-neutral-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {[
@@ -502,16 +502,16 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.quality.blocks.heat.title`), description: t(locale, `${ns}.quality.blocks.heat.description`) },
               { title: t(locale, `${ns}.quality.blocks.durability.title`), description: t(locale, `${ns}.quality.blocks.durability.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
         <section class="space-y-8">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.applications.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.applications.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { title: t(locale, `${ns}.applications.items.hair.title`), description: t(locale, `${ns}.applications.items.hair.description`) },
@@ -519,51 +519,51 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.applications.items.acne.title`), description: t(locale, `${ns}.applications.items.acne.description`) },
               { title: t(locale, `${ns}.applications.items.pigmentation.title`), description: t(locale, `${ns}.applications.items.pigmentation.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, `${ns}.compliance.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, `${ns}.compliance.title`)}</h2>
+          <p class="mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
           <ul class="mt-6 grid gap-3 md:grid-cols-2">
             {complianceItems.map((item) => (
-              <li class="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-700">{item}</li>
+              <li class="rounded-lg bg-neutral-50 px-4 py-3 text-sm text-neutral-700">{item}</li>
             ))}
           </ul>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.visuals.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.visuals.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2">
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/filter-wavelength-diagram.jpg" alt={t(locale, `${ns}.visuals.images.wavelength.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">
-                <div class="mt-1 text-slate-600">{t(locale, `${ns}.visuals.images.wavelength.caption`)}</div>
+              <div class="p-4 text-sm text-neutral-700">
+                <div class="mt-1 text-neutral-600">{t(locale, `${ns}.visuals.images.wavelength.caption`)}</div>
               </div>
             </div>
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/filter-comparison-chart.jpg" alt={t(locale, `${ns}.visuals.images.comparison.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">
-                <div class="mt-1 text-slate-600">{t(locale, `${ns}.visuals.images.comparison.caption`)}</div>
+              <div class="p-4 text-sm text-neutral-700">
+                <div class="mt-1 text-neutral-600">{t(locale, `${ns}.visuals.images.comparison.caption`)}</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-900 px-8 py-12 text-white">
+        <section class="rounded-2xl bg-ink-900 px-8 py-12 text-white">
           <h2 class="text-2xl font-bold">{t(locale, `${ns}.cta.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-200">{t(locale, `${ns}.cta.description`)}</p>
+          <p class="mt-3 max-w-3xl text-neutral-200">{t(locale, `${ns}.cta.description`)}</p>
           <div class="mt-6">
-            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
+            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
           </div>
         </section>
       </div>
@@ -572,12 +572,12 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     {ns === 'componentsLamp' && (
       <div class="space-y-16">
         <section class="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div class="inline-flex rounded-2xl bg-slate-100 px-3 py-1 text-xs text-slate-700">{t(locale, `${ns}.highlight.badge`)}</div>
-            <h2 class="mt-4 text-2xl font-bold text-slate-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
-            <p class="mt-4 text-slate-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
+          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+            <div class="inline-flex rounded-2xl bg-neutral-100 px-3 py-1 text-xs text-neutral-700">{t(locale, `${ns}.highlight.badge`)}</div>
+            <h2 class="mt-4 text-2xl font-bold text-ink-900">{t(locale, `${ns}.highlight.whyTitle`)}</h2>
+            <p class="mt-4 text-neutral-700">{t(locale, `${ns}.highlight.paragraph`)}</p>
           </div>
-          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <div class="aspect-[4/3]">
               <Image src="/images/components/lamp-cartridge-closeup.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
             </div>
@@ -585,7 +585,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         </section>
 
         <section class="space-y-8">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.features.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.features.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { title: t(locale, `${ns}.features.energy.title`), description: t(locale, `${ns}.features.energy.description`) },
@@ -593,43 +593,43 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.features.safety.title`), description: t(locale, `${ns}.features.safety.description`) },
               { title: t(locale, `${ns}.features.integration.title`), description: t(locale, `${ns}.features.integration.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.specs.title`)}</h2>
-          <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
-            <table class="min-w-full divide-y divide-slate-200 text-sm">
-              <thead class="bg-slate-50">
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.specs.title`)}</h2>
+          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white">
+            <table class="min-w-full divide-y divide-neutral-200 text-sm">
+              <thead class="bg-neutral-50">
                 <tr>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.value`)}</th>
-                  <th class="px-4 py-3 text-left font-semibold text-slate-900">{t(locale, `${ns}.specs.table.notes`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.parameter`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.value`)}</th>
+                  <th class="px-4 py-3 text-left font-semibold text-ink-900">{t(locale, `${ns}.specs.table.notes`)}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-200">
+              <tbody class="divide-y divide-neutral-200">
                 {specsRows.map((row, idx) => (
-                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td class="px-4 py-3 font-medium text-slate-900">{row.parameter}</td>
-                    <td class="px-4 py-3 text-slate-700">{row.value}</td>
-                    <td class="px-4 py-3 text-slate-600">{row.notes}</td>
+                  <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
+                    <td class="px-4 py-3 font-medium text-ink-900">{row.parameter}</td>
+                    <td class="px-4 py-3 text-neutral-700">{row.value}</td>
+                    <td class="px-4 py-3 text-neutral-600">{row.notes}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div class="text-sm italic text-slate-600">{t(locale, `${ns}.specs.footnote`)}</div>
+          <div class="text-sm italic text-neutral-600">{t(locale, `${ns}.specs.footnote`)}</div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.customization.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.customization.description`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.customization.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.customization.description`)}</p>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {[
@@ -638,22 +638,22 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.customization.options.branding.title`), description: t(locale, `${ns}.customization.options.branding.description`) },
               { title: t(locale, `${ns}.customization.options.integration.title`), description: t(locale, `${ns}.customization.options.integration.description`) },
             ].map((item) => (
-              <div class="rounded-xl bg-slate-50 p-6">
+              <div class="rounded-xl bg-neutral-50 p-6">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, `${ns}.quality.title`)}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.quality.paragraph`)}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, `${ns}.quality.title`)}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.quality.paragraph`)}</p>
           </div>
-          <div class="mt-6 text-center text-sm text-slate-700">
+          <div class="mt-6 text-center text-sm text-neutral-700">
             <div class="font-semibold">{t(locale, `${ns}.quality.intertek`)}</div>
-            <div class="mt-1 text-slate-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
+            <div class="mt-1 text-neutral-600">{t(locale, `${ns}.quality.intertekDesc`)}</div>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {[
@@ -662,16 +662,16 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.quality.blocks.heat.title`), description: t(locale, `${ns}.quality.blocks.heat.description`) },
               { title: t(locale, `${ns}.quality.blocks.qc.title`), description: t(locale, `${ns}.quality.blocks.qc.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
         <section class="space-y-8">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.applications.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.applications.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { title: t(locale, `${ns}.applications.items.home.title`), description: t(locale, `${ns}.applications.items.home.description`) },
@@ -679,47 +679,47 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, `${ns}.applications.items.proConsumer.title`), description: t(locale, `${ns}.applications.items.proConsumer.description`) },
               { title: t(locale, `${ns}.applications.items.handpieces.title`), description: t(locale, `${ns}.applications.items.handpieces.description`) },
             ].map((item) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{item.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, `${ns}.compliance.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, `${ns}.compliance.title`)}</h2>
+          <p class="mt-3 max-w-3xl text-neutral-700">{t(locale, `${ns}.compliance.paragraph`)}</p>
           <ul class="mt-6 grid gap-3 md:grid-cols-2">
             {complianceItems.map((item) => (
-              <li class="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-700">{item}</li>
+              <li class="rounded-lg bg-neutral-50 px-4 py-3 text-sm text-neutral-700">{item}</li>
             ))}
           </ul>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, `${ns}.visuals.title`)}</h2>
+          <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, `${ns}.visuals.title`)}</h2>
           <div class="grid gap-6 md:grid-cols-2">
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/lamp-cartridge-exploded.jpg" alt={t(locale, `${ns}.visuals.images.exploded.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">{t(locale, `${ns}.visuals.images.exploded.caption`)}</div>
+              <div class="p-4 text-sm text-neutral-700">{t(locale, `${ns}.visuals.images.exploded.caption`)}</div>
             </div>
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
                 <Image src="/images/components/lamp-lifecycle-chart.jpg" alt={t(locale, `${ns}.visuals.images.lifecycle.alt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
-              <div class="p-4 text-sm text-slate-700">{t(locale, `${ns}.visuals.images.lifecycle.caption`)}</div>
+              <div class="p-4 text-sm text-neutral-700">{t(locale, `${ns}.visuals.images.lifecycle.caption`)}</div>
             </div>
           </div>
         </section>
 
-        <section class="rounded-2xl bg-slate-900 px-8 py-12 text-white">
+        <section class="rounded-2xl bg-ink-900 px-8 py-12 text-white">
           <h2 class="text-2xl font-bold">{t(locale, `${ns}.cta.title`)}</h2>
-          <p class="mt-3 max-w-3xl text-slate-200">{t(locale, `${ns}.cta.description`)}</p>
+          <p class="mt-3 max-w-3xl text-neutral-200">{t(locale, `${ns}.cta.description`)}</p>
           <div class="mt-6">
-            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
+            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, `${ns}.cta.button`)}</a>
           </div>
         </section>
       </div>
@@ -727,9 +727,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 
     {ns === 'componentsPower' && (
       <div class="space-y-16">
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, 'componentsPower.overview.title')}</h2>
-          <p class="mt-3 max-w-3xl text-slate-700">{t(locale, 'componentsPower.intro.paragraph')}</p>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, 'componentsPower.overview.title')}</h2>
+          <p class="mt-3 max-w-3xl text-neutral-700">{t(locale, 'componentsPower.intro.paragraph')}</p>
         </section>
 
         <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -779,23 +779,23 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               ],
             },
           ].map((item) => (
-            <a class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md" href={getLocalizedPath(locale, '/components/' + item.slug)}>
+            <a class="block rounded-xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md" href={getLocalizedPath(locale, '/components/' + item.slug)}>
               <div class="text-lg font-semibold">{item.title}</div>
-              <div class="mt-2 text-sm text-slate-700">{item.description}</div>
-              <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
+              <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
+              <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-neutral-700">
                 {item.specs.map((s) => (
                   <li>{s}</li>
                 ))}
               </ul>
-              <div class="mt-4 text-sm font-medium text-slate-900">{t(locale, 'common.viewDetails')}</div>
+              <div class="mt-4 text-sm font-medium text-ink-900">{t(locale, 'common.viewDetails')}</div>
             </a>
           ))}
         </section>
 
-        <section class="rounded-2xl bg-slate-50 px-8 py-12">
+        <section class="rounded-2xl bg-neutral-50 px-8 py-12">
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'componentsPower.quality.title')}</h2>
-            <p class="mx-auto mt-3 max-w-3xl text-slate-700">{t(locale, 'componentsPower.quality.partnership')}</p>
+            <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'componentsPower.quality.title')}</h2>
+            <p class="mx-auto mt-3 max-w-3xl text-neutral-700">{t(locale, 'componentsPower.quality.partnership')}</p>
           </div>
           <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
@@ -804,24 +804,24 @@ const breadcrumbs = buildBreadcrumbs(locale, [
               { title: t(locale, 'componentsPower.qualityBlocks.performance.title'), description: t(locale, 'componentsPower.qualityBlocks.performance.description') },
               { title: t(locale, 'componentsPower.qualityBlocks.compliance.title'), description: t(locale, 'componentsPower.qualityBlocks.compliance.description') },
             ].map((b) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <div class="text-lg font-semibold">{b.title}</div>
-                <div class="mt-2 text-sm text-slate-700">{b.description}</div>
+                <div class="mt-2 text-sm text-neutral-700">{b.description}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-bold text-slate-900">{t(locale, 'componentsPower.customization.title')}</h2>
-          <p class="mt-3 max-w-3xl text-slate-700">{t(locale, 'componentsPower.customization.description')}</p>
+        <section class="rounded-2xl border border-neutral-200 bg-white p-8">
+          <h2 class="text-2xl font-bold text-ink-900">{t(locale, 'componentsPower.customization.title')}</h2>
+          <p class="mt-3 max-w-3xl text-neutral-700">{t(locale, 'componentsPower.customization.description')}</p>
         </section>
 
-        <section class="rounded-2xl bg-slate-900 px-8 py-12 text-white">
+        <section class="rounded-2xl bg-ink-900 px-8 py-12 text-white">
           <h2 class="text-2xl font-bold">{t(locale, 'componentsPower.cta.title')}</h2>
-          <p class="mt-3 max-w-3xl text-slate-200">{t(locale, 'componentsPower.cta.description')}</p>
+          <p class="mt-3 max-w-3xl text-neutral-200">{t(locale, 'componentsPower.cta.description')}</p>
           <div class="mt-6">
-            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'componentsPower.cta.button')}</a>
+            <a class="inline-flex rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{t(locale, 'componentsPower.cta.button')}</a>
           </div>
         </section>
       </div>

@@ -369,11 +369,11 @@ const caseStudies: Record<string, CaseStudy> = {
       button: t(locale, 'clientPage.caseStudies.costco.cta.button'),
     },
     theme: {
-      heroGradient: 'from-slate-700 to-sky-700',
-      heroTextAccent: 'text-slate-100',
+      heroGradient: 'from-neutral-700 to-sky-700',
+      heroTextAccent: 'text-neutral-100',
       accentBg: 'bg-sky-600',
       accentText: 'text-sky-700',
-      softBg: 'bg-slate-50',
+      softBg: 'bg-neutral-50',
     },
   },
 };
@@ -428,7 +428,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
             <h1 class="text-4xl font-bold md:text-5xl">{data.title}</h1>
             <p class={`mt-5 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.subtitle}</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a class="rounded bg-white px-4 py-2 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
+              <a class="rounded bg-white px-4 py-2 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
               <a class="rounded border border-white/30 px-4 py-2 text-sm font-medium text-white" href={getLocalizedPath(locale, '/clients')}>{t(locale, 'clientPage.backToClients')}</a>
             </div>
           </div>
@@ -449,20 +449,20 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'common.citableSummary')}</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'clientPage.caseStudyCitableSummaryTitle')}</h3>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'clientPage.caseStudyCitableSummaryTitle')}</h3>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
         {t(locale, 'clientPage.caseStudyCitableSummaryBody')}
       </p>
     </section>
 
     <section class="space-y-8">
-      <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, 'clientPage.keyResultsTitle')}</h2>
+      <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, 'clientPage.keyResultsTitle')}</h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {data.metrics.map((metric) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-            <div class="text-lg font-semibold text-slate-900">{metric.title}</div>
-            <div class="mt-2 text-sm text-slate-700">{metric.description}</div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 text-center shadow-sm">
+            <div class="text-lg font-semibold text-ink-900">{metric.title}</div>
+            <div class="mt-2 text-sm text-neutral-700">{metric.description}</div>
           </div>
         ))}
       </div>
@@ -471,9 +471,9 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
       <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
-          <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'clientPage.challengeTitle')}</h2>
-          {data.challengeIntro && <p class="mt-4 text-slate-700">{data.challengeIntro}</p>}
-          <ul class="mt-6 space-y-3 text-slate-700">
+          <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'clientPage.challengeTitle')}</h2>
+          {data.challengeIntro && <p class="mt-4 text-neutral-700">{data.challengeIntro}</p>}
+          <ul class="mt-6 space-y-3 text-neutral-700">
             {data.challengeBullets.map((item) => (
               <li class="flex items-start gap-3">
                 <span class={`mt-2 h-2 w-2 flex-shrink-0 rounded-2xl ${data.theme.accentBg}`} />
@@ -482,25 +482,25 @@ const breadcrumbs = buildBreadcrumbs(locale, [
             ))}
           </ul>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-          {data.challengeAside.title && <div class="text-lg font-semibold text-slate-900">{data.challengeAside.title}</div>}
-          <blockquote class="mt-4 text-slate-700">
+        <div class="rounded-xl border border-neutral-200 bg-white p-8 shadow-sm">
+          {data.challengeAside.title && <div class="text-lg font-semibold text-ink-900">{data.challengeAside.title}</div>}
+          <blockquote class="mt-4 text-neutral-700">
             <div class="text-base leading-relaxed">"{data.challengeAside.quote}"</div>
-            <div class="mt-4 text-sm font-medium text-slate-600">— {data.challengeAside.cite}</div>
+            <div class="mt-4 text-sm font-medium text-neutral-600">— {data.challengeAside.cite}</div>
           </blockquote>
         </div>
       </div>
     </section>
 
     <section class="space-y-8">
-      <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, 'clientPage.deliveredTitle')}</h2>
+      <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, 'clientPage.deliveredTitle')}</h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {data.delivered.map((item) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="text-lg font-semibold text-slate-900">{item.title}</div>
-            <div class="mt-2 text-sm text-slate-700">{item.description}</div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-ink-900">{item.title}</div>
+            <div class="mt-2 text-sm text-neutral-700">{item.description}</div>
             {item.bullets?.length && (
-              <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
+              <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-neutral-700">
                 {item.bullets.map((b) => (
                   <li>{b}</li>
                 ))}
@@ -512,16 +512,16 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class="space-y-10">
-      <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, 'clientPage.approachTitle')}</h2>
+      <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, 'clientPage.approachTitle')}</h2>
       <div class="grid gap-8 md:grid-cols-2">
         {data.approach.map((step, idx) => (
-          <div class="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="flex items-start gap-4 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
             <div class={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-white ${data.theme.accentBg}`}>
               {idx + 1}
             </div>
             <div>
-              <div class="text-lg font-semibold text-slate-900">{step.title}</div>
-              <div class="mt-2 text-sm text-slate-700">{step.description}</div>
+              <div class="text-lg font-semibold text-ink-900">{step.title}</div>
+              <div class="mt-2 text-sm text-neutral-700">{step.description}</div>
             </div>
           </div>
         ))}
@@ -529,12 +529,12 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class="space-y-8">
-      <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, 'clientPage.technologyTitle')}</h2>
+      <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, 'clientPage.technologyTitle')}</h2>
       <div class={`grid gap-6 ${data.technology.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
         {data.technology.map((block) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="text-lg font-semibold text-slate-900">{block.title}</div>
-            <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-ink-900">{block.title}</div>
+            <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-neutral-700">
               {block.bullets.map((b) => (
                 <li>{b}</li>
               ))}
@@ -545,22 +545,22 @@ const breadcrumbs = buildBreadcrumbs(locale, [
     </section>
 
     <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
-      <h2 class="text-3xl font-bold text-slate-900">{t(locale, 'clientPage.resultsTitle')}</h2>
+      <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'clientPage.resultsTitle')}</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {data.results.map((r) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="text-lg font-semibold text-slate-900">{r.title}</div>
-            <div class="mt-2 text-sm text-slate-700">{r.description}</div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="text-lg font-semibold text-ink-900">{r.title}</div>
+            <div class="mt-2 text-sm text-neutral-700">{r.description}</div>
           </div>
         ))}
       </div>
     </section>
 
     <section class={`rounded-2xl ${data.theme.softBg} px-8 py-12`}>
-      <h2 class="text-center text-3xl font-bold text-slate-900">{t(locale, 'clientPage.clientPerspectiveTitle')}</h2>
-      <div class="mx-auto mt-8 max-w-4xl rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-        <blockquote class="text-lg italic leading-relaxed text-slate-700">"{data.testimonial.quote}"</blockquote>
-        <div class="mt-6 text-sm font-medium text-slate-600">— {data.testimonial.cite}</div>
+      <h2 class="text-center text-3xl font-bold text-ink-900">{t(locale, 'clientPage.clientPerspectiveTitle')}</h2>
+      <div class="mx-auto mt-8 max-w-4xl rounded-xl border border-neutral-200 bg-white p-8 text-center shadow-sm">
+        <blockquote class="text-lg italic leading-relaxed text-neutral-700">"{data.testimonial.quote}"</blockquote>
+        <div class="mt-6 text-sm font-medium text-neutral-600">— {data.testimonial.cite}</div>
       </div>
     </section>
 
@@ -568,7 +568,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
       <h2 class="text-3xl font-bold">{data.cta.title}</h2>
       <p class={`mt-4 max-w-3xl text-lg ${data.theme.heroTextAccent}`}>{data.cta.description}</p>
       <div class="mt-8">
-        <a class="inline-flex rounded bg-white px-5 py-3 text-sm font-medium text-slate-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
+        <a class="inline-flex rounded bg-white px-5 py-3 text-sm font-medium text-ink-900" href={getLocalizedPath(locale, '/contact')}>{data.cta.button}</a>
       </div>
     </section>
   </div>

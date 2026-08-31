@@ -72,6 +72,14 @@
 # 注：images 目录已被 flatten-html.mjs 白名单排除（不会命中页面通配规则），
 # 且 /images/* 比 _redirects 兜底 /* 404 更具体，规则优先级无冲突。
 # 2026-08-26 实测 /.netlify/images?url=/images/... 本地图可正常缩放（200）。
+# 针对 47-ipl-long-pass-filter-test-report 正文中的 3 张图，单独收敛到正文固定展示宽度，
+# 这样 22 个多语言 MDX 都无需逐个改写 markdown。
+[[redirects]]
+  from = "/images/blog/ipl-long-pass-filter-test-report-*"
+  to = "/.netlify/images?url=/images/blog/ipl-long-pass-filter-test-report-:splat&w=413&q=80"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/images/*"
   to = "/.netlify/images?url=/images/:splat"

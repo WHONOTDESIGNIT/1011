@@ -167,10 +167,10 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      // URL path 前缀列表
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
-      // localStorage 存的是标准 code（es-ES），跳转需映射回 URL path（es）
-      var CODE_PATH = { 'es-ES': 'es' };
+      // URL path 前缀列表（全小写；pt-BR/pt-PT 迁移后为 pt-br/pt-pt）
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-br', 'pt-pt', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
+      // localStorage 存的是标准 code（es-ES / pt-BR），跳转需映射回小写 URL path
+      var CODE_PATH = { 'es-ES': 'es', 'pt-BR': 'pt-br', 'pt-PT': 'pt-pt' };
       var path = window.location.pathname;
       var cur = 'en';
       for (var i = 0; i < LANGS.length; i++) {

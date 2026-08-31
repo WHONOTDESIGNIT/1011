@@ -3,32 +3,73 @@
 @tailwind utilities;
 
 :root {
+  /* ═══ 色彩令牌（单一事实源 · 第一批引入）═══════════
+     对应 tailwind.config.mjs theme.colors（brand / neutral / develo），
+     页面与组件统一引用 CSS 变量，禁止新增硬编码 hex。
+     --color-white 复用下方 iShine 段定义（#FFFFFF，与 develo.white 同值）。 */
+  --color-primary: #563cfa;
+  --color-primary-100: #c6bff8;
+  --color-primary-50: #edebfc;
+  --color-blue-200: #a1ace3;
+  --color-blue-400: #4a62d3;
+  --color-blue-800: #1a2175;
+  --color-bright-50: #e7eaf8;
+  --color-cream-100: #f0e0c3;
+  --color-cream-50: #f8f2e8;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7380;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* 站点近黑墨色（文字级，区别于纯黑 --color-black） */
+  --color-ink: #020303;
+  /* 深墨色标题（第二批：slate-900 归入 ink 族，值与原 slate-900 相同） */
+  --color-ink-900: #0f172a;
+
+  /* 蓝灰辅助色（第二批：slate-500 保原值，色相与 gray 系不同） */
+  --color-slate-500: #64748b;
+  /* 极深蓝黑（第二批：slate-950 保原值，无 gray 对应档位） */
+  --color-slate-950: #020617;
+
   /* iShine 主题紫（参照首页 --blue: #563cfa） */
-  --primary-color: #563cfa;
+  --primary-color: var(--color-primary);
   --color-black: #000000;
   --color-white: #FFFFFF;
   --border-color: #E5E5E5;
   --text-color: #333333;
   --lighter-text-color: #666666;
-  --section-bg: #F9FAFB;
+  --section-bg: var(--color-gray-50);
 
-  --blog-author-name-color: #111827;
-  --blog-author-body-color: #374151;
+  --blog-author-name-color: var(--color-gray-900);
+  --blog-author-body-color: var(--color-gray-700);
   --blog-author-role-text-color: #6b7280;
-  --blog-author-role-bg-color: #f3f4f6;
+  --blog-author-role-bg-color: var(--color-gray-100);
   --blog-share-bg-color: #f7f7f7;
   --blog-share-icon-color: #5c5c5c;
-  --blog-nav-link-color: #9ca3af;
+  --blog-nav-link-color: var(--color-gray-400);
   --blog-all-articles-text-color: #334155;
-  --blog-all-articles-border-color: #e5e7eb;
+  --blog-all-articles-border-color: var(--color-gray-200);
   --blog-nav-hover-color: #0f172a;
 
   --divider-color: #eeeeee;
 
-  /* Develo design tokens */
-  --develo-primary: #563cfa;
-  --develo-black: #020303;
-  --develo-white: #ffffff;
+  /* ── 版心层级（3.1 版心统一）──────────────────────
+     页面级：Header / Footer / Hero / 博客列表 / 关于页 全宽容器
+     内容级：section 主体（= tailwind max-w-6xl）          */
+  --max-w-page: 1843px;
+  --max-w-content: 1382px;
+
+  /* Develo design tokens（收口对齐统一令牌） */
+  --develo-primary: var(--color-primary);
+  --develo-black: var(--color-ink);
+  --develo-white: var(--color-white);
 }
 
 html,

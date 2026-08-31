@@ -66,7 +66,7 @@ const {
     position: relative;
     min-height: 660px;
     overflow: hidden;
-    background-color: #f8f2e8;
+    background-color: var(--color-cream-50);
   }
 
   .hero-bg {
@@ -97,7 +97,7 @@ const {
     z-index: 1;
     display: flex;
     align-items: center;
-    max-width: 1280px;
+    max-width: var(--max-w-page, 1843px);
     margin: 0 auto;
     padding: 0 100px;
     min-height: 660px;
@@ -114,7 +114,7 @@ const {
     font-family: Manrope, sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #563cfa;
+    color: var(--color-primary);
     letter-spacing: 0.08px;
     margin-bottom: 24px;
     padding: 6px 16px;
@@ -128,7 +128,7 @@ const {
     font-weight: 400;
     line-height: 68px;
     letter-spacing: -0.61px;
-    color: #020303;
+    color: var(--color-ink);
     margin: 0;
     max-width: 680px;
   }
@@ -138,7 +138,7 @@ const {
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
-    color: #4b5563;
+    color: var(--color-gray-600);
     margin-top: 20px;
     max-width: 560px;
   }
@@ -165,8 +165,8 @@ const {
   }
 
   .hero-btn-primary {
-    background-color: #563cfa;
-    color: #ffffff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
   }
 
   .hero-btn-primary:hover {
@@ -175,13 +175,13 @@ const {
 
   .hero-btn-secondary {
     background-color: transparent;
-    color: #020303;
-    border: 1px solid #d1d5db;
+    color: var(--color-ink);
+    border: 1px solid var(--color-gray-300);
   }
 
   .hero-btn-secondary:hover {
-    border-color: #563cfa;
-    color: #563cfa;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   /* ── Responsive ── */

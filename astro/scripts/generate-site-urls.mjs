@@ -12,6 +12,10 @@ const REPO_ROOT = path.resolve(ASTRO_ROOT, '..');
 
 const LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
 
+// 目录名（readdir 用，大小写敏感）↔ URL path 前缀（小写，Netlify Linux 友好）
+const URL_PATH_BY_DIR = { 'pt-BR': 'pt-br', 'pt-PT': 'pt-pt' };
+const urlPrefix = (locale) => (locale === 'en' ? '' : `/${URL_PATH_BY_DIR[locale] || locale}`);
+
 // 与 src/pages/sitemap.xml.ts 的 staticPaths 保持一致
 const STATIC_PATHS = [
   '',
@@ -107,7 +111,7 @@ const base = 'https://iplmanufacturer.com';
 const lines = [];
 
 for (const locale of LOCALES) {
-  const prefix = locale === 'en' ? '' : `/${locale}`;
+  const prefix = urlPrefix(locale);
   for (const p of STATIC_PATHS) {
     lines.push(`${base}${prefix}${p}`);
   }

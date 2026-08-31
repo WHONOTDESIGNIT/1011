@@ -22,23 +22,23 @@ const ancestorClass = variant === 'dark'
 
 const currentClass = variant === 'dark'
   ? 'font-semibold text-white/95'
-  : 'font-semibold text-slate-900';
+  : 'font-semibold text-ink-900';
 
 const separatorClass = variant === 'dark'
   ? 'mx-2 text-white/30'
-  : 'mx-2 text-slate-300';
+  : 'mx-2 text-neutral-300';
 
 const mobileButtonClass = variant === 'dark'
   ? 'flex w-full items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white/80 backdrop-blur'
-  : 'flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm';
+  : 'flex w-full items-center justify-between gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-600 shadow-sm';
 
 const panelClass = variant === 'dark'
   ? 'rounded-2xl border border-white/10 bg-slate-950 p-5 text-white shadow-2xl backdrop-blur'
-  : 'rounded-2xl border border-slate-200 bg-white p-5 text-slate-900 shadow-2xl';
+  : 'rounded-2xl border border-neutral-200 bg-white p-5 text-ink-900 shadow-2xl';
 
 const subLinkClass = variant === 'dark'
   ? 'block rounded-xl px-3 py-2.5 text-sm text-white/80 transition hover:bg-white/10 hover:text-white'
-  : 'block rounded-xl px-3 py-2.5 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900';
+  : 'block rounded-xl px-3 py-2.5 text-sm text-neutral-600 transition hover:bg-neutral-50 hover:text-ink-900';
 ---
 
 <nav aria-label={t(locale, 'common.breadcrumb')} data-bc-root={id} class={`${className}`.trim()}>
@@ -76,7 +76,7 @@ const subLinkClass = variant === 'dark'
       <div class={`w-full max-w-sm ${panelClass}`.trim()}>
         <div class="mb-4 flex items-center justify-between">
           <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'common.breadcrumb')}</span>
-          <button type="button" data-bc-close={id} class={variant === 'dark' ? 'rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-white' : 'rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700'}>
+          <button type="button" data-bc-close={id} class={variant === 'dark' ? 'rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-white' : 'rounded-lg bg-neutral-100 px-3 py-1.5 text-sm font-medium text-neutral-700'}>
             {t(locale, 'common.close')}
           </button>
         </div>
@@ -88,7 +88,7 @@ const subLinkClass = variant === 'dark'
                 <a href={item.href} class={subLinkClass}>{item.label}</a>
               )
               : (
-                <div class={variant === 'dark' ? 'rounded-xl bg-white/10 px-3 py-2.5 text-sm font-semibold text-white' : 'rounded-xl bg-slate-900 px-3 py-2.5 text-sm font-semibold text-white'}>
+                <div class={variant === 'dark' ? 'rounded-xl bg-white/10 px-3 py-2.5 text-sm font-semibold text-white' : 'rounded-xl bg-ink-900 px-3 py-2.5 text-sm font-semibold text-white'}>
                   {item.label}
                 </div>
               )
@@ -97,7 +97,7 @@ const subLinkClass = variant === 'dark'
 
         {subNavigation.length
           ? (
-            <div class="mt-5 border-t border-slate-200 pt-4">
+            <div class="mt-5 border-t border-neutral-200 pt-4">
               <span class="mb-3 block px-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 {t(locale, 'common.explore')}
               </span>
@@ -114,50 +114,48 @@ const subLinkClass = variant === 'dark'
   </div>
 
   <script is:inline>
-    {`
-      (() => {
-        var root = document.querySelector('[data-bc-root="${id}"]');
-        if (!root) return;
-        var trigger = root.querySelector('[data-bc-trigger="${id}"]');
-        var overlay = root.querySelector('[data-bc-overlay="${id}"]');
-        var backdrop = root.querySelector('[data-bc-backdrop="${id}"]');
-        var close = root.querySelector('[data-bc-close="${id}"]');
-        if (!trigger || !overlay) return;
+    (() => {
+      var root = document.currentScript && document.currentScript.closest('[data-bc-root]');
+      if (!root) return;
+      var trigger = root.querySelector('[data-bc-trigger]');
+      var overlay = root.querySelector('[data-bc-overlay]');
+      var backdrop = root.querySelector('[data-bc-backdrop]');
+      var close = root.querySelector('[data-bc-close]');
+      if (!trigger || !overlay) return;
 
-        function open() {
-          overlay.classList.remove('hidden');
-          overlay.setAttribute('aria-hidden', 'false');
-          trigger.setAttribute('aria-expanded', 'true');
-          document.documentElement.style.overflow = 'hidden';
-        }
+      function open() {
+        overlay.classList.remove('hidden');
+        overlay.setAttribute('aria-hidden', 'false');
+        trigger.setAttribute('aria-expanded', 'true');
+        document.documentElement.style.overflow = 'hidden';
+      }
 
-        function hide() {
-          overlay.classList.add('hidden');
-          overlay.setAttribute('aria-hidden', 'true');
-          trigger.setAttribute('aria-expanded', 'false');
-          document.documentElement.style.overflow = '';
-        }
+      function hide() {
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        trigger.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+      }
 
-        trigger.addEventListener('click', function () {
-          var open_ = overlay.getAttribute('aria-hidden') === 'false';
-          if (open_) hide(); else open();
-        });
-        if (close) close.addEventListener('click', hide);
-        if (backdrop) backdrop.addEventListener('click', hide);
-        document.addEventListener('keydown', function (e) {
-          if (e.key !== 'Escape') return;
-          if (overlay.getAttribute('aria-hidden') !== 'false') return;
-          hide();
-        });
-      })();
-    `}
+      trigger.addEventListener('click', function () {
+        var open_ = overlay.getAttribute('aria-hidden') === 'false';
+        if (open_) hide(); else open();
+      });
+      if (close) close.addEventListener('click', hide);
+      if (backdrop) backdrop.addEventListener('click', hide);
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (overlay.getAttribute('aria-hidden') !== 'false') return;
+        hide();
+      });
+    })();
   </script>
 </nav>
 <style>
   .bc-ancestor {
-    color: #4b5563 !important;
+    color: var(--color-gray-600) !important;
   }
   .bc-ancestor:hover {
-    color: #1e293b !important;
+    color: var(--color-gray-800) !important;
   }
 </style>

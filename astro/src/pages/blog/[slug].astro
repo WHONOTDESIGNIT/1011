@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleVote from '../../components/ArticleVote.astro';
+import MdxImage from '../../components/MdxImage.astro';
 import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, postHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
@@ -85,6 +86,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
+const hreflangEntries = translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }));
 const blogImageWidths = [400, 800, 1200];
 const articleHeroImage = post.meta.image
   ? {
@@ -93,6 +95,7 @@ const articleHeroImage = post.meta.image
       avifSrcSet: buildSrcSet(post.meta.image, blogImageWidths, 'avif'),
     }
   : null;
+const articleImageUrl = post.meta.image ? new URL(post.meta.image, `${resolveBaseUrl()}/`).href : undefined;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -108,21 +111,26 @@ const breadcrumbSchema = {
 const webPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
+  '@id': canonical,
   name: pageTitle,
   description: pageDescription,
   url: canonical,
   inLanguage: locale,
+  isPartOf: {
+    '@id': 'https://iplmanufacturer.com/#website',
+  },
 };
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': canonical + '#article',
+  identifier: post.meta.translationKey,
   headline: post.meta.title,
   description: pageDescription,
   url: canonical,
   datePublished: post.meta.date || undefined,
-  dateModified: post.meta.date || undefined,
+  dateModified: post.meta.updatedDate || post.meta.date || undefined,
   author: {
     '@type': 'Person',
     name: post.meta.author || 'iShine Team',
@@ -132,22 +140,49 @@ const articleSchema = {
     '@type': 'Organization',
     '@id': 'https://iplmanufacturer.com/#organization',
     name: 'iShine Technology Ltd',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${resolveBaseUrl()}/images/logos/ishine-logo.webp`,
+      width: 444,
+      height: 160,
+    },
   },
-  ...(post.meta.image ? { image: post.meta.image } : {}),
+  ...(articleImageUrl ? { image: articleImageUrl } : {}),
   ...(post.meta.category ? { articleSection: post.meta.category } : {}),
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonical,
   },
   inLanguage: locale,
+  isPartOf: {
+    '@id': 'https://iplmanufacturer.com/#website',
+  },
 };
+
+const faqSchema = post.faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': canonical + '#faq',
+      inLanguage: locale,
+      mainEntity: post.faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }))}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={hreflangEntries}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema ? <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} /> : null}
   </Fragment>
 
   <article class="mx-auto max-w-5xl space-y-42">
@@ -155,18 +190,18 @@ const articleSchema = {
       <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
 
       <div class="space-y-2">
-        <div class="flex flex-wrap items-center gap-3 text-sm text-slate-600">
+        <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-600">
           {post.meta.category
-            ? <span class="rounded-2xl border border-slate-200 bg-white px-3 py-1 font-medium text-slate-700">{post.meta.category}</span>
+            ? <span class="rounded-2xl border border-neutral-200 bg-white px-3 py-1 font-medium text-neutral-700">{post.meta.category}</span>
             : null}
         </div>
         <h1 class="text-4xl font-bold text-slate-950 md:text-5xl lg:text-6xl">{post.meta.title}</h1>
         {pageDescription
-          ? <p class="max-w-3xl text-lg leading-relaxed text-slate-600">{pageDescription}</p>
+          ? <p class="max-w-3xl text-lg leading-relaxed text-neutral-600">{pageDescription}</p>
           : null}
       </div>
 
-      <div class="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-6 text-sm text-slate-500">
+      <div class="flex flex-wrap items-center gap-4 border-b border-neutral-200 pb-6 text-sm text-slate-500">
         <div class="flex items-center gap-3">
           {post.meta.authorAvatar
             ? (
@@ -178,30 +213,30 @@ const articleSchema = {
               />
             )
             : (
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-500">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-neutral-100 text-sm font-semibold text-slate-500">
                 {(post.meta.author || 'I').slice(0, 1)}
               </span>
             )}
           <div class="leading-tight">
-            <span class="block text-xs uppercase tracking-[0.18em] text-slate-400">{t(locale, 'blog.post.authorLabel')}</span>
-            <span class="block font-semibold text-slate-800">{post.meta.author}</span>
+            <span class="block text-xs uppercase tracking-[0.18em] text-neutral-400">{t(locale, 'blog.post.authorLabel')}</span>
+            <span class="block font-semibold text-neutral-800">{post.meta.author}</span>
           </div>
         </div>
         {post.meta.date ? <time class="ml-auto">{post.meta.date}</time> : null}
       </div>
     </header>
 
-    <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">{t(locale, 'blog.post.citableEyebrow')}</h2>
-      <h3 class="mt-2 text-2xl font-bold text-slate-900">{t(locale, 'blog.post.citableQuestion')}</h3>
-      <p class="mt-4 text-lg leading-relaxed text-slate-700">
+    <section class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'blog.post.citableEyebrow')}</h2>
+      <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'blog.post.citableQuestion')}</h3>
+      <p class="mt-4 text-lg leading-relaxed text-neutral-700">
         {t(locale, 'blog.post.citableBody').replace('{title}', post.meta.title)}
       </p>
     </section>
 
     {post.meta.image
       ? (
-        <figure class="-mx-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm sm:mx-0">
+        <figure class="-mx-4 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 shadow-sm sm:mx-0">
           <div class="aspect-[16/9]">
             <picture>
               <source srcset={articleHeroImage.avifSrcSet} sizes="(max-width: 1024px) 100vw, 1200px" type="image/avif" />
@@ -226,23 +261,23 @@ const articleSchema = {
 
     <div class="mx-auto max-w-3xl">
       <div class="blog-content">
-        <Content />
+        <Content components={{ img: MdxImage }} />
       </div>
 
       {post.faqs.length
         ? (
           <section class="mt-12">
-            <h2 class="text-2xl font-bold text-slate-900">{t(locale, 'blog.post.faqTitle')}</h2>
+            <h2 class="text-2xl font-bold text-ink-900">{t(locale, 'blog.post.faqTitle')}</h2>
             <div class="mt-6 space-y-3">
               {post.faqs.map((item) => (
-                <details class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition open:border-slate-300">
-                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-800">
-                    <span>{item.q}</span>
-                    <svg class="h-5 w-5 flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <details class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition open:border-neutral-300">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-neutral-800">
+                    <span>{item.question}</span>
+                    <svg class="h-5 w-5 flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                       <path d="M10 4v12M4 10h12" />
                     </svg>
                   </summary>
-                  <p class="border-t border-slate-100 px-5 py-4 leading-relaxed text-slate-600">{item.a}</p>
+                  <p class="border-t border-neutral-100 px-5 py-4 leading-relaxed text-neutral-600">{item.answer}</p>
                 </details>
               ))}
             </div>
@@ -254,10 +289,10 @@ const articleSchema = {
         <div class="mx-auto max-w-xl text-center">
           <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'blog.post.ctaTitle')}</p>
           <h2 class="mt-3 text-2xl font-bold">{t(locale, 'blog.post.ctaHeading')}</h2>
-          <p class="mt-4 text-sm leading-relaxed text-slate-300">{t(locale, 'blog.post.ctaDescription')}</p>
+          <p class="mt-4 text-sm leading-relaxed text-neutral-300">{t(locale, 'blog.post.ctaDescription')}</p>
           <div class="mt-6 flex flex-wrap justify-center gap-3">
             <a
-              class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+              class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100"
               href={getLocalizedPath(locale, '/contact')}
             >
               {t(locale, 'blog.post.ctaPrimary')}
@@ -272,19 +307,19 @@ const articleSchema = {
         </div>
       </div>
 
-      <ArticleVote slug={post.meta.canonicalSlug} lang={locale} />
+      <ArticleVote slug={post.meta.translationKey} lang={locale} />
     </div>
 
     {related.length
       ? (
         <section class="space-y-8">
-          <div class="flex items-end justify-between gap-4 border-b border-slate-200 pb-6">
+          <div class="flex items-end justify-between gap-4 border-b border-neutral-200 pb-6">
             <div>
               <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">{t(locale, 'blog.post.relatedTitle')}</p>
-              <h2 class="mt-1 text-2xl font-bold text-slate-900">{t(locale, 'blog.post.continueReadingTitle')}</h2>
+              <h2 class="mt-1 text-2xl font-bold text-ink-900">{t(locale, 'blog.post.continueReadingTitle')}</h2>
             </div>
             <a
-              class="hidden flex-shrink-0 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 md:inline-flex"
+              class="hidden flex-shrink-0 rounded-2xl border border-neutral-200 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 transition hover:border-neutral-300 hover:bg-neutral-50 md:inline-flex"
               href={getLocalizedPath(locale, '/blog#blog-archive')}
             >
               {t(locale, 'blog.post.viewAllArticles')}
@@ -293,12 +328,12 @@ const articleSchema = {
           <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {related.map((p) => (
               <a
-                class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 href={p.href}
               >
                 {p.image
                   ? (
-                    <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+                    <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
                       <picture>
                         <source srcset={buildSrcSet(p.image, blogImageWidths, 'avif')} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/avif" />
                         <source srcset={buildSrcSet(p.image, blogImageWidths, 'webp')} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/webp" />
@@ -317,8 +352,8 @@ const articleSchema = {
                     </div>
                   )
                   : (
-                    <div class="flex aspect-[16/10] items-end bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-                      <span class="rounded-2xl bg-white/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                    <div class="flex aspect-[16/10] items-end bg-gradient-to-br from-neutral-50 to-neutral-100 p-6">
+                      <span class="rounded-2xl bg-white/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-neutral-400">
                         {t(locale, 'blog.common.noImage')}
                       </span>
                     </div>
@@ -326,11 +361,11 @@ const articleSchema = {
                 <div class="space-y-3 p-5">
                   <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
                     {p.category
-                      ? <span class="rounded-2xl bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600">{p.category}</span>
+                      ? <span class="rounded-2xl bg-neutral-100 px-2.5 py-0.5 font-medium text-neutral-600">{p.category}</span>
                       : null}
                   </div>
-                  <h3 class="text-lg font-semibold leading-snug text-slate-900">{p.title}</h3>
-                  <p class="text-sm leading-relaxed text-slate-600">{p.excerpt}</p>
+                  <h3 class="text-lg font-semibold leading-snug text-ink-900">{p.title}</h3>
+                  <p class="text-sm leading-relaxed text-neutral-600">{p.excerpt}</p>
                   <span class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 transition group-hover:gap-2">
                     {t(locale, 'blog.post.relatedCta')}
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>

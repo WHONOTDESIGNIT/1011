@@ -108,23 +108,23 @@ export default function MediaLibrary() {
 
   return (
     <section className="space-y-6">
-      <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-2xl font-semibold text-slate-900">Image Library</h2>
-          <p className="mt-2 text-sm text-slate-600">
+          <h2 className="text-2xl font-semibold text-ink-900">Image Library</h2>
+          <p className="mt-2 text-sm text-neutral-600">
             Preview uploaded blob images, open the asset directly, and copy the public link in one click.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <input
-            className="min-w-[240px] rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-sky-500"
+            className="min-w-[240px] rounded-full border border-neutral-300 px-4 py-2 text-sm text-ink-900 outline-none ring-0 transition focus:border-sky-500"
             placeholder="Search filename or key"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
           <button
             type="button"
-            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+            className="rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 transition hover:border-neutral-400 hover:text-ink-900"
             onClick={() => void loadImages()}
           >
             Refresh
@@ -132,10 +132,10 @@ export default function MediaLibrary() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-neutral-600">
         <span>{loading ? 'Loading images...' : `${filteredItems.length} image${filteredItems.length === 1 ? '' : 's'}`}</span>
         <a
-          className="rounded-full border border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+          className="rounded-full border border-neutral-300 bg-white px-4 py-2 font-medium text-neutral-700 transition hover:border-neutral-400 hover:text-ink-900"
           href="/.netlify/functions/list-images"
           target="_blank"
           rel="noreferrer"
@@ -153,12 +153,12 @@ export default function MediaLibrary() {
       {loading ? (
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="aspect-[4/3] animate-pulse bg-slate-100" />
+            <div key={index} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+              <div className="aspect-[4/3] animate-pulse bg-neutral-100" />
               <div className="space-y-3 p-5">
-                <div className="h-4 w-2/3 animate-pulse rounded bg-slate-100" />
-                <div className="h-3 w-full animate-pulse rounded bg-slate-100" />
-                <div className="h-3 w-1/2 animate-pulse rounded bg-slate-100" />
+                <div className="h-4 w-2/3 animate-pulse rounded bg-neutral-100" />
+                <div className="h-3 w-full animate-pulse rounded bg-neutral-100" />
+                <div className="h-3 w-1/2 animate-pulse rounded bg-neutral-100" />
               </div>
             </div>
           ))}
@@ -166,7 +166,7 @@ export default function MediaLibrary() {
       ) : null}
 
       {!loading && !filteredItems.length ? (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-sm text-slate-600">
+        <div className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50 px-6 py-10 text-center text-sm text-neutral-600">
           No images found. Upload an asset first or adjust your search keyword.
         </div>
       ) : null}
@@ -177,8 +177,8 @@ export default function MediaLibrary() {
             const absoluteUrl = origin ? new URL(item.url, origin).toString() : item.url;
 
             return (
-              <article key={item.key} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <a className="block aspect-[4/3] overflow-hidden bg-slate-100" href={item.url} target="_blank" rel="noreferrer">
+              <article key={item.key} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+                <a className="block aspect-[4/3] overflow-hidden bg-neutral-100" href={item.url} target="_blank" rel="noreferrer">
                   <img
                     src={item.url}
                     alt={item.filename}
@@ -190,45 +190,45 @@ export default function MediaLibrary() {
 
                 <div className="space-y-4 p-5">
                   <div>
-                    <h3 className="line-clamp-1 text-base font-semibold text-slate-900">{item.filename}</h3>
+                    <h3 className="line-clamp-1 text-base font-semibold text-ink-900">{item.filename}</h3>
                     <p className="mt-1 line-clamp-2 text-xs text-slate-500">{item.key}</p>
                   </div>
 
-                  <dl className="grid grid-cols-3 gap-3 text-xs text-slate-600">
-                    <div className="rounded-xl bg-slate-50 p-3">
+                  <dl className="grid grid-cols-3 gap-3 text-xs text-neutral-600">
+                    <div className="rounded-xl bg-neutral-50 p-3">
                       <dt className="font-medium text-slate-500">Type</dt>
-                      <dd className="mt-1 break-all text-slate-700">{item.contentType}</dd>
+                      <dd className="mt-1 break-all text-neutral-700">{item.contentType}</dd>
                     </div>
-                    <div className="rounded-xl bg-slate-50 p-3">
+                    <div className="rounded-xl bg-neutral-50 p-3">
                       <dt className="font-medium text-slate-500">Size</dt>
-                      <dd className="mt-1 text-slate-700">{formatFileSize(item.fileSize)}</dd>
+                      <dd className="mt-1 text-neutral-700">{formatFileSize(item.fileSize)}</dd>
                     </div>
-                    <div className="rounded-xl bg-slate-50 p-3">
+                    <div className="rounded-xl bg-neutral-50 p-3">
                       <dt className="font-medium text-slate-500">Dimensions</dt>
-                      <dd className="mt-1 text-slate-700">{dimensions[item.key] || 'Loading...'}</dd>
+                      <dd className="mt-1 text-neutral-700">{dimensions[item.key] || 'Loading...'}</dd>
                     </div>
                   </dl>
 
-                  <div className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600">
+                  <div className="rounded-xl bg-neutral-50 p-3 text-xs text-neutral-600">
                     <div className="font-medium text-slate-500">Uploaded</div>
                     <div className="mt-1">{formatUploadTime(item.uploadTime)}</div>
                   </div>
 
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                  <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-3">
                     <div className="text-xs font-medium text-slate-500">Public URL</div>
-                    <code className="mt-2 block break-all text-xs text-slate-700">{absoluteUrl}</code>
+                    <code className="mt-2 block break-all text-xs text-neutral-700">{absoluteUrl}</code>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
                     <button
                       type="button"
-                      className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+                      className="rounded-full bg-ink-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800"
                       onClick={() => void copyLink(item)}
                     >
                       {copiedKey === item.key ? 'Copied' : 'Copy Link'}
                     </button>
                     <a
-                      className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                      className="rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 transition hover:border-neutral-400 hover:text-ink-900"
                       href={item.url}
                       target="_blank"
                       rel="noreferrer"

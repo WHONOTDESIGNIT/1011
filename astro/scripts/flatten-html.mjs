@@ -133,6 +133,13 @@ function buildRedirects(dist) {
   // 且平台对未命中规则的路径返回 text/plain 301 自指循环而非 404。
   // 因此将 /en/* 与 404 兜底一并写入 _redirects（文件优先级最高、必然生效）。
   rules.push('/en/* /:splat 301!');
+  // 兼容旧链接：pt-BR / pt-PT 旧大写 URL path → 小写（2026-08-31 三层映射迁移）。
+  // 旧 /pt-BR/、/pt-PT/ 前缀的链接（搜索引擎已收录、外链、书签）301 到新小写路径，
+  // 避免落入下方 404 兜底。精确规则在通配规则之后仍会命中（Netlify 自上而下首条匹配）。
+  rules.push('/pt-BR/:splat /pt-br/:splat 301!');
+  rules.push('/pt-BR /pt-br 301!');
+  rules.push('/pt-PT/:splat /pt-pt/:splat 301!');
+  rules.push('/pt-PT /pt-pt 301!');
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
   // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
   // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
