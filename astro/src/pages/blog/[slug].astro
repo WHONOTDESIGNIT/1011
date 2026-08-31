@@ -95,7 +95,13 @@ const articleHeroImage = post.meta.image
       avifSrcSet: buildSrcSet(post.meta.image, blogImageWidths, 'avif'),
     }
   : null;
-const articleImageUrl = post.meta.image ? new URL(post.meta.image, `${resolveBaseUrl()}/`).href : undefined;
+// Article 主图（3.3 补齐）：始终输出绝对 URL。
+// 有 frontmatter 图 → 走 Netlify Image CDN 规范 1200w（满足 Google Article 富媒体 ≥1200px 要求）；
+// 无图 → 回退全站默认 OG 图（1200×630，16:9）。与 SeoHead 的 og:image 兜底保持一致。
+const DEFAULT_OG_IMAGE_PATH = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
+const articleImageUrl = post.meta.image
+  ? new URL(netlifyImage(post.meta.image, 1200, 'webp'), `${resolveBaseUrl()}/`).href
+  : new URL(`/.netlify/images?url=${encodeURIComponent(DEFAULT_OG_IMAGE_PATH)}&w=1200&h=630&fit=cover&fm=png`, `${resolveBaseUrl()}/`).href;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -134,6 +140,8 @@ const articleSchema = {
   author: {
     '@type': 'Person',
     name: post.meta.author || 'iShine Team',
+    // 3.3 补齐：作者链接指向团队/关于页（站内无独立作者页，统一指向 /about）
+    url: `${resolveBaseUrl()}/about`,
     ...(post.meta.authorAvatar ? { image: post.meta.authorAvatar } : {}),
   },
   publisher: {
@@ -147,7 +155,7 @@ const articleSchema = {
       height: 160,
     },
   },
-  ...(articleImageUrl ? { image: articleImageUrl } : {}),
+  image: articleImageUrl,
   ...(post.meta.category ? { articleSection: post.meta.category } : {}),
   mainEntityOfPage: {
     '@type': 'WebPage',
