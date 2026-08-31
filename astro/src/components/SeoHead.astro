@@ -28,7 +28,12 @@ function organizationJsonLd(lang: string) {
     foundingDate: '2008',
     address: {
       '@type': 'PostalAddress',
+      // 3.3 补齐：地址信息与隐私政策页/各语言 contact 页保持同源，
+      // 消除 RRT 对 PostalAddress 缺失 streetAddress / postalCode 的非严重警告。
+      streetAddress: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street",
       addressLocality: 'Shenzhen',
+      addressRegion: 'Guangdong',
+      postalCode: '518071',
       addressCountry: 'CN',
     },
     contactPoint: {
