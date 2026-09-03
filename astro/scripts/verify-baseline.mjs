@@ -25,9 +25,9 @@ const BASELINE_PATH = path.join(__dirname, 'baseline.json');
 // 构建启用的 22 个 locale（Astro currentLocale 内部 code；目录名 = code.toLowerCase()）
 const BUILD_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
 
-// hreflang 契约 = SeoHead.astro 实际输出的 21 语言 + x-default
-// 注意：ro 暂缺（历史遗留，见 SeoHead.astro 的 pageHreflangs 列表），补齐后需同步更新此契约
-const HREFLANG_CONTRACT = ['en', 'tr', 'ar', 'es-ES', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'pl', 'ja', 'ko', 'id', 'th', 'cs', 'vi', 'de', 'it'];
+// hreflang 契约 = SeoHead.astro 实际输出的 22 语言 + x-default
+// （2026-09-02 补齐 ro：此前 SeoHead 默认组 21 语言历史遗留缺 ro，随按语言拆分 sitemap 一并修复）
+const HREFLANG_CONTRACT = ['en', 'tr', 'ro', 'ar', 'es-ES', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'pl', 'ja', 'ko', 'id', 'th', 'cs', 'vi', 'de', 'it'];
 
 const TOL = {
   htmlTotalDelta: 10,
@@ -69,13 +69,18 @@ function measure() {
   const css = astroFiles.filter((f) => f.name.endsWith('.css'));
   const js = astroFiles.filter((f) => f.name.endsWith('.js'));
 
-  // sitemap：大写 pt URL 必须为 0
-  const sitemapPath = path.join(DIST, 'sitemap.xml');
-  let sitemapUppercase = -1; // -1 = 缺失
-  if (existsSync(sitemapPath)) {
-    const s = readFileSync(sitemapPath, 'utf8');
-    sitemapUppercase = (s.match(/\/pt-BR|\/pt-PT/g) || []).length;
-  }
+  // sitemap：按语言拆分（generate-sitemap.mjs 产物）
+  //   1 个索引（sitemap.xml）+ 22 个语言子文件（sitemap-<urlPath>.xml）
+  //   sitemapUppercase — 全部 sitemap 文件中大写 pt URL 必须为 0（严格）
+  const sitemapFiles = existsSync(DIST)
+    ? readdirSync(DIST).filter((f) => f.startsWith('sitemap') && f.endsWith('.xml')).sort()
+    : [];
+  const sitemapContent = sitemapFiles.map((f) => readFileSync(path.join(DIST, f), 'utf8')).join('\n');
+  const sitemapUppercase = sitemapContent ? (sitemapContent.match(/\/pt-BR|\/pt-PT/g) || []).length : -1; // -1 = 缺失
+  // 索引 loc 数应等于语言数（22：en + 21）
+  const sitemapIndexLocs = existsSync(path.join(DIST, 'sitemap.xml'))
+    ? (readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length
+    : 0;
 
   // _redirects：pt 规则 + 404 兜底
   const redirectsPath = path.join(DIST, '_redirects');
@@ -127,6 +132,8 @@ function measure() {
     maxCssChunk: css.length ? Math.max(...css.map((f) => f.size)) : 0,
     maxJsChunk: js.length ? Math.max(...js.map((f) => f.size)) : 0,
     sitemapUppercase,
+    sitemapFileCount: sitemapFiles.length,
+    sitemapIndexLocs,
     redirectsIntact: redirects.ok,
     redirectsReason: redirects.reason,
     hreflangComplete: hreflang.ok,
@@ -177,7 +184,9 @@ function compare() {
 
   // 严格项
   if (cur.sitemapUppercase === -1) fail('sitemap.xml 缺失');
-  else if (cur.sitemapUppercase === 0) ok('sitemap: 无大写 /pt-BR /pt-PT URL');
+  else if (cur.sitemapFileCount !== 23) fail(`sitemap: 期望 1 索引 + 22 语言子文件，实际 ${cur.sitemapFileCount} 个`);
+  else if (cur.sitemapIndexLocs !== 22) fail(`sitemap: 索引应含 22 个语言 loc，实际 ${cur.sitemapIndexLocs} 个`);
+  else if (cur.sitemapUppercase === 0) ok('sitemap: 1 索引 + 22 语言子文件，无大写 /pt-BR /pt-PT URL');
   else fail(`sitemap: 检测到 ${cur.sitemapUppercase} 处大写 pt URL`);
 
   if (cur.redirectsIntact) ok('_redirects: pt 通配 / 旧大写 301 / 404 兜底完整');

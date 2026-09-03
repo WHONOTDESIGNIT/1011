@@ -52,14 +52,23 @@ for (const rel of ['about/index.html', 'tr/about/index.html']) {
 }
 if (!badStructure) console.log('  ✅ 页面产物均为 .html 格式，无 index.html 目录');
 
-// 2. sitemap.xml
-console.log('\n[2/5] sitemap.xml');
-const sitemap = fs.readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
-const locs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
-const sitemapBad = locs.filter((u) => u !== 'https://iplmanufacturer.com' && /\/$/.test(u));
-console.log(`  sitemap URL 总数: ${locs.length}`);
-if (sitemapBad.length) sitemapBad.slice(0, 10).forEach((u) => fail(`sitemap 带尾斜杠: ${u}`));
-else console.log('  ✅ 所有 <loc> 无结尾斜杠（根路径除外）');
+// 2. sitemap.xml（索引）+ sitemap-*.xml（按语言拆分的子文件）
+console.log('\n[2/5] sitemap（索引 + 22 语言子文件）');
+const sitemapNames = fs.readdirSync(DIST).filter((f) => f.startsWith('sitemap') && f.endsWith('.xml')).sort();
+let sitemapLocTotal = 0;
+let sitemapBad = 0;
+for (const name of sitemapNames) {
+  const xml = fs.readFileSync(path.join(DIST, name), 'utf8');
+  const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
+  sitemapLocTotal += locs.length;
+  const bad = locs.filter((u) => u !== 'https://iplmanufacturer.com' && /\/$/.test(u));
+  if (bad.length) {
+    sitemapBad += bad.length;
+    bad.slice(0, 5).forEach((u) => fail(`${name} 带尾斜杠: ${u}`));
+  }
+}
+console.log(`  sitemap 文件 ${sitemapNames.length} 个（索引 + ${sitemapNames.length - 1} 语言），URL 总数: ${sitemapLocTotal}`);
+if (sitemapBad === 0) console.log('  ✅ 所有 <loc> 无结尾斜杠（根路径除外）');
 
 // 3/4. 遍历所有 HTML
 console.log('\n[3/5] canonical 标签 / [4/5] 站内链接');

@@ -31,16 +31,31 @@ async function main() {
     return;
   }
 
-  if (!fs.existsSync(URL_FILE)) {
-    console.error(`❌ 未找到 ${URL_FILE}，请先在 astro/ 目录执行 node scripts/generate-site-urls.mjs`);
-    return;
+  // URL 清单：优先从 dist 的 sitemap 产物提取（generate-sitemap.mjs 按语言拆分后的权威 loc 全集，
+  // 自动覆盖新增文章/fallback URL），缺失时回退 site-urls.txt（仓库根，generate-site-urls.mjs 生成）
+  const sitemapDir = path.join(ASTRO_ROOT, 'dist');
+  let urls = [];
+  if (fs.existsSync(sitemapDir)) {
+    const sitemapFiles = fs
+      .readdirSync(sitemapDir)
+      .filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'));
+    for (const name of sitemapFiles) {
+      const xml = fs.readFileSync(path.join(sitemapDir, name), 'utf8');
+      for (const m of xml.matchAll(/<loc>(.*?)<\/loc>/g)) urls.push(m[1]);
+    }
   }
-
-  const urls = fs
-    .readFileSync(URL_FILE, 'utf8')
-    .split('\n')
-    .map((s) => s.trim())
-    .filter(Boolean);
+  if (urls.length === 0) {
+    if (!fs.existsSync(URL_FILE)) {
+      console.error(`❌ 未找到 ${URL_FILE}，请先在 astro/ 目录执行 node scripts/generate-site-urls.mjs`);
+      return;
+    }
+    urls = fs
+      .readFileSync(URL_FILE, 'utf8')
+      .split('\n')
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  urls = [...new Set(urls)].sort();
 
   // 附带 sitemap 自身，帮助搜索引擎整站发现
   const urlList = [...urls, `https://${HOST}/sitemap.xml`];

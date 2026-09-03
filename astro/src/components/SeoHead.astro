@@ -25,7 +25,7 @@ function organizationJsonLd(lang: string) {
       height: 160,
     },
     description: SITE_DESCRIPTION,
-    foundingDate: '2008',
+    foundingDate: '2021',
     address: {
       '@type': 'PostalAddress',
       // 3.3 补齐：地址信息与隐私政策页/各语言 contact 页保持同源，
@@ -109,6 +109,7 @@ const absoluteLocaleUrl = (locale: string, path: string) =>
 const canonicalUrl = stripTrailingSlash(canonical || `${absoluteLocaleUrl(lang, basePath)}${Astro.url.search}`);
 const hreflangEn = absoluteLocaleUrl('en', basePath);
 const hreflangTr = absoluteLocaleUrl('tr', basePath);
+const hreflangRo = absoluteLocaleUrl('ro', basePath);
 const hreflangAr = absoluteLocaleUrl('ar', basePath);
 const hreflangEs = absoluteLocaleUrl('es-ES', basePath);
 const hreflangFr = absoluteLocaleUrl('fr', basePath);
@@ -133,6 +134,7 @@ const pageHreflangs = hreflangs?.length
   : [
       { locale: 'en', href: hreflangEn },
       { locale: 'tr', href: hreflangTr },
+      { locale: 'ro', href: hreflangRo },
       { locale: 'ar', href: hreflangAr },
       { locale: 'es-ES', href: hreflangEs },
       { locale: 'fr', href: hreflangFr },
