@@ -18,29 +18,33 @@ export interface LanguageMeta {
 
 const flag = (cc: string) => `https://flagcdn.com/${cc}.svg`;
 
+// 数组顺序 = LanguageSwitcher 弹窗两列的展示顺序（列优先：先左列 11 种，后右列 11 种）。
+// 左列（上→下）：English · Türkçe · עברית · Русский · Română · Polski · Ελληνικά · Italiano · 한국어 · 日本語 · Čeština
+// 右列（上→下）：Deutsch · العربية · Nederlands · Español (España) · Français · Português (Brasil) · Português (Portugal) · Bahasa Indonesia · ไทย · Tiếng Việt · فارسی
+// 若调整或新增语言，请保持「每列语言数一致」并同步 LanguageSwitcher.astro 的 .ls-grid 行数。
 export const LANGUAGE_CONFIG: LanguageMeta[] = [
   { code: "en",    countryCode: "us", label: "English",     nativeName: "English",                flagUrl: flag("us"), enabled: true },
   { code: "tr",    countryCode: "tr", label: "Turkish",     nativeName: "Türkçe",                 flagUrl: flag("tr"), enabled: true },
-  { code: "ro",    countryCode: "ro", label: "Romanian",    nativeName: "Română",                 flagUrl: flag("ro"), enabled: true },
-  { code: "ar",    countryCode: "sa", label: "Arabic",      nativeName: "العربية",                flagUrl: flag("sa"), enabled: true },
   { code: "he",    countryCode: "il", label: "Hebrew",      nativeName: "עברית",                  flagUrl: flag("il"), enabled: true },
-  { code: "fa",    countryCode: "ir", label: "Persian",     nativeName: "فارسی",                  flagUrl: flag("ir"), enabled: true },
+  { code: "ru",    countryCode: "ru", label: "Russian",     nativeName: "Русский",                flagUrl: flag("ru"), enabled: true },
+  { code: "ro",    countryCode: "ro", label: "Romanian",    nativeName: "Română",                 flagUrl: flag("ro"), enabled: true },
+  { code: "pl",    countryCode: "pl", label: "Polish",      nativeName: "Polski",                 flagUrl: flag("pl"), enabled: true },
   { code: "el",    countryCode: "gr", label: "Greek",       nativeName: "Ελληνικά",               flagUrl: flag("gr"), enabled: true },
-  { code: "fr",    countryCode: "fr", label: "French",      nativeName: "Français",               flagUrl: flag("fr"), enabled: true },
+  { code: "it",    countryCode: "it", label: "Italian",     nativeName: "Italiano",               flagUrl: flag("it"), enabled: true },
+  { code: "ko",    countryCode: "kr", label: "Korean",      nativeName: "한국어",                  flagUrl: flag("kr"), enabled: true },
+  { code: "ja",    countryCode: "jp", label: "Japanese",    nativeName: "日本語",                  flagUrl: flag("jp"), enabled: true },
+  { code: "cs",    countryCode: "cz", label: "Czech",       nativeName: "Čeština",                flagUrl: flag("cz"), enabled: true },
+  { code: "de",    countryCode: "de", label: "German",      nativeName: "Deutsch",                flagUrl: flag("de"), enabled: true },
+  { code: "ar",    countryCode: "sa", label: "Arabic",      nativeName: "العربية",                flagUrl: flag("sa"), enabled: true },
   { code: "nl",    countryCode: "nl", label: "Dutch",       nativeName: "Nederlands",             flagUrl: flag("nl"), enabled: true },
+  { code: "es-ES", countryCode: "es", label: "Spanish (Spain)", nativeName: "Español (España)", flagUrl: flag("es"), enabled: true },
+  { code: "fr",    countryCode: "fr", label: "French",      nativeName: "Français",               flagUrl: flag("fr"), enabled: true },
   { code: "pt-BR", countryCode: "br", label: "Portuguese (Brazil)", nativeName: "Português (Brasil)", flagUrl: flag("br"), enabled: true },
   { code: "pt-PT", countryCode: "pt", label: "Portuguese (Portugal)", nativeName: "Português (Portugal)", flagUrl: flag("pt"), enabled: true },
   { code: "id",    countryCode: "id", label: "Indonesian",  nativeName: "Bahasa Indonesia",       flagUrl: flag("id"), enabled: true },
   { code: "th",    countryCode: "th", label: "Thai",        nativeName: "ไทย",                    flagUrl: flag("th"), enabled: true },
-  { code: "ko",    countryCode: "kr", label: "Korean",      nativeName: "한국어",                  flagUrl: flag("kr"), enabled: true },
-  { code: "ja",    countryCode: "jp", label: "Japanese",    nativeName: "日本語",                  flagUrl: flag("jp"), enabled: true },
-  { code: "it",    countryCode: "it", label: "Italian",     nativeName: "Italiano",               flagUrl: flag("it"), enabled: true },
-  { code: "ru",    countryCode: "ru", label: "Russian",     nativeName: "Русский",                flagUrl: flag("ru"), enabled: true },
-  { code: "es-ES", countryCode: "es", label: "Spanish (Spain)", nativeName: "Español (España)", flagUrl: flag("es"), enabled: true },
-  { code: "pl",    countryCode: "pl", label: "Polish",      nativeName: "Polski",                 flagUrl: flag("pl"), enabled: true },
-  { code: "cs",    countryCode: "cz", label: "Czech",       nativeName: "Čeština",                flagUrl: flag("cz"), enabled: true },
   { code: "vi",    countryCode: "vn", label: "Vietnamese",  nativeName: "Tiếng Việt",             flagUrl: flag("vn"), enabled: true },
-  { code: "de",    countryCode: "de", label: "German",      nativeName: "Deutsch",                flagUrl: flag("de"), enabled: true },
+  { code: "fa",    countryCode: "ir", label: "Persian",     nativeName: "فارسی",                  flagUrl: flag("ir"), enabled: true },
 ];
 
 // 国家/地区 → 语言 映射（Edge Function 地理检测用）
