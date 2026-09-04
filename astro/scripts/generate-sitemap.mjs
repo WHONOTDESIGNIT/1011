@@ -41,6 +41,15 @@ function escapeXml(value) {
     .replaceAll("'", '&apos;');
 }
 
+function extractCanonical(html) {
+  const m = html.match(/<link rel="canonical"[^>]*href="([^"]+)"/);
+  return m ? m[1] : null;
+}
+
+function normalizeAbsoluteUrl(value) {
+  return String(value).split('#')[0].split('?')[0].replace(/\/+$/, '');
+}
+
 // 从页面 head 提取同内容各语言版本（与 SeoHead 输出逐字一致，跳过 x-default）
 function extractHreflangs(html) {
   const out = [];
@@ -77,9 +86,9 @@ function main() {
 
   // 1) 文件 → { 语言组, URL }
   const groups = {}; // lang -> [{ url, alternates }]
-  const add = (lang, url, html) => {
+  const add = (lang, url, alternates) => {
     if (!groups[lang]) groups[lang] = [];
-    groups[lang].push({ url, alternates: extractHreflangs(html) });
+    groups[lang].push({ url, alternates });
   };
 
   let skipped = 0;
@@ -90,6 +99,12 @@ function main() {
     const dirs = parts.slice(0, -1);
     if (stem === '404') { skipped++; continue; }
     const html = readFileSync(f.full, 'utf8');
+    const canonical = extractCanonical(html);
+    const alternates = extractHreflangs(html);
+    if (!canonical || alternates.length === 0) {
+      skipped++;
+      continue;
+    }
 
     let lang;
     let url;
@@ -116,8 +131,15 @@ function main() {
       console.error(`❌ 重复 URL 产物: ${url}（${f.rel}）`);
       process.exit(1);
     }
+
+    const expectedLoc = url === '/' ? base : `${base}${url}`;
+    if (normalizeAbsoluteUrl(canonical) !== normalizeAbsoluteUrl(expectedLoc)) {
+      skipped++;
+      continue;
+    }
+
     allUrls.add(url);
-    add(lang, url, html);
+    add(lang, url, alternates);
   }
 
   // 2) 组内按 URL 排序并渲染子文件
