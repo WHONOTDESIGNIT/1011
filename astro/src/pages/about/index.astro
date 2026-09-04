@@ -24,13 +24,15 @@ const values = [
 ];
 
 const pageTitle = t(locale, 'aboutPages.overview.title');
+// EN SEO 富化标题（仅 meta title，H1/导航/面包屑仍用 pageTitle 共享文案；其他语言走 buildFinalTitle 自动补尾）
+const seoTitle = locale === 'en' ? 'About iShine | Professional IPL Device Manufacturer' : pageTitle;
 const pageDescription = t(locale, 'aboutPages.overview.description');
 const aboutFacilityImage = responsiveImageSources(
   'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
 );
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
+<BaseLayout title={seoTitle} lang={locale} description={pageDescription}>
   <style is:inline>
     /* ═══ iShine About — Develo Design 风格（对齐 develo-blog.astro） ═══ */
     .about-page{background:var(--color-white);color:var(--color-ink);font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}

@@ -16,6 +16,8 @@ function resolveBaseUrl() {
 }
 
 const pageTitle = t(locale, 'contact.title');
+// EN SEO 富化标题（仅 meta title；H1/导航/面包屑仍用共享文案）
+const seoTitle = locale === 'en' ? 'Contact Our Team | iShine IPL Hair Removal Manufacturer' : pageTitle;
 const pageDescription = t(locale, 'contact.description');
 const canonical = `${resolveBaseUrl()}/contact`;
 const breadcrumbs = buildBreadcrumbs(locale, [
@@ -46,7 +48,7 @@ const selectOptions = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+<BaseLayout title={seoTitle} lang={locale} description={pageDescription} canonical={canonical}>
 
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-ink-900 to-violet-950 px-8 py-12 text-white shadow-2xl md:px-10 lg:px-12 lg:py-16">

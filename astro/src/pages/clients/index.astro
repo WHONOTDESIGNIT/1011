@@ -61,9 +61,12 @@ const testimonials = [
     company: t(locale, 'clientPage.testimonials.2.company'),
   },
 ];
+const pageTitle = t(locale, 'clientPage.meta.title');
+// EN SEO 富化标题（仅 meta title；页内 H1 仍用 clientPage.meta.title 共享文案）
+const seoTitle = locale === 'en' ? 'Our Clients | iShine IPL Hair Removal Manufacturer' : pageTitle;
 ---
 
-<BaseLayout title={t(locale, 'clientPage.meta.title')} lang={locale} description={t(locale, 'clientPage.meta.description')}>
+<BaseLayout title={seoTitle} lang={locale} description={t(locale, 'clientPage.meta.description')}>
   <div class="space-y-48">
     <section class="rounded-2xl bg-neutral-50 px-8 py-12">
       <h1 class="text-4xl font-bold">{t(locale, 'clientPage.meta.title')}</h1>

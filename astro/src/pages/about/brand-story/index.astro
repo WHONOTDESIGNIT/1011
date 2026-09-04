@@ -37,6 +37,8 @@ const reasons = [
   'aboutPages.reasons.4',
 ];
 const pageTitle = t(locale, 'nav.brandStory');
+// EN SEO 富化标题（仅 meta title；H1/导航/面包屑仍用共享文案）
+const seoTitle = locale === 'en' ? 'Brand Story | iShine Technology Ltd. IPL Manufacturer' : pageTitle;
 const pageDescription = t(locale, 'aboutPages.brandStory.description');
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -45,7 +47,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription}>
+<BaseLayout title={seoTitle} lang={locale} description={pageDescription}>
   <div class="space-y-48">
     <section
       class="relative overflow-hidden rounded-2xl bg-ink-900 px-8 py-14 text-white"

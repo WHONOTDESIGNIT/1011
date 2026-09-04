@@ -7,6 +7,8 @@ import { responsiveImageSources } from '../../lib/netlify-images';
 const locale = Astro.currentLocale ?? 'en';
 const headerTitle = t(locale, 'componentsPower.header.title');
 const headerDescription = t(locale, 'componentsPower.header.description');
+// EN SEO 富化标题（仅 meta title；页内 H1/文案仍用 componentsPower 共享字段）
+const seoTitle = locale === 'en' ? 'IPL Components & Parts | iShine Device Manufacturer' : headerTitle;
 const introTitle = t(locale, 'componentsPower.intro.title');
 const introParagraph = t(locale, 'componentsPower.intro.paragraph');
 const overviewTitle = t(locale, 'componentsPower.overview.title');
@@ -94,7 +96,7 @@ const componentsDiagramImage = responsiveImageSources(
 );
 ---
 
-<BaseLayout title={headerTitle} lang={locale} description={headerDescription || t(locale, 'componentsPage.meta.description')}>
+<BaseLayout title={seoTitle} lang={locale} description={headerDescription || t(locale, 'componentsPage.meta.description')}>
   <div class="space-y-48">
     <section class="relative overflow-hidden rounded-2xl bg-ink-900 px-8 py-14 text-white">
       <picture class="pointer-events-none absolute inset-0 h-full w-full opacity-30" aria-hidden="true">

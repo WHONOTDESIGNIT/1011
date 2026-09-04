@@ -6,6 +6,7 @@
 // 注意：字体/CSS 加载保留在各页面自身（BaseLayout 用 critical.css + global.css，
 // 首页用自己的内联样式体系），此处仅输出 SEO 关键标签。
 import { getRelativeLocaleUrl, pathHasLocale, getPathByLocale } from 'astro:i18n';
+import { buildFinalTitle } from '../lib/seo-title';
 
 const SITE_NAME = 'iShine - Professional IPL Hair Removal Device Manufacturer';
 const SITE_DESCRIPTION =
@@ -71,9 +72,14 @@ type Props = {
   hreflangs?: { locale: string; href: string }[];
   /** 页面含 <video> 时传入：输出 VideoObject JSON-LD，帮助 Google 编入视频索引 */
   video?: { name?: string; description?: string };
+  /** 是否启用统一品牌尾缀规范化（内部工具页如 admin/upload 置 false） */
+  appendBrand?: boolean;
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs, video } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs, video, appendBrand = true } = Astro.props as Props;
+
+// 统一 <title> 规范化：自动补「 | iShine」，超长不补，已含品牌去重（见 lib/seo-title.ts）
+const finalTitle = appendBrand ? buildFinalTitle(title) : (title ?? '');
 
 const siteBaseUrl = (
   Astro.site?.toString()
@@ -204,7 +210,7 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
     } catch (e) { /* 隐私模式等场景忽略 */ }
   })();
 </script>
-<title>{title}</title>
+<title>{finalTitle}</title>
 {description && <meta name="description" content={description} />}
 <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 {BING_SITE_VERIFICATION && <meta name="msvalidate.01" content={BING_SITE_VERIFICATION} />}
@@ -213,13 +219,13 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
   <link rel="alternate" hreflang={h.locale} href={h.href} />
 ))}
 <link rel="alternate" hreflang="x-default" href={defaultHreflang} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={finalTitle} />
 <meta property="og:description" content={description || SITE_DESCRIPTION} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content={type} />
 <meta property="og:site_name" content={SITE_NAME} />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={finalTitle} />
 <meta name="twitter:description" content={description || SITE_DESCRIPTION} />
 <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd(lang))}></script>
 <script type="application/ld+json" set:html={JSON.stringify({
