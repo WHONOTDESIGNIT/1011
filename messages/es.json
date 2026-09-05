@@ -585,6 +585,10 @@
           "heading": "Detrás de los proyectos",
           "desc": "Las personas y las capacidades que hay detrás de nuestro trabajo.",
           "cta": "Conoce al equipo"
+        },
+        "careers": {
+          "title": "Empleo",
+          "desc": "Únete a nuestro equipo en crecimiento"
         }
       },
       "resources": {
@@ -856,7 +860,8 @@
       "viewAllArticles": "Ver todos los artículos",
       "citableEyebrow": "Resumen citable",
       "citableQuestion": "¿De qué trata este artículo?",
-      "citableBody": "Este artículo explica {title} para equipos que evalúan o desarrollan productos de depilación IPL de marca blanca. Aborda consideraciones prácticas para la ejecución en modalidad OEM/ODM, incluido cómo las decisiones de fabricación pueden influir en la experiencia del producto, la planificación del cumplimiento normativo y la preparación para el lanzamiento. El objetivo es ofrecer una visión completa y autónoma a la que los lectores puedan recurrir al comparar opciones, preparar RFQs o alinear a las partes interesadas internas en torno a los requisitos. Cuando resulta pertinente, el análisis conecta las decisiones a nivel de componente (como la refrigeración, los filtros, los cartuchos de lámpara, los sensores y el diseño de la fuente de alimentación) con la comodidad del usuario final y unos resultados de producción repetibles. La conclusión clave es un conjunto más claro de criterios de decisión que puede utilizar para reducir el riesgo y pasar del concepto a una fabricación escalable con menos iteraciones."
+      "citableBody": "Este artículo explica {title} para equipos que evalúan o desarrollan productos de depilación IPL de marca blanca. Aborda consideraciones prácticas para la ejecución en modalidad OEM/ODM, incluido cómo las decisiones de fabricación pueden influir en la experiencia del producto, la planificación del cumplimiento normativo y la preparación para el lanzamiento. El objetivo es ofrecer una visión completa y autónoma a la que los lectores puedan recurrir al comparar opciones, preparar RFQs o alinear a las partes interesadas internas en torno a los requisitos. Cuando resulta pertinente, el análisis conecta las decisiones a nivel de componente (como la refrigeración, los filtros, los cartuchos de lámpara, los sensores y el diseño de la fuente de alimentación) con la comodidad del usuario final y unos resultados de producción repetibles. La conclusión clave es un conjunto más claro de criterios de decisión que puede utilizar para reducir el riesgo y pasar del concepto a una fabricación escalable con menos iteraciones.",
+      "faqTitle": "Preguntas frecuentes"
     }
   },
   "contact": {
@@ -907,7 +912,8 @@
       "items": {
         "comfort": "Mayor comodidad del paciente durante los tratamientos",
         "safety": "Menor riesgo de daños térmicos en la piel",
-        "performance": "Mejores resultados de tratamiento y mayor consistencia"
+        "performance": "Mejores resultados de tratamiento y mayor consistencia",
+        "architecture": "Arquitectura térmica de doble capa (interna + contacto con la piel)"
       },
       "imageAlt": "Tecnología de sistema de refrigeración avanzado"
     },
@@ -915,17 +921,25 @@
       "title": "Tecnologías de Refrigeración",
       "description": "Descubre nuestra gama de soluciones de refrigeración avanzadas diseñadas para distintas aplicaciones y necesidades de los usuarios",
       "items": {
-        "plates": {
-          "title": "Placas de Refrigeración por Contacto",
-          "description": "Placas de refrigeración de alta eficiencia que mantienen una temperatura constante durante las sesiones de tratamiento"
-        },
         "sapphire": {
           "title": "Refrigeración por Contacto de Zafiro",
-          "description": "Refrigeración con cristal de zafiro premium para una comodidad máxima y una disipación de calor superior"
+          "description": "Refrigeración con cristal de zafiro premium para una comodidad máxima y una disipación de calor superior",
+          "tag": "Refrigeración de contacto con la piel premium"
         },
-        "semiconductor": {
-          "title": "Refrigeración por Semiconductores",
-          "description": "Tecnología de refrigeración Peltier avanzada para un control preciso de la temperatura y eficiencia energética"
+        "airflow": {
+          "tag": "Disipación de calor interna para el cuerpo de la depiladora",
+          "title": "Sistema de gestión térmica de doble flujo de aire",
+          "description": "",
+          "points": [
+            "Disipación activa del calor: canales de flujo de aire independientes alejan el calor del filtro óptico de precisión, reduciendo la degradación del recubrimiento dieléctrico inducida por la temperatura y preservando la transmitancia espectral.",
+            "Aislamiento frente a la contaminación: el recorrido de aire sellado minimiza la entrada de polvo y el contacto físico durante la limpieza, evitando la abrasión de la superficie y manteniendo la integridad del filtro.",
+            "Vida útil operativa prolongada: al estabilizar el rendimiento óptico del filtro a lo largo de pulsos repetidos de alta energía, el sistema garantiza una salida de fluencia constante desde el primer uso hasta el final de la vida útil de la depiladora."
+          ]
+        },
+        "tec": {
+          "tag": "Refrigeración de contacto con la piel de gama de entrada",
+          "title": "Punta de refrigeración TEC (termoeléctrica)",
+          "description": "Refrigera una placa metálica para crear una sensación de frío helado durante el tratamiento, ofreciendo a los usuarios una experiencia de depilación cómoda a un precio rentable."
         }
       }
     },
@@ -1031,13 +1045,13 @@
           "title": "Opciones de Cristal de Zafiro",
           "description": "Elige entre distintos grados y configuraciones de cristal de zafiro para un rendimiento de refrigeración óptimo"
         },
-        "integration": {
-          "title": "Integración del Sistema",
-          "description": "Integre sin problemas los sistemas de refrigeración con las arquitecturas de dispositivo y los sistemas de control existentes"
-        },
         "temperature": {
           "title": "Control de Temperatura",
           "description": "Implemente algoritmos precisos de control de temperatura y sistemas de supervisión de seguridad"
+        },
+        "airflow": {
+          "title": "Configuración de doble flujo de aire",
+          "description": "Ajusta el diseño y el sellado del canal de flujo de aire para la distribución interna de tu depiladora"
         }
       }
     },
@@ -1259,7 +1273,7 @@
     },
     "citable": {
       "question": "¿Cuáles son los componentes principales de una depiladora IPL de uso doméstico?",
-      "paragraph": "Una depiladora IPL de uso doméstico se compone de varios subsistemas principales que afectan directamente a la seguridad, la comodidad y el rendimiento. La fuente de destello suele ser un cartucho de lámpara de xenón, diseñado para ofrecer una salida estable y un alto número de destellos (normalmente entre 500,000 y 999,000 destellos según la plataforma). Los filtros ópticos moldean el espectro emitido bloqueando las longitudes de onda no deseadas (incluidos los rayos UV) y seleccionando bandas adecuadas para el posicionamiento en depilación, con opciones de corte habituales como 550 nm o 570 nm según la configuración. El sistema de refrigeración gestiona la comodidad del contacto con la piel y la carga térmica; las opciones incluyen placas de hielo de zafiro y diseños de refrigeración por semiconductores (TEC) utilizados en configuraciones premium, con algunos diseños que apuntan a temperaturas de contacto con la piel de aproximadamente 10°C. La fuente de alimentación proporciona un suministro de tensión constante y protege la depiladora mediante opciones de diseño eléctrico como aislamiento, conexión a tierra y protecciones térmicas, con soporte habitual de rangos de entrada globales como 100-240V AC para lanzamientos internacionales. Para programas de marca privada, estos componentes se seleccionan como una plataforma integrada, de modo que la depiladora final pueda cumplir los requisitos del mercado objetivo, mantener un rendimiento de lote consistente y respaldar la documentación y verificación durante la producción a escala."
+      "paragraph": "Una depiladora IPL de uso doméstico se compone de varios subsistemas principales que afectan directamente a la seguridad, la comodidad y el rendimiento. La fuente de destello suele ser un cartucho de lámpara de xenón, diseñado para ofrecer una salida estable y un alto número de destellos (normalmente entre 500,000 y 999,000 destellos según la plataforma). Los filtros ópticos moldean el espectro emitido bloqueando las longitudes de onda no deseadas (incluidos los rayos UV) y seleccionando bandas adecuadas para el posicionamiento en depilación, con opciones de corte habituales como 550 nm o 570 nm según la configuración. El sistema de refrigeración gestiona la comodidad del contacto con la piel y la carga térmica; las opciones incluyen placas de hielo de zafiro y diseños de refrigeración por semiconductores (TEC) utilizados en configuraciones premium, con algunos diseños que apuntan a temperaturas de contacto con la piel de aproximadamente 10°C. La fuente de alimentación proporciona un suministro de tensión constante y protege la depiladora mediante opciones de diseño eléctrico como aislamiento, conexión a tierra y protecciones térmicas, con soporte habitual de rangos de entrada globales como 100-240V AC para lanzamientos internacionales. Para programas de marca blanca, estos componentes se seleccionan como una plataforma integrada, de modo que la depiladora final pueda cumplir los requisitos del mercado objetivo, mantener un rendimiento de lote consistente y respaldar la documentación y verificación durante la producción a escala."
     }
   },
   "componentsFilter": {
@@ -2360,7 +2374,7 @@
             "features": [
               "Su marca, su diseño",
               "Especificaciones personalizadas",
-              "Etiquetado de marca propia",
+              "Etiquetado de marca blanca",
               "MOQ flexible"
             ]
           },
@@ -3571,588 +3585,6 @@
       ]
     }
   },
-  "breadcrumb": {
-    "services": "[TODO] breadcrumb.services",
-    "products": "[TODO] breadcrumb.products",
-    "components": "[TODO] breadcrumb.components",
-    "filter": "[TODO] breadcrumb.filter",
-    "lamp": "[TODO] breadcrumb.lamp",
-    "cooling": "[TODO] breadcrumb.cooling"
-  },
-  "core": {
-    "oem": {
-      "title": "[TODO] core.oem.title",
-      "description": "[TODO] core.oem.description",
-      "features": {
-        "0": "[TODO] core.oem.features.0",
-        "1": "[TODO] core.oem.features.1",
-        "2": "[TODO] core.oem.features.2",
-        "3": "[TODO] core.oem.features.3"
-      }
-    },
-    "design": {
-      "title": "[TODO] core.design.title",
-      "description": "[TODO] core.design.description",
-      "features": {
-        "0": "[TODO] core.design.features.0",
-        "1": "[TODO] core.design.features.1",
-        "2": "[TODO] core.design.features.2",
-        "3": "[TODO] core.design.features.3"
-      }
-    },
-    "production": {
-      "title": "[TODO] core.production.title",
-      "description": "[TODO] core.production.description",
-      "features": {
-        "0": "[TODO] core.production.features.0",
-        "1": "[TODO] core.production.features.1",
-        "2": "[TODO] core.production.features.2",
-        "3": "[TODO] core.production.features.3"
-      }
-    },
-    "packaging": {
-      "title": "[TODO] core.packaging.title",
-      "description": "[TODO] core.packaging.description",
-      "features": {
-        "0": "[TODO] core.packaging.features.0",
-        "1": "[TODO] core.packaging.features.1",
-        "2": "[TODO] core.packaging.features.2",
-        "3": "[TODO] core.packaging.features.3"
-      }
-    },
-    "title": "[TODO] core.title",
-    "description": "[TODO] core.description",
-    "lamp": {
-      "title": "[TODO] core.lamp.title",
-      "description": "[TODO] core.lamp.description",
-      "specs": {
-        "0": "[TODO] core.lamp.specs.0",
-        "1": "[TODO] core.lamp.specs.1",
-        "2": "[TODO] core.lamp.specs.2",
-        "3": "[TODO] core.lamp.specs.3"
-      },
-      "paragraph": "[TODO] core.lamp.paragraph",
-      "cta": "[TODO] core.lamp.cta",
-      "imageAlt": "[TODO] core.lamp.imageAlt"
-    },
-    "filter": {
-      "title": "[TODO] core.filter.title",
-      "description": "[TODO] core.filter.description",
-      "specs": {
-        "0": "[TODO] core.filter.specs.0",
-        "1": "[TODO] core.filter.specs.1",
-        "2": "[TODO] core.filter.specs.2",
-        "3": "[TODO] core.filter.specs.3"
-      },
-      "imageAlt": "[TODO] core.filter.imageAlt",
-      "paragraph": "[TODO] core.filter.paragraph",
-      "cta": "[TODO] core.filter.cta"
-    },
-    "cooling": {
-      "title": "[TODO] core.cooling.title",
-      "description": "[TODO] core.cooling.description",
-      "specs": {
-        "0": "[TODO] core.cooling.specs.0",
-        "1": "[TODO] core.cooling.specs.1",
-        "2": "[TODO] core.cooling.specs.2",
-        "3": "[TODO] core.cooling.specs.3"
-      },
-      "paragraph": "[TODO] core.cooling.paragraph",
-      "cta": "[TODO] core.cooling.cta",
-      "imageAlt": "[TODO] core.cooling.imageAlt"
-    },
-    "power": {
-      "title": "[TODO] core.power.title",
-      "description": "[TODO] core.power.description",
-      "specs": {
-        "0": "[TODO] core.power.specs.0",
-        "1": "[TODO] core.power.specs.1",
-        "2": "[TODO] core.power.specs.2",
-        "3": "[TODO] core.power.specs.3"
-      },
-      "imageAlt": "[TODO] core.power.imageAlt",
-      "paragraph": "[TODO] core.power.paragraph",
-      "cta": "[TODO] core.power.cta"
-    }
-  },
-  "process": {
-    "steps": {
-      "0": {
-        "step": "[TODO] process.steps.0.step",
-        "title": "[TODO] process.steps.0.title",
-        "description": "[TODO] process.steps.0.description",
-        "duration": "[TODO] process.steps.0.duration"
-      },
-      "1": {
-        "step": "[TODO] process.steps.1.step",
-        "title": "[TODO] process.steps.1.title",
-        "description": "[TODO] process.steps.1.description",
-        "duration": "[TODO] process.steps.1.duration"
-      },
-      "2": {
-        "step": "[TODO] process.steps.2.step",
-        "title": "[TODO] process.steps.2.title",
-        "description": "[TODO] process.steps.2.description",
-        "duration": "[TODO] process.steps.2.duration"
-      },
-      "3": {
-        "step": "[TODO] process.steps.3.step",
-        "title": "[TODO] process.steps.3.title",
-        "description": "[TODO] process.steps.3.description",
-        "duration": "[TODO] process.steps.3.duration"
-      }
-    },
-    "title": "[TODO] process.title",
-    "description": "[TODO] process.description"
-  },
-  "advantages": {
-    "experience": {
-      "title": "[TODO] advantages.experience.title",
-      "description": "[TODO] advantages.experience.description"
-    },
-    "global": {
-      "title": "[TODO] advantages.global.title",
-      "description": "[TODO] advantages.global.description"
-    },
-    "endToEnd": {
-      "title": "[TODO] advantages.endToEnd.title",
-      "description": "[TODO] advantages.endToEnd.description"
-    },
-    "quality": {
-      "title": "[TODO] advantages.quality.title",
-      "description": "[TODO] advantages.quality.description"
-    }
-  },
-  "hero": {
-    "title1": "[TODO] hero.title1",
-    "title2": "[TODO] hero.title2",
-    "description": "[TODO] hero.description",
-    "cta": "[TODO] hero.cta",
-    "title": "[TODO] hero.title"
-  },
-  "why": {
-    "title": "[TODO] why.title",
-    "description": "[TODO] why.description"
-  },
-  "trusted": {
-    "title": "[TODO] trusted.title",
-    "description": "[TODO] trusted.description",
-    "stats": {
-      "0": {
-        "value": "[TODO] trusted.stats.0.value",
-        "label": "[TODO] trusted.stats.0.label"
-      },
-      "1": {
-        "value": "[TODO] trusted.stats.1.value",
-        "label": "[TODO] trusted.stats.1.label"
-      },
-      "2": {
-        "value": "[TODO] trusted.stats.2.value",
-        "label": "[TODO] trusted.stats.2.label"
-      }
-    }
-  },
-  "cta": {
-    "title": "[TODO] cta.title",
-    "description": "[TODO] cta.description",
-    "button": "[TODO] cta.button"
-  },
-  "keyFeatures": {
-    "fda": {
-      "title": "[TODO] keyFeatures.fda.title",
-      "description": "[TODO] keyFeatures.fda.description"
-    },
-    "technology": {
-      "title": "[TODO] keyFeatures.technology.title",
-      "description": "[TODO] keyFeatures.technology.description"
-    },
-    "customizable": {
-      "title": "[TODO] keyFeatures.customizable.title",
-      "description": "[TODO] keyFeatures.customizable.description"
-    },
-    "manufacturing": {
-      "title": "[TODO] keyFeatures.manufacturing.title",
-      "description": "[TODO] keyFeatures.manufacturing.description"
-    }
-  },
-  "list": {
-    "title": "[TODO] list.title"
-  },
-  "controls": {
-    "filter": "[TODO] controls.filter"
-  },
-  "title": "[TODO] title",
-  "description": "[TODO] description",
-  "subtitle": "[TODO] subtitle",
-  "form": {
-    "title": "[TODO] form.title",
-    "name": "[TODO] form.name",
-    "email": "[TODO] form.email",
-    "company": "[TODO] form.company",
-    "message": "[TODO] form.message",
-    "messagePlaceholder": "[TODO] form.messagePlaceholder"
-  },
-  "info": {
-    "phone": "[TODO] info.phone"
-  },
-  "ctaExplore": "[TODO] ctaExplore",
-  "header": {
-    "title": "[TODO] header.title",
-    "description": "[TODO] header.description"
-  },
-  "intro": {
-    "title": "[TODO] intro.title",
-    "paragraph": "[TODO] intro.paragraph"
-  },
-  "diagram": {
-    "alt": "[TODO] diagram.alt"
-  },
-  "overview": {
-    "title": "[TODO] overview.title"
-  },
-  "quality": {
-    "title": "[TODO] quality.title",
-    "partnership": "[TODO] quality.partnership",
-    "blocks": {
-      "durability": {
-        "title": "[TODO] quality.blocks.durability.title",
-        "description": "[TODO] quality.blocks.durability.description"
-      },
-      "safety": {
-        "title": "[TODO] quality.blocks.safety.title",
-        "description": "[TODO] quality.blocks.safety.description"
-      },
-      "performance": {
-        "title": "[TODO] quality.blocks.performance.title",
-        "description": "[TODO] quality.blocks.performance.description"
-      },
-      "compliance": {
-        "title": "[TODO] quality.blocks.compliance.title",
-        "description": "[TODO] quality.blocks.compliance.description"
-      },
-      "wavelength": {
-        "title": "[TODO] quality.blocks.wavelength.title",
-        "description": "[TODO] quality.blocks.wavelength.description"
-      },
-      "transmission": {
-        "title": "[TODO] quality.blocks.transmission.title",
-        "description": "[TODO] quality.blocks.transmission.description"
-      },
-      "heat": {
-        "title": "[TODO] quality.blocks.heat.title",
-        "description": "[TODO] quality.blocks.heat.description"
-      },
-      "lifeCycle": {
-        "title": "[TODO] quality.blocks.lifeCycle.title",
-        "description": "[TODO] quality.blocks.lifeCycle.description"
-      },
-      "energy": {
-        "title": "[TODO] quality.blocks.energy.title",
-        "description": "[TODO] quality.blocks.energy.description"
-      },
-      "qc": {
-        "title": "[TODO] quality.blocks.qc.title",
-        "description": "[TODO] quality.blocks.qc.description"
-      },
-      "stability": {
-        "title": "[TODO] quality.blocks.stability.title",
-        "description": "[TODO] quality.blocks.stability.description"
-      },
-      "longterm": {
-        "title": "[TODO] quality.blocks.longterm.title",
-        "description": "[TODO] quality.blocks.longterm.description"
-      },
-      "contact": {
-        "title": "[TODO] quality.blocks.contact.title",
-        "description": "[TODO] quality.blocks.contact.description"
-      },
-      "cycling": {
-        "title": "[TODO] quality.blocks.cycling.title",
-        "description": "[TODO] quality.blocks.cycling.description"
-      }
-    },
-    "intertek": "[TODO] quality.intertek",
-    "intertekDesc": "[TODO] quality.intertekDesc",
-    "paragraph": "[TODO] quality.paragraph"
-  },
-  "customization": {
-    "title": "[TODO] customization.title",
-    "description": "[TODO] customization.description",
-    "blocks": {
-      "wavelengths": {
-        "title": "[TODO] customization.blocks.wavelengths.title",
-        "description": "[TODO] customization.blocks.wavelengths.description"
-      },
-      "shape": {
-        "title": "[TODO] customization.blocks.shape.title",
-        "description": "[TODO] customization.blocks.shape.description"
-      },
-      "material": {
-        "title": "[TODO] customization.blocks.material.title",
-        "description": "[TODO] customization.blocks.material.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.blocks.branding.title",
-        "description": "[TODO] customization.blocks.branding.description"
-      },
-      "plates": {
-        "title": "[TODO] customization.blocks.plates.title",
-        "description": "[TODO] customization.blocks.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] customization.blocks.venus.title",
-        "description": "[TODO] customization.blocks.venus.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.blocks.integration.title",
-        "description": "[TODO] customization.blocks.integration.description"
-      },
-      "temperature": {
-        "title": "[TODO] customization.blocks.temperature.title",
-        "description": "[TODO] customization.blocks.temperature.description"
-      }
-    },
-    "options": {
-      "shape": {
-        "title": "[TODO] customization.options.shape.title",
-        "description": "[TODO] customization.options.shape.description"
-      },
-      "flashCount": {
-        "title": "[TODO] customization.options.flashCount.title",
-        "description": "[TODO] customization.options.flashCount.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.options.branding.title",
-        "description": "[TODO] customization.options.branding.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.options.integration.title",
-        "description": "[TODO] customization.options.integration.description"
-      }
-    }
-  },
-  "qualityBlocks": {
-    "durability": {
-      "title": "[TODO] qualityBlocks.durability.title",
-      "description": "[TODO] qualityBlocks.durability.description"
-    },
-    "safety": {
-      "title": "[TODO] qualityBlocks.safety.title",
-      "description": "[TODO] qualityBlocks.safety.description"
-    },
-    "performance": {
-      "title": "[TODO] qualityBlocks.performance.title",
-      "description": "[TODO] qualityBlocks.performance.description"
-    },
-    "compliance": {
-      "title": "[TODO] qualityBlocks.compliance.title",
-      "description": "[TODO] qualityBlocks.compliance.description"
-    }
-  },
-  "specs": {
-    "rows": {
-      "0": {
-        "parameter": "[TODO] specs.rows.0.parameter",
-        "value": "[TODO] specs.rows.0.value",
-        "description": "[TODO] specs.rows.0.description"
-      },
-      "1": {
-        "parameter": "[TODO] specs.rows.1.parameter",
-        "value": "[TODO] specs.rows.1.value",
-        "description": "[TODO] specs.rows.1.description"
-      },
-      "2": {
-        "parameter": "[TODO] specs.rows.2.parameter",
-        "value": "[TODO] specs.rows.2.value",
-        "description": "[TODO] specs.rows.2.description"
-      },
-      "3": {
-        "parameter": "[TODO] specs.rows.3.parameter",
-        "value": "[TODO] specs.rows.3.value",
-        "description": "[TODO] specs.rows.3.description"
-      },
-      "4": {
-        "parameter": "[TODO] specs.rows.4.parameter",
-        "value": "[TODO] specs.rows.4.value",
-        "description": "[TODO] specs.rows.4.description"
-      },
-      "5": {
-        "parameter": "[TODO] specs.rows.5.parameter",
-        "value": "[TODO] specs.rows.5.value",
-        "description": "[TODO] specs.rows.5.description"
-      }
-    },
-    "title": "[TODO] specs.title",
-    "table": {
-      "parameter": "[TODO] specs.table.parameter",
-      "value": "[TODO] specs.table.value",
-      "notes": "[TODO] specs.table.notes"
-    },
-    "footnote": "[TODO] specs.footnote"
-  },
-  "types": {
-    "fixed": {
-      "title": "[TODO] types.fixed.title",
-      "description": "[TODO] types.fixed.description"
-    },
-    "replaceable": {
-      "title": "[TODO] types.replaceable.title",
-      "description": "[TODO] types.replaceable.description"
-    },
-    "specialized": {
-      "title": "[TODO] types.specialized.title",
-      "description": "[TODO] types.specialized.description"
-    },
-    "title": "[TODO] types.title",
-    "description": "[TODO] types.description"
-  },
-  "applications": {
-    "items": {
-      "hair": {
-        "title": "[TODO] applications.items.hair.title",
-        "description": "[TODO] applications.items.hair.description"
-      },
-      "skin": {
-        "title": "[TODO] applications.items.skin.title",
-        "description": "[TODO] applications.items.skin.description"
-      },
-      "acne": {
-        "title": "[TODO] applications.items.acne.title",
-        "description": "[TODO] applications.items.acne.description"
-      },
-      "pigmentation": {
-        "title": "[TODO] applications.items.pigmentation.title",
-        "description": "[TODO] applications.items.pigmentation.description"
-      },
-      "home": {
-        "title": "[TODO] applications.items.home.title",
-        "description": "[TODO] applications.items.home.description"
-      },
-      "multi": {
-        "title": "[TODO] applications.items.multi.title",
-        "description": "[TODO] applications.items.multi.description"
-      },
-      "proConsumer": {
-        "title": "[TODO] applications.items.proConsumer.title",
-        "description": "[TODO] applications.items.proConsumer.description"
-      },
-      "handpieces": {
-        "title": "[TODO] applications.items.handpieces.title",
-        "description": "[TODO] applications.items.handpieces.description"
-      },
-      "pro": {
-        "title": "[TODO] applications.items.pro.title",
-        "description": "[TODO] applications.items.pro.description"
-      },
-      "sensitive": {
-        "title": "[TODO] applications.items.sensitive.title",
-        "description": "[TODO] applications.items.sensitive.description"
-      }
-    },
-    "title": "[TODO] applications.title"
-  },
-  "highlight": {
-    "whyTitle": "[TODO] highlight.whyTitle",
-    "paragraph": "[TODO] highlight.paragraph",
-    "badge": "[TODO] highlight.badge",
-    "imageAlt": "[TODO] highlight.imageAlt",
-    "items": {
-      "comfort": "[TODO] highlight.items.comfort",
-      "safety": "[TODO] highlight.items.safety",
-      "performance": "[TODO] highlight.items.performance"
-    }
-  },
-  "features": {
-    "title": "[TODO] features.title",
-    "safety": {
-      "title": "[TODO] features.safety.title",
-      "description": "[TODO] features.safety.description"
-    },
-    "precision": {
-      "title": "[TODO] features.precision.title",
-      "description": "[TODO] features.precision.description"
-    },
-    "performance": {
-      "title": "[TODO] features.performance.title",
-      "description": "[TODO] features.performance.description"
-    },
-    "durability": {
-      "title": "[TODO] features.durability.title",
-      "description": "[TODO] features.durability.description"
-    },
-    "energy": {
-      "title": "[TODO] features.energy.title",
-      "description": "[TODO] features.energy.description"
-    },
-    "lifespan": {
-      "title": "[TODO] features.lifespan.title",
-      "description": "[TODO] features.lifespan.description"
-    },
-    "integration": {
-      "title": "[TODO] features.integration.title",
-      "description": "[TODO] features.integration.description"
-    }
-  },
-  "compliance": {
-    "title": "[TODO] compliance.title",
-    "paragraph": "[TODO] compliance.paragraph",
-    "items": {
-      "ce": "[TODO] compliance.items.ce",
-      "iso13485": "[TODO] compliance.items.iso13485",
-      "fda": "[TODO] compliance.items.fda",
-      "iec60601": "[TODO] compliance.items.iec60601",
-      "mdr": "[TODO] compliance.items.mdr"
-    }
-  },
-  "visuals": {
-    "title": "[TODO] visuals.title",
-    "images": {
-      "wavelength": {
-        "alt": "[TODO] visuals.images.wavelength.alt",
-        "caption": "[TODO] visuals.images.wavelength.caption"
-      },
-      "comparison": {
-        "alt": "[TODO] visuals.images.comparison.alt",
-        "caption": "[TODO] visuals.images.comparison.caption"
-      },
-      "exploded": {
-        "alt": "[TODO] visuals.images.exploded.alt",
-        "caption": "[TODO] visuals.images.exploded.caption"
-      },
-      "lifecycle": {
-        "alt": "[TODO] visuals.images.lifecycle.alt",
-        "caption": "[TODO] visuals.images.lifecycle.caption"
-      },
-      "plate": {
-        "alt": "[TODO] visuals.images.plate.alt",
-        "title": "[TODO] visuals.images.plate.title",
-        "caption": "[TODO] visuals.images.plate.caption"
-      },
-      "integration": {
-        "alt": "[TODO] visuals.images.integration.alt",
-        "title": "[TODO] visuals.images.integration.title",
-        "caption": "[TODO] visuals.images.integration.caption"
-      }
-    }
-  },
-  "tech": {
-    "items": {
-      "plates": {
-        "title": "[TODO] tech.items.plates.title",
-        "description": "[TODO] tech.items.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] tech.items.venus.title",
-        "description": "[TODO] tech.items.venus.description"
-      },
-      "semiconductor": {
-        "title": "[TODO] tech.items.semiconductor.title",
-        "description": "[TODO] tech.items.semiconductor.description"
-      }
-    },
-    "title": "[TODO] tech.title",
-    "description": "[TODO] tech.description"
-  },
   "aboutPages": {
     "backToAbout": "Volver a Acerca de",
     "requestQuote": "Solicitar un presupuesto",
@@ -4170,7 +3602,7 @@
       "heroLabel": "Resumen de la empresa",
       "heroDescription": "Fabricante líder de depiladoras IPL de depilación, dedicado a ayudar a las marcas a triunfar desde el concepto hasta el mercado.",
       "summaryTitle": "¿Qué es iShine Technology Ltd.?",
-      "summaryDescription": "iShine Technology Ltd. es un fabricante B2B OEM/ODM de depiladoras IPL de depilación de uso doméstico que respalda programas de marca privada para marcas de belleza y minoristas. Fundada en 2021 en Shenzhen (China), iShine ofrece servicios integrales que abarcan diseño de producto, prototipado, producción escalable, embalaje, planificación del cumplimiento normativo y entrega de exportación. La empresa tiene como referencia los requisitos de los mercados internacionales, como las vías de la FDA y el marcado CE, y opera con un sistema de calidad alineado, incluida la norma ISO 13485. iShine declara más de 500.000 dispositivos producidos y más de 50 alianzas con clientes en todo el mundo, con envíos a más de 20 países de Norteamérica, Europa y Oriente Medio. Tu trabajo se centra en la repetibilidad de la fabricación y en una ejecución lista para la marca, de modo que los socios puedan lanzar y escalar productos IPL con una calidad constante.",
+      "summaryDescription": "iShine Technology Ltd. es un fabricante B2B OEM/ODM de depiladoras IPL de depilación de uso doméstico que respalda programas de marca blanca para marcas de belleza y minoristas. Fundada en 2021 en Shenzhen (China), iShine ofrece servicios integrales que abarcan diseño de producto, prototipado, producción escalable, embalaje, planificación del cumplimiento normativo y entrega de exportación. La empresa tiene como referencia los requisitos de los mercados internacionales, como las vías de la FDA y el marcado CE, y opera con un sistema de calidad alineado, incluida la norma ISO 13485. iShine declara más de 500.000 dispositivos producidos y más de 50 alianzas con clientes en todo el mundo, con envíos a más de 20 países de Norteamérica, Europa y Oriente Medio. Tu trabajo se centra en la repetibilidad de la fabricación y en una ejecución lista para la marca, de modo que los socios puedan lanzar y escalar productos IPL con una calidad constante.",
       "partnerTitle": "Un socio integral de fabricación IPL para marcas de belleza globales",
       "partner": {
         "entityLabel": "Entidad:",
@@ -4182,13 +3614,13 @@
         "certificationsLabel": "Certificaciones:",
         "certificationsValue": "Autorizado por la FDA, marcado CE, ISO 13485.",
         "whatDoesLabel": "Qué hace iShine:",
-        "whatDoesValue": "Colabora con minoristas globales, marcas de belleza y profesionales de abastecimiento para diseñar, certificar, producir y entregar depiladoras IPL de depilación de marca privada. Actúa como fabricante OEM (fabricación según especificaciones) y ODM (diseño y fabricación).",
+        "whatDoesValue": "Colabora con minoristas globales, marcas de belleza y profesionales de abastecimiento para diseñar, certificar, producir y entregar depiladoras IPL de depilación de marca blanca. Actúa como fabricante OEM (fabricación según especificaciones) y ODM (diseño y fabricación).",
         "keyPartnersLabel": "Socios principales:",
         "keyPartnersValue": "Costco Canadá (retail), RoseSkinCo EE. UU. (e-commerce de belleza), KU2 Cosmetics Alemania (retail de cosmética).",
         "capabilitiesLabel": "Capacidades:",
         "capabilitiesValue": "Diseño conceptual e industrial; prototipado rápido y fabricación de moldes; producción y ensamblaje a gran escala; embalaje y branding personalizados; documentación de cumplimiento (FDA, CE, MDSAP); logística y almacenamiento globales.",
         "clientTypesLabel": "Tipos de clientes a los que servimos:",
-        "clientTypesValue": "Propietarios de marcas que lanzan nuevas líneas de productos IPL; gestores de producto que amplían carteras de belleza existentes; especialistas en abastecimiento que evalúan fabricantes por contrato; minoristas que desarrollan programas de belleza tecnológica de marca privada.",
+        "clientTypesValue": "Propietarios de marcas que lanzan nuevas líneas de productos IPL; gestores de producto que amplían carteras de belleza existentes; especialistas en abastecimiento que evalúan fabricantes por contrato; minoristas que desarrollan programas de belleza tecnológica de marca blanca.",
         "geographicLabel": "Alcance geográfico:",
         "geographicValue": "Norteamérica, Europa, Oriente Medio. Envíos a más de 20 países.",
         "trackRecordLabel": "Trayectoria:",
@@ -4224,7 +3656,7 @@
     "brandStory": {
       "description": "Descubre la historia de iShine: excelencia en la fabricación de depiladoras IPL, con la confianza de Costco, RoseSkinCo y KU2 Cosmetics para alianzas OEM y ODM.",
       "summaryTitle": "¿Cuál es la historia de la marca iShine?",
-      "summaryDescription": "La historia de la marca iShine se centra en consolidarse como un socio de fabricación especializado en IPL para marcas de belleza globales que desean productos de marca privada entregados con una calidad constante y una ejecución lista para la marca. La empresa destaca tu enfoque a largo plazo en la tecnología IPL, la iteración impulsada por la ingeniería y un flujo de trabajo que conecta el diseño de producto y el prototipado con la producción escalable, el embalaje y la logística. La intención de esta historia es comunicar por qué iShine se posiciona como algo más que una fábrica: un socio OEM/ODM de servicio completo que ayuda a las marcas a reducir el riesgo de lanzamiento, alinear las funciones a las necesidades del mercado y mantener resultados de fabricación repetibles. Esta narrativa respalda a los equipos que evalúan proveedores al explicar cómo aborda iShine la innovación, los sistemas de calidad y las alianzas con clientes a largo plazo.",
+      "summaryDescription": "La historia de la marca iShine se centra en consolidarse como un socio de fabricación especializado en IPL para marcas de belleza globales que desean productos de marca blanca entregados con una calidad constante y una ejecución lista para la marca. La empresa destaca tu enfoque a largo plazo en la tecnología IPL, la iteración impulsada por la ingeniería y un flujo de trabajo que conecta el diseño de producto y el prototipado con la producción escalable, el embalaje y la logística. La intención de esta historia es comunicar por qué iShine se posiciona como algo más que una fábrica: un socio OEM/ODM de servicio completo que ayuda a las marcas a reducir el riesgo de lanzamiento, alinear las funciones a las necesidades del mercado y mantener resultados de fabricación repetibles. Esta narrativa respalda a los equipos que evalúan proveedores al explicar cómo aborda iShine la innovación, los sistemas de calidad y las alianzas con clientes a largo plazo.",
       "introSubtitle": "Descubre la historia de iShine: de unos humildes comienzos a convertirse en un fabricante mundial de IPL de confianza",
       "introParagraph": "En iShine combinamos tecnología avanzada con artesanía experta para ofrecer resultados excepcionales. Nuestro equipo trabaja codo con codo con los clientes durante todo el proceso, garantizando que cada detalle cumpla tus especificaciones y supere las expectativas del mercado.",
       "highlights": {
@@ -4250,34 +3682,44 @@
       "teamSubtitle": "Conoce al equipo directivo que impulsa la misión de iShine de ofrecer soluciones de fabricación IPL de clase mundial.",
       "team": {
         "member1": {
-          "name": "Eric Ann",
-          "role": "CEO y cofundador",
-          "description": "Lidera la visión estratégica, el desarrollo de negocio y las alianzas globales."
+          "name": "Eric An",
+          "role": "Co-Founder & CEO",
+          "description": ""
         },
         "member2": {
-          "name": "Sarah Chen",
-          "role": "CFO",
-          "description": "Supervisa la estrategia financiera, la gestión de riesgos y la eficiencia operativa."
+          "name": "Maurice Chow",
+          "role": "Senior Account Executive",
+          "description": ""
         },
         "member3": {
-          "name": "Maurice",
-          "role": "Gerente de negocio",
-          "description": "Gestiona las relaciones con los clientes, las operaciones de ventas y la expansión del mercado."
+          "name": "Mina Teng",
+          "role": "Design Director",
+          "description": ""
         },
         "member4": {
-          "name": "Amy",
-          "role": "Diseñadora de producto",
-          "description": "Impulsa la estética del producto, el diseño del embalaje y la creación de la identidad de marca."
+          "name": "Blaine Ling",
+          "role": "Logistics & Warehouse Operations Supervisor",
+          "description": ""
         },
         "member5": {
-          "name": "Vivian",
-          "role": "Jefa de proyectos de procesos",
-          "description": "Coordina los flujos de trabajo de producción, la gestión de plazos y la optimización de procesos."
+          "name": "Rechard Lee",
+          "role": "Operations Manager",
+          "description": ""
         },
         "member6": {
-          "name": "Mike Lee",
-          "role": "Gerente de producción",
-          "description": "Lidera las operaciones de fabricación, el control de calidad y la gestión de la cadena de suministro."
+          "name": "Shannon Xia",
+          "role": "Quality Control & Compliance Manager",
+          "description": ""
+        },
+        "member7": {
+          "name": "Shayne Chen",
+          "role": "Chief Financial Officer",
+          "description": ""
+        },
+        "member8": {
+          "name": "Rose Chen",
+          "role": "Business Manager",
+          "description": ""
         }
       }
     },
@@ -4285,7 +3727,7 @@
       "description": "Explora las avanzadas instalaciones de fabricación IPL de iShine: moldeo por inyección, ensamblaje de precisión, salas blancas, prototipado rápido y producción escalable para marcas de belleza globales.",
       "heroSubtitle": "Explora nuestras avanzadas instalaciones de fabricación y capacidades de producción",
       "summaryTitle": "¿Qué capacidades de fabricación ofrece iShine para depiladoras IPL?",
-      "summaryDescription": "Las capacidades de fabricación de iShine para depiladoras IPL cubren los pasos esenciales para pasar de un diseño validado a una producción y entrega repetibles. Esto incluye flujos de trabajo de ensamblaje controlados, abastecimiento e integración de subsistemas clave (lámpara, filtros, refrigeración, alimentación), pruebas en línea, calibración e inspección final para reducir la variación entre lotes. La planificación de capacidades también se extiende a la ejecución del embalaje y la coordinación logística, de modo que los productos terminados puedan enviarse en formato listo para el mercado. Para los socios OEM/ODM, estas capacidades son importantes porque garantizan un rendimiento constante, resultados de calidad estables y un trabajo de documentación y verificación más fluido a la hora de apuntar a múltiples mercados. El objetivo general es proporcionar una base de fabricación escalable para los lanzamientos de marca privada.",
+      "summaryDescription": "Las capacidades de fabricación de iShine para depiladoras IPL cubren los pasos esenciales para pasar de un diseño validado a una producción y entrega repetibles. Esto incluye flujos de trabajo de ensamblaje controlados, abastecimiento e integración de subsistemas clave (lámpara, filtros, refrigeración, alimentación), pruebas en línea, calibración e inspección final para reducir la variación entre lotes. La planificación de capacidades también se extiende a la ejecución del embalaje y la coordinación logística, de modo que los productos terminados puedan enviarse en formato listo para el mercado. Para los socios OEM/ODM, estas capacidades son importantes porque garantizan un rendimiento constante, resultados de calidad estables y un trabajo de documentación y verificación más fluido a la hora de apuntar a múltiples mercados. El objetivo general es proporcionar una base de fabricación escalable para los lanzamientos de marca blanca.",
       "facilitiesTitle": "Nuestras Instalaciones y Equipos",
       "introParagraph": "En iShine, combinamos tecnología avanzada con artesanía experta para ofrecer resultados excepcionales. Nuestro equipo trabaja en estrecha colaboración con los clientes durante todo el proceso, garantizando que cada detalle cumpla tus especificaciones y supere las expectativas del mercado.",
       "cards": {
@@ -4311,7 +3753,7 @@
       "description": "iShine Technology Ltd: instalaciones de 10,000m² en Shenzhen, capacidad mensual de 50,000+ depiladoras IPL, fabricante OEM/ODM certificado ISO 9001 con cumplimiento de FDA, CE y MDSAP.",
       "heroSubtitle": "Instalaciones avanzadas y experiencia para la producción de depiladoras IPL de clase mundial",
       "summaryTitle": "¿Cuál es el perfil de fabricación de iShine?",
-      "summaryDescription": "El perfil de fabricación de iShine combina ingeniería propia, capacidad de producción y sistemas de calidad para programas de depiladoras IPL de marca privada. La empresa cuenta con unas instalaciones de producción de 10,000 m² con líneas de ensamblaje dedicadas a IPL y una capacidad mensual de 50,000+ unidades, respaldadas por moldeo por inyección, equipos de ensamblaje de precisión y procesos de sala limpia para componentes ópticos. Las capacidades de I+D incluyen diseño industrial, soporte de ingeniería, creación rápida de prototipos y desarrollo de funciones como sistemas de refrigeración y módulos de detección de la piel. Los flujos de producción hacen hincapié en la repetibilidad mediante pruebas y calibración, y los programas suelen extenderse al embalaje y la logística de exportación para la distribución global. Este perfil está pensado para ayudar a los equipos de marca y de aprovisionamiento a evaluar la idoneidad para proyectos OEM/ODM en los que la constancia, la escala y la preparación documental son factores clave.",
+      "summaryDescription": "El perfil de fabricación de iShine combina ingeniería propia, capacidad de producción y sistemas de calidad para programas de depiladoras IPL de marca blanca. La empresa cuenta con unas instalaciones de producción de 10,000 m² con líneas de ensamblaje dedicadas a IPL y una capacidad mensual de 50,000+ unidades, respaldadas por moldeo por inyección, equipos de ensamblaje de precisión y procesos de sala limpia para componentes ópticos. Las capacidades de I+D incluyen diseño industrial, soporte de ingeniería, creación rápida de prototipos y desarrollo de funciones como sistemas de refrigeración y módulos de detección de la piel. Los flujos de producción hacen hincapié en la repetibilidad mediante pruebas y calibración, y los programas suelen extenderse al embalaje y la logística de exportación para la distribución global. Este perfil está pensado para ayudar a los equipos de marca y de aprovisionamiento a evaluar la idoneidad para proyectos OEM/ODM en los que la constancia, la escala y la preparación documental son factores clave.",
       "excellenceTitle": "Excelencia en Fabricación",
       "excellenceParagraph": "En iShine, combinamos instalaciones avanzadas, equipos cualificados y estrictos sistemas de calidad para ofrecer depiladoras IPL que cumplen los estándares globales. Desde el diseño hasta la entrega, nuestras capacidades garantizan el éxito de tu proyecto.",
       "facilitiesTitle": "Instalaciones y Equipos",
@@ -4712,7 +4154,7 @@
     },
     "faq": {
       "pageTitle": "FAQ | Fabricación de IPL iShine",
-      "pageDescription": "obtén respuestas sobre los servicios OEM y ODM, el cumplimiento normativo, el MOQ, los plazos de entrega, el embalaje, el envío y el uso de los productos IPL para programas de dispositivos de belleza de marca privada.",
+      "pageDescription": "obtén respuestas sobre los servicios OEM y ODM, el cumplimiento normativo, el MOQ, los plazos de entrega, el embalaje, el envío y el uso de los productos IPL para programas de dispositivos de belleza de marca blanca.",
       "hero": {
         "smallTitle": "FAQ y soporte",
         "heading": "Respuestas sobre OEM, ODM, cumplimiento normativo y planificación de productos IPL",
@@ -4759,7 +4201,7 @@
         "0": {
           "label": "Ideal para",
           "title": "Propietarios de marcas y equipos de aprovisionamiento",
-          "description": "Diseñada para equipos que comparan opciones OEM y ODM, evalúan proveedores o preparan el lanzamiento de una IPL de marca privada."
+          "description": "Diseñada para equipos que comparan opciones OEM y ODM, evalúan proveedores o preparan el lanzamiento de una IPL de marca blanca."
         },
         "1": {
           "label": "Lo más preguntado",
@@ -4824,7 +4266,7 @@
             },
             "whoDoYouWorkWith": {
               "question": "¿Con quién trabaja normalmente?",
-              "answer": "Apoyamos habitualmente a marcas de belleza, startups de marca privada, distribuidores, equipos de aprovisionamiento, minoristas y equipos de expansión de mercado que necesitan un desarrollo de productos IPL y un soporte de fabricación fiables."
+              "answer": "Apoyamos habitualmente a marcas de belleza, startups de marca blanca, distribuidores, equipos de aprovisionamiento, minoristas y equipos de expansión de mercado que necesitan un desarrollo de productos IPL y un soporte de fabricación fiables."
             },
             "consumerAndProfessionalLines": {
               "question": "¿Ofrecen soporte tanto para líneas de producto de consumo como profesionales?",
@@ -4864,7 +4306,7 @@
           "faqs": {
             "typesOfIplDevices": {
               "question": "¿Qué tipos de depiladoras IPL fabrica iShine?",
-              "answer": "Fabricamos depiladoras IPL para depilación, rejuvenecimiento de la piel y cuidado del acné. Los programas pueden ir desde modelos listos para personalizar con tu marca hasta plataformas de producto de marca privada más personalizadas."
+              "answer": "Fabricamos depiladoras IPL para depilación, rejuvenecimiento de la piel y cuidado del acné. Los programas pueden ir desde modelos listos para personalizar con tu marca hasta plataformas de producto de marca blanca más personalizadas."
             },
             "sapphireCoolingVsStandard": {
               "question": "¿Cuál es la diferencia entre la refrigeración de zafiro y los sistemas IPL estándar?",
@@ -5187,7 +4629,7 @@
     },
     "heroDescription": "La opción de confianza de las principales marcas del mundo para la fabricación de depiladoras IPL de depilación.",
     "citableSummaryTitle": "¿Qué tipo de marcas se asocian con iShine para OEM/ODM de IPL?",
-    "citableSummaryBody": "iShine colabora con marcas de retail, DTC y belleza que desean fabricar depiladoras IPL de depilación de marca privada con una calidad constante y un embalaje listo para tu marca. Los programas de clientes suelen incluir la selección de plataforma, la personalización de los cosméticos y las configuraciones de funciones, la planificación del cumplimiento normativo para los mercados objetivo y la programación de la producción según los plazos de lanzamiento. Los casos de éxito suelen destacar la repetibilidad de la fabricación, la capacidad escalable y la fiabilidad de la cadena de suministro, especialmente para socios que distribuyen a través de los principales canales de retail o del comercio electrónico de rápido movimiento. iShine hace referencia a una trayectoria de más de 50 clientes globales, distribución en más de 30 países y más de 500.000 dispositivos entregados en múltiples programas. Estas alianzas suelen combinar soporte de ingeniería y operaciones para que las marcas puedan diferenciar la experiencia del producto manteniendo un rendimiento de producción estable.",
+    "citableSummaryBody": "iShine colabora con marcas de retail, DTC y belleza que desean fabricar depiladoras IPL de depilación de marca blanca con una calidad constante y un embalaje listo para tu marca. Los programas de clientes suelen incluir la selección de plataforma, la personalización de los cosméticos y las configuraciones de funciones, la planificación del cumplimiento normativo para los mercados objetivo y la programación de la producción según los plazos de lanzamiento. Los casos de éxito suelen destacar la repetibilidad de la fabricación, la capacidad escalable y la fiabilidad de la cadena de suministro, especialmente para socios que distribuyen a través de los principales canales de retail o del comercio electrónico de rápido movimiento. iShine hace referencia a una trayectoria de más de 50 clientes globales, distribución en más de 30 países y más de 500.000 dispositivos entregados en múltiples programas. Estas alianzas suelen combinar soporte de ingeniería y operaciones para que las marcas puedan diferenciar la experiencia del producto manteniendo un rendimiento de producción estable.",
     "globalPartnershipsTitle": "Alianzas globales",
     "globalPartnershipsDescription": "Colaboramos con líderes del sector en Norteamérica, Europa y Asia, ofreciendo depiladoras IPL fiables que cumplen estrictos estándares de calidad.",
     "logoAlt": "logo",
@@ -5236,7 +4678,7 @@
     ],
     "catalogue": {
       "metaTitle": "Catálogo de productos IPL y comparativa | iShine",
-      "metaDescription": "Compare las plataformas de depiladoras IPL en paralelo: refrigeración, vida útil de la lámpara, posicionamiento energético, control por app, detección de piel y casos de uso ideales. Diseñado para la selección de marca privada y OEM/ODM.",
+      "metaDescription": "Compare las plataformas de depiladoras IPL en paralelo: refrigeración, vida útil de la lámpara, posicionamiento energético, control por app, detección de piel y casos de uso ideales. Diseñado para la selección de marca blanca y OEM/ODM.",
       "heroTitle": "Catálogo de productos IPL",
       "heroDescription": "Explora nuestra gama completa de depiladoras IPL de depilación. Cada modelo está diseñado para un caso de uso específico: desde refrigeración indolora y detección con IA hasta diseños portátiles de viaje y programas de embalaje de lujo.",
       "getAQuote": "Solicitar presupuesto",
@@ -5247,7 +4689,7 @@
       "howToChooseTitle": "Elige una vía y luego preseleccione los modelos",
       "howToChooseDescription": "Empieza por tu posicionamiento y tu canal. Utiliza los enlaces siguientes para abrir las páginas de los modelos recomendados.",
       "citableSummaryTitle": "¿Cómo deberían utilizar las marcas este catálogo de IPL?",
-      "citableSummaryBody": "Este catálogo es una comparativa en paralelo de las plataformas de depiladoras IPL de iShine, pensada para ayudar a los equipos de marca privada a preseleccionar rápidamente un modelo para muestras y para el debate OEM/ODM. Destaca diferenciadores prácticos como el enfoque de refrigeración, la vida útil de la lámpara, el posicionamiento energético, la conectividad por app y las funciones de detección de piel, además de los casos de uso «ideales para» que se alinean con los segmentos de mercado. Las marcas suelen empezar relacionando un concepto de producto con una plataforma (por ejemplo, refrigeración centrada en el confort frente a rutinas guiadas por app), y después confirman las especificaciones requeridas, el estilo de embalaje y las necesidades de documentación para el mercado objetivo. Una vez seleccionada la plataforma, los siguientes pasos son la evaluación de muestras, la definición del alcance de la personalización y la planificación del MOQ, el plazo de entrega y la documentación de cumplimiento normativo para el lanzamiento.",
+      "citableSummaryBody": "Este catálogo es una comparativa en paralelo de las plataformas de depiladoras IPL de iShine, pensada para ayudar a los equipos de marca blanca a preseleccionar rápidamente un modelo para muestras y para el debate OEM/ODM. Destaca diferenciadores prácticos como el enfoque de refrigeración, la vida útil de la lámpara, el posicionamiento energético, la conectividad por app y las funciones de detección de piel, además de los casos de uso «ideales para» que se alinean con los segmentos de mercado. Las marcas suelen empezar relacionando un concepto de producto con una plataforma (por ejemplo, refrigeración centrada en el confort frente a rutinas guiadas por app), y después confirman las especificaciones requeridas, el estilo de embalaje y las necesidades de documentación para el mercado objetivo. Una vez seleccionada la plataforma, los siguientes pasos son la evaluación de muestras, la definición del alcance de la personalización y la planificación del MOQ, el plazo de entrega y la documentación de cumplimiento normativo para el lanzamiento.",
       "model": "Modelo",
       "cooling": "Refrigeración",
       "lampLife": "Vida útil de la lámpara",
@@ -5266,7 +4708,8 @@
         "euno": "Viaje, uso sin cables, almacenamiento compacto, diseño ligero",
         "emerald": "Piel sensible, tratamiento suave, tipos de piel reactiva",
         "themis": "Resultados de nivel salón, rendimiento profesional, ventana ampliada",
-        "alpha": "Tratamiento corporal completo rápido, eficiencia de doble lámpara, ventana de 6,2 cm²"
+        "alpha": "Tratamiento corporal completo rápido, eficiencia de doble lámpara, ventana de 6,2 cm²",
+        "helix": "Confort de refrigeración con hielo, 9 niveles de intensidad y precisión con pantalla digital"
       },
       "app": "App",
       "seeDetails": "Ver detalles →",
@@ -5314,38 +4757,23 @@
           "title": "Refrigeración centrada en el confort",
           "description": "Ideal para marcas que venden un posicionamiento «indoloro» y confort en zonas sensibles.",
           "links": [
-            "Venus (Refrigeración por placa de hielo)",
-            "Lumi 2 (Refrigeración a 10 °C)"
+            "Venus (Refrigeración de zafiro)",
+            "Lumi 2 (Refrigeración de zafiro)"
           ]
         },
         {
-          "title": "Rutinas inteligentes guiadas por app",
-          "description": "Ideal para marcas centradas en la retención que utilizan flujos de trabajo y programación por app.",
+          "title": "Gama de entrada y valor",
+          "description": "Ideal para precios accesibles y compradores de IPL por primera vez.",
           "links": [
-            "Hestia (Seguimiento por app)",
-            "Lumi (Control inteligente por app)"
-          ]
-        },
-        {
-          "title": "Portátil / viaje",
-          "description": "Ideal para un posicionamiento compacto y packs ligeros.",
-          "links": [
-            "Euno (Portátil)"
-          ]
-        },
-        {
-          "title": "Unboxing de lujo",
-          "description": "Ideal para embalajes premium y posicionamiento como regalo.",
-          "links": [
-            "Golden (Lujo de madera)"
+            "Lumi (Mejor relación calidad-precio)"
           ]
         },
         {
           "title": "Rendimiento profesional",
           "description": "Ideal para un posicionamiento de alto rendimiento y rutinas corporales completas más rápidas.",
           "links": [
-            "Themis (Nivel salón)",
-            "Alpha (Eficiencia de doble lámpara)"
+            "Themis (Punta de refrigeración TEC)",
+            "Helix (9 niveles de intensidad)"
           ]
         }
       ],
@@ -5378,7 +4806,7 @@
         },
         {
           "question": "¿Podemos empezar con un pedido piloto pequeño?",
-          "answer": "Sí. Muchos programas de marca privada pueden empezar con un pedido piloto más pequeño para validar la demanda y el posicionamiento, y después escalar con reposiciones previsibles."
+          "answer": "Sí. Muchos programas de marca blanca pueden empezar con un pedido piloto más pequeño para validar la demanda y el posicionamiento, y después escalar con reposiciones previsibles."
         },
         {
           "question": "¿Ofrecen soporte para dropshipping y logística de exportación?",
@@ -5388,12 +4816,27 @@
             "Dropshipping"
           ]
         }
-      ]
+      ],
+      "compare": {
+        "rsp": "Precio de venta recomendado (sin IVA)",
+        "display": "Pantalla",
+        "pulses": "Destellos",
+        "window": "Ventana de tratamiento",
+        "intensity": "Niveles de intensidad",
+        "skinSensor": "Sensor de piel",
+        "cooling": "Refrigeración",
+        "glide": "Modo deslizamiento",
+        "app": "Compatibilidad con app",
+        "pain": "Nivel de dolor",
+        "areas": "Apta para rostro y cuerpo",
+        "launch": "Fecha de lanzamiento global",
+        "rspNote": "El PVR (sin IVA) es un precio de referencia derivado de las tendencias históricas del mercado y de nuestra evaluación de las condiciones actuales del mercado."
+      }
     },
     "backToClients": "Volver a clientes",
     "projectSnapshot": "Resumen del proyecto",
     "caseStudyCitableSummaryTitle": "¿De qué trata este caso de éxito de OEM/ODM de IPL?",
-    "caseStudyCitableSummaryBody": "Este caso de éxito describe cómo iShine apoyó el programa de depiladoras IPL de un socio, desde los requisitos y las restricciones del mercado hasta la ejecución de la fabricación. El alcance del proyecto suele incluir la alineación OEM/ODM, las decisiones sobre funciones y configuraciones, la integración de la marca en la depiladora y el embalaje, y la planificación del cumplimiento normativo para el mercado objetivo descrito en el resumen del proyecto. La ejecución combina normalmente la creación de prototipos, la validación y la planificación de la producción a escala, seguidas de la coordinación logística para la distribución. Los resultados se miden a través de logros como una salida al mercado más rápida, un posicionamiento más sólido y la fiabilidad de la cadena de suministro, junto con diferenciadores a nivel de dispositivo como la refrigeración, la detección inteligente o el ajuste del rendimiento según los objetivos del programa. La intención es mostrar un flujo de trabajo repetible para lanzamientos de IPL de marca privada en los que la experiencia del producto y la consistencia de la fabricación se gestionan de forma conjunta.",
+    "caseStudyCitableSummaryBody": "Este caso de éxito describe cómo iShine apoyó el programa de depiladoras IPL de un socio, desde los requisitos y las restricciones del mercado hasta la ejecución de la fabricación. El alcance del proyecto suele incluir la alineación OEM/ODM, las decisiones sobre funciones y configuraciones, la integración de la marca en la depiladora y el embalaje, y la planificación del cumplimiento normativo para el mercado objetivo descrito en el resumen del proyecto. La ejecución combina normalmente la creación de prototipos, la validación y la planificación de la producción a escala, seguidas de la coordinación logística para la distribución. Los resultados se miden a través de logros como una salida al mercado más rápida, un posicionamiento más sólido y la fiabilidad de la cadena de suministro, junto con diferenciadores a nivel de dispositivo como la refrigeración, la detección inteligente o el ajuste del rendimiento según los objetivos del programa. La intención es mostrar un flujo de trabajo repetible para lanzamientos de IPL de marca blanca en los que la experiencia del producto y la consistencia de la fabricación se gestionan de forma conjunta.",
     "keyResultsTitle": "Resultados clave y destacados",
     "challengeTitle": "El reto",
     "deliveredTitle": "Lo que entregamos",
@@ -6403,7 +5846,7 @@
       },
       "footer": {
         "ctaHeading": "¿Listo para iniciar tu proyecto IPL?",
-        "ctaDescription": "Nos encantaría ayudarte a llevar tu depiladora IPL de marca privada al mercado.",
+        "ctaDescription": "Nos encantaría ayudarte a llevar tu depiladora IPL de marca blanca al mercado.",
         "ctaButton": "Ponte en contacto",
         "city": "Shenzhen, China",
         "companyName": "iShine Technology Ltd.",
@@ -6431,7 +5874,7 @@
       },
       "hero": {
         "eyebrow": "Impulsando a las marcas líderes mundiales de depiladoras IPL;",
-        "title": "Fabricación de marca privada para marcas ambiciosas",
+        "title": "Fabricación de marca blanca para marcas ambiciosas",
         "whatWeDo": "Lo que hacemos",
         "bookCall": "Reserva una llamada"
       },
@@ -6459,7 +5902,7 @@
           "cta": "Empezar"
         },
         "viewAllServices": "Ver todos los servicios",
-        "alt1": "Fabricación de marca privada",
+        "alt1": "Fabricación de marca blanca",
         "alt2": "Encuentra un socio tecnológico IPL",
         "alt3": "Mantener o reparar proyectos IPL",
         "alt4": "Desarrollar un nuevo producto IPL"
@@ -6600,7 +6043,7 @@
       },
       "footer": {
         "heading": "¿Listo para iniciar su proyecto IPL?",
-        "desc": "Nos encantaría ayudarle a llevar su depiladora IPL de marca privada al mercado.",
+        "desc": "Nos encantaría ayudarle a llevar su depiladora IPL de marca blanca al mercado.",
         "getInTouch": "Póngase en contacto",
         "location": "Shenzhen, China",
         "navProducts": "Productos",
@@ -7751,7 +7194,7 @@
     },
     "footer": {
       "heading": "¿Listo para iniciar tu proyecto IPL?",
-      "description": "Nos encantaría ayudarte a llevar tu depiladora IPL de marca privada al mercado.",
+      "description": "Nos encantaría ayudarte a llevar tu depiladora IPL de marca blanca al mercado.",
       "getInTouch": "Ponte en contacto",
       "address": "Shenzhen, China",
       "companyName": "iShine Technology Ltd.",
@@ -8194,7 +7637,7 @@
     "alpha": {
       "name": "Alpha IPL",
       "tagline": "Depiladora IPL de alta eficiencia",
-      "description": "La depiladora Alpha IPL está diseñada para sesiones domésticas eficientes, con enfriamiento por sensación de hielo de zafiro y una entrega de energía estable y repetible para programas de marca privada.",
+      "description": "La depiladora Alpha IPL está diseñada para sesiones domésticas eficientes, con enfriamiento por sensación de hielo de zafiro y una entrega de energía estable y repetible para programas de marca blanca.",
       "specs": {
         "type": {
           "label": "Tipo",
@@ -8307,7 +7750,7 @@
           "description": "Lámpara única de cuarzo diseñada para ofrecer hasta 999,999 destellos."
         },
         "privateLabelReady": {
-          "title": "Listo para marca privada",
+          "title": "Listo para marca blanca",
           "description": "Incluye filtrado UV y un sistema de seguridad integrado para programas OEM/ODM."
         }
       },
@@ -8559,7 +8002,20 @@
         "Blanco Travel",
         "Rosa Suave",
         "Menta"
-      ]
+      ],
+      "story": {
+        "kicker": "Desde la fábrica",
+        "title": "Por qué este diseño se convirtió en el rey de un nicho — y por qué la mayoría de las copias fracasan",
+        "paragraphs": [
+          "Entre 2021 y 2025, este compacto diseño de lámpara única se convirtió discretamente en una de las depiladoras IPL de uso doméstico más exitosas del mundo. Una oleada de marcas de venta directa al consumidor —entre ellas Kenzzi, HappySkinCo, LuxSkin, MandySkin y RoseSkinCo— construyeron negocios enteros sobre él, combinando la depiladora con campañas de influencers que se difundieron por YouTube, Instagram y Facebook. En su apogeo, solo los vídeos relacionados acumularon decenas de millones de visualizaciones. La razón de su éxito era sencilla: una depiladora limpia y de una sola función, en negro, rosa y blanco, a un precio al que los compradores primerizos podían decir que sí.",
+          "Entonces llegaron las copias. El diseño era fácil de replicar por fuera, y una oleada de vendedores hizo exactamente eso: sustituyeron la lámpara de cuarzo, el filtro óptico, el reflector, los condensadores y el adaptador de corriente por piezas más baratas, reduciendo el coste de fabricación a menos del 30 % del original. El resultado fue una avalancha de depiladoras que aún podían emitir destellos, pero que se averiaban en cuestión de semanas. Le dieron a un gran diseño una mala reputación.",
+          "Esa historia es la razón por la que hoy resulta tan difícil encontrar una unidad de primera generación duradera y eficaz, y por la que mantenemos intacta en esta plataforma la especificación original: lámpara de cuarzo con una vida útil de 999.999 destellos, filtro con corte UV, adaptador certificado y garantía de 2 años. Si estás considerando este diseño para tu propia marca, el consejo desde la fábrica es sencillo: no compitas por la copia. Compite por la especificación, la certificación y la cadena de suministro que evita que las copias se conviertan en tu reputación."
+        ],
+        "cta": {
+          "label": "Habla con nosotros sobre cómo construir esta plataforma para tu marca",
+          "href": "/contact"
+        }
+      }
     },
     "themis": {
       "name": "Themis IPL",
@@ -9135,8 +8591,8 @@
     "galleryAlt": "Galería de {productName} {index}",
     "index": {
       "page": {
-        "title": "Plataformas de depiladoras IPL para marca privada",
-        "description": "Descubre las plataformas de depiladoras IPL de iShine para marca privada: depiladoras IPL de uso doméstico con refrigeración, control mediante aplicación inteligente, diseños portátiles y colecciones premium con acabado de madera para marcas de belleza."
+        "title": "Plataformas de depiladoras IPL para marca blanca",
+        "description": "Descubre las plataformas de depiladoras IPL de iShine para marca blanca: depiladoras IPL de uso doméstico con refrigeración, control mediante aplicación inteligente, diseños portátiles y colecciones premium con acabado de madera para marcas de belleza."
       },
       "hero": {
         "alt": "Productos IPL",
@@ -9147,7 +8603,7 @@
         "getAQuote": "Solicitar presupuesto"
       },
       "summary": {
-        "title": "¿Qué tipos de producto ofrece iShine para IPL de marca privada?",
+        "title": "¿Qué tipos de producto ofrece iShine para IPL de marca blanca?",
         "description": "iShine ofrece una cartera de plataformas de depiladoras IPL de uso doméstico que abarca refrigeración con sensación de frío, conectividad mediante aplicación inteligente, diseños compactos de viaje, rangos de energía de grado profesional y ediciones de lujo con acabado de madera. Cada plataforma está diseñada para la personalización OEM/ODM —impresión de logotipos, manuales de usuario, insertos de caja y embalaje de exportación—, de modo que una marca puede lanzarse rápidamente sin diseñar una depiladora desde cero."
       },
       "choose": {
@@ -9273,6 +8729,20 @@
               "Embalaje y logística",
               "Dropshipping"
             ]
+          },
+          {
+            "question": "¿Cuál es la diferencia entre una depiladora IPL y una depiladora láser?",
+            "answer": "Una depiladora IPL emite pulsos de luz de amplio espectro; un láser emite una sola longitud de onda. Ambos logran una reducción permanente del vello. Nuestra guía explica la diferencia para tus clientes.",
+            "links": [
+              "IPL frente a láser, explicado"
+            ]
+          },
+          {
+            "question": "¿Podemos fabricar con marca blanca una plataforma de depiladoras IPL existente?",
+            "answer": "Sí: todas las plataformas admiten impresión de logotipos, manuales personalizados e insertos de caja, con un MOQ de tan solo 50 unidades. Empieza con una muestra y, después, amplía la escala.",
+            "links": [
+              "Empezar sin MOQ"
+            ]
           }
         ]
       },
@@ -9310,5 +8780,24 @@
     "settings": "Configuración de cookies",
     "title": "Aviso de cookies",
     "privacyLink": "Política de privacidad"
+  },
+  "articleVote": {
+    "question": "¿Te ha resultado útil este artículo?",
+    "likeAria": "Vota este artículo como útil",
+    "dislikeAria": "Vota este artículo como poco útil",
+    "modalTitle": "¿Qué podríamos mejorar?",
+    "modalLegend": "Selecciona un motivo:",
+    "reasonNotDetailed": "Poco detallado",
+    "reasonNotFound": "No encontré lo que necesitaba",
+    "reasonOutdated": "El contenido está desactualizado",
+    "reasonTranslation": "Problema de idioma o traducción",
+    "reasonOther": "Otro",
+    "detailLabel": "Detalles adicionales (opcional):",
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "thanks": "¡Gracias por tu opinión!",
+    "received": "Opinión recibida: seguiremos mejorando.",
+    "already": "Ya has valorado este artículo.",
+    "fail": "No se pudo enviar. Inténtalo de nuevo más tarde."
   }
 }
