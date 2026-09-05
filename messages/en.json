@@ -903,34 +903,43 @@
       "cooling": "Cooling System"
     },
     "intro": {
-      "title": "Revolutionary Cooling Technology",
-      "paragraph": "Our advanced cooling systems represent the pinnacle of IPL comfort and safety technology. By integrating cutting-edge sapphire contact cooling and intelligent temperature management, we ensure every treatment session is not only effective but also remarkably comfortable for users."
+      "title": "Cooling That Works Where It Matters",
+      "paragraph": "iShine's cooling technology operates on two fronts — inside the device and at the surface of the skin. Our Dual-Airflow Thermal Management System keeps the precision optical filter and lamp assembly thermally stable for consistent energy output, while our skin-contact cooling delivers the ice-cool comfort that turns a treatment into an experience — from entry-level TEC cooling tips to premium sapphire crystal ice-cooling windows."
     },
     "highlight": {
       "whyTitle": "Why Advanced Cooling Matters",
-      "paragraph": "Effective cooling is crucial for IPL device performance, user comfort, and treatment safety. Our systems maintain optimal skin temperature while maximizing treatment efficacy.",
+      "paragraph": "Effective cooling is crucial for IPL device performance, user comfort, and treatment safety. Our two-layer thermal architecture maintains optimal skin temperature while protecting the optical path for consistent output.",
       "items": {
-        "comfort": "Enhanced patient comfort during treatments",
-        "safety": "Reduced risk of thermal damage to skin",
-        "performance": "Improved treatment outcomes and consistency"
+        "comfort": "Enhanced comfort during treatments",
+        "safety": "Reduced risk of thermal discomfort and filter degradation",
+        "performance": "Consistent fluence output across the device's full lifecycle",
+        "architecture": "Dual-layer thermal architecture (internal + skin-contact)"
       },
       "imageAlt": "Advanced cooling system technology"
     },
     "tech": {
       "title": "Cooling Technologies",
-      "description": "Explore our range of advanced cooling solutions designed for different applications and user needs",
+      "description": "Two complementary systems",
       "items": {
-        "plates": {
-          "title": "Contact Cooling Plates",
-          "description": "High-efficiency cooling plates that maintain consistent temperature during treatment sessions"
+        "airflow": {
+          "tag": "Internal heat dissipation for the device body",
+          "title": "Dual-Airflow Thermal Management System",
+          "description": "",
+          "points": [
+            "Active Heat Dissipation: Independent airflow channels draw heat away from the precision optical filter, mitigating thermal-induced degradation of the dielectric coating and preserving spectral transmittance.",
+            "Contamination Isolation: The sealed airflow path minimizes dust ingress and physical contact during cleaning, preventing surface abrasion and maintaining filter integrity.",
+            "Extended Operational Lifespan: By stabilizing the filter's optical performance across repeated high-energy pulses, the system ensures consistent fluence output from initial use through the device's full lifecycle."
+          ]
+        },
+        "tec": {
+          "tag": "Entry-level skin-contact cooling",
+          "title": "TEC (Thermoelectric) Cooling Tip",
+          "description": "Cools a metal plate to create an ice-cool sensation during treatment, giving users a comfortable hair-removal experience at a cost-efficient price point."
         },
         "sapphire": {
-          "title": "Sapphire Contact Cooling",
-          "description": "Premium sapphire crystal cooling for maximum comfort and superior heat dissipation"
-        },
-        "semiconductor": {
-          "title": "Semiconductor Cooling",
-          "description": "Advanced Peltier cooling technology for precise temperature control and energy efficiency"
+          "tag": "Premium skin-contact cooling",
+          "title": "Sapphire Crystal Ice-Cooling Contact",
+          "description": "A sapphire crystal window (the same approach used by leading brands) borrows semiconductor cooling to deliver real ice-cool comfort. Within 3–5 minutes of power-on, the sapphire surface drops to about 8°C (46.4°F) at the skin-contact point."
         }
       }
     },
@@ -940,19 +949,19 @@
       "items": {
         "home": {
           "title": "Home Use Devices",
-          "description": "Compact cooling solutions for personal IPL devices with user-friendly operation"
+          "description": "Compact cooling for personal IPL devices — TEC cooling tip or sapphire ice window by tier"
         },
         "multi": {
           "title": "Multi-Function Systems",
-          "description": "Advanced cooling for professional-grade multi-application IPL platforms"
+          "description": "Dual-airflow internal cooling + contact cooling for multi-application IPL platforms"
         },
         "pro": {
           "title": "Professional Equipment",
-          "description": "High-performance cooling systems for clinical and salon environments"
+          "description": "High-performance cooling for clinical and salon environments"
         },
         "sensitive": {
           "title": "Sensitive Areas",
-          "description": "Specialized cooling for delicate skin areas and sensitive treatment zones"
+          "description": "Specialized contact cooling for delicate skin and sensitive treatment zones"
         }
       }
     },
@@ -992,37 +1001,37 @@
       },
       "rows": [
         {
-          "parameter": "Cooling Method",
-          "value": "Sapphire Contact + Semiconductor",
-          "description": "Dual cooling technology for optimal performance"
+          "parameter": "Internal cooling",
+          "value": "Dual-Airflow Thermal Management System",
+          "description": "Stabilizes optical filter & lamp output"
         },
         {
-          "parameter": "Temperature Range",
-          "value": "5°C - 25°C",
-          "description": "Adjustable cooling temperature for different skin types"
+          "parameter": "Skin-contact cooling",
+          "value": "TEC cooling tip / Sapphire ice window",
+          "description": "Entry / premium tiers"
         },
         {
-          "parameter": "Response Time",
-          "value": "< 3 seconds",
-          "description": "Rapid cooling activation for immediate comfort"
+          "parameter": "Sapphire ice point",
+          "value": "~8°C (46.4°F)",
+          "description": "Reached within 3–5 min of power-on"
         },
         {
           "parameter": "Contact Area",
-          "value": "25mm x 35mm",
-          "description": "Large cooling surface for efficient heat dissipation"
+          "value": "25 mm × 35 mm",
+          "description": "Large sapphire contact surface"
         },
         {
           "parameter": "Power Consumption",
-          "value": "15W - 45W",
-          "description": "Energy-efficient cooling system design"
+          "value": "15 W – 45 W",
+          "description": "Configurable by model"
         },
         {
           "parameter": "Lifespan",
           "value": "50,000+ hours",
-          "description": "Long-lasting cooling components"
+          "description": "Long-life cooling components"
         }
       ],
-      "footnote": "* Specifications can be customized according to device requirements and target markets."
+      "footnote": "Specifications can be customized according to device requirements and target markets."
     },
     "customization": {
       "title": "Cooling System Customization",
@@ -1036,9 +1045,9 @@
           "title": "Sapphire Crystal Options",
           "description": "Choose from various sapphire crystal grades and configurations for optimal cooling performance"
         },
-        "integration": {
-          "title": "System Integration",
-          "description": "Seamlessly integrate cooling systems with existing device architectures and control systems"
+        "airflow": {
+          "title": "Dual-Airflow Configuration",
+          "description": "Tune airflow channel design and sealing for your device's internal layout"
         },
         "temperature": {
           "title": "Temperature Control",
@@ -1077,7 +1086,7 @@
     },
     "citable": {
       "question": "Why does cooling matter in a home-use IPL device?",
-      "paragraph": "Cooling is a key design factor for home-use IPL devices because it improves skin-contact comfort and helps manage thermal load during repeated flashes. Premium configurations often use a sapphire ice plate or a semiconductor (TEC) cooling module to pull heat away from the treatment window, with some designs targeting skin-contact temperatures around ~10°C. Better thermal management can make higher-energy settings feel more tolerable and can reduce the risk of user discomfort when treating sensitive areas, which supports better session consistency. Cooling choices also affect industrial design, power consumption, assembly complexity, and cost, so the right system depends on brand positioning and target-market requirements. For OEM/ODM programs, iShine integrates the cooling approach with lamp, filter, temperature sensing, and safety interlocks so the final device maintains stable performance across production batches and supports verification and documentation for distribution."
+      "paragraph": "Cooling works on two levels in a home-use IPL device, and both decide how comfortable, consistent, and durable it is. Internally, a Dual-Airflow Thermal Management System draws heat away from the precision optical filter and the lamp assembly, so the dielectric coating stays stable and spectral output stays consistent flash after flash. At the skin, contact cooling is what the user actually feels: an entry-level TEC (thermoelectric) cooling tip lowers a metal plate to create an ice-cool sensation, while premium designs use a sapphire crystal ice-cooling window — the same approach used by leading brands — which delivers real skin-surface cooling, dropping the sapphire contact surface to about 8°C (46.4°F) within 3–5 minutes of power-on. The right choice depends on brand positioning and sales channel: a DTC brand on Shopify or a self-built store can start with TEC contact cooling, while a brand entering regulated retail or premium positioning should consider sapphire ice-cooling for a genuine, perceivable cold. For OEM/ODM programs, iShine integrates the cooling approach with lamp, filter, temperature sensing, and safety interlocks so the final device holds stable performance across production batches and supports verification and documentation for distribution."
     }
   },
   "products": {
@@ -3575,588 +3584,6 @@
         }
       ]
     }
-  },
-  "breadcrumb": {
-    "services": "[TODO] breadcrumb.services",
-    "products": "[TODO] breadcrumb.products",
-    "components": "[TODO] breadcrumb.components",
-    "filter": "[TODO] breadcrumb.filter",
-    "lamp": "[TODO] breadcrumb.lamp",
-    "cooling": "[TODO] breadcrumb.cooling"
-  },
-  "core": {
-    "oem": {
-      "title": "[TODO] core.oem.title",
-      "description": "[TODO] core.oem.description",
-      "features": {
-        "0": "[TODO] core.oem.features.0",
-        "1": "[TODO] core.oem.features.1",
-        "2": "[TODO] core.oem.features.2",
-        "3": "[TODO] core.oem.features.3"
-      }
-    },
-    "design": {
-      "title": "[TODO] core.design.title",
-      "description": "[TODO] core.design.description",
-      "features": {
-        "0": "[TODO] core.design.features.0",
-        "1": "[TODO] core.design.features.1",
-        "2": "[TODO] core.design.features.2",
-        "3": "[TODO] core.design.features.3"
-      }
-    },
-    "production": {
-      "title": "[TODO] core.production.title",
-      "description": "[TODO] core.production.description",
-      "features": {
-        "0": "[TODO] core.production.features.0",
-        "1": "[TODO] core.production.features.1",
-        "2": "[TODO] core.production.features.2",
-        "3": "[TODO] core.production.features.3"
-      }
-    },
-    "packaging": {
-      "title": "[TODO] core.packaging.title",
-      "description": "[TODO] core.packaging.description",
-      "features": {
-        "0": "[TODO] core.packaging.features.0",
-        "1": "[TODO] core.packaging.features.1",
-        "2": "[TODO] core.packaging.features.2",
-        "3": "[TODO] core.packaging.features.3"
-      }
-    },
-    "title": "[TODO] core.title",
-    "description": "[TODO] core.description",
-    "lamp": {
-      "title": "[TODO] core.lamp.title",
-      "description": "[TODO] core.lamp.description",
-      "specs": {
-        "0": "[TODO] core.lamp.specs.0",
-        "1": "[TODO] core.lamp.specs.1",
-        "2": "[TODO] core.lamp.specs.2",
-        "3": "[TODO] core.lamp.specs.3"
-      },
-      "paragraph": "[TODO] core.lamp.paragraph",
-      "cta": "[TODO] core.lamp.cta",
-      "imageAlt": "[TODO] core.lamp.imageAlt"
-    },
-    "filter": {
-      "title": "[TODO] core.filter.title",
-      "description": "[TODO] core.filter.description",
-      "specs": {
-        "0": "[TODO] core.filter.specs.0",
-        "1": "[TODO] core.filter.specs.1",
-        "2": "[TODO] core.filter.specs.2",
-        "3": "[TODO] core.filter.specs.3"
-      },
-      "imageAlt": "[TODO] core.filter.imageAlt",
-      "paragraph": "[TODO] core.filter.paragraph",
-      "cta": "[TODO] core.filter.cta"
-    },
-    "cooling": {
-      "title": "[TODO] core.cooling.title",
-      "description": "[TODO] core.cooling.description",
-      "specs": {
-        "0": "[TODO] core.cooling.specs.0",
-        "1": "[TODO] core.cooling.specs.1",
-        "2": "[TODO] core.cooling.specs.2",
-        "3": "[TODO] core.cooling.specs.3"
-      },
-      "paragraph": "[TODO] core.cooling.paragraph",
-      "cta": "[TODO] core.cooling.cta",
-      "imageAlt": "[TODO] core.cooling.imageAlt"
-    },
-    "power": {
-      "title": "[TODO] core.power.title",
-      "description": "[TODO] core.power.description",
-      "specs": {
-        "0": "[TODO] core.power.specs.0",
-        "1": "[TODO] core.power.specs.1",
-        "2": "[TODO] core.power.specs.2",
-        "3": "[TODO] core.power.specs.3"
-      },
-      "imageAlt": "[TODO] core.power.imageAlt",
-      "paragraph": "[TODO] core.power.paragraph",
-      "cta": "[TODO] core.power.cta"
-    }
-  },
-  "process": {
-    "steps": {
-      "0": {
-        "step": "[TODO] process.steps.0.step",
-        "title": "[TODO] process.steps.0.title",
-        "description": "[TODO] process.steps.0.description",
-        "duration": "[TODO] process.steps.0.duration"
-      },
-      "1": {
-        "step": "[TODO] process.steps.1.step",
-        "title": "[TODO] process.steps.1.title",
-        "description": "[TODO] process.steps.1.description",
-        "duration": "[TODO] process.steps.1.duration"
-      },
-      "2": {
-        "step": "[TODO] process.steps.2.step",
-        "title": "[TODO] process.steps.2.title",
-        "description": "[TODO] process.steps.2.description",
-        "duration": "[TODO] process.steps.2.duration"
-      },
-      "3": {
-        "step": "[TODO] process.steps.3.step",
-        "title": "[TODO] process.steps.3.title",
-        "description": "[TODO] process.steps.3.description",
-        "duration": "[TODO] process.steps.3.duration"
-      }
-    },
-    "title": "[TODO] process.title",
-    "description": "[TODO] process.description"
-  },
-  "advantages": {
-    "experience": {
-      "title": "[TODO] advantages.experience.title",
-      "description": "[TODO] advantages.experience.description"
-    },
-    "global": {
-      "title": "[TODO] advantages.global.title",
-      "description": "[TODO] advantages.global.description"
-    },
-    "endToEnd": {
-      "title": "[TODO] advantages.endToEnd.title",
-      "description": "[TODO] advantages.endToEnd.description"
-    },
-    "quality": {
-      "title": "[TODO] advantages.quality.title",
-      "description": "[TODO] advantages.quality.description"
-    }
-  },
-  "hero": {
-    "title1": "[TODO] hero.title1",
-    "title2": "[TODO] hero.title2",
-    "description": "[TODO] hero.description",
-    "cta": "[TODO] hero.cta",
-    "title": "[TODO] hero.title"
-  },
-  "why": {
-    "title": "[TODO] why.title",
-    "description": "[TODO] why.description"
-  },
-  "trusted": {
-    "title": "[TODO] trusted.title",
-    "description": "[TODO] trusted.description",
-    "stats": {
-      "0": {
-        "value": "[TODO] trusted.stats.0.value",
-        "label": "[TODO] trusted.stats.0.label"
-      },
-      "1": {
-        "value": "[TODO] trusted.stats.1.value",
-        "label": "[TODO] trusted.stats.1.label"
-      },
-      "2": {
-        "value": "[TODO] trusted.stats.2.value",
-        "label": "[TODO] trusted.stats.2.label"
-      }
-    }
-  },
-  "cta": {
-    "title": "[TODO] cta.title",
-    "description": "[TODO] cta.description",
-    "button": "[TODO] cta.button"
-  },
-  "keyFeatures": {
-    "fda": {
-      "title": "[TODO] keyFeatures.fda.title",
-      "description": "[TODO] keyFeatures.fda.description"
-    },
-    "technology": {
-      "title": "[TODO] keyFeatures.technology.title",
-      "description": "[TODO] keyFeatures.technology.description"
-    },
-    "customizable": {
-      "title": "[TODO] keyFeatures.customizable.title",
-      "description": "[TODO] keyFeatures.customizable.description"
-    },
-    "manufacturing": {
-      "title": "[TODO] keyFeatures.manufacturing.title",
-      "description": "[TODO] keyFeatures.manufacturing.description"
-    }
-  },
-  "list": {
-    "title": "[TODO] list.title"
-  },
-  "controls": {
-    "filter": "[TODO] controls.filter"
-  },
-  "title": "[TODO] title",
-  "description": "[TODO] description",
-  "subtitle": "[TODO] subtitle",
-  "form": {
-    "title": "[TODO] form.title",
-    "name": "[TODO] form.name",
-    "email": "[TODO] form.email",
-    "company": "[TODO] form.company",
-    "message": "[TODO] form.message",
-    "messagePlaceholder": "[TODO] form.messagePlaceholder"
-  },
-  "info": {
-    "phone": "[TODO] info.phone"
-  },
-  "ctaExplore": "[TODO] ctaExplore",
-  "header": {
-    "title": "[TODO] header.title",
-    "description": "[TODO] header.description"
-  },
-  "intro": {
-    "title": "[TODO] intro.title",
-    "paragraph": "[TODO] intro.paragraph"
-  },
-  "diagram": {
-    "alt": "[TODO] diagram.alt"
-  },
-  "overview": {
-    "title": "[TODO] overview.title"
-  },
-  "quality": {
-    "title": "[TODO] quality.title",
-    "partnership": "[TODO] quality.partnership",
-    "blocks": {
-      "durability": {
-        "title": "[TODO] quality.blocks.durability.title",
-        "description": "[TODO] quality.blocks.durability.description"
-      },
-      "safety": {
-        "title": "[TODO] quality.blocks.safety.title",
-        "description": "[TODO] quality.blocks.safety.description"
-      },
-      "performance": {
-        "title": "[TODO] quality.blocks.performance.title",
-        "description": "[TODO] quality.blocks.performance.description"
-      },
-      "compliance": {
-        "title": "[TODO] quality.blocks.compliance.title",
-        "description": "[TODO] quality.blocks.compliance.description"
-      },
-      "wavelength": {
-        "title": "[TODO] quality.blocks.wavelength.title",
-        "description": "[TODO] quality.blocks.wavelength.description"
-      },
-      "transmission": {
-        "title": "[TODO] quality.blocks.transmission.title",
-        "description": "[TODO] quality.blocks.transmission.description"
-      },
-      "heat": {
-        "title": "[TODO] quality.blocks.heat.title",
-        "description": "[TODO] quality.blocks.heat.description"
-      },
-      "lifeCycle": {
-        "title": "[TODO] quality.blocks.lifeCycle.title",
-        "description": "[TODO] quality.blocks.lifeCycle.description"
-      },
-      "energy": {
-        "title": "[TODO] quality.blocks.energy.title",
-        "description": "[TODO] quality.blocks.energy.description"
-      },
-      "qc": {
-        "title": "[TODO] quality.blocks.qc.title",
-        "description": "[TODO] quality.blocks.qc.description"
-      },
-      "stability": {
-        "title": "[TODO] quality.blocks.stability.title",
-        "description": "[TODO] quality.blocks.stability.description"
-      },
-      "longterm": {
-        "title": "[TODO] quality.blocks.longterm.title",
-        "description": "[TODO] quality.blocks.longterm.description"
-      },
-      "contact": {
-        "title": "[TODO] quality.blocks.contact.title",
-        "description": "[TODO] quality.blocks.contact.description"
-      },
-      "cycling": {
-        "title": "[TODO] quality.blocks.cycling.title",
-        "description": "[TODO] quality.blocks.cycling.description"
-      }
-    },
-    "intertek": "[TODO] quality.intertek",
-    "intertekDesc": "[TODO] quality.intertekDesc",
-    "paragraph": "[TODO] quality.paragraph"
-  },
-  "customization": {
-    "title": "[TODO] customization.title",
-    "description": "[TODO] customization.description",
-    "blocks": {
-      "wavelengths": {
-        "title": "[TODO] customization.blocks.wavelengths.title",
-        "description": "[TODO] customization.blocks.wavelengths.description"
-      },
-      "shape": {
-        "title": "[TODO] customization.blocks.shape.title",
-        "description": "[TODO] customization.blocks.shape.description"
-      },
-      "material": {
-        "title": "[TODO] customization.blocks.material.title",
-        "description": "[TODO] customization.blocks.material.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.blocks.branding.title",
-        "description": "[TODO] customization.blocks.branding.description"
-      },
-      "plates": {
-        "title": "[TODO] customization.blocks.plates.title",
-        "description": "[TODO] customization.blocks.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] customization.blocks.venus.title",
-        "description": "[TODO] customization.blocks.venus.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.blocks.integration.title",
-        "description": "[TODO] customization.blocks.integration.description"
-      },
-      "temperature": {
-        "title": "[TODO] customization.blocks.temperature.title",
-        "description": "[TODO] customization.blocks.temperature.description"
-      }
-    },
-    "options": {
-      "shape": {
-        "title": "[TODO] customization.options.shape.title",
-        "description": "[TODO] customization.options.shape.description"
-      },
-      "flashCount": {
-        "title": "[TODO] customization.options.flashCount.title",
-        "description": "[TODO] customization.options.flashCount.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.options.branding.title",
-        "description": "[TODO] customization.options.branding.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.options.integration.title",
-        "description": "[TODO] customization.options.integration.description"
-      }
-    }
-  },
-  "qualityBlocks": {
-    "durability": {
-      "title": "[TODO] qualityBlocks.durability.title",
-      "description": "[TODO] qualityBlocks.durability.description"
-    },
-    "safety": {
-      "title": "[TODO] qualityBlocks.safety.title",
-      "description": "[TODO] qualityBlocks.safety.description"
-    },
-    "performance": {
-      "title": "[TODO] qualityBlocks.performance.title",
-      "description": "[TODO] qualityBlocks.performance.description"
-    },
-    "compliance": {
-      "title": "[TODO] qualityBlocks.compliance.title",
-      "description": "[TODO] qualityBlocks.compliance.description"
-    }
-  },
-  "specs": {
-    "rows": {
-      "0": {
-        "parameter": "[TODO] specs.rows.0.parameter",
-        "value": "[TODO] specs.rows.0.value",
-        "description": "[TODO] specs.rows.0.description"
-      },
-      "1": {
-        "parameter": "[TODO] specs.rows.1.parameter",
-        "value": "[TODO] specs.rows.1.value",
-        "description": "[TODO] specs.rows.1.description"
-      },
-      "2": {
-        "parameter": "[TODO] specs.rows.2.parameter",
-        "value": "[TODO] specs.rows.2.value",
-        "description": "[TODO] specs.rows.2.description"
-      },
-      "3": {
-        "parameter": "[TODO] specs.rows.3.parameter",
-        "value": "[TODO] specs.rows.3.value",
-        "description": "[TODO] specs.rows.3.description"
-      },
-      "4": {
-        "parameter": "[TODO] specs.rows.4.parameter",
-        "value": "[TODO] specs.rows.4.value",
-        "description": "[TODO] specs.rows.4.description"
-      },
-      "5": {
-        "parameter": "[TODO] specs.rows.5.parameter",
-        "value": "[TODO] specs.rows.5.value",
-        "description": "[TODO] specs.rows.5.description"
-      }
-    },
-    "title": "[TODO] specs.title",
-    "table": {
-      "parameter": "[TODO] specs.table.parameter",
-      "value": "[TODO] specs.table.value",
-      "notes": "[TODO] specs.table.notes"
-    },
-    "footnote": "[TODO] specs.footnote"
-  },
-  "types": {
-    "fixed": {
-      "title": "[TODO] types.fixed.title",
-      "description": "[TODO] types.fixed.description"
-    },
-    "replaceable": {
-      "title": "[TODO] types.replaceable.title",
-      "description": "[TODO] types.replaceable.description"
-    },
-    "specialized": {
-      "title": "[TODO] types.specialized.title",
-      "description": "[TODO] types.specialized.description"
-    },
-    "title": "[TODO] types.title",
-    "description": "[TODO] types.description"
-  },
-  "applications": {
-    "items": {
-      "hair": {
-        "title": "[TODO] applications.items.hair.title",
-        "description": "[TODO] applications.items.hair.description"
-      },
-      "skin": {
-        "title": "[TODO] applications.items.skin.title",
-        "description": "[TODO] applications.items.skin.description"
-      },
-      "acne": {
-        "title": "[TODO] applications.items.acne.title",
-        "description": "[TODO] applications.items.acne.description"
-      },
-      "pigmentation": {
-        "title": "[TODO] applications.items.pigmentation.title",
-        "description": "[TODO] applications.items.pigmentation.description"
-      },
-      "home": {
-        "title": "[TODO] applications.items.home.title",
-        "description": "[TODO] applications.items.home.description"
-      },
-      "multi": {
-        "title": "[TODO] applications.items.multi.title",
-        "description": "[TODO] applications.items.multi.description"
-      },
-      "proConsumer": {
-        "title": "[TODO] applications.items.proConsumer.title",
-        "description": "[TODO] applications.items.proConsumer.description"
-      },
-      "handpieces": {
-        "title": "[TODO] applications.items.handpieces.title",
-        "description": "[TODO] applications.items.handpieces.description"
-      },
-      "pro": {
-        "title": "[TODO] applications.items.pro.title",
-        "description": "[TODO] applications.items.pro.description"
-      },
-      "sensitive": {
-        "title": "[TODO] applications.items.sensitive.title",
-        "description": "[TODO] applications.items.sensitive.description"
-      }
-    },
-    "title": "[TODO] applications.title"
-  },
-  "highlight": {
-    "whyTitle": "[TODO] highlight.whyTitle",
-    "paragraph": "[TODO] highlight.paragraph",
-    "badge": "[TODO] highlight.badge",
-    "imageAlt": "[TODO] highlight.imageAlt",
-    "items": {
-      "comfort": "[TODO] highlight.items.comfort",
-      "safety": "[TODO] highlight.items.safety",
-      "performance": "[TODO] highlight.items.performance"
-    }
-  },
-  "features": {
-    "title": "[TODO] features.title",
-    "safety": {
-      "title": "[TODO] features.safety.title",
-      "description": "[TODO] features.safety.description"
-    },
-    "precision": {
-      "title": "[TODO] features.precision.title",
-      "description": "[TODO] features.precision.description"
-    },
-    "performance": {
-      "title": "[TODO] features.performance.title",
-      "description": "[TODO] features.performance.description"
-    },
-    "durability": {
-      "title": "[TODO] features.durability.title",
-      "description": "[TODO] features.durability.description"
-    },
-    "energy": {
-      "title": "[TODO] features.energy.title",
-      "description": "[TODO] features.energy.description"
-    },
-    "lifespan": {
-      "title": "[TODO] features.lifespan.title",
-      "description": "[TODO] features.lifespan.description"
-    },
-    "integration": {
-      "title": "[TODO] features.integration.title",
-      "description": "[TODO] features.integration.description"
-    }
-  },
-  "compliance": {
-    "title": "[TODO] compliance.title",
-    "paragraph": "[TODO] compliance.paragraph",
-    "items": {
-      "ce": "[TODO] compliance.items.ce",
-      "iso13485": "[TODO] compliance.items.iso13485",
-      "fda": "[TODO] compliance.items.fda",
-      "iec60601": "[TODO] compliance.items.iec60601",
-      "mdr": "[TODO] compliance.items.mdr"
-    }
-  },
-  "visuals": {
-    "title": "[TODO] visuals.title",
-    "images": {
-      "wavelength": {
-        "alt": "[TODO] visuals.images.wavelength.alt",
-        "caption": "[TODO] visuals.images.wavelength.caption"
-      },
-      "comparison": {
-        "alt": "[TODO] visuals.images.comparison.alt",
-        "caption": "[TODO] visuals.images.comparison.caption"
-      },
-      "exploded": {
-        "alt": "[TODO] visuals.images.exploded.alt",
-        "caption": "[TODO] visuals.images.exploded.caption"
-      },
-      "lifecycle": {
-        "alt": "[TODO] visuals.images.lifecycle.alt",
-        "caption": "[TODO] visuals.images.lifecycle.caption"
-      },
-      "plate": {
-        "alt": "[TODO] visuals.images.plate.alt",
-        "title": "[TODO] visuals.images.plate.title",
-        "caption": "[TODO] visuals.images.plate.caption"
-      },
-      "integration": {
-        "alt": "[TODO] visuals.images.integration.alt",
-        "title": "[TODO] visuals.images.integration.title",
-        "caption": "[TODO] visuals.images.integration.caption"
-      }
-    }
-  },
-  "tech": {
-    "items": {
-      "plates": {
-        "title": "[TODO] tech.items.plates.title",
-        "description": "[TODO] tech.items.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] tech.items.venus.title",
-        "description": "[TODO] tech.items.venus.description"
-      },
-      "semiconductor": {
-        "title": "[TODO] tech.items.semiconductor.title",
-        "description": "[TODO] tech.items.semiconductor.description"
-      }
-    },
-    "title": "[TODO] tech.title",
-    "description": "[TODO] tech.description"
   },
   "aboutPages": {
     "backToAbout": "Back to About",
