@@ -31,12 +31,12 @@ const heroImageBySlug: Record<string, string> = {
   'lamp-cartridges': '/images/components/lamp-cartridge-closeup.jpg',
   'optical-filters': '/images/components/optical-filters.jpg',
   'cooling-system': '/images/components/cooling-system-closeup.jpg',
-  'power-supply': '/images/components/power-supply.jpg',
+  'power-supply': '/images/components/power-supply-hero.webp',
 };
 const heroImage = heroImageBySlug[slug] ?? '/images/components/ipl-device-diagram.jpg';
 const heroBackgroundImageSources = responsiveImageSources(heroImage, [800, 1200, 1600], 1600);
 const heroImageSources = responsiveImageSources(heroImage, [400, 800, 1200, 1600], 1200);
-const componentsDiagramImage = responsiveImageSources('/images/components/ipl-device-diagram.jpg', [400, 800, 1200, 1600], 1200);
+const componentsDiagramImage = responsiveImageSources('/images/components/power-supply-component-quality.webp', [400, 800, 1200, 1600], 1200);
 
 const specsRows =
   ns === 'componentsCooling' || ns === 'componentsFilter' || ns === 'componentsLamp'
