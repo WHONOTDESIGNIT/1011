@@ -36,6 +36,15 @@ const reasons = [
   'aboutPages.reasons.3',
   'aboutPages.reasons.4',
 ];
+
+const teamMembers = [
+  { id: 'member1', image: '/images/about/team/eric-an.webp' },
+  { id: 'member2', image: '/images/about/team/maurice-chow.webp' },
+  { id: 'member3', image: '/images/about/team/mina-teng.webp' },
+  { id: 'member4', image: '/images/about/team/blaine-ling.webp' },
+  { id: 'member5', image: '/images/about/team/rechard-lee.webp' },
+  { id: 'member6', image: '/images/about/team/shannon-xia.webp' },
+];
 const pageTitle = t(locale, 'nav.brandStory');
 // EN SEO 富化标题（仅 meta title；H1/导航/面包屑仍用共享文案）
 const seoTitle = locale === 'en' ? 'Brand Story | iShine Technology Ltd. IPL Manufacturer' : pageTitle;
@@ -130,42 +139,26 @@ const breadcrumbs = buildBreadcrumbs(locale, [
         </p>
       </div>
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">EA</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member1.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member1.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member1.description')}</p>
-        </div>
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">SC</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member2.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member2.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member2.description')}</p>
-        </div>
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">MB</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member3.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member3.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member3.description')}</p>
-        </div>
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">AD</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member4.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member4.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member4.description')}</p>
-        </div>
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">VP</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member5.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member5.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member5.description')}</p>
-        </div>
-        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <div class="mx-auto h-24 w-24 rounded-2xl bg-neutral-200 flex items-center justify-center text-3xl font-bold text-neutral-400">ML</div>
-          <h3 class="mt-4 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.brandStory.team.member6.name')}</h3>
-          <p class="text-sm text-sky-600 font-medium">{t(locale, 'aboutPages.brandStory.team.member6.role')}</p>
-          <p class="mt-2 text-sm text-neutral-600">{t(locale, 'aboutPages.brandStory.team.member6.description')}</p>
-        </div>
+        {teamMembers.map(({ id, image }) => {
+          const base = `aboutPages.brandStory.team.${id}`;
+          const name = t(locale, `${base}.name`);
+          const role = t(locale, `${base}.role`);
+          const desc = t(locale, `${base}.description`);
+          return (
+            <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
+              <img
+                src={image}
+                alt={name}
+                loading="lazy"
+                decoding="async"
+                class="mx-auto h-28 w-28 rounded-2xl bg-neutral-200 object-cover"
+              />
+              <h3 class="mt-4 text-lg font-semibold text-ink-900">{name}</h3>
+              <p class="text-sm text-sky-600 font-medium">{role}</p>
+              {desc && <p class="mt-2 text-sm text-neutral-600">{desc}</p>}
+            </div>
+          );
+        })}
       </div>
     </section>
   </div>
