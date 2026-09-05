@@ -13,26 +13,44 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 interface CatalogueItem {
   slug: string;
   name: string;
+  rsp: string;
+  display: string;
+  pulses: string;
+  window: string;
+  intensity: string;
+  skinSensor: string;
   cooling: string;
-  lampType?: string;
-  energy?: string;
-  app?: string;
-  skinDetection?: string;
+  glide: string;
+  app: string;
+  pain: string;
+  areas: string;
+  launch: string;
   bestFor: string;
 }
 
+/** 对比表参数行：字段名与 messages 中 clientPage.catalogue.compare.<key> 一一对应 */
+const compareRowKeys: (keyof CatalogueItem)[] = [
+  'rsp',
+  'display',
+  'pulses',
+  'window',
+  'intensity',
+  'skinSensor',
+  'cooling',
+  'glide',
+  'app',
+  'pain',
+  'areas',
+  'launch',
+];
+
+// 官方规格矩阵（Product comparison iShine-2026-09-04），数值以 Excel 为准
 const catalogueItems: CatalogueItem[] = [
-  { slug: 'lumi-2', name: 'Lumi 2', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.lumi2') },
-  { slug: 'lumi', name: 'Lumi', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.lumi') },
-  { slug: 'venus', name: 'Venus', cooling: t(locale, 'clientPage.catalogue.coolingOptions.icePlate'), lampType: '999,000 flashes', energy: '7-9 J/cm²', bestFor: t(locale, 'clientPage.catalogue.bestFor.venus') },
-  { slug: 'eirene', name: 'Eirene', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), lampType: '800,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.eirene') },
-  { slug: 'wooden', name: 'Golden', cooling: t(locale, 'clientPage.catalogue.coolingOptions.icePlate'), lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.wooden') },
-  { slug: 'hebe', name: 'Hebe', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), skinDetection: t(locale, 'clientPage.catalogue.skinDetectionOptions.aiSensor'), lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.auto5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.hebe') },
-  { slug: 'hestia', name: 'Hestia', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), app: 'Bluetooth 5.0', lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.hestia') },
-  { slug: 'euno', name: 'Euno', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), lampType: '500,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.euno') },
-  { slug: 'emerald', name: 'Emerald', cooling: t(locale, 'clientPage.catalogue.coolingOptions.active'), lampType: '999,000 flashes', energy: t(locale, 'clientPage.catalogue.energyOptions.adjustable5'), bestFor: t(locale, 'clientPage.catalogue.bestFor.emerald') },
-  { slug: 'themis', name: 'Themis', cooling: t(locale, 'clientPage.catalogue.coolingOptions.iceFeeling'), lampType: '999,000 flashes', energy: '8-12 J/cm²', bestFor: t(locale, 'clientPage.catalogue.bestFor.themis') },
-  { slug: 'alpha', name: 'Alpha', cooling: t(locale, 'clientPage.catalogue.coolingOptions.standard'), lampType: '999,000 flashes (dual)', energy: '8-12 J/cm²', bestFor: t(locale, 'clientPage.catalogue.bestFor.alpha') },
+  { slug: 'helix', name: 'Helix', rsp: '$199–$229', display: 'LED digital display', pulses: '999,000', window: '3.0 cm²', intensity: '9 levels', skinSensor: 'No', cooling: 'Sapphire cooling', glide: 'Yes', app: 'No', pain: 'Low', areas: 'Yes', launch: 'May 2026', bestFor: t(locale, 'clientPage.catalogue.bestFor.helix') },
+  { slug: 'lumi-2', name: 'Lumi 2', rsp: '$299', display: 'LED digital / IML display', pulses: '999,000', window: '3.0 cm²', intensity: '7 levels', skinSensor: 'Yes', cooling: 'Sapphire cooling', glide: 'Yes', app: 'No', pain: 'Low', areas: 'Yes', launch: 'Dec 2025', bestFor: t(locale, 'clientPage.catalogue.bestFor.lumi2') },
+  { slug: 'venus', name: 'Venus', rsp: '$229', display: 'LED digital display', pulses: '999,000', window: '3.0 cm²', intensity: '5 levels', skinSensor: 'Venus Pro only', cooling: 'Sapphire cooling', glide: 'Yes', app: 'No', pain: 'Low', areas: 'Yes', launch: 'Dec 2024', bestFor: t(locale, 'clientPage.catalogue.bestFor.venus') },
+  { slug: 'lumi', name: 'Lumi', rsp: '$99–$129', display: 'LED display', pulses: '999,000', window: '3.3 cm²', intensity: '6 levels', skinSensor: 'No', cooling: 'No', glide: 'Yes', app: 'No', pain: 'Medium', areas: 'Yes', launch: 'Dec 2021', bestFor: t(locale, 'clientPage.catalogue.bestFor.lumi') },
+  { slug: 'themis', name: 'Themis', rsp: '$189–$229', display: 'LED display', pulses: '999,000', window: '3.3 cm²', intensity: '9 levels', skinSensor: 'No', cooling: 'TEC cooling tip', glide: 'Yes', app: 'No', pain: 'Low', areas: 'Yes', launch: 'Dec 2022', bestFor: t(locale, 'clientPage.catalogue.bestFor.themis') },
 ];
 
 const recommendationTracks = [
@@ -47,27 +65,14 @@ const recommendationTracks = [
   {
     title: t(locale, 'clientPage.catalogue.tracks.1.title'),
     description: t(locale, 'clientPage.catalogue.tracks.1.description'),
-    links: [
-      { label: t(locale, 'clientPage.catalogue.tracks.1.links.0'), href: getLocalizedPath(locale, '/products/hestia') },
-      { label: t(locale, 'clientPage.catalogue.tracks.1.links.1'), href: getLocalizedPath(locale, '/products/lumi') },
-    ],
+    links: [{ label: t(locale, 'clientPage.catalogue.tracks.1.links.0'), href: getLocalizedPath(locale, '/products/lumi') }],
   },
   {
     title: t(locale, 'clientPage.catalogue.tracks.2.title'),
     description: t(locale, 'clientPage.catalogue.tracks.2.description'),
-    links: [{ label: t(locale, 'clientPage.catalogue.tracks.2.links.0'), href: getLocalizedPath(locale, '/products/euno') }],
-  },
-  {
-    title: t(locale, 'clientPage.catalogue.tracks.3.title'),
-    description: t(locale, 'clientPage.catalogue.tracks.3.description'),
-    links: [{ label: t(locale, 'clientPage.catalogue.tracks.3.links.0'), href: getLocalizedPath(locale, '/products/wooden') }],
-  },
-  {
-    title: t(locale, 'clientPage.catalogue.tracks.4.title'),
-    description: t(locale, 'clientPage.catalogue.tracks.4.description'),
     links: [
-      { label: t(locale, 'clientPage.catalogue.tracks.4.links.0'), href: getLocalizedPath(locale, '/products/themis') },
-      { label: t(locale, 'clientPage.catalogue.tracks.4.links.1'), href: getLocalizedPath(locale, '/products/alpha') },
+      { label: t(locale, 'clientPage.catalogue.tracks.2.links.0'), href: getLocalizedPath(locale, '/products/themis') },
+      { label: t(locale, 'clientPage.catalogue.tracks.2.links.1'), href: getLocalizedPath(locale, '/products/helix') },
     ],
   },
 ];
@@ -183,9 +188,9 @@ const catalogueFaq = [
     </section>
 
     <section class="overflow-x-auto px-4 md:px-0">
-      <div class="min-w-[900px]">
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px rounded-2xl border border-neutral-200 bg-neutral-200">
-          <div class="rounded-tl-2xl bg-neutral-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.model')}</div>
+      <div class="overflow-hidden rounded-2xl border border-neutral-200">
+        <div class="grid min-w-[880px] grid-cols-[200px_repeat(5,minmax(0,1fr))] gap-px bg-neutral-200">
+          <div class="bg-neutral-50 p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.model')}</div>
           {catalogueItems.map((item) => (
             <div class="bg-neutral-50 p-4 text-center text-sm font-semibold text-ink-900">
               <a class="transition hover:text-violet-700" href={getLocalizedPath(locale, `/products/${item.slug}`)}>{item.name}</a>
@@ -196,50 +201,20 @@ const catalogueFaq = [
               </div>
             </div>
           ))}
-        </div>
 
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.cooling')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.cooling}</div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.lampLife')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.lampType}</div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.energy')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.energy}</div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.appControl')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.app || '—'}</div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.skinDetection')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-sm text-neutral-700">{item.skinDetection || '—'}</div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-[140px_repeat(11,minmax(0,1fr))] gap-px border-x border-b border-neutral-200 bg-neutral-200">
-          <div class="rounded-bl-2xl bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, 'clientPage.catalogue.bestForTitle')}</div>
-          {catalogueItems.map((item) => (
-            <div class="bg-white p-4 text-center text-xs leading-relaxed text-neutral-600">{item.bestFor}</div>
+          {compareRowKeys.map((rowKey) => (
+            <>
+              <div class="bg-white p-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t(locale, `clientPage.catalogue.compare.${rowKey}`)}</div>
+              {catalogueItems.map((item) => (
+                <div class="bg-white p-4 text-center text-sm text-neutral-700">{item[rowKey]}</div>
+              ))}
+            </>
           ))}
         </div>
       </div>
+      <p class="mt-3 text-xs leading-relaxed text-slate-500">
+        * {t(locale, 'clientPage.catalogue.compare.rspNote')}
+      </p>
     </section>
 
     <section class="space-y-10">
@@ -260,12 +235,12 @@ const catalogueFaq = [
                 <dd class="font-semibold text-ink-900">{item.cooling}</dd>
               </div>
               <div class="flex items-center justify-between gap-4">
-                <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.energy')}</dt>
-                <dd class="font-semibold text-ink-900">{item.energy || '—'}</dd>
+                <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.compare.window')}</dt>
+                <dd class="font-semibold text-ink-900">{item.window}</dd>
               </div>
               <div class="flex items-center justify-between gap-4">
-                <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.app')}</dt>
-                <dd class="font-semibold text-ink-900">{item.app || '—'}</dd>
+                <dt class="text-slate-500">{t(locale, 'clientPage.catalogue.compare.launch')}</dt>
+                <dd class="font-semibold text-ink-900">{item.launch}</dd>
               </div>
             </dl>
             <div class="mt-8 grid gap-3">
