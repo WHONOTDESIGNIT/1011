@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleVote from '../../components/ArticleVote.astro';
 import MdxImage from '../../components/MdxImage.astro';
-import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, postHref } from '../../lib/blog';
+import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, postHref, categoryHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
@@ -207,7 +207,7 @@ const faqSchema = post.faqs.length
       <div class="space-y-2">
         <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-600">
           {post.meta.category
-            ? <span class="rounded-2xl border border-neutral-200 bg-white px-3 py-1 font-medium text-neutral-700">{post.meta.category}</span>
+            ? <a href={categoryHref(locale, post.meta.category)} class="rounded-2xl border border-neutral-200 bg-white px-3 py-1 font-medium text-neutral-700 transition-colors hover:border-violet-400 hover:text-violet-600">{post.meta.category}</a>
             : null}
         </div>
         <h1 class="text-4xl font-bold text-slate-950 md:text-5xl lg:text-6xl">{post.meta.title}</h1>

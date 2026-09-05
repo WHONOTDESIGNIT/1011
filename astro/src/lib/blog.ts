@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { load as loadYaml } from 'js-yaml';
+import { toCategorySlug } from './blog-categories';
 type BlogFaq = { question: string; answer: string };
 
 export type BlogPostSummary = {
@@ -110,6 +111,15 @@ function postHref(localeOrDir: string, slug: string): string {
   if (dir === 'en') return `/blog/${slug}`;
   const urlPath = BLOG_DIR_TO_URL_PATH[dir] ?? dir;
   return `/${urlPath}/blog/${slug}`;
+}
+
+/** 分类聚合页 URL：en 无前缀，其余语言带小写 /<locale>/ 前缀。label 为规范词（Title Case）。 */
+export function categoryHref(localeOrDir: string, label: string): string {
+  const dir = resolveBlogLocale(localeOrDir);
+  const slug = toCategorySlug(label);
+  if (dir === 'en') return `/blog/category/${slug}`;
+  const urlPath = BLOG_DIR_TO_URL_PATH[dir] ?? dir;
+  return `/${urlPath}/blog/category/${slug}`;
 }
 
 function normalizeFaqs(rawFaqs: BlogFrontmatterRecord['faqs']) {

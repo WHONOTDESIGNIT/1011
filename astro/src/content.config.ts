@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { BLOG_CATEGORIES } from './lib/blog-categories';
 
 const faqItemSchema = z.object({
   question: z.string(),
@@ -15,7 +16,7 @@ const blog = defineCollection({
     author: z.string(),
     authorAvatar: z.string().optional(),
     editor: z.string().optional(),
-    category: z.string(),
+    category: z.enum(BLOG_CATEGORIES),
     heroImage: z.string().optional(),
     ogImage: z.string().optional(),
     slug: z.string().optional(),

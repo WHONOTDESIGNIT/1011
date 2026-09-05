@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '../../../lib/i18n';
+import { getAllPosts, categoryHref, blogUrlPath, SUPPORTED_LOCALES } from '../../../lib/blog';
+import { BLOG_CATEGORIES, toCategorySlug, categoryLabelFromSlug } from '../../../lib/blog-categories';
+import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
+import { responsiveImageSources } from '../../../lib/netlify-images';
+
+// 分类聚合页：/blog/category/<slug>（en）与 /<locale>/blog/category/<slug>（其余语言）。
+// 复用文章详情页的 i18n fallback 模式：getStaticPaths 只枚举全站唯一分类 slug，
+// Astro 会按语言克隆；页面内用 Astro.currentLocale 决定渲染语言。
+export async function getStaticPaths() {
+  return BLOG_CATEGORIES.map((label) => ({ params: { category: toCategorySlug(label) } }));
+}
+
+function resolveBaseUrl() {
+  return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
+}
+
+const urlLocale = Astro.currentLocale ?? 'en';
+const label = categoryLabelFromSlug(Astro.params.category ?? '');
+if (!label) {
+  return new Response('Not found', { status: 404 });
+}
+
+// 该语言下的本分类文章；若该语言无此分类则回退渲染英文（i18n rewrite 语义，URL 不变）
+let posts = (await getAllPosts(urlLocale)).filter((p) => p.category === label);
+if (!posts.length) {
+  posts = (await getAllPosts('en')).filter((p) => p.category === label);
+}
+const locale = posts[0]?.locale ?? 'en';
+posts.sort((a, b) => (a.date === b.date ? 0 : a.date > b.date ? -1 : 1));
+
+const blogHref = locale === 'en' ? '/blog' : `/${blogUrlPath(locale)}/blog`;
+const canonical = `${resolveBaseUrl()}${categoryHref(locale, label)}`;
+// 确定性模板（含品牌，buildFinalTitle 不会再追加 | iShine）
+const pageTitle = `${label} Articles | iShine Blog`;
+const pageDescription = t(locale, 'blog.meta.description');
+const hreflangEntries = SUPPORTED_LOCALES.map((l) => ({ locale: l, href: `${resolveBaseUrl()}${categoryHref(l, label)}` }));
+
+const breadcrumbs = buildBreadcrumbs(locale, [
+  { label: t(locale, 'common.home'), path: '/' },
+  { label: t(locale, 'nav.blog'), path: '/blog' },
+  { label },
+]);
+
+const imgFor = (src: string) => responsiveImageSources(src, [400, 800, 1200], 600);
+const readTimeLabel = (post: (typeof posts)[number]) => post.readTime || '5 min read';
+const noImageText = t(locale, 'blog.common.noImage');
+---
+
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} hreflangs={hreflangEntries}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.label,
+        item: item.href ? `${resolveBaseUrl()}${item.href}` : canonical,
+      })),
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: pageTitle,
+      description: pageDescription,
+      url: canonical,
+      inLanguage: locale,
+    })} />
+  </Fragment>
+
+  <div class="cat-page">
+    <div class="cat-inner">
+      <header class="cat-hero">
+        <a class="cat-back" href={blogHref}>← {t(locale, 'nav.blog')}</a>
+        <h1>{label}</h1>
+        <p class="cat-desc">{pageDescription}</p>
+      </header>
+
+      {posts.length > 0 ? (
+        <div class="browse-grid">
+          {posts.map((post) => (
+            <a class="browse-card" href={post.href}>
+              {post.image ? (
+                <div class="blog-card-img blog-card-img-grid">
+                  <picture>
+                    <source type="image/avif" srcset={imgFor(post.image).avifSrcSet} />
+                    <source type="image/webp" srcset={imgFor(post.image).webpSrcSet} />
+                    <img src={imgFor(post.image).src} srcset={imgFor(post.image).webpSrcSet} alt={post.title} loading="lazy" decoding="async" width="1200" height="675" />
+                  </picture>
+                </div>
+              ) : (
+                <div class="blog-card-img blog-card-img-grid">
+                  <div class="cat-no-image">{noImageText}</div>
+                </div>
+              )}
+              <span class="blog-read-time">{readTimeLabel(post)}</span>
+              <h3>{post.title}</h3>
+              <div class="browse-card-meta">
+                <span class="blog-meta-author">{post.author || 'iShine Team'}</span>
+                <span class="blog-meta-date">{post.date}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="cat-empty">{t(locale, 'blog.filters.emptyTitle')}</p>
+      )}
+    </div>
+  </div>
+
+  <style>
+    .cat-page{background:var(--color-white);color:var(--color-ink);font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    .cat-page a{text-decoration:none;color:inherit}
+    .cat-inner{max-width:1280px;margin:0 auto;padding:48px 100px 100px}
+    .cat-back{display:inline-block;font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--color-gray-600);margin-bottom:24px;transition:color .2s}
+    .cat-back:hover{color:var(--color-primary)}
+    .cat-kicker{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+    .cat-hero h1{font-family:Syne,sans-serif;font-size:52px;font-weight:400;line-height:60px;letter-spacing:-.5px;color:var(--color-ink);margin:0}
+    .cat-desc{font-family:Manrope,sans-serif;font-size:18px;line-height:28px;color:var(--color-gray-600);max-width:640px;margin:16px 0 0}
+    .cat-count{font-family:Manrope,sans-serif;font-size:14px;color:var(--color-gray-500);margin:8px 0 0}
+    .browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .blog-card-img{width:100%;overflow:hidden;background:var(--color-gray-200)}
+    .blog-card-img img{width:100%;height:100%;object-fit:cover}
+    .blog-card-img-grid{border-radius:16px;aspect-ratio:16/9;margin-bottom:12px}
+    .browse-card{display:flex;flex-direction:column;transition:transform .2s}
+    .browse-card:hover{transform:translateY(-4px)}
+    .browse-card h3{font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--color-ink);margin:0;transition:color .2s}
+    .browse-card:hover h3{color:var(--color-primary)}
+    .browse-card .blog-read-time{margin-bottom:4px}
+    .browse-card-meta{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-size:14px;color:var(--color-gray-500);line-height:21px;margin-top:8px}
+    .blog-meta-author{color:var(--color-ink)}
+    .blog-read-time{display:inline-block;font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--color-gray-600);text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:4px;background:#f3f4f6;width:fit-content}
+    .cat-no-image{display:flex;align-items:flex-end;justify-content:center;height:100%;font-family:Manrope,sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--color-gray-500);padding:8px}
+    .cat-empty{font-family:Manrope,sans-serif;color:var(--color-gray-600);margin-top:40px}
+    @media(max-width:1279px){.cat-inner{padding:40px}}
+    @media(max-width:1023px){.browse-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:767px){
+      .cat-inner{padding:32px 24px}
+      .cat-hero h1{font-size:36px;line-height:42px;letter-spacing:-.35px}
+      .cat-desc{font-size:16px;line-height:25px}
+      .browse-grid{grid-template-columns:1fr}
+    }
+  </style>
+</BaseLayout>

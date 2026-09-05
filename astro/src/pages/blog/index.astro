@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllPosts } from '../../lib/blog';
+import { getAllPosts, categoryHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
@@ -139,6 +139,7 @@ const uiText = {
     .browse-all-header h2{font-family:Syne,sans-serif;font-size:32px;font-weight:400;line-height:38px;color:var(--color-ink);margin:0}
     .browse-categories{display:flex;gap:8px;flex-wrap:wrap}
     .browse-cat-btn{padding:8px 16px;border-radius:100px;border:1px solid var(--color-ink);background:transparent;font-family:Manrope,sans-serif;font-size:14px;font-weight:400;color:var(--color-ink);cursor:pointer;transition:all .2s;white-space:nowrap}
+    .browse-cat-btn.cat-chip-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
     .browse-cat-btn.active,.browse-cat-btn:hover{background:var(--color-ink);color:var(--color-white)}
 
     /* Search */
@@ -262,7 +263,7 @@ const uiText = {
           <div class="browse-categories" id="blog-category-filters">
             <button type="button" data-category="All" class="browse-cat-btn active">{uiText.filterAll}</button>
             {categories.map((category) => (
-              <button type="button" data-category={category} class="browse-cat-btn">{category}</button>
+              <a href={categoryHref(locale, category)} class="browse-cat-btn cat-chip-link">{category}</a>
             ))}
           </div>
         </div>
