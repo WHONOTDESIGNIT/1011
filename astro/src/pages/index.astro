@@ -156,8 +156,8 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ═══ Mega Dropdown ═══ */
-/* 弹窗出现时覆盖在 hero 背景上的 30% 天蓝色图层 */
-.nav-sky-overlay{position:fixed;inset:0;background:rgba(56,189,248,.3);opacity:0;visibility:hidden;pointer-events:none;z-index:104;transition:opacity .25s ease,visibility 0s .25s}
+/* 弹窗出现时覆盖在 hero 背景上的 30% 浅灰图层（与语言切换器遮罩 .ls-backdrop 同色） */
+.nav-sky-overlay{position:fixed;inset:0;background:rgba(156,163,175,.3);opacity:0;visibility:hidden;pointer-events:none;z-index:104;transition:opacity .25s ease,visibility 0s .25s}
 .nav-sky-overlay.open{opacity:1;visibility:visible;pointer-events:none;transition:opacity .25s ease,visibility 0s 0s}
 .nav-dropdown-wrapper{position:relative}
 .nav-has-dropdown{gap:6px}
@@ -803,12 +803,9 @@ a{text-decoration:none;color:inherit}
             <div class="mega-left">
               <div class="mega-link-group">
                 <a class="mega-link" href={loc("/about")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.desc')}</span></a>
-                <a class="mega-link" href={loc("/about/brand-story")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.brandStory.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.brandStory.desc')}</span></a>
-                <a class="mega-link" href={loc("/about/company-profile")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.companyProfile.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.companyProfile.desc')}</span></a>
-                <a class="mega-link" href={loc("/about/manufacturing-capabilities")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.manufacturing.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.manufacturing.desc')}</span></a>
-                <a class="mega-link" href={loc("/about/quality-control")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.quality.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.quality.desc')}</span></a>
                 <a class="mega-link" href={loc("/meet-the-team")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.team.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.team.desc')}</span></a>
                 <a class="mega-link" href={loc("/clients")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.clients.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.clients.desc')}</span></a>
+                <a class="mega-link" href={loc("/careers")}><span class="mega-link-title">{t(locale, 'homepage.mega.about.careers.title')}</span><span class="mega-link-desc">{t(locale, 'homepage.mega.about.careers.desc')}</span></a>
               </div>
             </div>
             <div class="mega-right">
