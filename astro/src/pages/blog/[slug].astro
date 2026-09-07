@@ -455,15 +455,17 @@ const faqSchema = post.faqs.length
   .blog-content p:first-child {
     margin-top: 0;
   }
+  /* ---- 博客内链配色逻辑（2026-09-07）----
+     颜色：#1155cc（品牌主色 #563cfa 深色变体）——纯黑正文上对比清晰、
+     可辨识但不刺眼；站内/站外链接统一着色。
+     粗细：不加粗（随正文 400），与正文加粗关键词各司其职，避免视觉噪音竞争。
+     下划线：恒定标准下划线（与文字同色），保证长文中「哪里可点」明确，
+     悬停不做颜色变化。  */
   .blog-content a {
-    color: var(--color-black, #000000);
+    color: #1155cc;
     text-decoration: underline;
-    text-decoration-color: var(--border-color, #E5E5E5);
+    text-decoration-color: currentColor;
     text-underline-offset: 3px;
-    transition: text-decoration-color 0.15s;
-  }
-  .blog-content a:hover {
-    text-decoration-color: var(--primary-color, #563cfa);
   }
   .blog-content strong {
     font-weight: 600;
@@ -537,6 +539,11 @@ const faqSchema = post.faqs.length
     color: var(--lighter-text-color, #7B7B7B);
     text-align: center;
   }
+  /* ---- 博客表格配色决策树（2026-09-07 全局应用至所有 blog MDX 表格） ----
+     表头：#563cfa 品牌主色 + 白字 → 权威感与品牌识别
+     行标签（第一列）：#f4f2ff 浅紫底 + #563cfa 文字 → 区分「维度」与「数据」
+     正文行：#fff 与 #faf9ff 极低对比度交替 → 长表可读性，不干扰数据对比
+     边框与分割线：#d9d9e3 中性灰 → 弱化边框，让内容成为视觉焦点  */
   .blog-content table {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -545,18 +552,40 @@ const faqSchema = post.faqs.length
     font-size: 0.9375rem;
     display: block;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #d9d9e3;
+    border-radius: 0.75rem;
+    background: #ffffff;
   }
-  .blog-content th {
-    padding: 0.625rem 0.75rem;
-    text-align: left;
-    font-weight: 600;
-    color: var(--blog-author-name-color, #111827);
-    border-bottom: 2px solid var(--border-color, #E5E5E5);
-  }
+  .blog-content th,
   .blog-content td {
     padding: 0.625rem 0.75rem;
-    border-bottom: 1px solid var(--divider-color, #eeeeee);
+    border-bottom: 1px solid #d9d9e3;
+  }
+  .blog-content thead th {
+    text-align: start;
+    font-weight: 600;
+    color: #ffffff;
+    background: #563cfa;
+  }
+  .blog-content tbody tr:nth-child(odd) {
+    background: #ffffff;
+  }
+  .blog-content tbody tr:nth-child(even) {
+    background: #faf9ff;
+  }
+  .blog-content tbody td:first-child {
+    color: #563cfa;
+    font-weight: 600;
+    background: #f4f2ff;
+  }
+  .blog-content td {
     color: var(--blog-all-articles-text-color, #334155);
+  }
+  /* 若单元格内还有代码/强调等内联元素，避免继承品牌色造成视觉噪音 */
+  .blog-content tbody td:first-child code {
+    color: #563cfa;
+    background: rgba(86, 60, 250, 0.08);
   }
   .blog-content code {
     font-size: 0.875rem;
