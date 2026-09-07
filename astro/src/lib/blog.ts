@@ -7,6 +7,7 @@ type BlogFaq = { question: string; answer: string };
 export type BlogPostSummary = {
   title: string;
   excerpt: string;
+  citableSummary: string;
   date: string;
   updatedDate: string;
   author: string;
@@ -39,6 +40,7 @@ type BlogIndexRecord = {
 type BlogFrontmatterRecord = {
   title?: string;
   description?: string;
+  citableSummary?: string;
   pubDate?: string | Date;
   updatedDate?: string | Date;
   author?: string;
@@ -166,6 +168,7 @@ async function loadBlogIndex() {
           const slug = frontmatter.slug;
           const translationKey = frontmatter.translationKey;
           const excerpt = frontmatter.description ?? '';
+          const citableSummary = frontmatter.citableSummary ?? '';
           const date = formatDateValue(frontmatter.pubDate);
           const updatedDate = formatDateValue(frontmatter.updatedDate);
           const image = frontmatter.heroImage ?? frontmatter.ogImage ?? '';
@@ -181,6 +184,7 @@ async function loadBlogIndex() {
             meta: {
               title: frontmatter.title ?? slug,
               excerpt,
+              citableSummary,
               date,
               updatedDate,
               author: frontmatter.author ?? 'iShine Team',

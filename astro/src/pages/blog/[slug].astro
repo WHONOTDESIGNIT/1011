@@ -245,7 +245,7 @@ const faqSchema = post.faqs.length
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'blog.post.citableEyebrow')}</h2>
       <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'blog.post.citableQuestion')}</h3>
       <p class="mt-4 text-lg leading-relaxed text-neutral-700">
-        {t(locale, 'blog.post.citableBody').replace('{title}', post.meta.title)}
+        {post.meta.citableSummary || post.meta.excerpt || t(locale, 'blog.post.citableBody').replace('{title}', post.meta.title)}
       </p>
     </section>
 
