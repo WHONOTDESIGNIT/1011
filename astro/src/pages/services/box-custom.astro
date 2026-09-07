@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { t } from '../../lib/i18n';
+import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = Astro.currentLocale ?? 'en';
+const citableImage = responsiveImageSources('/images/service/pink-venus-ice-ipl.jpg');
 const packagingAreas = [
   {
     title: t(locale, 'servicesPage.boxCustom.scope.items.0.title'),
@@ -47,11 +49,32 @@ const packagingAreas = [
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
-      <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'servicesPage.boxCustom.citable.heading')}</h3>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
-        {t(locale, 'servicesPage.boxCustom.citable.body')}
-      </p>
+      <div class="grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-100 shadow-sm">
+          <picture>
+            <source srcset={citableImage.avifSrcSet} sizes="(min-width: 1024px) 38vw, 100vw" type="image/avif" />
+            <source srcset={citableImage.webpSrcSet} sizes="(min-width: 1024px) 38vw, 100vw" type="image/webp" />
+            <img
+              src={citableImage.src}
+              srcset={citableImage.webpSrcSet}
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              alt={t(locale, 'servicesPage.boxCustom.citable.imageAlt')}
+              loading="lazy"
+              decoding="async"
+              width="1760"
+              height="2208"
+              class="h-auto w-full object-cover"
+            />
+          </picture>
+        </div>
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
+          <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'servicesPage.boxCustom.citable.heading')}</h3>
+          <p class="mt-4 text-lg leading-relaxed text-neutral-700">
+            {t(locale, 'servicesPage.boxCustom.citable.body')}
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="space-y-10">
