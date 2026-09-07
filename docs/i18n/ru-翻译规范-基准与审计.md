@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-18 · 调研方法：web_search 俄语官方/电商页面（Google RU/Yandex 触发反爬，改用搜索摘要）
 > 数据文件：`.wx-bridge/plans/ru_ref/*.json`
-> 对应语言包：`messages/ru.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/ru.json`（5104 叶子，结构已对齐 en）
 
 ---
 
@@ -98,5 +98,5 @@
 2. 生成 EN-RU 对照对（排除 [TODO]），按顶层 key 分组。
 3. 子代理逐条复核：修正机翻痕迹、统一术语、调整俄语语序、检查 ты/вы。
 4. 合并（merge 脚本，逻辑同 merge_ko_fixes.py）。
-5. 结构验证：ru 叶子 = en 叶子（5422），0 缺失 0 多余。
+5. 结构验证：ru 叶子 = en 叶子（5151），0 缺失 0 多余。
 6. `astro build` 验证 + 抽样检查 /ru/ 页面。

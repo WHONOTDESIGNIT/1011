@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-18 · 调研方法：真实浏览器抓取 Philips BR + web_search 巴西电商
 > 数据文件：`.wx-bridge/plans/pt_ref/*.json`
-> 对应语言包：`messages/pt-BR.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/pt-BR.json`（5104 叶子，结构已对齐 en）
 
 ---
 
@@ -97,5 +97,5 @@
 2. 生成 EN-PT-BR 对照对（排除 [TODO]），按顶层 key 分组。
 3. 子代理逐条复核：修正机翻痕迹、统一术语、检查巴西葡语特征（você、gerúndio）。
 4. 合并（merge 脚本，逻辑同 merge_ko_fixes.py）。
-5. 结构验证：pt-BR 叶子 = en 叶子（5422），0 缺失 0 多余。
+5. 结构验证：pt-BR 叶子 = en 叶子（5151），0 缺失 0 多余。
 6. `astro build` 验证 + 抽样检查 /pt-BR/ 页面。

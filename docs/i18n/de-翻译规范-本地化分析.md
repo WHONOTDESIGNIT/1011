@@ -69,7 +69,7 @@
 ## 三、de.json 创建方案（待确认执行）
 
 ### 技术步骤
-1. 以 `en.json`（59 顶层 key，3651 条）为模板生成 `de.json`
+1. 以 `en.json`（28 顶层 key，3651 条）为模板生成 `de.json`
 2. 按上表术语表 + chip.de/Amazon.de 语言习惯翻译全部条目
 3. 接入 i18n：
    - `astro/src/config/i18n.ts`：SUPPORTED_LANGUAGES 加 `"de"`、LANGUAGE_CONFIG 加 de 条目（flag、nativeName "Deutsch"、enabled）

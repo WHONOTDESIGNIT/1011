@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-19 · 调研方法：抓取 Philips ID + web_search 印尼电商
 > 数据文件：`.wx-bridge/plans/id_ref/*.json`
-> 对应语言包：`messages/id.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/id.json`（5104 叶子，结构已对齐 en）
 
 ---
 
@@ -87,5 +87,5 @@
 2. 生成 EN-ID 对照对（排除 [TODO]），按顶层 key 分组。
 3. 子代理逐条复核（每次最多 2 个并发）：修正机翻痕迹、统一术语、检查 Anda。
 4. 合并（merge_lang_fixes.py）。
-5. 结构验证：id 叶子 = en 叶子（5422），0 缺失 0 多余。
+5. 结构验证：id 叶子 = en 叶子（5151），0 缺失 0 多余。
 6. `astro build` 验证 + 抽样检查 /id/ 页面。

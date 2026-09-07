@@ -10,7 +10,7 @@
 ## 一、通用翻译铁律（所有语言）
 
 ### 1.1 结构规范
-1. **键结构必须与 `messages/en.json` 完全一致**（59 顶层 key / 5422 叶子 / 122 数组），0 缺失 / 0 多余。
+1. **键结构必须与 `messages/en.json` 完全一致**（28 顶层 key / 5151 叶子 / 247 数组），0 缺失 / 0 多余。
 2. **占位符必须原样保留**：`{companyName}` `{productName}` `{count}` `{name}` `{title}` `{total}` `{shown}` `{index}` `{firstQty}` `{lastQty}` `{lastPrice}` `%s` `%d`。
 3. **品牌名与缩写保留不译**：iShine、Lumi、Venus、Hestia、Alpha、Emerald、Euno、Themis、Hebe、Helix、Eirene、Golden Luxury、IPL、OEM/ODM、FDA、CE、MDSAP、MOQ、ISO 13485。
 4. **[TODO] 骨架值**：未完成翻译的叶节点用 `[TODO]` 标记，禁止删除；英文源为 [TODO] 时对应语言保留 [TODO]。

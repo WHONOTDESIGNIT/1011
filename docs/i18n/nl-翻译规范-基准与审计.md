@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-18 · 调研方法：真实浏览器抓取 Philips NL + Google NL listing
 > 数据文件：`.wx-bridge/plans/nl_ref/*.json`
-> 对应语言包：`messages/nl.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/nl.json`（5104 叶子，结构已对齐 en）
 
 ---
 
@@ -92,5 +92,5 @@
 2. 生成 EN-NL 对照对（排除 [TODO]），按顶层 key 分组。
 3. 子代理逐条复核（每次最多 2 个并发）：修正机翻痕迹、统一术语、检查 je/u。
 4. 合并（merge_lang_fixes.py）。
-5. 结构验证：nl 叶子 = en 叶子（5422），0 缺失 0 多余。
+5. 结构验证：nl 叶子 = en 叶子（5151），0 缺失 0 多余。
 6. `astro build` 验证 + 抽样检查 /nl/ 页面。

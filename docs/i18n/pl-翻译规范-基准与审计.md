@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-18 · 调研方法：真实浏览器抓取 Philips PL + Google PL listing
 > 数据文件：`.wx-bridge/plans/pl_ref/*.json`
-> 对应语言包：`messages/pl.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/pl.json`（5104 叶子，结构已对齐 en）
 
 ---
 
@@ -96,5 +96,5 @@
 2. 生成 EN-PL 对照对（排除 [TODO]），按顶层 key 分组。
 3. 子代理逐条复核：修正机翻痕迹、统一术语、调整波兰语语序、检查 ty/Pan。
 4. 合并（merge_lang_fixes.py）。
-5. 结构验证：pl 叶子 = en 叶子（5422），0 缺失 0 多余。
+5. 结构验证：pl 叶子 = en 叶子（5151），0 缺失 0 多余。
 6. `astro build` 验证 + 抽样检查 /pl/ 页面。

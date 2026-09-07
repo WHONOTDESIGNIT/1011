@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-18 · 调研方法：真实浏览器（headless Edge CDP）抓取韩国本地页面 + Google KR listing
 > 数据文件：`.wx-bridge/plans/ko_ref/*.json`
-> 对应语言包：`messages/ko.json`（当前 5422 叶子，修复后结构对齐 en）
+> 对应语言包：`messages/ko.json`（当前 5104 叶子，修复后结构对齐 en）
 
 ---
 
@@ -106,5 +106,5 @@
 2. 生成 EN-KO 对照对（排除 [TODO]），按顶层 key 分组为 8 组。
 3. 8 个子代理逐条复核：修正机翻痕迹、统一术语、调整韩语语序、处理 당신。
 4. 合并（merge_ko_fixes.py，逻辑同 merge_tr_fixes2.py）。
-5. 结构验证：ko 叶子 = en 叶子（5422），0 缺失 0 多余，JSON 合法。
+5. 结构验证：ko 叶子 = en 叶子（5151），0 缺失 0 多余，JSON 合法。
 6. `astro build` 验证 + 抽样检查 /ko/ 页面。

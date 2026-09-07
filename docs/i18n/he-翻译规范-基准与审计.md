@@ -2,7 +2,7 @@
 
 > 调研日期：2026-08-20 · 调研方法：真实浏览器 CDP 抓取 philips.co.il、silkn.co.il + web_search
 > 数据文件：`.wx-bridge/plans/he_ref/*.json`
-> 对应语言包：`messages/he.json`（5422 叶子，结构已对齐 en）
+> 对应语言包：`messages/he.json`（5104 叶子，结构已对齐 en）
 
 ---
 
