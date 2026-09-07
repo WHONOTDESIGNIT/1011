@@ -168,9 +168,14 @@ const selectOptions = {
     <section class="mx-auto max-w-6xl px-6">
       <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'common.citableSummary')}</h2>
       <h3 class="mt-2 text-2xl font-bold text-ink-900">{t(locale, 'aboutPages.contactPage.summaryTitle')}</h3>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
-        {t(locale, 'aboutPages.contactPage.summaryDescription')}
-      </p>
+      <div class="mt-4 max-w-4xl space-y-4 text-lg leading-relaxed text-neutral-700">
+        {t(locale, 'aboutPages.contactPage.summaryDescription')
+          .split(/\n\s*\n/)
+          .map((paragraph) => paragraph.trim())
+          .filter(Boolean)
+          .map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <p class="mt-6 text-lg font-semibold text-ink-900">{t(locale, 'aboutPages.contactPage.summaryTagline')}</p>
     </section>
   </div>
 </BaseLayout>
