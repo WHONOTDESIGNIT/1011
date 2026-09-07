@@ -585,6 +585,10 @@
           "heading": "Achter de projecten",
           "desc": "De mensen en vaardigheden achter het werk.",
           "cta": "Maak kennis met het team"
+        },
+        "careers": {
+          "title": "Vacatures",
+          "desc": "Word lid van ons groeiende team"
         }
       },
       "resources": {
@@ -856,7 +860,8 @@
       "viewAllArticles": "Alle artikelen bekijken",
       "citableEyebrow": "Citeerbare samenvatting",
       "citableQuestion": "Waar gaat dit artikel over?",
-      "citableBody": "Dit artikel legt {title} uit voor teams die private-label IPL-ontharingsproducten evalueren of ontwikkelen. Het behandelt praktische overwegingen voor de uitvoering van OEM/ODM, waaronder hoe productiekeuzes de productervaring, nalevingsplanning en gereedheid voor lancering kunnen beïnvloeden. Het doel is een zelfstandig leesbaar overzicht te bieden waar lezers op terug kunnen vallen bij het vergelijken van opties, het opstellen van RFQ's of het afstemmen van interne stakeholders op de vereisten. Waar relevant verbindt de bespreking beslissingen op componentniveau (zoals koeling, filters, lampcartridges, sensoren en vermogensontwerp) met gebruikerscomfort en reproduceerbare productieresultaten. De belangrijkste conclusie is een duidelijker stel besliscriteria waarmee u risico's kunt verminderen en in minder iteraties van concept naar schaalbare productie kunt komen."
+      "citableBody": "Dit artikel legt {title} uit voor teams die private-label IPL-ontharingsproducten evalueren of ontwikkelen. Het behandelt praktische overwegingen voor de uitvoering van OEM/ODM, waaronder hoe productiekeuzes de productervaring, nalevingsplanning en gereedheid voor lancering kunnen beïnvloeden. Het doel is een zelfstandig leesbaar overzicht te bieden waar lezers op terug kunnen vallen bij het vergelijken van opties, het opstellen van RFQ's of het afstemmen van interne stakeholders op de vereisten. Waar relevant verbindt de bespreking beslissingen op componentniveau (zoals koeling, filters, lampcartridges, sensoren en vermogensontwerp) met gebruikerscomfort en reproduceerbare productieresultaten. De belangrijkste conclusie is een duidelijker stel besliscriteria waarmee u risico's kunt verminderen en in minder iteraties van concept naar schaalbare productie kunt komen.",
+      "faqTitle": "Veelgestelde vragen"
     }
   },
   "contact": {
@@ -907,7 +912,8 @@
       "items": {
         "comfort": "Verbeterd comfort tijdens behandelingen",
         "safety": "Lager risico op thermische huidbeschadiging",
-        "performance": "Betere behandelresultaten en meer consistentie"
+        "performance": "Betere behandelresultaten en meer consistentie",
+        "architecture": "Dubbellaagse thermische architectuur (intern + huidcontact)"
       },
       "imageAlt": "Geavanceerde koelsysteemtechnologie"
     },
@@ -915,17 +921,25 @@
       "title": "Koeltechnologieën",
       "description": "Ontdek ons assortiment geavanceerde koeloplossingen, ontworpen voor verschillende toepassingen en gebruikersbehoeften",
       "items": {
-        "plates": {
-          "title": "Contactkoelplaten",
-          "description": "Zeer efficiënte koelplaten die tijdens behandelingen een constante temperatuur handhaven"
-        },
         "sapphire": {
           "title": "Saffier-contactkoeling",
-          "description": "Premium koeling met saffierkristal voor maximaal comfort en superieure warmteafvoer"
+          "description": "Premium koeling met saffierkristal voor maximaal comfort en superieure warmteafvoer",
+          "tag": "Premium huidcontactkoeling"
         },
-        "semiconductor": {
-          "title": "Halfgeleiderkoeling",
-          "description": "Geavanceerde Peltier-koeltechnologie voor nauwkeurige temperatuurregeling en energie-efficiëntie"
+        "airflow": {
+          "tag": "Interne warmteafvoer voor de apparaatbehuizing",
+          "title": "Thermisch beheersysteem met dubbele luchtstroom",
+          "description": "",
+          "points": [
+            "Actieve warmteafvoer: onafhankelijke luchtstroomkanalen voeren warmte af van het precisie-optische filter, waardoor door warmte veroorzaakte degradatie van de diëlektrische coating wordt beperkt en de spectrale transmissie behouden blijft.",
+            "Isolatie tegen vervuiling: het afgedichte luchtstroomtraject minimaliseert stofindringing en fysiek contact tijdens het reinigen, waardoor slijtage van het oppervlak wordt voorkomen en de integriteit van het filter behouden blijft.",
+            "Verlengde operationele levensduur: door de optische prestaties van het filter te stabiliseren bij herhaalde hoogenergetische pulsen, zorgt het systeem voor een consistente fluence-afgifte vanaf het eerste gebruik gedurende de volledige levenscyclus van het apparaat."
+          ]
+        },
+        "tec": {
+          "tag": "Huidcontactkoeling op instapniveau",
+          "title": "TEC-koeltip (thermo-elektrisch)",
+          "description": "Koelt een metalen plaat om tijdens de behandeling een ijskoud gevoel te creëren, waardoor gebruikers een comfortabele ontharingservaring krijgen tegen een kostenefficiënt prijspunt."
         }
       }
     },
@@ -1031,13 +1045,13 @@
           "title": "Saffierkristalopties",
           "description": "Kies uit diverse saffierkristalkwaliteiten en configuraties voor optimale koelprestaties"
         },
-        "integration": {
-          "title": "Systeemintegratie",
-          "description": "Integreer koelsystemen naadloos met bestaande apparaatarchitecturen en besturingssystemen"
-        },
         "temperature": {
           "title": "Temperatuurregeling",
           "description": "Implementeer nauwkeurige temperatuurregelalgoritmen en veiligheidsbewakingssystemen"
+        },
+        "airflow": {
+          "title": "Configuratie met dubbele luchtstroom",
+          "description": "Stem het ontwerp en de afdichting van de luchtstroomkanalen af op de interne indeling van uw apparaat"
         }
       }
     },
@@ -3571,588 +3585,6 @@
       ]
     }
   },
-  "breadcrumb": {
-    "services": "[TODO] breadcrumb.services",
-    "products": "[TODO] breadcrumb.products",
-    "components": "[TODO] breadcrumb.components",
-    "filter": "[TODO] breadcrumb.filter",
-    "lamp": "[TODO] breadcrumb.lamp",
-    "cooling": "[TODO] breadcrumb.cooling"
-  },
-  "core": {
-    "oem": {
-      "title": "[TODO] core.oem.title",
-      "description": "[TODO] core.oem.description",
-      "features": {
-        "0": "[TODO] core.oem.features.0",
-        "1": "[TODO] core.oem.features.1",
-        "2": "[TODO] core.oem.features.2",
-        "3": "[TODO] core.oem.features.3"
-      }
-    },
-    "design": {
-      "title": "[TODO] core.design.title",
-      "description": "[TODO] core.design.description",
-      "features": {
-        "0": "[TODO] core.design.features.0",
-        "1": "[TODO] core.design.features.1",
-        "2": "[TODO] core.design.features.2",
-        "3": "[TODO] core.design.features.3"
-      }
-    },
-    "production": {
-      "title": "[TODO] core.production.title",
-      "description": "[TODO] core.production.description",
-      "features": {
-        "0": "[TODO] core.production.features.0",
-        "1": "[TODO] core.production.features.1",
-        "2": "[TODO] core.production.features.2",
-        "3": "[TODO] core.production.features.3"
-      }
-    },
-    "packaging": {
-      "title": "[TODO] core.packaging.title",
-      "description": "[TODO] core.packaging.description",
-      "features": {
-        "0": "[TODO] core.packaging.features.0",
-        "1": "[TODO] core.packaging.features.1",
-        "2": "[TODO] core.packaging.features.2",
-        "3": "[TODO] core.packaging.features.3"
-      }
-    },
-    "title": "[TODO] core.title",
-    "description": "[TODO] core.description",
-    "lamp": {
-      "title": "[TODO] core.lamp.title",
-      "description": "[TODO] core.lamp.description",
-      "specs": {
-        "0": "[TODO] core.lamp.specs.0",
-        "1": "[TODO] core.lamp.specs.1",
-        "2": "[TODO] core.lamp.specs.2",
-        "3": "[TODO] core.lamp.specs.3"
-      },
-      "paragraph": "[TODO] core.lamp.paragraph",
-      "cta": "[TODO] core.lamp.cta",
-      "imageAlt": "[TODO] core.lamp.imageAlt"
-    },
-    "filter": {
-      "title": "[TODO] core.filter.title",
-      "description": "[TODO] core.filter.description",
-      "specs": {
-        "0": "[TODO] core.filter.specs.0",
-        "1": "[TODO] core.filter.specs.1",
-        "2": "[TODO] core.filter.specs.2",
-        "3": "[TODO] core.filter.specs.3"
-      },
-      "imageAlt": "[TODO] core.filter.imageAlt",
-      "paragraph": "[TODO] core.filter.paragraph",
-      "cta": "[TODO] core.filter.cta"
-    },
-    "cooling": {
-      "title": "[TODO] core.cooling.title",
-      "description": "[TODO] core.cooling.description",
-      "specs": {
-        "0": "[TODO] core.cooling.specs.0",
-        "1": "[TODO] core.cooling.specs.1",
-        "2": "[TODO] core.cooling.specs.2",
-        "3": "[TODO] core.cooling.specs.3"
-      },
-      "paragraph": "[TODO] core.cooling.paragraph",
-      "cta": "[TODO] core.cooling.cta",
-      "imageAlt": "[TODO] core.cooling.imageAlt"
-    },
-    "power": {
-      "title": "[TODO] core.power.title",
-      "description": "[TODO] core.power.description",
-      "specs": {
-        "0": "[TODO] core.power.specs.0",
-        "1": "[TODO] core.power.specs.1",
-        "2": "[TODO] core.power.specs.2",
-        "3": "[TODO] core.power.specs.3"
-      },
-      "imageAlt": "[TODO] core.power.imageAlt",
-      "paragraph": "[TODO] core.power.paragraph",
-      "cta": "[TODO] core.power.cta"
-    }
-  },
-  "process": {
-    "steps": {
-      "0": {
-        "step": "[TODO] process.steps.0.step",
-        "title": "[TODO] process.steps.0.title",
-        "description": "[TODO] process.steps.0.description",
-        "duration": "[TODO] process.steps.0.duration"
-      },
-      "1": {
-        "step": "[TODO] process.steps.1.step",
-        "title": "[TODO] process.steps.1.title",
-        "description": "[TODO] process.steps.1.description",
-        "duration": "[TODO] process.steps.1.duration"
-      },
-      "2": {
-        "step": "[TODO] process.steps.2.step",
-        "title": "[TODO] process.steps.2.title",
-        "description": "[TODO] process.steps.2.description",
-        "duration": "[TODO] process.steps.2.duration"
-      },
-      "3": {
-        "step": "[TODO] process.steps.3.step",
-        "title": "[TODO] process.steps.3.title",
-        "description": "[TODO] process.steps.3.description",
-        "duration": "[TODO] process.steps.3.duration"
-      }
-    },
-    "title": "[TODO] process.title",
-    "description": "[TODO] process.description"
-  },
-  "advantages": {
-    "experience": {
-      "title": "[TODO] advantages.experience.title",
-      "description": "[TODO] advantages.experience.description"
-    },
-    "global": {
-      "title": "[TODO] advantages.global.title",
-      "description": "[TODO] advantages.global.description"
-    },
-    "endToEnd": {
-      "title": "[TODO] advantages.endToEnd.title",
-      "description": "[TODO] advantages.endToEnd.description"
-    },
-    "quality": {
-      "title": "[TODO] advantages.quality.title",
-      "description": "[TODO] advantages.quality.description"
-    }
-  },
-  "hero": {
-    "title1": "[TODO] hero.title1",
-    "title2": "[TODO] hero.title2",
-    "description": "[TODO] hero.description",
-    "cta": "[TODO] hero.cta",
-    "title": "[TODO] hero.title"
-  },
-  "why": {
-    "title": "[TODO] why.title",
-    "description": "[TODO] why.description"
-  },
-  "trusted": {
-    "title": "[TODO] trusted.title",
-    "description": "[TODO] trusted.description",
-    "stats": {
-      "0": {
-        "value": "[TODO] trusted.stats.0.value",
-        "label": "[TODO] trusted.stats.0.label"
-      },
-      "1": {
-        "value": "[TODO] trusted.stats.1.value",
-        "label": "[TODO] trusted.stats.1.label"
-      },
-      "2": {
-        "value": "[TODO] trusted.stats.2.value",
-        "label": "[TODO] trusted.stats.2.label"
-      }
-    }
-  },
-  "cta": {
-    "title": "[TODO] cta.title",
-    "description": "[TODO] cta.description",
-    "button": "[TODO] cta.button"
-  },
-  "keyFeatures": {
-    "fda": {
-      "title": "[TODO] keyFeatures.fda.title",
-      "description": "[TODO] keyFeatures.fda.description"
-    },
-    "technology": {
-      "title": "[TODO] keyFeatures.technology.title",
-      "description": "[TODO] keyFeatures.technology.description"
-    },
-    "customizable": {
-      "title": "[TODO] keyFeatures.customizable.title",
-      "description": "[TODO] keyFeatures.customizable.description"
-    },
-    "manufacturing": {
-      "title": "[TODO] keyFeatures.manufacturing.title",
-      "description": "[TODO] keyFeatures.manufacturing.description"
-    }
-  },
-  "list": {
-    "title": "[TODO] list.title"
-  },
-  "controls": {
-    "filter": "[TODO] controls.filter"
-  },
-  "title": "[TODO] title",
-  "description": "[TODO] description",
-  "subtitle": "[TODO] subtitle",
-  "form": {
-    "title": "[TODO] form.title",
-    "name": "[TODO] form.name",
-    "email": "[TODO] form.email",
-    "company": "[TODO] form.company",
-    "message": "[TODO] form.message",
-    "messagePlaceholder": "[TODO] form.messagePlaceholder"
-  },
-  "info": {
-    "phone": "[TODO] info.phone"
-  },
-  "ctaExplore": "[TODO] ctaExplore",
-  "header": {
-    "title": "[TODO] header.title",
-    "description": "[TODO] header.description"
-  },
-  "intro": {
-    "title": "[TODO] intro.title",
-    "paragraph": "[TODO] intro.paragraph"
-  },
-  "diagram": {
-    "alt": "[TODO] diagram.alt"
-  },
-  "overview": {
-    "title": "[TODO] overview.title"
-  },
-  "quality": {
-    "title": "[TODO] quality.title",
-    "partnership": "[TODO] quality.partnership",
-    "blocks": {
-      "durability": {
-        "title": "[TODO] quality.blocks.durability.title",
-        "description": "[TODO] quality.blocks.durability.description"
-      },
-      "safety": {
-        "title": "[TODO] quality.blocks.safety.title",
-        "description": "[TODO] quality.blocks.safety.description"
-      },
-      "performance": {
-        "title": "[TODO] quality.blocks.performance.title",
-        "description": "[TODO] quality.blocks.performance.description"
-      },
-      "compliance": {
-        "title": "[TODO] quality.blocks.compliance.title",
-        "description": "[TODO] quality.blocks.compliance.description"
-      },
-      "wavelength": {
-        "title": "[TODO] quality.blocks.wavelength.title",
-        "description": "[TODO] quality.blocks.wavelength.description"
-      },
-      "transmission": {
-        "title": "[TODO] quality.blocks.transmission.title",
-        "description": "[TODO] quality.blocks.transmission.description"
-      },
-      "heat": {
-        "title": "[TODO] quality.blocks.heat.title",
-        "description": "[TODO] quality.blocks.heat.description"
-      },
-      "lifeCycle": {
-        "title": "[TODO] quality.blocks.lifeCycle.title",
-        "description": "[TODO] quality.blocks.lifeCycle.description"
-      },
-      "energy": {
-        "title": "[TODO] quality.blocks.energy.title",
-        "description": "[TODO] quality.blocks.energy.description"
-      },
-      "qc": {
-        "title": "[TODO] quality.blocks.qc.title",
-        "description": "[TODO] quality.blocks.qc.description"
-      },
-      "stability": {
-        "title": "[TODO] quality.blocks.stability.title",
-        "description": "[TODO] quality.blocks.stability.description"
-      },
-      "longterm": {
-        "title": "[TODO] quality.blocks.longterm.title",
-        "description": "[TODO] quality.blocks.longterm.description"
-      },
-      "contact": {
-        "title": "[TODO] quality.blocks.contact.title",
-        "description": "[TODO] quality.blocks.contact.description"
-      },
-      "cycling": {
-        "title": "[TODO] quality.blocks.cycling.title",
-        "description": "[TODO] quality.blocks.cycling.description"
-      }
-    },
-    "intertek": "[TODO] quality.intertek",
-    "intertekDesc": "[TODO] quality.intertekDesc",
-    "paragraph": "[TODO] quality.paragraph"
-  },
-  "customization": {
-    "title": "[TODO] customization.title",
-    "description": "[TODO] customization.description",
-    "blocks": {
-      "wavelengths": {
-        "title": "[TODO] customization.blocks.wavelengths.title",
-        "description": "[TODO] customization.blocks.wavelengths.description"
-      },
-      "shape": {
-        "title": "[TODO] customization.blocks.shape.title",
-        "description": "[TODO] customization.blocks.shape.description"
-      },
-      "material": {
-        "title": "[TODO] customization.blocks.material.title",
-        "description": "[TODO] customization.blocks.material.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.blocks.branding.title",
-        "description": "[TODO] customization.blocks.branding.description"
-      },
-      "plates": {
-        "title": "[TODO] customization.blocks.plates.title",
-        "description": "[TODO] customization.blocks.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] customization.blocks.venus.title",
-        "description": "[TODO] customization.blocks.venus.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.blocks.integration.title",
-        "description": "[TODO] customization.blocks.integration.description"
-      },
-      "temperature": {
-        "title": "[TODO] customization.blocks.temperature.title",
-        "description": "[TODO] customization.blocks.temperature.description"
-      }
-    },
-    "options": {
-      "shape": {
-        "title": "[TODO] customization.options.shape.title",
-        "description": "[TODO] customization.options.shape.description"
-      },
-      "flashCount": {
-        "title": "[TODO] customization.options.flashCount.title",
-        "description": "[TODO] customization.options.flashCount.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.options.branding.title",
-        "description": "[TODO] customization.options.branding.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.options.integration.title",
-        "description": "[TODO] customization.options.integration.description"
-      }
-    }
-  },
-  "qualityBlocks": {
-    "durability": {
-      "title": "[TODO] qualityBlocks.durability.title",
-      "description": "[TODO] qualityBlocks.durability.description"
-    },
-    "safety": {
-      "title": "[TODO] qualityBlocks.safety.title",
-      "description": "[TODO] qualityBlocks.safety.description"
-    },
-    "performance": {
-      "title": "[TODO] qualityBlocks.performance.title",
-      "description": "[TODO] qualityBlocks.performance.description"
-    },
-    "compliance": {
-      "title": "[TODO] qualityBlocks.compliance.title",
-      "description": "[TODO] qualityBlocks.compliance.description"
-    }
-  },
-  "specs": {
-    "rows": {
-      "0": {
-        "parameter": "[TODO] specs.rows.0.parameter",
-        "value": "[TODO] specs.rows.0.value",
-        "description": "[TODO] specs.rows.0.description"
-      },
-      "1": {
-        "parameter": "[TODO] specs.rows.1.parameter",
-        "value": "[TODO] specs.rows.1.value",
-        "description": "[TODO] specs.rows.1.description"
-      },
-      "2": {
-        "parameter": "[TODO] specs.rows.2.parameter",
-        "value": "[TODO] specs.rows.2.value",
-        "description": "[TODO] specs.rows.2.description"
-      },
-      "3": {
-        "parameter": "[TODO] specs.rows.3.parameter",
-        "value": "[TODO] specs.rows.3.value",
-        "description": "[TODO] specs.rows.3.description"
-      },
-      "4": {
-        "parameter": "[TODO] specs.rows.4.parameter",
-        "value": "[TODO] specs.rows.4.value",
-        "description": "[TODO] specs.rows.4.description"
-      },
-      "5": {
-        "parameter": "[TODO] specs.rows.5.parameter",
-        "value": "[TODO] specs.rows.5.value",
-        "description": "[TODO] specs.rows.5.description"
-      }
-    },
-    "title": "[TODO] specs.title",
-    "table": {
-      "parameter": "[TODO] specs.table.parameter",
-      "value": "[TODO] specs.table.value",
-      "notes": "[TODO] specs.table.notes"
-    },
-    "footnote": "[TODO] specs.footnote"
-  },
-  "types": {
-    "fixed": {
-      "title": "[TODO] types.fixed.title",
-      "description": "[TODO] types.fixed.description"
-    },
-    "replaceable": {
-      "title": "[TODO] types.replaceable.title",
-      "description": "[TODO] types.replaceable.description"
-    },
-    "specialized": {
-      "title": "[TODO] types.specialized.title",
-      "description": "[TODO] types.specialized.description"
-    },
-    "title": "[TODO] types.title",
-    "description": "[TODO] types.description"
-  },
-  "applications": {
-    "items": {
-      "hair": {
-        "title": "[TODO] applications.items.hair.title",
-        "description": "[TODO] applications.items.hair.description"
-      },
-      "skin": {
-        "title": "[TODO] applications.items.skin.title",
-        "description": "[TODO] applications.items.skin.description"
-      },
-      "acne": {
-        "title": "[TODO] applications.items.acne.title",
-        "description": "[TODO] applications.items.acne.description"
-      },
-      "pigmentation": {
-        "title": "[TODO] applications.items.pigmentation.title",
-        "description": "[TODO] applications.items.pigmentation.description"
-      },
-      "home": {
-        "title": "[TODO] applications.items.home.title",
-        "description": "[TODO] applications.items.home.description"
-      },
-      "multi": {
-        "title": "[TODO] applications.items.multi.title",
-        "description": "[TODO] applications.items.multi.description"
-      },
-      "proConsumer": {
-        "title": "[TODO] applications.items.proConsumer.title",
-        "description": "[TODO] applications.items.proConsumer.description"
-      },
-      "handpieces": {
-        "title": "[TODO] applications.items.handpieces.title",
-        "description": "[TODO] applications.items.handpieces.description"
-      },
-      "pro": {
-        "title": "[TODO] applications.items.pro.title",
-        "description": "[TODO] applications.items.pro.description"
-      },
-      "sensitive": {
-        "title": "[TODO] applications.items.sensitive.title",
-        "description": "[TODO] applications.items.sensitive.description"
-      }
-    },
-    "title": "[TODO] applications.title"
-  },
-  "highlight": {
-    "whyTitle": "[TODO] highlight.whyTitle",
-    "paragraph": "[TODO] highlight.paragraph",
-    "badge": "[TODO] highlight.badge",
-    "imageAlt": "[TODO] highlight.imageAlt",
-    "items": {
-      "comfort": "[TODO] highlight.items.comfort",
-      "safety": "[TODO] highlight.items.safety",
-      "performance": "[TODO] highlight.items.performance"
-    }
-  },
-  "features": {
-    "title": "[TODO] features.title",
-    "safety": {
-      "title": "[TODO] features.safety.title",
-      "description": "[TODO] features.safety.description"
-    },
-    "precision": {
-      "title": "[TODO] features.precision.title",
-      "description": "[TODO] features.precision.description"
-    },
-    "performance": {
-      "title": "[TODO] features.performance.title",
-      "description": "[TODO] features.performance.description"
-    },
-    "durability": {
-      "title": "[TODO] features.durability.title",
-      "description": "[TODO] features.durability.description"
-    },
-    "energy": {
-      "title": "[TODO] features.energy.title",
-      "description": "[TODO] features.energy.description"
-    },
-    "lifespan": {
-      "title": "[TODO] features.lifespan.title",
-      "description": "[TODO] features.lifespan.description"
-    },
-    "integration": {
-      "title": "[TODO] features.integration.title",
-      "description": "[TODO] features.integration.description"
-    }
-  },
-  "compliance": {
-    "title": "[TODO] compliance.title",
-    "paragraph": "[TODO] compliance.paragraph",
-    "items": {
-      "ce": "[TODO] compliance.items.ce",
-      "iso13485": "[TODO] compliance.items.iso13485",
-      "fda": "[TODO] compliance.items.fda",
-      "iec60601": "[TODO] compliance.items.iec60601",
-      "mdr": "[TODO] compliance.items.mdr"
-    }
-  },
-  "visuals": {
-    "title": "[TODO] visuals.title",
-    "images": {
-      "wavelength": {
-        "alt": "[TODO] visuals.images.wavelength.alt",
-        "caption": "[TODO] visuals.images.wavelength.caption"
-      },
-      "comparison": {
-        "alt": "[TODO] visuals.images.comparison.alt",
-        "caption": "[TODO] visuals.images.comparison.caption"
-      },
-      "exploded": {
-        "alt": "[TODO] visuals.images.exploded.alt",
-        "caption": "[TODO] visuals.images.exploded.caption"
-      },
-      "lifecycle": {
-        "alt": "[TODO] visuals.images.lifecycle.alt",
-        "caption": "[TODO] visuals.images.lifecycle.caption"
-      },
-      "plate": {
-        "alt": "[TODO] visuals.images.plate.alt",
-        "title": "[TODO] visuals.images.plate.title",
-        "caption": "[TODO] visuals.images.plate.caption"
-      },
-      "integration": {
-        "alt": "[TODO] visuals.images.integration.alt",
-        "title": "[TODO] visuals.images.integration.title",
-        "caption": "[TODO] visuals.images.integration.caption"
-      }
-    }
-  },
-  "tech": {
-    "items": {
-      "plates": {
-        "title": "[TODO] tech.items.plates.title",
-        "description": "[TODO] tech.items.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] tech.items.venus.title",
-        "description": "[TODO] tech.items.venus.description"
-      },
-      "semiconductor": {
-        "title": "[TODO] tech.items.semiconductor.title",
-        "description": "[TODO] tech.items.semiconductor.description"
-      }
-    },
-    "title": "[TODO] tech.title",
-    "description": "[TODO] tech.description"
-  },
   "aboutPages": {
     "backToAbout": "Terug naar Over ons",
     "requestQuote": "Offerte aanvragen",
@@ -4250,34 +3682,44 @@
       "teamSubtitle": "Maak kennis met het leiderschapsteam dat de missie van iShine om wereldklasse IPL-productieoplossingen te leveren aanstuurt.",
       "team": {
         "member1": {
-          "name": "Eric Ann",
-          "role": "CEO en medeoprichter",
-          "description": "Leidt de strategische visie, businessontwikkeling en wereldwijde partnerschappen."
+          "name": "Eric An",
+          "role": "Co-Founder & CEO",
+          "description": ""
         },
         "member2": {
-          "name": "Sarah Chen",
-          "role": "CFO",
-          "description": "Houdt toezicht op financiële strategie, risicomanagement en operationele efficiëntie."
+          "name": "Maurice Chow",
+          "role": "Senior Account Executive",
+          "description": ""
         },
         "member3": {
-          "name": "Maurice",
-          "role": "Businessmanager",
-          "description": "Beheert klantrelaties, verkoopactiviteiten en marktuitbreiding."
+          "name": "Mina Teng",
+          "role": "Design Director",
+          "description": ""
         },
         "member4": {
-          "name": "Amy",
-          "role": "Art designer",
-          "description": "Stuurt de productesthetiek, het verpakkingsontwerp en de merkidentiteit aan."
+          "name": "Blaine Ling",
+          "role": "Logistics & Warehouse Operations Supervisor",
+          "description": ""
         },
         "member5": {
-          "name": "Vivian",
-          "role": "Procesprojectmanager",
-          "description": "Coördineert productieworkflows, planning en procesoptimalisatie."
+          "name": "Rechard Lee",
+          "role": "Operations Manager",
+          "description": ""
         },
         "member6": {
-          "name": "Mike Lee",
-          "role": "Productiemanager",
-          "description": "Leidt productieactiviteiten, kwaliteitscontrole en het beheer van de toeleveringsketen."
+          "name": "Shannon Xia",
+          "role": "Quality Control & Compliance Manager",
+          "description": ""
+        },
+        "member7": {
+          "name": "Shayne Chen",
+          "role": "Financieel directeur (CFO)",
+          "description": ""
+        },
+        "member8": {
+          "name": "Rose Chen",
+          "role": "Bedrijfsmanager",
+          "description": ""
         }
       }
     },
@@ -4885,8 +4327,8 @@
           "description": "Vragen van klanten over hoe IPL werkt, typische gebruiksroutines, comfort en veiligheidsmaatregelen. Handig voor FAQ-pagina's, handleidingen en lanceergereede supportcontent.",
           "faqs": {
             "whatIsIpl": {
-              "question": "Wat is IPL en hoe vermindert een IPL-handset de haargroei?",
-              "answer": "IPL staat voor Intense Pulsed Light. De handset zendt pulsen van gefilterd licht uit die door het pigment in het haar worden geabsorbeerd. Die energie wordt in de buurt van het haarzakje omgezet in warmte, waardoor de haargroei na herhaalde sessies kan afnemen. Bij consequent gebruik zien veel gebruikers na verloop van tijd tragere hergroei en fijner haar."
+              "question": "Wat is IPL en hoe vermindert een IPL-apparaat de haargroei?",
+              "answer": "IPL staat voor Intense Pulsed Light. De apparaat zendt pulsen van gefilterd licht uit die door het pigment in het haar worden geabsorbeerd. Die energie wordt in de buurt van het haarzakje omgezet in warmte, waardoor de haargroei na herhaalde sessies kan afnemen. Bij consequent gebruik zien veel gebruikers na verloop van tijd tragere hergroei en fijner haar."
             },
             "isIplSafe": {
               "question": "Is IPL-ontharing veilig? Kan IPL kanker veroorzaken?",
@@ -4901,7 +4343,7 @@
               "answer": "Veel mensen merken na een paar sessies minder hergroei, met duidelijker resultaat na een volledige kuur (vaak zo'n 12 wekelijkse sessies). IPL wordt doorgaans omschreven als langdurige haarvermindering in plaats van permanente ontharing. Onderhoudssessies kunnen nodig zijn, afhankelijk van haartype, hormonen en het behandelde gebied."
             },
             "whereOnBody": {
-              "question": "Op welke delen van het lichaam kan ik een IPL-handset gebruiken?",
+              "question": "Op welke delen van het lichaam kan ik een IPL-apparaat gebruiken?",
               "answer": "IPL wordt veel gebruikt op benen, armen, oksels, de bikinilijn en delen van het gezicht. Vermijd behandeling boven de jukbeenderen en vermijd intieme binnenste gebieden (inclusief slijmvliesweefsel). Gebruik voor gevoelige gebieden zoals de bikinilijn en de binnenkant van de dijen een lagere intensiteit en volg de apparaatinstructies."
             },
             "howOften": {
@@ -4913,20 +4355,20 @@
               "answer": "IPL werkt het best als er contrast is tussen het haarpigment en de huidtint, omdat het licht zich richt op melanine in het haar. Het kan minder effectief zijn op zeer licht blond, rood of grijs haar. Een zeer donkere of recent verbrande huid kan een hoger verbrandingsrisico met zich meebrengen. Volg altijd de huidtint-compatibiliteitstabel en de richtlijnen voor de specifieke apparaatconfiguratie."
             },
             "voltageAndPlug": {
-              "question": "Werkt een IPL-handset in mijn land (spanning en stekkertype)?",
-              "answer": "De meeste moderne IPL-handsets zijn ontworpen voor wereldwijd gebruik met dual-voltage voedingen (doorgaans 110V–240V). Stekkertypen en adapters zijn afhankelijk van het bestemmingsland en de uiteindelijke verpakkingsconfiguratie. Bevestig de exacte voedingsspecificatie en het meegeleverde stekkertype voor het model dat u van plan bent te lanceren."
+              "question": "Werkt een IPL-apparaat in mijn land (spanning en stekkertype)?",
+              "answer": "De meeste moderne IPL-apparaten zijn ontworpen voor wereldwijd gebruik met dual-voltage voedingen (doorgaans 110V–240V). Stekkertypen en adapters zijn afhankelijk van het bestemmingsland en de uiteindelijke verpakkingsconfiguratie. Bevestig de exacte voedingsspecificatie en het meegeleverde stekkertype voor het model dat u van plan bent te lanceren."
             },
             "shaveBeforeUse": {
               "question": "Moet ik scheren vóór ik IPL gebruik? Welke andere ontharingsmethoden zijn compatibel?",
               "answer": "Scheren wordt meestal aanbevolen omdat het het haar aan het oppervlak kort houdt terwijl de wortel beschikbaar blijft voor lichtgerichte behandeling. Ontharen met wax of epileren verwijdert het haar bij de wortel en kan de effectiviteit tijdens de behandelcyclus verminderen. Behandelt u gezichtsgebieden, volg dan de apparaatrichtlijnen; sommige gebruikers kiezen van tevoren voor zachte dermaplaning."
             },
             "howToClean": {
-              "question": "Hoe reinig ik een IPL-handset?",
+              "question": "Hoe reinig ik een IPL-apparaat?",
               "answer": "Koppel het apparaat los van de stroom vóór het reinigen. Veeg het oppervlak af met een schone, droge doek en 70 % isopropylalcohol. Vermijd aceton of schurende reinigingsmiddelen en dompel het apparaat of onderdelen nooit onder in water."
             },
             "whatIsLampMadeOf": {
               "question": "Waarvan is de IPL-lamp gemaakt?",
-              "answer": "Veel IPL-handsets gebruiken een xenon-flitslampbuis met optische filtering om ongewenste golflengten zoals UV te verminderen. De lampconstructie en het filterontwerp variëren per model en configuratie."
+              "answer": "Veel IPL-apparaten gebruiken een xenon-flitslampbuis met optische filtering om ongewenste golflengten zoals UV te verminderen. De lampconstructie en het filterontwerp variëren per model en configuratie."
             },
             "ageToStart": {
               "question": "Vanaf welke leeftijd kan ik met IPL-behandeling beginnen?",
@@ -4934,7 +4376,7 @@
             },
             "eyeProtection": {
               "question": "Heb ik oogbescherming nodig bij gebruik van IPL?",
-              "answer": "Veel handsets hebben huidcontactsensoren en flitsen alleen als het behandelvenster tegen de huid wordt gedrukt. Desondanks: vermijd recht in de flits te kijken en overweeg een beschermbril als u gevoelig bent voor fel licht."
+              "answer": "Veel apparaten hebben huidcontactsensoren en flitsen alleen als het behandelvenster tegen de huid wordt gedrukt. Desondanks: vermijd recht in de flits te kijken en overweeg een beschermbril als u gevoelig bent voor fel licht."
             },
             "pregnantOrBreastfeeding": {
               "question": "Is het veilig om IPL te gebruiken tijdens zwangerschap of borstvoeding?",
@@ -4953,12 +4395,12 @@
               "answer": "Stop de sessie en verlaag de volgende keer de intensiteit. Veelvoorkomende oorzaken van ongemak zijn recente blootstelling aan de zon, behandeling van huid die te donker is voor de instelling, een te hoge intensiteit, niet van tevoren scheren, te hard drukken, herhaald flitsen op dezelfde plek of gebruik van niet-aanbevolen lotions/gels. Als de pijn aanhoudt of u een defect aan het apparaat vermoedt, stop dan met het gebruik en zoek ondersteuning."
             },
             "flashModes": {
-              "question": "Welke flitsmodi zijn gebruikelijk op IPL-handsets?",
+              "question": "Welke flitsmodi zijn gebruikelijk op IPL-apparaten?",
               "answer": "Veel IPL-apparaten bieden modi zoals Stamp (één flits per druk), Auto (automatisch flitsen bij contact met de huid) en Glide (continu bewegen over grotere gebieden). De beschikbare modi en de aanbevolen techniek zijn afhankelijk van het model en het veiligheidsontwerp."
             },
             "recurringCostsAndLifetime": {
-              "question": "Zijn er terugkerende kosten en hoe lang gaat een IPL-handset mee?",
-              "answer": "De meeste IPL-handsets voor thuisgebruik zijn ontworpen met een hoog aantal flitsen en hebben geen navullingen nodig. Het aantal flitsen en de levensduur variëren per model en configuratie; veel apparaten zijn ontworpen voor jarenlang gebruik bij typische behandelingsschema's."
+              "question": "Zijn er terugkerende kosten en hoe lang gaat een IPL-apparaat mee?",
+              "answer": "De meeste IPL-apparaten voor thuisgebruik zijn ontworpen met een hoog aantal flitsen en hebben geen navullingen nodig. Het aantal flitsen en de levensduur variëren per model en configuratie; veel apparaten zijn ontworpen voor jarenlang gebruik bij typische behandelingsschema's."
             }
           }
         },
@@ -5266,7 +4708,8 @@
         "euno": "Reizen, draadloos gebruik, compacte opslag, lichtgewicht ontwerp",
         "emerald": "Gevoelige huid, zachte behandeling, reactieve huidtypes",
         "themis": "Resultaten van salonkwaliteit, professionele prestaties, vergroot venster",
-        "alpha": "Snelle full-body behandeling, dubbele-lampenefficiëntie, venster van 6,2 cm²"
+        "alpha": "Snelle full-body behandeling, dubbele-lampenefficiëntie, venster van 6,2 cm²",
+        "helix": "Comfort van ijskoeling, 9 intensiteitsniveaus en precisie met digitaal display"
       },
       "app": "App",
       "seeDetails": "Bekijk details →",
@@ -5314,38 +4757,23 @@
           "title": "Koeling met comfort voorop",
           "description": "Geschikt voor merken die inzetten op een \"pijnloze\" positionering en comfort voor gevoelige zones.",
           "links": [
-            "Venus (ijsplaatkoeling)",
-            "Lumi 2 (koeling tot 10°C)"
+            "Venus (saffierkoeling)",
+            "Lumi 2 (saffierkoeling)"
           ]
         },
         {
-          "title": "Slimme app-gestuurde routines",
-          "description": "Geschikt voor merken die zich richten op klantbehoud en gebruikmaken van app-workflows en planning.",
+          "title": "Instap en prijs-kwaliteit",
+          "description": "Geschikt voor toegankelijke prijspunten en kopers van hun eerste IPL-apparaat.",
           "links": [
-            "Hestia (app-tracking)",
-            "Lumi (slimme app-bediening)"
-          ]
-        },
-        {
-          "title": "Draagbaar / reizen",
-          "description": "Geschikt voor compacte positionering en lichtgewicht bundels.",
-          "links": [
-            "Euno (draagbaar)"
-          ]
-        },
-        {
-          "title": "Luxe unboxing",
-          "description": "Geschikt voor premium verpakking en positionering als cadeau.",
-          "links": [
-            "Golden (houten luxe)"
+            "Lumi (beste prijs-kwaliteit)"
           ]
         },
         {
           "title": "Professionele prestaties",
           "description": "Geschikt voor positionering met hoge output en snellere full-body routines.",
           "links": [
-            "Themis (salonkwaliteit)",
-            "Alpha (dubbele-lampenefficiëntie)"
+            "Themis (TEC-koeltip)",
+            "Helix (9 intensiteitsniveaus)"
           ]
         }
       ],
@@ -5388,7 +4816,22 @@
             "Dropshipping"
           ]
         }
-      ]
+      ],
+      "compare": {
+        "rsp": "Adviesprijs (excl. btw)",
+        "display": "Display",
+        "pulses": "Lichtpulsen",
+        "window": "Behandelvenster",
+        "intensity": "Intensiteitsniveaus",
+        "skinSensor": "Huidsensor",
+        "cooling": "Koeling",
+        "glide": "Glij- / schuifmodus",
+        "app": "App-ondersteuning",
+        "pain": "Pijnniveau",
+        "areas": "Geschikt voor gezicht en lichaam",
+        "launch": "Wereldwijde lanceringsdatum",
+        "rspNote": "De adviesprijs (excl. btw) is een referentieprijs op basis van historische markttrends en onze inschatting van de huidige marktomstandigheden."
+      }
     },
     "backToClients": "Terug naar klanten",
     "projectSnapshot": "Projectoverzicht",
@@ -8559,7 +8002,20 @@
         "Wit",
         "Blosroze",
         "Mint"
-      ]
+      ],
+      "story": {
+        "kicker": "Vanaf de fabrieksvloer",
+        "title": "Waarom dit ontwerp een nichekoning werd — en waarom de meeste kopieën falen",
+        "paragraphs": [
+          "Tussen 2021 en 2025 groeide dit compacte ontwerp met één lamp in alle stilte uit tot een van de succesvolste IPL-ontharingsapparaten voor thuisgebruik ter wereld. Een golf van direct-to-consumer-merken — waaronder Kenzzi, HappySkinCo, LuxSkin, MandySkin en RoseSkinCo — bouwde er complete bedrijven op, door het apparaat te koppelen aan influencercampagnes die zich over YouTube, Instagram en Facebook verspreidden. Op het hoogtepunt trokken alleen al de gerelateerde video's tientallen miljoenen views. De reden dat het werkte was simpel: een strak apparaat met één functie, in het zwart, roze en wit, tegen een prijspunt waar kopers van hun eerste apparaat ja tegen konden zeggen.",
+          "Toen kwamen de kopieën. Het ontwerp was aan de buitenkant eenvoudig na te maken, en een golf van verkopers deed precies dat — ze vervingen de kwartslamp, het optische filter, de reflectorkap, de condensatoren en de voedingsadapter door goedkopere onderdelen, waardoor de productiekost zakte tot onder de 30 % van het origineel. Het resultaat was een stortvloed aan apparaten die nog wel konden flitsen, maar binnen enkele weken kapot gingen. Ze bezorgden een geweldig ontwerp een slechte reputatie.",
+          "Die geschiedenis is de reden waarom een duurzaam, effectief apparaat van de eerste generatie vandaag zo moeilijk te vinden is, en waarom wij de oorspronkelijke specificatie — kwartslamp geschikt voor 999.999 flitsen, UV-blokkerend filter, gecertificeerde adapter en 2 jaar garantie — intact houden op dit platform. Overweegt u dit ontwerp voor uw eigen merk, dan is het advies vanaf de fabrieksvloer eenvoudig: concurreer niet op de kopie. Concurreer op de specificatie, de certificering en de toeleveringsketen die voorkomt dat de kopieën uw reputatie worden."
+        ],
+        "cta": {
+          "label": "Praat met ons over het bouwen van dit platform voor uw merk",
+          "href": "/contact"
+        }
+      }
     },
     "themis": {
       "name": "Themis IPL",
@@ -9273,6 +8729,20 @@
               "Verpakking en logistiek",
               "Dropshipping"
             ]
+          },
+          {
+            "question": "Wat is het verschil tussen een IPL-apparaat en een laserontharingsapparaat?",
+            "answer": "Een IPL-ontharingsapparaat zendt lichtpulsen met een breed spectrum uit; een laser zendt één enkele golflengte uit. Beide zorgen voor permanente haarvermindering. Onze gids legt het verschil uit voor uw klanten.",
+            "links": [
+              "IPL versus laser uitgelegd"
+            ]
+          },
+          {
+            "question": "Kunnen we een bestaand IPL-ontharingsapparaatplatform onder eigen merk uitbrengen?",
+            "answer": "Ja — elk platform ondersteunt logodruk, aangepaste handleidingen en doosinserts, met een MOQ vanaf slechts 50 stuks. Begin met een monster en schaal daarna op.",
+            "links": [
+              "Start zonder MOQ"
+            ]
           }
         ]
       },
@@ -9310,5 +8780,24 @@
     "settings": "Cookie-instellingen",
     "title": "Cookiemelding",
     "privacyLink": "Privacybeleid"
+  },
+  "articleVote": {
+    "question": "Vond u dit artikel nuttig?",
+    "likeAria": "Beoordeel dit artikel als nuttig",
+    "dislikeAria": "Beoordeel dit artikel als niet nuttig",
+    "modalTitle": "Wat kunnen we verbeteren?",
+    "modalLegend": "Selecteer een reden:",
+    "reasonNotDetailed": "Niet gedetailleerd genoeg",
+    "reasonNotFound": "Ik vond niet wat ik zocht",
+    "reasonOutdated": "De inhoud is verouderd",
+    "reasonTranslation": "Taal- of vertaalprobleem",
+    "reasonOther": "Overig",
+    "detailLabel": "Aanvullende details (optioneel):",
+    "cancel": "Annuleren",
+    "submit": "Verzenden",
+    "thanks": "Bedankt voor uw feedback!",
+    "received": "Feedback ontvangen — we blijven verbeteren.",
+    "already": "U heeft dit artikel al beoordeeld.",
+    "fail": "Verzenden mislukt, probeer het later opnieuw."
   }
 }

@@ -585,6 +585,10 @@
           "heading": "Za kulisami projektów",
           "desc": "Ludzie i umiejętności stojące za naszą pracą.",
           "cta": "Poznaj zespół"
+        },
+        "careers": {
+          "title": "Kariera",
+          "desc": "Dołącz do naszego rozwijającego się zespołu"
         }
       },
       "resources": {
@@ -856,7 +860,8 @@
       "viewAllArticles": "Zobacz wszystkie artykuły",
       "citableEyebrow": "Streszczenie do cytowania",
       "citableQuestion": "O czym jest ten artykuł?",
-      "citableBody": "Ten artykuł wyjaśnia {title} zespołom oceniającym lub tworzącym produkty do depilacji IPL pod marką własną. Omawia praktyczne aspekty realizacji OEM/ODM, w tym wpływ decyzji produkcyjnych na doświadczenia użytkownika, planowanie zgodności z wymogami oraz gotowość do wprowadzenia produktu na rynek. Celem jest zapewnienie samodzielnego, kompletnego przeglądu, do którego czytelnicy mogą sięgać przy porównywaniu opcji, przygotowywaniu zapytań ofertowych (RFQ) lub uzgadnianiu wymagań z wewnętrznymi interesariuszami. Tam, gdzie to istotne, omówienie łączy decyzje na poziomie komponentów (takie jak chłodzenie, filtry, kartridże lamp, czujniki i konstrukcja zasilania) z komfortem użytkownika końcowego i powtarzalnymi wynikami produkcji. Najważniejszy wniosek to jaśniejszy zestaw kryteriów decyzyjnych, dzięki którym można zmniejszyć ryzyko i przejść od koncepcji do skalowalnej produkcji w mniejszej liczbie iteracji."
+      "citableBody": "Ten artykuł wyjaśnia {title} zespołom oceniającym lub tworzącym produkty do depilacji IPL pod marką własną. Omawia praktyczne aspekty realizacji OEM/ODM, w tym wpływ decyzji produkcyjnych na doświadczenia użytkownika, planowanie zgodności z wymogami oraz gotowość do wprowadzenia produktu na rynek. Celem jest zapewnienie samodzielnego, kompletnego przeglądu, do którego czytelnicy mogą sięgać przy porównywaniu opcji, przygotowywaniu zapytań ofertowych (RFQ) lub uzgadnianiu wymagań z wewnętrznymi interesariuszami. Tam, gdzie to istotne, omówienie łączy decyzje na poziomie komponentów (takie jak chłodzenie, filtry, kartridże lamp, czujniki i konstrukcja zasilania) z komfortem użytkownika końcowego i powtarzalnymi wynikami produkcji. Najważniejszy wniosek to jaśniejszy zestaw kryteriów decyzyjnych, dzięki którym można zmniejszyć ryzyko i przejść od koncepcji do skalowalnej produkcji w mniejszej liczbie iteracji.",
+      "faqTitle": "Najczęściej zadawane pytania"
     }
   },
   "contact": {
@@ -907,7 +912,8 @@
       "items": {
         "comfort": "Zwiększony komfort użytkownika podczas zabiegów",
         "safety": "Mniejsze ryzyko uszkodzeń termicznych skóry",
-        "performance": "Lepsze efekty zabiegów i większa powtarzalność wyników"
+        "performance": "Lepsze efekty zabiegów i większa powtarzalność wyników",
+        "architecture": "Dwuwarstwowa architektura termiczna (wewnętrzna + kontaktowa ze skórą)"
       },
       "imageAlt": "Zaawansowana technologia systemu chłodzenia"
     },
@@ -915,17 +921,25 @@
       "title": "Technologie chłodzenia",
       "description": "Zapraszamy do zapoznania się z naszą gamą zaawansowanych rozwiązań chłodzących, zaprojektowanych z myślą o różnych zastosowaniach i potrzebach użytkowników.",
       "items": {
-        "plates": {
-          "title": "Płytki chłodzące kontaktowe",
-          "description": "Wysokowydajne płytki chłodzące, które utrzymują stałą temperaturę podczas zabiegów"
-        },
         "sapphire": {
           "title": "Szafirowe chłodzenie kontaktowe",
-          "description": "Najwyższej jakości chłodzenie kryształem szafirowym dla maksymalnego komfortu i doskonałego odprowadzania ciepła"
+          "description": "Najwyższej jakości chłodzenie kryształem szafirowym dla maksymalnego komfortu i doskonałego odprowadzania ciepła",
+          "tag": "Chłodzenie kontaktowe skóry premium"
         },
-        "semiconductor": {
-          "title": "Chłodzenie półprzewodnikowe",
-          "description": "Zaawansowana technologia chłodzenia Peltiera zapewniająca precyzyjną kontrolę temperatury i efektywność energetyczną"
+        "airflow": {
+          "tag": "Wewnętrzne odprowadzanie ciepła z korpusu urządzenia",
+          "title": "System zarządzania termicznego z podwójnym obiegiem powietrza",
+          "description": "",
+          "points": [
+            "Aktywne odprowadzanie ciepła: niezależne kanały przepływu powietrza odprowadzają ciepło od precyzyjnego filtra optycznego, ograniczając degradację powłoki dielektrycznej wywołaną temperaturą i zachowując przepuszczalność spektralną.",
+            "Izolacja przed zanieczyszczeniami: szczelna ścieżka przepływu powietrza minimalizuje wnikanie kurzu i fizyczny kontakt podczas czyszczenia, zapobiegając ścieraniu powierzchni i utrzymując integralność filtra.",
+            "Wydłużona żywotność eksploatacyjna: stabilizując parametry optyczne filtra przy powtarzanych impulsach o wysokiej energii, system zapewnia stałą fluencję wyjściową od pierwszego użycia przez cały cykl życia urządzenia."
+          ]
+        },
+        "tec": {
+          "tag": "Podstawowe chłodzenie kontaktowe skóry",
+          "title": "Chłodząca końcówka TEC (termoelektryczna)",
+          "description": "Schładza metalową płytkę, aby podczas zabiegu wywołać uczucie lodowego chłodu, zapewniając użytkownikom komfortowe usuwanie owłosienia w korzystnej cenie."
         }
       }
     },
@@ -1031,13 +1045,13 @@
           "title": "Opcje kryształu szafirowego",
           "description": "Można wybierać spośród różnych klas i konfiguracji kryształu szafirowego, aby uzyskać optymalną wydajność chłodzenia."
         },
-        "integration": {
-          "title": "Integracja systemu",
-          "description": "Można bezproblemowo zintegrować systemy chłodzenia z istniejącą architekturą urządzeń i systemami sterowania."
-        },
         "temperature": {
           "title": "Kontrola temperatury",
           "description": "Można wdrożyć precyzyjne algorytmy kontroli temperatury i systemy monitorowania bezpieczeństwa."
+        },
+        "airflow": {
+          "title": "Konfiguracja podwójnego obiegu powietrza",
+          "description": "Dopasuj konstrukcję kanałów przepływu powietrza i uszczelnienie do wewnętrznego układu Państwa urządzenia"
         }
       }
     },
@@ -3571,588 +3585,6 @@
       ]
     }
   },
-  "breadcrumb": {
-    "services": "[TODO] breadcrumb.services",
-    "products": "[TODO] breadcrumb.products",
-    "components": "[TODO] breadcrumb.components",
-    "filter": "[TODO] breadcrumb.filter",
-    "lamp": "[TODO] breadcrumb.lamp",
-    "cooling": "[TODO] breadcrumb.cooling"
-  },
-  "core": {
-    "oem": {
-      "title": "[TODO] core.oem.title",
-      "description": "[TODO] core.oem.description",
-      "features": {
-        "0": "[TODO] core.oem.features.0",
-        "1": "[TODO] core.oem.features.1",
-        "2": "[TODO] core.oem.features.2",
-        "3": "[TODO] core.oem.features.3"
-      }
-    },
-    "design": {
-      "title": "[TODO] core.design.title",
-      "description": "[TODO] core.design.description",
-      "features": {
-        "0": "[TODO] core.design.features.0",
-        "1": "[TODO] core.design.features.1",
-        "2": "[TODO] core.design.features.2",
-        "3": "[TODO] core.design.features.3"
-      }
-    },
-    "production": {
-      "title": "[TODO] core.production.title",
-      "description": "[TODO] core.production.description",
-      "features": {
-        "0": "[TODO] core.production.features.0",
-        "1": "[TODO] core.production.features.1",
-        "2": "[TODO] core.production.features.2",
-        "3": "[TODO] core.production.features.3"
-      }
-    },
-    "packaging": {
-      "title": "[TODO] core.packaging.title",
-      "description": "[TODO] core.packaging.description",
-      "features": {
-        "0": "[TODO] core.packaging.features.0",
-        "1": "[TODO] core.packaging.features.1",
-        "2": "[TODO] core.packaging.features.2",
-        "3": "[TODO] core.packaging.features.3"
-      }
-    },
-    "title": "[TODO] core.title",
-    "description": "[TODO] core.description",
-    "lamp": {
-      "title": "[TODO] core.lamp.title",
-      "description": "[TODO] core.lamp.description",
-      "specs": {
-        "0": "[TODO] core.lamp.specs.0",
-        "1": "[TODO] core.lamp.specs.1",
-        "2": "[TODO] core.lamp.specs.2",
-        "3": "[TODO] core.lamp.specs.3"
-      },
-      "paragraph": "[TODO] core.lamp.paragraph",
-      "cta": "[TODO] core.lamp.cta",
-      "imageAlt": "[TODO] core.lamp.imageAlt"
-    },
-    "filter": {
-      "title": "[TODO] core.filter.title",
-      "description": "[TODO] core.filter.description",
-      "specs": {
-        "0": "[TODO] core.filter.specs.0",
-        "1": "[TODO] core.filter.specs.1",
-        "2": "[TODO] core.filter.specs.2",
-        "3": "[TODO] core.filter.specs.3"
-      },
-      "imageAlt": "[TODO] core.filter.imageAlt",
-      "paragraph": "[TODO] core.filter.paragraph",
-      "cta": "[TODO] core.filter.cta"
-    },
-    "cooling": {
-      "title": "[TODO] core.cooling.title",
-      "description": "[TODO] core.cooling.description",
-      "specs": {
-        "0": "[TODO] core.cooling.specs.0",
-        "1": "[TODO] core.cooling.specs.1",
-        "2": "[TODO] core.cooling.specs.2",
-        "3": "[TODO] core.cooling.specs.3"
-      },
-      "paragraph": "[TODO] core.cooling.paragraph",
-      "cta": "[TODO] core.cooling.cta",
-      "imageAlt": "[TODO] core.cooling.imageAlt"
-    },
-    "power": {
-      "title": "[TODO] core.power.title",
-      "description": "[TODO] core.power.description",
-      "specs": {
-        "0": "[TODO] core.power.specs.0",
-        "1": "[TODO] core.power.specs.1",
-        "2": "[TODO] core.power.specs.2",
-        "3": "[TODO] core.power.specs.3"
-      },
-      "imageAlt": "[TODO] core.power.imageAlt",
-      "paragraph": "[TODO] core.power.paragraph",
-      "cta": "[TODO] core.power.cta"
-    }
-  },
-  "process": {
-    "steps": {
-      "0": {
-        "step": "[TODO] process.steps.0.step",
-        "title": "[TODO] process.steps.0.title",
-        "description": "[TODO] process.steps.0.description",
-        "duration": "[TODO] process.steps.0.duration"
-      },
-      "1": {
-        "step": "[TODO] process.steps.1.step",
-        "title": "[TODO] process.steps.1.title",
-        "description": "[TODO] process.steps.1.description",
-        "duration": "[TODO] process.steps.1.duration"
-      },
-      "2": {
-        "step": "[TODO] process.steps.2.step",
-        "title": "[TODO] process.steps.2.title",
-        "description": "[TODO] process.steps.2.description",
-        "duration": "[TODO] process.steps.2.duration"
-      },
-      "3": {
-        "step": "[TODO] process.steps.3.step",
-        "title": "[TODO] process.steps.3.title",
-        "description": "[TODO] process.steps.3.description",
-        "duration": "[TODO] process.steps.3.duration"
-      }
-    },
-    "title": "[TODO] process.title",
-    "description": "[TODO] process.description"
-  },
-  "advantages": {
-    "experience": {
-      "title": "[TODO] advantages.experience.title",
-      "description": "[TODO] advantages.experience.description"
-    },
-    "global": {
-      "title": "[TODO] advantages.global.title",
-      "description": "[TODO] advantages.global.description"
-    },
-    "endToEnd": {
-      "title": "[TODO] advantages.endToEnd.title",
-      "description": "[TODO] advantages.endToEnd.description"
-    },
-    "quality": {
-      "title": "[TODO] advantages.quality.title",
-      "description": "[TODO] advantages.quality.description"
-    }
-  },
-  "hero": {
-    "title1": "[TODO] hero.title1",
-    "title2": "[TODO] hero.title2",
-    "description": "[TODO] hero.description",
-    "cta": "[TODO] hero.cta",
-    "title": "[TODO] hero.title"
-  },
-  "why": {
-    "title": "[TODO] why.title",
-    "description": "[TODO] why.description"
-  },
-  "trusted": {
-    "title": "[TODO] trusted.title",
-    "description": "[TODO] trusted.description",
-    "stats": {
-      "0": {
-        "value": "[TODO] trusted.stats.0.value",
-        "label": "[TODO] trusted.stats.0.label"
-      },
-      "1": {
-        "value": "[TODO] trusted.stats.1.value",
-        "label": "[TODO] trusted.stats.1.label"
-      },
-      "2": {
-        "value": "[TODO] trusted.stats.2.value",
-        "label": "[TODO] trusted.stats.2.label"
-      }
-    }
-  },
-  "cta": {
-    "title": "[TODO] cta.title",
-    "description": "[TODO] cta.description",
-    "button": "[TODO] cta.button"
-  },
-  "keyFeatures": {
-    "fda": {
-      "title": "[TODO] keyFeatures.fda.title",
-      "description": "[TODO] keyFeatures.fda.description"
-    },
-    "technology": {
-      "title": "[TODO] keyFeatures.technology.title",
-      "description": "[TODO] keyFeatures.technology.description"
-    },
-    "customizable": {
-      "title": "[TODO] keyFeatures.customizable.title",
-      "description": "[TODO] keyFeatures.customizable.description"
-    },
-    "manufacturing": {
-      "title": "[TODO] keyFeatures.manufacturing.title",
-      "description": "[TODO] keyFeatures.manufacturing.description"
-    }
-  },
-  "list": {
-    "title": "[TODO] list.title"
-  },
-  "controls": {
-    "filter": "[TODO] controls.filter"
-  },
-  "title": "[TODO] title",
-  "description": "[TODO] description",
-  "subtitle": "[TODO] subtitle",
-  "form": {
-    "title": "[TODO] form.title",
-    "name": "[TODO] form.name",
-    "email": "[TODO] form.email",
-    "company": "[TODO] form.company",
-    "message": "[TODO] form.message",
-    "messagePlaceholder": "[TODO] form.messagePlaceholder"
-  },
-  "info": {
-    "phone": "[TODO] info.phone"
-  },
-  "ctaExplore": "[TODO] ctaExplore",
-  "header": {
-    "title": "[TODO] header.title",
-    "description": "[TODO] header.description"
-  },
-  "intro": {
-    "title": "[TODO] intro.title",
-    "paragraph": "[TODO] intro.paragraph"
-  },
-  "diagram": {
-    "alt": "[TODO] diagram.alt"
-  },
-  "overview": {
-    "title": "[TODO] overview.title"
-  },
-  "quality": {
-    "title": "[TODO] quality.title",
-    "partnership": "[TODO] quality.partnership",
-    "blocks": {
-      "durability": {
-        "title": "[TODO] quality.blocks.durability.title",
-        "description": "[TODO] quality.blocks.durability.description"
-      },
-      "safety": {
-        "title": "[TODO] quality.blocks.safety.title",
-        "description": "[TODO] quality.blocks.safety.description"
-      },
-      "performance": {
-        "title": "[TODO] quality.blocks.performance.title",
-        "description": "[TODO] quality.blocks.performance.description"
-      },
-      "compliance": {
-        "title": "[TODO] quality.blocks.compliance.title",
-        "description": "[TODO] quality.blocks.compliance.description"
-      },
-      "wavelength": {
-        "title": "[TODO] quality.blocks.wavelength.title",
-        "description": "[TODO] quality.blocks.wavelength.description"
-      },
-      "transmission": {
-        "title": "[TODO] quality.blocks.transmission.title",
-        "description": "[TODO] quality.blocks.transmission.description"
-      },
-      "heat": {
-        "title": "[TODO] quality.blocks.heat.title",
-        "description": "[TODO] quality.blocks.heat.description"
-      },
-      "lifeCycle": {
-        "title": "[TODO] quality.blocks.lifeCycle.title",
-        "description": "[TODO] quality.blocks.lifeCycle.description"
-      },
-      "energy": {
-        "title": "[TODO] quality.blocks.energy.title",
-        "description": "[TODO] quality.blocks.energy.description"
-      },
-      "qc": {
-        "title": "[TODO] quality.blocks.qc.title",
-        "description": "[TODO] quality.blocks.qc.description"
-      },
-      "stability": {
-        "title": "[TODO] quality.blocks.stability.title",
-        "description": "[TODO] quality.blocks.stability.description"
-      },
-      "longterm": {
-        "title": "[TODO] quality.blocks.longterm.title",
-        "description": "[TODO] quality.blocks.longterm.description"
-      },
-      "contact": {
-        "title": "[TODO] quality.blocks.contact.title",
-        "description": "[TODO] quality.blocks.contact.description"
-      },
-      "cycling": {
-        "title": "[TODO] quality.blocks.cycling.title",
-        "description": "[TODO] quality.blocks.cycling.description"
-      }
-    },
-    "intertek": "[TODO] quality.intertek",
-    "intertekDesc": "[TODO] quality.intertekDesc",
-    "paragraph": "[TODO] quality.paragraph"
-  },
-  "customization": {
-    "title": "[TODO] customization.title",
-    "description": "[TODO] customization.description",
-    "blocks": {
-      "wavelengths": {
-        "title": "[TODO] customization.blocks.wavelengths.title",
-        "description": "[TODO] customization.blocks.wavelengths.description"
-      },
-      "shape": {
-        "title": "[TODO] customization.blocks.shape.title",
-        "description": "[TODO] customization.blocks.shape.description"
-      },
-      "material": {
-        "title": "[TODO] customization.blocks.material.title",
-        "description": "[TODO] customization.blocks.material.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.blocks.branding.title",
-        "description": "[TODO] customization.blocks.branding.description"
-      },
-      "plates": {
-        "title": "[TODO] customization.blocks.plates.title",
-        "description": "[TODO] customization.blocks.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] customization.blocks.venus.title",
-        "description": "[TODO] customization.blocks.venus.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.blocks.integration.title",
-        "description": "[TODO] customization.blocks.integration.description"
-      },
-      "temperature": {
-        "title": "[TODO] customization.blocks.temperature.title",
-        "description": "[TODO] customization.blocks.temperature.description"
-      }
-    },
-    "options": {
-      "shape": {
-        "title": "[TODO] customization.options.shape.title",
-        "description": "[TODO] customization.options.shape.description"
-      },
-      "flashCount": {
-        "title": "[TODO] customization.options.flashCount.title",
-        "description": "[TODO] customization.options.flashCount.description"
-      },
-      "branding": {
-        "title": "[TODO] customization.options.branding.title",
-        "description": "[TODO] customization.options.branding.description"
-      },
-      "integration": {
-        "title": "[TODO] customization.options.integration.title",
-        "description": "[TODO] customization.options.integration.description"
-      }
-    }
-  },
-  "qualityBlocks": {
-    "durability": {
-      "title": "[TODO] qualityBlocks.durability.title",
-      "description": "[TODO] qualityBlocks.durability.description"
-    },
-    "safety": {
-      "title": "[TODO] qualityBlocks.safety.title",
-      "description": "[TODO] qualityBlocks.safety.description"
-    },
-    "performance": {
-      "title": "[TODO] qualityBlocks.performance.title",
-      "description": "[TODO] qualityBlocks.performance.description"
-    },
-    "compliance": {
-      "title": "[TODO] qualityBlocks.compliance.title",
-      "description": "[TODO] qualityBlocks.compliance.description"
-    }
-  },
-  "specs": {
-    "rows": {
-      "0": {
-        "parameter": "[TODO] specs.rows.0.parameter",
-        "value": "[TODO] specs.rows.0.value",
-        "description": "[TODO] specs.rows.0.description"
-      },
-      "1": {
-        "parameter": "[TODO] specs.rows.1.parameter",
-        "value": "[TODO] specs.rows.1.value",
-        "description": "[TODO] specs.rows.1.description"
-      },
-      "2": {
-        "parameter": "[TODO] specs.rows.2.parameter",
-        "value": "[TODO] specs.rows.2.value",
-        "description": "[TODO] specs.rows.2.description"
-      },
-      "3": {
-        "parameter": "[TODO] specs.rows.3.parameter",
-        "value": "[TODO] specs.rows.3.value",
-        "description": "[TODO] specs.rows.3.description"
-      },
-      "4": {
-        "parameter": "[TODO] specs.rows.4.parameter",
-        "value": "[TODO] specs.rows.4.value",
-        "description": "[TODO] specs.rows.4.description"
-      },
-      "5": {
-        "parameter": "[TODO] specs.rows.5.parameter",
-        "value": "[TODO] specs.rows.5.value",
-        "description": "[TODO] specs.rows.5.description"
-      }
-    },
-    "title": "[TODO] specs.title",
-    "table": {
-      "parameter": "[TODO] specs.table.parameter",
-      "value": "[TODO] specs.table.value",
-      "notes": "[TODO] specs.table.notes"
-    },
-    "footnote": "[TODO] specs.footnote"
-  },
-  "types": {
-    "fixed": {
-      "title": "[TODO] types.fixed.title",
-      "description": "[TODO] types.fixed.description"
-    },
-    "replaceable": {
-      "title": "[TODO] types.replaceable.title",
-      "description": "[TODO] types.replaceable.description"
-    },
-    "specialized": {
-      "title": "[TODO] types.specialized.title",
-      "description": "[TODO] types.specialized.description"
-    },
-    "title": "[TODO] types.title",
-    "description": "[TODO] types.description"
-  },
-  "applications": {
-    "items": {
-      "hair": {
-        "title": "[TODO] applications.items.hair.title",
-        "description": "[TODO] applications.items.hair.description"
-      },
-      "skin": {
-        "title": "[TODO] applications.items.skin.title",
-        "description": "[TODO] applications.items.skin.description"
-      },
-      "acne": {
-        "title": "[TODO] applications.items.acne.title",
-        "description": "[TODO] applications.items.acne.description"
-      },
-      "pigmentation": {
-        "title": "[TODO] applications.items.pigmentation.title",
-        "description": "[TODO] applications.items.pigmentation.description"
-      },
-      "home": {
-        "title": "[TODO] applications.items.home.title",
-        "description": "[TODO] applications.items.home.description"
-      },
-      "multi": {
-        "title": "[TODO] applications.items.multi.title",
-        "description": "[TODO] applications.items.multi.description"
-      },
-      "proConsumer": {
-        "title": "[TODO] applications.items.proConsumer.title",
-        "description": "[TODO] applications.items.proConsumer.description"
-      },
-      "handpieces": {
-        "title": "[TODO] applications.items.handpieces.title",
-        "description": "[TODO] applications.items.handpieces.description"
-      },
-      "pro": {
-        "title": "[TODO] applications.items.pro.title",
-        "description": "[TODO] applications.items.pro.description"
-      },
-      "sensitive": {
-        "title": "[TODO] applications.items.sensitive.title",
-        "description": "[TODO] applications.items.sensitive.description"
-      }
-    },
-    "title": "[TODO] applications.title"
-  },
-  "highlight": {
-    "whyTitle": "[TODO] highlight.whyTitle",
-    "paragraph": "[TODO] highlight.paragraph",
-    "badge": "[TODO] highlight.badge",
-    "imageAlt": "[TODO] highlight.imageAlt",
-    "items": {
-      "comfort": "[TODO] highlight.items.comfort",
-      "safety": "[TODO] highlight.items.safety",
-      "performance": "[TODO] highlight.items.performance"
-    }
-  },
-  "features": {
-    "title": "[TODO] features.title",
-    "safety": {
-      "title": "[TODO] features.safety.title",
-      "description": "[TODO] features.safety.description"
-    },
-    "precision": {
-      "title": "[TODO] features.precision.title",
-      "description": "[TODO] features.precision.description"
-    },
-    "performance": {
-      "title": "[TODO] features.performance.title",
-      "description": "[TODO] features.performance.description"
-    },
-    "durability": {
-      "title": "[TODO] features.durability.title",
-      "description": "[TODO] features.durability.description"
-    },
-    "energy": {
-      "title": "[TODO] features.energy.title",
-      "description": "[TODO] features.energy.description"
-    },
-    "lifespan": {
-      "title": "[TODO] features.lifespan.title",
-      "description": "[TODO] features.lifespan.description"
-    },
-    "integration": {
-      "title": "[TODO] features.integration.title",
-      "description": "[TODO] features.integration.description"
-    }
-  },
-  "compliance": {
-    "title": "[TODO] compliance.title",
-    "paragraph": "[TODO] compliance.paragraph",
-    "items": {
-      "ce": "[TODO] compliance.items.ce",
-      "iso13485": "[TODO] compliance.items.iso13485",
-      "fda": "[TODO] compliance.items.fda",
-      "iec60601": "[TODO] compliance.items.iec60601",
-      "mdr": "[TODO] compliance.items.mdr"
-    }
-  },
-  "visuals": {
-    "title": "[TODO] visuals.title",
-    "images": {
-      "wavelength": {
-        "alt": "[TODO] visuals.images.wavelength.alt",
-        "caption": "[TODO] visuals.images.wavelength.caption"
-      },
-      "comparison": {
-        "alt": "[TODO] visuals.images.comparison.alt",
-        "caption": "[TODO] visuals.images.comparison.caption"
-      },
-      "exploded": {
-        "alt": "[TODO] visuals.images.exploded.alt",
-        "caption": "[TODO] visuals.images.exploded.caption"
-      },
-      "lifecycle": {
-        "alt": "[TODO] visuals.images.lifecycle.alt",
-        "caption": "[TODO] visuals.images.lifecycle.caption"
-      },
-      "plate": {
-        "alt": "[TODO] visuals.images.plate.alt",
-        "title": "[TODO] visuals.images.plate.title",
-        "caption": "[TODO] visuals.images.plate.caption"
-      },
-      "integration": {
-        "alt": "[TODO] visuals.images.integration.alt",
-        "title": "[TODO] visuals.images.integration.title",
-        "caption": "[TODO] visuals.images.integration.caption"
-      }
-    }
-  },
-  "tech": {
-    "items": {
-      "plates": {
-        "title": "[TODO] tech.items.plates.title",
-        "description": "[TODO] tech.items.plates.description"
-      },
-      "sapphire": {
-        "title": "[TODO] tech.items.venus.title",
-        "description": "[TODO] tech.items.venus.description"
-      },
-      "semiconductor": {
-        "title": "[TODO] tech.items.semiconductor.title",
-        "description": "[TODO] tech.items.semiconductor.description"
-      }
-    },
-    "title": "[TODO] tech.title",
-    "description": "[TODO] tech.description"
-  },
   "aboutPages": {
     "backToAbout": "Wróć do sekcji O nas",
     "requestQuote": "Poproś o wycenę",
@@ -4250,34 +3682,44 @@
       "teamSubtitle": "Poznaj zespół kierowniczy realizujący misję iShine, jaką jest dostarczanie rozwiązań produkcyjnych IPL na światowym poziomie.",
       "team": {
         "member1": {
-          "name": "Eric Ann",
-          "role": "CEO i współzałożyciel",
-          "description": "Odpowiada za wizję strategiczną, rozwój biznesu i partnerstwa globalne."
+          "name": "Eric An",
+          "role": "Co-Founder & CEO",
+          "description": ""
         },
         "member2": {
-          "name": "Sarah Chen",
-          "role": "CFO",
-          "description": "Nadzoruje strategię finansową, zarządzanie ryzykiem i efektywność operacyjną."
+          "name": "Maurice Chow",
+          "role": "Senior Account Executive",
+          "description": ""
         },
         "member3": {
-          "name": "Maurice",
-          "role": "Menedżer ds. biznesu",
-          "description": "Zarządza relacjami z klientami, operacjami sprzedażowymi i ekspansją rynkową."
+          "name": "Mina Teng",
+          "role": "Design Director",
+          "description": ""
         },
         "member4": {
-          "name": "Amy",
-          "role": "Projektant graficzny",
-          "description": "Odpowiada za estetykę produktu, projektowanie opakowań i tworzenie tożsamości marki."
+          "name": "Blaine Ling",
+          "role": "Logistics & Warehouse Operations Supervisor",
+          "description": ""
         },
         "member5": {
-          "name": "Vivian",
-          "role": "Kierownik projektów procesowych",
-          "description": "Koordynuje procesy produkcyjne, zarządzanie harmonogramem i optymalizację procesów."
+          "name": "Rechard Lee",
+          "role": "Operations Manager",
+          "description": ""
         },
         "member6": {
-          "name": "Mike Lee",
-          "role": "Kierownik produkcji",
-          "description": "Kieruje operacjami produkcyjnymi, kontrolą jakości i zarządzaniem łańcuchem dostaw."
+          "name": "Shannon Xia",
+          "role": "Quality Control & Compliance Manager",
+          "description": ""
+        },
+        "member7": {
+          "name": "Shayne Chen",
+          "role": "Dyrektor finansowy (CFO)",
+          "description": ""
+        },
+        "member8": {
+          "name": "Rose Chen",
+          "role": "Menedżer biznesowy",
+          "description": ""
         }
       }
     },
@@ -5266,7 +4708,8 @@
         "euno": "Podróże, praca bezprzewodowa, kompaktowe przechowywanie, lekka konstrukcja",
         "emerald": "Wrażliwa skóra, delikatne zabiegi, reaktywne typy skóry",
         "themis": "Efekty jak w salonie, profesjonalna wydajność, powiększone okno aplikatora",
-        "alpha": "Szybkie zabiegi na całe ciało, wydajność podwójnej lampy, okno 6,2 cm²"
+        "alpha": "Szybkie zabiegi na całe ciało, wydajność podwójnej lampy, okno 6,2 cm²",
+        "helix": "Komfort lodowego chłodzenia, 9 poziomów intensywności i precyzja wyświetlacza cyfrowego"
       },
       "app": "Aplikacja",
       "seeDetails": "Zobacz szczegóły →",
@@ -5314,38 +4757,23 @@
           "title": "Chłodzenie stawiające komfort na pierwszym miejscu",
           "description": "Najlepsze dla marek stawiających na pozycjonowanie „bezbolesne” i komfort w obszarach wrażliwych.",
           "links": [
-            "Venus (Chłodzenie płytą lodową)",
-            "Lumi 2 (Chłodzenie do 10°C)"
+            "Venus (chłodzenie szafirowe)",
+            "Lumi 2 (chłodzenie szafirowe)"
           ]
         },
         {
-          "title": "Inteligentne rutyny prowadzone przez aplikację",
-          "description": "Najlepsze dla marek nastawionych na utrzymanie klientów, które korzystają z procesów i planowania w aplikacji.",
+          "title": "Poziom podstawowy i korzystna cena",
+          "description": "Najlepsze dla przystępnych cen i klientów kupujących urządzenie IPL po raz pierwszy.",
           "links": [
-            "Hestia (Śledzenie w aplikacji)",
-            "Lumi (Inteligentne sterowanie aplikacją)"
-          ]
-        },
-        {
-          "title": "Przenośne / podróżne",
-          "description": "Najlepsze dla kompaktowego pozycjonowania i lekkich zestawów.",
-          "links": [
-            "Euno (Przenośny)"
-          ]
-        },
-        {
-          "title": "Luksusowe rozpakowywanie",
-          "description": "Najlepsze dla opakowań premium i pozycjonowania w kategorii prezentów.",
-          "links": [
-            "Golden (Luksusowa edycja Wooden)"
+            "Lumi (najlepsza wartość)"
           ]
         },
         {
           "title": "Profesjonalna wydajność",
           "description": "Najlepsze dla pozycjonowania z wysoką wydajnością i szybszych zabiegów na całe ciało.",
           "links": [
-            "Themis (Jakość salonowa)",
-            "Alpha (Wydajność podwójnej lampy)"
+            "Themis (chłodząca końcówka TEC)",
+            "Helix (9 poziomów intensywności)"
           ]
         }
       ],
@@ -5388,7 +4816,22 @@
             "Dropshipping"
           ]
         }
-      ]
+      ],
+      "compare": {
+        "rsp": "Sugerowana cena detaliczna (bez VAT)",
+        "display": "Wyświetlacz",
+        "pulses": "Impulsy światła",
+        "window": "Okno zabiegowe",
+        "intensity": "Poziomy intensywności",
+        "skinSensor": "Czujnik skóry",
+        "cooling": "Chłodzenie",
+        "glide": "Tryb przesuwania / sunięcia",
+        "app": "Obsługa aplikacji",
+        "pain": "Poziom bólu",
+        "areas": "Do twarzy i ciała",
+        "launch": "Globalna data premiery",
+        "rspNote": "Sugerowana cena detaliczna (bez VAT) jest ceną referencyjną opartą na historycznych trendach rynkowych oraz naszej ocenie bieżącej sytuacji rynkowej."
+      }
     },
     "backToClients": "Wróć do klientów",
     "projectSnapshot": "Zarys projektu",
@@ -8559,7 +8002,20 @@
         "Biel Travel",
         "Pudrowy róż",
         "Miętowy"
-      ]
+      ],
+      "story": {
+        "kicker": "Prosto z hali produkcyjnej",
+        "title": "Dlaczego ta konstrukcja stała się niszowym bestsellerem — i dlaczego większość kopii zawodzi",
+        "paragraphs": [
+          "W latach 2021–2025 ta kompaktowa konstrukcja z pojedynczą lampą po cichu stała się jednym z najlepiej sprzedających się domowych depilatorów IPL na świecie. Fala marek sprzedających bezpośrednio do konsumentów — wśród nich Kenzzi, HappySkinCo, LuxSkin, MandySkin i RoseSkinCo — zbudowała na niej całe biznesy, łącząc urządzenie z kampaniami influencerskimi, które rozprzestrzeniły się na YouTube, Instagramie i Facebooku. W szczytowym momencie same powiązane wideo przyciągały dziesiątki milionów wyświetleń. Przyczyna sukcesu była prosta: czyste, jednofunkcyjne urządzenie w kolorze czarnym, różowym i białym, w cenie, na którą kupujący po raz pierwszy mogli powiedzieć „tak”.",
+          "Potem pojawiły się kopie. Konstrukcję łatwo było odwzorować od zewnątrz, a fala sprzedawców zrobiła dokładnie to — zastępując lampę kwarcową, filtr optyczny, odbłyśnik, kondensatory i zasilacz tańszymi częściami, obniżając koszt produkcji do poniżej 30% kosztu oryginału. Efektem był zalew urządzeń, które nadal dawały błysk, ale psuły się w ciągu kilku tygodni. Świetnej konstrukcji zrobiły złą reputację.",
+          "Ta historia sprawia, że dziś tak trudno znaleźć trwałe i skuteczne urządzenie pierwszej generacji, i dlatego utrzymujemy na tej platformie oryginalną specyfikację — lampę kwarcową o żywotności 999 999 błysków, filtr odcinający UV, certyfikowany zasilacz i 2-letnią gwarancję. Jeśli rozważają Państwo tę konstrukcję dla własnej marki, rada prosto z hali produkcyjnej jest prosta: nie konkurujcie kopią. Konkurujcie specyfikacją, certyfikacją i łańcuchem dostaw, który sprawia, że kopie nie staną się Państwa reputacją."
+        ],
+        "cta": {
+          "label": "Porozmawiajmy o zbudowaniu tej platformy dla Państwa marki",
+          "href": "/contact"
+        }
+      }
     },
     "themis": {
       "name": "Themis IPL",
@@ -9273,6 +8729,20 @@
               "Pakowanie i logistyka",
               "Dropshipping"
             ]
+          },
+          {
+            "question": "Jaka jest różnica między urządzeniem IPL a urządzeniem do laserowej depilacji?",
+            "answer": "Depilator IPL emituje impulsy światła o szerokim spektrum; laser emituje pojedynczą długość fali. Oba pozwalają osiągnąć trwałą redukcję owłosienia. Nasz poradnik wyjaśnia tę różnicę Państwa klientom.",
+            "links": [
+              "IPL kontra laser — wyjaśnienie"
+            ]
+          },
+          {
+            "question": "Czy możemy wprowadzić istniejącą platformę depilatorów IPL pod własną marką?",
+            "answer": "Tak — każda platforma obsługuje nadruk logo, spersonalizowane instrukcje i wkładki do opakowań, przy minimalnym zamówieniu (MOQ) już od 50 sztuk. Zacznij od próbki, a następnie skaluj.",
+            "links": [
+              "Zacznij bez minimalnego zamówienia"
+            ]
           }
         ]
       },
@@ -9310,5 +8780,24 @@
     "settings": "Ustawienia plików cookie",
     "title": "Informacja o plikach cookie",
     "privacyLink": "Polityka prywatności"
+  },
+  "articleVote": {
+    "question": "Czy ten artykuł okazał się pomocny?",
+    "likeAria": "Oceń ten artykuł jako pomocny",
+    "dislikeAria": "Oceń ten artykuł jako niepomocny",
+    "modalTitle": "Co moglibyśmy poprawić?",
+    "modalLegend": "Prosimy o wybranie powodu:",
+    "reasonNotDetailed": "Niewystarczająco szczegółowy",
+    "reasonNotFound": "Nie udało się znaleźć potrzebnych informacji",
+    "reasonOutdated": "Treść jest nieaktualna",
+    "reasonTranslation": "Problem językowy / z tłumaczeniem",
+    "reasonOther": "Inne",
+    "detailLabel": "Dodatkowe szczegóły (opcjonalnie):",
+    "cancel": "Anuluj",
+    "submit": "Wyślij",
+    "thanks": "Dziękujemy za opinię!",
+    "received": "Opinia przyjęta — będziemy się stale doskonalić.",
+    "already": "Ten artykuł został już oceniony.",
+    "fail": "Nie udało się wysłać. Prosimy spróbować ponownie później."
   }
 }
