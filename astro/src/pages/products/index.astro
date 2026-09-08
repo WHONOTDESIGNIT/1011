@@ -101,6 +101,31 @@ const productFaq = [0, 1, 2, 3].map((i) => ({
   })),
 }));
 
+const scopeNoteItems = [0, 1, 2, 3].map((i) => t(locale, `productDetail.index.scopeNote.items.${i}`));
+const hudMetrics = Array.from({ length: 8 }, (_, i) => ({
+  value: t(locale, `productDetail.index.hud.metrics.${i}.value`),
+  label: t(locale, `productDetail.index.hud.metrics.${i}.label`),
+}));
+const scqaRows = ['s', 'c', 'q', 'a'].map((key) => ({
+  tag: t(locale, `productDetail.index.scqa.${key}.tag`),
+  title: t(locale, `productDetail.index.scqa.${key}.title`),
+  body: t(locale, `productDetail.index.scqa.${key}.body`),
+}));
+const tools = [
+  {
+    title: t(locale, 'productDetail.index.toolsStrip.tools.0.title'),
+    body: t(locale, 'productDetail.index.toolsStrip.tools.0.body'),
+    cta: t(locale, 'productDetail.index.toolsStrip.tools.0.cta'),
+    href: getLocalizedPath(locale, '/catalogue'),
+  },
+  {
+    title: t(locale, 'productDetail.index.toolsStrip.tools.1.title'),
+    body: t(locale, 'productDetail.index.toolsStrip.tools.1.body'),
+    cta: t(locale, 'productDetail.index.toolsStrip.tools.1.cta'),
+    href: getLocalizedPath(locale, '/blog'),
+  },
+];
+
 const safetyPillar = { labelKey: 'productDetail.index.safety.pillar', href: getLocalizedPath(locale, '/ipl-hair-removal-is-safe') };
 const safetyHrefs = [
   '/blog/28-clinical-data-why-ipl-hair-removal-is-safe',
@@ -169,14 +194,11 @@ const siteBaseUrl = (
             {t(locale, 'productDetail.index.hero.description')}
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100" href={getLocalizedPath(locale, '/catalogue')}>
-              {t(locale, 'productDetail.index.hero.compareModels')}
-            </a>
-            <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/services')}>
-              {t(locale, 'productDetail.index.hero.exploreServices')}
-            </a>
-            <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/contact')}>
+            <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100" href={getLocalizedPath(locale, '/contact')}>
               {t(locale, 'productDetail.index.hero.getAQuote')}
+            </a>
+            <a class="rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15" href={getLocalizedPath(locale, '/catalogue')}>
+              {t(locale, 'productDetail.index.hero.compareModels')}
             </a>
           </div>
         </div>
@@ -184,10 +206,60 @@ const siteBaseUrl = (
     </section>
 
     <section class="mx-auto max-w-6xl px-6">
-      <h2 class="text-3xl font-bold text-ink-900">{t(locale, 'productDetail.index.summary.title')}</h2>
-      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
-        {t(locale, 'productDetail.index.summary.description')}
-      </p>
+      <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 shadow-sm md:p-8">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,240px)_1fr] md:gap-10">
+          <div>
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700">{t(locale, 'productDetail.index.scopeNote.kicker')}</div>
+            <h2 class="mt-3 text-2xl font-bold text-ink-900 md:text-3xl">{t(locale, 'productDetail.index.scopeNote.title')}</h2>
+          </div>
+          <div class="space-y-4">
+            {scopeNoteItems.map((item) => (
+              <div class="flex gap-3">
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-200 text-xs font-bold text-amber-900" aria-hidden="true">&times;</span>
+                <p class="text-sm leading-relaxed text-neutral-800 md:text-base">{item}</p>
+              </div>
+            ))}
+            <p class="pt-1 text-sm font-semibold text-amber-800">{t(locale, 'productDetail.index.scopeNote.bottomLine')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="rounded-[1.75rem] border border-neutral-200 bg-white p-8 shadow-sm md:p-10">
+        <div class="max-w-3xl">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.hud.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.hud.title')}</h2>
+        </div>
+        <div class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
+          {hudMetrics.map((metric) => (
+            <div class="bg-white p-5 md:p-6">
+              <div class="text-2xl font-bold tracking-tight text-ink-900 md:text-3xl">{metric.value}</div>
+              <div class="mt-1.5 text-sm font-medium text-neutral-600">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+        <p class="mt-5 max-w-4xl text-xs leading-relaxed text-slate-500 md:text-sm">
+          {t(locale, 'productDetail.index.hud.note')}
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="mx-auto max-w-4xl">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.scqa.kicker')}</div>
+        <div class="mt-2 space-y-0">
+          {scqaRows.map((row) => (
+            <article class="grid gap-3 border-t border-neutral-200 py-7 first:border-t-0 md:grid-cols-[minmax(0,180px)_1fr] md:gap-10 md:py-9">
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{row.tag}</div>
+              <div>
+                <h3 class="text-xl font-semibold text-ink-900 md:text-2xl">{row.title}</h3>
+                {row.body && <p class="mt-2 text-neutral-700 md:text-lg md:leading-relaxed">{row.body}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
 
     <section class="space-y-10">
@@ -211,6 +283,27 @@ const siteBaseUrl = (
                 </li>
               ))}
             </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.toolsStrip.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.toolsStrip.title')}</h2>
+      </div>
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        {tools.map((tool, i) => (
+          <article class="flex flex-col rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-base font-bold text-sky-700">0{i + 1}</div>
+            <h3 class="mt-5 text-2xl font-semibold text-ink-900">{tool.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{tool.body}</p>
+            <div class="mt-auto pt-6">
+              <a class="inline-flex items-center gap-2 rounded-2xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={tool.href}>
+                {tool.cta}
+              </a>
+            </div>
           </article>
         ))}
       </div>
