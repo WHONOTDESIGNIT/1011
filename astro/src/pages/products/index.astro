@@ -41,43 +41,6 @@ const products = [
 }));
 const freeSampleImage = responsiveImageSources('/images/products/free_sample.jpg', [400, 800, 1200], 1200);
 
-const platformTracks = [
-  {
-    titleKey: 'productDetail.index.tracks.comfort.title',
-    descriptionKey: 'productDetail.index.tracks.comfort.description',
-    links: [
-      { labelKey: 'productDetail.index.tracks.comfort.linkVenus', href: getLocalizedPath(locale, '/products/venus') },
-      { labelKey: 'productDetail.index.tracks.comfort.linkLumi2', href: getLocalizedPath(locale, '/products/lumi-2') },
-    ],
-  },
-  {
-    titleKey: 'productDetail.index.tracks.smartApp.title',
-    descriptionKey: 'productDetail.index.tracks.smartApp.description',
-    links: [
-      { labelKey: 'productDetail.index.tracks.smartApp.linkHestia', href: getLocalizedPath(locale, '/products/hestia') },
-      { labelKey: 'productDetail.index.tracks.smartApp.linkLumi', href: getLocalizedPath(locale, '/products/lumi') },
-    ],
-  },
-  {
-    titleKey: 'productDetail.index.tracks.portable.title',
-    descriptionKey: 'productDetail.index.tracks.portable.description',
-    links: [{ labelKey: 'productDetail.index.tracks.portable.linkEuno', href: getLocalizedPath(locale, '/products/euno') }],
-  },
-  {
-    titleKey: 'productDetail.index.tracks.luxury.title',
-    descriptionKey: 'productDetail.index.tracks.luxury.description',
-    links: [{ labelKey: 'productDetail.index.tracks.luxury.linkWooden', href: getLocalizedPath(locale, '/products/wooden') }],
-  },
-  {
-    titleKey: 'productDetail.index.tracks.professional.title',
-    descriptionKey: 'productDetail.index.tracks.professional.description',
-    links: [
-      { labelKey: 'productDetail.index.tracks.professional.linkThemis', href: getLocalizedPath(locale, '/products/themis') },
-      { labelKey: 'productDetail.index.tracks.professional.linkAlpha', href: getLocalizedPath(locale, '/products/alpha') },
-    ],
-  },
-];
-
 const faqHrefs = [
   [getLocalizedPath(locale, '/catalogue')],
   [
@@ -90,8 +53,10 @@ const faqHrefs = [
     getLocalizedPath(locale, '/services/packaging-logistics'),
     getLocalizedPath(locale, '/services/dropshipping'),
   ],
+  [getLocalizedPath(locale, '/blog/30-ipl-vs-laser-which-is-safer')],
+  [getLocalizedPath(locale, '/services/no-moq')],
 ];
-const productFaq = [0, 1, 2, 3].map((i) => ({
+const productFaq = [0, 1, 2, 3, 4, 5].map((i) => ({
   question: t(locale, `productDetail.index.faq.items.${i}.question`),
   answer: t(locale, `productDetail.index.faq.items.${i}.answer`),
   links: faqHrefs[i].map((href, j) => ({
@@ -130,15 +95,54 @@ const byApplicationCards = ['helix', 'lumi-2', 'lumi', 'euno', 'themis', 'venus'
     body: t(locale, `productDetail.index.byApplication.cards.${i}.body`),
   };
 });
-const hudMetrics = Array.from({ length: 8 }, (_, i) => ({
-  value: t(locale, `productDetail.index.hud.metrics.${i}.value`),
-  label: t(locale, `productDetail.index.hud.metrics.${i}.label`),
-}));
 const scqaRows = ['s', 'c', 'q', 'a'].map((key) => ({
   tag: t(locale, `productDetail.index.scqa.${key}.tag`),
   title: t(locale, `productDetail.index.scqa.${key}.title`),
   body: t(locale, `productDetail.index.scqa.${key}.body`),
 }));
+// 三轴（Energy Density × Flash Rating × Cooling）：第 3 节开头卡片
+const threeAxes = [0, 1, 2].map((i) => ({
+  axis: t(locale, `productDetail.index.threeAxis.axes.${i}.axis`),
+  title: t(locale, `productDetail.index.threeAxis.axes.${i}.title`),
+  body: t(locale, `productDetail.index.threeAxis.axes.${i}.body`),
+}));
+// 定制规格 / 颜色：展示 4 款实拍多色图
+const colorVariants = [
+  { slug: 'hebe', src: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20gold%20and%20black%20color.webp' },
+  { slug: 'venus', src: '/images/products/Venus/different-colors-venus-sapphire-ipl.webp' },
+  { slug: 'euno', src: '/images/products/Euno/euno%20ipl%20pink%20color%20option.webp' },
+  { slug: 'wooden', src: '/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp' },
+].map((variant) => ({
+  ...variant,
+  name: t(locale, `nav.${variant.slug}`),
+}));
+const customDimensions = Array.from({ length: 6 }, (_, i) => t(locale, `productDetail.index.customSpec.dimensions.${i}`));
+// IPL vs 脱毛蜡 / 剃刀
+const methodCards = [0, 1, 2].map((i) => ({
+  name: t(locale, `productDetail.index.vsAlternatives.methods.${i}.name`),
+  body: t(locale, `productDetail.index.vsAlternatives.methods.${i}.body`),
+}));
+// 智造场景：复用两篇已发布的工程博客封面
+const manufacturingScenes = [
+  {
+    src: '/images/blog/blog-06-quality-control-in-ipl-manufacturing-best-practices.webp',
+    href: getLocalizedPath(locale, '/blog/06-quality-control-in-ipl-manufacturing-best-practices'),
+  },
+  {
+    src: '/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.webp',
+    href: getLocalizedPath(locale, '/blog/02-oem-vs-odm-choosing-the-right-manufacturing-model'),
+  },
+].map((scene, i) => ({
+  ...scene,
+  title: t(locale, `productDetail.index.manufacturing.scenes.${i}.title`),
+  body: t(locale, `productDetail.index.manufacturing.scenes.${i}.body`),
+  cta: t(locale, `productDetail.index.manufacturing.scenes.${i}.cta`),
+}));
+const sourcingFacts = [0, 1, 2].map((i) => ({
+  title: t(locale, `productDetail.index.sourcing.facts.${i}.title`),
+  body: t(locale, `productDetail.index.sourcing.facts.${i}.body`),
+}));
+const qualityPillars = Array.from({ length: 3 }, (_, i) => t(locale, `productDetail.index.quality.pillars.${i}`));
 const tools = [
   {
     title: t(locale, 'productDetail.index.toolsStrip.tools.0.title'),
@@ -161,7 +165,7 @@ const specTools = [0, 1, 2].map((i) => ({
   cta: t(locale, `productDetail.index.specTools.cards.${i}.cta`),
 }));
 
-const safetyPillar = { labelKey: 'productDetail.index.safety.pillar', href: getLocalizedPath(locale, '/ipl-hair-removal-is-safe') };
+const safetyPillar = { labelKey: 'productDetail.index.quality.pillarCta', href: getLocalizedPath(locale, '/ipl-hair-removal-is-safe') };
 const safetyHrefs = [
   '/blog/28-clinical-data-why-ipl-hair-removal-is-safe',
   '/blog/30-ipl-vs-laser-which-is-safer',
@@ -213,6 +217,7 @@ const siteBaseUrl = (
     })}></script>
   </Fragment>
   <div class="space-y-36">
+    {/* ═══ 1. Hero ═══ */}
     <section class="relative w-screen left-1/2 -translate-x-1/2 mt-[60px] bg-black">
       <div class="mx-auto px-6 pt-14 pb-16 md:px-10 md:pt-20 md:pb-24" style="width:min(100% - 48px, 1843px)">
         <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-16">
@@ -282,29 +287,11 @@ const siteBaseUrl = (
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6">
-      <div class="rounded-[1.75rem] border border-neutral-200 bg-white p-8 shadow-sm md:p-10">
-        <div class="max-w-3xl">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.hud.kicker')}</div>
-          <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.hud.title')}</h2>
-        </div>
-        <div class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
-          {hudMetrics.map((metric) => (
-            <div class="bg-white p-5 md:p-6">
-              <div class="text-2xl font-bold tracking-tight text-ink-900 md:text-3xl">{metric.value}</div>
-              <div class="mt-1.5 text-sm font-medium text-neutral-600">{metric.label}</div>
-            </div>
-          ))}
-        </div>
-        <p class="mt-5 max-w-4xl text-xs leading-relaxed text-slate-500 md:text-sm">
-          {t(locale, 'productDetail.index.hud.note')}
-        </p>
-      </div>
-    </section>
-
+    {/* ═══ 2. Why Sourcing the Right IPL Is Harder Than It Looks ═══ */}
     <section class="mx-auto max-w-6xl px-6">
       <div class="mx-auto max-w-4xl">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.scqa.kicker')}</div>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.scqa.sectionKicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.scqa.sectionTitle')}</h2>
         <div class="mt-2 space-y-0">
           {scqaRows.map((row) => (
             <article class="grid gap-3 border-t border-neutral-200 py-7 first:border-t-0 md:grid-cols-[minmax(0,180px)_1fr] md:gap-10 md:py-9">
@@ -319,61 +306,93 @@ const siteBaseUrl = (
       </div>
     </section>
 
-    <section class="space-y-10">
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.choose.kicker')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.choose.title')}</h2>
-        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'productDetail.index.choose.description')}</p>
+    {/* ═══ 3. IPL Devices We Manufacture — Three-Axis Core + 12 平台 + 自查双卡 ═══ */}
+    <section class="mx-auto max-w-6xl space-y-16 px-6">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.threeAxis.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.threeAxis.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.threeAxis.lead')}</p>
       </div>
-      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {platformTracks.map((track) => (
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        {threeAxes.map((axis) => (
           <article class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
-            <h3 class="text-2xl font-semibold text-ink-900">{t(locale, track.titleKey)}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{t(locale, track.descriptionKey)}</p>
-            <ul class="mt-6 space-y-3 text-sm font-semibold text-ink-900">
-              {track.links.map((link) => (
-                <li>
-                  <a class="inline-flex items-center gap-2 text-ink-900 transition hover:text-violet-700" href={link.href}>
-                    <span class="h-2.5 w-2.5 rounded-2xl bg-violet-500" />
-                    <span>{t(locale, link.labelKey)}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div class="text-xs font-bold uppercase tracking-[0.2em] text-violet-700">{axis.axis}</div>
+            <h3 class="mt-3 text-xl font-semibold text-ink-900">{axis.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{axis.body}</p>
           </article>
         ))}
       </div>
-    </section>
-
-    <section class="space-y-10">
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.toolsStrip.kicker')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.toolsStrip.title')}</h2>
-      </div>
-      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-        {tools.map((tool, i) => (
-          <article class="flex flex-col rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-base font-bold text-sky-700">0{i + 1}</div>
-            <h3 class="mt-5 text-2xl font-semibold text-ink-900">{tool.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{tool.body}</p>
-            <div class="mt-auto pt-6">
-              <a class="inline-flex items-center gap-2 rounded-2xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={tool.href}>
-                {tool.cta}
-              </a>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <a
+            class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
+            href={getLocalizedPath(locale, '/products/' + product.slug)}
+          >
+            <div class="relative bg-neutral-100" style="aspect-ratio:1000/806">
+              <picture>
+                <source
+                  srcset={product.imageSources.avifSrcSet}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  type="image/avif"
+                />
+                <source
+                  srcset={product.imageSources.webpSrcSet}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  type="image/webp"
+                />
+                <img
+                  class="h-full w-full object-cover"
+                  src={product.imageSources.src}
+                  srcset={product.imageSources.webpSrcSet}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  alt={t(locale, product.nameKey)}
+                  loading="lazy"
+                  decoding="async"
+                  width="1000"
+                  height="806"
+                />
+              </picture>
             </div>
-          </article>
+            <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
+              <div>
+                <h2 class="text-xl font-semibold text-ink-900">{t(locale, product.nameKey)}</h2>
+                <p class="mt-1 text-sm text-neutral-700">{t(locale, product.taglineKey)}</p>
+              </div>
+            </div>
+          </a>
         ))}
+      </div>
+      <div class="space-y-10">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.toolsStrip.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.toolsStrip.title')}</h2>
+        </div>
+        <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          {tools.map((tool, i) => (
+            <article class="flex flex-col rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-base font-bold text-sky-700">0{i + 1}</div>
+              <h3 class="mt-5 text-2xl font-semibold text-ink-900">{tool.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-700">{tool.body}</p>
+              <div class="mt-auto pt-6">
+                <a class="inline-flex items-center gap-2 rounded-2xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={tool.href}>
+                  {tool.cta}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6">
+    {/* ═══ 4. The IPL Specification Atlas — by Channel ═══ */}
+    <section class="mx-auto max-w-6xl space-y-12 px-6">
       <div class="mx-auto max-w-4xl">
-        <h2 class="text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.byApplication.title')}</h2>
-        <p class="mt-5 text-lg font-semibold text-violet-700 md:text-xl">{t(locale, 'productDetail.index.byApplication.intro')}</p>
-        <p class="mt-4 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.byApplication.body')}</p>
-        <p class="mt-4 text-lg font-semibold leading-relaxed text-ink-900 md:text-xl">{t(locale, 'productDetail.index.byApplication.closing')}</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.atlas.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.atlas.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.atlas.intro')}</p>
+        <p class="mt-5 text-lg font-semibold text-ink-900 md:text-xl">{t(locale, 'productDetail.index.atlas.selectHint')}</p>
       </div>
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {byApplicationCards.map((card) => (
           <a class="group flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md" href={card.href}>
             <div class="relative overflow-hidden bg-neutral-100" style="aspect-ratio:1000/806">
@@ -392,86 +411,74 @@ const siteBaseUrl = (
       </div>
     </section>
 
-    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {products.map((product) => (
-        <a
-          class="product-card flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md"
-          href={getLocalizedPath(locale, '/products/' + product.slug)}
-        >
-          <div class="relative bg-neutral-100" style="aspect-ratio:1000/806">
-            <picture>
-              <source
-                srcset={product.imageSources.avifSrcSet}
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                type="image/avif"
-              />
-              <source
-                srcset={product.imageSources.webpSrcSet}
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                type="image/webp"
-              />
-              <img
-                class="h-full w-full object-cover"
-                src={product.imageSources.src}
-                srcset={product.imageSources.webpSrcSet}
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                alt={t(locale, product.nameKey)}
-                loading="lazy"
-                decoding="async"
-                width="1000"
-                height="806"
-              />
-            </picture>
-          </div>
-          <div class="flex flex-col justify-end p-3" style="aspect-ratio:1000/194">
-            <div>
-              <h2 class="text-xl font-semibold text-ink-900">{t(locale, product.nameKey)}</h2>
-              <p class="mt-1 text-sm text-neutral-700">{t(locale, product.taglineKey)}</p>
-            </div>
-          </div>
-        </a>
-      ))}
+    {/* ═══ 5. Custom IPL Specifications & Color ═══ */}
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="grid items-start gap-10 rounded-[1.75rem] border border-neutral-200 bg-white p-8 shadow-sm md:p-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
+        <div>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.customSpec.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.customSpec.title')}</h2>
+          <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.customSpec.lead')}</p>
+          <ul class="mt-7 grid gap-3 sm:grid-cols-2">
+            {customDimensions.map((dimension) => (
+              <li class="flex items-start gap-3 rounded-2xl bg-neutral-50 px-4 py-3 text-sm font-semibold text-ink-900">
+                <span class="mt-1 h-2 w-2 shrink-0 rounded-2xl bg-violet-500" />
+                <span>{dimension}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-7 text-base leading-relaxed text-neutral-700">{t(locale, 'productDetail.index.customSpec.closing')}</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {colorVariants.map((variant) => (
+            <figure class="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50">
+              <div class="relative aspect-square overflow-hidden">
+                <img class="h-full w-full object-cover" src={variant.src} alt={`${variant.name} color options`} loading="lazy" decoding="async" />
+              </div>
+              <figcaption class="px-3 py-2.5 text-sm font-semibold text-neutral-700">{variant.name}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
     </section>
 
-    <section class="space-y-8">
+    {/* ═══ 6. IPL vs Alternatives — Wax, Shaver, Warm Light ═══ */}
+    <section class="mx-auto max-w-6xl space-y-12 px-6">
       <div class="mx-auto max-w-3xl text-center">
-        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.faq.kicker')}</div>
-        <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.faq.title')}</h2>
-        <p class="mt-4 text-lg text-neutral-700">{t(locale, 'productDetail.index.faq.description')}</p>
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.vsAlternatives.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.vsAlternatives.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.vsAlternatives.lead')}</p>
       </div>
-      <div class="mx-auto grid max-w-4xl gap-4">
-        {productFaq.map((item) => (
-          <details class="group rounded-[1.5rem] border border-neutral-200 bg-white p-6 shadow-sm">
-            <summary class="cursor-pointer list-none text-lg font-semibold text-ink-900">
-              <div class="flex items-start justify-between gap-4">
-                <span>{item.question}</span>
-                <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
-              </div>
-            </summary>
-            <div class="mt-4 space-y-4 text-sm leading-relaxed text-neutral-700">
-              <p>{item.answer}</p>
-              <div class="flex flex-wrap gap-3">
-                {item.links.map((link) => (
-                  <a class="inline-flex items-center rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-ink-900 transition hover:border-neutral-300 hover:bg-neutral-50" href={link.href}>
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </details>
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        {methodCards.map((method, i) => (
+          <article class={`rounded-[1.75rem] border p-7 shadow-sm ${i === 0 ? 'border-violet-200 bg-violet-50/60' : 'border-neutral-200 bg-white'}`}>
+            <h3 class="text-xl font-semibold text-ink-900">{method.name}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{method.body}</p>
+          </article>
         ))}
       </div>
+      <div class="mx-auto max-w-4xl rounded-2xl border border-ink-900/10 bg-ink-900 p-6 text-center md:p-8">
+        <p class="text-lg font-medium leading-relaxed text-white md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.vsAlternatives.conclusion')}</p>
+      </div>
     </section>
 
+    {/* ═══ 7. Quality, Compliance & Material Safety ═══ */}
     <section class="mx-auto max-w-6xl px-6">
       <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:p-10">
         <div class="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
-            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.safety.kicker')}</div>
-            <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.safety.title')}</h2>
+            <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.quality.kicker')}</div>
+            <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.quality.title')}</h2>
             <p class="mt-4 max-w-2xl text-lg leading-relaxed text-neutral-700">
-              {t(locale, 'productDetail.index.safety.description')}
+              {t(locale, 'productDetail.index.quality.lead')}
             </p>
+            <ul class="mt-6 space-y-3">
+              {qualityPillars.map((pillar) => (
+                <li class="flex items-start gap-3 text-sm leading-relaxed text-neutral-700 md:text-base">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-2xl bg-violet-500" />
+                  <span>{pillar}</span>
+                </li>
+              ))}
+            </ul>
             <div class="mt-8">
               <a class="inline-flex items-center justify-center rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={safetyPillar.href}>
                 {t(locale, safetyPillar.labelKey)}
@@ -494,33 +501,105 @@ const siteBaseUrl = (
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6">
-      <div class="w-full overflow-hidden rounded-2xl bg-neutral-100">
-        <picture>
-          <source srcset={freeSampleImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
-          <source srcset={freeSampleImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
-          <img
-            src={freeSampleImage.src}
-            srcset={freeSampleImage.webpSrcSet}
-            sizes="(min-width: 1024px) 72rem, 100vw"
-            alt={t(locale, 'productDetail.index.freeSampleAlt')}
-            loading="lazy"
-            decoding="async"
-            width="1200"
-            height="520"
-            class="h-auto w-full object-contain"
-          />
-        </picture>
+    {/* ═══ 8. iShine Intelligent Manufacturing Scene ═══ */}
+    <section class="mx-auto max-w-6xl space-y-12 px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.manufacturing.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.manufacturing.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.manufacturing.lead')}</p>
+      </div>
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        {manufacturingScenes.map((scene) => (
+          <a class="group flex flex-col overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-white shadow-sm transition hover:shadow-md" href={scene.href}>
+            <div class="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+              <img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" src={scene.src} alt={scene.title} loading="lazy" decoding="async" />
+            </div>
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="text-xl font-semibold text-ink-900 md:text-2xl">{scene.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-700">{scene.body}</p>
+              <div class="mt-auto pt-6 text-sm font-semibold text-ink-900 transition group-hover:text-violet-700">
+                {scene.cta} →
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
 
+    {/* ═══ 9. Sourcing Factory-Direct — MOQ, Lead Time, Samples & OEM ═══ */}
+    <section class="mx-auto max-w-6xl space-y-16 px-6">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.sourcing.kicker')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.sourcing.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">{t(locale, 'productDetail.index.sourcing.lead')}</p>
+      </div>
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        {sourcingFacts.map((fact) => (
+          <article class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+            <h3 class="text-xl font-semibold text-ink-900">{fact.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">{fact.body}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mx-auto max-w-6xl">
+        <div class="relative w-full overflow-hidden rounded-2xl bg-neutral-100">
+          <picture>
+            <source srcset={freeSampleImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
+            <source srcset={freeSampleImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
+            <img
+              src={freeSampleImage.src}
+              srcset={freeSampleImage.webpSrcSet}
+              sizes="(min-width: 1024px) 72rem, 100vw"
+              alt={t(locale, 'productDetail.index.freeSampleAlt')}
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="520"
+              class="h-auto w-full object-contain"
+            />
+          </picture>
+        </div>
+        <p class="mt-3 text-center text-sm text-neutral-500">{t(locale, 'productDetail.index.sourcing.freeSampleNote')}</p>
+      </div>
+      <div class="space-y-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.faq.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.index.faq.title')}</h2>
+          <p class="mt-4 text-lg text-neutral-700">{t(locale, 'productDetail.index.faq.description')}</p>
+        </div>
+        <div class="mx-auto grid max-w-4xl gap-4">
+          {productFaq.map((item) => (
+            <details class="group rounded-[1.5rem] border border-neutral-200 bg-white p-6 shadow-sm">
+              <summary class="cursor-pointer list-none text-lg font-semibold text-ink-900">
+                <div class="flex items-start justify-between gap-4">
+                  <span>{item.question}</span>
+                  <span class="mt-1 text-slate-500 transition group-open:rotate-45">+</span>
+                </div>
+              </summary>
+              <div class="mt-4 space-y-4 text-sm leading-relaxed text-neutral-700">
+                <p>{item.answer}</p>
+                <div class="flex flex-wrap gap-3">
+                  {item.links.map((link) => (
+                    <a class="inline-flex items-center rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-ink-900 transition hover:border-neutral-300 hover:bg-neutral-50" href={link.href}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ═══ 10. Advanced IPL Branding Solutions ═══ */}
     <section class="mx-auto max-w-6xl px-6">
       <div class="grid gap-6 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:grid-cols-3 md:p-10">
         <div class="md:col-span-2">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.nextStep.kicker')}</div>
-          <h2 class="mt-3 text-3xl font-bold text-ink-900">{t(locale, 'productDetail.index.nextStep.title')}</h2>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{t(locale, 'productDetail.index.branding.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-ink-900">{t(locale, 'productDetail.index.branding.title')}</h2>
           <p class="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
-            {t(locale, 'productDetail.index.nextStep.description')}
+            {t(locale, 'productDetail.index.branding.lead')}
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a class="rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800" href={getLocalizedPath(locale, '/services/no-moq')}>
@@ -535,7 +614,7 @@ const siteBaseUrl = (
           </div>
         </div>
         <div class="rounded-2xl bg-neutral-50 p-6">
-          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'productDetail.index.fastLinks.kicker')}</div>
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{t(locale, 'productDetail.index.branding.deepLinkKicker')}</div>
           <ul class="mt-4 space-y-3 text-sm font-semibold text-ink-900">
             <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/logo-printing')}>{t(locale, 'productDetail.index.fastLinks.logoPrinting')}</a></li>
             <li><a class="transition hover:text-violet-700" href={getLocalizedPath(locale, '/services/user-manual-guide-custom')}>{t(locale, 'productDetail.index.fastLinks.userManual')}</a></li>

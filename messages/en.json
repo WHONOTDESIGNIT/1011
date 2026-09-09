@@ -8641,6 +8641,8 @@
       },
       "scqa": {
         "kicker": "Why this page reads differently",
+        "sectionKicker": "The factory-page reality",
+        "sectionTitle": "Why Sourcing the Right IPL Is Harder Than It Looks",
         "s": {
           "tag": "Situation",
           "title": "Sourcing an IPL device from a factory page should be simple.",
@@ -8661,6 +8663,123 @@
           "title": "A manufacturer who shows its work.",
           "body": "iShine publishes the specs, runs the tests, and explains how pricing works. Pick a platform, compare the matrix, and we'll help you spec the exact unit for your market."
         }
+      },
+      "threeAxis": {
+        "kicker": "What we manufacture",
+        "title": "IPL Devices We Manufacture — the Three-Axis Core Behind the Spec",
+        "lead": "Every iShine platform starts from the same three engineering axes — energy density, flash rating and cooling. They decide the clinical result, the cost per use, and the comfort the user feels. Once the three axes are locked, the form factor, skin sensor, app and finish adapt to your channel.",
+        "axes": [
+          {
+            "axis": "Axis 1",
+            "title": "Energy density",
+            "body": "The light energy delivered to the hair follicle — the axis that decides how many sessions your customers need before they see results."
+          },
+          {
+            "axis": "Axis 2",
+            "title": "Flash rating & lamp life",
+            "body": "The number of effective pulses and the stability of output across the lamp's life — the axis that decides cost per use and how long your brand can honestly promise results."
+          },
+          {
+            "axis": "Axis 3",
+            "title": "Cooling & skin comfort",
+            "body": "Sapphire ice windows and smart skin sensors set the perceived comfort — the axis that decides whether users actually finish the 8-week cycle."
+          }
+        ]
+      },
+      "atlas": {
+        "kicker": "The IPL Specification Atlas",
+        "title": "IPL Devices by Channel — from the Shopify Storefront to the Retail Shelf",
+        "intro": "One platform rarely fits every route to market. A Shopify dropshipper needs a low-friction, brandable device; a retail chain needs shelf-ready packaging and compliance files; a salon reseller needs professional-grade energy. Each card below routes you to the platform built for that scenario — and every platform stays OEM/ODM-ready.",
+        "selectHint": "Select the scenario closest to your launch, then open the platform page:"
+      },
+      "customSpec": {
+        "kicker": "Custom spec & color",
+        "title": "Custom IPL Specifications & Color — Your Brand, Not a White Label",
+        "lead": "A private-label IPL device is defined by more than the shell color. You decide the spec sheet, energy levels, window material, app branding, manuals, inserts and retail packaging — so the unit reads as yours from the first unboxing.",
+        "dimensions": [
+          "Shell colors & surface finish",
+          "Logo printing & branding",
+          "User manual language & design",
+          "Box inserts & export packaging",
+          "App & firmware branding on connected models",
+          "Energy levels & locked feature set"
+        ],
+        "colorImagesAlt": "IPL device color options: gold, pink, white and two-tone finishes",
+        "closing": "Send a color sample request — we print your logo on a real unit and ship it for approval before production."
+      },
+      "vsAlternatives": {
+        "kicker": "IPL vs alternatives",
+        "title": "IPL vs Waxing vs Shaving — Warm Light, Not Fierce Hurt",
+        "lead": "Home hair removal usually comes down to three habits: shaving, waxing, or light. Compare what each one really costs in time, pain and skin comfort across a year.",
+        "methods": [
+          {
+            "name": "IPL (warm light)",
+            "body": "Broad-spectrum light targets the hair follicle at the root. Weekly pulses over about 8 weeks reduce regrowth, and upkeep drops to an occasional touch-up."
+          },
+          {
+            "name": "Waxing",
+            "body": "Yanks hair from the root each session — the sharpest hurt of the three. Regrowth returns in 3–6 weeks, and salon visits repeat every month."
+          },
+          {
+            "name": "Shaving",
+            "body": "Painless in the moment, but stubble returns within 1–3 days, and every shave risks ingrown hairs and razor irritation."
+          }
+        ],
+        "conclusion": "That is the choice in one line: a warm light that works at the root, versus repeated pain or daily upkeep. IPL is the only option engineered to reduce regrowth over time."
+      },
+      "quality": {
+        "kicker": "Quality, Compliance & Material Safety",
+        "title": "Certified Safe by Design — Quality, Compliance & Material Safety",
+        "lead": "A home IPL device touches skin, eyes and power outlets, so we build safety into the BOM — not into the brochure. Three layers protect your users and your brand:",
+        "pillars": [
+          "Engineered interlocks — skin-tone sensing, contact switch and UV-cut filters that stop unsafe pulses before they start.",
+          "Skin-contact materials — biocompatible plastics and sapphire windows selected and documented for repeated contact.",
+          "Compliance files — FDA, CE, ISO 13485 and market-specific documentation ready for your regulator and your retailers."
+        ],
+        "pillarCta": "IPL Safety Explained: Science, Standards & Compliance"
+      },
+      "manufacturing": {
+        "kicker": "Inside our factory",
+        "title": "iShine Intelligent Manufacturing — Where Specs Become Devices",
+        "lead": "From automated assembly and lamp calibration to 100% outgoing QC, every iShine platform passes through the same production discipline. Two published field reports show exactly how we build and test:",
+        "scenes": [
+          {
+            "title": "Quality control in IPL manufacturing",
+            "body": "Best practices from our production line — what gets tested on every unit, from energy output and cooling to contact switches and packaging.",
+            "cta": "Read the QC field report"
+          },
+          {
+            "title": "OEM vs ODM — choosing the right model",
+            "body": "Where your brand starts to customize: from a certified reference platform to a device engineered around your own spec sheet.",
+            "cta": "Read the OEM/ODM guide"
+          }
+        ]
+      },
+      "sourcing": {
+        "kicker": "Sourcing factory-direct",
+        "title": "Sourcing from a Factory-Direct Manufacturer — MOQ, Lead Time, Samples & OEM",
+        "lead": "No trading company in between. You talk to the people who design and assemble the device — which means faster samples, honest lead times, and pricing that reflects the factory floor rather than a middleman's margin.",
+        "facts": [
+          {
+            "title": "MOQ from 50 units",
+            "body": "Start with low MOQ and a single unit for sampling, then scale to bulk tiers once your SKU is validated."
+          },
+          {
+            "title": "Factory-direct pricing",
+            "body": "Unit pricing runs $20–$58 depending on platform, BOM and volume — the same numbers we use with our own brands."
+          },
+          {
+            "title": "Samples & OEM",
+            "body": "Request a sample first, then private-label an existing platform or go full OEM around your own spec."
+          }
+        ],
+        "freeSampleNote": "A sample run from our line — the same unit your customer will receive, in your brand."
+      },
+      "branding": {
+        "kicker": "Advanced branding",
+        "title": "Advanced IPL Branding Solutions — Logo, Manual, Box & Beyond",
+        "lead": "Most suppliers stop at a logo sticker. We treat every touchpoint as a brand asset: laser-printed logo and shell colors, a user manual written in your language, box inserts that match your retail strategy, and export packaging that arrives ready to sell.",
+        "deepLinkKicker": "Branding services"
       },
       "toolsStrip": {
         "kicker": "Do the homework yourself",
