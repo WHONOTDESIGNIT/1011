@@ -1,0 +1,352 @@
+---
+// 253-day timeline 文章专属「阶段导图」锚点导航（页面内跳转 / in-page navigation）。
+// 数据源 getRouteStages()：直接解析当前语言 MDX 正文的阶段表格（首列阶段名 / 次列时长），
+// 22 种语言 SSR 文案全部正确，无需额外 i18n key；找不到合法表格时（stages 为空）不渲染。
+// 交互：点击平滑滚动到表格对应行 + 更新地址栏 #stage-NN；IntersectionObserver 滚动高亮
+// （aria-current + 序号点亮 + 顶部进度条）；fixed header 遮挡由 .blog-content tr 的
+// scroll-margin-top 全局规则补偿（见下方 is:global 样式）。
+type RouteStage = { name: string; duration: string };
+type Props = { stages: RouteStage[] };
+const { stages } = Astro.props as Props;
+---
+
+{stages.length > 0 && (
+  <nav class="stage-rm" data-stage-rm aria-label="Development stage route map">
+    <div class="stage-rm__head" aria-hidden="true">
+      <div class="stage-rm__track">
+        <div class="stage-rm__fill" data-stage-progress style="width:7.14%"></div>
+      </div>
+      <span class="stage-rm__counter" data-stage-counter>01/14</span>
+    </div>
+    <ol class="stage-rm__list" data-stage-list>
+      {stages.map((stage, index) => {
+        const no = String(index + 1).padStart(2, '0');
+        return (
+          <li>
+            <a class="stage-rm__item" href={`#stage-${no}`} data-stage-link>
+              <span class="stage-rm__no">{no}</span>
+              <span class="stage-rm__copy">
+                <span class="stage-rm__name">{stage.name}</span>
+                <span class="stage-rm__days">{stage.duration}</span>
+              </span>
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}
+
+<style>
+  /* ---- 共享底座：所有尺寸下都无列表默认样式 ---- */
+  .stage-rm {
+    font-family: inherit;
+    color: #333333;
+  }
+  .stage-rm__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .stage-rm__list li {
+    margin: 0;
+  }
+  .stage-rm__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .stage-rm__item:focus-visible {
+    outline: 2px solid #563cfa;
+    outline-offset: 2px;
+  }
+  .stage-rm__no {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    background: #f1f0f6;
+    color: #6b7280;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .stage-rm__item.is-active .stage-rm__no {
+    background: #563cfa;
+    color: #ffffff;
+  }
+
+  /* ---- < 1280px：顶栏横向 chips（sticky 于 fixed header 下方），无头部进度 ---- */
+  @media (max-width: 1279.98px) {
+    .stage-rm {
+      position: sticky;
+      top: 84px;
+      z-index: 40;
+      display: flex;
+      overflow-x: auto;
+      margin: 0 0 18px;
+      padding: 2px 2px 10px;
+      background: #f7f7fa;
+      border-bottom: 1px solid #ededf2;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .stage-rm::-webkit-scrollbar {
+      display: none;
+    }
+    .stage-rm__head {
+      display: none;
+    }
+    .stage-rm__list {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .stage-rm__list li {
+      flex: none;
+    }
+    .stage-rm__item {
+      gap: 7px;
+      padding: 6px 12px 6px 7px;
+      border: 1px solid #e7e5ef;
+      border-radius: 999px;
+      background: #ffffff;
+      white-space: nowrap;
+      transition: border-color 0.18s ease, background-color 0.18s ease;
+    }
+    .stage-rm__item:hover {
+      border-color: #c9c1f5;
+    }
+    .stage-rm__item.is-active {
+      border-color: #563cfa;
+      background: #f3f0ff;
+    }
+    .stage-rm__no {
+      width: 22px;
+      height: 22px;
+      font-size: 10px;
+    }
+    .stage-rm__name {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #52525b;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .stage-rm__item.is-active .stage-rm__name {
+      color: #26262b;
+      font-weight: 600;
+    }
+    .stage-rm__days {
+      display: none;
+    }
+  }
+
+  /* ---- >= 1280px：右侧 fixed 卡片导图 ---- */
+  @media (min-width: 1280px) {
+    .stage-rm {
+      position: fixed;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      width: 264px;
+      max-height: min(620px, calc(100vh - 140px));
+      margin: 0;
+      padding: 14px 10px 12px;
+      background: #ffffff;
+      border: 1px solid #e8e7ef;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(2, 3, 3, 0.08);
+    }
+    html[dir='rtl'] .stage-rm {
+      right: auto;
+      left: 16px;
+    }
+    .stage-rm__head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 2px 8px 12px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #f0eef6;
+    }
+    .stage-rm__track {
+      flex: 1 1 auto;
+      height: 6px;
+      min-width: 0;
+      border-radius: 999px;
+      background: #edecef;
+      overflow: hidden;
+    }
+    .stage-rm__fill {
+      height: 100%;
+      border-radius: 999px;
+      background: #563cfa;
+      transition: width 0.3s ease;
+    }
+    .stage-rm__counter {
+      flex: none;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8a8a93;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+    .stage-rm__list {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      min-height: 0;
+      padding: 2px;
+      scrollbar-width: thin;
+      scrollbar-color: #d8d6e3 transparent;
+    }
+    .stage-rm__list li + li {
+      margin-top: 2px;
+    }
+    .stage-rm__item {
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background-color 0.18s ease;
+    }
+    .stage-rm__item:hover {
+      background: #faf9ff;
+    }
+    .stage-rm__item.is-active {
+      background: #f3f0ff;
+    }
+    .stage-rm__copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .stage-rm__name {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: #4b4b55;
+      transition: color 0.18s ease;
+    }
+    .stage-rm__days {
+      margin-top: 2px;
+      font-size: 11.5px;
+      line-height: 1.3;
+      color: #9a9aa3;
+      font-variant-numeric: tabular-nums;
+    }
+    .stage-rm__item.is-active .stage-rm__name {
+      color: #232327;
+      font-weight: 600;
+    }
+    .stage-rm__item.is-active .stage-rm__days {
+      color: #6a6a75;
+    }
+  }
+</style>
+
+<style is:global>
+  /* 行锚定偏移补偿：跳到阶段行时，让行停靠在 fixed header（滚动后约 70px）+ 顶栏导图之下，
+     而非被遮挡。table 有 display:block/overflow-x，tr 的 scroll-margin 仍作用于页面滚动。 */
+  .blog-content tr {
+    scroll-margin-top: 150px;
+  }
+  @media (min-width: 1280px) {
+    .blog-content tr {
+      scroll-margin-top: 96px;
+    }
+  }
+</style>
+
+<script>
+  // —— 交互：平滑滚动 + 地址栏 hash + 当前行高亮（IntersectionObserver）——
+  (function () {
+  const nav = document.querySelector('[data-stage-rm]');
+  if (!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('[data-stage-link]')) as HTMLAnchorElement[];
+  const list = nav.querySelector('[data-stage-list]') as HTMLElement | null;
+  const counter = nav.querySelector('[data-stage-counter]') as HTMLElement | null;
+  const fill = nav.querySelector('[data-stage-progress]') as HTMLElement | null;
+  const wide = window.matchMedia('(min-width: 1280px)');
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const table = document.querySelector('.blog-content table');
+  const rows = table ? Array.from(table.querySelectorAll('tbody tr')) : [];
+
+  const setActive = (index: number) => {
+    links.forEach((link, i) => {
+      const on = i === index;
+      link.classList.toggle('is-active', on);
+      if (on) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+    if (counter && rows.length) counter.textContent = `${pad(index + 1)}/${pad(rows.length)}`;
+    if (fill && rows.length) fill.style.width = `${((index + 1) / rows.length) * 100}%`;
+    // 窄屏 chips：把当前 chip 横向滚入可视区（nearest 不会引起页面纵向跳动）
+    if (list && !wide.matches && links[index]) {
+      links[index].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    }
+  };
+
+  const goTo = (index: number) => {
+    const target = rows[index];
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try {
+      history.replaceState(null, '', `#stage-${pad(index + 1)}`);
+    } catch (err) {
+      /* noop */
+    }
+    setActive(index);
+  };
+
+  if (rows.length) {
+    // 给每行补 id，使链接/深链 #stage-NN 拥有真实目标
+    rows.forEach((row, i) => {
+      if (!row.id) row.id = `stage-${pad(i + 1)}`;
+    });
+  }
+
+  links.forEach((link, i) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      goTo(i);
+    });
+  });
+
+  if (rows.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const index = rows.indexOf(entry.target as HTMLElement);
+            if (index > -1) setActive(index);
+          }
+        }
+      },
+      // 只把视口上 15%~30% 的横向带视为「当前阅读区」
+      { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
+    );
+    rows.forEach((row) => observer.observe(row));
+  }
+
+  // 深链直达：#stage-NN 打开时滚到该行（load 后执行，避免与浏览器原生 hash 定位竞争）
+  const runDeepLink = () => {
+    const match = (location.hash || '').match(/^#stage-(\d+)$/);
+    if (!match) return;
+    const index = Number(match[1]) - 1;
+    if (rows[index]) goTo(index);
+  };
+  if (document.readyState === 'complete') runDeepLink();
+  else window.addEventListener('load', runDeepLink);
+  })();
+</script>

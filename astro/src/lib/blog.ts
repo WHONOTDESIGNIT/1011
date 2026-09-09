@@ -219,6 +219,63 @@ export async function getAllPosts(locale: string): Promise<BlogPostSummary[]> {
     .sort(compareByDateDesc);
 }
 
+export type RouteStage = { name: string; duration: string };
+
+/**
+ * 解析当前语言文章正文里的「开发阶段表格」，返回前 14 行（首列=阶段名，次列=时长）。
+ * 供 253-day timeline 文章的右侧 sticky 阶段导图做 SSR 数据源：导图文案直接取自
+ * 各语言 MDX 自身的表格翻译，因此 22 种语言无需任何额外翻译 key。
+ * 找不到合法表格（>=14 行数据且时长含数字）时返回空数组，页面据此禁用该组件。
+ */
+export async function getRouteStages(localeOrDir: string, slug: string): Promise<RouteStage[]> {
+  const dir = resolveBlogLocale(localeOrDir);
+  const filePath = path.join(blogContentRoot, dir, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return [];
+
+  const source = fs.readFileSync(filePath, 'utf8');
+  // 跳过 YAML frontmatter（读 body 起点）
+  let body = source;
+  if (body.startsWith('---')) {
+    const end = body.indexOf('\n---', 3);
+    if (end > -1) body = body.slice(end + 4);
+  }
+
+  const cells = (line: string) =>
+    line
+      .split('|')
+      .slice(1, -1)
+      .map((c) => c.trim());
+
+  // 按空行切块，逐块找 Markdown 表格：跳过表头与分隔行，校验数据行数量与时长格式
+  const blocks: string[][] = [];
+  let current: string[] = [];
+  for (const line of body.split(/\r?\n/)) {
+    if (line.trim() === '') {
+      if (current.length) blocks.push(current);
+      current = [];
+      continue;
+    }
+    current.push(line);
+  }
+  if (current.length) blocks.push(current);
+
+  for (const block of blocks) {
+    const tableLines = block.filter((line) => line.trim().startsWith('|'));
+    if (tableLines.length < 3) continue;
+    const dataRows = tableLines.slice(2).map(cells);
+    if (dataRows.length < 14) continue;
+    const stages = dataRows.slice(0, 14).map((row) => ({
+      name: row[0] ?? '',
+      duration: row[1] ?? '',
+    }));
+    // 二次校验：时长列必须含数字，避免误匹配非阶段表格
+    if (stages.some((s) => !s.name || !/\d/.test(s.duration))) continue;
+    return stages;
+  }
+
+  return [];
+}
+
 export async function getPostBySlug(locale: string, slug: string): Promise<BlogPost | null> {
   const effectiveLocale = resolveBlogLocale(locale);
   const posts = await loadBlogIndex();
