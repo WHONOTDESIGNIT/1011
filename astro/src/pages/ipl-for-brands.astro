@@ -81,6 +81,16 @@ const factoryResources = R(2).map((i) => ({
 
 const complianceBadges = R(4).map((i) => [gm(`compliance.badges.${i}.title`), gm(`compliance.badges.${i}.body`)]);
 
+const brandShowcase = R(2).map((i) => ({
+  src: [
+    '/images/components/brand-build-cyberpunk-1.webp',
+    '/images/components/brand-build-cyberpunk-2.webp',
+  ][i],
+  title: gm(`showcase.images.${i}.title`),
+  body: gm(`showcase.images.${i}.body`),
+  alt: gm(`showcase.images.${i}.alt`),
+}));
+
 const complianceDocs = R(6).map((i) => gm(`compliance.docs.${i}`));
 
 const specVariables = R(5).map((i) => [gm(`spec.vars.${i}.name`), gm(`spec.vars.${i}.body`)]);
@@ -315,6 +325,30 @@ const faqSchema = {
               </a>
             </div>
           </article>
+        ))}
+      </div>
+    </section>
+
+    {/* ═══ 6b. Brand-Build Showcase ═══ */}
+    <section class="mx-auto max-w-6xl space-y-12 px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{gm('showcase.eyebrow')}</div>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl">{gm('showcase.title')}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-neutral-700 md:text-xl md:leading-relaxed">
+          {gm('showcase.lede')}
+        </p>
+      </div>
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        {brandShowcase.map((item) => (
+          <figure class="group flex flex-col overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-square overflow-hidden bg-neutral-100">
+              <img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="flex flex-1 flex-col p-7">
+              <h3 class="text-xl font-semibold text-ink-900 md:text-2xl">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-700">{item.body}</p>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </section>
