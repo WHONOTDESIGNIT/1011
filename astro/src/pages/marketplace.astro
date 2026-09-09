@@ -6,11 +6,7 @@ import SeoHead from '../components/SeoHead.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { responsiveImageSources } from '../lib/netlify-images';
-const cardImg = (path: string) => {
-  const s = responsiveImageSources(path, [256, 512], 256);
-  return { src: s.src, srcset: s.webpSrcSet };
-};
+import BlogRecommendations from '../components/BlogRecommendations.astro';
 import fontsCss from '../styles/fonts.css?raw';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -305,38 +301,10 @@ h1,h2,h3{font-weight:400}
     </div>
   </section>
 
-  <!-- ═══ BLOG ═══ -->
+  <!-- ═══ 博客推荐（策展映射，替换原静态 BLOG 区块） ═══ -->
   <section class="blog-template">
-    <div class="section-outer">
-      <div class="container">
-        <div class="content-wrapper">
-          <div class="blog-header">
-            <div class="small-title">
-              <svg class="diamond-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00004 0L16.0001 8.00004L8.00004 16.0001L0 8.00004L8.00004 0Z" fill="currentColor"/></svg>
-              <span>{t(locale, 'auxPages.marketplace.blog.smallTitle')}</span>
-            </div>
-            <h2 class="heading">{t(locale, 'auxPages.marketplace.blog.heading')}</h2>
-            <p class="sub-heading">{t(locale, 'auxPages.marketplace.blog.subheading')}</p>
-          </div>
-          <div class="blog-cards">
-            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
-              <div class="card-image"><img loading="lazy" src={cardImg('/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.webp').src} srcset={cardImg('/images/blog/blog-12-smart-ipl-devices-the-app-connected-revolution.webp').srcset} sizes="(min-width:1024px) 22vw, 45vw" alt={t(locale, 'auxPages.marketplace.blog.card1.title')} decoding="async" width="320" height="180" /></div>
-              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card1.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card1.title')}</h3></div>
-            </a>
-            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
-              <div class="card-image"><img loading="lazy" src={cardImg('/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.webp').src} srcset={cardImg('/images/blog/blog-09-AI-Skin-Sensor-Next-generation-IPL-with-AI-powered-skin-detection.webp').srcset} sizes="(min-width:1024px) 22vw, 45vw" alt={t(locale, 'auxPages.marketplace.blog.card2.title')} decoding="async" width="320" height="180" /></div>
-              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card2.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card2.title')}</h3></div>
-            </a>
-            <a class="blog-card" href={getLocalizedPath(locale, '/blog')}>
-              <div class="card-image"><img loading="lazy" src={cardImg('/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.webp').src} srcset={cardImg('/images/blog/blog-02-oem-vs-odm-choosing-the-right-manufacturing-model.webp').srcset} sizes="(min-width:1024px) 22vw, 45vw" alt={t(locale, 'auxPages.marketplace.blog.card3.title')} decoding="async" width="320" height="180" /></div>
-              <div class="card-content"><p class="read-time">{t(locale, 'auxPages.marketplace.blog.card3.readTime')}</p><h3 class="card-title">{t(locale, 'auxPages.marketplace.blog.card3.title')}</h3></div>
-            </a>
-          </div>
-          <div class="blog-cta">
-            <a class="btn-base btn-primary-dark with-icon" href={getLocalizedPath(locale, '/blog')}><span>{t(locale, 'auxPages.marketplace.blog.learnCta')}</span> <svg class="arrow-icon" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
-      </div>
+    <div class="content-wrapper">
+      <BlogRecommendations page="/marketplace" locale={locale} />
     </div>
   </section>
 

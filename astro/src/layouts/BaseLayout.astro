@@ -10,6 +10,7 @@ import criticalCss from '../styles/critical.css?raw';
 import fontsCss from '../styles/fonts.css?raw';
 import globalCssUrl from '../styles/global.css?url';
 import SeoHead from '../components/SeoHead.astro';
+import BlogRecommendations from '../components/BlogRecommendations.astro';
 
 type Props = {
   title: string;
@@ -24,9 +25,11 @@ type Props = {
   hreflangs?: { locale: string; href: string }[];
   /** 是否启用统一品牌尾缀（默认 true；内部工具页置 false） */
   appendBrand?: boolean;
+  /** 页面规范路径（en 无前缀形态）。提供后在页尾自动渲染博客推荐 section（见 components/BlogRecommendations） */
+  blogRecPage?: string;
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs, appendBrand = true } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs, appendBrand = true, blogRecPage } = Astro.props as Props;
 // 字体策略（2026-08-21 优化 CLS）：
 // 之前用 Google Fonts 外链 + media="print" onload 延迟加载，字体文件在页面 load 后才开始下载，
 // font-display:swap 造成首屏大标题换行重排（CLS）。现改为内联 @font-face（fonts.css，含
@@ -50,6 +53,11 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
     <SiteHeader lang={lang} />
     <main class="content-area mx-auto max-w-6xl px-6 pb-10">
     <slot />
+    {blogRecPage && (
+      <div class="mt-14">
+        <BlogRecommendations page={blogRecPage} locale={lang} />
+      </div>
+    )}
     {showCornerMarkers && <CornerMarker />}
     </main>
     <SiteFooter lang={lang} />

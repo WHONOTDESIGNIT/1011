@@ -6,6 +6,7 @@ import { getPageLocale } from '../../lib/locale';
 import { responsiveImageSources } from '../../lib/netlify-images';
 import { getLocalizedPath } from '../../lib/breadcrumbs';
 import SeoHead from '../../components/SeoHead.astro';
+import BlogRecommendations from '../../components/BlogRecommendations.astro';
 import CookieConsent from '../../components/CookieConsent.astro';
 import fontsCss from '../../styles/fonts.css?raw';
 const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
@@ -581,6 +582,12 @@ a{text-decoration:none;color:inherit}
   .testimonial-nav{right:24px}
   .testimonials-pagination{left:24px;bottom:56px}
 }
+
+/* ═══ 12. 博客推荐（页尾通用 section） ═══ */
+.blog-rec-band{background:var(--color-white)}
+.blog-rec-band-inner{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:96px var(--pad-100) 120px}
+@media(max-width:1279px){.blog-rec-band-inner{padding:80px var(--pad-40) 100px}}
+@media(max-width:767px){.blog-rec-band-inner{padding:64px var(--pad-24) 80px}}
 
 /* ═══ 11. FOOTER ═══ */
 .site-footer{background:var(--black);color:var(--color-white);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:120px 0}
@@ -1258,6 +1265,13 @@ a{text-decoration:none;color:inherit}
       </div>
       <button aria-label={t(locale, 'common.next')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
+  </div>
+</section>
+
+<!-- ═══ 11.5 博客推荐（策展映射，全站访客页统一 section） ═══ -->
+<section class="blog-rec-band">
+  <div class="blog-rec-band-inner">
+    <BlogRecommendations page="/services/build-a-new-ipl" locale={locale} />
   </div>
 </section>
 

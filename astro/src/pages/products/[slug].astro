@@ -451,7 +451,7 @@ const productSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} blogRecPage={`/products/${slug}`}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />

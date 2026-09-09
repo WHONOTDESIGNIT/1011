@@ -402,7 +402,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} blogRecPage="/faq">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>

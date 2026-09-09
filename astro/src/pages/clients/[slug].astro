@@ -398,7 +398,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
 ]);
 ---
 
-<BaseLayout title={data.title} lang={locale} description={data.subtitle}>
+<BaseLayout title={data.title} lang={locale} description={data.subtitle} blogRecPage={`/clients/${slug}`}>
   <div class="space-y-48">
     <section class={`relative overflow-hidden rounded-2xl bg-gradient-to-r ${data.theme.heroGradient} px-8 py-14 text-white`}>
       {heroBackgroundImageSources ? (

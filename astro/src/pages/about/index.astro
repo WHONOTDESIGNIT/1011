@@ -32,13 +32,17 @@ const aboutFacilityImage = responsiveImageSources(
 );
 ---
 
-<BaseLayout title={seoTitle} lang={locale} description={pageDescription}>
+<BaseLayout title={seoTitle} lang={locale} description={pageDescription} blogRecPage="/about">
   <style is:inline>
     /* ═══ iShine About — Develo Design 风格（对齐 develo-blog.astro） ═══ */
     .about-page{background:var(--color-white);color:var(--color-ink);font-family:Manrope,-apple-system,Roboto,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
     .about-page a{text-decoration:none;color:inherit}
     .content-area{max-width:var(--max-w-page,1843px);padding-left:0;padding-right:0}
     @media(max-width:1279px){.content-area{max-width:100%}}
+    /* 博客推荐 section：与 about 各区块保持同一内容宽度/留白节奏 */
+    .blog-rec{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:0 100px}
+    @media(max-width:1279px){.blog-rec{padding:0 40px}}
+    @media(max-width:767px){.blog-rec{padding:0 24px}}
 
     /* Hero */
     .about-hero{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto 24px;padding:0 100px}

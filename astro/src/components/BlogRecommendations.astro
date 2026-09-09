@@ -1,0 +1,263 @@
+---
+// 全站访客页「博客推荐 section」共享组件。
+// 由 BaseLayout（blogRecPage prop）或独立 HTML 页（home / marketplace / 模板类服务页等）在页尾渲染。
+// 视觉与 /blog/[slug] 的 Related articles 区块保持一致（同标题文案 key + 同卡片结构）。
+// 说明：部分独立页绕过 BaseLayout、不加载 global.css / Tailwind，因此本组件自带完整 CSS
+//（不用工具类），以保证所有页面渲染一致。
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+import { getRecommendations } from '../lib/blog-recommendations';
+import { responsiveImageSources } from '../lib/netlify-images';
+
+type Props = {
+  /** 页面规范路径（en 无前缀形态，如 `/products/venus`），用于查策展映射表 */
+  page: string;
+  /** 覆盖当前语言（缺省取 Astro.currentLocale） */
+  locale?: string;
+};
+
+const { page } = Astro.props as Props;
+const locale = (Astro.props as Props).locale ?? Astro.currentLocale ?? 'en';
+
+const posts = await getRecommendations(locale, page, 3);
+const cardWidths = [400, 800, 1200];
+const cardSizes = '(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw';
+const cardImg = (image: string) => responsiveImageSources(image, cardWidths, 800);
+const archiveHref = getLocalizedPath(locale, '/blog#blog-archive');
+---
+
+{
+  posts.length
+    ? (
+      <section class="blog-rec">
+        <div class="blog-rec__head">
+          <div>
+            <p class="blog-rec__kicker">{t(locale, 'blog.post.relatedTitle')}</p>
+            <h2 class="blog-rec__title">{t(locale, 'blog.post.continueReadingTitle')}</h2>
+          </div>
+          <a class="blog-rec__view" href={archiveHref}>
+            {t(locale, 'blog.post.viewAllArticles')}
+          </a>
+        </div>
+
+        <div class="blog-rec__grid">
+          {posts.map((p) => (
+            <a class="blog-rec__card" href={p.href}>
+              {p.image
+                ? (
+                  <div class="blog-rec__media">
+                    <picture>
+                      <source srcset={cardImg(p.image).avifSrcSet} sizes={cardSizes} type="image/avif" />
+                      <source srcset={cardImg(p.image).webpSrcSet} sizes={cardSizes} type="image/webp" />
+                      <img
+                        src={cardImg(p.image).src}
+                        srcset={cardImg(p.image).webpSrcSet}
+                        sizes={cardSizes}
+                        alt={p.title}
+                        loading="lazy"
+                        decoding="async"
+                        width="1200"
+                        height="750"
+                      />
+                    </picture>
+                  </div>
+                )
+                : (
+                  <div class="blog-rec__media blog-rec__media--none">
+                    <span class="blog-rec__noimg">{t(locale, 'blog.common.noImage')}</span>
+                  </div>
+                )}
+              <div class="blog-rec__body">
+                {p.category
+                  ? (
+                    <div class="blog-rec__meta">
+                      <span class="blog-rec__chip">{p.category}</span>
+                    </div>
+                  )
+                  : null}
+                <h3 class="blog-rec__h3">{p.title}</h3>
+                <p class="blog-rec__excerpt">{p.excerpt}</p>
+                <span class="blog-rec__cta">
+                  {t(locale, 'blog.post.relatedCta')}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+    : null
+}
+
+<style>
+  /* 样式与 /blog/[slug] Related articles（Tailwind 实现）像素一致；以自包含 CSS 重写以便脱离 global.css 渲染 */
+  .blog-rec {
+    margin: 0;
+    font-family: inherit;
+    color: #0f172a;
+  }
+  .blog-rec__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .blog-rec__kicker {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #0369a1;
+  }
+  .blog-rec__title {
+    margin: 4px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f172a;
+  }
+  .blog-rec__view {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #404040;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .blog-rec__view:hover {
+    border-color: #d4d4d4;
+    background: #fafafa;
+  }
+  .blog-rec__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .blog-rec__card {
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.04);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-rec__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(2, 3, 3, 0.14);
+  }
+  .blog-rec__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+  .blog-rec__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .blog-rec__card:hover .blog-rec__media img {
+    transform: scale(1.05);
+  }
+  .blog-rec__media--none {
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  }
+  .blog-rec__noimg {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px 12px;
+    margin: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #a3a3a3;
+  }
+  .blog-rec__body {
+    padding: 20px;
+  }
+  .blog-rec__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .blog-rec__chip {
+    display: inline-block;
+    border-radius: 999px;
+    background: #f5f5f5;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #525252;
+  }
+  .blog-rec__h3 {
+    margin: 12px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.375;
+    color: #0f172a;
+  }
+  .blog-rec__excerpt {
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.625;
+    color: #525252;
+  }
+  .blog-rec__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #0369a1;
+  }
+  .blog-rec__cta svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+  .blog-rec__card:hover .blog-rec__cta svg {
+    transform: translateX(4px);
+  }
+
+  @media (min-width: 768px) {
+    .blog-rec__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .blog-rec__view {
+      display: inline-flex;
+    }
+  }
+  @media (min-width: 1280px) {
+    .blog-rec__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
