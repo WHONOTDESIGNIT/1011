@@ -1,0 +1,196 @@
+---
+// 全站页尾统一「Q&A section」共享组件（固定结构：正文 → Q&A → 博客推荐 → footer）。
+// 由 BaseLayout（blogRecPage prop）或独立 HTML 页（home / marketplace / 模板类服务页等）渲染。
+// 文案复用 /faq 页现成 i18n 翻译：页面规范路径 → FAQ 类别 → 该类 4 题（见 lib/faq-recommendations.ts）。
+// 说明：部分独立页绕过 BaseLayout、不加载 global.css / Tailwind，因此本组件自带完整 CSS
+//（不用工具类），以保证所有页面渲染一致；折叠交互使用原生 <details>/<summary>，无需 JS。
+import { t } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/breadcrumbs';
+import { getFaqGroup, FAQ_GROUP_ITEMS, type FaqGroupKey } from '../lib/faq-recommendations';
+
+type Props = {
+  /** 页面规范路径（en 无前缀形态，如 `/products/venus`），用于解析 FAQ 类别 */
+  page: string;
+  /** 覆盖当前语言（缺省取 Astro.currentLocale） */
+  locale?: string;
+};
+
+const { page } = Astro.props as Props;
+const locale = (Astro.props as Props).locale ?? Astro.currentLocale ?? 'en';
+
+// /faq 页整页即 Q&A，跳过统一 band，避免重复
+const enabled = page !== '/faq';
+
+const group: FaqGroupKey = enabled ? getFaqGroup(page) : 'generalAboutIshine';
+const baseKey = `auxPages.faq.categories.${group}`;
+const groupTitle = t(locale, `${baseKey}.title`);
+const groupDescription = t(locale, `${baseKey}.description`);
+const items = enabled
+  ? FAQ_GROUP_ITEMS[group].map((qid) => ({
+      question: t(locale, `${baseKey}.faqs.${qid}.question`),
+      answer: t(locale, `${baseKey}.faqs.${qid}.answer`),
+    }))
+  : [];
+const contactHref = getLocalizedPath(locale, '/contact');
+const contactLabel = t(locale, 'auxPages.faq.linkLabels.contactSupport');
+---
+
+{enabled && (
+  <section class="qa-rec">
+    <div class="qa-rec__head">
+      <div class="qa-rec__head-copy">
+        <h2 class="qa-rec__title">{groupTitle}</h2>
+        <p class="qa-rec__sub">{groupDescription}</p>
+      </div>
+      <a class="qa-rec__more" href={contactHref}>{contactLabel}</a>
+    </div>
+
+    <div class="qa-rec__list">
+      {items.map((it) => (
+        <details class="qa-rec__item">
+          <summary class="qa-rec__q">
+            <span class="qa-rec__q-text">{it.question}</span>
+            <span class="qa-rec__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa-rec__a">{it.answer}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  /* 与 BlogRecommendations 同风格的自包含 CSS：无 Tailwind / global.css 依赖，天然适配 RTL */
+  .qa-rec {
+    margin: 0;
+    font-family: inherit;
+    color: #0f172a;
+  }
+  .qa-rec__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .qa-rec__head-copy {
+    min-width: 0;
+    flex: 1 1 280px;
+  }
+  .qa-rec__title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f172a;
+  }
+  .qa-rec__sub {
+    margin: 8px 0 0;
+    max-width: 640px;
+    font-size: 14px;
+    line-height: 1.625;
+    color: #525252;
+  }
+  .qa-rec__more {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #404040;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .qa-rec__more:hover {
+    border-color: #d4d4d4;
+    background: #fafafa;
+  }
+  .qa-rec__list {
+    margin-top: 0;
+  }
+  .qa-rec__item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .qa-rec__item:first-child {
+    border-top: 1px solid #e5e5e5;
+  }
+  .qa-rec__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 4px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0f172a;
+    transition: color 0.2s ease;
+  }
+  .qa-rec__q::-webkit-details-marker {
+    display: none;
+  }
+  .qa-rec__q:hover,
+  .qa-rec__item[open] .qa-rec__q {
+    color: #0369a1;
+  }
+  .qa-rec__q-text {
+    flex: 1 1 auto;
+  }
+  .qa-rec__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
+  .qa-rec__icon::before,
+  .qa-rec__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #525252;
+    transition: transform 0.25s ease, background-color 0.2s ease;
+  }
+  .qa-rec__icon::before {
+    width: 14px;
+    height: 1.5px;
+    transform: translate(-50%, -50%);
+  }
+  .qa-rec__icon::after {
+    width: 1.5px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+  }
+  .qa-rec__item[open] .qa-rec__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .qa-rec__q:hover .qa-rec__icon::before,
+  .qa-rec__q:hover .qa-rec__icon::after,
+  .qa-rec__item[open] .qa-rec__icon::before,
+  .qa-rec__item[open] .qa-rec__icon::after {
+    background: #0369a1;
+  }
+  .qa-rec__a {
+    padding: 0 4px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #525252;
+  }
+
+  @media (max-width: 767px) {
+    .qa-rec__title {
+      font-size: 20px;
+    }
+  }
+</style>

@@ -7,6 +7,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
+import QaAccordion from '../components/QaAccordion.astro';
 import fontsCss from '../styles/fonts.css?raw';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -130,6 +131,9 @@ h1,h2,h3{font-weight:400}
 .blog-template{background:var(--color-white)}
 .blog-template .container{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:0}
 .content-wrapper{max-width:var(--max-w-page, 1843px);margin:0 auto;padding:120px var(--pad-100);display:flex;flex-direction:column;gap:24px}
+/* ═══ Q&A（页尾固定 section，位于博客推荐之上） ═══ */
+.qa-rec-band{background:var(--color-white)}
+.qa-rec-band .content-wrapper{padding-bottom:0}
 .blog-header{display:flex;flex-direction:column;gap:8px}
 .blog-header .small-title{display:flex;align-items:center;gap:12px;padding:3px 0;font-family:Manrope,sans-serif;font-size:18px;font-weight:400;line-height:26px;color:var(--color-ink)}
 .blog-header .diamond-icon{width:16px;height:16px;display:block;flex-shrink:0}
@@ -298,6 +302,13 @@ h1,h2,h3{font-weight:400}
         <a class="mp-link" href={getLocalizedPath(locale, '/services/build-a-new-ipl')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.buildNewIpl')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
         <a class="mp-link" href={getLocalizedPath(locale, '/services/maintain-or-fix-ipl-project')}><span class="mp-link-title">{t(locale, 'auxPages.marketplace.cta.links.maintainOrFixIpl')}<span class="mp-link-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 4H12V10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ 11.4 Q&A（页尾固定 section：复用 /faq 现成 22 语言问答） ═══ -->
+  <section class="qa-rec-band">
+    <div class="content-wrapper">
+      <QaAccordion page="/marketplace" locale={locale} />
     </div>
   </section>
 

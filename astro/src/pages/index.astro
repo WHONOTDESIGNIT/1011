@@ -6,6 +6,7 @@ import { getLocalizedPath } from '../lib/breadcrumbs';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import SeoHead from '../components/SeoHead.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
+import QaAccordion from '../components/QaAccordion.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import fontsCss from '../styles/fonts.css?raw';
 import { t } from '../lib/i18n';
@@ -618,6 +619,12 @@ a{text-decoration:none;color:inherit}
   .testimonial-nav{right:24px}
   .testimonials-pagination{left:24px;bottom:56px}
 }
+
+/* ═══ 11.4 Q&A（页尾固定 section，位于博客推荐之上） ═══ */
+.qa-rec-band{background:var(--color-white)}
+.qa-rec-band-inner{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto;padding:96px var(--pad-100) 0}
+@media(max-width:1279px){.qa-rec-band-inner{padding:80px var(--pad-40) 0}}
+@media(max-width:767px){.qa-rec-band-inner{padding:64px var(--pad-24) 0}}
 
 /* ═══ 12. 博客推荐（页尾通用 section） ═══ */
 .blog-rec-band{background:var(--color-white)}
@@ -1367,6 +1374,13 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 </main>
+
+<!-- ═══ 11.4 Q&A（页尾固定 section：复用 /faq 现成 22 语言问答） ═══ -->
+<section class="qa-rec-band">
+  <div class="qa-rec-band-inner">
+    <QaAccordion page="/" locale={locale} />
+  </div>
+</section>
 
 <!-- ═══ 11.5 博客推荐（策展映射，全站访客页统一 section） ═══ -->
 <section class="blog-rec-band">

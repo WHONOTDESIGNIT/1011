@@ -11,6 +11,7 @@ import fontsCss from '../styles/fonts.css?raw';
 import globalCssUrl from '../styles/global.css?url';
 import SeoHead from '../components/SeoHead.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
+import QaAccordion from '../components/QaAccordion.astro';
 
 type Props = {
   title: string;
@@ -25,7 +26,7 @@ type Props = {
   hreflangs?: { locale: string; href: string }[];
   /** 是否启用统一品牌尾缀（默认 true；内部工具页置 false） */
   appendBrand?: boolean;
-  /** 页面规范路径（en 无前缀形态）。提供后在页尾自动渲染博客推荐 section（见 components/BlogRecommendations） */
+  /** 页面规范路径（en 无前缀形态）。提供后在页尾按固定结构自动渲染「Q&A band + 博客推荐 section」：先 Q&A（复用 /faq 翻译，页面对应类别 4 题），后博客推荐（components/BlogRecommendations）。/faq 页整页即 Q&A，组件内会自动跳过 */
   blogRecPage?: string;
 };
 
@@ -53,6 +54,11 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
     <SiteHeader lang={lang} />
     <main class="content-area mx-auto max-w-6xl px-6 pb-10">
     <slot />
+    {blogRecPage && (
+      <div class="mt-14">
+        <QaAccordion page={blogRecPage} locale={lang} />
+      </div>
+    )}
     {blogRecPage && (
       <div class="mt-14">
         <BlogRecommendations page={blogRecPage} locale={lang} />
