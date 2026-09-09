@@ -679,13 +679,13 @@
       "nextAria": "Next cards"
     },
     "quality": {
-      "kicker": "Quality Assurance",
+      "kicker": "Global Compliance",
       "heading": "Global Certifications for Trusted Manufacturing",
       "item1Desc": "Full support for FDA clearance process and ongoing compliance documentation.",
       "item2Desc": "European market compliance for seamless distribution across EU member states.",
       "item3Desc": "Medical device quality management system certification for consistent manufacturing.",
       "item4Desc": "Medical Device Single Audit Program for multi-market regulatory acceptance.",
-      "cta": "Learn About Quality Process",
+      "cta": "Explore Our Compliance Process",
       "badgeCertified": "Certified",
       "badgeCeMarked": "CE Marked",
       "badgeIso": "ISO 13485",
@@ -742,8 +742,8 @@
       "viewAll": "View all case studies",
       "roseskinco": "RoseSkinCo",
       "card1Tag": "Sapphire Cooling IPL",
-      "costco": "Costco",
-      "card2Tag": "Retail-Ready IPL",
+      "costco": "OVO Skin Care",
+      "card2Tag": "Bikini Hair Removal",
       "ku2Alt": "KU2",
       "ku2Title": "KU2 Cosmetics",
       "card3Tag": "Dual Lamp System",
@@ -1917,7 +1917,7 @@
             "title": "Start a Brand",
             "description": "Launch with less risk, validate demand, then scale with repeatable replenishment.",
             "links": [
-              "Start with No MOQ",
+              "Start with Low MOQ",
               "Choose a Platform from the Catalogue",
               "Request a Sample Plan",
               "See OEM/ODM Options"
@@ -2141,7 +2141,7 @@
             "question": "Do you offer No MOQ for private-label IPL programs?",
             "answer": "Yes. Many programs can start with smaller pilot orders so you can validate positioning and demand before scaling. For details, see No MOQ support.",
             "links": [
-              "Start with No MOQ"
+              "Start with Low MOQ"
             ]
           },
           {
@@ -4222,7 +4222,7 @@
         "viewProducts": "View Products",
         "contactOurTeam": "Contact Our Team",
         "oemOdmOverview": "OEM / ODM Overview",
-        "startWithNoMoq": "Start with No MOQ",
+        "startWithNoMoq": "Start with Low MOQ",
         "productDesign": "Product Design",
         "packagingLogistics": "Packaging & Logistics",
         "getQuote": "Get a Quote",
@@ -4684,7 +4684,7 @@
       "heroTitle": "IPL Product Catalogue",
       "heroDescription": "Browse our complete lineup of IPL hair removal devices. Each model is engineered for a specific use case — from painless cooling and AI-powered detection to portable travel designs and luxury packaging programs.",
       "getAQuote": "Get a Quote",
-      "startWithNoMoq": "Start with No MOQ",
+      "startWithNoMoq": "Start with Low MOQ",
       "exploreServices": "Explore Services",
       "oemNote": "All models available for OEM/ODM customization. Minimum order quantities and lead times vary by model.",
       "howToChoose": "How to Choose",
@@ -8602,18 +8602,27 @@
         "description": "Choose an IPL hair removal device platform that matches your positioning — ice-cooling, smart app control, portable, or premium. Every platform is ready for OEM/ODM: logo printing, user manuals, box inserts, and export packaging.",
         "compareModels": "Compare Models",
         "exploreServices": "Explore Services",
-        "getAQuote": "Get a Quote"
+        "getAQuote": "Get a Quote",
+        "quickFacts": {
+          "items": [
+            { "title": "300–1580%", "subtitle": "Service life that exceeds the average (energy output stability within ±5%)" },
+            { "title": "8 °C", "subtitle": "Comfort ice feeling" },
+            { "title": "Free Compliance Consult", "subtitle": "FDA · CE · SFDA · Get your own brand certified." },
+            { "title": "5 Grades", "subtitle": "Entry · Value · Mid-range · Premium · Flagship" },
+            { "title": "Custom", "subtitle": "Function · Package · Color" },
+            { "title": "Low MOQ", "subtitle": "Samples + Private Label / OEM" }
+          ]
+        },
+        "carousel": {
+          "region": "Flagship devices from our factory",
+          "prev": "Previous device",
+          "next": "Next device"
+        }
       },
       "scopeNote": {
-        "kicker": "Read this first",
-        "title": "What this page will NOT sell you",
-        "items": [
-          "Single devices for personal use — we manufacture for brands. If you need one unit as a consumer, buy from a brand we build for instead.",
-          "Reseller repackaging — every platform is designed, tooled and manufactured in our own factory, then private-labelled for your brand.",
-          "Claims without paperwork — every spec and compliance document we hand over has to survive your quality team's review. If we can't document it, we won't put it on a data sheet.",
-          "One device for every skin tone — we match platform and energy levels to your market, and we'll tell you honestly when a platform isn't the right fit."
-        ],
-        "bottomLine": "Still reading? Then you're exactly who we build for."
+        "title": "Scope Note",
+        "intro": "These are home-use & salon IPL devices for hair removal, designed for lifestyle & beauty brands, retail chains, and IPL niche senior players — helping their brand members and followers remove unwanted hair with a safer, more comfortable, and more convenient experience.",
+        "criteria": "If you are a Shopify dropshipper or a hobbyist looking for a zero-cost logo printing service, no-MOQ IPL devices, or if you are not willing to accept a USD 100 logo setup fee or a minimum order quantity of 50 units, we are not your supplier."
       },
       "hud": {
         "kicker": "The numbers behind the claim",
@@ -8659,6 +8668,39 @@
         "tools": [
           { "title": "Compare models side by side", "body": "Every flagship platform against 12 spec rows — energy, window, cooling, skin sensor, app support — in one matrix.", "cta": "Open the comparison matrix" },
           { "title": "Read how we test", "body": "Lamp life, UV filters and energy claims: the published engineering posts behind our specs.", "cta": "Browse engineering posts" }
+        ]
+      },
+      "byApplication": {
+        "title": "IPL Hair Removal Devices by Application — Routing to the Right Platform",
+        "intro": "Medical-device use is governed by ISO 13485 and FDA biocompatibility guidelines.",
+        "body": "The platform starts with the optical and electrical architecture; the final form factor, surface treatment, and cooling system are application-driven. An ice-cooling IPL device, for instance, isn't simply \"a hair removal device that feels cold on the skin.\" There's the optical filter that defines the treatment wavelength, a target sapphire crystal temperature for consistent cooling, a skin-tone sensor for energy adjustment, stable capacitor performance that supports consistent energy output, biocompatible materials for skin contact, an adhesive system for the gel or window, near-zero UV leakage for eye safety, a refined surface feel for user comfort, and stable energy output across the full pulse range.",
+        "closing": "That's why we spec the IPL device for the finished-product user experience, not just for the number of flashes a manufacturer can claim on a box. Select your final product below:",
+        "cta": "Open platform page",
+        "cards": [
+          {
+            "market": "Ice-cooling comfort",
+            "body": "Sapphire ice window keeps the skin cold during every pulse — the comfort-first track for pain-sensitive users."
+          },
+          {
+            "market": "Ice cooling + smart sensor",
+            "body": "Chills the skin to 10 °C while the smart skin sensor auto-adjusts energy on the spot."
+          },
+          {
+            "market": "Smart app control",
+            "body": "Bluetooth app-guided schedules and intensity presets turn treatment into a connected routine."
+          },
+          {
+            "market": "Portable / travel",
+            "body": "Compact, lightweight builds for travel, hospitality, and impulse-buy channels."
+          },
+          {
+            "market": "Salon / professional",
+            "body": "Professional-grade energy and cooling engineered for salon-quality home results."
+          },
+          {
+            "market": "Bikini / Ice-cooling",
+            "body": "Sapphire ice-feeling window cools the skin on contact — gentle precision for bikini-line and sensitive-zone routines."
+          }
         ]
       },
       "summary": {
@@ -8742,7 +8784,7 @@
         "kicker": "Next Step",
         "title": "Turn a platform into a brand-ready product",
         "description": "After you shortlist a platform, iShine handles the rest: custom logo printing, bilingual user manuals, custom box inserts, and export packaging. This is how brands launch a full product line without building a factory or designing a device.",
-        "startNoMoq": "Start with No MOQ",
+        "startNoMoq": "Start with Low MOQ",
         "customizeBox": "Customize Your Box & Inserts",
         "shipDirectly": "Ship Directly to Customers"
       },
@@ -8776,9 +8818,9 @@
           },
           {
             "question": "Can we start with a small pilot order?",
-            "answer": "Yes. Start with no MOQ and a single unit for sampling. Once validated, scale to bulk pricing tiers.",
+            "answer": "Yes. Start with low MOQ and a single unit for sampling. Once validated, scale to bulk pricing tiers.",
             "links": [
-              "Start with No MOQ"
+              "Start with Low MOQ"
             ]
           },
           {
@@ -8800,7 +8842,7 @@
             "question": "Can we private-label an existing IPL hair removal device platform?",
             "answer": "Yes — every platform supports logo printing, custom manuals, and box inserts, with MOQ as low as 50 units. Start with a sample, then scale.",
             "links": [
-              "Start with No MOQ"
+              "Start with Low MOQ"
             ]
           }
         ]
@@ -8809,7 +8851,7 @@
         "kicker": "Safety Resources",
         "title": "Why IPL hair removal is safe (and how to explain it)",
         "description": "IPL hair removal devices are safe when engineered to spec: skin-tone sensing, UV-cut filters, contact switches, and energy limiting. Use the pillar page and linked safety guides below to answer buyer questions during launch.",
-        "pillar": "Why IPL hair removal is safe (pillar page)",
+        "pillar": "IPL Safety Explained: Science, Standards & Compliance",
         "deepLinks": "Deep Links",
         "links": [
           "Clinical data on IPL safety",

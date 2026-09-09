@@ -140,6 +140,11 @@ function buildRedirects(dist) {
   rules.push('/pt-BR /pt-br 301!');
   rules.push('/pt-PT/:splat /pt-pt/:splat 301!');
   rules.push('/pt-PT /pt-pt 301!');
+  // 兼容旧链接：es-MX 已合并进 es-ES，旧 /es-mx/* URL 301 到 /es/*。
+  // ⚠ 本文件构建期整体覆盖 public/_redirects，凡仅写在 public/_redirects 的规则
+  // 都会被覆盖而失效（es-mx 曾因此回退为 404）——存量兼容 301 统一收口在此维护。
+  rules.push('/es-mx/:splat /es/:splat 301!');
+  rules.push('/es-mx /es 301!');
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
   // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
   // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
