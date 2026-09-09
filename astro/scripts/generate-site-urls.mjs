@@ -63,6 +63,7 @@ const STATIC_PATHS = [
   '/clients/roseskin-ipl',
   '/catalogue',
   '/ipl-hair-removal-is-safe',
+  '/ipl-for-brands',
   '/faq',
   '/contact',
   '/meet-the-team',

@@ -65,6 +65,7 @@ const STATIC_ROUTES = [
   { route: '/about/manufacturing-capabilities', key: 'nav.manufacturing' },
   { route: '/about/quality-control', key: 'nav.quality' },
   { route: '/ipl-hair-removal-is-safe', key: 'aboutPages.iplSafety.title' },
+  { route: '/ipl-for-brands', key: 'auxPages.iplForBrands.pageTitle' },
   { route: '/blog', key: 'blog.meta.title' },
   { route: '/clients', key: 'clientPage.meta.title' },
   { route: '/contact', key: 'contact.title' },
