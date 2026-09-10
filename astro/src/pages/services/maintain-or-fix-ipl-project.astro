@@ -61,6 +61,9 @@ const logoImg = (path: string) => {
       for (var j = 0; j < LANGS.length; j++) {
         stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
       }
+      // 剥掉语言前缀后必须补回前导斜杠：否则 window.location.replace() 会按相对路径
+      // 解析（相对于当前目录），目标路径会不断增长形成无限重定向。
+      if (stripped && stripped.charAt(0) !== '/') stripped = '/' + stripped;
       if (stored === 'en') {
         stripped = stripped.replace(/\/+$/, '');
         if (stripped === '' || stripped === '/') stripped = '/';

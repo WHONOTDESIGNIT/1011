@@ -24,7 +24,7 @@ const locale = Astro.currentLocale ?? 'en';
     try {
       var stored = localStorage.getItem(KEY);
       if (!stored) return;
-      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-br', 'pt-pt', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it'];
+      var LANGS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-br', 'pt-pt', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'it', 'de'];
       var CODE_PATH = { 'es-ES': 'es', 'pt-BR': 'pt-br', 'pt-PT': 'pt-pt' };
       var path = window.location.pathname;
       var cur = 'en';
@@ -39,6 +39,9 @@ const locale = Astro.currentLocale ?? 'en';
       for (var j = 0; j < LANGS.length; j++) {
         stripped = stripped.replace(new RegExp('^/' + LANGS[j] + '/?'), '');
       }
+      // 剥掉语言前缀后必须补回前导斜杠：否则 window.location.replace() 会按相对路径
+      // 解析（相对于当前目录），目标路径会不断增长形成无限重定向。
+      if (stripped && stripped.charAt(0) !== '/') stripped = '/' + stripped;
       if (stored === 'en') {
         stripped = stripped.replace(/\/+$/, '');
         if (stripped === '' || stripped === '/') stripped = '/';
