@@ -19,7 +19,8 @@ const pageTitle = t(locale, 'contact.title');
 // EN SEO 富化标题（仅 meta title；H1/导航/面包屑仍用共享文案）
 const seoTitle = locale === 'en' ? 'Contact Our Team | iShine IPL Hair Removal Manufacturer' : pageTitle;
 const pageDescription = t(locale, 'contact.description');
-const canonical = `${resolveBaseUrl()}/contact`;
+// 语言化 canonical：联系页文案已按 22 语种翻译，必须自指（2026-09-10 修复）。
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/contact')}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: pageTitle },

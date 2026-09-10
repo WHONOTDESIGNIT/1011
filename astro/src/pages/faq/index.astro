@@ -11,7 +11,9 @@ function resolveBaseUrl() {
 
 const pageTitle = t(locale, 'auxPages.faq.pageTitle');
 const pageDescription = t(locale, 'auxPages.faq.pageDescription');
-const canonical = `${resolveBaseUrl()}/faq`;
+// 语言化 canonical：FAQ 正文与 meta description 已按 22 语种翻译，
+// 必须自指而非指向英文版，否则 21 个语种版本无法被收录（2026-09-10 修复）。
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/faq')}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.faq') },

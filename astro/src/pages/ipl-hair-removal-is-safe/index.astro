@@ -11,7 +11,8 @@ function resolveBaseUrl() {
 
 const pageTitle = t(locale, 'aboutPages.iplSafety.title');
 const pageDescription = t(locale, 'aboutPages.iplSafety.description');
-const canonical = `${resolveBaseUrl()}/ipl-hair-removal-is-safe`;
+// 语言化 canonical：该页正文已按 22 语种翻译，必须自指（2026-09-10 修复）。
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/ipl-hair-removal-is-safe')}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'aboutPages.iplSafety.breadcrumbLabel') },

@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
-import { buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
 const locale = Astro.currentLocale ?? 'en';
 
@@ -12,7 +12,8 @@ function resolveBaseUrl() {
 
 const pageTitle = t(locale, 'auxPages.privacy.pageTitle');
 const pageDescription = t(locale, 'auxPages.privacy.pageDescription');
-const canonical = `${resolveBaseUrl()}/privacy-policy`;
+// 语言化 canonical：隐私政策正文已按语言渲染，必须自指（2026-09-10 修复）。
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/privacy-policy')}`;
 
 const company = {
   name: 'SHENZHEN ISHINE TECHNOLOGY COMPANY LIMITED',

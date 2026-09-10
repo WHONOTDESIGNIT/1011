@@ -359,7 +359,10 @@ const displayPricing = getDisplayPricing(product);
 
 const pageTitle = product.name;
 const pageDescription = product.description;
-const canonical = `https://iplmanufacturer.com/products/${slug}`;
+// 语言化 canonical：早期硬编码英文路径导致 21 个语种的产品页全部 canonical 到 /products/<slug>，
+// 与自身 hreflang（声明这些 URL 是该语言的版本）互相矛盾，Google 会只收录英文版而丢弃 21 个语种页。
+// 产品页正文与 meta description 均已按语言翻译，因此必须自指 canonical（2026-09-10 修复）。
+const canonical = `https://iplmanufacturer.com${getLocalizedPath(locale, `/products/${slug}`)}`;
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
   { label: t(locale, 'nav.products'), path: '/products' },

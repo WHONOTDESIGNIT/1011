@@ -36,7 +36,14 @@ const canonical = `${resolveBaseUrl()}${categoryHref(locale, label)}`;
 // 确定性模板（含品牌，buildFinalTitle 不会再追加 | iShine）
 const pageTitle = `${label} Articles | iShine Blog`;
 const pageDescription = t(locale, 'blog.meta.description');
-const hreflangEntries = SUPPORTED_LOCALES.map((l) => ({ locale: l, href: `${resolveBaseUrl()}${categoryHref(l, label)}` }));
+// hreflang 必须输出 BCP 47 代码：SUPPORTED_LOCALES 中博客目录名为 'es'，
+// 直接输出会得到 hreflang="es"，而全站其余页面（含 SeoHead 与博客详情页）输出 hreflang="es-ES"，
+// 造成同一西语版本出现两个互相冲突的 hreflang 值（2026-09-10 修复）。
+// href 仍用 categoryHref（走博客目录名 es → /es/blog/category/...），仅属性值规范化。
+const hreflangEntries = SUPPORTED_LOCALES.map((l) => ({
+  locale: l === 'es' ? 'es-ES' : l,
+  href: `${resolveBaseUrl()}${categoryHref(l, label)}`,
+}));
 
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
