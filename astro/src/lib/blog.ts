@@ -21,10 +21,19 @@ export type BlogPostSummary = {
   readTime: string;
 };
 
+/** markdown 标题（由 @astrojs/mdx 注入的 getHeadings() 提供），depth 2/3 = 正文 h2/h3 */
+export type BlogHeading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
 export type BlogPost = {
   meta: BlogPostSummary;
   Content: unknown;
   faqs: BlogFaq[];
+  /** 正文 h2/h3 列表，供文章页目录（ArticleToc）使用；已过滤空文本与 H1 */
+  headings: BlogHeading[];
 };
 
 type BlogIndexRecord = {
@@ -297,14 +306,34 @@ export async function getPostBySlug(locale: string, slug: string): Promise<BlogP
   const loadModule = blogContentModules[modulePath];
   if (!loadModule) return null;
 
-  const mod = (await loadModule()) as { default?: unknown };
+  const mod = (await loadModule()) as {
+    default?: unknown;
+    getHeadings?: () => BlogHeading[];
+  };
   const Content = mod.default;
   if (!Content) return null;
+
+  // 目录数据源：@astrojs/mdx 编译期为每个 mdx 注入 getHeadings()（rehypeHeadingIds 收集，
+  // 与正文标题 id 同源），因此锚点 100% 对得上，无需二次解析 markdown。
+  // 只保留 h2/h3：18 篇正文有残留 H1，若不过滤会与页面大标题重复。
+  const headings = (typeof mod.getHeadings === 'function' ? mod.getHeadings() : [])
+    .filter(
+      (h) =>
+        h &&
+        typeof h.slug === 'string' &&
+        h.slug.length > 0 &&
+        typeof h.text === 'string' &&
+        h.text.trim().length > 0 &&
+        h.depth >= 2 &&
+        h.depth <= 3
+    )
+    .map((h) => ({ depth: h.depth, slug: h.slug, text: h.text.trim() }));
 
   return {
     meta: record.meta,
     Content,
     faqs: record.faqs,
+    headings,
   };
 }
 

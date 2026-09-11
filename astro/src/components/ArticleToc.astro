@@ -1,0 +1,426 @@
+---
+// 文章通用「本章目录」（in-page navigation）。
+// 数据源：@astrojs/mdx 编译期注入的 getHeadings()（经 lib/blog.ts 的 getPostBySlug 透出），
+// 与正文标题 id 同源 → 锚点 100% 对得上；标题文本取自各语言 MDX 自身，22 语种自动本地化。
+//
+// 布局（配合 [slug].astro 的 grid 壳）：
+//   < 1280px  跟随正文流的吸顶横向 chips（sticky）
+//   >= 1280px 由 grid 放入右栏，组件自身 sticky —— 与 StageRouteMap 的 fixed 悬浮不同，
+//             在流内占位，因此不会与正文列发生重叠。
+// 交互沿用 StageRouteMap：平滑滚动 + 地址栏 hash + IntersectionObserver 高亮 + 进度条。
+import type { BlogHeading } from '../lib/blog';
+
+type Props = { headings: BlogHeading[]; label: string; class?: string };
+const { headings, label, class: className = '' } = Astro.props as Props;
+
+// 低于 3 个 h2 不渲染（全站 5 篇 h2 <= 2，其中 3 篇 h2 = 0）
+let h2Seen = 0;
+const items = headings.map((h) => {
+  const isH2 = h.depth === 2;
+  if (isH2) h2Seen += 1;
+  return {
+    slug: h.slug,
+    text: h.text,
+    isH2,
+    no: isH2 ? String(h2Seen).padStart(2, '0') : '',
+    // h3 归属其上方最近的 h2，供进度条/计数器定位
+    section: Math.max(h2Seen, 1),
+  };
+});
+const h2Total = h2Seen;
+const render = h2Total >= 3;
+const total = String(h2Total).padStart(2, '0');
+---
+
+{render && (
+  <nav
+    class={`art-toc ${className}`.trim()}
+    data-art-toc
+    data-toc-sections={String(h2Total)}
+    aria-label={label}
+  >
+    <div class="art-toc__head">
+      <span class="art-toc__title">{label}</span>
+      <span class="art-toc__counter" data-toc-counter>{`01/${total}`}</span>
+    </div>
+    <div class="art-toc__track">
+      <div class="art-toc__fill" data-toc-progress style={`width:${(100 / h2Total).toFixed(2)}%`}></div>
+    </div>
+    <ol class="art-toc__list" data-toc-list>
+      {items.map((item) => (
+        <li>
+          <a
+            class={item.isH2 ? 'art-toc__item' : 'art-toc__item art-toc__item--sub'}
+            href={`#${item.slug}`}
+            data-toc-link
+            data-toc-section={String(item.section)}
+          >
+            {item.isH2 ? <span class="art-toc__no">{item.no}</span> : null}
+            <span class="art-toc__name">{item.text}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  /* ---- 共享底座 ---- */
+  .art-toc {
+    font-family: inherit;
+    color: #333333;
+  }
+  .art-toc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .art-toc__list > li {
+    margin: 0;
+  }
+  .art-toc__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .art-toc__item:focus-visible {
+    outline: 2px solid #563cfa;
+    outline-offset: 2px;
+  }
+  .art-toc__name {
+    overflow-wrap: anywhere;
+  }
+  .art-toc__no {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    background: #f1f0f6;
+    color: #6b7280;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .art-toc__fill {
+    height: 100%;
+    border-radius: 999px;
+    background: #563cfa;
+    transition: width 0.3s ease;
+  }
+
+  /* ---- < 1280px：顶栏横向 chips（宽度与正文列 max-w-3xl = 922 对齐并居中） ---- */
+  @media (max-width: 1279.98px) {
+    .art-toc {
+      position: sticky;
+      /* 吸附在固定头部下方。固定头部有两态：页面顶部时 trust-bar 可见，头部 top:66px
+         + 高 70px = 底边 136px；一旦滚动 trust-bar 自动收起，头部移到 top:0，底边只剩 70px。
+         阅读态（含深链直达）恒为收起态，故按 70px 取 78px，避免留下 71px 空档。 */
+      top: 78px;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      max-width: 922px;
+      margin-block: 0 18px;
+      margin-inline: auto;
+      padding: 2px 2px 10px;
+      background: #f7f7fa;
+      border-bottom: 1px solid #ededf2;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .art-toc::-webkit-scrollbar {
+      display: none;
+    }
+    .art-toc__head,
+    .art-toc__track {
+      display: none;
+    }
+    .art-toc__list {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .art-toc__list > li {
+      flex: none;
+    }
+    .art-toc__item {
+      gap: 7px;
+      padding: 6px 12px 6px 7px;
+      border: 1px solid #e7e5ef;
+      border-radius: 999px;
+      background: #ffffff;
+      white-space: nowrap;
+      transition: border-color 0.18s ease, background-color 0.18s ease;
+    }
+    .art-toc__item:hover {
+      border-color: #c9c1f5;
+    }
+    .art-toc__item.is-active {
+      border-color: #563cfa;
+      background: #f3f0ff;
+    }
+    .art-toc__no {
+      width: 22px;
+      height: 22px;
+      font-size: 10px;
+    }
+    .art-toc__name {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #52525b;
+    }
+    .art-toc__item.is-active .art-toc__name {
+      color: #26262b;
+      font-weight: 600;
+    }
+    .art-toc__item--sub {
+      padding: 6px 12px;
+    }
+    .art-toc__item--sub .art-toc__name {
+      font-size: 12px;
+      font-weight: 400;
+      color: #71717a;
+    }
+  }
+
+  /* <= 698px：移动端头部更矮（56px），但收起态仍把 top 钉到 0 → 底边 56px，
+     故吸附位取 64px（与 >698px 档的 78 = 70 + 8 同一算法）。 */
+  @media (max-width: 698px) {
+    .art-toc {
+      top: 64px;
+    }
+  }
+
+  /* ---- >= 1280px：右栏 sticky 卡片（在 grid 流内，不遮挡正文） ---- */
+  @media (min-width: 1280px) {
+    .art-toc {
+      position: sticky;
+      /* 同窄屏：按阅读态头部底边 70px + 8px 间隙 */
+      top: 78px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      width: 264px;
+      max-height: min(620px, calc(100vh - 96px));
+      margin: 0;
+      padding: 14px 12px 12px;
+      background: #ffffff;
+      border: 1px solid #e8e7ef;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(2, 3, 3, 0.08);
+    }
+    .art-toc__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 2px 6px 10px;
+      border-bottom: 1px solid #f0eef6;
+    }
+    .art-toc__title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9a9aa3;
+    }
+    .art-toc__counter {
+      flex: none;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8a8a93;
+      font-variant-numeric: tabular-nums;
+    }
+    .art-toc__track {
+      height: 4px;
+      margin: 10px 6px;
+      border-radius: 999px;
+      background: #edecef;
+      overflow: hidden;
+    }
+    .art-toc__list {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 2px;
+      scrollbar-width: thin;
+      scrollbar-color: #d8d6e3 transparent;
+    }
+    .art-toc__list > li + li {
+      margin-top: 2px;
+    }
+    .art-toc__item {
+      gap: 10px;
+      padding: 7px 9px;
+      border-radius: 12px;
+      transition: background-color 0.18s ease;
+    }
+    .art-toc__item:hover {
+      background: #faf9ff;
+    }
+    .art-toc__item.is-active {
+      background: #f3f0ff;
+    }
+    .art-toc__no {
+      width: 24px;
+      height: 24px;
+      font-size: 10.5px;
+    }
+    .art-toc__name {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #4b4b55;
+      transition: color 0.18s ease;
+    }
+    .art-toc__item.is-active .art-toc__name {
+      color: #232327;
+      font-weight: 600;
+    }
+    /* h3 子项：缩进 + 短横线标记，不占序号位（逻辑属性，RTL 自动镜像） */
+    .art-toc__item--sub {
+      position: relative;
+      padding-block: 6px;
+      padding-inline-start: 36px;
+    }
+    .art-toc__item--sub::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 19px;
+      top: 15px;
+      width: 7px;
+      height: 1.5px;
+      border-radius: 999px;
+      background: #d4d2df;
+      transition: background 0.18s ease;
+    }
+    .art-toc__item--sub.is-active::before {
+      background: #563cfa;
+    }
+    .art-toc__item--sub .art-toc__name {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #6b6b76;
+    }
+    .art-toc__item--sub.is-active .art-toc__name {
+      color: #3b3b45;
+      font-weight: 600;
+    }
+  }
+</style>
+
+<script>
+  // —— 交互：平滑滚动 + 地址栏 hash + 当前章节高亮（IntersectionObserver）——
+  (function () {
+    const navs = Array.from(document.querySelectorAll('[data-art-toc]')) as HTMLElement[];
+    if (!navs.length) return;
+
+    const wide = window.matchMedia('(min-width: 1280px)');
+    const pad = (n: number) => String(n).padStart(2, '0');
+
+    navs.forEach((nav) => {
+      const links = Array.from(nav.querySelectorAll('[data-toc-link]')) as HTMLAnchorElement[];
+      const counter = nav.querySelector('[data-toc-counter]') as HTMLElement | null;
+      const fill = nav.querySelector('[data-toc-progress]') as HTMLElement | null;
+      const total = Number(nav.getAttribute('data-toc-sections')) || 0;
+
+      const entries: { link: HTMLAnchorElement; target: HTMLElement; section: number }[] = [];
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (href.charAt(0) !== '#') return;
+        const target = document.getElementById(href.slice(1));
+        if (!target) return;
+        entries.push({
+          link,
+          target,
+          section: Number(link.getAttribute('data-toc-section')) || 1,
+        });
+      });
+      if (!entries.length) return;
+
+      const setActive = (index: number, scrollChip: boolean) => {
+        entries.forEach((entry, i) => {
+          const on = i === index;
+          entry.link.classList.toggle('is-active', on);
+          if (on) entry.link.setAttribute('aria-current', 'true');
+          else entry.link.removeAttribute('aria-current');
+        });
+        const section = entries[index]?.section ?? 1;
+        if (counter && total) counter.textContent = `${pad(section)}/${pad(total)}`;
+        if (fill && total) fill.style.width = `${(section / total) * 100}%`;
+        // 窄屏 chips：把当前 chip 横向滚入可视区。
+        // 关键：只能动 chips 容器自身的 scrollLeft，绝不能用元素 scrollIntoView ——
+        // 后者会连带对页面做纵向滚动，打断 goTo 里正进行的平滑滚动，
+        // 结果点击章节后页面只滚到「chips 条刚露头」的位置，根本到不了目标章节。
+        // （chips 条在正文流内，初始位于视口下方，所以这个打断是必现的。）
+        if (scrollChip && !wide.matches && entries[index]) {
+          const chip = entries[index].link.getBoundingClientRect();
+          const bar = nav.getBoundingClientRect();
+          const delta =
+            chip.left < bar.left
+              ? chip.left - bar.left - 8
+              : chip.right > bar.right
+                ? chip.right - bar.right + 8
+                : 0;
+          if (delta) nav.scrollTo({ left: nav.scrollLeft + delta, behavior: 'smooth' });
+        }
+      };
+
+      const goTo = (index: number) => {
+        const entry = entries[index];
+        if (!entry) return;
+        entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        try {
+          history.replaceState(null, '', `#${entry.target.id}`);
+        } catch (err) {
+          /* noop */
+        }
+        setActive(index, true);
+      };
+
+      links.forEach((link) => {
+        const index = entries.findIndex((entry) => entry.link === link);
+        if (index < 0) return;
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          goTo(index);
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (records) => {
+            for (const record of records) {
+              if (!record.isIntersecting) continue;
+              const index = entries.findIndex((entry) => entry.target === record.target);
+              if (index > -1) setActive(index, true);
+            }
+          },
+          // 只把视口上 15%~30% 的横向带视为「当前阅读区」
+          { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
+        );
+        entries.forEach((entry) => observer.observe(entry.target));
+      }
+
+      // 深链/刷新：#slug 已由浏览器原生定位（scroll-margin-top 补偿），此处只同步高亮
+      let hash = '';
+      try {
+        hash = decodeURIComponent((location.hash || '').slice(1));
+      } catch (err) {
+        hash = '';
+      }
+      if (hash) {
+        const index = entries.findIndex((entry) => entry.target.id === hash);
+        if (index > -1) setActive(index, false);
+      }
+    });
+  })();
+</script>

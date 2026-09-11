@@ -364,6 +364,12 @@ const megaCardImg = (path: string) => {
   }
 
   if (trustBar && topBarHeader) {
+    // 深链直达（URL 带 #hash）或刷新恢复滚动位置时，本脚本可能已经晚于浏览器的初始滚动，
+    // lastScrollY 一上来就非 0 —— 后续 scroll 事件既不满足 y === 0、也不满足 lastScrollY === 0，
+    // trust-bar 便一直挂着：固定头部停在 top:66px（底边 136px），既在页面上方留出 66px 镂空，
+    // 又会把 scroll-margin-top 刚补好的锚点目标盖住（实测标题被压 45px）。
+    // 这里按初始滚动位置补一次同步，使其回到「离开顶部即收起」的既定语义。
+    if (lastScrollY > 0) setTopBarVisible(false);
     window.addEventListener('scroll', function () {
       clearTimeout(scrollDebounceTimer);
       scrollDebounceTimer = setTimeout(handleTopBarScroll, 100);

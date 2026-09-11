@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleVote from '../../components/ArticleVote.astro';
 import MdxImage from '../../components/MdxImage.astro';
+import ArticleToc from '../../components/ArticleToc.astro';
 import StageRouteMap from '../../components/StageRouteMap.astro';
 import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, getRouteStages, postHref, categoryHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
@@ -80,6 +81,17 @@ const related = await getRelatedPosts(locale, post.meta.slug, post.meta.category
 // 阶段导图（仅 253-day timeline 文章）：数据取自当前语言正文的阶段表格，22 语言自动适配
 const isTimelineArticle = post.meta.translationKey === 'ipl-hair-removal-device-development-timeline';
 const routeMapStages = isTimelineArticle ? await getRouteStages(locale, postSlug) : [];
+
+// 通用目录（除 timeline 篇外的全部文章）：数据来自 mdx 编译期注入的 getHeadings()。
+// h2 < 3 不渲染（全站 5 篇 h2 <= 2）；timeline 篇已有阶段导图，避免同页双导航。
+const tocHeadings = post.headings;
+const showToc = !isTimelineArticle && tocHeadings.filter((h) => h.depth === 2).length >= 3;
+// 有目录时正文区在 >=1280px 走两栏 grid：正文列（max-w-3xl = 922）+ 卡槽 264 + gap 40 ≈ 1226，
+// 恰好落在 max-w-5xl（1229）内。原先目录卡是 fixed 悬浮，而正文列两侧只剩 153px 空档，
+// 1280–1330px 视口下卡片会压到正文 —— 改在流内的 grid 后不再可能重叠。
+const layoutClass = showToc ? 'xl:grid xl:grid-cols-[minmax(0,1fr)_264px] xl:items-start xl:gap-x-10' : '';
+const mainColClass = showToc ? 'xl:col-start-1 xl:row-start-1 xl:mx-0' : '';
+const tocColClass = 'xl:col-start-2 xl:row-start-1';
 
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -279,56 +291,67 @@ const faqSchema = post.faqs.length
       )
       : null}
 
-    <div class="mx-auto max-w-3xl">
-      <StageRouteMap stages={routeMapStages} />
-      <div class="blog-content">
-        <Content components={{ img: MdxImage }} />
-      </div>
-
-      {post.faqs.length
-        ? (
-          <section class="mt-12">
-            <h2 class="text-2xl font-bold text-ink-900">{t(locale, 'blog.post.faqTitle')}</h2>
-            <div class="mt-6 space-y-3">
-              {post.faqs.map((item) => (
-                <details class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition open:border-neutral-300">
-                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-neutral-800">
-                    <span>{item.question}</span>
-                    <svg class="h-5 w-5 flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                      <path d="M10 4v12M4 10h12" />
-                    </svg>
-                  </summary>
-                  <p class="border-t border-neutral-100 px-5 py-4 leading-relaxed text-neutral-600">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )
+    {/* 正文区：有目录时 >=1280px 两栏（正文列 + 264px 目录卡槽），<1280px 均为单栏 */}
+    <div class={layoutClass}>
+      {showToc
+        ? <ArticleToc class={tocColClass} headings={tocHeadings} label={t(locale, 'blog.post.tocTitle')} />
         : null}
 
-      <div class="mt-14 rounded-2xl bg-slate-950 px-8 py-10 text-white">
-        <div class="mx-auto max-w-xl text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'blog.post.ctaTitle')}</p>
-          <h2 class="mt-3 text-2xl font-bold">{t(locale, 'blog.post.ctaHeading')}</h2>
-          <p class="mt-4 text-sm leading-relaxed text-neutral-300">{t(locale, 'blog.post.ctaDescription')}</p>
-          <div class="mt-6 flex flex-wrap justify-center gap-3">
-            <a
-              class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100"
-              href={getLocalizedPath(locale, '/contact')}
-            >
-              {t(locale, 'blog.post.ctaPrimary')}
-            </a>
-            <a
-              class="rounded-2xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              href={getLocalizedPath(locale, '/products')}
-            >
-              {t(locale, 'blog.post.ctaSecondary')}
-            </a>
+      <div class={`mx-auto max-w-3xl min-w-0 ${mainColClass}`.trim()}>
+        <StageRouteMap stages={routeMapStages} />
+        <div class="blog-content">
+          <Content components={{ img: MdxImage }} />
+        </div>
+
+        {post.faqs.length
+          ? (
+            <section class="mt-12">
+              <h2 class="text-2xl font-bold text-ink-900">{t(locale, 'blog.post.faqTitle')}</h2>
+              <div class="mt-6 space-y-3">
+                {post.faqs.map((item) => (
+                  <details class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition open:border-neutral-300">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-neutral-800">
+                      <span>{item.question}</span>
+                      <svg class="h-5 w-5 flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M10 4v12M4 10h12" />
+                      </svg>
+                    </summary>
+                    <p class="border-t border-neutral-100 px-5 py-4 leading-relaxed text-neutral-600">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )
+          : null}
+
+        <div class="mt-14 rounded-2xl bg-slate-950 px-8 py-10 text-white">
+          <div class="mx-auto max-w-xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">{t(locale, 'blog.post.ctaTitle')}</p>
+            <h2 class="mt-3 text-2xl font-bold">{t(locale, 'blog.post.ctaHeading')}</h2>
+            <p class="mt-4 text-sm leading-relaxed text-neutral-300">{t(locale, 'blog.post.ctaDescription')}</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <a
+                class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:bg-neutral-100"
+                href={getLocalizedPath(locale, '/contact')}
+              >
+                {t(locale, 'blog.post.ctaPrimary')}
+              </a>
+              <a
+                class="rounded-2xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                href={getLocalizedPath(locale, '/products')}
+              >
+                {t(locale, 'blog.post.ctaSecondary')}
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <ArticleVote slug={post.meta.translationKey} lang={locale} />
+        <p class="mt-6 text-center text-sm text-neutral-500">
+          {t(locale, 'blog.post.lastUpdated')} <time datetime={toIsoDateTime(post.meta.updatedDate || post.meta.date)}>{post.meta.updatedDate || post.meta.date}</time>
+        </p>
+
+        <ArticleVote slug={post.meta.translationKey} lang={locale} />
+      </div>
     </div>
 
     {related.length
@@ -402,6 +425,49 @@ const faqSchema = post.faqs.length
 </BaseLayout>
 
 <style is:global>
+  /* 让 position: sticky 在本页生效。
+     BaseLayout 的 `html, body { overflow-x: hidden }` 中，html 自身也非 visible，
+     于是 body 不会把 overflow 传播给 viewport，而是自己保留了 `hidden auto`，
+     变成「内容不会溢出、因而永不滚动的滚动容器」——这会让所有 sticky 后代
+     的最近滚动祖先变成 body，吸顶/吸边彻底失效（实测滚动时与文档 1:1 位移）。
+     把 html 还原为 visible 后：body 的 overflow-x: hidden 照常传播到 viewport
+     （横向裁剪行为不变，实测裁剪仍生效），但 body 不再是滚动容器，
+     右侧目录卡与窄屏 chips 才能正常吸附。:root 提高优先级，避免受样式注入顺序影响。
+     仅作用于文章详情页；正文 header 已由 critical.css 的 `article header` 规则复位。 */
+  html:root {
+    overflow-x: visible;
+  }
+
+  /* 锚点偏移补偿：文章详情页的固定头部 + 窄屏吸顶导航（目录 chips / 阶段导图）会盖住
+     跳转目标，这里统一给正文锚点补偿。放在页面级（而非各导航组件内），避免两个组件
+     各自声明一份全局规则、由打包顺序决定谁生效。
+     关键：固定头部有两态 —— 页面顶部时 trust-bar 可见（底边 66+70=136px），一旦滚动
+     trust-bar 收起、头部移到 top:0（底边仅 70px）；阅读态恒为后者。
+     >698px：吸顶件 top 78 + 高 48~50 = 底边 126~128px → 取 136px；
+     ≤698px：头部更矮（56px），收起态同样把 top 钉到 0 → 底边仅 56px；吸顶件 top 64 +
+             高 48~50 = 底边 112~114px → 取 122px；
+     ≥1280px：目录卡移入右栏、导图改 fixed 居中，只剩固定头部 70px → 取 90px。
+     各档均留 8~20px 间隙。 */
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content tr {
+    scroll-margin-top: 136px;
+  }
+  @media (max-width: 698px) {
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content tr {
+      scroll-margin-top: 122px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content tr {
+      scroll-margin-top: 90px;
+    }
+  }
+
   .blog-content {
     font-size: 1.0625rem;
     line-height: 1.8;

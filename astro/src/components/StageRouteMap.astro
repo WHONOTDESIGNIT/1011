@@ -86,7 +86,9 @@ const { stages } = Astro.props as Props;
   @media (max-width: 1279.98px) {
     .stage-rm {
       position: sticky;
-      top: 84px;
+      /* 吸附在固定头部下方。trust-bar 一旦滚动即收起，头部移到 top:0，阅读态底边仅 70px，
+         故取 78px（与 ArticleToc 一致），而非按页面顶部态的 136px。 */
+      top: 78px;
       z-index: 40;
       display: flex;
       overflow-x: auto;
@@ -252,17 +254,12 @@ const { stages } = Astro.props as Props;
       color: #6a6a75;
     }
   }
-</style>
 
-<style is:global>
-  /* 行锚定偏移补偿：跳到阶段行时，让行停靠在 fixed header（滚动后约 70px）+ 顶栏导图之下，
-     而非被遮挡。table 有 display:block/overflow-x，tr 的 scroll-margin 仍作用于页面滚动。 */
-  .blog-content tr {
-    scroll-margin-top: 150px;
-  }
-  @media (min-width: 1280px) {
-    .blog-content tr {
-      scroll-margin-top: 96px;
+  /* <= 698px：移动端头部更矮（56px），但收起态仍把 top 钉到 0 → 底边 56px，
+     故吸附位取 64px（与 >698px 档的 78 = 70 + 8 同一算法）。 */
+  @media (max-width: 698px) {
+    .stage-rm {
+      top: 64px;
     }
   }
 </style>
@@ -274,7 +271,6 @@ const { stages } = Astro.props as Props;
   if (!nav) return;
 
   const links = Array.from(nav.querySelectorAll('[data-stage-link]')) as HTMLAnchorElement[];
-  const list = nav.querySelector('[data-stage-list]') as HTMLElement | null;
   const counter = nav.querySelector('[data-stage-counter]') as HTMLElement | null;
   const fill = nav.querySelector('[data-stage-progress]') as HTMLElement | null;
   const wide = window.matchMedia('(min-width: 1280px)');
@@ -291,9 +287,21 @@ const { stages } = Astro.props as Props;
     });
     if (counter && rows.length) counter.textContent = `${pad(index + 1)}/${pad(rows.length)}`;
     if (fill && rows.length) fill.style.width = `${((index + 1) / rows.length) * 100}%`;
-    // 窄屏 chips：把当前 chip 横向滚入可视区（nearest 不会引起页面纵向跳动）
-    if (list && !wide.matches && links[index]) {
-      links[index].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    // 窄屏 chips：把当前 chip 横向滚入可视区。
+    // 关键：只能动 chips 容器自身的 scrollLeft，绝不能用元素 scrollIntoView ——
+    // 后者会连带对页面做纵向滚动，打断 goTo 里正进行的平滑滚动，
+    // 结果点击阶段后页面只滚到「chips 条刚露头」的位置，根本到不了目标行；
+    // 深链走 goTo 也会同样被带偏。（chips 条在正文流内，初始位于视口下方，所以必现。）
+    if (!wide.matches && links[index]) {
+      const chip = links[index].getBoundingClientRect();
+      const bar = nav.getBoundingClientRect();
+      const delta =
+        chip.left < bar.left
+          ? chip.left - bar.left - 8
+          : chip.right > bar.right
+            ? chip.right - bar.right + 8
+            : 0;
+      if (delta) nav.scrollTo({ left: nav.scrollLeft + delta, behavior: 'smooth' });
     }
   };
 
