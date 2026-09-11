@@ -33,7 +33,9 @@ const heroImageBySlug: Record<string, string> = {
   'cooling-system': '/images/components/cooling-system-closeup.jpg',
   'power-supply': '/images/components/power-supply-hero.webp',
 };
-const heroImage = heroImageBySlug[slug] ?? '/images/components/ipl-device-diagram.jpg';
+// fallback for an unrecognised slug: ipl-device-diagram.jpg was never uploaded, so this
+// pointed at a 404 for any slug outside the four above. Uses an existing component photo.
+const heroImage = heroImageBySlug[slug] ?? '/images/components/component-quality-determines-device-performance.webp';
 const heroBackgroundImageSources = responsiveImageSources(heroImage, [800, 1200, 1600], 1600);
 const heroImageSources = responsiveImageSources(heroImage, [400, 800, 1200, 1600], 1200);
 const componentsDiagramImage = responsiveImageSources('/images/components/power-supply-component-quality.webp', [400, 800, 1200, 1600], 1200);

@@ -39,7 +39,6 @@ const products = [
   taglineKey: `productDetail.index.cards.${product.slug}.tagline`,
   imageSources: responsiveImageSources(product.firstImage, [256, 512], 512),
 }));
-const freeSampleImage = responsiveImageSources('/images/products/free_sample.jpg', [400, 800, 1200], 1200);
 
 const faqHrefs = [
   [getLocalizedPath(locale, '/catalogue')],
@@ -542,24 +541,7 @@ const siteBaseUrl = (
         ))}
       </div>
       <div class="mx-auto max-w-6xl">
-        <div class="relative w-full overflow-hidden rounded-2xl bg-neutral-100">
-          <picture>
-            <source srcset={freeSampleImage.avifSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/avif" />
-            <source srcset={freeSampleImage.webpSrcSet} sizes="(min-width: 1024px) 72rem, 100vw" type="image/webp" />
-            <img
-              src={freeSampleImage.src}
-              srcset={freeSampleImage.webpSrcSet}
-              sizes="(min-width: 1024px) 72rem, 100vw"
-              alt={t(locale, 'productDetail.index.freeSampleAlt')}
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="520"
-              class="h-auto w-full object-contain"
-            />
-          </picture>
-        </div>
-        <p class="mt-3 text-center text-sm text-neutral-500">{t(locale, 'productDetail.index.sourcing.freeSampleNote')}</p>
+        <p class="text-center text-sm text-neutral-500">{t(locale, 'productDetail.index.sourcing.freeSampleNote')}</p>
       </div>
       <div class="space-y-8">
         <div class="mx-auto max-w-3xl text-center">

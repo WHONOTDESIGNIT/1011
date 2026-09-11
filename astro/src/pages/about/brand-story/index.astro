@@ -6,8 +6,11 @@ import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../../lib/netlify-images';
 
 const locale = Astro.currentLocale ?? 'en';
+// brand-story-hero.webp was never produced; pointing at a missing file 404'd the hero.
+// Repointed to an existing company image rather than dropping the hero visual.
+// Design to confirm or replace with the intended shot.
 const heroBackgroundImage =
-  '/images/about/brand-story-hero.webp';
+  '/images/home/home-about-ishine.webp';
 const heroBackgroundImageSources = responsiveImageSources(heroBackgroundImage, [800, 1200, 1600], 1600);
 
 const highlights = [
