@@ -1,0 +1,141 @@
+---
+title: "Pulsed vs Continuous Wave PBM: Time as a Dose Variable"
+description: "Pulsed and continuous PBM can differ biologically at the same fluence. What frequency, duty cycle and peak power change, and where the evidence still splits."
+citableSummary: "Pulsed and continuous wave photobiomodulation can differ in biological effect even at matched wavelength, fluence and average power, because pulsing adds frequency, pulse width, duty cycle and peak power to the dose. Evidence runs both ways: 10 Hz pulsed 810 nm outperformed continuous on some TBI outcomes in mice, while continuous near-infrared outperformed pulsed for gingival fibroblast proliferation at 5.2 J/cm². Neither mode is universally superior; complete temporal parameter reporting is what makes studies comparable."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Is pulsed PBM better than continuous PBM?"
+    answer: "No, and the evidence doesn't support the claim in either direction. Pulsed 810 nm at 10 Hz outperformed continuous on some traumatic brain injury measures in mice; continuous near-infrared outperformed pulsed for fibroblast proliferation at 5.2 J/cm². Mode interacts with the rest of the dose."
+  - question: "Does pulsed light penetrate deeper than continuous light?"
+    answer: "Not by virtue of being pulsed. Penetration depends on wavelength, tissue optical properties and beam geometry. At matched average power density, pulsing changes when energy arrives, not how far it travels."
+  - question: "What duty cycle should a PBM protocol use?"
+    answer: "There is no established universal value. Duty cycle has shifted cell viability, ATP, reactive oxygen species and mitochondrial membrane potential in vitro at fixed frequency, so it functions as an independent variable. It should be specified and reported, not assumed to be a device detail."
+  - question: "Why do studies disagree about pulsing?"
+    answer: "Because the parameter space is large and rarely matched. Two papers can both say \"810 nm, pulsed\" while differing in peak power, frequency, duty cycle, irradiance, tissue model and treatment schedule."
+---
+
+**Short answer:** continuous wave (CW) delivers a steady photon stream; pulsed wave (PW) delivers the same energy in bursts. That difference adds frequency, pulse width, duty cycle and peak power to the dose, and in matched-energy experiments those added parameters have moved cellular outcomes in both directions. Pulsed PBM belongs on a second axis of the dose, alongside the axis most people already measure.
+
+Two devices on the bench. Both emit at 808 nm. Both are specified at 10 J/cm². Both carry the same power figure on the housing. You run them on the same cell line for the same treatment time and the ATP readings don't agree.
+
+The pulsing question is not exotic. IPL stands for intense pulsed light, so every hair-removal device built on this site's production lines already depends on a decision about how light is chopped into bursts, and the parameters behind that decision rarely make it onto a spec sheet. For the consumer-facing version of how that light is meant to work, see [what IPL hair removal actually is](/blog/what-is-ipl).
+
+Nothing in that one-line dose description predicts which way it breaks, because the description was never complete. Fluence says how much energy arrived per unit area. It says nothing about whether that energy arrived as a continuous stream or as a train of bursts, and it says nothing about how those bursts were shaped.
+
+## What actually changes when light is chopped into pulses
+
+CW means the emitter is on for the whole treatment. PW means it switches on and off on a defined cycle, so four new parameters enter the specification:
+
+| Parameter | What it controls |
+|---|---|
+| Frequency | How many pulses occur per second |
+| Pulse width | How long each individual pulse lasts |
+| Duty cycle | The fraction of each cycle the emitter is actually on |
+| Peak power | Instantaneous power while the pulse is on |
+| Average power | Power averaged across the full cycle, including off time |
+
+Average and peak power are linked, if the pulses are roughly rectangular:
+
+**average power ≈ peak power × duty cycle**
+
+A 100 mW peak at a 10% duty cycle averages 10 mW. A continuous emitter running at 10 mW also averages 10 mW. Same number on the datasheet, entirely different stimulus at the tissue.
+
+That arithmetic is why "100 mW" cannot describe a pulsed protocol on its own. Two devices can print the same figure and deliver peak powers that differ by an order of magnitude. One delivers a gentle continuous fluence rate; the other delivers short, intense bursts separated by dark gaps, and the average hides it. We ran into the same reporting gap from the other side when we put a consumer IPL device on a power meter and measured what the label actually delivered: [where 28 joules comes from](/blog/the-truth-about-ipl-energy).
+
+## Pulsed does not mean cool
+
+The intuitive case for pulsing is thermal. Pulsing creates gaps, gaps allow heat to diffuse, and diffusion limits temperature rise. That reasoning is sound as far as it goes, but it slides into a claim that doesn't hold.
+
+Pulsing is not the absence of heating. Photobiomodulation is usually described as non-thermal or low-thermal, and that description is about the intended regime, not a guarantee about the tissue. Photons that are absorbed become heat, and the resulting temperature rise depends on average power, duty cycle, pulse width, total treatment time, spot area and the thermal properties of the specific tissue. On hair-removal devices this is exactly why sapphire contact cooling exists, and why the cooling stack matters more than the flash rating on the box: [what sapphire ice-cooling actually does](/blog/cooling-ipl-hair-remover-buying-guide).
+
+A better formulation: changing the temporal distribution of photon delivery changes how heat accumulates. That's a testable claim. "Pulsed light doesn't heat" is not, and a high-peak-power pulsed protocol with a long treatment time can deposit more heat than a modest CW protocol.
+
+## Frequency shows up in the cell data
+
+If the only role of pulsing were heat management, this would be a thermal engineering topic and nothing more. Cell experiments point somewhere else.
+
+Kim and colleagues compared continuous 810 nm against pulsed 810 nm at several frequencies in human dental pulp stem cells. Under their study conditions the frequency mattered: different pulse frequencies produced different bioenergetic responses, with the pulsed arms diverging from continuous rather than simply amplifying it. Their 300 Hz arm showed the more pronounced shift in reactive oxygen species and in several other biological markers.
+
+The result worth carrying forward: with energy held roughly constant, changing pulse frequency changed the biological response in a measurable way. That puts frequency in the PBM parameter set as a candidate independent variable, sitting alongside wavelength and fluence instead of behind them as a device setting.
+
+## Duty cycle: matched average power, unmatched instant
+
+This is the parameter that gets skipped most often.
+
+Take two protocols, both averaging 10 mW. Protocol A is continuous at 10 mW. Protocol B is 100 mW peak at 10% duty cycle. Reported as average power they are identical. At the moment of stimulation they share nothing. Protocol B concentrates the same energy into brief high-amplitude windows and then goes dark.
+
+Tang and colleagues tested red and near-infrared light at 660 nm and 850 nm on neuroblastoma cells across a range of pulse frequencies and duty cycles, against continuous exposure. Cell viability, ATP, reactive oxygen species and mitochondrial membrane potential all showed sensitivity to pulse frequency, and changing duty cycle at a fixed frequency moved those markers again.
+
+Read that as a constraint on interpretation. When a paper reports "850 nm, 10 mW/cm²," the next question is whether that figure is continuous irradiance or an average across a pulse train. If it's an average, the result is not reproducible without the peak power, frequency, duty cycle and pulse width. Four numbers, not one.
+
+## Higher peak power does not buy deeper penetration
+
+The chain of reasoning goes like this: pulsing raises peak power, higher power means stronger light, stronger light penetrates deeper, therefore pulsed PBM treats deeper tissue. Each step sounds plausible. The chain breaks at the second link.
+
+Light transport in tissue is governed by absorption and scattering at the wavelength in use, the composition of the tissue in the path, and the geometry of the beam. Delivering the same total energy in shorter bursts raises the instantaneous power at the surface without changing the optical properties of what lies underneath. Peak power is not a proxy for penetration depth. Wavelength is the variable that actually moves penetration, which is why the difference between a 510–1200 nm window and a 610–1200 nm one is not cosmetic: [how the wavelength range changes what reaches the follicle](/blog/ipl-hair-removal-wavelength-range).
+
+Ando and colleagues compared continuous 810 nm against pulsed 810 nm at 10 Hz and 100 Hz in a mouse traumatic brain injury model, holding average power density, treatment time and energy density matched across arms. The 10 Hz pulsed group performed better on some neurological and histological measures. Notably, the improvement did not require a penetration story to explain it: with average power density matched, the pulsed arms were not delivering more light into the tissue in any simple sense. Something about the temporal structure changed the response.
+
+## Where continuous wave wins
+
+This is the part that gets left out of pulsing-focused summaries.
+
+Khalaj and colleagues compared near-infrared CW against pulsed near-infrared in human gingival fibroblasts and found continuous wave more effective for cell proliferation and migration at a specific 5.2 J/cm² condition. That's an in vitro result under their parameters. It is also a direct counterexample to any blanket claim that pulsed outperforms continuous.
+
+Keshri and colleagues, working in immunosuppressed rats with dermal wounds, found particular pulsed 810 nm parameters improved wound healing outcomes relative to the comparison arms. Taken alongside the fibroblast result, the honest summary is that the literature has pulsed winning in some preparations and continuous winning in others.
+
+## Why the same wavelength keeps producing different answers
+
+PBM is parameter-dependent in a way that few therapeutic modalities are. Swap one variable and the outcome can invert. At a fixed 808 nm you can still change irradiance (low versus high), treatment time, energy density, mode, pulse frequency and duty cycle. Even at matched total energy, 10 J delivered continuously and 10 J delivered as a pulse train are not the same stimulus.
+
+That's the same biphasic behavior the photobiomodulation literature has documented for dose itself ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), extended one level deeper. Biphasic dose response says more energy is not monotonically better. The pulsing literature adds that the *schedule* of energy delivery carries information too.
+
+Put together, the dose is at least two things stacked:
+
+- a spatial and energetic layer: wavelength, spot size, irradiance, fluence
+- a temporal layer: frequency, pulse width, duty cycle, peak power, average power, treatment time
+
+## What a complete PBM parameter set looks like
+
+If you are comparing two studies or two devices, this is the minimum that has to match before the comparison means anything.
+
+| Parameter | Why it's needed |
+|---|---|
+| Wavelength | Sets absorption and scattering behavior |
+| Output power | Baseline for everything downstream |
+| Irradiance | Determines fluence rate at the surface |
+| Fluence | Total energy per unit area |
+| Spot size | Geometry of the beam and the delivered area |
+| Frequency | Number of pulses per second, if pulsed |
+| Duty cycle | Fraction of each cycle the emitter is on, if pulsed |
+| Pulse width | Duration of a single pulse, if pulsed |
+| Treatment time | Duration of a single session |
+| Sessions | Number and spacing of treatments |
+
+For pulsed devices, reporting only average power is the most common failure. A reader can compute average power from peak power and duty cycle, but not the reverse. Without peak power, frequency and duty cycle, the protocol is not reproducible and the result cannot be attributed to a mechanism. The tissue side of that equation varies just as much as the device side, which is why the same parameters land differently across Fitzpatrick types and regions: [IPL side effects by skin type](/blog/ipl-side-effects-by-skin-type).
+
+## What to do with this
+
+If you're comparing PBM devices, start by refusing to treat the power figure as a specification. Ask whether it's peak or average. Then ask for the temporal parameters, and treat their absence as a gap rather than a detail. The same discipline applies to consumer hair-removal devices, where the spec sheet tends to advertise a flash count instead of the optical and thermal engineering that decides how the treatment actually feels: [why the coating matters more than the flash count](/blog/why-premium-ipl-devices-feel-different), and what a lab-measured filter stack looks like when seven of them are tested side by side rather than described in a brochure: [the long-pass filter test report](/blog/ipl-long-pass-filter-test-report).
+
+If you're reading a study, check whether the temporal layer was reported. A methods section that gives 808 nm and 10 J/cm² has described roughly half the dose.
+
+If you're running experiments, report both layers. Anyone assessing whether a device is safe to use at home is making a judgement on exactly these parameters, which is why the consumer-facing version of this argument lives in our safety pillar: [is IPL hair removal safe](/ipl-hair-removal-is-safe).
+
+Same wavelength is not the same treatment. Same total energy is not the same stimulus. The variables that decide the outcome include when the energy arrived and how it was shaped on the way in. If you want to see how those variables are specified across the platforms we build, the [device line-up](/products) lists the fluence, spot size and pulse configuration for each model.
+
+## References
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)
