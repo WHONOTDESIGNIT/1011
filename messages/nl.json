@@ -3311,7 +3311,8 @@
       },
       "citable": {
         "heading": "Wat is inbegrepen bij doosaanpassing voor een IPL-merk?",
-        "body": "Doosaanpassing voor een IPL-merk omvat doorgaans op maat gemaakte stanslijnen voor dozen, printklaar artwork, ontwerp van inlegvellen voor bescherming en kanaalvereisten zoals barcodes en etikettering. Een compleet verpakkingsprogramma houdt ook rekening met transportbestendigheid, unboxing-ervaring en optimalisatie van verzenddozen om de vrachtkosten en het schadepercentage te verlagen. Het doel is verpakking die verkoopt, beschermt en betrouwbaar opschaalt."
+        "body": "Doosaanpassing voor een IPL-merk omvat doorgaans op maat gemaakte stanslijnen voor dozen, printklaar artwork, ontwerp van inlegvellen voor bescherming en kanaalvereisten zoals barcodes en etikettering. Een compleet verpakkingsprogramma houdt ook rekening met transportbestendigheid, unboxing-ervaring en optimalisatie van verzenddozen om de vrachtkosten en het schadepercentage te verlagen. Het doel is verpakking die verkoopt, beschermt en betrouwbaar opschaalt.",
+        "imageAlt": "Roze retailverpakking van het Venus IPL-apparaat, gefotografeerd als referentie voor doos-customisatie"
       },
       "scope": {
         "eyebrow": "Reikwijdte",
@@ -4006,7 +4007,8 @@
           "6 - 12 maanden",
           "Alleen onderzoek"
         ]
-      }
+      },
+      "summaryTagline": "Letterlijk: u bouwt het merk, wij bouwen en verpakken het product."
     },
     "iplSafety": {
       "title": "Waarom IPL-ontharing veilig is | Bewijs, FDA, huidtypen en apparaatveiligheid",
@@ -8673,7 +8675,40 @@
         "description": "Kies een platform dat bij uw positionering past. Elk apparaat is klaar voor OEM/ODM: logodruk, gebruikershandleidingen, doosinserts en exportverpakking.",
         "compareModels": "Modellen vergelijken",
         "exploreServices": "Ontdek diensten",
-        "getAQuote": "Offerte aanvragen"
+        "getAQuote": "Offerte aanvragen",
+        "quickFacts": {
+          "items": [
+            {
+              "title": "300–1580%",
+              "subtitle": "Levensduur die het gemiddelde overtreft (energie-afgifte stabiel binnen ±5 %)"
+            },
+            {
+              "title": "8 °C",
+              "subtitle": "Comfortabel ijsgevoel"
+            },
+            {
+              "title": "Gratis compliance-advies",
+              "subtitle": "FDA · CE · SFDA · Laat uw eigen merk certificeren."
+            },
+            {
+              "title": "5 klassen",
+              "subtitle": "Instap · Value · Middenklasse · Premium · Vlaggenschip"
+            },
+            {
+              "title": "Op maat",
+              "subtitle": "Functie · Verpakking · Kleur"
+            },
+            {
+              "title": "Lage MOQ",
+              "subtitle": "Samples + private label / OEM"
+            }
+          ]
+        },
+        "carousel": {
+          "region": "Vlaggenschipapparaten uit onze fabriek",
+          "prev": "Vorig apparaat",
+          "next": "Volgend apparaat"
+        }
       },
       "summary": {
         "title": "Welke producttypen biedt iShine aan voor private-label IPL?",
@@ -8716,7 +8751,7 @@
       },
       "cards": {
         "venus": {
-          "tagline": "Comfort Ice Feeling"
+          "tagline": "Comfortabel ijsgevoel"
         },
         "alpha": {
           "tagline": "Eenvoudig en puur IPL"
@@ -8838,7 +8873,263 @@
           "OEM/ODM-veiligheidsdocumentatie"
         ]
       },
-      "freeSampleAlt": "Weergave van een gratis IPL-monster"
+      "freeSampleAlt": "Weergave van een gratis IPL-monster",
+      "scopeNote": {
+        "title": "Scope-opmerking",
+        "intro": "Dit zijn IPL-apparaten voor thuisgebruik en salon voor ontharing, ontworpen voor lifestyle- & beautymarken, winkelketens en ervaren spelers in de IPL-niche — ze helpen hun merkleden en volgers ongewenst haar veiliger, comfortabeler en gemakkelijker te verwijderen.",
+        "criteria": "Bent u een Shopify-dropshipper of hobbyist die op zoek is naar een gratis logodrukservice of IPL-apparaten zonder MOQ, of bent u niet bereid een logo-instelkost van USD 100 of een minimale bestelhoeveelheid van 50 stuks te accepteren, dan zijn wij niet uw leverancier."
+      },
+      "hud": {
+        "kicker": "De cijfers achter de claim",
+        "title": "iShine in cijfers",
+        "metrics": [
+          {
+            "value": "12",
+            "label": "OEM/ODM-platformen"
+          },
+          {
+            "value": "999.000",
+            "label": "flitsen per lamp"
+          },
+          {
+            "value": "9",
+            "label": "energieniveaus, max"
+          },
+          {
+            "value": "3,0–3,3 cm²",
+            "label": "behandelvenster"
+          },
+          {
+            "value": "2 jaar",
+            "label": "garantie, verlengbaar tot 5"
+          },
+          {
+            "value": "50",
+            "label": "stuks min. per private-label run"
+          },
+          {
+            "value": "USD 99–299",
+            "label": "geadviseerde retailrange (RSP)"
+          },
+          {
+            "value": "vanaf USD 20",
+            "label": "fabrieksdirecte stuksprijs"
+          }
+        ],
+        "note": "RSP (excl. btw) is de geadviseerde retailrange van onze vijf vlaggenschipplatformen. De fabrieksprijs per stuk bedraagt USD 20–58, afhankelijk van platform, BOM en volume."
+      },
+      "scqa": {
+        "kicker": "Waarom deze pagina anders leest",
+        "sectionKicker": "De realiteit van de fabriekspagina",
+        "sectionTitle": "Waarom de juiste IPL inkopen moeilijker is dan het lijkt",
+        "s": {
+          "tag": "Situatie",
+          "title": "Een IPL-apparaat inkopen via een fabriekspagina zou eenvoudig moeten zijn.",
+          "body": "Meestal is dat niet zo. Specificatiebladen zijn oppervlakkig, zoekresultaten herhalen dezelfde claims en de meeste leverancierspagina's zijn gebouwd om een lead te verzamelen — niet om u te helpen beslissen."
+        },
+        "c": {
+          "tag": "Conflict",
+          "title": "Scroll door een typische leverancierspagina en u ziet het patroon.",
+          "body": "Bijvoeglijke naamwoorden, een stockfoto en een knop Contact opnemen. Geen cijfers die u kunt verifiëren, geen documenten die u kunt archiveren."
+        },
+        "q": {
+          "tag": "Vraag",
+          "title": "Wat kunt u dan vertrouwen voordat u ook maar één dollar uitgeeft?",
+          "body": ""
+        },
+        "a": {
+          "tag": "Antwoord",
+          "title": "Een fabrikant die zijn werk laat zien.",
+          "body": "iShine publiceert de specificaties, voert de tests uit en legt uit hoe de prijsstelling werkt. Kies een platform, vergelijk de matrix, en wij helpen u de exacte eenheid voor uw markt te specificeren."
+        }
+      },
+      "threeAxis": {
+        "kicker": "Wat we produceren",
+        "title": "IPL-apparaten die we produceren — de drie-assenkern achter de specificatie",
+        "lead": "Elk iShine-platform begint met dezelfde drie technische assen — energiedichtheid, flitsvermogen en koeling. Ze bepalen het klinische resultaat, de kosten per gebruik en het comfort dat de gebruiker voelt. Zodra de drie assen zijn vastgelegd, passen vormfactor, huidsensor, app en afwerking zich aan uw kanaal aan.",
+        "axes": [
+          {
+            "axis": "As 1",
+            "title": "Energiedichtheid",
+            "body": "De lichtenergie die aan de haarzakjes wordt afgegeven — de as die bepaalt hoeveel sessies uw klanten nodig hebben voordat ze resultaat zien."
+          },
+          {
+            "axis": "As 2",
+            "title": "Flitsvermogen & levensduur van de lamp",
+            "body": "Het aantal effectieve pulsen en de stabiliteit van de output gedurende de levensduur van de lamp — de as die de kosten per gebruik bepaalt en hoe lang uw merk eerlijk resultaat kan beloven."
+          },
+          {
+            "axis": "As 3",
+            "title": "Koeling & huidcomfort",
+            "body": "Saffieren ijsvensters en slimme huidsensoren bepalen het ervaren comfort — de as die bepaalt of gebruikers de 8 weken durende cyclus daadwerkelijk afmaken."
+          }
+        ]
+      },
+      "atlas": {
+        "kicker": "De IPL-specificatie-atlas",
+        "title": "IPL-apparaten per kanaal — van de Shopify-store tot het winkelschap",
+        "intro": "Eén platform past zelden bij elke route naar de markt. Een Shopify-dropshipper heeft een apparaat met weinig frictie nodig dat goed te branden is; een winkelketen heeft winkelklare verpakking en compliancedossiers nodig; een salonwederverkoper heeft energie van professionele kwaliteit nodig. Elke kaart hieronder leidt u naar het platform dat voor dat scenario is gebouwd — en elk platform blijft OEM/ODM-ready.",
+        "selectHint": "Selecteer het scenario dat het dichtst bij uw lancering ligt en open daarna de platformpagina:"
+      },
+      "customSpec": {
+        "kicker": "Specificatie & kleur op maat",
+        "title": "Aangepaste IPL-specificaties & kleur — uw merk, geen white label",
+        "lead": "Een private-label IPL-apparaat wordt door meer gedefinieerd dan de kleur van de behuizing. U beslist over het specificatieblad, de energieniveaus, het venstermateriaal, de app-branding, handleidingen, inlegvellen en retailverpakking — zodat het apparaat vanaf het eerste uitpakken als het uwe aanvoelt.",
+        "dimensions": [
+          "Behuizingskleuren & oppervlakteafwerking",
+          "Logodruk & branding",
+          "Taal & ontwerp van de gebruikershandleiding",
+          "Doosinlegvellen & exportverpakking",
+          "App- & firmware-branding op verbonden modellen",
+          "Energieniveaus & vergrendelde functieset"
+        ],
+        "colorImagesAlt": "Kleuropties voor IPL-apparaten: goud, roze, wit en tweekleurige afwerkingen",
+        "closing": "Stuur een kleurmonster-aanvraag — wij drukken uw logo op een echt apparaat en sturen het vóór de productie ter goedkeuring op."
+      },
+      "vsAlternatives": {
+        "kicker": "IPL vs. alternatieven",
+        "title": "IPL vs. waxen vs. scheren — warm licht, geen felle pijn",
+        "lead": "Ontharing thuis komt meestal neer op drie gewoonten: scheren, waxen of licht. Vergelijk wat elk over een jaar werkelijk kost aan tijd, pijn en huidcomfort.",
+        "methods": [
+          {
+            "name": "IPL (warm licht)",
+            "body": "Breedspectrumlicht richt zich bij de wortel op de haarzakjes. Wekelijkse pulsen gedurende ongeveer 8 weken verminderen de hergroei, en het onderhoud daalt tot af en toe bijwerken."
+          },
+          {
+            "name": "Waxen",
+            "body": "Trekt het haar elke sessie bij de wortel uit — de felste pijn van de drie. Hergroei keert na 3–6 weken terug, en de salonbezoeken herhalen zich elke maand."
+          },
+          {
+            "name": "Scheren",
+            "body": "Op het moment pijnloos, maar stoppels keren binnen 1–3 dagen terug, en elke scheerbeurt brengt het risico op ingegroeide haren en scheerirritatie met zich mee."
+          }
+        ],
+        "conclusion": "Dat is de keuze in één zin: warm licht dat bij de wortel werkt, tegenover herhaalde pijn of dagelijks onderhoud. IPL is de enige optie die is ontworpen om hergroei in de loop van de tijd te verminderen."
+      },
+      "quality": {
+        "kicker": "Kwaliteit, compliance & materiaalveiligheid",
+        "title": "Gecertificeerd veilig door ontwerp — kwaliteit, compliance & materiaalveiligheid",
+        "lead": "Een IPL-apparaat voor thuis raakt huid, ogen en stopcontacten, dus bouwen we veiligheid in de BOM — niet in de brochure. Drie lagen beschermen uw gebruikers en uw merk:",
+        "pillars": [
+          "Ontworpen vergrendelingen — huidtintdetectie, contactschakelaar en UV-filters die onveilige pulsen stoppen voordat ze beginnen.",
+          "Huidcontactmaterialen — biocompatibele kunststoffen en saffiervensters, geselecteerd en gedocumenteerd voor herhaald contact.",
+          "Compliancedossiers — FDA, CE, ISO 13485 en marktspecifieke documentatie, klaar voor uw toezichthouder en uw retailers."
+        ],
+        "pillarCta": "IPL-veiligheid uitgelegd: wetenschap, normen & compliance"
+      },
+      "manufacturing": {
+        "kicker": "In onze fabriek",
+        "title": "Intelligente productie van iShine — waar specificaties apparaten worden",
+        "lead": "Van geautomatiseerde assemblage en lampkalibratie tot 100 % uitgaande kwaliteitscontrole: elk iShine-platform doorloopt dezelfde productiediscipline. Twee gepubliceerde veldrapporten laten precies zien hoe we bouwen en testen:",
+        "scenes": [
+          {
+            "title": "Kwaliteitscontrole bij IPL-productie",
+            "body": "Best practices van onze productielijn — wat er op elk apparaat wordt getest, van energie-afgifte en koeling tot contactschakelaars en verpakking.",
+            "cta": "Lees het kwaliteitscontrole-veldrapport"
+          },
+          {
+            "title": "OEM vs. ODM — het juiste model kiezen",
+            "body": "Waar uw merk begint met aanpassen: van een gecertificeerd referentieplatform tot een apparaat dat rond uw eigen specificatieblad is ontwikkeld.",
+            "cta": "Lees de OEM/ODM-gids"
+          }
+        ]
+      },
+      "sourcing": {
+        "kicker": "Direct bij de fabriek inkopen",
+        "title": "Direct bij een fabrikant inkopen — MOQ, levertijd, samples & OEM",
+        "lead": "Geen handelsbedrijf ertussen. U praat met de mensen die het apparaat ontwerpen en assembleren — dat betekent snellere samples, eerlijke levertijden en prijzen die de fabrieksvloer weerspiegelen in plaats van de marge van een tussenpersoon.",
+        "facts": [
+          {
+            "title": "MOQ vanaf 50 stuks",
+            "body": "Begin met een lage MOQ en één apparaat als sample en schaal daarna op naar bulkniveaus zodra uw SKU gevalideerd is."
+          },
+          {
+            "title": "Fabrieksdirecte prijzen",
+            "body": "De stuksprijs bedraagt USD 20–58, afhankelijk van platform, BOM en volume — dezelfde cijfers die we met onze eigen merken gebruiken."
+          },
+          {
+            "title": "Monsters & OEM",
+            "body": "Vraag eerst een sample aan, private-label vervolgens een bestaand platform of ga volledig OEM rond uw eigen specificatie."
+          }
+        ],
+        "freeSampleNote": "Een sample uit onze lijn — hetzelfde apparaat dat uw klant zal ontvangen, in uw merk."
+      },
+      "branding": {
+        "kicker": "Geavanceerde branding",
+        "title": "Geavanceerde IPL-brandingoplossingen — logo, handleiding, doos en meer",
+        "lead": "De meeste leveranciers stoppen bij een logosticker. Wij behandelen elk contactpunt als een merkwaarde: lasergedrukt logo en behuizingskleuren, een gebruikershandleiding in uw taal, doosinlegvellen die passen bij uw retailstrategie en exportverpakking die verkoopklaar aankomt.",
+        "deepLinkKicker": "Brandingdiensten"
+      },
+      "toolsStrip": {
+        "kicker": "Doe het huiswerk zelf",
+        "title": "Twee manieren om ons te controleren voordat u mailt",
+        "tools": [
+          {
+            "title": "Modellen naast elkaar vergelijken",
+            "body": "Elk vlaggenschipplatform tegenover 12 specificatierijen — energie, venster, koeling, huidsensor, app-ondersteuning — in één matrix.",
+            "cta": "Open de vergelijkingsmatrix"
+          },
+          {
+            "title": "Lees hoe we testen",
+            "body": "Lampduur, UV-filters en energieclaims: de gepubliceerde engineeringposts achter onze specificaties.",
+            "cta": "Blader door engineeringposts"
+          }
+        ]
+      },
+      "specTools": {
+        "kicker": "Specificeer het voordat u het verkoopt",
+        "title": "Drie tools om uw IPL-platform, verpakking en prijsklasse voor te selecteren",
+        "cards": [
+          {
+            "title": "Nieuw IPL-apparaat maken",
+            "body": "Configureer hieronder uw merkparameters om direct een apparaataanbeveling langs drie assen (energiedichtheid × flitsvermogen × koeling) te ontvangen die het beste bij uw doelmarkt past.",
+            "cta": "Tool openen"
+          },
+          {
+            "title": "Builder voor aangepaste IPL-branding-specificaties",
+            "body": "Stel uw merkvariabelen in om een private-label specificatieblad te bouwen. Wij beoordelen uw parameters om MOQ, levertijd en verpakkingscompatibiliteit te bevestigen.",
+            "cta": "Tool openen"
+          },
+          {
+            "title": "Matrix instap vs. middenklasse vs. premium",
+            "body": "Evalueer echte prestatieranges over alternatieven voor IPL-ontharingsapparaten. Verleg het analytische gewicht om de werkelijk passende modelkeuze voor uw doelmarkt te identificeren.",
+            "cta": "Tool openen"
+          }
+        ]
+      },
+      "byApplication": {
+        "title": "IPL-ontharingsapparaten per toepassing — route naar het juiste platform",
+        "intro": "Gebruik als medisch hulpmiddel valt onder ISO 13485 en de biocompatibiliteitsrichtlijnen van de FDA.",
+        "body": "Het platform begint met de optische en elektrische architectuur; de uiteindelijke vormfactor, de oppervlaktebehandeling en het koelsysteem worden door de toepassing bepaald. Een IPL-apparaat met ijskoeling is bijvoorbeeld niet simpelweg “een ontharingsapparaat dat koud aanvoelt op de huid”. Er is het optische filter dat de behandelgolflengte bepaalt, een doeltemperatuur van het saffierkristal voor consistente koeling, een huidtintsensor voor energie-aanpassing, stabiele condensatorprestaties voor een consistente energie-afgifte, biocompatibele materialen voor huidcontact, een kleefsysteem voor de gel of het venster, vrijwel geen UV-lekkage voor oogveiligheid, een verfijnd oppervlaktegevoel voor gebruikerscomfort en een stabiele energie-afgifte over het volledige pulsbereik.",
+        "closing": "Daarom specificeren we het IPL-apparaat voor de gebruikerservaring van het eindproduct — niet alleen voor het aantal flitsen dat een fabrikant op een doos kan zetten. Kies hieronder uw eindproduct:",
+        "cta": "Platformpagina openen",
+        "cards": [
+          {
+            "market": "Comfort door ijskoeling",
+            "body": "Het saffieren ijsvenster houdt de huid bij elke puls koud — het comfort-eerst-pad voor pijngevoelige gebruikers."
+          },
+          {
+            "market": "IJskoeling + slimme sensor",
+            "body": "Koelt de huid tot 10 °C terwijl de slimme huidsensor de energie ter plekke automatisch aanpast."
+          },
+          {
+            "market": "Slimme app-bediening",
+            "body": "Bluetooth-app-gestuurde schema's en intensiteitsvoorinstellingen maken van de behandeling een verbonden routine."
+          },
+          {
+            "market": "Draagbaar / reizen",
+            "body": "Compacte, lichtgewicht bouw voor reizen, horeca en impulsaankoopkanalen."
+          },
+          {
+            "market": "Salon / professioneel",
+            "body": "Energie en koeling van professionele kwaliteit, ontwikkeld voor salonwaardige resultaten thuis."
+          },
+          {
+            "market": "Bikini / ijskoeling",
+            "body": "Het saffieren ijsgevoel-venster koelt de huid bij contact — zachte precisie voor de bikinilijn en gevoelige zones."
+          }
+        ]
+      }
     }
   },
   "stickyContact": {
