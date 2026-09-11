@@ -98,6 +98,57 @@ if (removedDirs > 0) {
   console.log(`  🧹 已清理 ${removedDirs} 个空目录`);
 }
 
+// 把 Astro 生成的「静态跳转页」升级为真正的 301。
+//
+// 背景：blog/[slug].astro 的 getStaticPaths 收集全站所有语言的全部 slug，同一 slug 在
+// 非本源语言下会 return Astro.redirect()。静态输出下 Astro 把它渲染成一个 553 字节的
+// HTML（<meta http-equiv="refresh"> + noindex + canonical），于是 dist 里出现 44 个
+// 垫片页（2 个历史俄文 slug × 22 语言）。
+//
+// 这些 URL 是真实存在过的旧地址，必须继续可访问。本函数把它们改成 _redirects 里的
+// 301! 规则并删除 HTML：
+//   - 少 44 个 HTML 产物（htmlTotal 3037 → 2993）
+//   - 旧 URL 由 CDN 直接返回 301，不再是「200 + meta refresh」的弱信号
+//   - 规则由 dist 实际内容推导，不硬编码 slug
+//
+// 规则必须排在任何目录通配规则（/blog/:splat → /blog/:splat.html 200）之前，
+// 否则通配规则先命中、重写到已被删除的 .html，最终落入 404 兜底。
+// 使用 `!`（force）确保优先于静态文件解析。
+function convertRefreshShims(dist) {
+  const shims = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (EXCLUDED_DIRS.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!entry.name.endsWith('.html')) continue;
+      let head;
+      try {
+        const fd = fs.openSync(full, 'r');
+        const buf = Buffer.alloc(4096);
+        const n = fs.readSync(fd, buf, 0, 4096, 0);
+        fs.closeSync(fd);
+        head = buf.subarray(0, n).toString('utf8');
+      } catch {
+        continue;
+      }
+      if (!/http-equiv=["']?refresh/i.test(head)) continue;
+      const m = head.match(/url=([^"'>\s]+)/i);
+      if (!m) continue;
+      const rel = path.relative(dist, full).replace(/\\/g, '/');
+      const from = '/' + rel.slice(0, -'.html'.length);
+      const to = m[1];
+      fs.unlinkSync(full);
+      shims.push(`${from} ${to} 301!`);
+    }
+  };
+  walk(dist);
+  return shims;
+}
+
 // 基于 dist 实际产物生成精简 _redirects（白名单通配符方案，取代逐页 5276 条规则）
 function buildRedirects(dist) {
   // 【2026-08-21 修复】不再生成 "/*/ /:splat 301" —— 经 netlify-redirector（与线上 CDN 同一匹配引擎）
@@ -107,6 +158,12 @@ function buildRedirects(dist) {
   // 移除后：尾斜杠 URL 仍由下方精确/通配 200 规则（libredirect 精确匹配容忍尾斜杠）正常服务，
   // /en/* 与兜底 404 规则不再被遮蔽。
   const rules = [];
+  // 旧 URL 的 301 垫片规则放最前：必须早于下方目录通配的 200 重写（见上方注释）。
+  const shimRules = convertRefreshShims(dist);
+  if (shimRules.length > 0) {
+    rules.push(...shimRules.sort());
+    console.log(`  ↪ 已将 ${shimRules.length} 个静态跳转页升级为 301 规则并移除 HTML`);
+  }
   const pageDirs = [];
   const topPages = [];
   for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
