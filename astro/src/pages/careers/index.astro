@@ -12,22 +12,18 @@ function resolveBaseUrl() {
 const pageTitle = t(locale, 'careersPage.meta.title');
 const pageDescription = t(locale, 'careersPage.meta.description');
 
-// ── canonical / hreflang 策略（2026-09-10 新建） ──────────────────────────────
-// 招聘页首期只提供英文正文：其余 21 个语种经 t() 自动回退到 en（见 lib/i18n.ts），
-// 即 /tr/careers、/ja/careers … 渲染的都是同一份英文内容。
-// 因此：
-//   1) canonical 固定指向英文规范 URL —— 让 Google 把这些重复体归并到 /careers，
-//      而不是 22 个语种各自收录同一篇英文（那样会形成跨语种重复内容）；
-//   2) hreflang 只声明 en（SeoHead 会自动补 x-default）—— 不做“伪翻译声明”。
-// 这与 ipl-for-brands.astro 的既有做法一致（该页注释即写「不做伪翻译声明」）。
-// 三处连带效果，均为预期：
-//   - generate-sitemap.mjs 的 canonical === 自身 URL 校验 → 只有 /careers 进 sitemap，
-//     /<locale>/careers 被正确排除；
-//   - 站点链接规范保持「无尾斜杠」，与 astro.config 的 trailingSlash:'never' 一致。
-// 【待办】补齐 22 语种文案后，把 canonical 换成
-//   `${resolveBaseUrl()}${getLocalizedPath(locale, '/careers')}`
-// 并删掉下面的 hreflangs 覆盖（回到 SeoHead 按路径自动生成 22 语种 + x-default）。
-const canonical = `${resolveBaseUrl()}/careers`;
+// ── canonical / hreflang 策略 ────────────────────────────────────────────────
+// 2026-09-10 新建时只有英文正文，因此刻意把 canonical 固定指向 /careers、
+// 并只声明 hreflang="en"（避免 22 个语种各收录一份英文 → 跨语种重复内容）。
+//
+// 2026-09-11 补齐 21 语种文案后改为标准做法：
+//   1) canonical 自指 —— 用 getLocalizedPath(locale, '/careers') 生成本语种 URL；
+//   2) 删掉 hreflangs 覆盖 —— 回到 SeoHead 按当前路径自动生成 22 语种 + x-default。
+//
+// ⚠️ 这两处必须与 messages/<locale>.json 里的 careersPage 文案同时上线：
+// 若只放开 canonical 而译文缺位，21 个语种会各自自指一份英文内容，
+// 反而制造出跨语种重复内容（正是审计报告 P0-1 的成因）。
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/careers')}`;
 
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -62,7 +58,7 @@ const webPageSchema = {
   name: pageTitle,
   description: pageDescription,
   url: canonical,
-  inLanguage: 'en',
+  inLanguage: locale,
 };
 ---
 
@@ -71,7 +67,6 @@ const webPageSchema = {
   lang={locale}
   description={pageDescription}
   canonical={canonical}
-  hreflangs={[{ locale: 'en', href: canonical }]}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
