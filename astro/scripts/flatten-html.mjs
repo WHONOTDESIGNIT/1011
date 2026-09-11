@@ -83,6 +83,13 @@ for (const file of indexFiles) {
   const dir = path.dirname(file);
   const dirName = path.basename(dir); // 页面目录名（如 about、pt-BR）
   const target = path.join(path.dirname(dir), `${dirName}.html`);
+  // 这个 skip 分支是有意保留的，不要删、不要去"修"成覆盖：它防的是 dist 里同时存在
+  // foo.html 与 foo/index.html 的真实路由冲突（两个页面抢同一个公开 URL），此时保留
+  // index.html 并跳过，比让后者覆盖前者安全。
+  // 代价：本地复用旧的 dist 时（上一次构建留下的 foo.html 还在），新的 foo/index.html
+  // 会被当成冲突跳过，于是 dist 里两种形态同时存在，htmlTotal 直接翻倍——
+  // 曾实测到 2,993 → 6,071。Netlify 不受影响，因为它是全新检出的空目录构建。
+  // 因此本地构建前必须先删 dist（Remove-Item -Recurse -Force dist），否则门禁读数不可信。
   if (fs.existsSync(target)) {
     skipped++;
     console.log(`  ⚠ 冲突跳过: ${path.relative(DIST, file)}（${path.relative(DIST, target)} 已存在）`);
