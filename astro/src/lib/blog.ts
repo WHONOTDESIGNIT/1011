@@ -87,8 +87,16 @@ function resolveBlogLocale(input: string): BlogLocale {
   return (SUPPORTED_LOCALES as readonly string[]).includes(input) ? (input as BlogLocale) : 'en';
 }
 
-/** 博客目录名 / 内部 locale → 小写 URL path（sitemap 等 URL 输出用；en 返回原值） */
-export const blogUrlPath = (locale: string) => BLOG_DIR_TO_URL_PATH[locale] ?? locale;
+/** 博客目录名 / 内部 locale / BCP47 code → 小写 URL path（URL 输出用；en 返回原值）
+ *
+ *  必须与 postHref / categoryHref 一样先经 resolveBlogLocale 归一化：
+ *  posts[].locale 存的是 BCP47 code（es-ES），若直接查表会落到 ?? locale 分支，
+ *  生成 /es-ES/blog 这种不存在的路径（/es-ES/* 无任何重写规则 → 硬 404）。
+ *  2026-09-11 修复：此前 21 个西语分类页的「返回博客」链接全部指向 /es-ES/blog。 */
+export const blogUrlPath = (locale: string) => {
+  const dir = resolveBlogLocale(locale);
+  return BLOG_DIR_TO_URL_PATH[dir] ?? dir;
+};
 
 function extractLocaleFromPath(filePath: string): BlogLocale {
   const normalized = filePath.replace(/\\/g, '/');

@@ -1,13 +1,20 @@
 ---
-// /ipl-for-brands — IPL Devices for Brands, Creators & Retail（英文单语营销页）
+// /ipl-for-brands — IPL Devices for Brands, Creators & Retail
 //
-// 定位：承接英文 SEO 关键词的商务落地页。全部展示文案经 i18n message
-// （auxPages.iplForBrands.*）读取，其余 21 语言经 t() 自动回退英文。
-// 其余语言通过 astro i18n fallback rewrite 访问同一页面（内容恒为英文，lang 恒为 en），因此：
-//   - canonical 显式指向英文规范 URL；
-//   - hreflang 只保留 x-default/en（不做伪翻译声明）；
-//   - 站内 CTA 仍按当前 URL 语种本地化（/tr/ipl-for-brands 内链跳 /tr/...）。
-//   - 序号/图片 src/内链 href 等结构信息保留在组件内（不进 message）。
+// 【2026-09-11 起：由「英文单语页」改为真多语言页】
+// 此前本页是英文单语营销页：内容恒为英文、lang 恒为 en、canonical 指向英文规范
+// URL、hreflang 只声明 en + x-default（刻意不做伪翻译声明）。
+//
+// 现 auxPages.iplForBrands.* 已在 21 个语种全部补齐，21 个语种各自渲染自己的文案，
+// 因此原先「内容恒为英文」的前提不再成立，元数据必须同步改为按语种自指，否则：
+//   - canonical 指向英文 → 21 个已翻译页面全部被 Google 折叠到英文页，翻译白做；
+//   - lang 恒为 en → 德语页用 lang=en，且 ar/fa/he 的 dir 会算成 ltr，
+//     阿拉伯语/希伯来语/波斯语正文将以 LTR 排版（可见的功能性错误）。
+// 处理方式与 /careers 一致：canonical 自指 + hreflang 交给 SeoHead 生成完整
+// 23 条语言组（21 语种 + en + x-default）。
+//
+// 站内 CTA 仍按当前 URL 语种本地化（/tr/ipl-for-brands 内链跳 /tr/...）。
+// 序号/图片 src/内链 href 等结构信息保留在组件内（不进 message）。
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getLocalizedPath } from '../lib/breadcrumbs';
 import { t } from '../lib/i18n';
@@ -23,7 +30,7 @@ const siteBaseUrl = (
   ?? process.env.SITE_URL
   ?? 'https://iplmanufacturer.com'
 ).replace(/\/$/, '');
-const canonicalUrl = `${siteBaseUrl}/ipl-for-brands`;
+const canonicalUrl = `${siteBaseUrl}${getLocalizedPath(locale, '/ipl-for-brands')}`;
 
 const pageTitle = gm('pageTitle');
 const pageDescription = gm('pageDescription');
@@ -147,10 +154,9 @@ const faqSchema = {
 
 <BaseLayout
   title={pageTitle}
-  lang="en"
+  lang={locale}
   description={pageDescription}
   canonical={canonicalUrl}
-  hreflangs={[{ locale: 'en', href: canonicalUrl }]}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
