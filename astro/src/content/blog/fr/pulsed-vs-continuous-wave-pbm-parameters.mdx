@@ -1,0 +1,141 @@
+---
+title: "PBM pulsé vs onde continue : le temps, variable de dose"
+description: "PBM pulsé et continu peuvent différer à fluence égale. Ce que changent fréquence, rapport cyclique et puissance crête, et où les preuves divergent."
+citableSummary: "La photobiomodulation pulsée et la photobiomodulation continue peuvent produire des effets biologiques différents même à longueur d'onde, fluence et puissance moyenne appariées, parce que la pulsation ajoute à la dose la fréquence, la largeur d'impulsion, le rapport cyclique et la puissance crête. Les données vont dans les deux sens : le 810 nm pulsé à 10 Hz a surpassé le continu sur certains critères de traumatisme crânien chez la souris, tandis que le proche infrarouge continu a surpassé le pulsé pour la prolifération des fibroblastes gingivaux à 5,2 J/cm². Aucun des deux modes n'est universellement supérieur ; c'est la déclaration complète des paramètres temporels qui rend les études comparables."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Le PBM pulsé est-il meilleur que le PBM continu ?"
+    answer: "Non, et les données ne soutiennent cette affirmation dans aucun des deux sens. Le 810 nm pulsé à 10 Hz a surpassé le continu sur certaines mesures de traumatisme crânien chez la souris ; le proche infrarouge continu a surpassé le pulsé pour la prolifération des fibroblastes à 5,2 J/cm². Le mode interagit avec le reste de la dose."
+  - question: "La lumière pulsée pénètre-t-elle plus profondément que la lumière continue ?"
+    answer: "Pas du fait qu'elle soit pulsée. La pénétration dépend de la longueur d'onde, des propriétés optiques du tissu et de la géométrie du faisceau. À densité de puissance moyenne appariée, la pulsation change le moment où l'énergie arrive, pas la distance qu'elle parcourt."
+  - question: "Quel rapport cyclique un protocole PBM doit-il utiliser ?"
+    answer: "Il n'existe pas de valeur universelle établie. Le rapport cyclique a modifié la viabilité cellulaire, l'ATP, les espèces réactives de l'oxygène et le potentiel de membrane mitochondrial in vitro à fréquence fixe, il fonctionne donc comme une variable indépendante. Il doit être spécifié et déclaré, pas considéré comme un détail de l'appareil."
+  - question: "Pourquoi les études sont-elles en désaccord sur la pulsation ?"
+    answer: "Parce que l'espace des paramètres est vaste et rarement apparié. Deux articles peuvent tous deux annoncer « 810 nm, pulsé » tout en différant par la puissance crête, la fréquence, le rapport cyclique, l'irradiance, le modèle tissulaire et le calendrier de traitement."
+---
+
+**Réponse courte :** l'onde continue (CW) délivre un flux de photons régulier ; l'onde pulsée (PW) délivre la même énergie par salves. Cette différence ajoute à la dose la fréquence, la largeur d'impulsion, le rapport cyclique et la puissance crête, et dans les expériences à énergie appariée ces paramètres supplémentaires ont déplacé les résultats cellulaires dans les deux sens. Le PBM pulsé appartient à un second axe de la dose, à côté de l'axe que la plupart des gens mesurent déjà.
+
+Deux appareils sur la paillasse. Tous deux émettent à 808 nm. Tous deux sont spécifiés à 10 J/cm². Tous deux affichent le même chiffre de puissance sur le boîtier. Vous les faites tourner sur la même lignée cellulaire pendant la même durée de traitement, et les mesures d'ATP ne concordent pas.
+
+La question de la pulsation n'a rien d'exotique. IPL signifie intense pulsed light, donc chaque appareil d'épilation construit sur les lignes de production de ce site dépend déjà d'un choix sur la manière dont la lumière est découpée en salves, et les paramètres qui sous-tendent ce choix figurent rarement sur une fiche technique. Pour la version grand public de la façon dont cette lumière est censée agir, voir [ce qu'est réellement l'épilation IPL](/blog/what-is-ipl).
+
+Rien dans cette description de la dose en une ligne ne prédit dans quel sens la comparaison bascule, parce que la description n'a jamais été complète. La fluence indique quelle quantité d'énergie est arrivée par unité de surface. Elle ne dit rien sur le fait que cette énergie soit arrivée en flux continu ou en train de salves, ni sur la forme donnée à ces salves.
+
+## Ce qui change réellement quand la lumière est découpée en impulsions
+
+CW signifie que l'émetteur reste allumé pendant tout le traitement. PW signifie qu'il s'allume et s'éteint selon un cycle défini, ce qui fait entrer quatre nouveaux paramètres dans la spécification :
+
+| Paramètre | Ce qu'il contrôle |
+|---|---|
+| Fréquence | Nombre d'impulsions par seconde |
+| Largeur d'impulsion | Durée de chaque impulsion individuelle |
+| Rapport cyclique | Fraction de chaque cycle pendant laquelle l'émetteur est réellement allumé |
+| Puissance crête | Puissance instantanée pendant que l'impulsion est allumée |
+| Puissance moyenne | Puissance moyennée sur tout le cycle, temps d'extinction inclus |
+
+Puissance moyenne et puissance crête sont liées, si les impulsions sont à peu près rectangulaires :
+
+**puissance moyenne ≈ puissance crête × rapport cyclique**
+
+Une puissance crête de 100 mW avec un rapport cyclique de 10 % donne une moyenne de 10 mW. Un émetteur continu fonctionnant à 10 mW donne lui aussi une moyenne de 10 mW. Même chiffre sur la fiche de données, stimulus entièrement différent au niveau du tissu.
+
+C'est cette arithmétique qui fait que « 100 mW » ne peut pas décrire à lui seul un protocole pulsé. Deux appareils peuvent afficher le même chiffre et délivrer des puissances crêtes qui diffèrent d'un ordre de grandeur. L'un délivre un débit de fluence continu et doux ; l'autre délivre des salves brèves et intenses séparées par des intervalles sombres, et la moyenne le masque. Nous avons rencontré le même vide de déclaration par l'autre bout lorsque nous avons placé un appareil IPL grand public sur un puissance-mètre et mesuré ce que l'étiquette délivrait réellement : [d'où viennent les 28 joules](/blog/the-truth-about-ipl-energy).
+
+## Pulsé ne veut pas dire froid
+
+L'argument intuitif en faveur de la pulsation est thermique. La pulsation crée des intervalles, les intervalles laissent la chaleur se diffuser, et la diffusion limite l'élévation de température. Ce raisonnement tient tant qu'on ne va pas plus loin, mais il glisse vers une affirmation qui ne tient pas.
+
+La pulsation n'est pas l'absence d'échauffement. La photobiomodulation est généralement décrite comme non thermique ou faiblement thermique, et cette description concerne le régime visé, pas une garantie sur le tissu. Les photons absorbés deviennent de la chaleur, et l'élévation de température qui en résulte dépend de la puissance moyenne, du rapport cyclique, de la largeur d'impulsion, de la durée totale de traitement, de la surface du spot et des propriétés thermiques du tissu concerné. Sur les appareils d'épilation, c'est exactement pourquoi le refroidissement par contact au saphir existe, et pourquoi la pile de refroidissement compte davantage que l'indice de flash annoncé sur la boîte : [ce que fait réellement le refroidissement à glace au saphir](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Une meilleure formulation : modifier la distribution temporelle de l'apport de photons modifie la façon dont la chaleur s'accumule. C'est une affirmation testable. « La lumière pulsée ne chauffe pas » ne l'est pas, et un protocole pulsé à forte puissance crête avec une longue durée de traitement peut déposer plus de chaleur qu'un protocole CW modeste.
+
+## La fréquence apparaît dans les données cellulaires
+
+Si le seul rôle de la pulsation était la gestion thermique, le sujet se limiterait à de l'ingénierie thermique. Les expériences sur cellules indiquent autre chose.
+
+Kim et ses collègues ont comparé le 810 nm continu au 810 nm pulsé à plusieurs fréquences sur des cellules souches de pulpe dentaire humaine. Dans les conditions de leur étude, la fréquence comptait : différentes fréquences d'impulsion ont produit différentes réponses bioénergétiques, les bras pulsés divergeant du continu plutôt que de simplement l'amplifier. Leur bras à 300 Hz a montré le décalage le plus marqué des espèces réactives de l'oxygène et de plusieurs autres marqueurs biologiques.
+
+Le résultat à retenir : à énergie maintenue à peu près constante, changer la fréquence d'impulsion a modifié la réponse biologique de façon mesurable. Cela place la fréquence dans l'ensemble des paramètres PBM comme variable indépendante candidate, aux côtés de la longueur d'onde et de la fluence plutôt que derrière elles comme un réglage d'appareil.
+
+## Rapport cyclique : même puissance moyenne, instant non comparable
+
+C'est le paramètre que l'on saute le plus souvent.
+
+Prenez deux protocoles, tous deux d'une moyenne de 10 mW. Le protocole A est continu à 10 mW. Le protocole B affiche 100 mW de puissance crête avec un rapport cyclique de 10 %. Exprimés en puissance moyenne, ils sont identiques. Au moment de la stimulation, ils n'ont rien en commun. Le protocole B concentre la même énergie dans de brèves fenêtres de forte amplitude, puis s'éteint.
+
+Tang et ses collègues ont testé la lumière rouge et le proche infrarouge à 660 nm et 850 nm sur des cellules de neuroblastome, sur une gamme de fréquences d'impulsion et de rapports cycliques, face à une exposition continue. La viabilité cellulaire, l'ATP, les espèces réactives de l'oxygène et le potentiel de membrane mitochondrial ont tous montré une sensibilité à la fréquence d'impulsion, et modifier le rapport cyclique à fréquence fixe a de nouveau déplacé ces marqueurs.
+
+Lisez cela comme une contrainte d'interprétation. Quand un article indique « 850 nm, 10 mW/cm² », la question suivante est de savoir si ce chiffre désigne une irradiance continue ou une moyenne sur un train d'impulsions. S'il s'agit d'une moyenne, le résultat n'est pas reproductible sans la puissance crête, la fréquence, le rapport cyclique et la largeur d'impulsion. Quatre nombres, pas un.
+
+## Une puissance crête plus élevée n'achète pas une pénétration plus profonde
+
+La chaîne de raisonnement est la suivante : la pulsation augmente la puissance crête, une puissance plus élevée signifie une lumière plus forte, une lumière plus forte pénètre plus profondément, donc le PBM pulsé traite un tissu plus profond. Chaque étape semble plausible. La chaîne se brise au deuxième maillon.
+
+Le transport de la lumière dans les tissus est régi par l'absorption et la diffusion à la longueur d'onde utilisée, par la composition du tissu traversé et par la géométrie du faisceau. Délivrer la même énergie totale en salves plus courtes augmente la puissance instantanée en surface sans modifier les propriétés optiques de ce qui se trouve en dessous. La puissance crête n'est pas un indicateur de la profondeur de pénétration. La longueur d'onde est la variable qui déplace réellement la pénétration, ce qui explique pourquoi la différence entre une fenêtre de 510–1200 nm et une fenêtre de 610–1200 nm n'est pas cosmétique : [comment la plage de longueurs d'onde change ce qui atteint le follicule](/blog/ipl-hair-removal-wavelength-range).
+
+Ando et ses collègues ont comparé le 810 nm continu au 810 nm pulsé à 10 Hz et 100 Hz dans un modèle murin de traumatisme crânien, en maintenant appariées entre les bras la densité de puissance moyenne, la durée de traitement et la densité d'énergie. Le groupe pulsé à 10 Hz a obtenu de meilleurs résultats sur certaines mesures neurologiques et histologiques. Notamment, l'amélioration n'avait pas besoin d'un argument de pénétration pour s'expliquer : à densité de puissance moyenne appariée, les bras pulsés ne délivraient pas plus de lumière au tissu au sens simple du terme. Quelque chose dans la structure temporelle a modifié la réponse.
+
+## Là où l'onde continue l'emporte
+
+C'est la partie que les synthèses centrées sur la pulsation laissent de côté.
+
+Khalaj et ses collègues ont comparé le proche infrarouge CW au proche infrarouge pulsé sur des fibroblastes gingivaux humains et ont trouvé l'onde continue plus efficace pour la prolifération et la migration cellulaires dans une condition spécifique à 5,2 J/cm². C'est un résultat in vitro dans leurs conditions de paramètres. C'est aussi un contre-exemple direct à toute affirmation générale selon laquelle le pulsé surpasserait le continu.
+
+Keshri et ses collègues, travaillant sur des rats immunosupprimés porteurs de plaies dermiques, ont constaté que certains paramètres pulsés à 810 nm amélioraient les résultats de cicatrisation par rapport aux bras de comparaison. Mis à côté du résultat sur les fibroblastes, le résumé honnête est que la littérature montre le pulsé gagnant dans certaines préparations et le continu dans d'autres.
+
+## Pourquoi la même longueur d'onde produit toujours des réponses différentes
+
+Le PBM dépend des paramètres d'une manière que peu de modalités thérapeutiques connaissent. Changez une variable et le résultat peut s'inverser. À 808 nm fixe, vous pouvez encore faire varier l'irradiance (faible ou élevée), la durée de traitement, la densité d'énergie, le mode, la fréquence d'impulsion et le rapport cyclique. Même à énergie totale appariée, 10 J délivrés en continu et 10 J délivrés en train d'impulsions ne sont pas le même stimulus.
+
+C'est le même comportement biphasique que la littérature sur la photobiomodulation a documenté pour la dose elle-même ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), étendu d'un niveau plus profond. La réponse biphasique à la dose dit qu'une énergie plus élevée n'est pas monotone en bénéfice. La littérature sur la pulsation ajoute que le *programme* d'apport de l'énergie porte lui aussi de l'information.
+
+Pris ensemble, la dose est au moins deux choses superposées :
+
+- une couche spatiale et énergétique : longueur d'onde, taille du spot, irradiance, fluence
+- une couche temporelle : fréquence, largeur d'impulsion, rapport cyclique, puissance crête, puissance moyenne, durée de traitement
+
+## À quoi ressemble un ensemble complet de paramètres PBM
+
+Si vous comparez deux études ou deux appareils, voici le minimum qui doit correspondre avant que la comparaison ait un sens.
+
+| Paramètre | Pourquoi il est nécessaire |
+|---|---|
+| Longueur d'onde | Détermine le comportement d'absorption et de diffusion |
+| Puissance de sortie | Référence de base pour tout ce qui en découle |
+| Irradiance | Détermine le débit de fluence en surface |
+| Fluence | Énergie totale par unité de surface |
+| Taille du spot | Géométrie du faisceau et de la zone traitée |
+| Fréquence | Nombre d'impulsions par seconde, si pulsé |
+| Rapport cyclique | Fraction de chaque cycle pendant laquelle l'émetteur est allumé, si pulsé |
+| Largeur d'impulsion | Durée d'une impulsion unique, si pulsé |
+| Durée de traitement | Durée d'une séance |
+| Séances | Nombre et espacement des traitements |
+
+Pour les appareils pulsés, ne déclarer que la puissance moyenne est l'erreur la plus fréquente. Un lecteur peut calculer la puissance moyenne à partir de la puissance crête et du rapport cyclique, mais pas l'inverse. Sans la puissance crête, la fréquence et le rapport cyclique, le protocole n'est pas reproductible et le résultat ne peut pas être attribué à un mécanisme. Le versant tissulaire de cette équation varie autant que le versant appareil, ce qui explique pourquoi les mêmes paramètres donnent des résultats différents selon les types de Fitzpatrick et les régions : [effets secondaires de l'IPL selon le type de peau](/blog/ipl-side-effects-by-skin-type).
+
+## Qu'en faire
+
+Si vous comparez des appareils PBM, commencez par refuser de traiter le chiffre de puissance comme une spécification. Demandez s'il s'agit de la puissance crête ou de la moyenne. Demandez ensuite les paramètres temporels, et considérez leur absence comme une lacune plutôt que comme un détail. La même discipline vaut pour les appareils d'épilation grand public, où la fiche technique a tendance à mettre en avant un nombre de flashs plutôt que l'ingénierie optique et thermique qui décide du ressenti réel du traitement : [pourquoi le revêtement compte plus que le nombre de flashs](/blog/why-premium-ipl-devices-feel-different), et à quoi ressemble une pile de filtres mesurée en laboratoire quand sept d'entre elles sont testées côte à côte plutôt que décrites dans une brochure : [le rapport de test des filtres passe-long](/blog/ipl-long-pass-filter-test-report).
+
+Si vous lisez une étude, vérifiez si la couche temporelle a été déclarée. Une section méthodes qui donne 808 nm et 10 J/cm² a décrit environ la moitié de la dose.
+
+Si vous menez des expériences, déclarez les deux couches. Quiconque évalue si un appareil peut être utilisé à la maison en toute sécurité porte un jugement sur exactement ces paramètres, ce qui explique pourquoi la version grand public de cet argument se trouve dans notre pilier sur la sécurité : [l'épilation IPL est-elle sûre](/ipl-hair-removal-is-safe).
+
+Même longueur d'onde ne signifie pas même traitement. Même énergie totale ne signifie pas même stimulus. Les variables qui décident du résultat incluent le moment où l'énergie est arrivée et la forme qu'elle a prise en chemin. Si vous voulez voir comment ces variables sont spécifiées sur les plateformes que nous construisons, la [gamme d'appareils](/products) indique la fluence, la taille du spot et la configuration des impulsions pour chaque modèle.
+
+## Références
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

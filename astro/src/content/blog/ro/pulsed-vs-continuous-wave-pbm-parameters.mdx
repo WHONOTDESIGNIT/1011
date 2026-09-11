@@ -1,0 +1,141 @@
+---
+title: "PBM pulsat vs undă continuă: timpul ca variabilă de doză"
+description: "PBM pulsat și cel continuu pot diferi biologic la aceeași fluență. Ce schimbă frecvența, ciclul de lucru și puterea de vârf, și unde probele se contrazic."
+citableSummary: "Photobiomodularea pulsată și cea cu undă continuă pot diferi ca efect biologic chiar și la aceeași lungime de undă, aceeași fluență și aceeași putere medie, pentru că pulsarea adaugă frecvență, lățime a impulsului, ciclu de lucru și putere de vârf la doză. Dovezile merg în ambele direcții: 10 Hz pulsat la 810 nm a depășit varianta continuă pentru unele criterii de TCC la șoareci, în timp ce infraroșul continuu a depășit varianta pulsată pentru proliferarea fibroblastelor gingivale la 5,2 J/cm². Niciun mod nu este universal superior; raportarea completă a parametrilor temporali este ceea ce face studiile comparabile."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Este PBM pulsat mai bun decât PBM continuu?"
+    answer: "Nu, iar dovezile nu susțin afirmația în nicio direcție. 810 nm pulsat la 10 Hz a depășit varianta continuă pentru unele criterii de traumatism cranian la șoareci; infraroșul apropiat continuu a depășit varianta pulsată pentru proliferarea fibroblastelor la 5,2 J/cm². Modul interacționează cu restul dozei."
+  - question: "Pătrunde lumina pulsată mai adânc decât lumina continuă?"
+    answer: "Nu prin simplul fapt că este pulsată. Penetrarea depinde de lungimea de undă, de proprietățile optice ale țesutului și de geometria fasciculului. La densitate medie de putere egală, pulsarea schimbă când ajunge energia, nu cât de departe călătorește."
+  - question: "Ce ciclu de lucru ar trebui să folosească un protocol PBM?"
+    answer: "Nu există o valoare universală stabilită. Ciclul de lucru a deplasat viabilitatea celulară, ATP, speciile reactive de oxigen și potențialul membranei mitocondriale in vitro, la frecvență fixă, deci funcționează ca variabilă independentă. Ar trebui specificat și raportat, nu presupus a fi un detaliu de aparat."
+  - question: "De ce se contrazic studiile cu privire la pulsare?"
+    answer: "Pentru că spațiul parametrilor este mare și rar egalat. Două articole pot spune amândouă „810 nm, pulsat” diferind însă în puterea de vârf, frecvență, ciclul de lucru, iradianță, modelul de țesut și schema de tratament."
+---
+
+**Răspuns scurt:** unda continuă (CW) livrează un flux constant de fotoni; unda pulsată (PW) livrează aceeași energie în rafale. Această diferență adaugă frecvența, lățimea impulsului, ciclul de lucru și puterea de vârf la doză, iar în experimentele cu energie egală acești parametri suplimentari au deplasat rezultatele celulare în ambele direcții. PBM pulsat aparține unei a doua axe a dozei, alături de axa pe care majoritatea o măsoară deja.
+
+Două aparate pe banc. Ambele emit la 808 nm. Ambele sunt specificate la 10 J/cm². Ambele poartă aceeași cifră de putere pe carcasă. Le rulați pe aceeași linie celulară, pentru aceeași durată de tratament, și citirile de ATP nu se potrivesc.
+
+Întrebarea despre pulsare nu este exotică. IPL înseamnă intense pulsed light, așa că fiecare aparat de epilare construit pe liniile de producție ale acestui site depinde deja de o decizie privind modul în care lumina este împărțită în rafale, iar parametrii din spatele acelei decizii ajung rar pe o fișă tehnică. Pentru versiunea destinată consumatorilor despre modul în care ar trebui să funcționeze acea lumină, vedeți [ce este de fapt epilarea cu IPL](/blog/what-is-ipl).
+
+Nimic din acea descriere a dozei pe o singură linie nu prezice în ce direcție se înclină balanța, pentru că descrierea nu a fost niciodată completă. Fluența spune câtă energie a ajuns pe unitatea de suprafață. Nu spune nimic despre dacă acea energie a ajuns ca flux continuu sau ca un tren de rafale și nu spune nimic despre modul în care acele rafale au fost modelate.
+
+## Ce se schimbă de fapt când lumina este împărțită în impulsuri
+
+CW înseamnă că emițătorul este pornit pe toată durata tratamentului. PW înseamnă că se aprinde și se stinge după un ciclu definit, astfel că patru parametri noi intră în specificație:
+
+| Parametru | Ce controlează |
+|---|---|
+| Frecvența | Câte impulsuri au loc pe secundă |
+| Lățimea impulsului | Cât durează fiecare impuls în parte |
+| Ciclul de lucru | Fracțiunea din fiecare ciclu în care emițătorul este efectiv pornit |
+| Puterea de vârf | Puterea instantanee cât timp impulsul este activ |
+| Puterea medie | Puterea mediată pe întregul ciclu, inclusiv timpul de repaus |
+
+Puterea medie și puterea de vârf sunt legate între ele, dacă impulsurile sunt aproximativ dreptunghiulare:
+
+**putere medie ≈ putere de vârf × ciclu de lucru**
+
+O putere de vârf de 100 mW la un ciclu de lucru de 10% dă în medie 10 mW. Un emițător continuu care funcționează la 10 mW dă, de asemenea, în medie 10 mW. Aceeași cifră pe fișa tehnică, un stimul complet diferit la nivel de țesut.
+
+Această aritmetică este motivul pentru care „100 mW” nu poate descrie singur un protocol pulsat. Două aparate pot tipări aceeași cifră și pot livra puteri de vârf care diferă cu un ordin de mărime. Unul livrează o rată de fluență continuă și blândă; celălalt livrează rafale scurte și intense, separate de intervale întunecate, iar media ascunde acest lucru. Am întâlnit aceeași lipsă de raportare din cealaltă parte când am pus un aparat IPL de consum pe un power meter și am măsurat ce livrează de fapt eticheta: [de unde vin 28 de jouli](/blog/the-truth-about-ipl-energy).
+
+## Pulsat nu înseamnă rece
+
+Argumentul intuitiv pentru pulsare este termic. Pulsarea creează intervale, intervalele permit căldurii să difuzeze, iar difuzia limitează creșterea temperaturii. Raționamentul este solid în limitele lui, dar alunecă spre o afirmație care nu se susține.
+
+Pulsarea nu este absența încălzirii. Photobiomodularea este de obicei descrisă ca non-termică sau slab termică, iar această descriere se referă la regimul intenționat, nu la o garanție privind țesutul. Fotonii absorbiți devin căldură, iar creșterea de temperatură rezultată depinde de puterea medie, ciclul de lucru, lățimea impulsului, durata totală a tratamentului, aria spotului și proprietățile termice ale țesutului respectiv. Pe aparatele de epilare, exact de aceea există răcirea cu contact din safir și exact de aceea ansamblul de răcire contează mai mult decât cifra de flash-uri de pe cutie: [ce face de fapt răcirea cu gheață din safir](/blog/cooling-ipl-hair-remover-buying-guide).
+
+O formulare mai bună: schimbarea distribuției temporale a livrării fotonilor schimbă modul în care se acumulează căldura. Aceasta este o afirmație testabilă. „Lumina pulsată nu încălzește” nu este, iar un protocol pulsat cu putere de vârf mare și timp lung de tratament poate depune mai multă căldură decât un protocol CW modest.
+
+## Frecvența apare în datele celulare
+
+Dacă singurul rol al pulsării ar fi gestionarea căldurii, acesta ar fi un subiect de inginerie termică și nimic mai mult. Experimentele pe celule indică în altă direcție.
+
+Kim și colegii au comparat 810 nm continuu cu 810 nm pulsat, la mai multe frecvențe, pe celule stem din pulpa dentară umană. În condițiile studiului lor, frecvența a contat: frecvențe diferite de pulsare au produs răspunsuri bioenergetice diferite, brațele pulsate divergând de la varianta continuă, nu amplificând-o pur și simplu. Brațul lor la 300 Hz a arătat deplasarea cea mai pronunțată în speciile reactive de oxigen și în câțiva alți markeri biologici.
+
+Rezultatul care merită reținut: cu energia menținută aproximativ constantă, schimbarea frecvenței de pulsare a schimbat răspunsul biologic într-un mod măsurabil. Aceasta așază frecvența în setul de parametri PBM ca variabilă independentă candidată, stând alături de lungimea de undă și fluență, nu în spatele lor ca o setare de aparat.
+
+## Ciclul de lucru: putere medie egală, instant diferit
+
+Acesta este parametrul care este sărit cel mai des.
+
+Luați două protocoale, ambele cu o medie de 10 mW. Protocolul A este continuu, la 10 mW. Protocolul B are 100 mW de vârf la un ciclu de lucru de 10%. Raportate ca putere medie, sunt identice. În momentul stimulării nu au nimic în comun. Protocolul B concentrează aceeași energie în ferestre scurte de amplitudine mare și apoi se întunecă.
+
+Tang și colegii au testat lumină roșie și infraroșie apropiată, la 660 nm și 850 nm, pe celule de neuroblastom, pe o gamă de frecvențe de pulsare și cicluri de lucru, comparativ cu expunerea continuă. Viabilitatea celulară, ATP, speciile reactive de oxigen și potențialul membranei mitocondriale au arătat toate sensibilitate la frecvența de pulsare, iar schimbarea ciclului de lucru la o frecvență fixă a deplasat din nou acești markeri.
+
+Citiți asta ca pe o constrângere asupra interpretării. Când un articol raportează „850 nm, 10 mW/cm²”, întrebarea următoare este dacă cifra reprezintă iradianță continuă sau o medie pe un tren de impulsuri. Dacă este o medie, rezultatul nu este reproductibil fără puterea de vârf, frecvență, ciclul de lucru și lățimea impulsului. Patru numere, nu unul.
+
+## Puterea de vârf mai mare nu cumpără penetrare mai profundă
+
+Lanțul de raționament sună așa: pulsarea ridică puterea de vârf, putere mai mare înseamnă lumină mai puternică, lumina mai puternică pătrunde mai adânc, deci PBM pulsat tratează țesut mai profund. Fiecare pas sună plauzibil. Lanțul se rupe la a doua verigă.
+
+Transportul luminii în țesut este guvernat de absorbție și difuzie la lungimea de undă folosită, de compoziția țesutului aflat în cale și de geometria fasciculului. Livrarea aceleiași energii totale în rafale mai scurte ridică puterea instantanee la suprafață fără a schimba proprietățile optice ale ceea ce se află dedesubt. Puterea de vârf nu este un proxy pentru adâncimea de penetrare. Lungimea de undă este variabila care mișcă efectiv penetrarea, motiv pentru care diferența dintre o fereastră de 510–1200 nm și una de 610–1200 nm nu este cosmetică: [cum schimbă intervalul de lungimi de undă ce ajunge la folicul](/blog/ipl-hair-removal-wavelength-range).
+
+Ando și colegii au comparat 810 nm continuu cu 810 nm pulsat la 10 Hz și 100 Hz, pe un model de traumatism cranian la șoarece, menținând densitatea medie de putere, timpul de tratament și densitatea de energie egale între brațe. Grupul pulsat la 10 Hz s-a comportat mai bine la unele măsurători neurologice și histologice. Remarcabil, îmbunătățirea nu a avut nevoie de o poveste despre penetrare pentru a fi explicată: cu densitatea medie de putere egalată, brațele pulsate nu livrau mai multă lumină în țesut în vreun sens simplu. Ceva din structura temporală a schimbat răspunsul.
+
+## Unde câștigă unda continuă
+
+Aceasta este partea care lipsește din sintezele centrate pe pulsare.
+
+Khalaj și colegii au comparat infraroșu apropiat CW cu infraroșu apropiat pulsat pe fibroblaste gingivale umane și au constatat că unda continuă este mai eficientă pentru proliferarea și migrarea celulelor, într-o condiție specifică de 5,2 J/cm². Este un rezultat in vitro, în parametrii lor. Este, de asemenea, un contraexemplu direct pentru orice afirmație generală că varianta pulsată o depășește pe cea continuă.
+
+Keshri și colegii, lucrând pe șobolani imunosupresați cu plăgi dermice, au constatat că anumiți parametri pulsați la 810 nm au îmbunătățit rezultatele vindecării rănilor față de brațele de comparație. Luate împreună cu rezultatul pe fibroblaste, sinteza onestă este că literatura are varianta pulsată câștigătoare în unele preparate și varianta continuă câștigătoare în altele.
+
+## De ce aceeași lungime de undă produce mereu răspunsuri diferite
+
+PBM depinde de parametri într-un mod în care puține modalități terapeutice o fac. Schimbați o variabilă și rezultatul se poate inversa. La un 808 nm fix puteți schimba totuși iradianța (mică versus mare), timpul de tratament, densitatea de energie, modul, frecvența de pulsare și ciclul de lucru. Chiar și la energie totală egală, 10 J livrați continuu și 10 J livrați ca tren de impulsuri nu sunt același stimul.
+
+Este același comportament bifazic pe care literatura de photobiomodulare l-a documentat pentru doza în sine ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), extins cu un nivel mai adânc. Răspunsul bifazic la doză spune că mai multă energie nu este monoton mai bună. Literatura despre pulsare adaugă că și *programul* de livrare a energiei poartă informație.
+
+Puse împreună, doza este cel puțin două lucruri suprapuse:
+
+- un strat spațial și energetic: lungimea de undă, dimensiunea spotului, iradianța, fluența
+- un strat temporal: frecvența, lățimea impulsului, ciclul de lucru, puterea de vârf, puterea medie, timpul de tratament
+
+## Cum arată un set complet de parametri PBM
+
+Dacă comparați două studii sau două aparate, acesta este minimul care trebuie să se potrivească înainte ca comparația să însemne ceva.
+
+| Parametru | De ce este necesar |
+|---|---|
+| Lungimea de undă | Stabilește comportamentul de absorbție și difuzie |
+| Puterea de ieșire | Bază pentru tot ce urmează în aval |
+| Iradianța | Determină rata de fluență la suprafață |
+| Fluența | Energia totală pe unitatea de suprafață |
+| Dimensiunea spotului | Geometria fasciculului și aria livrată |
+| Frecvența | Numărul de impulsuri pe secundă, dacă este pulsat |
+| Ciclul de lucru | Fracțiunea din fiecare ciclu în care emițătorul este pornit, dacă este pulsat |
+| Lățimea impulsului | Durata unui singur impuls, dacă este pulsat |
+| Timpul de tratament | Durata unei singure ședințe |
+| Ședințele | Numărul și intervalul tratamentelor |
+
+Pentru aparatele pulsate, raportarea doar a puterii medii este cea mai frecventă eroare. Un cititor poate calcula puterea medie din puterea de vârf și ciclul de lucru, dar nu și invers. Fără puterea de vârf, frecvență și ciclul de lucru, protocolul nu este reproductibil și rezultatul nu poate fi atribuit unui mecanism. Partea de țesut a ecuației variază la fel de mult ca partea de aparat, motiv pentru care aceiași parametri se comportă diferit între tipuri Fitzpatrick și regiuni: [efectele secundare ale IPL după tipul de piele](/blog/ipl-side-effects-by-skin-type).
+
+## Ce faceți cu toate acestea
+
+Dacă comparați aparate PBM, începeți prin a refuza să tratați cifra de putere ca pe o specificație. Întrebați dacă este de vârf sau medie. Apoi cereți parametrii temporali și tratați absența lor ca pe o lipsă, nu ca pe un detaliu. Aceeași disciplină se aplică aparatelor de epilare pentru consum, unde fișa tehnică tinde să promoveze un număr de flash-uri în locul ingineriei optice și termice care decide cum se simte de fapt tratamentul: [de ce contează mai mult stratul decât numărul de flash-uri](/blog/why-premium-ipl-devices-feel-different), și cum arată un ansamblu de filtre măsurat în laborator atunci când șapte dintre ele sunt testate una lângă alta, în loc să fie descrise într-o broșură: [raportul de testare a filtrelor long-pass](/blog/ipl-long-pass-filter-test-report).
+
+Dacă citiți un studiu, verificați dacă stratul temporal a fost raportat. O secțiune de metode care dă 808 nm și 10 J/cm² a descris aproximativ jumătate din doză.
+
+Dacă rulați experimente, raportați ambele straturi. Oricine evaluează dacă un aparat este sigur de folosit acasă face o judecată exact pe acești parametri, motiv pentru care versiunea pentru consumatori a acestui argument se află în pilonul nostru despre siguranță: [este sigură epilarea cu IPL](/ipl-hair-removal-is-safe).
+
+Aceeași lungime de undă nu înseamnă același tratament. Aceeași energie totală nu înseamnă același stimul. Variabilele care decid rezultatul includ când a ajuns energia și cum a fost modelată pe drum. Dacă vreți să vedeți cum sunt specificate aceste variabile pe platformele pe care le construim, [gama de aparate](/products) listează fluența, dimensiunea spotului și configurația de impulsuri pentru fiecare model.
+
+## Referințe
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

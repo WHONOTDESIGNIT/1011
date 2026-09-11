@@ -1,0 +1,141 @@
+---
+title: "Darbeli ve Sürekli Dalga PBM: Zaman Bir Doz Değişkeni"
+description: "Aynı fluensta darbeli ve sürekli PBM farklı biyolojik sonuç verebilir. Frekans, görev döngüsü ve tepe gücün etkisi ile kanıtın ayrıldığı nokta."
+citableSummary: "Eşleşen dalga boyu, fluens ve ortalama güçte bile darbeli ve sürekli dalga fotobiyomodülasyonu biyolojik etki bakımından farklılaşabilir, çünkü darbeli çalışma doza frekans, darbe genişliği, görev döngüsü ve tepe gücü ekler. Kanıtlar her iki yöne de gidiyor: farelerde 10 Hz darbeli 810 nm bazı travmatik beyin hasarı sonuçlarında sürekliden daha iyi performans gösterdi, buna karşılık sürekli yakın kızılötesi 5,2 J/cm²'de diş eti fibroblast çoğalması için darbeliden daha iyiydi. Hiçbir mod evrensel olarak üstün değildir; çalışmaları karşılaştırılabilir kılan şey, zamansal parametrelerin eksiksiz raporlanmasıdır."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Darbeli PBM sürekli PBM'den daha mı iyi?"
+    answer: "Hayır ve kanıtlar bu iddiayı hiçbir yönde desteklemiyor. 10 Hz'de darbeli 810 nm farelerde bazı travmatik beyin hasarı ölçütlerinde sürekliden daha iyi performans gösterdi; sürekli yakın kızılötesi ise 5,2 J/cm²'de fibroblast çoğalması için darbeliden daha iyiydi. Mod, dozun geri kalanıyla etkileşir."
+  - question: "Darbeli ışık sürekli ışıktan daha derine nüfuz eder mi?"
+    answer: "Darbeli olduğu için değil. Nüfuz dalga boyuna, doku optik özelliklerine ve ışın geometrisine bağlıdır. Eşit ortalama güç yoğunluğunda darbeli çalışma, enerjinin ne zaman geldiğini değiştirir; ne kadar uzağa gittiğini değil."
+  - question: "Bir PBM protokolü hangi görev döngüsünü kullanmalı?"
+    answer: "Yerleşik, evrensel bir değer yoktur. Görev döngüsü, sabit frekansta in vitro olarak hücre canlılığını, ATP'yi, reaktif oksijen türlerini ve mitokondriyal membran potansiyelini değiştirmiştir; dolayısıyla bağımsız bir değişken olarak işlev görür. Bir cihaz ayrıntısı olduğu varsayılmamalı, belirtilmeli ve raporlanmalıdır."
+  - question: "Çalışmalar darbeli çalışma konusunda neden anlaşamıyor?"
+    answer: "Çünkü parametre uzayı geniştir ve nadiren eşleştirilir. İki makale de \"810 nm, darbeli\" diyebilir; oysa tepe gücü, frekans, görev döngüsü, ışınım, doku modeli ve tedavi takvimi bakımından farklılaşabilirler."
+---
+
+**Kısa yanıt:** sürekli dalga (CW) sabit bir foton akışı iletir; darbeli dalga (PW) ise aynı enerjiyi patlamalar hâlinde iletir. Bu fark, doza frekans, darbe genişliği, görev döngüsü ve tepe gücü ekler; enerjisi eşitlenmiş deneylerde bu eklenen parametreler hücresel sonuçları her iki yönde de değiştirmiştir. Darbeli PBM, çoğu kişinin hâlihazırda ölçtüğü eksenin yanında, dozun ikinci bir ekseninde yer alır.
+
+Tezgâhta iki cihaz. İkisi de 808 nm'de yayıyor. İkisi de 10 J/cm² olarak belirtilmiş. İkisinin gövdesinde aynı güç değeri yazıyor. Aynı hücre hattında aynı tedavi süresi boyunca çalıştırıyorsunuz ve ATP okumaları birbirini tutmuyor.
+
+Darbe sorusu egzotik bir konu değil. IPL, yoğun darbeli ışık anlamına gelir; bu nedenle bu sitenin üretim hatlarında üretilen her tüy giderme cihazı, ışığın nasıl patlamalara bölüneceğine dair bir karara zaten bağlıdır ve bu kararın arkasındaki parametreler nadiren teknik föye girer. Bu ışığın nasıl çalışması gerektiğinin tüketiciye dönük anlatımı için [IPL tüy giderme gerçekte nedir](/blog/what-is-ipl) yazısına bakabilirsiniz.
+
+Tek satırlık o doz tanımındaki hiçbir şey, sonucun hangi yöne döneceğini öngörmez; çünkü o tanım hiçbir zaman eksiksiz değildi. Fluens, birim alana ne kadar enerji ulaştığını söyler. Bu enerjinin sürekli bir akış hâlinde mi yoksa bir darbe dizisi hâlinde mi geldiğine dair hiçbir şey söylemez ve bu darbelerin nasıl şekillendirildiğine dair de hiçbir şey söylemez.
+
+## Işık darbelere bölündüğünde gerçekte ne değişir
+
+CW, yayıcının tüm tedavi boyunca açık olduğu anlamına gelir. PW ise tanımlı bir çevrim içinde açılıp kapandığı anlamına gelir; böylece spesifikasyona dört yeni parametre girer:
+
+| Parametre | Neyi kontrol eder |
+|---|---|
+| Frekans | Saniyede kaç darbe oluştuğunu |
+| Darbe genişliği | Her bir darbenin ne kadar sürdüğünü |
+| Görev döngüsü | Yayıcının her çevrimin ne kadarı boyunca açık olduğunu |
+| Tepe gücü | Darbe açıkken anlık gücü |
+| Ortalama güç | Kapalı süre dahil, tüm çevrim boyunca ortalaması alınan güç |
+
+Darbeler kabaca dikdörtgen biçimliyse, ortalama güç ile tepe gücü birbirine bağlıdır:
+
+**ortalama güç ≈ tepe gücü × görev döngüsü**
+
+%10 görev döngüsünde 100 mW tepe gücü, ortalama 10 mW eder. 10 mW'de çalışan sürekli bir yayıcı da ortalama 10 mW verir. Veri sayfasında aynı sayı, dokuda tamamen farklı bir uyaran.
+
+Bu aritmetik, "100 mW" ifadesinin tek başına darbeli bir protokolü tanımlayamamasının nedenidir. İki cihaz aynı değeri basabilir ve bir mertebe farklı tepe güçleri verebilir. Biri yumuşak, sürekli bir fluens hızı verir; diğeri karanlık boşluklarla ayrılmış kısa, yoğun patlamalar verir ve ortalama bunu gizler. Bir tüketici IPL cihazını güç ölçere bağlayıp etiketin gerçekte ne verdiğini ölçtüğümüzde aynı raporlama boşluğuyla bu kez diğer taraftan karşılaştık: [28 joule nereden geliyor](/blog/the-truth-about-ipl-energy).
+
+## Darbeli olmak serin olmak anlamına gelmez
+
+Darbeli çalışmanın sezgisel gerekçesi termaldir. Darbeler boşluklar yaratır, boşluklar ısının yayılmasına izin verir ve yayılma sıcaklık artışını sınırlar. Bu akıl yürütme belli bir noktaya kadar sağlamdır, ancak geçerli olmayan bir iddiaya kayar.
+
+Darbeli çalışma, ısınmanın yokluğu değildir. Fotobiyomodülasyon genellikle termal olmayan ya da düşük termal olarak tanımlanır ve bu tanım hedeflenen rejimle ilgilidir, dokuya dair bir garanti değildir. Soğurulan fotonlar ısıya dönüşür ve ortaya çıkan sıcaklık artışı ortalama güce, görev döngüsüne, darbe genişliğine, toplam tedavi süresine, spot alanına ve söz konusu dokunun termal özelliklerine bağlıdır. Tüy giderme cihazlarında safir temaslı soğutmanın var olmasının nedeni ve soğutma yığınının kutudaki flaş derecesinden neden daha önemli olduğunun nedeni tam olarak budur: [safir buz soğutma gerçekte ne yapar](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Daha iyi bir ifade: foton iletiminin zamansal dağılımını değiştirmek, ısının nasıl biriktiğini değiştirir. Bu, test edilebilir bir iddiadır. "Darbeli ışık ısıtmaz" iddiası ise değildir ve uzun tedavi süresine sahip yüksek tepe güçlü darbeli bir protokol, ölçülü bir CW protokolünden daha fazla ısı biriktirebilir.
+
+## Frekans hücre verilerinde kendini gösteriyor
+
+Darbeli çalışmanın tek rolü ısı yönetimi olsaydı, bu yalnızca bir termal mühendislik konusu olurdu ve başka bir şey olmazdı. Hücre deneyleri başka bir yeri işaret ediyor.
+
+Kim ve meslektaşları, insan diş pulpası kök hücrelerinde sürekli 810 nm ile birkaç frekansta darbeli 810 nm'yi karşılaştırdı. Kendi çalışma koşullarında frekans önemliydi: farklı darbe frekansları farklı biyoenerjetik yanıtlar üretti; darbeli kollar sürekli olandan basitçe güçlenerek değil, ondan ayrılarak farklılaştı. 300 Hz kolunda reaktif oksijen türlerinde ve diğer birkaç biyolojik belirteçte daha belirgin bir kayma görüldü.
+
+İleri taşımaya değer sonuç şu: enerji kabaca sabit tutulduğunda, darbe frekansını değiştirmek biyolojik yanıtı ölçülebilir biçimde değiştirdi. Bu, frekansı PBM parametre kümesine aday bir bağımsız değişken olarak yerleştirir; bir cihaz ayarı olarak dalga boyunun ve fluensin arkasında değil, onların yanında durur.
+
+## Görev döngüsü: eşleşen ortalama güç, eşleşmeyen an
+
+En sık atlanan parametre budur.
+
+İkisi de ortalama 10 mW olan iki protokol alın. Protokol A, 10 mW'de süreklidir. Protokol B, %10 görev döngüsünde 100 mW tepe gücüdür. Ortalama güç olarak raporlandıklarında özdeştirler. Uyaranın uygulandığı anda ise hiçbir ortak yönleri yoktur. Protokol B aynı enerjiyi kısa, yüksek genlikli pencerelerde toplar ve sonra kararır.
+
+Tang ve meslektaşları, 660 nm ve 850 nm'deki kırmızı ve yakın kızılötesi ışığı nöroblastoma hücreleri üzerinde, bir dizi darbe frekansı ve görev döngüsünde sürekli maruz bırakmaya karşı test etti. Hücre canlılığı, ATP, reaktif oksijen türleri ve mitokondriyal membran potansiyelinin tümü darbe frekansına duyarlılık gösterdi ve sabit frekansta görev döngüsünü değiştirmek bu belirteçleri yeniden değiştirdi.
+
+Bunu yorumlamaya dair bir kısıt olarak okuyun. Bir makale "850 nm, 10 mW/cm²" bildirdiğinde, sıradaki soru bu değerin sürekli ışınım mı yoksa bir darbe dizisinin ortalaması mı olduğudur. Eğer ortalama ise, tepe gücü, frekans, görev döngüsü ve darbe genişliği olmadan sonuç yeniden üretilebilir değildir. Dört sayı, bir değil.
+
+## Yüksek tepe gücü daha derine nüfuz etme sağlamaz
+
+Akıl yürütme zinciri şöyle işler: darbeli çalışma tepe gücünü yükseltir, daha yüksek güç daha güçlü ışık demektir, daha güçlü ışık daha derine nüfuz eder, dolayısıyla darbeli PBM daha derin dokuyu tedavi eder. Her adım kulağa mantıklı gelir. Zincir ikinci halkada kopar.
+
+Dokuda ışık taşınımı, kullanılan dalga boyundaki soğurma ve saçılma, yol üzerindeki dokunun bileşimi ve ışın geometrisi tarafından belirlenir. Aynı toplam enerjiyi daha kısa patlamalarda vermek, yüzeydeki anlık gücü artırır ama altında yatanın optik özelliklerini değiştirmez. Tepe gücü, nüfuz derinliğinin bir göstergesi değildir. Nüfuzu gerçekte değiştiren değişken dalga boyudur; 510–1200 nm penceresi ile 610–1200 nm penceresi arasındaki farkın kozmetik olmamasının nedeni budur: [dalga boyu aralığı foliküle ulaşanı nasıl değiştirir](/blog/ipl-hair-removal-wavelength-range).
+
+Ando ve meslektaşları, bir fare travmatik beyin hasarı modelinde sürekli 810 nm ile 10 Hz ve 100 Hz darbeli 810 nm'yi karşılaştırdı; ortalama güç yoğunluğu, tedavi süresi ve enerji yoğunluğu kollar arasında eşitlenmişti. 10 Hz darbeli grup bazı nörolojik ve histolojik ölçütlerde daha iyi performans gösterdi. Dikkat çekici olan, bu iyileşmeyi açıklamak için bir nüfuz hikâyesine gerek olmamasıydı: ortalama güç yoğunluğu eşitlendiğinde, darbeli kollar basit anlamda dokuya daha fazla ışık vermiyordu. Yanıtı değiştiren şey zamansal yapının kendisiydi.
+
+## Sürekli dalganın kazandığı yer
+
+Darbeli çalışmaya odaklanan özetlerde dışarıda bırakılan kısım burasıdır.
+
+Khalaj ve meslektaşları, insan diş eti fibroblastlarında yakın kızılötesi CW'yi darbeli yakın kızılötesiyle karşılaştırdı ve belirli bir 5,2 J/cm² koşulunda sürekli dalgayı hücre çoğalması ve göçü için daha etkili buldu. Bu, onların parametreleri altında elde edilmiş bir in vitro sonuçtur. Aynı zamanda, darbelinin sürekliden üstün olduğuna dair her türlü genel iddiaya doğrudan bir karşı örnektir.
+
+Keshri ve meslektaşları, deri yaraları olan bağışıklığı baskılanmış sıçanlarda çalışarak belirli darbeli 810 nm parametrelerinin karşılaştırma kollarına kıyasla yara iyileşmesi sonuçlarını iyileştirdiğini buldu. Fibroblast sonucuyla birlikte ele alındığında dürüst özet şudur: literatürde darbeli çalışma bazı hazırlıklarda, sürekli çalışma ise başkalarında kazanıyor.
+
+## Aynı dalga boyu neden sürekli farklı yanıtlar üretiyor
+
+PBM, az sayıda terapötik yöntemin sahip olduğu ölçüde parametreye bağımlıdır. Bir değişkeni değiştirin, sonuç tersine dönebilir. Sabit bir 808 nm'de bile ışınımı (düşük ya da yüksek), tedavi süresini, enerji yoğunluğunu, modu, darbe frekansını ve görev döngüsünü değiştirebilirsiniz. Toplam enerji eşit olsa bile, sürekli verilen 10 J ile darbe dizisi olarak verilen 10 J aynı uyaran değildir.
+
+Bu, fotobiyomodülasyon literatürünün dozun kendisi için belgelediği bifazik davranışın ([Huang ve ark., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)) bir seviye daha derine uzatılmış hâlidir. Bifazik doz yanıtı, daha fazla enerjinin tekdüze biçimde daha iyi olmadığını söyler. Darbeli çalışma literatürü ise enerji iletiminin *zamanlamasının* da bilgi taşıdığını ekler.
+
+Bir araya getirildiğinde doz, en az iki katmanın üst üste binmesidir:
+
+- uzamsal ve enerjetik bir katman: dalga boyu, spot boyutu, ışınım, fluens
+- zamansal bir katman: frekans, darbe genişliği, görev döngüsü, tepe gücü, ortalama güç, tedavi süresi
+
+## Eksiksiz bir PBM parametre kümesi nasıl görünür
+
+İki çalışmayı ya da iki cihazı karşılaştırıyorsanız, karşılaştırmanın bir anlam taşıması için eşleşmesi gereken asgari küme şudur.
+
+| Parametre | Neden gerekli |
+|---|---|
+| Dalga boyu | Soğurma ve saçılma davranışını belirler |
+| Çıkış gücü | Sonraki her şey için temel |
+| Işınım | Yüzeydeki fluens hızını belirler |
+| Fluens | Birim alan başına toplam enerji |
+| Spot boyutu | Işının geometrisi ve verilen alan |
+| Frekans | Darbeliyse, saniyedeki darbe sayısı |
+| Görev döngüsü | Darbeliyse, yayıcının her çevrimde açık kaldığı oran |
+| Darbe genişliği | Darbeliyse, tek bir darbenin süresi |
+| Tedavi süresi | Tek bir seansın süresi |
+| Seanslar | Tedavilerin sayısı ve aralıkları |
+
+Darbeli cihazlarda en sık yapılan hata, yalnızca ortalama gücü bildirmektir. Bir okuyucu tepe gücünden ve görev döngüsünden ortalama gücü hesaplayabilir, ancak tersini yapamaz. Tepe gücü, frekans ve görev döngüsü olmadan protokol yeniden üretilebilir değildir ve sonuç bir mekanizmaya atfedilemez. Bu denklemin doku tarafı da cihaz tarafı kadar değişkendir; aynı parametrelerin Fitzpatrick tipleri ve bölgeler arasında farklı sonuçlar vermesinin nedeni budur: [cilt tipine göre IPL yan etkileri](/blog/ipl-side-effects-by-skin-type).
+
+## Bununla ne yapmalı
+
+PBM cihazlarını karşılaştırıyorsanız, güç değerini bir spesifikasyon olarak kabul etmemekle başlayın. Tepe mi yoksa ortalama mı olduğunu sorun. Ardından zamansal parametreleri isteyin ve bunların yokluğunu bir ayrıntı değil bir eksiklik olarak değerlendirin. Aynı disiplin tüketici tüy giderme cihazları için de geçerlidir; burada teknik föy, tedavinin gerçekte nasıl hissettirdiğini belirleyen optik ve termal mühendislik yerine flaş sayısını öne çıkarma eğilimindedir: [kaplamanın flaş sayısından neden daha önemli olduğu](/blog/why-premium-ipl-devices-feel-different) ve yedi filtre yan yana test edildiğinde laboratuvarda ölçülen bir filtre yığınının broşürde anlatılandan nasıl farklı göründüğü: [uzun geçirmeli filtre test raporu](/blog/ipl-long-pass-filter-test-report).
+
+Bir çalışma okuyorsanız, zamansal katmanın raporlanıp raporlanmadığını kontrol edin. 808 nm ve 10 J/cm² veren bir yöntem bölümü, dozun kabaca yarısını tanımlamıştır.
+
+Deney yürütüyorsanız, her iki katmanı da raporlayın. Bir cihazın evde kullanımının güvenli olup olmadığını değerlendiren herkes tam olarak bu parametreler üzerinden bir yargıya varır; bu argümanın tüketiciye dönük sürümünün güvenlik ana sayfamızda yer almasının nedeni budur: [IPL tüy giderme güvenli mi](/ipl-hair-removal-is-safe).
+
+Aynı dalga boyu, aynı tedavi değildir. Aynı toplam enerji, aynı uyaran değildir. Sonucu belirleyen değişkenler arasında enerjinin ne zaman geldiği ve içeri girerken nasıl şekillendirildiği de vardır. Bu değişkenlerin ürettiğimiz platformlarda nasıl belirtildiğini görmek isterseniz, [cihaz serisi](/products) her model için fluensi, spot boyutunu ve darbe yapılandırmasını listeler.
+
+## Kaynakça
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

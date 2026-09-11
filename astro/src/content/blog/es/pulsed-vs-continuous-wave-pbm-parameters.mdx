@@ -1,0 +1,141 @@
+---
+title: "PBM pulsado vs onda continua: el tiempo como dosis"
+description: "PBM pulsado y continuo pueden diferir biológicamente a igual fluencia. Qué cambian frecuencia, ciclo de trabajo y potencia pico, y dónde la evidencia divide."
+citableSummary: "La fotobiomodulación pulsada y la de onda continua pueden diferir en efecto biológico incluso con la misma longitud de onda, fluencia y potencia media, porque la pulsación añade frecuencia, ancho de pulso, ciclo de trabajo y potencia pico a la dosis. La evidencia apunta en ambos sentidos: 810 nm pulsado a 10 Hz superó al continuo en algunos resultados de TBI en ratones, mientras que el infrarrojo cercano continuo superó al pulsado para la proliferación de fibroblastos gingivales a 5,2 J/cm². Ningún modo es universalmente superior; lo que hace comparables los estudios es informar por completo los parámetros temporales."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "¿El PBM pulsado es mejor que el PBM continuo?"
+    answer: "No, y la evidencia no respalda la afirmación en ninguna de las dos direcciones. El 810 nm pulsado a 10 Hz superó al continuo en algunas medidas de lesión cerebral traumática en ratones; el infrarrojo cercano continuo superó al pulsado para la proliferación de fibroblastos a 5,2 J/cm². El modo interactúa con el resto de la dosis."
+  - question: "¿La luz pulsada penetra más profundo que la luz continua?"
+    answer: "No por el hecho de ser pulsada. La penetración depende de la longitud de onda, las propiedades ópticas del tejido y la geometría del haz. Con la densidad de potencia media igualada, la pulsación cambia cuándo llega la energía, no hasta dónde viaja."
+  - question: "¿Qué ciclo de trabajo debería usar un protocolo de PBM?"
+    answer: "No hay un valor universal establecido. El ciclo de trabajo ha desplazado la viabilidad celular, el ATP, las reactive oxygen species y el potencial de membrana mitocondrial in vitro con frecuencia fija, así que funciona como variable independiente. Debería especificarse e informarse, no darse por supuesto como un detalle del dispositivo."
+  - question: "¿Por qué los estudios discrepan sobre la pulsación?"
+    answer: "Porque el espacio de parámetros es amplio y rara vez está igualado. Dos artículos pueden decir ambos «810 nm, pulsado» y diferir en potencia pico, frecuencia, ciclo de trabajo, irradiancia, modelo de tejido y calendario de tratamiento."
+---
+
+**Respuesta corta:** la onda continua (CW) entrega un flujo de fotones constante; la onda pulsada (PW) entrega esa misma energía en ráfagas. Esa diferencia añade frecuencia, ancho de pulso, ciclo de trabajo y potencia pico a la dosis, y en los experimentos con energía igualada esos parámetros añadidos han movido los resultados celulares en ambas direcciones. El PBM pulsado pertenece a un segundo eje de la dosis, junto al eje que la mayoría de la gente ya mide.
+
+Dos dispositivos sobre la mesa. Ambos emiten a 808 nm. Ambos están especificados a 10 J/cm². Ambos llevan la misma cifra de potencia en la carcasa. Los pruebas en la misma línea celular durante el mismo tiempo de tratamiento y las lecturas de ATP no coinciden.
+
+La cuestión de la pulsación no es exótica. IPL significa “intense pulsed light”, así que todo dispositivo de depilación construido en las líneas de producción de este sitio ya depende de una decisión sobre cómo se trocea la luz en ráfagas, y los parámetros que hay detrás de esa decisión rara vez llegan a una ficha técnica. Para la versión orientada al consumidor de cómo se supone que funciona esa luz, consulta [qué es realmente la depilación IPL](/blog/what-is-ipl).
+
+Nada en esa descripción de la dosis en una línea predice en qué dirección se rompe, porque la descripción nunca estuvo completa. La fluencia dice cuánta energía llegó por unidad de área. No dice nada sobre si esa energía llegó como un flujo continuo o como un tren de ráfagas, y no dice nada sobre cómo se dieron forma a esas ráfagas.
+
+## Qué cambia realmente cuando la luz se trocea en pulsos
+
+CW significa que el emisor está encendido durante todo el tratamiento. PW significa que se enciende y se apaga en un ciclo definido, así que cuatro parámetros nuevos entran en la especificación:
+
+| Parámetro | Qué controla |
+|---|---|
+| Frecuencia | Cuántos pulsos ocurren por segundo |
+| Ancho de pulso | Cuánto dura cada pulso individual |
+| Ciclo de trabajo | La fracción de cada ciclo en la que el emisor está realmente encendido |
+| Potencia pico | Potencia instantánea mientras el pulso está encendido |
+| Potencia media | Potencia promediada a lo largo del ciclo completo, incluido el tiempo apagado |
+
+La potencia media y la pico están ligadas, si los pulsos son aproximadamente rectangulares:
+
+**potencia media ≈ potencia pico × ciclo de trabajo**
+
+Una potencia pico de 100 mW con un ciclo de trabajo del 10% da una media de 10 mW. Un emisor continuo que funciona a 10 mW también da una media de 10 mW. La misma cifra en la hoja de datos, un estímulo completamente distinto en el tejido.
+
+Esa aritmética es la razón por la que «100 mW» no puede describir por sí solo un protocolo pulsado. Dos dispositivos pueden imprimir la misma cifra y entregar potencias pico que difieren en un orden de magnitud. Uno entrega una tasa de fluencia continua y suave; el otro entrega ráfagas cortas e intensas separadas por huecos oscuros, y la media lo esconde. Nos topamos con la misma laguna de información desde el otro lado cuando pusimos un dispositivo IPL de consumo en un medidor de potencia y medimos lo que la etiqueta entregaba en realidad: [de dónde salen 28 julios](/blog/the-truth-about-ipl-energy).
+
+## Pulsado no significa frío
+
+El argumento intuitivo a favor de la pulsación es térmico. La pulsación crea huecos, los huecos permiten que el calor se difunda, y la difusión limita el aumento de temperatura. Ese razonamiento es sólido hasta donde llega, pero se desliza hacia una afirmación que no se sostiene.
+
+La pulsación no es la ausencia de calentamiento. La fotobiomodulación suele describirse como no térmica o de baja intensidad térmica, y esa descripción se refiere al régimen previsto, no a una garantía sobre el tejido. Los fotones que se absorben se convierten en calor, y el aumento de temperatura resultante depende de la potencia media, el ciclo de trabajo, el ancho de pulso, el tiempo total de tratamiento, el área del punto y las propiedades térmicas del tejido concreto. En los dispositivos de depilación esto es exactamente por lo que existe el enfriamiento por contacto de zafiro, y por lo que el conjunto de enfriamiento importa más que la potencia de destello de la caja: [qué hace realmente el enfriamiento de zafiro](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Una formulación mejor: cambiar la distribución temporal de la entrega de fotones cambia cómo se acumula el calor. Eso es una afirmación comprobable. «La luz pulsada no calienta» no lo es, y un protocolo pulsado de alta potencia pico con un tiempo de tratamiento largo puede depositar más calor que un protocolo CW modesto.
+
+## La frecuencia aparece en los datos celulares
+
+Si el único papel de la pulsación fuera la gestión del calor, este sería un tema de ingeniería térmica y nada más. Los experimentos celulares apuntan a otro sitio.
+
+Kim y sus colegas compararon 810 nm continuo frente a 810 nm pulsado a varias frecuencias en células madre de pulpa dental humana. En las condiciones de su estudio la frecuencia importó: distintas frecuencias de pulso produjeron distintas respuestas bioenergéticas, y los brazos pulsados se apartaron del continuo en lugar de simplemente amplificarlo. Su brazo de 300 Hz mostró el cambio más pronunciado en reactive oxygen species y en varios otros marcadores biológicos.
+
+El resultado que merece la pena llevarse: con la energía mantenida aproximadamente constante, cambiar la frecuencia de pulso cambió la respuesta biológica de forma medible. Eso coloca la frecuencia en el conjunto de parámetros del PBM como candidata a variable independiente, junto a la longitud de onda y la fluencia en lugar de detrás de ellas como un ajuste del dispositivo.
+
+## Ciclo de trabajo: potencia media igualada, instante no igualado
+
+Este es el parámetro que se omite con más frecuencia.
+
+Toma dos protocolos, ambos con una media de 10 mW. El protocolo A es continuo a 10 mW. El protocolo B es 100 mW pico con un ciclo de trabajo del 10%. Informados como potencia media son idénticos. En el instante de la estimulación no comparten nada. El protocolo B concentra la misma energía en breves ventanas de alta amplitud y luego se apaga.
+
+Tang y sus colegas probaron luz roja e infrarroja cercana a 660 nm y 850 nm en células de neuroblastoma a lo largo de un rango de frecuencias de pulso y ciclos de trabajo, frente a exposición continua. La viabilidad celular, el ATP, las reactive oxygen species y el potencial de membrana mitocondrial mostraron todos sensibilidad a la frecuencia de pulso, y cambiar el ciclo de trabajo con una frecuencia fija volvió a mover esos marcadores.
+
+Lee eso como una restricción a la interpretación. Cuando un artículo informa de «850 nm, 10 mW/cm²», la siguiente pregunta es si esa cifra es irradiancia continua o una media a lo largo de un tren de pulsos. Si es una media, el resultado no es reproducible sin la potencia pico, la frecuencia, el ciclo de trabajo y el ancho de pulso. Cuatro números, no uno.
+
+## Una potencia pico mayor no compra más penetración
+
+La cadena de razonamiento es así: la pulsación eleva la potencia pico, más potencia significa luz más fuerte, la luz más fuerte penetra más profundo, por lo tanto el PBM pulsado trata tejido más profundo. Cada paso suena plausible. La cadena se rompe en el segundo eslabón.
+
+El transporte de la luz en el tejido está gobernado por la absorción y la dispersión en la longitud de onda utilizada, la composición del tejido en el camino y la geometría del haz. Entregar la misma energía total en ráfagas más cortas eleva la potencia instantánea en la superficie sin cambiar las propiedades ópticas de lo que hay debajo. La potencia pico no es un sustituto de la profundidad de penetración. La longitud de onda es la variable que de verdad mueve la penetración, y por eso la diferencia entre una ventana de 510–1200 nm y una de 610–1200 nm no es cosmética: [cómo el rango de longitud de onda cambia lo que llega al folículo](/blog/ipl-hair-removal-wavelength-range).
+
+Ando y sus colegas compararon 810 nm continuo frente a 810 nm pulsado a 10 Hz y 100 Hz en un modelo de lesión cerebral traumática en ratón, manteniendo igualadas la densidad de potencia media, el tiempo de tratamiento y la densidad de energía en todos los brazos. El grupo pulsado a 10 Hz rindió mejor en algunas medidas neurológicas e histológicas. En particular, la mejora no necesitaba una historia de penetración que la explicara: con la densidad de potencia media igualada, los brazos pulsados no estaban entregando más luz al tejido en ningún sentido simple. Algo en la estructura temporal cambió la respuesta.
+
+## Dónde gana la onda continua
+
+Esta es la parte que se queda fuera de los resúmenes centrados en la pulsación.
+
+Khalaj y sus colegas compararon el infrarrojo cercano CW frente al infrarrojo cercano pulsado en fibroblastos gingivales humanos y encontraron que la onda continua era más eficaz para la proliferación y la migración celular en una condición específica de 5,2 J/cm². Ese es un resultado in vitro bajo sus parámetros. También es un contraejemplo directo a cualquier afirmación general de que lo pulsado supera a lo continuo.
+
+Keshri y sus colegas, trabajando en ratas inmunosuprimidas con heridas dérmicas, encontraron que determinados parámetros de 810 nm pulsado mejoraban los resultados de cicatrización de heridas en relación con los brazos de comparación. Visto junto al resultado de los fibroblastos, el resumen honesto es que en la literatura lo pulsado gana en algunas preparaciones y lo continuo gana en otras.
+
+## Por qué la misma longitud de onda sigue produciendo respuestas distintas
+
+El PBM depende de los parámetros de una forma en que pocas modalidades terapéuticas lo hacen. Cambia una variable y el resultado puede invertirse. A unos 808 nm fijos todavía puedes cambiar la irradiancia (baja frente a alta), el tiempo de tratamiento, la densidad de energía, el modo, la frecuencia de pulso y el ciclo de trabajo. Incluso con la energía total igualada, 10 J entregados de forma continua y 10 J entregados como un tren de pulsos no son el mismo estímulo.
+
+Ese es el mismo comportamiento bifásico que la literatura de fotobiomodulación ha documentado para la dosis en sí ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), extendido un nivel más profundo. La respuesta bifásica a la dosis dice que más energía no es mejor de forma monótona. La literatura sobre pulsación añade que el *calendario* de la entrega de energía también lleva información.
+
+Puestos juntos, la dosis es al menos dos cosas apiladas:
+
+- una capa espacial y energética: longitud de onda, tamaño de punto, irradiancia, fluencia
+- una capa temporal: frecuencia, ancho de pulso, ciclo de trabajo, potencia pico, potencia media, tiempo de tratamiento
+
+## Cómo es un conjunto completo de parámetros de PBM
+
+Si estás comparando dos estudios o dos dispositivos, este es el mínimo que tiene que coincidir antes de que la comparación signifique algo.
+
+| Parámetro | Por qué hace falta |
+|---|---|
+| Longitud de onda | Fija el comportamiento de absorción y dispersión |
+| Potencia de salida | Base para todo lo que viene después |
+| Irradiancia | Determina la tasa de fluencia en la superficie |
+| Fluencia | Energía total por unidad de área |
+| Tamaño de punto | Geometría del haz y del área entregada |
+| Frecuencia | Número de pulsos por segundo, si es pulsado |
+| Ciclo de trabajo | Fracción de cada ciclo en la que el emisor está encendido, si es pulsado |
+| Ancho de pulso | Duración de un solo pulso, si es pulsado |
+| Tiempo de tratamiento | Duración de una sola sesión |
+| Sesiones | Número y separación de los tratamientos |
+
+En los dispositivos pulsados, informar solo la potencia media es el fallo más común. Un lector puede calcular la potencia media a partir de la potencia pico y el ciclo de trabajo, pero no al revés. Sin la potencia pico, la frecuencia y el ciclo de trabajo, el protocolo no es reproducible y el resultado no puede atribuirse a un mecanismo. El lado del tejido en esa ecuación varía tanto como el lado del dispositivo, y por eso los mismos parámetros aterrizan de forma distinta según los tipos de Fitzpatrick y las zonas: [efectos secundarios del IPL según el tipo de piel](/blog/ipl-side-effects-by-skin-type).
+
+## Qué hacer con esto
+
+Si estás comparando dispositivos de PBM, empieza por negarte a tratar la cifra de potencia como una especificación. Pregunta si es pico o media. Luego pide los parámetros temporales, y trata su ausencia como una laguna y no como un detalle. La misma disciplina se aplica a los dispositivos de depilación de consumo, donde la ficha técnica tiende a anunciar un recuento de destellos en lugar de la ingeniería óptica y térmica que decide cómo se siente realmente el tratamiento: [por qué el recubrimiento importa más que el recuento de destellos](/blog/why-premium-ipl-devices-feel-different), y cómo es un conjunto de filtros medido en laboratorio cuando se prueban siete uno al lado del otro en lugar de describirlos en un folleto: [el informe de prueba de filtros de paso largo](/blog/ipl-long-pass-filter-test-report).
+
+Si estás leyendo un estudio, comprueba si se informó de la capa temporal. Una sección de métodos que da 808 nm y 10 J/cm² ha descrito aproximadamente la mitad de la dosis.
+
+Si estás haciendo experimentos, informa de ambas capas. Cualquiera que evalúe si un dispositivo es seguro para usar en casa está haciendo un juicio sobre exactamente estos parámetros, y por eso la versión orientada al consumidor de este argumento vive en nuestro pilar de seguridad: [es seguro el IPL para depilación](/ipl-hair-removal-is-safe).
+
+La misma longitud de onda no es el mismo tratamiento. La misma energía total no es el mismo estímulo. Las variables que deciden el resultado incluyen cuándo llegó la energía y cómo se dio forma en el camino. Si quieres ver cómo se especifican esas variables en las plataformas que fabricamos, la [gama de dispositivos](/products) enumera la fluencia, el tamaño de punto y la configuración de pulsos de cada modelo.
+
+## Referencias
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)
