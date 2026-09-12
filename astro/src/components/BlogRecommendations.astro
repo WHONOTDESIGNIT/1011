@@ -76,10 +76,8 @@ const archiveHref = getLocalizedPath(locale, '/blog#blog-archive');
                   )
                   : null}
                 <h3 class="blog-rec__h3">{p.title}</h3>
-                <p class="blog-rec__excerpt">{p.excerpt}</p>
                 <span class="blog-rec__cta">
                   {t(locale, 'blog.post.relatedCta')}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                 </span>
               </div>
             </a>
@@ -221,30 +219,14 @@ const archiveHref = getLocalizedPath(locale, '/blog#blog-archive');
     line-height: 1.375;
     color: #0f172a;
   }
-  .blog-rec__excerpt {
-    margin: 12px 0 0;
-    font-size: 14px;
-    line-height: 1.625;
-    color: #525252;
-  }
   .blog-rec__cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
     margin-top: 12px;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.4;
     color: #0369a1;
-  }
-  .blog-rec__cta svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    transition: transform 0.25s ease;
-  }
-  .blog-rec__card:hover .blog-rec__cta svg {
-    transform: translateX(4px);
   }
 
   @media (min-width: 768px) {

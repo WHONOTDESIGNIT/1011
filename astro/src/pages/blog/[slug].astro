@@ -86,12 +86,13 @@ const routeMapStages = isTimelineArticle ? await getRouteStages(locale, postSlug
 // h2 < 3 不渲染（全站 5 篇 h2 <= 2）；timeline 篇已有阶段导图，避免同页双导航。
 const tocHeadings = post.headings;
 const showToc = !isTimelineArticle && tocHeadings.filter((h) => h.depth === 2).length >= 3;
-// 有目录时正文区在 >=1280px 走两栏 grid：正文列（max-w-3xl = 922）+ 卡槽 264 + gap 40 ≈ 1226，
+// 有目录时正文区在 >=1280px 走两栏 grid：目录卡槽 264 + gap 40 + 正文列（max-w-3xl = 922）≈ 1226，
 // 恰好落在 max-w-5xl（1229）内。原先目录卡是 fixed 悬浮，而正文列两侧只剩 153px 空档，
 // 1280–1330px 视口下卡片会压到正文 —— 改在流内的 grid 后不再可能重叠。
-const layoutClass = showToc ? 'xl:grid xl:grid-cols-[minmax(0,1fr)_264px] xl:items-start xl:gap-x-10' : '';
-const mainColClass = showToc ? 'xl:col-start-1 xl:row-start-1 xl:mx-0' : '';
-const tocColClass = 'xl:col-start-2 xl:row-start-1';
+// 目录固定在正文左侧（col-start-1）；RTL 下 grid 列号沿行内轴计数，自动镜像到右侧。
+const layoutClass = showToc ? 'xl:grid xl:grid-cols-[264px_minmax(0,1fr)] xl:items-start xl:gap-x-10' : '';
+const mainColClass = showToc ? 'xl:col-start-2 xl:row-start-1 xl:mx-0' : '';
+const tocColClass = 'xl:col-start-1 xl:row-start-1';
 
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
@@ -291,7 +292,7 @@ const faqSchema = post.faqs.length
       )
       : null}
 
-    {/* 正文区：有目录时 >=1280px 两栏（正文列 + 264px 目录卡槽），<1280px 均为单栏 */}
+    {/* 正文区：有目录时 >=1280px 两栏（264px 目录卡槽 + 正文列），<1280px 均为单栏 */}
     <div class={layoutClass}>
       {showToc
         ? <ArticleToc class={tocColClass} headings={tocHeadings} label={t(locale, 'blog.post.tocTitle')} />
@@ -409,10 +410,8 @@ const faqSchema = post.faqs.length
                       : null}
                   </div>
                   <h3 class="text-lg font-semibold leading-snug text-ink-900">{p.title}</h3>
-                  <p class="text-sm leading-relaxed text-neutral-600">{p.excerpt}</p>
-                  <span class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 transition group-hover:gap-2">
+                  <span class="inline-flex items-center text-sm font-medium text-sky-700">
                     {t(locale, 'blog.post.relatedCta')}
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                   </span>
                 </div>
               </a>
