@@ -468,6 +468,19 @@ const faqSchema = post.faqs.length
     }
   }
 
+  /* ≥1280px 时阶段导图变成右上/右中固定的卡片（264px 宽 + right:16px = 占位 280px），
+     而正文列是「视口居中」的 max-w-3xl(922px)，两者在 1280~1481px 区间直接交叠。
+     实测（1440×900，/blog/ipl-hair-removal-device-development-timeline）：
+       1280px 交叠 101px、1366px 交叠 58px、1440px 交叠 21px，到 1482px 才自然分离。
+     仅对渲染了导图的文章，把 main 的右内边距撑到 296px（280 占位 + 16 安全间隙），
+     让正文列在「导图左侧的剩余宽度」内居中；≥1482px 不需要干预，保持原居中不变。
+     :has() 仅用于避免影响没有导图的其它文章（Chrome 105+/Safari 15.4+/Firefox 121+）。 */
+  @media (min-width: 1280px) and (max-width: 1481.98px) {
+    main.content-area:has([data-stage-rm]) {
+      padding-right: 296px;
+    }
+  }
+
   .blog-content {
     font-size: 1.0625rem;
     line-height: 1.8;

@@ -331,20 +331,40 @@ const { stages } = Astro.props as Props;
     });
   });
 
-  if (rows.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const index = rows.indexOf(entry.target as HTMLElement);
-            if (index > -1) setActive(index);
-          }
-        }
-      },
-      // 只把视口上 15%~30% 的横向带视为「当前阅读区」
-      { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
-    );
-    rows.forEach((row) => observer.observe(row));
+  // —— 当前行高亮：按「阅读线」判定，而不是按视口百分比的横向带 ——
+  // 旧实现用 rootMargin '-15% 0px -70% 0px' 把视口 15%~30% 视为阅读区：900px 高的视口里
+  // 那是 135~270px，而真正的阅读线（固定头部与吸顶 chips 之下）只有 90px（窄屏 136px），
+  // 于是高亮永远落在读者正在看的那一行下方。线上实测（1440×900）：滚到第 3/5/8/11 阶段并
+  // 轻微滚动后，高亮分别是第 7/9/12/14 条，即偏差 3~4 行——即客户报的「高亮滞后约 3 行」。
+  // 另外旧写法在多行同时落在带内时，点亮的是「最后被观察到的那一条」，行高变化时会抖动。
+  // 现改为复用页面自己的锚点补偿值（scroll-margin-top：宽屏 90px / 窄屏 136px / 小屏 122px）
+  // 作为阅读线，取「最后一条 top <= 阅读线」的行：位置与阅读位置严格一致，且不依赖行高。
+  if (rows.length) {
+    let lastIndex = -1;
+    const syncActive = () => {
+      const line = parseFloat(getComputedStyle(rows[0]).scrollMarginTop) || 90;
+      let index = 0;
+      for (let i = 0; i < rows.length; i++) {
+        if (rows[i].getBoundingClientRect().top <= line) index = i;
+        else break;
+      }
+      if (index !== lastIndex) {
+        lastIndex = index;
+        setActive(index);
+      }
+    };
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        syncActive();
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    syncActive();
   }
 
   // 深链直达：#stage-NN 打开时滚到该行（load 后执行，避免与浏览器原生 hash 定位竞争）
