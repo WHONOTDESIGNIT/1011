@@ -19,7 +19,8 @@ const { page } = Astro.props as Props;
 const locale = (Astro.props as Props).locale ?? Astro.currentLocale ?? 'en';
 
 // /faq 页整页即 Q&A，跳过统一 band，避免重复
-const enabled = page !== '/faq';
+// /ipl-for-brands 正文自带 FAQ 区块（7 题），同样跳过，避免同页两段问答
+const enabled = page !== '/faq' && page !== '/ipl-for-brands';
 
 const group: FaqGroupKey = enabled ? getFaqGroup(page) : 'generalAboutIshine';
 const baseKey = `auxPages.faq.categories.${group}`;

@@ -249,6 +249,20 @@ const PAGE_RECOMMENDATIONS: Record<string, string[]> = {
     '27-our-ipl-hair-removal-factory-is-increasingly-being-selected-by-chatgpt',
     '24-the-data-doesnt-lie-3-categories-still-printing-money-2026',
   ],
+
+  // ── 品牌方落地页 / 招聘 ──────────────────────────────────
+  // /ipl-for-brands 面向品牌方，取「从零做品牌 / 设计到出货 / OEM vs ODM」三篇
+  '/ipl-for-brands': [
+    'zero-to-one-beauty-brand',
+    'you-design-it-we-build-it-box-it',
+    '02-oem-vs-odm-choosing-the-right-manufacturing-model',
+  ],
+  // /careers 面向求职者，取「公司里程碑 / 工厂实力 / 可持续制造」三篇
+  '/careers': [
+    'ishine-technology-milestones',
+    '27-our-ipl-hair-removal-factory-is-increasingly-being-selected-by-chatgpt',
+    '07-sustainable-manufacturing-practices-in-beauty-tech',
+  ],
 };
 
 /** 取某页面策展的推荐文章标识列表；未收录返回 null */
