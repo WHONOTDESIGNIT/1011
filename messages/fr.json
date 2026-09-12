@@ -3938,7 +3938,28 @@
       "qcSupportTitle": "Comment le contrôle qualité soutient l'OEM/ODM",
       "qcSupportParagraph": "Le contrôle qualité ne se résume pas à réussir des contrôles : il réduit les reprises, stabilise les rendements et contribue à maintenir la prévisibilité de votre calendrier de livraison. Pour les projets OEM/ODM, nous alignons les points de contrôle et les critères d'acceptation sur votre positionnement produit et vos marchés cibles.",
       "talkToTeam": "Parlez à notre équipe",
-      "fda510kDatabase": "Vérifier dans la base de données FDA 510(k)"
+      "fda510kDatabase": "Vérifier dans la base de données FDA 510(k)",
+      "inspection": {
+        "title": "Inspection avant expédition par un tiers",
+        "intro": "Vous n'êtes pas obligé de nous croire sur parole. Votre propre inspecteur peut vérifier la marchandise dans notre usine avant qu'elle ne quitte la Chine.",
+        "priceValue": "2 000 CNY",
+        "priceNote": "Forfait par inspection — identique que votre commande porte sur quelques centaines d’unités ou sur 1 000 à 5 000.",
+        "howTitle": "Comment ça marche",
+        "howBody": "Indiquez-nous la société d'inspection que vous souhaitez — Intertek ou tout autre organisme avec lequel vous travaillez déjà. Nous convoquons son équipe dans notre usine pour réaliser le contrôle avant expédition.",
+        "itemsTitle": "Ce qui est contrôlé",
+        "itemsNote": "C'est vous qui définissez le périmètre. Si vous ne précisez rien, la base est la suivante :",
+        "items": {
+          "0": "Quantité",
+          "1": "Aspect",
+          "2": "Poids",
+          "3": "Composants internes",
+          "4": "Chargeur",
+          "5": "Puissance de sortie",
+          "6": "Nombre de flashs"
+        },
+        "billingTitle": "Facturation transparente",
+        "billingBody": "Nous vous montrons la facture de la société d'inspection. Si la facture réelle est inférieure à ce que vous avez payé, la différence vous est remboursée."
+      }
     },
     "contactPage": {
       "benefits": {

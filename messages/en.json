@@ -3938,7 +3938,28 @@
       "qcSupportTitle": "How QC Supports OEM/ODM",
       "qcSupportParagraph": "QC is not only about passing checks — it reduces rework, stabilizes yields, and helps keep your delivery schedule predictable. For OEM/ODM projects, we align test checkpoints and acceptance criteria with your product positioning and target markets.",
       "talkToTeam": "Talk to Our Team",
-      "fda510kDatabase": "Verify in FDA 510(k) Database"
+      "fda510kDatabase": "Verify in FDA 510(k) Database",
+      "inspection": {
+        "title": "Third-Party Pre-Shipment Inspection",
+        "intro": "You don't have to take our word for it. Your own inspector can verify the goods at our factory before they leave China.",
+        "priceValue": "CNY 2,000",
+        "priceNote": "Flat fee per inspection — the same whether your order runs a few hundred units or 1,000–5,000.",
+        "howTitle": "How it works",
+        "howBody": "Name the inspection company you want to use — Intertek, or any agency you already work with. We book their team to attend our factory and carry out the pre-shipment sampling.",
+        "itemsTitle": "What they check",
+        "itemsNote": "You define the scope. If you don't specify, the baseline is:",
+        "items": {
+          "0": "Quantity",
+          "1": "Appearance",
+          "2": "Weight",
+          "3": "Internal components",
+          "4": "Charger",
+          "5": "Energy output",
+          "6": "Flash count"
+        },
+        "billingTitle": "Transparent billing",
+        "billingBody": "We show you the inspection company’s invoice. If the real bill comes in below what you paid, the difference is refunded."
+      }
     },
     "contactPage": {
       "benefits": {
