@@ -1,0 +1,141 @@
+---
+title: "Gepulseerd vs continu PBM: tijd als dosisvariabele"
+description: "Gepulseerde en continue PBM verschillen biologisch bij gelijke fluence. Wat frequentie, duty cycle en piekvermogen veranderen, en waar het bewijs splitst."
+citableSummary: "Gepulseerde en continue fotobiomodulatie kunnen bij een gelijke golflengte, fluence en gemiddeld vermogen toch een ander biologisch effect hebben, doordat pulseren frequentie, pulsbreedte, duty cycle en piekvermogen aan de dosis toevoegt. Het bewijs wijst beide kanten op: 10 Hz gepulseerd 810 nm presteerde bij muizen op sommige TBI-uitkomsten beter dan continu, terwijl continu nabij-infrarood bij 5,2 J/cm² beter presteerde dan gepulseerd voor de proliferatie van gingivale fibroblasten. Geen van beide modi is universeel superieur; volledige rapportage van de temporele parameters is wat onderzoeken vergelijkbaar maakt."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Is gepulseerde PBM beter dan continue PBM?"
+    answer: "Nee, en het bewijs ondersteunt die bewering in geen van beide richtingen. Gepulseerd 810 nm bij 10 Hz presteerde bij muizen op sommige maten voor traumatisch hersenletsel beter dan continu; continu nabij-infrarood presteerde bij 5,2 J/cm² beter dan gepulseerd voor fibroblastproliferatie. De modus staat in wisselwerking met de rest van de dosis."
+  - question: "Dringt gepulseerd licht dieper door dan continu licht?"
+    answer: "Niet omdat het gepulseerd is. Penetratie hangt af van de golflengte, de optische eigenschappen van het weefsel en de geometrie van de bundel. Bij een gelijke gemiddelde vermogensdichtheid verandert pulseren wanneer de energie aankomt, niet hoe ver die reist."
+  - question: "Welke duty cycle moet een PBM-protocol gebruiken?"
+    answer: "Er is geen vastgestelde universele waarde. Duty cycle heeft in vitro bij een vaste frequentie de cellevensvatbaarheid, ATP, ROS en het mitochondriale membraanpotentiaal verschoven, dus functioneert hij als een onafhankelijke variabele. Hij moet worden gespecificeerd en gerapporteerd, en niet worden aangenomen als een apparaatdetail."
+  - question: "Waarom verschillen onderzoeken van mening over pulseren?"
+    answer: "Omdat de parameterruimte groot is en zelden gelijk wordt gehouden. Twee artikelen kunnen beide \"810 nm, gepulseerd\" zeggen en toch verschillen in piekvermogen, frequentie, duty cycle, irradiantie, weefselmodel en behandelschema."
+---
+
+**Kort antwoord:** continue golf (CW) levert een gestage fotonenstroom; gepulseerde golf (PW) levert dezelfde energie in korte pulsen. Dat verschil voegt frequentie, pulsbreedte, duty cycle en piekvermogen toe aan de dosis, en in experimenten met een gelijke totale energie hebben die toegevoegde parameters de cellulaire uitkomsten in beide richtingen doen bewegen. Gepulseerde PBM hoort op een tweede as van de dosis, naast de as die de meeste mensen al meten.
+
+Twee apparaten op de labbank. Beide zenden uit op 808 nm. Beide zijn gespecificeerd op 10 J/cm². Beide dragen hetzelfde vermogensgetal op de behuizing. U laat ze op dezelfde cellijn gedurende dezelfde behandeltijd lopen, en de ATP-waarden komen niet overeen.
+
+De vraag over pulseren is niet exotisch. IPL staat voor intense pulsed light, dus elk apparaat voor haarverwijdering dat op de productielijnen van deze site wordt gebouwd, hangt al af van een beslissing over hoe licht in pulsen wordt opgedeeld, en de parameters achter die beslissing belanden zelden op een specificatieblad. Voor de consumentgerichte versie van hoe dat licht bedoeld is te werken, zie [wat IPL-haarverwijdering feitelijk is](/blog/what-is-ipl).
+
+Niets in die dosisbeschrijving van één regel voorspelt welke kant het uitpakt, omdat de beschrijving nooit volledig was. Fluence zegt hoeveel energie per oppervlakte-eenheid aankwam. Het zegt niets over de vraag of die energie als een continue stroom of als een opeenvolging van pulsen aankwam, en het zegt niets over hoe die pulsen werden gevormd.
+
+## Wat er feitelijk verandert wanneer licht in pulsen wordt opgedeeld
+
+CW betekent dat de emitter de hele behandeling aan staat. PW betekent dat hij aan en uit schakelt volgens een gedefinieerde cyclus, waardoor vier nieuwe parameters in de specificatie terechtkomen:
+
+| Parameter | Wat het bepaalt |
+|---|---|
+| Frequentie | Hoeveel pulsen er per seconde optreden |
+| Pulsbreedte | Hoe lang elke afzonderlijke puls duurt |
+| Duty cycle | Het deel van elke cyclus waarin de emitter daadwerkelijk aan staat |
+| Piekvermogen | Momentaan vermogen terwijl de puls aan staat |
+| Gemiddeld vermogen | Vermogen gemiddeld over de volledige cyclus, inclusief de uit-tijd |
+
+Gemiddeld en piekvermogen zijn aan elkaar gekoppeld, als de pulsen ongeveer rechthoekig zijn:
+
+**gemiddeld vermogen ≈ piekvermogen × duty cycle**
+
+Een piek van 100 mW bij een duty cycle van 10 % komt gemiddeld uit op 10 mW. Een continue emitter die op 10 mW loopt, komt ook gemiddeld uit op 10 mW. Hetzelfde getal op het datasheet, een volledig andere stimulus in het weefsel.
+
+Die rekensom is waarom "100 mW" een gepulseerd protocol niet op zichzelf kan beschrijven. Twee apparaten kunnen hetzelfde getal afdrukken en piekvermogens leveren die een orde van grootte verschillen. Het ene levert een rustige, continue fluence rate; het andere levert korte, intense pulsen, gescheiden door donkere tussenpozen, en het gemiddelde verbergt dat. We liepen tegen dezelfde rapportagekloof aan, maar dan vanaf de andere kant, toen we een consumenten-IPL-apparaat op een vermogensmeter zetten en maten wat het label feitelijk leverde: [waar 28 joule vandaan komt](/blog/the-truth-about-ipl-energy).
+
+## Gepulseerd betekent niet koel
+
+Het intuïtieve argument voor pulseren is thermisch. Pulseren creëert tussenpozen, tussenpozen laten warmte diffunderen, en diffusie beperkt de temperatuurstijging. Die redenering klopt voor zover ze reikt, maar ze glijdt over in een bewering die geen stand houdt.
+
+Pulseren is niet de afwezigheid van verwarming. Fotobiomodulatie wordt meestal beschreven als niet-thermisch of laag-thermisch, en die beschrijving gaat over het beoogde regime, niet over een garantie voor het weefsel. Fotonen die worden geabsorbeerd, worden warmte, en de resulterende temperatuurstijging hangt af van het gemiddelde vermogen, de duty cycle, de pulsbreedte, de totale behandeltijd, het spotoppervlak en de thermische eigenschappen van het specifieke weefsel. Bij haarverwijderingsapparaten is dit precies waarom saffiercontactkoeling bestaat, en waarom de koelopbouw meer uitmaakt dan de opgegeven flitswaarde op de doos: [wat saffier-ijskoeling feitelijk doet](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Een betere formulering: het veranderen van de temporele verdeling van de fotonafgifte verandert hoe warmte zich ophoopt. Dat is een toetsbare bewering. "Gepulseerd licht verwarmt niet" is dat niet, en een gepulseerd protocol met een hoog piekvermogen en een lange behandeltijd kan meer warmte afzetten dan een bescheiden CW-protocol.
+
+## Frequentie is terug te zien in de celddata
+
+Als de enige rol van pulseren warmtebeheersing was, zou dit een onderwerp van thermische engineering zijn en niets meer. Cellexperimenten wijzen een andere kant op.
+
+Kim en collega's vergeleken continu 810 nm met gepulseerd 810 nm bij verschillende frequenties in humane stamcellen uit de tandpulp. Onder hun onderzoeksomstandigheden maakte de frequentie uit: verschillende pulsfrequenties gaven verschillende bio-energetische reacties, waarbij de gepulseerde armen afweken van continu in plaats van het simpelweg te versterken. Hun 300 Hz-arm vertoonde de sterkere verschuiving in reactieve zuurstofsoorten (ROS) en in verschillende andere biologische markers.
+
+Het resultaat dat het waard is om mee te nemen: met de energie ongeveer constant gehouden, veranderde een wijziging van de pulsfrequentie de biologische respons op een meetbare manier. Dat plaatst frequentie in de PBM-parameterset als een kandidaat-onafhankelijke variabele, naast de golflengte en de fluence in plaats van erachter als een apparaatinstelling.
+
+## Duty cycle: gelijk gemiddeld vermogen, ongelijk moment
+
+Dit is de parameter die het vaakst wordt overgeslagen.
+
+Neem twee protocollen, beide met een gemiddelde van 10 mW. Protocol A is continu op 10 mW. Protocol B is 100 mW piek bij een duty cycle van 10 %. Gerapporteerd als gemiddeld vermogen zijn ze identiek. Op het moment van stimulatie hebben ze niets gemeen. Protocol B concentreert dezelfde energie in korte vensters met hoge amplitude en gaat daarna donker.
+
+Tang en collega's testten rood en nabij-infrarood licht bij 660 nm en 850 nm op neuroblastoomcellen over een reeks pulsfrequenties en duty cycles, tegenover continue blootstelling. Cellevensvatbaarheid, ATP, ROS en het mitochondriale membraanpotentiaal vertoonden allemaal gevoeligheid voor de pulsfrequentie, en het veranderen van de duty cycle bij een vaste frequentie bewoog die markers opnieuw.
+
+Lees dat als een beperking voor de interpretatie. Wanneer een artikel "850 nm, 10 mW/cm²" rapporteert, is de volgende vraag of dat getal een continue irradiantie is of een gemiddelde over een pulstrein. Als het een gemiddelde is, is het resultaat niet reproduceerbaar zonder het piekvermogen, de frequentie, de duty cycle en de pulsbreedte. Vier getallen, niet één.
+
+## Hoger piekvermogen levert geen diepere penetratie op
+
+De redenering gaat zo: pulseren verhoogt het piekvermogen, hoger vermogen betekent sterker licht, sterker licht dringt dieper door, dus gepulseerde PBM behandelt dieper weefsel. Elke stap klinkt plausibel. De keten breekt bij de tweede schakel.
+
+Lichttransport in weefsel wordt bepaald door absorptie en verstrooiing bij de gebruikte golflengte, de samenstelling van het weefsel in het traject en de geometrie van de bundel. Dezelfde totale energie in kortere pulsen leveren verhoogt het momentane vermogen aan het oppervlak zonder de optische eigenschappen van wat daaronder ligt te veranderen. Piekvermogen is geen maat voor de penetratiediepte. Golflengte is de variabele die de penetratie werkelijk verandert, en daarom is het verschil tussen een venster van 510–1200 nm en een venster van 610–1200 nm niet cosmetisch: [hoe het golflengtebereik bepaalt wat de follikel bereikt](/blog/ipl-hair-removal-wavelength-range).
+
+Ando en collega's vergeleken continu 810 nm met gepulseerd 810 nm bij 10 Hz en 100 Hz in een muismodel voor traumatisch hersenletsel, waarbij de gemiddelde vermogensdichtheid, de behandeltijd en de energiedichtheid over de armen gelijk werden gehouden. De groep met gepulseerd 10 Hz presteerde beter op sommige neurologische en histologische maten. Opvallend is dat de verbetering geen penetratieverhaal nodig had om verklaard te worden: met een gelijke gemiddelde vermogensdichtheid brachten de gepulseerde armen in geen enkele eenvoudige zin meer licht in het weefsel. Iets aan de temporele structuur veranderde de respons.
+
+## Waar continue golf wint
+
+Dit is het deel dat uit pulseringsgerichte samenvattingen wegblijft.
+
+Khalaj en collega's vergeleken nabij-infrarood CW met gepulseerd nabij-infrarood in humane gingivale fibroblasten en vonden continue golf effectiever voor celproliferatie en -migratie bij een specifieke conditie van 5,2 J/cm². Dat is een in vitro-resultaat onder hun parameters. Het is ook een direct tegenvoorbeeld voor elke algemene bewering dat gepulseerd beter presteert dan continu.
+
+Keshri en collega's vonden, werkend met immunosuppressieve ratten met dermale wonden, dat bepaalde gepulseerde 810 nm-parameters de wondgenezingsuitkomsten verbeterden ten opzichte van de vergelijkingsarmen. Samen met het fibroblastresultaat is de eerlijke samenvatting dat de literatuur gepulseerd laat winnen in sommige preparaten en continu in andere.
+
+## Waarom dezelfde golflengte steeds andere antwoorden oplevert
+
+PBM is parameterafhankelijk op een manier die weinig therapeutische modaliteiten kennen. Verwissel één variabele en de uitkomst kan omslaan. Bij een vaste 808 nm kunt u nog steeds de irradiantie (laag versus hoog), de behandeltijd, de energiedichtheid, de modus, de pulsfrequentie en de duty cycle veranderen. Zelfs bij een gelijke totale energie zijn 10 J continu geleverd en 10 J geleverd als pulstrein niet dezelfde stimulus.
+
+Dat is hetzelfde bifasische gedrag dat de fotobiomodulatieliteratuur voor de dosis zelf al heeft gedocumenteerd ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), één niveau dieper doorgetrokken. Een bifasische dosisrespons zegt dat meer energie niet monotoon beter is. De pulseringsliteratuur voegt toe dat het *schema* van de energietoevoer ook informatie draagt.
+
+Samengenomen is de dosis op zijn minst twee gestapelde lagen:
+
+- een ruimtelijke en energetische laag: golflengte, spotgrootte, irradiantie, fluence
+- een temporele laag: frequentie, pulsbreedte, duty cycle, piekvermogen, gemiddeld vermogen, behandeltijd
+
+## Hoe een complete PBM-parameterset eruitziet
+
+Als u twee onderzoeken of twee apparaten vergelijkt, is dit het minimum dat moet overeenkomen voordat de vergelijking iets betekent.
+
+| Parameter | Waarom die nodig is |
+|---|---|
+| Golflengte | Bepaalt het absorptie- en verstrooiingsgedrag |
+| Uitgangsvermogen | Ijkpunt voor alles wat volgt |
+| Irradiantie | Bepaalt de fluence rate aan het oppervlak |
+| Fluence | Totale energie per oppervlakte-eenheid |
+| Spotgrootte | Geometrie van de bundel en van het bestraalde oppervlak |
+| Frequentie | Aantal pulsen per seconde, indien gepulseerd |
+| Duty cycle | Deel van elke cyclus dat de emitter aan staat, indien gepulseerd |
+| Pulsbreedte | Duur van één enkele puls, indien gepulseerd |
+| Behandeltijd | Duur van één sessie |
+| Sessies | Aantal behandelingen en de tussenpozen daartussen |
+
+Voor gepulseerde apparaten is het rapporteren van alleen het gemiddelde vermogen de meest voorkomende fout. Een lezer kan het gemiddelde vermogen berekenen uit het piekvermogen en de duty cycle, maar niet andersom. Zonder piekvermogen, frequentie en duty cycle is het protocol niet reproduceerbaar en kan het resultaat niet aan een mechanisme worden toegeschreven. De weefselkant van die vergelijking varieert net zo sterk als de apparatenkant, en daarom vallen dezelfde parameters anders uit bij verschillende Fitzpatrick-typen en op verschillende lichaamsregio's: [bijwerkingen van IPL per huidtype](/blog/ipl-side-effects-by-skin-type).
+
+## Wat u hiermee kunt doen
+
+Als u PBM-apparaten vergelijkt, begin er dan mee te weigeren het vermogensgetal als een specificatie te behandelen. Vraag of het om piek of om gemiddelde gaat. Vraag vervolgens om de temporele parameters, en beschouw hun afwezigheid als een hiaat en niet als een detail. Dezelfde discipline geldt voor consumentenapparaten voor haarverwijdering, waar het specificatieblad doorgaans een flitsaantal adverteert in plaats van de optische en thermische engineering die bepaalt hoe de behandeling werkelijk aanvoelt: [waarom de coating meer uitmaakt dan het flitsaantal](/blog/why-premium-ipl-devices-feel-different), en hoe een in een lab gemeten filterstapel eruitziet wanneer zeven ervan naast elkaar worden getest in plaats van in een brochure beschreven: [het testrapport van de long-passfilters](/blog/ipl-long-pass-filter-test-report).
+
+Als u een onderzoek leest, controleer dan of de temporele laag is gerapporteerd. Een methodensectie die 808 nm en 10 J/cm² geeft, heeft ongeveer de helft van de dosis beschreven.
+
+Als u experimenten uitvoert, rapporteer dan beide lagen. Iedereen die beoordeelt of een apparaat veilig thuis te gebruiken is, velt een oordeel over precies deze parameters, en daarom leeft de consumentgerichte versie van dit argument in onze veiligheidspijler: [is IPL-haarverwijdering veilig](/ipl-hair-removal-is-safe).
+
+Dezelfde golflengte is niet dezelfde behandeling. Dezelfde totale energie is niet dezelfde stimulus. De variabelen die de uitkomst bepalen, omvatten wanneer de energie aankwam en hoe ze onderweg is gevormd. Als u wilt zien hoe die variabelen worden gespecificeerd binnen de platforms die wij bouwen, dan geeft het [apparatenoverzicht](/products) de fluence, de spotgrootte en de pulsconfiguratie voor elk model.
+
+## Referenties
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

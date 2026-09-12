@@ -1,0 +1,141 @@
+---
+title: "PBM Pulsa vs Kontinu: Durasi sebagai Variabel Dosis"
+description: "PBM pulsa dan kontinu bisa berbeda secara biologis pada fluence sama. Apa yang diubah frekuensi, siklus kerja, dan daya puncak, serta di mana bukti terbelah."
+citableSummary: "Photobiomodulation pulsa dan gelombang kontinu dapat menghasilkan efek biologis yang berbeda meski panjang gelombang, fluence, dan daya rata-ratanya sama, karena pulsa menambahkan frekuensi, lebar pulsa, siklus kerja, dan daya puncak ke dalam dosis. Bukti mengarah ke dua arah: pulsa 10 Hz pada 810 nm mengungguli kontinu pada sebagian luaran TBI tikus, sementara inframerah dekat kontinu mengungguli pulsa untuk proliferasi fibroblas gingiva pada 5,2 J/cm². Tidak ada mode yang unggul secara universal; pelaporan parameter temporal yang lengkap inilah yang membuat studi dapat dibandingkan."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Apakah PBM pulsa lebih baik daripada PBM kontinu?"
+    answer: "Tidak, dan buktinya tidak mendukung klaim itu ke arah mana pun. Pulsa 810 nm pada 10 Hz mengungguli kontinu pada sebagian ukuran cedera otak traumatik pada tikus; inframerah dekat kontinu mengungguli pulsa untuk proliferasi fibroblas pada 5,2 J/cm². Mode berinteraksi dengan sisa dosis."
+  - question: "Apakah cahaya pulsa menembus lebih dalam daripada cahaya kontinu?"
+    answer: "Tidak, hanya karena sifat berdenyutnya. Penetrasi bergantung pada panjang gelombang, sifat optik jaringan, dan geometri berkas. Pada kepadatan daya rata-rata yang disamakan, pulsa mengubah kapan energi tiba, bukan seberapa jauh energi itu melintas."
+  - question: "Siklus kerja apa yang sebaiknya dipakai dalam protokol PBM?"
+    answer: "Tidak ada nilai universal yang mapan. Siklus kerja telah menggeser viabilitas sel, ATP, spesies oksigen reaktif, dan potensial membran mitokondria secara in vitro pada frekuensi tetap, jadi siklus kerja berfungsi sebagai variabel independen. Siklus kerja harus dicantumkan dan dilaporkan, bukan dianggap sebagai detail perangkat."
+  - question: "Mengapa studi-studi tidak sepakat soal pulsa?"
+    answer: "Karena ruang parameternya luas dan jarang disamakan. Dua makalah dapat sama-sama menyebut \"810 nm, pulsa\" sementara keduanya berbeda dalam daya puncak, frekuensi, siklus kerja, iradiansi, model jaringan, dan jadwal perlakuan."
+---
+
+**Jawaban singkat:** gelombang kontinu (CW) mengantarkan aliran foton yang tetap; gelombang pulsa (PW) mengantarkan energi yang sama dalam bentuk ledakan pulsa. Perbedaan itu menambahkan frekuensi, lebar pulsa, siklus kerja, dan daya puncak ke dalam dosis, dan pada eksperimen dengan energi yang disamakan, parameter tambahan tersebut telah menggeser luaran seluler ke dua arah. PBM pulsa berada pada sumbu dosis yang kedua, bersanding dengan sumbu yang sudah lazim diukur orang.
+
+Dua perangkat di meja kerja. Keduanya memancarkan cahaya pada 808 nm. Keduanya tertulis 10 J/cm². Keduanya mencantumkan angka daya yang sama pada rumahnya. Anda menjalankannya pada lini sel yang sama dengan waktu perlakuan yang sama, dan hasil pembacaan ATP tidak sepakat.
+
+Pertanyaan tentang pulsa bukan hal yang eksotis. IPL adalah singkatan dari intense pulsed light, jadi setiap perangkat penghilang rambut yang keluar dari lini produksi situs ini sudah bergantung pada keputusan tentang bagaimana cahaya dipotong menjadi ledakan pulsa, dan parameter di balik keputusan itu jarang masuk ke lembar spesifikasi. Untuk versi yang ditujukan bagi konsumen tentang cara kerja cahaya tersebut, lihat [apa sebenarnya IPL hair removal](/blog/what-is-ipl).
+
+Tidak ada satu pun bagian dari deskripsi dosis satu baris itu yang dapat memprediksi ke arah mana hasilnya menyimpang, karena deskripsi tersebut memang tidak pernah lengkap. Fluence menyatakan berapa banyak energi yang tiba per satuan luas. Fluence tidak mengatakan apa pun tentang apakah energi itu tiba sebagai aliran kontinu atau sebagai rangkaian ledakan pulsa, dan tidak mengatakan apa pun tentang bagaimana ledakan pulsa itu dibentuk.
+
+## Apa yang sebenarnya berubah saat cahaya dipotong menjadi pulsa
+
+CW berarti emitor menyala selama seluruh perlakuan. PW berarti emitor menyala dan mati pada siklus yang telah ditentukan, sehingga empat parameter baru masuk ke dalam spesifikasi:
+
+| Parameter | Apa yang dikendalikannya |
+|---|---|
+| Frekuensi | Berapa banyak pulsa yang terjadi per detik |
+| Lebar pulsa | Berapa lama setiap pulsa berlangsung |
+| Siklus kerja | Bagian dari setiap siklus ketika emitor benar-benar menyala |
+| Daya puncak | Daya sesaat selama pulsa menyala |
+| Daya rata-rata | Daya yang dirata-ratakan sepanjang siklus penuh, termasuk masa mati |
+
+Daya rata-rata dan daya puncak saling terkait, jika pulsanya kurang lebih berbentuk persegi:
+
+**daya rata-rata ≈ daya puncak × siklus kerja**
+
+Puncak 100 mW pada siklus kerja 10% menghasilkan rata-rata 10 mW. Emitor kontinu yang berjalan pada 10 mW juga menghasilkan rata-rata 10 mW. Angka yang sama pada lembar data, stimulus yang sama sekali berbeda di jaringan.
+
+Aritmetika itulah alasan "100 mW" tidak dapat menggambarkan protokol pulsa dengan sendirinya. Dua perangkat dapat mencetak angka yang sama dan mengantarkan daya puncak yang berbeda satu orde besaran. Yang satu mengantarkan laju fluence kontinu yang lembut; yang lain mengantarkan ledakan pulsa pendek dan intens yang dipisahkan jeda gelap, dan angka rata-rata menyembunyikan perbedaan itu. Kami menemui celah pelaporan yang sama dari sisi lain ketika menempatkan perangkat IPL konsumen pada pengukur daya dan mengukur apa yang sebenarnya diantarkan oleh labelnya: [dari mana 28 joule berasal](/blog/the-truth-about-ipl-energy).
+
+## Pulsa tidak berarti dingin
+
+Alasan intuitif untuk memakai pulsa adalah termal. Pulsa menciptakan jeda, jeda memberi kesempatan panas berdifusi, dan difusi membatasi kenaikan suhu. Penalaran itu benar sejauh itu, tetapi penalaran itu meluncur menjadi klaim yang tidak bertahan.
+
+Pulsa bukan berarti tidak ada pemanasan. Photobiomodulation biasanya digambarkan sebagai non-termal atau termal rendah, dan gambaran itu berbicara tentang rezim yang dimaksudkan, bukan jaminan tentang jaringan. Foton yang diserap akan menjadi panas, dan kenaikan suhu yang dihasilkan bergantung pada daya rata-rata, siklus kerja, lebar pulsa, total waktu perlakuan, luas berkas, dan sifat termal jaringan yang bersangkutan. Pada perangkat penghilang rambut, inilah alasan pendingin kontak safir ada, dan alasan tumpukan pendingin lebih penting daripada angka kilatan pada kemasan: [apa yang sebenarnya dilakukan pendingin safir](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Rumusan yang lebih baik: mengubah distribusi temporal pengantaran foton mengubah cara panas terakumulasi. Itu klaim yang dapat diuji. "Cahaya pulsa tidak memanaskan" bukan klaim yang dapat diuji, dan protokol pulsa dengan daya puncak tinggi serta waktu perlakuan panjang dapat menyimpan lebih banyak panas daripada protokol CW yang moderat.
+
+## Frekuensi muncul dalam data sel
+
+Jika satu-satunya peran pulsa adalah pengelolaan panas, topik ini akan menjadi soal rekayasa termal dan tidak lebih. Eksperimen sel menunjukkan arah yang lain.
+
+Kim dan rekan membandingkan 810 nm kontinu dengan 810 nm pulsa pada beberapa frekuensi di sel punca pulpa gigi manusia. Pada kondisi studi mereka, frekuensi berperan: frekuensi pulsa yang berbeda menghasilkan respons bioenergetik yang berbeda, dengan lengan pulsa menyimpang dari kontinu alih-alih sekadar memperkuatnya. Lengan 300 Hz mereka menunjukkan pergeseran yang lebih jelas pada spesies oksigen reaktif dan beberapa penanda biologis lainnya.
+
+Hasil yang layak dibawa terus: dengan energi yang dijaga kurang lebih konstan, mengubah frekuensi pulsa mengubah respons biologis secara terukur. Itu menempatkan frekuensi di dalam himpunan parameter PBM sebagai kandidat variabel independen, bersanding dengan panjang gelombang dan fluence, bukan di belakangnya sebagai sekadar pengaturan perangkat.
+
+## Siklus kerja: daya rata-rata sama, sesaatnya berbeda
+
+Inilah parameter yang paling sering dilewati.
+
+Ambil dua protokol, keduanya rata-rata 10 mW. Protokol A kontinu pada 10 mW. Protokol B berdaya puncak 100 mW pada siklus kerja 10%. Dilaporkan sebagai daya rata-rata, keduanya identik. Pada saat stimulasi, keduanya tidak memiliki kesamaan apa pun. Protokol B memusatkan energi yang sama ke dalam jendela singkat beramplitudo tinggi lalu padam.
+
+Tang dan rekan menguji cahaya merah dan inframerah dekat pada 660 nm dan 850 nm terhadap sel neuroblastoma pada berbagai frekuensi pulsa dan siklus kerja, dibandingkan dengan paparan kontinu. Viabilitas sel, ATP, spesies oksigen reaktif, dan potensial membran mitokondria semuanya menunjukkan kepekaan terhadap frekuensi pulsa, dan perubahan siklus kerja pada frekuensi tetap kembali menggeser penanda-penanda itu.
+
+Bacalah itu sebagai batasan dalam menafsirkan. Ketika sebuah makalah melaporkan "850 nm, 10 mW/cm²," pertanyaan berikutnya adalah apakah angka itu iradiansi kontinu atau rata-rata sepanjang rangkaian pulsa. Jika angka itu rata-rata, hasilnya tidak dapat direproduksi tanpa daya puncak, frekuensi, siklus kerja, dan lebar pulsa. Empat angka, bukan satu.
+
+## Daya puncak yang lebih tinggi tidak membeli penetrasi yang lebih dalam
+
+Rantai penalarannya seperti ini: pulsa menaikkan daya puncak, daya lebih tinggi berarti cahaya lebih kuat, cahaya lebih kuat menembus lebih dalam, maka PBM pulsa mengobati jaringan yang lebih dalam. Setiap langkah terdengar masuk akal. Rantai itu putus pada mata rantai kedua.
+
+Transportasi cahaya di dalam jaringan dikendalikan oleh absorpsi dan penghamburan pada panjang gelombang yang dipakai, komposisi jaringan yang dilalui, dan geometri berkas. Mengantarkan energi total yang sama dalam ledakan yang lebih singkat menaikkan daya sesaat di permukaan tanpa mengubah sifat optik lapisan di bawahnya. Daya puncak bukan ukuran pengganti bagi kedalaman penetrasi. Panjang gelombang adalah variabel yang benar-benar menggeser penetrasi, itulah sebabnya perbedaan antara jendela 510–1200 nm dan jendela 610–1200 nm bukan soal kosmetik: [bagaimana rentang panjang gelombang mengubah apa yang mencapai folikel](/blog/ipl-hair-removal-wavelength-range).
+
+Ando dan rekan membandingkan 810 nm kontinu dengan 810 nm pulsa pada 10 Hz dan 100 Hz di model cedera otak traumatik pada tikus, dengan kepadatan daya rata-rata, waktu perlakuan, dan kepadatan energi yang disamakan antar lengan. Kelompok pulsa 10 Hz tampil lebih baik pada beberapa ukuran neurologis dan histologis. Yang perlu dicatat, perbaikan itu tidak memerlukan kisah penetrasi untuk menjelaskannya: dengan kepadatan daya rata-rata yang disamakan, lengan pulsa tidak mengantarkan lebih banyak cahaya ke dalam jaringan dalam pengertian sederhana mana pun. Ada sesuatu pada struktur temporalnya yang mengubah respons.
+
+## Di mana gelombang kontinu menang
+
+Inilah bagian yang sering dihilangkan dari ringkasan yang berfokus pada pulsa.
+
+Khalaj dan rekan membandingkan inframerah dekat CW dengan inframerah dekat pulsa pada fibroblas gingiva manusia dan menemukan gelombang kontinu lebih efektif untuk proliferasi dan migrasi sel pada kondisi 5,2 J/cm² yang spesifik. Itu hasil in vitro pada parameter mereka. Itu juga contoh tandingan langsung bagi klaim menyeluruh bahwa pulsa mengungguli kontinu.
+
+Keshri dan rekan, yang bekerja pada tikus terimunosupresi dengan luka dermal, menemukan bahwa parameter 810 nm pulsa tertentu memperbaiki luaran penyembuhan luka dibandingkan lengan pembanding. Jika digabungkan dengan hasil fibroblas, ringkasan yang jujur adalah bahwa literatur menunjukkan pulsa menang pada sebagian persiapan dan kontinu menang pada persiapan lain.
+
+## Mengapa panjang gelombang yang sama terus menghasilkan jawaban berbeda
+
+PBM bergantung pada parameter dengan cara yang jarang dimiliki modalitas terapeutik lain. Ganti satu variabel dan luarannya dapat berbalik. Pada 808 nm yang tetap, Anda masih dapat mengubah iradiansi (rendah versus tinggi), waktu perlakuan, kepadatan energi, mode, frekuensi pulsa, dan siklus kerja. Bahkan pada energi total yang disamakan, 10 J yang diantarkan secara kontinu dan 10 J yang diantarkan sebagai rangkaian pulsa bukan stimulus yang sama.
+
+Itu adalah perilaku bifasik yang sama yang telah didokumentasikan literatur photobiomodulation untuk dosis itu sendiri ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), diperluas satu tingkat lebih dalam. Respons dosis bifasik menyatakan bahwa energi yang lebih banyak tidak selalu lebih baik secara monotonik. Literatur pulsa menambahkan bahwa *jadwal* pengantaran energi juga membawa informasi.
+
+Jika digabungkan, dosis setidaknya terdiri dari dua lapisan yang bertumpuk:
+
+- lapisan spasial dan energik: panjang gelombang, ukuran berkas, iradiansi, fluence
+- lapisan temporal: frekuensi, lebar pulsa, siklus kerja, daya puncak, daya rata-rata, waktu perlakuan
+
+## Seperti apa himpunan parameter PBM yang lengkap
+
+Jika Anda membandingkan dua studi atau dua perangkat, inilah minimum yang harus sama sebelum perbandingan itu bermakna.
+
+| Parameter | Mengapa diperlukan |
+|---|---|
+| Panjang gelombang | Menentukan perilaku absorpsi dan penghamburan |
+| Daya keluaran | Dasar bagi semua hal di hilirnya |
+| Iradiansi | Menentukan laju fluence di permukaan |
+| Fluence | Total energi per satuan luas |
+| Ukuran berkas | Geometri berkas dan luas area yang dikenai |
+| Frekuensi | Jumlah pulsa per detik, jika berdenyut |
+| Siklus kerja | Bagian setiap siklus ketika emitor menyala, jika berdenyut |
+| Lebar pulsa | Durasi satu pulsa tunggal, jika berdenyut |
+| Waktu perlakuan | Durasi satu sesi |
+| Sesi | Jumlah dan jarak antar perlakuan |
+
+Untuk perangkat pulsa, melaporkan daya rata-rata saja adalah kegagalan yang paling umum. Pembaca dapat menghitung daya rata-rata dari daya puncak dan siklus kerja, tetapi tidak sebaliknya. Tanpa daya puncak, frekuensi, dan siklus kerja, protokolnya tidak dapat direproduksi dan hasilnya tidak dapat dikaitkan dengan suatu mekanisme. Sisi jaringan pada persamaan itu bervariasi sama besarnya dengan sisi perangkat, itulah sebabnya parameter yang sama mendarat secara berbeda di antara tipe Fitzpatrick dan wilayah tubuh: [efek samping IPL menurut jenis kulit](/blog/ipl-side-effects-by-skin-type).
+
+## Apa yang perlu dilakukan dengan ini
+
+Jika Anda membandingkan perangkat PBM, mulailah dengan menolak memperlakukan angka daya sebagai spesifikasi. Tanyakan apakah angka itu puncak atau rata-rata. Lalu mintalah parameter temporalnya, dan perlakukan ketidakhadirannya sebagai celah, bukan detail. Disiplin yang sama berlaku pada perangkat penghilang rambut konsumen, di mana lembar spesifikasi cenderung mengiklankan jumlah kilatan alih-alih rekayasa optik dan termal yang menentukan bagaimana perlakuan sebenarnya terasa: [mengapa lapisan pelapis lebih penting daripada jumlah kilatan](/blog/why-premium-ipl-devices-feel-different), dan seperti apa tumpukan filter yang diukur di laboratorium ketika tujuh di antaranya diuji berdampingan alih-alih dijelaskan dalam brosur: [laporan uji filter long-pass](/blog/ipl-long-pass-filter-test-report).
+
+Jika Anda membaca sebuah studi, periksa apakah lapisan temporalnya dilaporkan. Bagian metode yang hanya menyebut 808 nm dan 10 J/cm² baru menjelaskan kira-kira separuh dosisnya.
+
+Jika Anda menjalankan eksperimen, laporkan kedua lapisan itu. Siapa pun yang menilai apakah sebuah perangkat aman dipakai di rumah sedang membuat penilaian tepat pada parameter-parameter ini, itulah sebabnya versi argumentasi ini untuk konsumen berada di pilar keselamatan kami: [apakah IPL hair removal aman](/ipl-hair-removal-is-safe).
+
+Panjang gelombang yang sama bukan perlakuan yang sama. Total energi yang sama bukan stimulus yang sama. Variabel yang menentukan luaran termasuk kapan energi tiba dan bagaimana energi itu dibentuk selama masuk. Jika Anda ingin melihat bagaimana variabel-variabel itu dispesifikasikan pada platform yang kami bangun, [jajaran perangkat](/products) mencantumkan fluence, ukuran berkas, dan konfigurasi pulsa untuk setiap model.
+
+## Referensi
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

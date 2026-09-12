@@ -1,0 +1,141 @@
+---
+title: "PBM pulsacyjny vs ciągły: czas jako zmienna dawki"
+description: "PBM pulsacyjny i ciągły mogą różnić się przy tej samej gęstości energii. Co zmieniają częstotliwość, cykl pracy i moc szczytowa i gdzie dowody się różnią."
+citableSummary: "Fotobiomodulacja pulsacyjna i ciągła może różnić się efektem biologicznym nawet przy dopasowanej długości fali, gęstości energii i mocy średniej, bo pulsowanie dokłada do dawki częstotliwość, szerokość impulsu, cykl pracy i moc szczytową. Dowody idą w obie strony: pulsacyjne 810 nm przy 10 Hz wypadło lepiej od ciągłego w części wyników urazowego uszkodzenia mózgu u myszy, natomiast ciągła bliska podczerwień wypadła lepiej od pulsacyjnej w proliferacji fibroblastów dziąseł przy 5,2 J/cm². Żaden tryb nie jest uniwersalnie lepszy; to pełne raportowanie parametrów czasowych czyni badania porównywalnymi."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Czy PBM pulsacyjny jest lepszy od PBM ciągłego?"
+    answer: "Nie, a dowody nie wspierają tego twierdzenia w żadnym kierunku. Pulsacyjne 810 nm przy 10 Hz wypadło lepiej od ciągłego w części miar urazowego uszkodzenia mózgu u myszy; ciągła bliska podczerwień wypadła lepiej od pulsacyjnej w proliferacji fibroblastów przy 5,2 J/cm². Tryb oddziałuje z resztą dawki."
+  - question: "Czy światło pulsacyjne wnika głębiej niż światło ciągłe?"
+    answer: "Nie z tego powodu, że jest pulsacyjne. Penetracja zależy od długości fali, właściwości optycznych tkanki i geometrii wiązki. Przy dopasowanej gęstości mocy średniej pulsowanie zmienia to, kiedy energia dociera, a nie jak daleko podróżuje."
+  - question: "Jakiego cyklu pracy powinien używać protokół PBM?"
+    answer: "Nie ma ustalonej uniwersalnej wartości. Cykl pracy przesuwał żywotność komórek, ATP, reaktywne formy tlenu i potencjał błony mitochondrialnej in vitro przy ustalonej częstotliwości, więc działa jak zmienna niezależna. Trzeba go określać i raportować, a nie zakładać, że to szczegół urządzenia."
+  - question: "Dlaczego badania nie zgadzają się co do pulsowania?"
+    answer: "Bo przestrzeń parametrów jest duża i rzadko dopasowana. Dwie publikacje mogą obie mówić „810 nm, pulsacyjne”, różniąc się mocą szczytową, częstotliwością, cyklem pracy, gęstością mocy, modelem tkanki i rozkładem zabiegów."
+---
+
+**Krótka odpowiedź:** fala ciągła (CW) dostarcza równy strumień fotonów; fala pulsacyjna (PW) dostarcza tę samą energię w seriach impulsów. Ta różnica dokłada do dawki częstotliwość, szerokość impulsu, cykl pracy i moc szczytową, a w eksperymentach z dopasowaną energią te dodatkowe parametry przesuwały wyniki na poziomie komórkowym w obu kierunkach. PBM pulsacyjny należy do drugiej osi dawki — obok osi, którą większość osób już mierzy.
+
+Dwa urządzenia na stole laboratoryjnym. Oba emitują przy 808 nm. Oba mają w specyfikacji 10 J/cm². Oba mają tę samą wartość mocy na obudowie. Uruchamiają Państwo oba na tej samej linii komórkowej przez ten sam czas zabiegu, a odczyty ATP się nie zgadzają.
+
+Kwestia pulsowania nie jest egzotyczna. IPL to skrót od intense pulsed light, więc każde urządzenie do depilacji zbudowane na liniach produkcyjnych tej strony już zależy od decyzji o tym, jak światło jest dzielone na serie impulsów, a parametry stojące za tą decyzją rzadko trafiają do karty specyfikacji. Konsumencką wersję wyjaśnienia, jak to światło ma działać, znajdą Państwo w artykule [czym właściwie jest depilacja IPL](/blog/what-is-ipl).
+
+Nic w tym jednym zdaniu opisu dawki nie pozwala przewidzieć, w którą stronę przechyli się wynik, bo ten opis nigdy nie był kompletny. Gęstość energii mówi, ile energii dotarło na jednostkę powierzchni. Nie mówi nic o tym, czy ta energia dotarła jako równy strumień, czy jako seria impulsów, i nie mówi nic o tym, jak te impulsy zostały ukształtowane.
+
+## Co właściwie zmienia się, gdy światło jest dzielone na impulsy
+
+CW oznacza, że emiter jest włączony przez cały zabieg. PW oznacza, że włącza się i wyłącza w określonym cyklu, więc do specyfikacji wchodzą cztery nowe parametry:
+
+| Parametr | Co kontroluje |
+|---|---|
+| Częstotliwość | Ile impulsów przypada na sekundę |
+| Szerokość impulsu | Jak długo trwa pojedynczy impuls |
+| Cykl pracy | Jaką część każdego cyklu emiter jest faktycznie włączony |
+| Moc szczytowa | Moc chwilowa, gdy impuls jest włączony |
+| Moc średnia | Moc uśredniona w całym cyklu, wraz z czasem wyłączenia |
+
+Moc średnia i moc szczytowa są powiązane, jeśli impulsy są w przybliżeniu prostokątne:
+
+**moc średnia ≈ moc szczytowa × cykl pracy**
+
+Moc szczytowa 100 mW przy cyklu pracy 10 % daje średnio 10 mW. Emiter ciągły pracujący przy 10 mW też daje średnio 10 mW. Ta sama liczba w karcie katalogowej, zupełnie inny bodziec w tkance.
+
+Ta arytmetyka wyjaśnia, dlaczego „100 mW” nie opisuje protokołu pulsacyjnego samo w sobie. Dwa urządzenia mogą mieć nadrukowaną tę samą wartość, a dostarczać moce szczytowe różniące się o rząd wielkości. Jedno daje łagodne, ciągłe tempo dostarczania energii; drugie daje krótkie, intensywne serie impulsów rozdzielone ciemnymi przerwami — a średnia to ukrywa. Na tę samą lukę w raportowaniu trafiliśmy z drugiej strony, gdy podłączyliśmy konsumenckie urządzenie IPL do miernika mocy i zmierzyliśmy, co etykieta faktycznie dostarcza: [skąd bierze się 28 dżuli](/blog/the-truth-about-ipl-energy).
+
+## Pulsowanie nie znaczy „chłodno”
+
+Intuicyjny argument za pulsowaniem jest termiczny. Pulsowanie tworzy przerwy, przerwy pozwalają ciepłu się rozproszyć, a rozproszenie ogranicza wzrost temperatury. To rozumowanie jest poprawne w takim zakresie, w jakim sięga, ale przechodzi w twierdzenie, które się nie utrzymuje.
+
+Pulsowanie nie jest brakiem nagrzewania. Fotobiomodulację zwykle opisuje się jako nietermiczną lub niskotermiczną, ale ten opis dotyczy zamierzonego reżimu, a nie gwarancji dla tkanki. Fotony, które zostaną pochłonięte, zamieniają się w ciepło, a wynikający z tego wzrost temperatury zależy od mocy średniej, cyklu pracy, szerokości impulsu, całkowitego czasu zabiegu, powierzchni plamki i właściwości termicznych konkretnej tkanki. W urządzeniach do depilacji dokładnie dlatego istnieje szafirowe chłodzenie kontaktowe i dlatego układ chłodzenia ma większe znaczenie niż liczba błysków na pudełku: [co faktycznie robi szafirowe chłodzenie lodowe](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Lepsze sformułowanie: zmiana rozkładu dostarczania fotonów w czasie zmienia sposób gromadzenia się ciepła. To twierdzenie poddaje się testowaniu. „Światło pulsacyjne nie nagrzewa” — nie, a protokół pulsacyjny o wysokiej mocy szczytowej i długim czasie zabiegu może zdeponować więcej ciepła niż umiarkowany protokół CW.
+
+## Częstotliwość widać w danych komórkowych
+
+Gdyby jedyną rolą pulsowania było zarządzanie ciepłem, byłby to temat z inżynierii termicznej i nic więcej. Eksperymenty na komórkach wskazują gdzie indziej.
+
+Kim i współpracownicy porównali ciągłe 810 nm z pulsacyjnym 810 nm przy kilku częstotliwościach w ludzkich komórkach macierzystych miazgi zębowej. W warunkach ich badania częstotliwość miała znaczenie: różne częstotliwości impulsów dawały różne odpowiedzi bioenergetyczne, a ramiona pulsacyjne odbiegały od ciągłego, zamiast je po prostu wzmacniać. Ich ramię 300 Hz wykazało wyraźniejszą zmianę w reaktywnych formach tlenu i w kilku innych markerach biologicznych.
+
+Wynik, który warto zapamiętać: przy energii utrzymanej w przybliżeniu na stałym poziomie zmiana częstotliwości impulsów zmieniła odpowiedź biologiczną w sposób mierzalny. To stawia częstotliwość w zestawie parametrów PBM jako kandydatkę na zmienną niezależną — obok długości fali i gęstości energii, a nie za nimi, jako ustawienie urządzenia.
+
+## Cykl pracy: dopasowana moc średnia, niedopasowana chwila
+
+To parametr, który jest pomijany najczęściej.
+
+Weźmy dwa protokoły, oba o średniej 10 mW. Protokół A jest ciągły przy 10 mW. Protokół B ma 100 mW mocy szczytowej przy cyklu pracy 10 %. Podane jako moc średnia są identyczne. W momencie stymulacji nie mają ze sobą nic wspólnego. Protokół B skupia tę samą energię w krótkich oknach o wysokiej amplitudzie, a potem gaśnie.
+
+Tang i współpracownicy testowali światło czerwone i bliskiej podczerwieni przy 660 nm i 850 nm na komórkach neuroblastomy w zakresie różnych częstotliwości impulsów i cykli pracy, w porównaniu z ekspozycją ciągłą. Żywotność komórek, ATP, reaktywne formy tlenu i potencjał błony mitochondrialnej — wszystkie te markery okazały się wrażliwe na częstotliwość impulsów, a zmiana cyklu pracy przy ustalonej częstotliwości ponownie je przesuwała.
+
+Trzeba to czytać jako ograniczenie dla interpretacji. Gdy publikacja podaje „850 nm, 10 mW/cm²”, następne pytanie brzmi, czy ta wartość to ciągła gęstość mocy, czy średnia z całej serii impulsów. Jeśli to średnia, wyniku nie da się odtworzyć bez mocy szczytowej, częstotliwości, cyklu pracy i szerokości impulsu. Cztery liczby, nie jedna.
+
+## Wyższa moc szczytowa nie kupuje głębszej penetracji
+
+Łańcuch rozumowania wygląda tak: pulsowanie podnosi moc szczytową, wyższa moc to silniejsze światło, silniejsze światło wnika głębiej, a więc PBM pulsacyjny leczy głębsze tkanki. Każdy krok brzmi wiarygodnie. Łańcuch pęka na drugim ogniwie.
+
+Transport światła w tkance zależy od absorpcji i rozpraszania przy używanej długości fali, od składu tkanki na drodze wiązki i od geometrii samej wiązki. Dostarczenie tej samej całkowitej energii w krótszych seriach impulsów podnosi moc chwilową na powierzchni, nie zmieniając właściwości optycznych tego, co leży poniżej. Moc szczytowa nie jest miarą zastępczą głębokości wnikania. Zmienną, która rzeczywiście przesuwa penetrację, jest długość fali — dlatego różnica między oknem 510–1200 nm a 610–1200 nm nie jest kosmetyczna: [jak zakres długości fali zmienia to, co dociera do mieszka włosowego](/blog/ipl-hair-removal-wavelength-range).
+
+Ando i współpracownicy porównali ciągłe 810 nm z pulsacyjnym 810 nm przy 10 Hz i 100 Hz w mysim modelu urazowego uszkodzenia mózgu, utrzymując dopasowaną gęstość mocy średniej, czas zabiegu i gęstość energii w poszczególnych ramionach badania. Grupa pulsacyjna 10 Hz wypadła lepiej w części pomiarów neurologicznych i histologicznych. Co istotne, poprawy nie trzeba tłumaczyć historią o głębszej penetracji: przy dopasowanej gęstości mocy średniej ramiona pulsacyjne nie dostarczały do tkanki więcej światła w żadnym prostym sensie. Coś w strukturze czasowej zmieniło odpowiedź.
+
+## Gdzie wygrywa fala ciągła
+
+To część, którą pomija się w podsumowaniach skupionych na pulsowaniu.
+
+Khalaj i współpracownicy porównali CW w bliskiej podczerwieni z pulsacyjną bliską podczerwienią w ludzkich fibroblastach dziąseł i stwierdzili, że fala ciągła była skuteczniejsza dla proliferacji i migracji komórek w konkretnym warunku 5,2 J/cm². To wynik in vitro uzyskany przy ich parametrach. Jest to także bezpośredni kontrprzykład dla każdego twierdzenia obejmującego wszystko, że tryb pulsacyjny jest lepszy od ciągłego.
+
+Keshri i współpracownicy, pracując na szczurach z immunosupresją i ranami skórnymi, stwierdzili, że konkretne parametry pulsacyjne 810 nm poprawiły wyniki gojenia ran w stosunku do ramion porównawczych. Zestawiając to z wynikiem dla fibroblastów, uczciwe podsumowanie brzmi: w literaturze pulsowanie wygrywa w niektórych układach doświadczalnych, a tryb ciągły w innych.
+
+## Dlaczego ta sama długość fali wciąż daje różne odpowiedzi
+
+PBM zależy od parametrów w sposób, jakiego doświadcza niewiele modalności terapeutycznych. Zmień jeden parametr, a wynik może się odwrócić. Przy ustalonym 808 nm nadal można zmieniać gęstość mocy (niską lub wysoką), czas zabiegu, gęstość energii, tryb, częstotliwość impulsów i cykl pracy. Nawet przy dopasowanej całkowitej energii 10 J dostarczone w sposób ciągły i 10 J dostarczone jako seria impulsów to nie ten sam bodziec.
+
+To to samo zachowanie dwufazowe, które literatura o fotobiomodulacji opisała dla samej dawki ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), rozciągnięte o jeden poziom głębiej. Dwufazowa odpowiedź na dawkę mówi, że więcej energii nie znaczy monotonicznie lepiej. Literatura o pulsowaniu dodaje, że *rozkład w czasie* dostarczania energii też niesie informację.
+
+Złożone razem, dawka to co najmniej dwie warstwy:
+
+- warstwa przestrzenna i energetyczna: długość fali, rozmiar plamki, gęstość mocy, gęstość energii
+- warstwa czasowa: częstotliwość, szerokość impulsu, cykl pracy, moc szczytowa, moc średnia, czas zabiegu
+
+## Jak wygląda kompletny zestaw parametrów PBM
+
+Jeśli porównują Państwo dwa badania albo dwa urządzenia, to jest minimum, które musi się zgadzać, zanim porównanie zacznie cokolwiek znaczyć.
+
+| Parametr | Dlaczego jest potrzebny |
+|---|---|
+| Długość fali | Ustala absorpcję i rozpraszanie |
+| Moc wyjściowa | Punkt odniesienia dla wszystkiego dalej |
+| Gęstość mocy | Określa, jak szybko energia narasta w przeliczeniu na powierzchnię |
+| Gęstość energii | Całkowita energia na jednostkę powierzchni |
+| Rozmiar plamki | Geometria wiązki i napromienianej powierzchni |
+| Częstotliwość | Liczba impulsów na sekundę, jeśli tryb pulsacyjny |
+| Cykl pracy | Część każdego cyklu, w której emiter jest włączony, jeśli tryb pulsacyjny |
+| Szerokość impulsu | Czas trwania pojedynczego impulsu, jeśli tryb pulsacyjny |
+| Czas zabiegu | Czas trwania jednej sesji |
+| Sesje | Liczba zabiegów i odstępy między nimi |
+
+W urządzeniach pulsacyjnych najczęstszym błędem jest podawanie wyłącznie mocy średniej. Czytelnik może obliczyć moc średnią z mocy szczytowej i cyklu pracy, ale nie odwrotnie. Bez mocy szczytowej, częstotliwości i cyklu pracy protokołu nie da się odtworzyć, a wyniku nie można przypisać do mechanizmu. Strona tkankowa tego równania zmienia się tak samo mocno jak strona urządzenia — dlatego te same parametry dają różne efekty w zależności od typu Fitzpatricka i okolicy ciała: [skutki uboczne IPL według typu skóry](/blog/ipl-side-effects-by-skin-type).
+
+## Co z tym zrobić
+
+Jeśli porównują Państwo urządzenia PBM, warto zacząć od tego, żeby nie traktować wartości mocy jako specyfikacji. Warto zapytać, czy to moc szczytowa, czy średnia. Potem warto poprosić o parametry czasowe, a ich brak traktować jak lukę, a nie szczegół. Ta sama dyscyplina dotyczy konsumenckich urządzeń do depilacji, w których karta produktu zwykle reklamuje liczbę błysków zamiast inżynierii optycznej i termicznej, która decyduje o tym, jak zabieg faktycznie się odczuwa: [dlaczego powłoka ma większe znaczenie niż liczba błysków](/blog/why-premium-ipl-devices-feel-different) oraz jak wygląda zmierzony w laboratorium stos filtrów, gdy siedem z nich testuje się obok siebie, a nie opisuje w broszurze: [raport z testu filtrów długoprzepustowych](/blog/ipl-long-pass-filter-test-report).
+
+Czytając badanie, warto sprawdzić, czy warstwa czasowa została podana. Sekcja metod, która podaje 808 nm i 10 J/cm², opisała mniej więcej połowę dawki.
+
+Jeśli prowadzą Państwo eksperymenty, warto raportować obie warstwy. Każdy, kto ocenia, czy urządzenie jest bezpieczne do użytku domowego, wydaje osąd dokładnie na podstawie tych parametrów — dlatego konsumencka wersja tego argumentu znajduje się w naszym filarze o bezpieczeństwie: [czy depilacja IPL jest bezpieczna](/ipl-hair-removal-is-safe).
+
+Ta sama długość fali to nie ten sam zabieg. Ta sama całkowita energia to nie ten sam bodziec. Do zmiennych, które decydują o wyniku, należy to, kiedy energia dotarła i jak została ukształtowana po drodze. Jeśli chcą Państwo zobaczyć, jak te zmienne są określone w budowanych przez nas platformach, [gama urządzeń](/products) podaje gęstość energii, rozmiar plamki i konfigurację impulsów dla każdego modelu.
+
+## Bibliografia
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

@@ -1,0 +1,141 @@
+---
+title: "PBM xung và sóng liên tục: thời gian là biến số của liều"
+description: "PBM xung và sóng liên tục có thể khác nhau về mặt sinh học ở cùng mật độ năng lượng quang. Tần số, chu kỳ nhiệm vụ và công suất đỉnh thay đổi điều gì."
+citableSummary: "PBM dạng xung và PBM sóng liên tục có thể khác nhau về tác động sinh học ngay cả khi đã khớp bước sóng, mật độ năng lượng quang và công suất trung bình, bởi vì việc tạo xung bổ sung tần số, độ rộng xung, chu kỳ nhiệm vụ và công suất đỉnh vào liều. Bằng chứng nghiêng về cả hai phía: 810 nm dạng xung ở 10 Hz vượt trội hơn dạng liên tục ở một số kết quả chấn thương sọ não trên chuột, trong khi cận hồng ngoại liên tục lại vượt trội hơn dạng xung ở thí nghiệm tăng sinh nguyên bào sợi nướu tại 5,2 J/cm². Không chế độ nào vượt trội một cách phổ quát; việc báo cáo đầy đủ các thông số thời gian mới là điều khiến các nghiên cứu có thể so sánh được với nhau."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "PBM dạng xung có tốt hơn PBM liên tục không?"
+    answer: "Không, và bằng chứng không ủng hộ khẳng định đó theo bất kỳ hướng nào. 810 nm dạng xung ở 10 Hz vượt trội hơn dạng liên tục ở một số chỉ số chấn thương sọ não trên chuột; cận hồng ngoại liên tục vượt trội hơn dạng xung ở thí nghiệm tăng sinh nguyên bào sợi tại 5,2 J/cm². Chế độ tương tác với phần còn lại của liều."
+  - question: "Ánh sáng xung có xuyên sâu hơn ánh sáng liên tục không?"
+    answer: "Không phải vì nó là xung. Độ xuyên sâu phụ thuộc vào bước sóng, tính chất quang học của mô và hình học chùm tia. Khi mật độ công suất trung bình đã khớp, việc tạo xung thay đổi thời điểm năng lượng đến, chứ không thay đổi quãng đường nó đi được."
+  - question: "Một phác đồ PBM nên dùng chu kỳ nhiệm vụ nào?"
+    answer: "Không có giá trị phổ quát nào được thiết lập. Chu kỳ nhiệm vụ đã làm dịch chuyển khả năng sống của tế bào, ATP, các loài oxy phản ứng và điện thế màng ti thể trong ống nghiệm ở tần số cố định, nên nó hoạt động như một biến độc lập. Nó cần được ghi rõ và báo cáo, chứ không nên bị coi là một chi tiết của thiết bị."
+  - question: "Vì sao các nghiên cứu không đồng thuận về việc tạo xung?"
+    answer: "Vì không gian thông số rất rộng và hiếm khi được khớp. Hai bài báo đều có thể nói \"810 nm, dạng xung\" trong khi khác nhau ở công suất đỉnh, tần số, chu kỳ nhiệm vụ, cường độ chiếu xạ, mô hình mô và lịch trình điều trị."
+---
+
+**Câu trả lời ngắn:** sóng liên tục (CW) truyền đi một dòng photon đều đặn; sóng xung (PW) cũng truyền lượng năng lượng đó nhưng thành từng chùm. Khác biệt ấy bổ sung tần số, độ rộng xung, chu kỳ nhiệm vụ và công suất đỉnh vào liều, và trong những thí nghiệm có năng lượng được khớp bằng nhau, các thông số bổ sung đó đã đẩy kết quả ở cấp tế bào theo cả hai hướng. PBM dạng xung thuộc về một trục thứ hai của liều, bên cạnh trục mà hầu hết mọi người vẫn đo.
+
+Hai thiết bị trên bàn thử. Cả hai đều phát ở 808 nm. Cả hai đều được ghi thông số 10 J/cm². Cả hai đều in cùng một con số công suất trên vỏ máy. Bạn cho chúng chạy trên cùng một dòng tế bào trong cùng một thời gian điều trị, và kết quả đo ATP không khớp nhau.
+
+Câu hỏi về việc tạo xung không hề xa lạ. IPL là viết tắt của intense pulsed light (ánh sáng xung cường độ cao), nên mọi thiết bị triệt lông được sản xuất trên dây chuyền của trang web này đều đã phụ thuộc vào một quyết định về cách chia ánh sáng thành từng chùm, và những thông số đằng sau quyết định đó hiếm khi xuất hiện trên bảng thông số. Về phiên bản dành cho người tiêu dùng của cách ánh sáng đó được thiết kế để hoạt động, xem [triệt lông bằng IPL thực chất là gì](/blog/what-is-ipl).
+
+Không có gì trong mô tả liều một dòng đó dự đoán được nó sẽ lệch theo hướng nào, bởi vì mô tả đó chưa bao giờ đầy đủ. Mật độ năng lượng quang (fluence) cho biết bao nhiêu năng lượng đã đến trên một đơn vị diện tích. Nó không nói gì về việc năng lượng đó đến dưới dạng một dòng liên tục hay một chuỗi chùm xung, và cũng không nói gì về cách những chùm xung đó được định dạng.
+
+## Điều gì thực sự thay đổi khi ánh sáng được chia thành xung
+
+CW nghĩa là bộ phát bật trong suốt quá trình điều trị. PW nghĩa là nó bật và tắt theo một chu kỳ xác định, do đó có bốn thông số mới gia nhập bản đặc tả:
+
+| Thông số | Nó kiểm soát điều gì |
+|---|---|
+| Tần số | Số xung xảy ra mỗi giây |
+| Độ rộng xung | Mỗi xung riêng lẻ kéo dài bao lâu |
+| Chu kỳ nhiệm vụ | Tỷ lệ phần chu kỳ mà bộ phát thực sự bật |
+| Công suất đỉnh | Công suất tức thời trong lúc xung bật |
+| Công suất trung bình | Công suất tính trung bình trên toàn chu kỳ, kể cả thời gian tắt |
+
+Công suất trung bình và công suất đỉnh có liên hệ với nhau, nếu các xung gần như hình chữ nhật:
+
+**công suất trung bình ≈ công suất đỉnh × chu kỳ nhiệm vụ**
+
+Một xung đỉnh 100 mW với chu kỳ nhiệm vụ 10% cho trung bình 10 mW. Một bộ phát liên tục chạy ở 10 mW cũng cho trung bình 10 mW. Cùng con số trên bảng dữ liệu, nhưng là hai kích thích hoàn toàn khác nhau tại mô.
+
+Chính phép tính đó là lý do vì sao "100 mW" không thể mô tả một phác đồ dạng xung chỉ bằng một mình nó. Hai thiết bị có thể in cùng một con số và truyền đi những công suất đỉnh khác nhau cả một bậc độ lớn. Một chiếc tạo ra tốc độ mật độ năng lượng liên tục, êm dịu; chiếc kia tạo ra những chùm xung ngắn, mạnh, ngăn cách bởi các khoảng tối, và con số trung bình che mất điều đó. Chúng tôi đã gặp đúng lỗ hổng báo cáo đó từ phía ngược lại khi đặt một máy IPL tiêu dùng lên đồng hồ đo công suất và đo xem nhãn máy thực sự truyền đi bao nhiêu: [28 jun đến từ đâu](/blog/the-truth-about-ipl-energy).
+
+## Dạng xung không có nghĩa là mát
+
+Lập luận trực giác ủng hộ việc tạo xung là về nhiệt. Tạo xung sinh ra các khoảng nghỉ, khoảng nghỉ cho phép nhiệt khuếch tán, và sự khuếch tán giới hạn mức tăng nhiệt độ. Lý lẽ đó đúng trong giới hạn của nó, nhưng nó trượt sang một khẳng định không đứng vững.
+
+Tạo xung không phải là không có nhiệt. Quang điều biến sinh học (PBM) thường được mô tả là không nhiệt hoặc ít nhiệt, và mô tả đó nói về chế độ mong muốn chứ không phải một bảo đảm về mô. Photon bị hấp thụ sẽ biến thành nhiệt, và mức tăng nhiệt độ thu được phụ thuộc vào công suất trung bình, chu kỳ nhiệm vụ, độ rộng xung, tổng thời gian điều trị, diện tích điểm chiếu và tính chất nhiệt của mô cụ thể. Trên các thiết bị triệt lông, đây chính là lý do tồn tại của làm mát tiếp xúc bằng sapphire, và là lý do cụm làm mát quan trọng hơn con số số lần nháy trên hộp: [làm mát bằng sapphire thực sự làm gì](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Một cách diễn đạt tốt hơn: thay đổi phân bố thời gian của việc truyền photon sẽ thay đổi cách nhiệt tích tụ. Đó là một khẳng định có thể kiểm chứng. "Ánh sáng xung không nóng" thì không kiểm chứng được, và một phác đồ xung có công suất đỉnh cao với thời gian điều trị dài có thể tích tụ nhiều nhiệt hơn một phác đồ CW khiêm tốn.
+
+## Tần số xuất hiện trong dữ liệu tế bào
+
+Nếu vai trò duy nhất của việc tạo xung là quản lý nhiệt, thì đây sẽ là một chủ đề kỹ thuật nhiệt và không hơn. Các thí nghiệm trên tế bào lại chỉ về một hướng khác.
+
+Kim và các cộng sự đã so sánh 810 nm liên tục với 810 nm dạng xung ở nhiều tần số khác nhau trên tế bào gốc tủy răng người. Trong điều kiện nghiên cứu của họ, tần số có ý nghĩa: những tần số xung khác nhau tạo ra những phản ứng năng lượng sinh học khác nhau, trong đó các nhánh dạng xung tách khỏi nhánh liên tục thay vì chỉ đơn thuần khuếch đại nó. Nhánh 300 Hz của họ cho thấy sự dịch chuyển rõ rệt hơn ở các loài oxy phản ứng và ở một số dấu ấn sinh học khác.
+
+Kết quả đáng ghi nhớ: khi năng lượng được giữ gần như không đổi, việc thay đổi tần số xung đã thay đổi phản ứng sinh học theo một cách có thể đo được. Điều đó đặt tần số vào bộ thông số PBM như một biến độc lập tiềm năng, đứng cạnh bước sóng và mật độ năng lượng quang thay vì đứng sau chúng như một cài đặt của thiết bị.
+
+## Chu kỳ nhiệm vụ: công suất trung bình khớp, khoảnh khắc không khớp
+
+Đây là thông số bị bỏ qua nhiều nhất.
+
+Lấy hai phác đồ, cả hai đều trung bình 10 mW. Phác đồ A liên tục ở 10 mW. Phác đồ B có công suất đỉnh 100 mW với chu kỳ nhiệm vụ 10%. Khi báo cáo dưới dạng công suất trung bình thì chúng giống hệt nhau. Tại khoảnh khắc kích thích thì chúng không có gì chung. Phác đồ B dồn cùng lượng năng lượng đó vào những cửa sổ ngắn có biên độ cao rồi tắt tối.
+
+Tang và các cộng sự đã thử ánh sáng đỏ và cận hồng ngoại ở 660 nm và 850 nm trên tế bào u nguyên bào thần kinh, qua một loạt tần số xung và chu kỳ nhiệm vụ, đối chiếu với chiếu liên tục. Khả năng sống của tế bào, ATP, các loài oxy phản ứng và điện thế màng ti thể đều cho thấy sự nhạy cảm với tần số xung, và việc thay đổi chu kỳ nhiệm vụ ở một tần số cố định lại làm những dấu ấn đó dịch chuyển thêm.
+
+Hãy đọc điều đó như một ràng buộc đối với việc diễn giải. Khi một bài báo ghi "850 nm, 10 mW/cm²", câu hỏi tiếp theo là con số đó là cường độ chiếu xạ liên tục hay là mức trung bình trên một chuỗi xung. Nếu đó là mức trung bình, kết quả không thể tái lập nếu thiếu công suất đỉnh, tần số, chu kỳ nhiệm vụ và độ rộng xung. Bốn con số, không phải một.
+
+## Công suất đỉnh cao hơn không mua được độ xuyên sâu
+
+Chuỗi lập luận diễn ra như sau: tạo xung làm tăng công suất đỉnh, công suất cao hơn nghĩa là ánh sáng mạnh hơn, ánh sáng mạnh hơn xuyên sâu hơn, do đó PBM dạng xung điều trị được mô sâu hơn. Mỗi bước nghe đều hợp lý. Chuỗi đứt ở mắt xích thứ hai.
+
+Sự truyền ánh sáng trong mô chịu sự chi phối của hấp thụ và tán xạ tại bước sóng đang dùng, thành phần của mô trên đường đi, và hình học của chùm tia. Truyền cùng một tổng năng lượng trong những chùm ngắn hơn sẽ nâng công suất tức thời ở bề mặt mà không thay đổi các tính chất quang học của lớp nằm phía dưới. Công suất đỉnh không phải là đại diện thay thế cho độ xuyên sâu. Bước sóng mới là biến thực sự làm thay đổi độ xuyên sâu, đó là lý do sự khác biệt giữa cửa sổ 510–1200 nm và cửa sổ 610–1200 nm không chỉ là hình thức: [dải bước sóng thay đổi điều gì đến được nang lông](/blog/ipl-hair-removal-wavelength-range).
+
+Ando và các cộng sự đã so sánh 810 nm liên tục với 810 nm dạng xung ở 10 Hz và 100 Hz trên mô hình chấn thương sọ não do sang chấn ở chuột, giữ mật độ công suất trung bình, thời gian điều trị và mật độ năng lượng khớp nhau giữa các nhánh. Nhóm xung 10 Hz đạt kết quả tốt hơn ở một số chỉ số thần kinh và mô học. Đáng chú ý, sự cải thiện đó không cần một câu chuyện về độ xuyên sâu để giải thích: với mật độ công suất trung bình đã khớp, các nhánh dạng xung không hề truyền nhiều ánh sáng hơn vào mô theo bất kỳ nghĩa đơn giản nào. Một điều gì đó về cấu trúc thời gian đã thay đổi phản ứng.
+
+## Nơi sóng liên tục thắng
+
+Đây là phần thường bị bỏ ra khỏi những bài tóm tắt chỉ tập trung vào việc tạo xung.
+
+Khalaj và các cộng sự đã so sánh CW cận hồng ngoại với cận hồng ngoại dạng xung trên nguyên bào sợi nướu người và nhận thấy sóng liên tục hiệu quả hơn đối với sự tăng sinh và di chuyển của tế bào ở một điều kiện 5,2 J/cm² cụ thể. Đó là kết quả in vitro trong các thông số của họ. Nó cũng là một phản ví dụ trực tiếp cho bất kỳ tuyên bố chung chung nào rằng dạng xung vượt trội hơn dạng liên tục.
+
+Keshri và các cộng sự, khi làm việc trên chuột bị ức chế miễn dịch có vết thương ở da, nhận thấy một số thông số 810 nm dạng xung cụ thể cải thiện kết quả lành thương so với các nhánh đối chứng. Đặt cạnh kết quả trên nguyên bào sợi, tóm tắt trung thực là: trong y văn, dạng xung thắng ở một số mẫu thí nghiệm và dạng liên tục thắng ở những mẫu khác.
+
+## Vì sao cùng một bước sóng cứ cho ra những câu trả lời khác nhau
+
+PBM phụ thuộc vào thông số theo cách mà rất ít phương thức điều trị khác có. Đổi một biến là kết quả có thể đảo ngược. Ở 808 nm cố định, bạn vẫn có thể thay đổi cường độ chiếu xạ (thấp so với cao), thời gian điều trị, mật độ năng lượng, chế độ, tần số xung và chu kỳ nhiệm vụ. Ngay cả khi tổng năng lượng đã khớp, 10 J truyền liên tục và 10 J truyền thành một chuỗi xung không phải là cùng một kích thích.
+
+Đó chính là hành vi hai pha mà y văn về quang điều biến sinh học đã ghi nhận cho chính liều ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), mở rộng thêm một tầng sâu hơn. Đáp ứng liều hai pha nói rằng nhiều năng lượng hơn không đồng nghĩa tốt hơn một cách đơn điệu. Y văn về việc tạo xung bổ sung thêm rằng *lịch trình* truyền năng lượng cũng mang thông tin.
+
+Ghép lại, liều là ít nhất hai lớp xếp lên nhau:
+
+- một lớp không gian và năng lượng: bước sóng, kích thước điểm chiếu, cường độ chiếu xạ, mật độ năng lượng quang
+- một lớp thời gian: tần số, độ rộng xung, chu kỳ nhiệm vụ, công suất đỉnh, công suất trung bình, thời gian điều trị
+
+## Một bộ thông số PBM đầy đủ trông như thế nào
+
+Nếu bạn đang so sánh hai nghiên cứu hoặc hai thiết bị, đây là mức tối thiểu phải khớp nhau trước khi phép so sánh có ý nghĩa gì.
+
+| Thông số | Vì sao cần |
+|---|---|
+| Bước sóng | Định hình hành vi hấp thụ và tán xạ |
+| Công suất đầu ra | Nền tảng cho mọi thứ phía sau |
+| Cường độ chiếu xạ | Quyết định tốc độ mật độ năng lượng ở bề mặt |
+| Mật độ năng lượng quang | Tổng năng lượng trên một đơn vị diện tích |
+| Kích thước điểm chiếu | Hình học của chùm tia và vùng được chiếu |
+| Tần số | Số xung mỗi giây, nếu dùng xung |
+| Chu kỳ nhiệm vụ | Tỷ lệ phần chu kỳ mà bộ phát bật, nếu dùng xung |
+| Độ rộng xung | Thời lượng của một xung đơn lẻ, nếu dùng xung |
+| Thời gian điều trị | Thời lượng của một buổi |
+| Số buổi | Số lần và khoảng cách giữa các lần điều trị |
+
+Với các thiết bị dạng xung, chỉ báo cáo công suất trung bình là lỗi phổ biến nhất. Người đọc có thể tính công suất trung bình từ công suất đỉnh và chu kỳ nhiệm vụ, nhưng không thể làm ngược lại. Không có công suất đỉnh, tần số và chu kỳ nhiệm vụ thì phác đồ không thể tái lập và kết quả không thể quy cho một cơ chế. Phía mô trong phương trình đó biến thiên cũng nhiều như phía thiết bị, đó là lý do cùng một thông số lại cho kết quả khác nhau giữa các loại da Fitzpatrick và các vùng cơ thể: [tác dụng phụ của IPL theo loại da](/blog/ipl-side-effects-by-skin-type).
+
+## Cần làm gì với những điều này
+
+Nếu bạn đang so sánh các thiết bị PBM, hãy bắt đầu bằng việc từ chối coi con số công suất là một bản đặc tả. Hãy hỏi đó là công suất đỉnh hay công suất trung bình. Rồi hỏi các thông số thời gian, và coi sự vắng mặt của chúng là một lỗ hổng chứ không phải một chi tiết nhỏ. Kỷ luật tương tự cũng áp dụng cho các thiết bị triệt lông tiêu dùng, nơi bảng thông số thường quảng cáo số lần nháy thay vì kỹ thuật quang học và nhiệt học quyết định cảm giác điều trị thực tế: [vì sao lớp phủ quan trọng hơn số lần nháy](/blog/why-premium-ipl-devices-feel-different), và một cụm bộ lọc được đo trong phòng thí nghiệm trông ra sao khi bảy bộ lọc được thử cạnh nhau thay vì chỉ được mô tả trong một tờ quảng cáo: [báo cáo thử nghiệm bộ lọc long-pass](/blog/ipl-long-pass-filter-test-report).
+
+Nếu bạn đang đọc một nghiên cứu, hãy kiểm tra xem lớp thời gian có được báo cáo hay không. Một phần phương pháp chỉ ghi 808 nm và 10 J/cm² là mới mô tả được khoảng một nửa liều.
+
+Nếu bạn đang chạy thí nghiệm, hãy báo cáo cả hai lớp. Bất kỳ ai đánh giá một thiết bị có an toàn để dùng tại nhà hay không đều đang phán đoán dựa trên chính những thông số này, đó là lý do phiên bản dành cho người tiêu dùng của lập luận này nằm trong bài trụ cột về an toàn của chúng tôi: [triệt lông bằng IPL có an toàn không](/ipl-hair-removal-is-safe).
+
+Cùng bước sóng không phải cùng một liệu trình. Cùng tổng năng lượng không phải cùng một kích thích. Những biến quyết định kết quả bao gồm cả thời điểm năng lượng đến và cách nó được định dạng trên đường vào. Nếu bạn muốn xem những biến đó được ghi thông số như thế nào trên các nền tảng chúng tôi chế tạo, [danh mục thiết bị](/products) liệt kê mật độ năng lượng quang, kích thước điểm chiếu và cấu hình xung của từng kiểu máy.
+
+## Tài liệu tham khảo
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

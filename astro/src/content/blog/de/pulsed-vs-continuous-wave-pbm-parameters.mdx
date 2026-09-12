@@ -1,0 +1,141 @@
+---
+title: "PBM gepulst vs. kontinuierlich: Zeit als Dosisvariable"
+description: "Gepulste und kontinuierliche PBM können bei gleicher Fluence biologisch unterschiedlich wirken. Was Frequenz, Tastverhältnis und Spitzenleistung verändern."
+citableSummary: "Gepulste und kontinuierlich abgegebene Photobiomodulation können sich in ihrer biologischen Wirkung unterscheiden, selbst bei abgeglichener Wellenlänge, Fluence und mittlerer Leistung, denn die Pulsung fügt der Dosis Frequenz, Pulsbreite, Tastverhältnis und Spitzenleistung hinzu. Die Evidenz weist in beide Richtungen: Gepulstes 810 nm bei 10 Hz schnitt bei Mäusen bei einigen Ergebnissen zum Schädel-Hirn-Trauma besser ab als kontinuierliche Abgabe, während kontinuierliches Nahinfrarot bei 5,2 J/cm² bei der Proliferation gingivaler Fibroblasten besser abschnitt als gepulstes. Kein Modus ist universell überlegen; eine vollständige Angabe der zeitlichen Parameter ist das, was Studien vergleichbar macht."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Ist gepulste PBM besser als kontinuierliche PBM?"
+    answer: "Nein, und die Evidenz stützt diese Behauptung in keine der beiden Richtungen. Gepulstes 810 nm bei 10 Hz schnitt bei Mäusen bei einigen Maßen für traumatische Hirnverletzung besser ab als kontinuierliche Abgabe; kontinuierliches Nahinfrarot schnitt bei der Fibroblastenproliferation bei 5,2 J/cm² besser ab als gepulstes. Der Modus steht in Wechselwirkung mit dem Rest der Dosis."
+  - question: "Dringt gepulstes Licht tiefer ein als kontinuierliches Licht?"
+    answer: "Nicht deshalb, weil es gepulst ist. Die Eindringtiefe hängt von der Wellenlänge, den optischen Eigenschaften des Gewebes und der Geometrie des Strahls ab. Bei abgeglichener mittlerer Leistungsdichte ändert die Pulsung, wann die Energie ankommt, nicht wie weit sie reist."
+  - question: "Welches Tastverhältnis sollte ein PBM-Protokoll verwenden?"
+    answer: "Es gibt keinen etablierten universellen Wert. Das Tastverhältnis hat in vitro bei fester Frequenz Zellviabilität, ATP, reaktive Sauerstoffspezies und mitochondriales Membranpotenzial verschoben, es fungiert damit als unabhängige Variable. Es sollte spezifiziert und berichtet werden und nicht als Gerätedetail vorausgesetzt."
+  - question: "Warum widersprechen sich Studien zur Pulsung?"
+    answer: "Weil der Parameterraum groß und selten abgeglichen ist. Zwei Arbeiten können beide „810 nm, gepulst\" sagen und sich dennoch in Spitzenleistung, Frequenz, Tastverhältnis, Bestrahlungsstärke, Gewebemodell und Behandlungsplan unterscheiden."
+---
+
+**Kurzantwort:** Die kontinuierliche Welle (CW) liefert einen gleichmäßigen Photonenstrom; die gepulste Welle (PW) gibt dieselbe Energie in Schüben ab. Dieser Unterschied fügt der Dosis Frequenz, Pulsbreite, Tastverhältnis und Spitzenleistung hinzu, und in Experimenten mit abgeglichener Gesamtenergie haben genau diese zusätzlichen Parameter die zellulären Ergebnisse in beide Richtungen verschoben. Gepulste PBM gehört auf eine zweite Achse der Dosis, neben die Achse, die die meisten bereits messen.
+
+Zwei Geräte auf dem Labortisch. Beide emittieren bei 808 nm. Beide sind mit 10 J/cm² spezifiziert. Beide tragen dieselbe Leistungsangabe auf dem Gehäuse. Sie betreiben beide an derselben Zelllinie über dieselbe Behandlungsdauer, und die ATP-Werte stimmen nicht überein.
+
+Die Frage nach der Pulsung ist nicht exotisch. IPL steht für intense pulsed light, also hängt jedes Haarentfernungsgerät, das auf den Produktionslinien dieser Seite gebaut wird, bereits von einer Entscheidung darüber ab, wie das Licht in Schübe zerlegt wird, und die Parameter hinter dieser Entscheidung schaffen es selten auf ein Datenblatt. Die verbrauchernahe Version davon, wie dieses Licht wirken soll, finden Sie unter [was IPL-Haarentfernung tatsächlich ist](/blog/what-is-ipl).
+
+Nichts in dieser einzeiligen Dosisbeschreibung sagt voraus, in welche Richtung es ausschlägt, denn die Beschreibung war nie vollständig. Die Fluence sagt, wie viel Energie pro Flächeneinheit ankam. Sie sagt nichts darüber, ob diese Energie als kontinuierlicher Strom oder als Folge von Schüben ankam, und sie sagt nichts darüber, wie diese Schübe geformt waren.
+
+## Was sich tatsächlich ändert, wenn Licht in Pulse zerlegt wird
+
+CW bedeutet, dass der Emitter während der gesamten Behandlung eingeschaltet bleibt. PW bedeutet, dass er in einem definierten Zyklus ein- und ausschaltet, wodurch vier neue Parameter in die Spezifikation eintreten:
+
+| Parameter | Was er steuert |
+|---|---|
+| Frequenz | Wie viele Pulse pro Sekunde auftreten |
+| Pulsbreite | Wie lange ein einzelner Puls dauert |
+| Tastverhältnis | Der Anteil jedes Zyklus, in dem der Emitter tatsächlich eingeschaltet ist |
+| Spitzenleistung | Momentanleistung, während der Puls eingeschaltet ist |
+| Mittlere Leistung | Über den gesamten Zyklus gemittelte Leistung, einschließlich der Aus-Zeit |
+
+Mittlere und Spitzenleistung sind miteinander verknüpft, wenn die Pulse annähernd rechteckig sind:
+
+**mittlere Leistung ≈ Spitzenleistung × Tastverhältnis**
+
+Eine Spitzenleistung von 100 mW bei einem Tastverhältnis von 10 % ergibt im Mittel 10 mW. Ein kontinuierlich laufender Emitter mit 10 mW ergibt ebenfalls im Mittel 10 mW. Dieselbe Zahl auf dem Datenblatt, ein völlig anderer Reiz am Gewebe.
+
+Diese Rechnung ist der Grund, warum „100 mW" ein gepulstes Protokoll nicht für sich beschreiben kann. Zwei Geräte können dieselbe Zahl aufdrucken und Spitzenleistungen liefern, die sich um eine Größenordnung unterscheiden. Das eine liefert eine sanfte, kontinuierliche Bestrahlungsstärke; das andere liefert kurze, intensive Schübe, getrennt durch dunkle Pausen, und der Mittelwert verbirgt das. Auf dieselbe Berichtslücke sind wir von der anderen Seite gestoßen, als wir ein IPL-Gerät für Verbraucher an ein Leistungsmessgerät anschlossen und maßen, was das Etikett tatsächlich lieferte: [woher 28 Joule kommen](/blog/the-truth-about-ipl-energy).
+
+## Gepulst bedeutet nicht kühl
+
+Das intuitive Argument für die Pulsung ist thermisch. Pulsung erzeugt Pausen, Pausen lassen Wärme abfließen, und Diffusion begrenzt den Temperaturanstieg. Diese Überlegung ist so weit richtig, wie sie reicht, doch sie gleitet in eine Behauptung ab, die nicht Bestand hat.
+
+Pulsung schließt Erwärmung nicht aus. Photobiomodulation wird üblicherweise als nicht-thermisch oder niedrig-thermisch beschrieben, und diese Beschreibung betrifft das beabsichtigte Regime, nicht eine Garantie für das Gewebe. Photonen, die absorbiert werden, werden zu Wärme, und der resultierende Temperaturanstieg hängt von der mittleren Leistung, dem Tastverhältnis, der Pulsbreite, der gesamten Behandlungsdauer, der Spotfläche und den thermischen Eigenschaften des jeweiligen Gewebes ab. Bei Haarentfernungsgeräten ist genau das der Grund, warum es Saphir-Kontaktkühlung gibt und warum der Kühlstapel mehr zählt als die Blitzrate auf der Verpackung: [was Saphir-Eiskühlung tatsächlich bewirkt](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Eine bessere Formulierung: Eine Änderung der zeitlichen Verteilung der Photonenabgabe ändert, wie sich Wärme ansammelt. Das ist eine überprüfbare Aussage. „Gepulstes Licht erwärmt nicht" ist es nicht, und ein gepulstes Protokoll mit hoher Spitzenleistung und langer Behandlungsdauer kann mehr Wärme einbringen als ein maßvolles CW-Protokoll.
+
+## Frequenz zeigt sich in den Zelldaten
+
+Wäre die einzige Rolle der Pulsung die Wärmekontrolle, dann wäre dies ein Thema der Thermotechnik und nichts weiter. Zellexperimente weisen in eine andere Richtung.
+
+Kim und Kollegen verglichen kontinuierliches 810 nm mit gepulstem 810 nm bei mehreren Frequenzen an humanen Stammzellen aus der Zahnpulpa. Unter ihren Studienbedingungen spielte die Frequenz eine Rolle: Unterschiedliche Pulsfrequenzen erzeugten unterschiedliche bioenergetische Reaktionen, wobei die gepulsten Arme vom kontinuierlichen Betrieb abwichen, statt ihn einfach zu verstärken. Ihr 300-Hz-Arm zeigte die ausgeprägtere Verschiebung bei reaktiven Sauerstoffspezies und bei mehreren anderen biologischen Markern.
+
+Das Ergebnis, das es wert ist, weitergetragen zu werden: Bei annähernd konstanter Energie veränderte eine Änderung der Pulsfrequenz die biologische Reaktion auf messbare Weise. Damit steht die Frequenz im PBM-Parametersatz als unabhängige Kandidatenvariable, neben der Wellenlänge und der Fluence, statt hinter ihnen als bloße Geräteeinstellung.
+
+## Tastverhältnis: gleiche mittlere Leistung, ungleicher Moment
+
+Das ist der Parameter, der am häufigsten übersprungen wird.
+
+Nehmen Sie zwei Protokolle, beide mit im Mittel 10 mW. Protokoll A ist kontinuierlich mit 10 mW. Protokoll B hat 100 mW Spitzenleistung bei einem Tastverhältnis von 10 %. Als mittlere Leistung angegeben sind sie identisch. Im Moment der Stimulation haben sie nichts gemeinsam. Protokoll B konzentriert dieselbe Energie in kurze Fenster hoher Amplitude und wird dann dunkel.
+
+Tang und Kollegen testeten rotes und nahinfrarotes Licht bei 660 nm und 850 nm an Neuroblastomzellen über eine Reihe von Pulsfrequenzen und Tastverhältnissen hinweg gegen kontinuierliche Exposition. Zellviabilität, ATP, reaktive Sauerstoffspezies und mitochondriales Membranpotenzial zeigten durchweg eine Empfindlichkeit gegenüber der Pulsfrequenz, und eine Änderung des Tastverhältnisses bei fester Frequenz verschob diese Marker erneut.
+
+Lesen Sie das als Einschränkung für die Interpretation. Wenn eine Arbeit „850 nm, 10 mW/cm²" berichtet, lautet die nächste Frage, ob diese Angabe eine kontinuierliche Bestrahlungsstärke oder ein Mittelwert über einen Pulszug ist. Handelt es sich um einen Mittelwert, ist das Ergebnis ohne Spitzenleistung, Frequenz, Tastverhältnis und Pulsbreite nicht reproduzierbar. Vier Zahlen, nicht eine.
+
+## Höhere Spitzenleistung erkauft keine größere Eindringtiefe
+
+Die Argumentationskette verläuft so: Pulsung erhöht die Spitzenleistung, höhere Leistung bedeutet stärkeres Licht, stärkeres Licht dringt tiefer ein, also behandelt gepulste PBM tiefer gelegenes Gewebe. Jeder Schritt klingt plausibel. Die Kette bricht beim zweiten Glied.
+
+Der Lichttransport im Gewebe wird durch Absorption und Streuung bei der verwendeten Wellenlänge bestimmt, durch die Zusammensetzung des Gewebes im Strahlengang und durch die Geometrie des Strahls. Dieselbe Gesamtenergie in kürzeren Schüben abzugeben erhöht die Momentanleistung an der Oberfläche, ohne die optischen Eigenschaften dessen zu ändern, was darunter liegt. Die Spitzenleistung ist kein Stellvertreter für die Eindringtiefe. Die Wellenlänge ist die Variable, die die Eindringtiefe tatsächlich verschiebt, weshalb der Unterschied zwischen einem Fenster von 510–1200 nm und einem von 610–1200 nm nicht kosmetisch ist: [wie der Wellenlängenbereich verändert, was den Follikel erreicht](/blog/ipl-hair-removal-wavelength-range).
+
+Ando und Kollegen verglichen kontinuierliches 810 nm mit gepulstem 810 nm bei 10 Hz und 100 Hz in einem Mausmodell für traumatische Hirnverletzung, wobei mittlere Leistungsdichte, Behandlungsdauer und Energiedichte über die Arme hinweg abgeglichen waren. Die gepulste 10-Hz-Gruppe schnitt bei einigen neurologischen und histologischen Maßen besser ab. Bemerkenswert ist, dass die Verbesserung keine Eindringgeschichte zu ihrer Erklärung brauchte: Bei abgeglichener mittlerer Leistungsdichte brachten die gepulsten Arme in keinem einfachen Sinn mehr Licht in das Gewebe ein. Etwas an der zeitlichen Struktur veränderte die Reaktion.
+
+## Wo die kontinuierliche Welle gewinnt
+
+Das ist der Teil, der in pulsungsfokussierten Zusammenfassungen weggelassen wird.
+
+Khalaj und Kollegen verglichen nahinfrarotes CW mit gepulstem Nahinfrarot an humanen gingivalen Fibroblasten und fanden die kontinuierliche Welle bei einer bestimmten Bedingung von 5,2 J/cm² wirksamer für Zellproliferation und Migration. Das ist ein In-vitro-Ergebnis unter ihren Parametern. Es ist zugleich ein direktes Gegenbeispiel zu jeder pauschalen Behauptung, gepulste Abgabe sei der kontinuierlichen überlegen.
+
+Keshri und Kollegen fanden bei immunosupprimierten Ratten mit dermalen Wunden, dass bestimmte gepulste 810-nm-Parameter die Ergebnisse der Wundheilung im Vergleich zu den Vergleichsarmen verbesserten. Zusammen mit dem Fibroblastenergebnis lautet die ehrliche Zusammenfassung: Die Literatur kennt Fälle, in denen die gepulste Abgabe gewinnt, und Fälle, in denen die kontinuierliche gewinnt.
+
+## Warum dieselbe Wellenlänge immer wieder andere Antworten liefert
+
+PBM ist parameterabhängig in einer Weise, wie es nur wenige therapeutische Modalitäten sind. Tauschen Sie eine Variable aus, und das Ergebnis kann sich umkehren. Bei festen 808 nm können Sie immer noch die Bestrahlungsstärke (niedrig gegenüber hoch), die Behandlungsdauer, die Energiedichte, den Modus, die Pulsfrequenz und das Tastverhältnis ändern. Selbst bei abgeglichener Gesamtenergie sind 10 J kontinuierlich abgegeben und 10 J als Pulszug abgegeben nicht derselbe Reiz.
+
+Das ist dasselbe biphasische Verhalten, das die Photobiomodulations-Literatur für die Dosis selbst dokumentiert hat ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), eine Ebene tiefer fortgeführt. Die biphasische Dosis-Wirkungs-Beziehung besagt, dass mehr Energie nicht monoton besser ist. Die Pulsungsliteratur ergänzt, dass auch der *Zeitplan* der Energieabgabe Information trägt.
+
+Zusammengenommen besteht die Dosis aus mindestens zwei übereinandergeschichteten Ebenen:
+
+- eine räumliche und energetische Ebene: Wellenlänge, Spotgröße, Bestrahlungsstärke, Fluence
+- eine zeitliche Ebene: Frequenz, Pulsbreite, Tastverhältnis, Spitzenleistung, mittlere Leistung, Behandlungsdauer
+
+## Wie ein vollständiger PBM-Parametersatz aussieht
+
+Wenn Sie zwei Studien oder zwei Geräte vergleichen, ist dies das Minimum, das übereinstimmen muss, bevor der Vergleich etwas bedeutet.
+
+| Parameter | Warum er nötig ist |
+|---|---|
+| Wellenlänge | Legt Absorptions- und Streuverhalten fest |
+| Ausgangsleistung | Bezugsgröße für alles Weitere |
+| Bestrahlungsstärke | Bestimmt die Fluence-Rate an der Oberfläche |
+| Fluence | Gesamtenergie pro Flächeneinheit |
+| Spotgröße | Geometrie des Strahls und der bestrahlten Fläche |
+| Frequenz | Anzahl der Pulse pro Sekunde, falls gepulst |
+| Tastverhältnis | Anteil jedes Zyklus, in dem der Emitter eingeschaltet ist, falls gepulst |
+| Pulsbreite | Dauer eines einzelnen Pulses, falls gepulst |
+| Behandlungsdauer | Dauer einer einzelnen Sitzung |
+| Sitzungen | Anzahl und Abstand der Behandlungen |
+
+Bei gepulsten Geräten ist die Angabe nur der mittleren Leistung der häufigste Fehler. Ein Leser kann die mittlere Leistung aus Spitzenleistung und Tastverhältnis berechnen, aber nicht umgekehrt. Ohne Spitzenleistung, Frequenz und Tastverhältnis ist das Protokoll nicht reproduzierbar, und das Ergebnis lässt sich keinem Mechanismus zuschreiben. Die Gewebeseite dieser Gleichung variiert ebenso stark wie die Geräteseite, weshalb dieselben Parameter bei verschiedenen Fitzpatrick-Typen und an verschiedenen Körperregionen anders ausfallen: [IPL-Nebenwirkungen nach Hauttyp](/blog/ipl-side-effects-by-skin-type).
+
+## Was Sie damit anfangen können
+
+Wenn Sie PBM-Geräte vergleichen, beginnen Sie damit, die Leistungsangabe nicht als Spezifikation zu behandeln. Fragen Sie, ob es sich um Spitzen- oder um mittlere Leistung handelt. Fragen Sie dann nach den zeitlichen Parametern, und behandeln Sie deren Fehlen als Lücke statt als Detail. Dieselbe Disziplin gilt für Haarentfernungsgeräte für Verbraucher, wo das Datenblatt eher eine Blitzanzahl bewirbt als die optische und thermische Technik, die entscheidet, wie sich die Behandlung tatsächlich anfühlt: [warum die Beschichtung mehr zählt als die Blitzanzahl](/blog/why-premium-ipl-devices-feel-different), und wie ein im Labor gemessener Filterstapel aussieht, wenn sieben davon Seite an Seite geprüft werden, statt in einer Broschüre beschrieben zu werden: [der Langpassfilter-Testbericht](/blog/ipl-long-pass-filter-test-report).
+
+Wenn Sie eine Studie lesen, prüfen Sie, ob die zeitliche Ebene berichtet wurde. Ein Methodenteil, der 808 nm und 10 J/cm² angibt, hat ungefähr die Hälfte der Dosis beschrieben.
+
+Wenn Sie Experimente durchführen, berichten Sie beide Ebenen. Wer beurteilt, ob ein Gerät zu Hause sicher verwendet werden kann, trifft seine Einschätzung genau über diese Parameter, weshalb die verbrauchernahe Version dieses Arguments in unserem Sicherheits-Schwerpunktartikel steht: [ist IPL-Haarentfernung sicher](/ipl-hair-removal-is-safe).
+
+Gleiche Wellenlänge heißt noch nicht gleiche Behandlung. Gleiche Gesamtenergie heißt noch nicht gleicher Reiz. Zu den Variablen, die das Ergebnis entscheiden, gehören, wann die Energie ankam und wie sie auf dem Weg hinein geformt wurde. Wenn Sie sehen möchten, wie diese Variablen über die Plattformen hinweg spezifiziert werden, die wir bauen, dann listet die [Geräteübersicht](/products) Fluence, Spotgröße und Pulskonfiguration für jedes Modell.
+
+## Referenzen
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)

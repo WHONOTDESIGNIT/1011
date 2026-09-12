@@ -1,0 +1,141 @@
+---
+title: "Pulzní vs kontinuální PBM: čas jako proměnná dávky"
+description: "Pulzní a kontinuální PBM se mohou biologicky lišit při stejné fluenci. Co mění frekvence, pracovní cyklus a špičkový výkon a kde se důkazy stále rozcházejí."
+citableSummary: "Pulzní a kontinuální fotobiomodulace se mohou biologicky lišit i při shodné vlnové délce, fluenci a průměrném výkonu, protože pulzování přidává do dávky frekvenci, šířku pulzu, pracovní cyklus a špičkový výkon. Důkazy jdou oběma směry: pulzní 810 nm na 10 Hz si vedl lépe než kontinuální u některých výsledků traumatického poškození mozku u myší, zatímco kontinuální blízké infračervené záření si vedlo lépe než pulzní u proliferace gingiválních fibroblastů při 5,2 J/cm². Ani jeden režim není univerzálně lepší; srovnatelné jsou studie teprve tehdy, když kompletně reportují časové parametry."
+pubDate: "2026-09-12"
+author: "Eric"
+category: "Science"
+slug: "pulsed-vs-continuous-wave-pbm-parameters"
+translationKey: "pulsed-vs-continuous-wave-pbm-parameters"
+readTime: "11 min"
+url: https://iplmanufacturer.com/blog/pulsed-vs-continuous-wave-pbm-parameters
+faqs:
+  - question: "Je pulzní PBM lepší než kontinuální PBM?"
+    answer: "Ne, a důkazy nepodporují toto tvrzení ani v jednom směru. Pulzní 810 nm na 10 Hz si vedl lépe než kontinuální v některých měřeních traumatického poškození mozku u myší; kontinuální blízké infračervené záření si vedlo lépe než pulzní u proliferace fibroblastů při 5,2 J/cm². Režim interaguje se zbytkem dávky."
+  - question: "Proniká pulzní světlo hlouběji než kontinuální světlo?"
+    answer: "Ne už tím, že je pulzní. Pronikání závisí na vlnové délce, optických vlastnostech tkáně a geometrii svazku. Při vyrovnané průměrné hustotě výkonu pulzování mění to, kdy energie dorazí, ne jak daleko putuje."
+  - question: "Jaký pracovní cyklus má PBM protokol používat?"
+    answer: "Neexistuje žádná ustálená univerzální hodnota. Pracovní cyklus posunul životaschopnost buněk, ATP, reaktivní formy kyslíku a mitochondriální membránový potenciál in vitro při pevné frekvenci, takže funguje jako nezávislá proměnná. Má být specifikován a reportován, ne považován za detail zařízení."
+  - question: "Proč se studie o pulzování neshodují?"
+    answer: "Protože parametrický prostor je velký a jen zřídka vyrovnaný. Dva články mohou oba uvádět „810 nm, pulzní“ a přitom se lišit ve špičkovém výkonu, frekvenci, pracovním cyklu, ozářenosti, tkáňovém modelu a režimu ošetření."
+---
+
+**Krátká odpověď:** kontinuální vlnění (CW) dodává plynulý proud fotonů; pulzní vlnění (PW) dodává stejnou energii v dávkách. Tento rozdíl přidává do dávky frekvenci, šířku pulzu, pracovní cyklus a špičkový výkon, a v experimentech s vyrovnanou energií tyto dodatečné parametry posunuly buněčné výsledky oběma směry. Pulzní PBM patří na druhou osu dávky, vedle té osy, kterou už většina lidí měří.
+
+Dvě zařízení na stole. Obě emitují na 808 nm. Obě jsou specifikována na 10 J/cm². Obě nesou na krytu stejný údaj o výkonu. Spustíte je na stejné buněčné linii po stejnou dobu ošetření a hodnoty ATP se neshodují.
+
+Otázka pulzování není exotická. IPL znamená intense pulsed light, takže každé zařízení na odstraňování chloupků postavené na výrobních linkách tohoto webu už závisí na rozhodnutí, jak je světlo děleno na dávky, a parametry za tímto rozhodnutím se na technický list dostanou jen zřídka. Spotřebitelskou verzi toho, jak má toto světlo fungovat, najdete v článku [co vlastně IPL epilace je](/blog/what-is-ipl).
+
+Nic v tom jednoslovném popisu dávky nepředpovídá, kterým směrem se to zvrhne, protože ten popis nikdy nebyl úplný. Fluence říká, kolik energie dorazilo na jednotku plochy. Neříká nic o tom, zda tato energie dorazila jako plynulý proud, nebo jako sled dávek, a neříká nic o tom, jak byly tyto dávky tvarovány.
+
+## Co se vlastně změní, když je světlo rozděleno na pulzy
+
+CW znamená, že zářič je zapnutý po celou dobu ošetření. PW znamená, že se zapíná a vypíná v definovaném cyklu, takže do specifikace vstupují čtyři nové parametry:
+
+| Parametr | Co řídí |
+|---|---|
+| Frekvence | Kolik pulzů proběhne za sekundu |
+| Šířka pulzu | Jak dlouho trvá každý jednotlivý pulz |
+| Pracovní cyklus | Podíl každého cyklu, po který je zářič skutečně zapnutý |
+| Špičkový výkon | Okamžitý výkon, když je pulz zapnutý |
+| Průměrný výkon | Výkon zprůměrovaný přes celý cyklus, včetně doby vypnutí |
+
+Průměrný a špičkový výkon jsou propojené, pokud jsou pulzy zhruba obdélníkové:
+
+**průměrný výkon ≈ špičkový výkon × pracovní cyklus**
+
+Špičkových 100 mW při pracovním cyklu 10 % dává v průměru 10 mW. Kontinuální zářič běžící na 10 mW také dává v průměru 10 mW. Stejné číslo v datovém listu, zcela odlišný podnět v tkáni.
+
+Tato aritmetika je důvod, proč „100 mW“ samo o sobě nemůže popsat pulzní protokol. Dvě zařízení mohou vytisknout stejný údaj a dodat špičkové výkony lišící se o celý řád. Jedno dodává jemnou kontinuální fluenční rychlost; druhé dodává krátké, intenzivní dávky oddělené tmavými mezerami, a průměr to skryje. Na stejnou mezeru v reportování jsme narazili z druhé strany, když jsme spotřebitelské IPL zařízení postavili na měřič výkonu a změřili, co štítek skutečně dodává: [odkud se bere 28 joulů](/blog/the-truth-about-ipl-energy).
+
+## Pulzní neznamená chladné
+
+Intuitivní argument pro pulzování je tepelný. Pulzování vytváří mezery, mezery umožňují teplu difundovat a difúze omezuje nárůst teploty. Tato úvaha je správná, pokud jde tak daleko, ale klouže k tvrzení, které neobstojí.
+
+Pulzování není nepřítomnost zahřívání. Fotobiomodulace se obvykle popisuje jako netermální nebo málo termální, a tento popis se týká zamýšleného režimu, ne záruky o tkáni. Fotony, které se absorbují, se mění v teplo, a výsledný nárůst teploty závisí na průměrném výkonu, pracovním cyklu, šířce pulzu, celkové době ošetření, ploše stopy a tepelných vlastnostech konkrétní tkáně. U zařízení na odstraňování chloupků právě proto existuje safírové kontaktní chlazení a proto je chladicí sestava důležitější než údaj o záblescích na krabici: [co safírové ledové chlazení vlastně dělá](/blog/cooling-ipl-hair-remover-buying-guide).
+
+Lepší formulace: změna časového rozložení dodávky fotonů mění to, jak se teplo hromadí. To je testovatelné tvrzení. „Pulzní světlo nehřeje“ testovatelné není, a pulzní protokol s vysokým špičkovým výkonem a dlouhou dobou ošetření může uložit více tepla než skromný CW protokol.
+
+## Frekvence se projevuje v datech z buněk
+
+Pokud by jedinou rolí pulzování bylo řízení tepla, šlo by o téma tepelného inženýrství a nic víc. Buněčné experimenty ukazují jinam.
+
+Kim a kolegové srovnávali kontinuální 810 nm s pulzním 810 nm při několika frekvencích na lidských kmenových buňkách zubní dřeně. Za podmínek jejich studie na frekvenci záleželo: různé pulzní frekvence vedly k různým bioenergetickým odpovědím, přičemž pulzní větve se od kontinuální odchylovaly, místo aby ji jen zesilovaly. Jejich větev s 300 Hz vykázala výraznější posun v reaktivních formách kyslíku a v několika dalších biologických markerech.
+
+Výsledek, který stojí za to si odnést: když energie zůstala zhruba konstantní, změna pulzní frekvence měřitelně změnila biologickou odpověď. To staví frekvenci do sady parametrů PBM jako možnou nezávislou proměnnou, která stojí vedle vlnové délky a fluence, ne za nimi jako nastavení zařízení.
+
+## Pracovní cyklus: shodný průměrný výkon, neshodný okamžik
+
+To je parametr, který se přeskakuje nejčastěji.
+
+Vezměte dva protokoly, oba s průměrem 10 mW. Protokol A je kontinuální na 10 mW. Protokol B je 100 mW špičkově při pracovním cyklu 10 %. Vyjádřeno jako průměrný výkon jsou identické. V okamžiku stimulace nemají nic společného. Protokol B soustředí stejnou energii do krátkých oken s vysokou amplitudou a pak zhasne.
+
+Tang a kolegové testovali červené a blízké infračervené světlo na 660 nm a 850 nm na neuroblastomových buňkách v řadě pulzních frekvencí a pracovních cyklů proti kontinuální expozici. Životaschopnost buněk, ATP, reaktivní formy kyslíku a mitochondriální membránový potenciál vykázaly citlivost na pulzní frekvenci, a změna pracovního cyklu při pevné frekvenci těmito markery opět pohnula.
+
+Čtěte to jako omezení pro interpretaci. Když článek uvádí „850 nm, 10 mW/cm²“, další otázka zní, zda je tento údaj kontinuální ozářenost, nebo průměr přes sled pulzů. Pokud je to průměr, výsledek není reprodukovatelný bez špičkového výkonu, frekvence, pracovního cyklu a šířky pulzu. Čtyři čísla, ne jedno.
+
+## Vyšší špičkový výkon nekupuje hlubší pronikání
+
+Řetězec úvahy jde takto: pulzování zvyšuje špičkový výkon, vyšší výkon znamená silnější světlo, silnější světlo proniká hlouběji, a tedy pulzní PBM ošetřuje hlubší tkáň. Každý krok zní věrohodně. Řetězec se láme na druhém článku.
+
+Transport světla v tkáni se řídí absorpcí a rozptylem při použité vlnové délce, složením tkáně v dráze svazku a geometrií svazku. Dodání stejné celkové energie v kratších dávkách zvyšuje okamžitý výkon na povrchu, aniž by měnilo optické vlastnosti toho, co leží pod ním. Špičkový výkon není zástupným ukazatelem hloubky pronikání. Proměnnou, která skutečně posouvá pronikání, je vlnová délka, a proto rozdíl mezi oknem 510–1200 nm a oknem 610–1200 nm není kosmetický: [jak rozsah vlnových délek mění to, co dorazí k folikulu](/blog/ipl-hair-removal-wavelength-range).
+
+Ando a kolegové srovnávali kontinuální 810 nm s pulzním 810 nm na 10 Hz a 100 Hz v myším modelu traumatického poškození mozku, přičemž průměrná hustota výkonu, doba ošetření a hustota energie byly mezi větvemi vyrovnané. Skupina s pulzním režimem na 10 Hz si vedla lépe v některých neurologických a histologických měřeních. Pozoruhodné je, že zlepšení nepotřebovalo k vysvětlení žádný příběh o pronikání: při vyrovnané průměrné hustotě výkonu pulzní větve nedodávaly do tkáně více světla v žádném jednoduchém smyslu. Odpověď změnilo něco na časové struktuře.
+
+## Kde vítězí kontinuální vlnění
+
+Toto je část, která se z přehledů zaměřených na pulzování vynechává.
+
+Khalaj a kolegové srovnávali blízké infračervené CW s pulzním blízkým infračerveným zářením u lidských gingiválních fibroblastů a zjistili, že kontinuální vlnění je účinnější pro proliferaci a migraci buněk za konkrétní podmínky 5,2 J/cm². Je to výsledek in vitro za jejich parametrů. Je to také přímý protipříklad k jakémukoli plošnému tvrzení, že pulzní režim předčí kontinuální.
+
+Keshri a kolegové pracovali na imunosuprimovaných potkanech s kožními ranami a zjistili, že konkrétní pulzní parametry na 810 nm zlepšily výsledky hojení ran oproti srovnávacím větvím. Vezmeme-li to spolu s výsledkem u fibroblastů, je poctivé shrnutí takové, že v literatuře pulzní režim vítězí v některých preparátech a kontinuální v jiných.
+
+## Proč stejná vlnová délka stále přináší různé výsledky
+
+PBM je závislá na parametrech tak, jak jen málokterá terapeutická modalita. Vyměňte jednu proměnnou a výsledek se může obrátit. Při pevných 808 nm můžete stále měnit ozářenost (nízkou versus vysokou), dobu ošetření, hustotu energie, režim, pulzní frekvenci a pracovní cyklus. I při shodné celkové energii není 10 J dodaných kontinuálně a 10 J dodaných jako sled pulzů stejný podnět.
+
+Jde o stejné biphasické chování, které literatura o fotobiomodulaci dokumentuje u dávky samotné ([Huang et al., 2009](https://pubmed.ncbi.nlm.nih.gov/20011653/)), posunuté o jednu úroveň hlouběji. Biphasická dávková odpověď říká, že více energie není monotónně lepší. Literatura o pulzování dodává, že i *rozvrh* dodávky energie nese informaci.
+
+Dohromady je dávka přinejmenším dvě vrstvy poskládané na sebe:
+
+- prostorová a energetická vrstva: vlnová délka, velikost stopy, ozářenost, fluence
+- časová vrstva: frekvence, šířka pulzu, pracovní cyklus, špičkový výkon, průměrný výkon, doba ošetření
+
+## Jak vypadá kompletní sada parametrů PBM
+
+Pokud srovnáváte dvě studie nebo dvě zařízení, toto je minimum, které se musí shodovat, aby srovnání vůbec něco znamenalo.
+
+| Parametr | Proč je potřeba |
+|---|---|
+| Vlnová délka | Určuje chování absorpce a rozptylu |
+| Výstupní výkon | Základ pro vše další |
+| Ozářenost | Určuje fluenční rychlost na povrchu |
+| Fluence | Celková energie na jednotku plochy |
+| Velikost stopy | Geometrie svazku a ozařované plochy |
+| Frekvence | Počet pulzů za sekundu, pokud jde o pulzní režim |
+| Pracovní cyklus | Podíl každého cyklu, po který je zářič zapnutý, pokud jde o pulzní režim |
+| Šířka pulzu | Trvání jednoho pulzu, pokud jde o pulzní režim |
+| Doba ošetření | Trvání jedné seance |
+| Seance | Počet a rozestupy ošetření |
+
+U pulzních zařízení je nejčastějším selháním uvádět pouze průměrný výkon. Čtenář dokáže spočítat průměrný výkon ze špičkového výkonu a pracovního cyklu, ale ne opačně. Bez špičkového výkonu, frekvence a pracovního cyklu není protokol reprodukovatelný a výsledek nelze připsat žádnému mechanismu. Tkáňová strana této rovnice se mění stejně jako strana přístrojová, a proto stejné parametry dopadají různě napříč typy Fitzpatrick a oblastmi: [vedlejší účinky IPL podle typu pleti](/blog/ipl-side-effects-by-skin-type).
+
+## Co s tím dělat
+
+Pokud srovnáváte zařízení PBM, začněte tím, že odmítnete považovat údaj o výkonu za specifikaci. Zeptejte se, zda jde o špičkový, nebo průměrný výkon. Pak si vyžádejte časové parametry a jejich nepřítomnost berte jako mezeru, ne jako detail. Stejná disciplína platí u spotřebitelských zařízení na odstraňování chloupků, kde technický list většinou inzeruje počet záblesků místo optického a tepelného inženýrství, které rozhoduje o tom, jak ošetření skutečně působí: [proč záleží na povlaku víc než na počtu záblesků](/blog/why-premium-ipl-devices-feel-different), a jak vypadá laboratorně změřená filtrační sestava, když se jich sedm testuje vedle sebe, místo aby byly popisovány v brožuře: [protokol testu dlouhopásmového filtru](/blog/ipl-long-pass-filter-test-report).
+
+Pokud čtete studii, zkontrolujte, zda byla časová vrstva reportována. Sekce metod, která uvádí 808 nm a 10 J/cm², popsala zhruba polovinu dávky.
+
+Pokud provádíte experimenty, reportujte obě vrstvy. Každý, kdo posuzuje, zda je zařízení bezpečné pro domácí použití, dělá úsudek právě na základě těchto parametrů, a proto spotřebitelská verze tohoto argumentu sídlí v našem bezpečnostním pilíři: [je IPL epilace bezpečná](/ipl-hair-removal-is-safe).
+
+Stejná vlnová délka není stejné ošetření. Stejná celková energie není stejný podnět. Mezi proměnné, které rozhodují o výsledku, patří to, kdy energie dorazila a jak byla po cestě tvarována. Pokud chcete vidět, jak jsou tyto proměnné specifikovány napříč platformami, které stavíme, [řada zařízení](/products) uvádí fluenci, velikost stopy a konfiguraci pulzů pro každý model.
+
+## References
+
+1. Kim HB, Baik KY, Choung PH, Chung JH. Pulse frequency dependency of photobiomodulation on the bioenergetic functions of human dental pulp stem cells. *Scientific Reports* 2017;7:15927. [PMC5698451](https://pmc.ncbi.nlm.nih.gov/articles/PMC5698451/) · [PubMed 29162863](https://pubmed.ncbi.nlm.nih.gov/29162863/)
+2. Tang L, Qin H, Lin S, Liu M. Effects of Pulsed Red and Near-Infrared Light on Neuroblastoma Cells: Pilot Study on Frequency and Duty Cycle. *Photonics* 2023;10(3):315. [doi:10.3390/photonics10030315](https://doi.org/10.3390/photonics10030315)
+3. Ando T, Xuan W, Xu T, et al. Comparison of Therapeutic Effects between Pulsed and Continuous Wave 810-nm Wavelength Laser Irradiation for Traumatic Brain Injury in Mice. *PLoS ONE* 2011;6(10):e26212. [doi:10.1371/journal.pone.0026212](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026212)
+4. Keshri GK, Gupta A, Yadav A, Sharma SK, Singh S. Photobiomodulation with Pulsed and Continuous Wave Near-Infrared Laser (810 nm, Al-Ga-As) Augments Dermal Wound Healing in Immunosuppressed Rats. *PLoS ONE* 2016;11(11):e0166705. [doi:10.1371/journal.pone.0166705](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166705)
+5. Khalaj S, Iranpour B, Hodjat M, et al. Photobiomodulation effects of pulsed and continuous wave near-infrared laser on the proliferation and migration of human gingival fibroblasts: An in vitro study. *Photochemistry and Photobiology* 2023;100:225–232. [doi:10.1111/php.13816](https://onlinelibrary.wiley.com/doi/10.1111/php.13816)
+6. Zein R, Selting W, Hamblin MR. Review of light parameters and photobiomodulation efficacy: dive into complexity. *Journal of Biomedical Optics* 2018;23(12):120901. [doi:10.1117/1.JBO.23.12.120901](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-23/issue-12/120901/Review-of-light-parameters-and-photobiomodulation-efficacy--dive-into/10.1117/1.JBO.23.12.120901.full)
+7. Huang YY, Chen AC, Carroll JD, Hamblin MR. Biphasic dose response in low level light therapy. *Dose-Response* 2009;7(4):358–383. [PubMed 20011653](https://pubmed.ncbi.nlm.nih.gov/20011653/)
