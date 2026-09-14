@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../lib/i18n';
 import { getAllPosts, categoryHref, blogUrlPath, SUPPORTED_LOCALES } from '../../../lib/blog';
 import { BLOG_CATEGORIES, toCategorySlug, categoryLabelFromSlug } from '../../../lib/blog-categories';
+import { categoryDescription } from '../../../lib/category-descriptions';
 import { buildBreadcrumbs } from '../../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../../lib/netlify-images';
 
@@ -35,7 +36,9 @@ const blogHref = locale === 'en' ? '/blog' : `/${blogUrlPath(locale)}/blog`;
 const canonical = `${resolveBaseUrl()}${categoryHref(locale, label)}`;
 // 确定性模板（含品牌，buildFinalTitle 不会再追加 | iShine）
 const pageTitle = `${label} Articles | iShine Blog`;
-const pageDescription = t(locale, 'blog.meta.description');
+// 分类页描述按「语种模板 + 分类名」生成，保证 19 个分类页各自唯一
+// （此前所有分类页复用博客首页描述，构建产物里 399 个分类页只有 21 个不同的 description 值）
+const pageDescription = categoryDescription(locale, label);
 // hreflang 必须输出 BCP 47 代码：SUPPORTED_LOCALES 中博客目录名为 'es'，
 // 直接输出会得到 hreflang="es"，而全站其余页面（含 SeoHead 与博客详情页）输出 hreflang="es-ES"，
 // 造成同一西语版本出现两个互相冲突的 hreflang 值（2026-09-10 修复）。
