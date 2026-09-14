@@ -2,37 +2,44 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { t } from '../../lib/i18n';
-import { buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 
+// 文案全部走 messages/<locale>.json 的 auxPages.returnPolicy.*（93 个键，英文基准见
+// MD-PRODUCTS-INFOS/_return_policy_en.json）。此前这里是硬编码英文，22 个语种渲染的都是
+// 英文，canonical 也只能固定指向英文版，因此 21 个语种的 /return-policy 既不在各自
+// sitemap 里、也不进索引的本地化集合。
+// 21 个语种的译文已于 2026-09-14 全部落库，故此处 canonical 同步改为 getLocalizedPath 自指
+// ——顺序不可颠倒：先有译本、再切自指，否则会产生 21 个 self-canonical 的英文页
+//（正是隐私政策页 2026-09-10 修掉的那种重复内容形态）。
 const locale = Astro.currentLocale ?? 'en';
+const tr = (key: string) => t(locale, `auxPages.returnPolicy.${key}`);
 
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
 }
 
-const pageTitle = 'Return Policy – iShine Technology Ltd.';
-const pageDescription =
-  'iShine Technology Ltd. return policy: returns and exchanges for defective and non-defective products, batch returns, spare units, 12-month warranty, refund processing and contact information.';
-const canonical = `${resolveBaseUrl()}/return-policy`;
+const pageTitle = tr('pageTitle');
+const pageDescription = tr('pageDescription');
+const canonical = `${resolveBaseUrl()}${getLocalizedPath(locale, '/return-policy')}`;
 
 const breadcrumbs = buildBreadcrumbs(locale, [
   { label: t(locale, 'common.home'), path: '/' },
-  { label: 'Return Policy' },
+  { label: tr('breadcrumb') },
 ]);
 
 const toc = [
-  { id: 'returns-accepted', label: 'Returns Accepted' },
-  { id: 'return-conditions', label: 'Return Conditions' },
-  { id: 'return-process', label: 'Return Process' },
-  { id: 'return-costs', label: 'Return Costs' },
-  { id: 'batch-return', label: 'Batch Return (Systemic Quality Issues)' },
-  { id: 'exchanges', label: 'Exchanges' },
-  { id: 'spare-units', label: 'Spare Units (Free of Charge)' },
-  { id: 'not-eligible', label: 'Items Not Eligible for Return' },
-  { id: 'warranty', label: 'Warranty' },
-  { id: 'refund-processing', label: 'Refund Processing' },
-  { id: 'contact', label: 'Contact Information' },
-  { id: 'final-interpretation', label: 'Final Interpretation' },
+  { id: 'returns-accepted', label: tr('toc1') },
+  { id: 'return-conditions', label: tr('toc2') },
+  { id: 'return-process', label: tr('toc3') },
+  { id: 'return-costs', label: tr('toc4') },
+  { id: 'batch-return', label: tr('toc5') },
+  { id: 'exchanges', label: tr('toc6') },
+  { id: 'spare-units', label: tr('toc7') },
+  { id: 'not-eligible', label: tr('toc8') },
+  { id: 'warranty', label: tr('toc9') },
+  { id: 'refund-processing', label: tr('toc10') },
+  { id: 'contact', label: tr('toc11') },
+  { id: 'final-interpretation', label: tr('toc12') },
 ];
 
 const contact = {
@@ -48,14 +55,14 @@ const contact = {
       <header class="space-y-6">
         <Breadcrumb items={breadcrumbs} variant="dark" locale={locale} />
         <div class="space-y-3">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">iShine Technology Ltd.</p>
-          <h1 class="text-4xl font-bold text-slate-950 md:text-5xl">Return Policy</h1>
-          <p class="max-w-3xl text-lg leading-relaxed text-neutral-600">Last Updated: August 2026</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">{tr('companyName')}</p>
+          <h1 class="text-4xl font-bold text-slate-950 md:text-5xl">{tr('h1')}</h1>
+          <p class="max-w-3xl text-lg leading-relaxed text-neutral-600">{tr('lastUpdated')}</p>
         </div>
       </header>
 
       <section class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">Table of Contents</h2>
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">{tr('tocTitle')}</h2>
         <ol class="mt-6 list-decimal space-y-2 pl-6 text-neutral-700">
           {toc.map((item) => (
             <li><a class="text-sky-700 underline" href={`#${item.id}`}>{item.label}</a></li>
@@ -65,180 +72,154 @@ const contact = {
 
       <section class="space-y-10">
         <section id="returns-accepted" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">1. Returns Accepted</h2>
-          <p class="mt-4 text-neutral-700">
-            We accept returns for both defective and non-defective products under the conditions outlined below.
-          </p>
-          <p class="mt-4 text-neutral-700">
-            We also accept exchanges for defective products, subject to the same terms and conditions as returns.
-          </p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s1Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s1p1')}</p>
+          <p class="mt-4 text-neutral-700">{tr('s1p2')}</p>
         </section>
 
         <section id="return-conditions" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">2. Return Conditions</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s2Title')}</h2>
           <div class="mt-6 overflow-x-auto">
             <table class="w-full min-w-[640px] border-collapse text-left text-sm text-neutral-700">
               <thead>
                 <tr class="border-b border-neutral-200 bg-neutral-50 text-ink-900">
-                  <th class="px-4 py-3 font-semibold">Condition</th>
-                  <th class="px-4 py-3 font-semibold">Description</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s2col1')}</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s2col2')}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Defective Products</td>
-                  <td class="px-4 py-3 align-top">Products that fail to meet manufacturing specifications or have functional defects (e.g., lamp failure, capacitor issues, housing cracks, electrical faults).</td>
-                </tr>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Non-Defective Products</td>
-                  <td class="px-4 py-3 align-top">Products returned for buyer-initiated reasons (e.g., wrong model ordered, market overstock, design preference change).</td>
-                </tr>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Exchanges</td>
-                  <td class="px-4 py-3 align-top">Defective products may be exchanged for the same or equivalent model, subject to stock availability.</td>
-                </tr>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Return Window</td>
-                  <td class="px-4 py-3 align-top">Return requests must be submitted within 15 calendar days of delivery.</td>
-                </tr>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Product Condition</td>
-                  <td class="px-4 py-3 align-top">Products must be in resalable condition (unused, unmodified, complete with all accessories) unless returning due to a manufacturing defect.</td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Batch Return</td>
-                  <td class="px-4 py-3 align-top">For systemic quality issues affecting an entire batch, a separate batch-return process applies (see Section 5).</td>
-                </tr>
+                {[
+                  ['s2r1Label', 's2r1Text'],
+                  ['s2r2Label', 's2r2Text'],
+                  ['s2r3Label', 's2r3Text'],
+                  ['s2r4Label', 's2r4Text'],
+                  ['s2r5Label', 's2r5Text'],
+                  ['s2r6Label', 's2r6Text'],
+                ].map(([labelKey, textKey], i, all) => (
+                  <tr class={i === all.length - 1 ? '' : 'border-b border-neutral-100'}>
+                    <td class="px-4 py-3 align-top font-medium text-ink-900">{tr(labelKey)}</td>
+                    <td class="px-4 py-3 align-top">{tr(textKey)}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </section>
 
         <section id="return-process" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">3. Return Process</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s3Title')}</h2>
           <ol class="mt-6 list-decimal space-y-4 pl-6 text-neutral-700">
             <li>
-              <span class="font-semibold text-ink-900">Submit a Return Request</span> via email to <a class="text-sky-700 underline" href={`mailto:${contact.email}`}>{contact.email}</a> with the following information:
+              <span class="font-semibold text-ink-900">{tr('s3i1Lead')}</span> {tr('s3i1Mid')} <a class="text-sky-700 underline" href={`mailto:${contact.email}`}>{contact.email}</a> {tr('s3i1After')}
               <ul class="mt-2 list-disc space-y-1 pl-6">
-                <li>Order number</li>
-                <li>Product model and quantity</li>
-                <li>Reason for return</li>
-                <li>Supporting evidence (photos/videos for defect claims)</li>
+                <li>{tr('s3i1l1')}</li>
+                <li>{tr('s3i1l2')}</li>
+                <li>{tr('s3i1l3')}</li>
+                <li>{tr('s3i1l4')}</li>
               </ul>
             </li>
             <li>
-              <span class="font-semibold text-ink-900">Receive Return Authorization</span> – iShine will review your request within 2 working days and provide a Return Merchandise Authorization (RMA) number and return shipping instructions.
+              <span class="font-semibold text-ink-900">{tr('s3i2Lead')}</span> – {tr('s3i2Text')}
             </li>
             <li>
-              <span class="font-semibold text-ink-900">Ship the Products Back</span> – Return the products using a trackable shipping method to the address provided in the RMA confirmation.
+              <span class="font-semibold text-ink-900">{tr('s3i3Lead')}</span> – {tr('s3i3Text')}
             </li>
             <li>
-              <span class="font-semibold text-ink-900">Inspection</span> – Products will be inspected upon receipt. For defective products, we will confirm the fault within 5 working days. For non-defective returns, we will verify the product condition.
+              <span class="font-semibold text-ink-900">{tr('s3i4Lead')}</span> – {tr('s3i4Text')}
             </li>
             <li>
-              <span class="font-semibold text-ink-900">Resolution</span> – Once confirmed, we will issue a replacement, refund, or credit note as applicable.
+              <span class="font-semibold text-ink-900">{tr('s3i5Lead')}</span> – {tr('s3i5Text')}
             </li>
           </ol>
         </section>
 
         <section id="return-costs" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">4. Return Costs</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s4Title')}</h2>
           <div class="mt-6 overflow-x-auto">
             <table class="w-full min-w-[640px] border-collapse text-left text-sm text-neutral-700">
               <thead>
                 <tr class="border-b border-neutral-200 bg-neutral-50 text-ink-900">
-                  <th class="px-4 py-3 font-semibold">Return Type</th>
-                  <th class="px-4 py-3 font-semibold">Return Shipping Cost</th>
-                  <th class="px-4 py-3 font-semibold">Restocking Fee</th>
-                  <th class="px-4 py-3 font-semibold">Replacement / Refund</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s4col1')}</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s4col2')}</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s4col3')}</th>
+                  <th class="px-4 py-3 font-semibold">{tr('s4col4')}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b border-neutral-100">
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Defective Products</td>
-                  <td class="px-4 py-3 align-top">iShine covers return shipping (pre-approved only)</td>
-                  <td class="px-4 py-3 align-top">None</td>
-                  <td class="px-4 py-3 align-top">Replacement or full refund</td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-3 align-top font-medium text-ink-900">Non-Defective Products</td>
-                  <td class="px-4 py-3 align-top">Buyer covers return shipping</td>
-                  <td class="px-4 py-3 align-top">15%–25% (depending on product condition and packaging)</td>
-                  <td class="px-4 py-3 align-top">Refund (minus restocking fee) or credit note</td>
-                </tr>
+                {[
+                  ['s4r1c1', 's4r1c2', 's4r1c3', 's4r1c4'],
+                  ['s4r2c1', 's4r2c2', 's4r2c3', 's4r2c4'],
+                ].map((row, i, all) => (
+                  <tr class={i === all.length - 1 ? '' : 'border-b border-neutral-100'}>
+                    <td class="px-4 py-3 align-top font-medium text-ink-900">{tr(row[0])}</td>
+                    <td class="px-4 py-3 align-top">{tr(row[1])}</td>
+                    <td class="px-4 py-3 align-top">{tr(row[2])}</td>
+                    <td class="px-4 py-3 align-top">{tr(row[3])}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </section>
 
         <section id="batch-return" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">5. Batch Return (Systemic Quality Issues)</h2>
-          <p class="mt-4 text-neutral-700">If a batch exhibits a defect rate exceeding 2%:</p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s5Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s5p1')}</p>
           <ul class="mt-4 list-disc space-y-2 pl-6 text-neutral-700">
-            <li>Buyer must submit a batch return request within 30 days of delivery.</li>
-            <li>iShine will conduct a root-cause investigation and provide a full refund or full exchange at iShine's cost.</li>
-            <li>Returns of this nature are handled on a case-by-case basis and may require sample inspection.</li>
+            <li>{tr('s5l1')}</li>
+            <li>{tr('s5l2')}</li>
+            <li>{tr('s5l3')}</li>
           </ul>
         </section>
 
         <section id="exchanges" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">6. Exchanges</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s6Title')}</h2>
           <ul class="mt-6 list-disc space-y-2 pl-6 text-neutral-700">
-            <li>Defective products may be exchanged for the same model or an equivalent product.</li>
-            <li>Exchange requests must be submitted within the 15-day return window.</li>
-            <li>iShine covers the cost of replacement units and return shipping for confirmed defects.</li>
-            <li>If the requested replacement model is unavailable, a refund or credit note will be offered.</li>
+            <li>{tr('s6l1')}</li>
+            <li>{tr('s6l2')}</li>
+            <li>{tr('s6l3')}</li>
+            <li>{tr('s6l4')}</li>
           </ul>
         </section>
 
         <section id="spare-units" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">7. Spare Units (Free of Charge)</h2>
-          <p class="mt-4 text-neutral-700">
-            To minimise disruption, we include 0.5%–1% extra units as free-of-charge spares per shipment. These can be used for local replacement without returning the defective unit, at the buyer's discretion.
-          </p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s7Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s7p1')}</p>
         </section>
 
         <section id="not-eligible" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">8. Items Not Eligible for Return</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s8Title')}</h2>
           <ul class="mt-6 list-disc space-y-2 pl-6 text-neutral-700">
-            <li>Customised products with exclusive branding, packaging, or design (unless covered under a separate quality agreement).</li>
-            <li>Products damaged by misuse, improper storage, or unauthorised modification.</li>
-            <li>Products returned after the 15-day return window.</li>
+            <li>{tr('s8l1')}</li>
+            <li>{tr('s8l2')}</li>
+            <li>{tr('s8l3')}</li>
           </ul>
         </section>
 
         <section id="warranty" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">9. Warranty</h2>
-          <p class="mt-4 text-neutral-700">
-            All products are covered by a 12-month warranty from the delivery date. Manufacturing defects during this period will be repaired, replaced, or refunded at iShine's discretion.
-          </p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s9Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s9p1')}</p>
         </section>
 
         <section id="refund-processing" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">10. Refund Processing</h2>
-          <p class="mt-4 text-neutral-700">
-            Approved refunds will be processed within 10 working days of inspection completion and credited via the original payment method or as a credit note toward future orders.
-          </p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s10Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s10p1')}</p>
         </section>
 
         <section id="contact" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">11. Contact Information</h2>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s11Title')}</h2>
           <div class="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 text-sm text-neutral-700">
-            <p class="font-semibold text-ink-900">iShine Technology Ltd.</p>
-            <p>Email: <a class="text-sky-700 underline" href={`mailto:${contact.email}`}>{contact.email}</a></p>
-            <p>Website: <a class="text-sky-700 underline" href="https://iplmanufacturer.com/" target="_blank" rel="noopener">{contact.website}</a></p>
-            <p>Phone: <a class="text-sky-700 underline" href="tel:+8615012891148">{contact.phone}</a></p>
+            <p class="font-semibold text-ink-900">{tr('companyName')}</p>
+            <p>{tr('s11emailLabel')} <a class="text-sky-700 underline" href={`mailto:${contact.email}`}>{contact.email}</a></p>
+            <p>{tr('s11websiteLabel')} <a class="text-sky-700 underline" href="https://iplmanufacturer.com/" target="_blank" rel="noopener">{contact.website}</a></p>
+            <p>{tr('s11phoneLabel')} <a class="text-sky-700 underline" href="tel:+8615012891148">{contact.phone}</a></p>
           </div>
-          <p class="mt-4 text-neutral-700">
-            For any return-related inquiries, please include your order number and RMA number (if already issued) in all correspondence.
-          </p>
+          <p class="mt-4 text-neutral-700">{tr('s11outro')}</p>
         </section>
 
         <section id="final-interpretation" class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-          <h2 class="text-2xl font-bold text-ink-900">12. Final Interpretation</h2>
-          <p class="mt-4 text-neutral-700">
-            iShine Technology Ltd. reserves the right of final interpretation of this Return Policy.
-          </p>
+          <h2 class="text-2xl font-bold text-ink-900">{tr('s12Title')}</h2>
+          <p class="mt-4 text-neutral-700">{tr('s12p1')}</p>
         </section>
       </section>
     </div>
