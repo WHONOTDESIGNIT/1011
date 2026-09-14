@@ -10,6 +10,7 @@ import BlogRecommendations from '../../components/BlogRecommendations.astro';
 import QaAccordion from '../../components/QaAccordion.astro';
 import CookieConsent from '../../components/CookieConsent.astro';
 import fontsCss from '../../styles/fonts.css?raw';
+import Analytics from '../../components/Analytics.astro';
 const icons = import.meta.glob('/src/assets/icons/*.webp', { eager: true, import: 'default' }) as Record<string, ImageMetadata>;
 const locale = getPageLocale(Astro.currentLocale, Astro.url.pathname);
 const loc = (p: string) => getLocalizedPath(locale, p);
@@ -620,6 +621,7 @@ a{text-decoration:none;color:inherit}
 @media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
 
 </style>
+  <Analytics />
 </head>
 <body>
 <div class="overflow-x-hidden">

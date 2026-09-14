@@ -9,6 +9,7 @@ import CookieConsent from '../components/CookieConsent.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
 import QaAccordion from '../components/QaAccordion.astro';
 import fontsCss from '../styles/fonts.css?raw';
+import Analytics from '../components/Analytics.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 ---
@@ -192,6 +193,7 @@ h1,h2,h3{font-weight:400}
   .blog-header .sub-heading{font-size:16px;line-height:25px}
 }
 </style>
+  <Analytics />
 </head>
 <body>
 

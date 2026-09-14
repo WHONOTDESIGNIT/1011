@@ -111,3 +111,6 @@ astro/ui-audit-shots/
 astro/.pw-browsers/
 astro/ui-audit-report.json
 astro/ui-audit-shots/
+# all env files ignored, keep only the example (security review: .env.production was not covered)
+.env*
+!.env.example

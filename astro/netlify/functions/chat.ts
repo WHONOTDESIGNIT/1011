@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
-import { getDeployStore } from '@netlify/blobs';
-import { createClient } from '@supabase/supabase-js';
+import { getDeployStore, type Store } from '@netlify/blobs';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 type ChatMessage = {
   role: 'user' | 'assistant';
@@ -26,14 +26,49 @@ const SYSTEM_PROMPT =
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const openai = new OpenAI();
-const chatStore = getDeployStore(CHAT_STORE_NAME);
-const supabase =
-  supabaseUrl && supabaseServiceKey
-    ? createClient(supabaseUrl, supabaseServiceKey, {
-        auth: { persistSession: false, autoRefreshToken: false },
-      })
-    : null;
+// 惰性初始化（安全排查 R4，第二次修复）：
+// 之前在模块顶层直接 `new OpenAI()` / `getDeployStore()`，缺环境变量时会在**模块加载期**抛错，
+// 而模块加载期的异常发生在 handler 的 try/catch 之外 —— Netlify 会用它自己的 502 信封把
+// errorMessage/trace 原样回给匿名调用者（实测仍能读到 "Missing credentials ... apiKey"）。
+// 改为懒加载 + 失败返回 null，缺配置走下面可控的 503 分支，细节只进日志。
+let openaiClient: OpenAI | null | undefined;
+function getOpenAI(): OpenAI | null {
+  if (openaiClient === undefined) {
+    try {
+      openaiClient = process.env.OPENAI_API_KEY ? new OpenAI() : null;
+    } catch (error) {
+      console.error('chat: OpenAI client init failed:', error);
+      openaiClient = null;
+    }
+  }
+  return openaiClient;
+}
+
+let storeClient: Store | null | undefined;
+function getChatStore(): Store | null {
+  if (storeClient === undefined) {
+    try {
+      storeClient = getDeployStore(CHAT_STORE_NAME);
+    } catch (error) {
+      console.error('chat: blob store init failed:', error);
+      storeClient = null;
+    }
+  }
+  return storeClient;
+}
+
+let supabaseClient: SupabaseClient | null | undefined;
+function getSupabase(): SupabaseClient | null {
+  if (supabaseClient === undefined) {
+    supabaseClient =
+      supabaseUrl && supabaseServiceKey
+        ? createClient(supabaseUrl, supabaseServiceKey, {
+            auth: { persistSession: false, autoRefreshToken: false },
+          })
+        : null;
+  }
+  return supabaseClient;
+}
 
 function json(data: unknown, init?: ResponseInit) {
   return new Response(JSON.stringify(data), {
@@ -56,25 +91,29 @@ function chatKey(conversationId: string) {
 }
 
 export default async (req: Request) => {
+  const client = getOpenAI();
+  const store = getChatStore();
+  const sb = getSupabase();
+
+  if (!client || !store || !sb) {
+    // 不回显缺哪个环境变量（R4）：只说服务未就绪，细节进日志。
+    console.error('chat: not configured', {
+      openai: Boolean(client),
+      blobs: Boolean(store),
+      supabase: Boolean(sb),
+    });
+    return json({ error: 'Chat service is not configured.' }, { status: 503 });
+  }
+
   if (req.method === 'GET') {
     const url = new URL(req.url);
     const conversationId = normalizeConversationId(url.searchParams.get('conversationId'));
-    const history = ((await chatStore.get(chatKey(conversationId), { type: 'json' })) as ChatMessage[] | null) ?? [];
+    const history = ((await store.get(chatKey(conversationId), { type: 'json' })) as ChatMessage[] | null) ?? [];
     return json({ conversationId, history });
   }
 
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
-  }
-
-  if (!supabase) {
-    return json(
-      {
-        error:
-          'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY. Configure these environment variables before using chat.',
-      },
-      { status: 500 },
-    );
   }
 
   let body: { message?: unknown; messages?: unknown; newConversation?: unknown; conversationId?: unknown };
@@ -89,7 +128,7 @@ export default async (req: Request) => {
   const shouldStartNewConversation = body.newConversation === true;
 
   if (shouldStartNewConversation) {
-    await chatStore.setJSON(conversationKey, []);
+    await store.setJSON(conversationKey, []);
     return json({ success: true, conversationId, history: [] });
   }
 
@@ -100,11 +139,11 @@ export default async (req: Request) => {
   }
 
   try {
-    const storedHistory = ((await chatStore.get(conversationKey, { type: 'json' })) as ChatMessage[] | null) ?? [];
+    const storedHistory = ((await store.get(conversationKey, { type: 'json' })) as ChatMessage[] | null) ?? [];
     const history = storedHistory.slice(-MAX_HISTORY);
     const updatedHistory = [...history, { role: 'user', content: message }];
 
-    const embeddingResult = await openai.embeddings.create({
+    const embeddingResult = await client.embeddings.create({
       model: EMBEDDING_MODEL,
       input: message,
     });
@@ -114,7 +153,7 @@ export default async (req: Request) => {
       throw new Error('Failed to generate query embedding.');
     }
 
-    const { data, error } = await supabase.rpc('match_documents', {
+    const { data, error } = await sb.rpc('match_documents', {
       query_embedding: queryEmbedding,
       match_threshold: MATCH_THRESHOLD,
       match_count: MAX_CONTEXT_DOCS,
@@ -129,7 +168,7 @@ export default async (req: Request) => {
       ? docs.map((doc, index) => `Context ${index + 1}:\n${doc.content}`).join('\n\n')
       : 'No relevant knowledge base context was found.';
 
-    const stream = await openai.chat.completions.create({
+    const stream = await client.chat.completions.create({
       model: MODEL,
       stream: true,
       max_tokens: 700,
@@ -154,7 +193,7 @@ export default async (req: Request) => {
               assistantMessage += text;
               controller.enqueue(new TextEncoder().encode(text));
             }
-            await chatStore.setJSON(conversationKey, [
+            await store.setJSON(conversationKey, [
               ...updatedHistory,
               { role: 'assistant', content: assistantMessage },
             ]);

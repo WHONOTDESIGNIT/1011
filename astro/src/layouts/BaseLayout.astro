@@ -12,6 +12,7 @@ import globalCssUrl from '../styles/global.css?url';
 import SeoHead from '../components/SeoHead.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
 import QaAccordion from '../components/QaAccordion.astro';
+import Analytics from '../components/Analytics.astro';
 
 type Props = {
   title: string;
@@ -41,47 +42,7 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
 <html lang={lang} dir={lang === 'ar' || lang === 'he' || lang === 'fa' ? 'rtl' : 'ltr'}>
   <head>
     <SeoHead title={title} lang={lang} description={description} canonical={canonical} image={image} type={type} hreflangs={hreflangs} appendBrand={appendBrand} />
-    {/* Google Analytics 4（gtag.js，衡量 ID G-94BDNGHHJH）＋ Consent Mode v2。
-        顺序是硬要求：consent default 必须在 gtag.js 加载之前下发，否则首次访问会在用户做出
-        选择前就写入 _ga cookie（欧盟/英国合规问题）。同意状态由现有 CookieConsent 组件驱动
-        —— 它在每次页面加载都会向 dataLayer 推送 {event:'consent-updated', consent:[levels]}，
-        下面的桥接把 levels 映射成 GA4 的 consent update，因此不需要改动该组件。
-        wait_for_update 给这次推送 500ms 窗口，避免首屏过早按 denied 处理。 */}
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-        wait_for_update: 500
-      });
-      // 同意状态 → GA4 consent update（拦截 dataLayer.push，不改动 CookieConsent 组件）
-      (function () {
-        var dl = window.dataLayer;
-        var push = dl.push.bind(dl);
-        dl.push = function () {
-          var e = arguments[0];
-          if (e && e.event === 'consent-updated') {
-            var lv = e.consent || [];
-            var s = Array.isArray(lv) ? lv.join(',') : String(lv);
-            var analytics = s.indexOf('analytics') > -1 || s.indexOf('accept') > -1;
-            var ads = s.indexOf('targeting') > -1;
-            gtag('consent', 'update', {
-              analytics_storage: analytics ? 'granted' : 'denied',
-              ad_storage: ads ? 'granted' : 'denied',
-              ad_user_data: ads ? 'granted' : 'denied',
-              ad_personalization: ads ? 'granted' : 'denied'
-            });
-          }
-          return push.apply(dl, arguments);
-        };
-      })();
-      gtag('js', new Date());
-      gtag('config', 'G-94BDNGHHJH');
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH"></script>
+    <Analytics />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <style is:inline set:html={fontsCss} />
     <style is:inline set:html={criticalCss} />

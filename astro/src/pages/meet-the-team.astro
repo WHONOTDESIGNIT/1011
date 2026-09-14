@@ -10,6 +10,7 @@ import SeoHead from '../components/SeoHead.astro';
 import BlogRecommendations from '../components/BlogRecommendations.astro';
 import QaAccordion from '../components/QaAccordion.astro';
 import fontsCss from '../styles/fonts.css?raw';
+import Analytics from '../components/Analytics.astro';
 
 // 页面不经过 BaseLayout，内联实现自取当前语言：
 // en 无前缀；/tr/、/ar/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr/ar
@@ -665,6 +666,7 @@ a{text-decoration:none;color:inherit}
 @media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
 
 </style>
+  <Analytics />
 </head>
 <body>
 <div class="overflow-x-hidden">
