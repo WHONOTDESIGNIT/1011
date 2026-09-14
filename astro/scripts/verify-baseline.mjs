@@ -6,6 +6,14 @@
 // 指标与容差（2026-08-31 与用户确认）：
 //   htmlTotal       HTML 总数 ±10            —— 允许少量新增/删除文章
 //   htmlPerLocale   每语言博客页 ±2          —— 允许单语言小幅调整
+//
+// ⚠️ 计数规则（2026-09-14 踩坑记录，改基线前必须按这条核对）：
+//   astro.config 用 i18n fallbackType:'rewrite'，缺失语种会生成 fallback 页，因此
+//     · 新增一篇【英文】文章        = +22 个 HTML（1 篇英文 + 21 个 fallback 重写页）
+//     · 把已存在的 fallback 补成真实译文 = 页数【完全不变】（只替换内容，sitemap 才 +1/语种）
+//   d7ce992 误按「21 篇译文 = +21 页」把 htmlTotal 从 3037 提到 3058，实际仍是 3037，
+//   差值 21 超过 ±10 容差，于是此后每次部署都在这一步中断（线上冻结 2.5 小时）。
+//   sitemap 条数与 HTML 总数不是一回事：sitemap 只收录 self-canonical 的本地化 URL。
 //   astroAssetSize  _astro 总量 +15% warn / +30% fail
 //   maxCssChunk     最大 CSS chunk +10% warn / +20% fail
 //   maxJsChunk      最大 JS chunk  +10% warn / +20% fail
@@ -155,8 +163,13 @@ function compare() {
 
   // 页面总数
   const htmlDelta = Math.abs(cur.htmlTotal - base.htmlTotal);
-  if (htmlDelta > TOL.htmlTotalDelta) fail(`htmlTotal: 基线 ${base.htmlTotal}±${TOL.htmlTotalDelta}，当前 ${cur.htmlTotal}`);
-  else ok(`htmlTotal: ${cur.htmlTotal}（基线 ${base.htmlTotal}，±${TOL.htmlTotalDelta}）`);
+  if (htmlDelta > TOL.htmlTotalDelta) {
+    fail(`htmlTotal: 基线 ${base.htmlTotal}±${TOL.htmlTotalDelta}，当前 ${cur.htmlTotal}`);
+    console.error('\n提示：先确认这次改动是否真的增减了 HTML 页数——');
+    console.error('  · 新增【英文】文章 = +22 页（1 + 21 个 i18n fallback 重写页）');
+    console.error('  · 已有 fallback 补成真实译文 = 页数不变（只换内容，sitemap 才 +1）');
+    console.error('  · 要么修正基线里的 htmlTotal/htmlPerLocale，要么说明为什么页面数真的变了。\n');
+  } else ok(`htmlTotal: ${cur.htmlTotal}（基线 ${base.htmlTotal}，±${TOL.htmlTotalDelta}）`);
 
   // 每语言博客页
   const perLocaleFails = [];
