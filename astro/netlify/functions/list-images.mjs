@@ -52,10 +52,12 @@ export const handler = async (event, context) => {
       body: JSON.stringify({ images, total: images.length }),
     };
   } catch (error) {
+    // 不向调用者回显内部错误与堆栈（安全排查 R4）；细节只进 Netlify 日志。
+    console.error('list-images failed:', error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: error.message, stack: error.stack }),
+      body: JSON.stringify({ error: 'Internal error' }),
     };
   }
 };

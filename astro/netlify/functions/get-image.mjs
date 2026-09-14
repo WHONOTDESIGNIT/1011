@@ -8,7 +8,8 @@ const getContentType = (key) => {
     png: 'image/png',
     gif: 'image/gif',
     webp: 'image/webp',
-    svg: 'image/svg+xml',
+    // 刻意不映射 svg：以本站域名返回 image/svg+xml 会让"上传 SVG → 执行脚本"成为
+    // 存储型 XSS 通路（安全排查 R1）。SVG 一律按二进制流下发。
   };
   return types[ext] || 'application/octet-stream';
 };
@@ -39,6 +40,7 @@ export default async (req) => {
       status: 200,
       headers: {
         'Content-Type': getContentType(key),
+        'X-Content-Type-Options': 'nosniff',
         'Cache-Control': 'public, max-age=31536000, immutable',
       },
     });

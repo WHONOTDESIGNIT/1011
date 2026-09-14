@@ -31,10 +31,12 @@ export const handler = async (event, context) => {
       body: JSON.stringify({ success: true, key }),
     };
   } catch (error) {
+    // 不回显内部错误与堆栈（安全排查 R4）
+    console.error('delete-image failed:', error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: error.message, stack: error.stack }),
+      body: JSON.stringify({ error: 'Internal error' }),
     };
   }
 };

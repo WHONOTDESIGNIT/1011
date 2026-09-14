@@ -173,7 +173,8 @@ export default async (req: Request) => {
       },
     );
   } catch (error) {
-    const messageText = error instanceof Error ? error.message : 'Internal Server Error';
-    return json({ error: messageText }, { status: 500 });
+    // 不回显内部错误与 SDK 细节（安全排查 R4）
+    console.error('chat failed:', error);
+    return json({ error: 'Internal error' }, { status: 500 });
   }
 };

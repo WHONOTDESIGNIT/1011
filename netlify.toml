@@ -102,3 +102,13 @@
   from = "/*"
   to = "/404.html"
   status = 404
+
+# 安全响应头（安全排查 R5）：HSTS 由 Netlify 默认提供，这里补齐其余基线三项。
+# 刻意不设 X-Frame-Options 与 CSP：前者会挡住站内浏览器预览，后者需要按实际资源
+# （GA4 / 字体 / 图片 CDN）逐条放行后先用 Report-Only 观察，均需单独决策。
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"

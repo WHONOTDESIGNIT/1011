@@ -28,6 +28,8 @@ Disallow: /develo-service-uiux/
 Disallow: /develo-service-tech-partner/
 Disallow: /develo-blog-detail/
 Disallow: /index.backup/
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: ClaudeBot
 Allow: /
@@ -46,6 +48,8 @@ Disallow: /develo-service-uiux/
 Disallow: /develo-service-tech-partner/
 Disallow: /develo-blog-detail/
 Disallow: /index.backup/
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: PerplexityBot
 Allow: /
@@ -64,38 +68,60 @@ Disallow: /develo-service-uiux/
 Disallow: /develo-service-tech-partner/
 Disallow: /develo-blog-detail/
 Disallow: /index.backup/
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- AI 搜索引擎与训练爬虫（显式放行公开内容） ---
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: CCBot
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: GoogleOther
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 中国 AI 爬虫（显式授权爬取公开内容，仅屏蔽内部/接口路径） ---
 
@@ -106,6 +132,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 阿里 / 千问 ---
 User-Agent: QwenBot
@@ -114,6 +142,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 百度 / 文心一言 ---
 User-Agent: BaiduBot
@@ -122,6 +152,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 User-Agent: Baiduspider
 Allow: /
@@ -129,6 +161,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 腾讯 / 元宝 ---
 User-Agent: YuanbaoBot
@@ -137,6 +171,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 User-Agent: TencentBot
 Allow: /
@@ -144,6 +180,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 小米 ---
 User-Agent: XiaoMiBot
@@ -152,6 +190,8 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: *.json
+Disallow: /upload
+Disallow: /.netlify/
 
 # --- 兜底：全部未列出的爬虫 ---
 
@@ -172,5 +212,7 @@ Disallow: /develo-service-uiux/
 Disallow: /develo-service-tech-partner/
 Disallow: /develo-blog-detail/
 Disallow: /index.backup/
+Disallow: /upload
+Disallow: /.netlify/
 
 Sitemap: https://iplmanufacturer.com/sitemap.xml
