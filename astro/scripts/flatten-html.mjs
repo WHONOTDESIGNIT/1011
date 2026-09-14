@@ -171,6 +171,21 @@ function buildRedirects(dist) {
     rules.push(...shimRules.sort());
     console.log(`  ↪ 已将 ${shimRules.length} 个静态跳转页升级为 301 规则并移除 HTML`);
   }
+  // 兼容旧链接：4 个已失效的博客 URL（审计报告 §5.2）。线上实测仍为 404，
+  // 且**当前源码与构建产物已无任何内链指向它们**（2026-09-14 全量扫描 3037 个 HTML + 1467 个源文件，
+  // 命中 0），所以只为外部/历史链接保留 301。
+  // ⚠ 必须放在下方 `/blog/:splat /blog/:splat.html 200` 目录重写**之前**：
+  //    那条通配规则同样能匹配 /blog/<旧 slug>，首条命中即生效，会让这里的 301 永不执行
+  //    （与文件顶部 shim 规则"必须早于目录通配"是同一个道理）。
+  // 目标按现存文章的实际 frontmatter slug 逐个核对，不是按文件名猜的：
+  rules.push('/blog/ipl-side-effects-asian-skin /blog/ipl-side-effects-by-skin-type 301!');
+  rules.push('/blog/22-ugly-truth-about-ipl-manufacturers /blog/ugly-truth-ipl-manufacturers-energy-adapter-fda 301!');
+  // ⚠ 下面这条是「最接近的同主题页」判断，不是直接的改名对应：原 IEC 合规文已不存在，
+  //    现存最接近的是合规阶梯文。若你确认另有目标，改这一行即可。
+  rules.push('/blog/ipl-compliance-iec-standards /blog/ipl-validation-services 301!');
+  // 原 /blog/ipl-privacy-modesty-saudi-homes 全站已无同主题文章（全语种搜索 0 命中），
+  // 因此**刻意不加 301** —— 指向无关页面比 404 更糟。该 URL 继续返回 404。
+
   const pageDirs = [];
   const topPages = [];
   for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
@@ -209,6 +224,11 @@ function buildRedirects(dist) {
   // 都会被覆盖而失效（es-mx 曾因此回退为 404）——存量兼容 301 统一收口在此维护。
   rules.push('/es-mx/:splat /es/:splat 301!');
   rules.push('/es-mx /es 301!');
+  // 兼容旧链接：/es-ES/* 从未是本站的 URL 前缀（西语的 URL 前缀是 /es/，只有 hreflang 用 es-ES）。
+  // 审计报告 §5.4 记录有 18 条历史内链指向 /es-ES/blog，线上实测该路径为 **404 且无任何规则**
+  // （2026-09-14 复核），因此按 es-mx 的先例补 301，避免已收录/外链的旧地址掉进 404 兜底。
+  rules.push('/es-ES/:splat /es/:splat 301!');
+  rules.push('/es-ES /es 301!');
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
   // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
   // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
