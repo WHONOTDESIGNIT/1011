@@ -11,19 +11,30 @@ type ChatResponse = {
   error?: string;
   history?: Message[];
   conversationId?: string;
+  token?: string;
 };
 
 const MAX_HISTORY = 20;
 const CHAT_STORAGE_KEY = 'ishine-chat-conversation-id';
+const CHAT_TOKEN_KEY = 'ishine-chat-conversation-token';
 /** iShine AI Chat 基础建设完成前强制隐藏窗口（不渲染任何 UI）；
- *  上线时将 CHAT_ENABLED 改为 true 即可恢复。 */
+ *  上线时将 CHAT_ENABLED 改为 true 即可恢复（服务端还需设置环境变量 CHAT_ENABLED=true）。 */
 const CHAT_ENABLED = false;
 
-function createConversationId() {
-  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-    return crypto.randomUUID();
-  }
-  return `chat-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+/**
+ * 会话 id 与令牌都由服务端签发（服务端用 HMAC 签名，别人枚举/猜到 id 也读不到别人的会话）。
+ * 客户端只负责持久化服务端返回的这对值，不再自己生成 id。
+ */
+function readSession(response: Response, data?: ChatResponse) {
+  const id = response.headers.get('X-Conversation-Id') || data?.conversationId || '';
+  const token = response.headers.get('X-Conversation-Token') || data?.token || '';
+  return { id, token };
+}
+
+function persistSession(id: string, token: string) {
+  if (!id || !token) return;
+  window.localStorage.setItem(CHAT_STORAGE_KEY, id);
+  window.localStorage.setItem(CHAT_TOKEN_KEY, token);
 }
 
 function IconSpark() {
@@ -58,6 +69,7 @@ export default function Chat() {
   const [error, setError] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
   const [conversationId, setConversationId] = useState('');
+  const [conversationToken, setConversationToken] = useState('');
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -78,16 +90,17 @@ export default function Chat() {
   useEffect(() => {
     if (!hasMounted) return;
 
-    const existingConversationId = window.localStorage.getItem(CHAT_STORAGE_KEY);
-    const nextConversationId = existingConversationId || createConversationId();
-    if (!existingConversationId) {
-      window.localStorage.setItem(CHAT_STORAGE_KEY, nextConversationId);
+    // 只恢复「服务端签发过」的会话；没有就留空，等第一次发送时由服务端签发。
+    const storedId = window.localStorage.getItem(CHAT_STORAGE_KEY) || '';
+    const storedToken = window.localStorage.getItem(CHAT_TOKEN_KEY) || '';
+    if (storedId && storedToken) {
+      setConversationId(storedId);
+      setConversationToken(storedToken);
     }
-    setConversationId(nextConversationId);
   }, [hasMounted]);
 
   useEffect(() => {
-    if (!conversationId) return;
+    if (!conversationId || !conversationToken) return;
 
     let cancelled = false;
 
@@ -95,7 +108,8 @@ export default function Chat() {
       setIsHistoryLoading(true);
       try {
         const response = await fetch(
-          `/.netlify/functions/chat?conversationId=${encodeURIComponent(conversationId)}`,
+          `/.netlify/functions/chat?conversationId=${encodeURIComponent(conversationId)}`
+          + `&token=${encodeURIComponent(conversationToken)}`,
         );
         if (!response.ok) {
           throw new Error('Failed to load chat history.');
@@ -121,7 +135,7 @@ export default function Chat() {
     return () => {
       cancelled = true;
     };
-  }, [conversationId]);
+  }, [conversationId, conversationToken]);
 
   const canSend = input.trim().length > 0 && !isLoading;
 
@@ -133,19 +147,16 @@ export default function Chat() {
   }, [isHistoryLoading, isLoading, messages.length]);
 
   async function startNewConversation() {
-    if (!conversationId || isLoading) return;
+    if (isLoading) return;
 
     setIsHistoryLoading(true);
     setError('');
     try {
-      const nextConversationId = createConversationId();
+      // 不带 conversationId：服务端签发新的 id + 签名令牌
       const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          newConversation: true,
-          conversationId,
-        }),
+        body: JSON.stringify({ newConversation: true }),
       });
 
       if (!response.ok) {
@@ -153,8 +164,11 @@ export default function Chat() {
         throw new Error(data.error || 'Failed to start a new conversation.');
       }
 
-      window.localStorage.setItem(CHAT_STORAGE_KEY, nextConversationId);
-      setConversationId(nextConversationId);
+      const data = (await response.json().catch(() => ({}))) as ChatResponse;
+      const session = readSession(response, data);
+      persistSession(session.id, session.token);
+      setConversationId(session.id);
+      setConversationToken(session.token);
       setMessages([]);
       setInput('');
     } catch (caughtError) {
@@ -168,7 +182,7 @@ export default function Chat() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!canSend || !conversationId) return;
+    if (!canSend) return;
 
     const content = input.trim();
     const nextUserMessage: Message = { role: 'user', content };
@@ -186,12 +200,21 @@ export default function Chat() {
           message: content,
           messages: messages.slice(-MAX_HISTORY),
           conversationId,
+          token: conversationToken,
         }),
       });
 
       if (!response.ok) {
         const data = (await response.json().catch(() => ({}))) as ChatResponse;
         throw new Error(data.error || 'Failed to get a response.');
+      }
+
+      // 第一次发送时服务端签发会话；把 id + 令牌留存，后续续聊与历史读取都要用
+      const issued = readSession(response);
+      if (issued.id && issued.token && issued.id !== conversationId) {
+        persistSession(issued.id, issued.token);
+        setConversationId(issued.id);
+        setConversationToken(issued.token);
       }
 
       const reader = response.body?.getReader();
@@ -310,7 +333,7 @@ export default function Chat() {
               />
               <button
                 type="submit"
-                disabled={!canSend || isHistoryLoading || !conversationId}
+                disabled={!canSend || isHistoryLoading}
                 className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-ink-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-400"
               >
                 {isLoading ? '...' : 'Send'}

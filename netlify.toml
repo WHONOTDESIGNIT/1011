@@ -103,12 +103,30 @@
   to = "/404.html"
   status = 404
 
-# 安全响应头（安全排查 R5）：HSTS 由 Netlify 默认提供，这里补齐其余基线三项。
-# 刻意不设 X-Frame-Options 与 CSP：前者会挡住站内浏览器预览，后者需要按实际资源
-# （GA4 / 字体 / 图片 CDN）逐条放行后先用 Report-Only 观察，均需单独决策。
+# 安全响应头（安全排查 R5）：HSTS 由 Netlify 默认提供，这里补齐基线项。
+# X-Frame-Options 仍未设置：会挡住站内浏览器预览，等 CSP 报告观察清楚谁在嵌入后再定。
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    # CSP 第一步：Report-Only（只报告、不拦截），按 Netlify 官方建议的路线走
+    # （docs.netlify.com/manage/security/content-security-policy/）：先观察违规，再决定是否强制。
+    #
+    # 策略不是文档里那份通用样板（default-src 'none'; script-src 'self'; …），而是按**本站实际加载的资源**
+    # 实测后写的（2026-09-14 逐页扫过 script/style/img/font/iframe 的来源，6 个代表页）：
+    #   · script：本站 + googletagmanager.com（GA4）+ scripts.simpleanalyticscdn.com（Simple Analytics）
+    #   · img：本站 + flagcdn.com（语言旗标）+ coresg-normal.trae.ai（早期 AI 生成配图）
+    #   · font：fonts.gstatic.com；无外部 stylesheet；无 iframe/video
+    #   · connect：GA4 与 Simple Analytics 的运行时上报端点（静态 HTML 里看不到，按运行时需要补）
+    # 若直接用通用样板，报告会被"我们本来就在用"的资源淹没，真正的异常反而看不见。
+    #
+    # 内联为何仍留 'unsafe-inline'：实测这些页面共有 81 个内联 <script>、19 个内联 <style>、
+    # 82 个 on*= 事件属性、131 个 style= 属性，CSP 下只有 'unsafe-inline' 或逐个 hash/nonce 两条路。
+    # 想走到强制模式，需先给内联脚本/样式生成 hash（Astro 5.9+ 的 experimental.csp 可自动产出）
+    # 并清掉 on*= 属性 —— 那是独立一轮改造，不宜和这一步混做。
+    #
+    # frame-ancestors 先设 'self'：报告阶段用来**观察**谁在嵌入本站（应用内浏览器预览就是一种嵌入），
+    # Report-Only 不会挡住任何嵌入。
+    Content-Security-Policy-Report-Only = "default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://coresg-normal.trae.ai; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://queue.simpleanalyticscdn.com; media-src 'self'; worker-src 'self'; manifest-src 'self'"

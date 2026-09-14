@@ -26,6 +26,8 @@ const DIST = path.resolve(__dirname, '../dist');
 const LANG_URL_PATHS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'pt-br', 'pt-pt', 'nl', 'id', 'th', 'pl', 'ja', 'ko', 'cs', 'vi', 'de', 'it'];
 
 // 不应收录的顶层平铺页面（非 SEO 目标页）
+// admin / upload 两个页面已于 2026-09-14 删除（安全排查：公开可访问的内部工具页），
+// 这里保留名字是防御性的——将来若有人再加同名页面，默认不会被塞进 sitemap。
 const SKIP_ROOT_FILES = new Set(['404', 'admin', 'upload']);
 
 function resolveBaseUrl() {

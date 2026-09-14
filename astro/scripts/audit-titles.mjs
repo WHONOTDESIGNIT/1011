@@ -79,8 +79,7 @@ const STATIC_ROUTES = [
   { route: '/services', key: 'servicesPage.index.meta.title' },
   { route: '/return-policy', fixed: 'Return Policy – iShine Technology Ltd.' },
   { route: '/404', fixed: '404 · Page Not Found' },
-  { route: '/upload', fixed: 'Upload Image', internal: true },
-  { route: '/admin', fixed: 'Admin', internal: true },
+  // /upload 与 /admin 页面已于 2026-09-14 删除（安全排查），故不再列入标题审计
 ];
 
 function previewMode() {
