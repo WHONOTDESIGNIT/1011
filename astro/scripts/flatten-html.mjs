@@ -211,6 +211,12 @@ function buildRedirects(dist) {
   // netlify.toml 的 [[redirects]] 未生效（/en/foo 未 301 到 /foo），
   // 且平台对未命中规则的路径返回 text/plain 301 自指循环而非 404。
   // 因此将 /en/* 与 404 兜底一并写入 _redirects（文件优先级最高、必然生效）。
+  //
+  // 【文档依据，2026-09-14 核对】官方明确：_redirects 永远先于 netlify.toml 的
+  // [[redirects]] 处理（Rule processing order），所以"写在 toml 里却没生效"是预期行为，
+  // 不是配置错误——凡是必须生效的规则都应落在本函数生成的 _redirects 里（本项目的做法）。
+  // 补充一条官方排序约定：**域名级重定向（如 https://oldsite.com/* → 新站）应放在整个文件最顶部**，
+  // 先于所有路径规则；本项目当前没有域名级重定向，将来要加就加在返回的 rules 数组第 0 位。
   rules.push('/en/* /:splat 301!');
   // 兼容旧链接：pt-BR / pt-PT 旧大写 URL path → 小写（2026-08-31 三层映射迁移）。
   // 旧 /pt-BR/、/pt-PT/ 前缀的链接（搜索引擎已收录、外链、书签）301 到新小写路径，
@@ -242,7 +248,21 @@ function buildRedirects(dist) {
 const rules = buildRedirects(DIST);
 if (rules.length > 0) {
   const redirectsFile = path.join(DIST, '_redirects');
-  fs.writeFileSync(redirectsFile, rules.join('\n') + '\n');
+  // 写进产物里的排序约定（Netlify 首条命中即生效；_redirects 又先于 netlify.toml 处理）。
+  // 官方文档：Redirect options → Splats（更具体的规则要排在更宽泛的规则之前）、
+  //           Rule processing order（_redirects 先于 netlify.toml）。
+  const header = [
+    '# 本文件由 astro/scripts/flatten-html.mjs 构建期生成，请勿手改（下次构建会覆盖）。',
+    '# 规则顺序约定（Netlify 首条命中即生效）：',
+    '#   1) 域名级重定向放最前（本项目暂无）',
+    '#   2) 旧 URL 的精确 301：soft-404 垫片、已下架文章、旧语种前缀 —— 必须早于下面的目录通配 200 重写，',
+    '#      否则 /blog/:splat 这类通配会先命中，301 永不执行',
+    '#   3) 页面精确 200 重写 → 目录通配 200 重写',
+    '#   4) 兜底 404 固定为最后一行',
+    '# 注意：_redirects 先于 netlify.toml 的 [[redirects]] 处理，重叠规则以本文件为准。',
+    '',
+  ].join('\n');
+  fs.writeFileSync(redirectsFile, header + rules.join('\n') + '\n');
   console.log(`📄 已生成 _redirects（${rules.length} 条规则，通配符压缩方案）`);
 }
 
