@@ -2,9 +2,19 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import rehypeLocaleLinks from './plugins/rehype-locale-links.mjs';
 
 export default defineConfig({
   output: 'static',
+  // 本地化文章正文内链补语种前缀（渲染层单点修复，2026-09-12）：
+  // 21 语种 × 61 篇正文共 2,972 处内链原本全部指向英文（/blog/<slug>、/products…），
+  // 把本地化集群的站内权重与读者单向送回英文。本插件只改渲染结果，不动 1,281 个内容文件，
+  // 新文章/新语种自动生效；en 页面一律不动；目标在该语种不存在时不加前缀（保持指英文原页）。
+  // 之所以放在 markdown.rehypePlugins：@astrojs/mdx 默认 extendMarkdownConfig = true，
+  // 会继承本配置（node_modules/@astrojs/mdx/dist/index.js L51-55、L79）。
+  markdown: {
+    rehypePlugins: [[rehypeLocaleLinks, {}]],
+  },
   // 全站 URL 规范（方案B · Panasonic 风格）：统一无结尾斜杠。
   // 注意：不使用 build.format: 'file' —— Astro 5.18.1 的 i18n fallback 语言首页
   // （/tr、/ro 等 16 个）在 file 格式下无法生成（已知 bug：fallback rewrite 空 body，
