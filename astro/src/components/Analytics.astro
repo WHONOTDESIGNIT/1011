@@ -12,6 +12,10 @@
  * 映射成 GA4 的 consent update，因此不需要改动那个组件。
  * 区域策略：非欧盟/英国默认 analytics_storage=granted（数据正常收集）；欧盟(EEA)/英国(GB)
  * 默认 denied，等 CookieConsent 同意后由下方桥接升级为 granted（ePrivacy 合规）。
+ * 区域列表**逐国枚举**（ISO 3166-2），不用 'EEA' 简称——原因见下面 region 字段处的注释：
+ * 无法识别的区域值会静默不匹配任何访客，导致欧盟访客按 granted 处理。
+ * ⚠ 未包含瑞士（CH）：它不是 EEA 成员，但其 nFADP 同样要求非必要 cookie 事先同意。
+ *   若希望把瑞士也按"需同意"处理，在下方 region 数组里加一个 'CH' 即可（已与你确认前不擅自扩大范围）。
  * 欧盟/英国侧 wait_for_update=2000，给 CookieConsent 2 秒窗口，避免首屏过早按 denied 处理。
  */
 ---
@@ -31,7 +35,18 @@
     ad_user_data: 'denied',
     ad_personalization: 'denied',
     analytics_storage: 'denied',
-    region: ['EEA', 'GB'],
+    // ⚠ 必须逐个列出国家代码，不能用 'EEA' 这类区域简称。
+    // Google 官方文档：region 取 **ISO 3166-2** 代码（示例 ['ES','US-AK']），
+    // 而 'EEA' 不是任何国家/次级行政区代码 —— 无法识别的值**不匹配任何访客、且不报错**，
+    // 于是欧盟访客会落到上面那条「全局 granted」默认上，等于**在用户同意前就写 _ga cookie**
+    // （ePrivacy/GDPR 问题）。这属于"静默失效"型配置错误，只能靠逐国枚举消除。
+    // 下表为 EEA 30 国（EU-27 + IS、LI、NO）+ 英国 GB。
+    region: [
+      'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+      'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+      'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO',
+      'GB'
+    ],
     wait_for_update: 2000
   });
   // 同意状态 → GA4 consent update（拦截 dataLayer.push，不改动 CookieConsent 组件）
