@@ -108,7 +108,7 @@ export default function Chat() {
       setIsHistoryLoading(true);
       try {
         const response = await fetch(
-          `/.netlify/functions/chat?conversationId=${encodeURIComponent(conversationId)}`
+          `/api/chat?conversationId=${encodeURIComponent(conversationId)}`
           + `&token=${encodeURIComponent(conversationToken)}`,
         );
         if (!response.ok) {
@@ -153,7 +153,7 @@ export default function Chat() {
     setError('');
     try {
       // 不带 conversationId：服务端签发新的 id + 签名令牌
-      const response = await fetch('/.netlify/functions/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newConversation: true }),
@@ -193,7 +193,7 @@ export default function Chat() {
     setError('');
 
     try {
-      const response = await fetch('/.netlify/functions/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

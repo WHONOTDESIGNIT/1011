@@ -30,7 +30,7 @@ export default async (req: Request) => {
   }
 
   try {
-    const store = getStore(STORE_NAME);
+    const store = getStore({ name: STORE_NAME, consistency: 'strong' });
     const current = readCounts(await store.get(slug));
 
     return new Response(JSON.stringify(current), {

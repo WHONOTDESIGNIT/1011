@@ -270,8 +270,13 @@ export default async (req: Request) => {
  * 代码级限流（Netlify 官方支持，所有套餐可用：docs.netlify.com/security/secure-access-to-sites/rate-limiting/）。
  * 按 IP + 站点聚合，60 秒内最多 20 次请求，超出返回 429；这样即使端点被公开，也不会无限烧模型额度。
  * 注意官方提示：跨过阈值后最多需要 10 秒才开始拦截。
+ *
+ * ⚠️ 必须显式声明 `path` —— 实测（2026-09-14）：只写 rateLimit 而不写 path 时规则不生效
+ * （对 /.netlify/functions/chat 连打 74 次全是 404，没有任何 429；而声明了 path: '/api/vote'
+ * 的投票端点在第 34 次请求就出现 429）。所以这里把路由固定到 /api/chat，客户端同步改路径。
  */
 export const config = {
+  path: '/api/chat',
   rateLimit: {
     windowLimit: 20,
     windowSize: 60,

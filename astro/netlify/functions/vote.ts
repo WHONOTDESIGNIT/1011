@@ -72,7 +72,10 @@ export default async (req: Request) => {
   }
 
   try {
-    const store = getStore(STORE_NAME);
+    // consistency: 'strong' 是去重能不能生效的关键：默认的 eventual 一致性下，
+    // 刚写入的「已投票」标记在下一次请求里可能读不到（实测：连续两次 POST 都读到空标记，
+    // 于是都走了自增分支）。强一致可保证写后立刻读到。
+    const store = getStore({ name: STORE_NAME, consistency: 'strong' });
     const key = `${ipHash(clientIp(req))}:${slug}`;
 
     const seenRaw = await store.get(key);
