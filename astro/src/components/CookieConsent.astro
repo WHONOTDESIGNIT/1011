@@ -191,8 +191,10 @@ const consentKey = 'ishine_cookie_consent_v1';
     const DEFAULT_LEVELS = ['strictly-necessary'];
 
     const applyConsent = (level) => {
-      // If analytics/ads scripts exist, gate them here. The site currently
-      // uses Simple Analytics (privacy-friendly, cookie-less); nothing to gate.
+      // GA4 (Consent Mode v2) is gated through dataLayer: pushing the
+      // 'consent-updated' event is consumed by Analytics.astro's bridge to
+      // call gtag('consent','update', …). Simple Analytics separately
+      // respects the sa_no_track cookie below.
       if (window.dataLayer) {
         window.dataLayer.push({ event: 'consent-updated', consent: level });
       }
