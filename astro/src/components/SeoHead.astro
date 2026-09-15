@@ -167,11 +167,22 @@ const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 // 32 位十六进制验证码填入下方，输出 <meta name="msvalidate.01"> 完成域名验证并提交 sitemap。
 // 留空则不输出（避免无效 meta）。亦可用 BingSiteAuth.xml 文件验证。
 const BING_SITE_VERIFICATION = '8CF8DC045D3E948836B3121AF095A214';
-const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=png';
+// 全站默认 og:image = 首页那张品牌主图（1200×630 裁切）。
+// ⚠ 输出格式用 jpeg 而不是 png：同一张图 png 是 **1067 KB**，jpeg 约 1/7，
+//   而这张图会被所有「没有自己主图的页面」共用（见下方 og:image 的 fallback）。
+//   选 jpeg 而非 webp 是为了社交平台（LinkedIn/Facebook/WhatsApp 抓取）兼容性最稳。
+const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=jpeg';
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+{/*
+  max-image-preview:large —— 全站此前**没有任何 robots meta**（2026-09-14 实测 15 个页面样本
+  全部为 none），Google 默认按 max-image-preview:standard 处理，搜索结果里的缩略图偏小，
+  Discover 也要求 large 才有机会展示大图。这一项与页面是否提供图片无关，是"允许 Google
+  用大图预览"的开关，属最省事、影响面最大的一处改动（一次覆盖全站所有页面）。
+*/}
+<meta name="robots" content="max-image-preview:large" />
 <script is:inline>
   // 语言偏好持久化：读取用户选定的语言（localStorage），
   // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 21 语言）
