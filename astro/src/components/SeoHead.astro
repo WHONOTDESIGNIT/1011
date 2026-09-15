@@ -167,11 +167,36 @@ const GOOGLE_SITE_VERIFICATION = 'Eyfk5Ty3dOOX_BJzvMRSlYcQZrToJVLY-J1yLRfPkA8';
 // 32 位十六进制验证码填入下方，输出 <meta name="msvalidate.01"> 完成域名验证并提交 sitemap。
 // 留空则不输出（避免无效 meta）。亦可用 BingSiteAuth.xml 文件验证。
 const BING_SITE_VERIFICATION = '8CF8DC045D3E948836B3121AF095A214';
-// 全站默认 og:image = 首页那张品牌主图（1200×630 裁切）。
-// ⚠ 输出格式用 jpeg 而不是 png：同一张图 png 是 **1067 KB**，jpeg 约 1/7，
-//   而这张图会被所有「没有自己主图的页面」共用（见下方 og:image 的 fallback）。
-//   选 jpeg 而非 webp 是为了社交平台（LinkedIn/Facebook/WhatsApp 抓取）兼容性最稳。
-const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-ipl-device-white-color.webp&w=1200&h=630&fit=cover&fm=jpeg';
+// ── og:image 统一管线 ──────────────────────────────────────────────────────────
+// 全站默认预览图 = 首页那张品牌主图；所有「没有自己主图的页面」共用它。
+const OG_FALLBACK_SOURCE = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
+
+/**
+ * 把页面主图统一转成标准社交/搜索预览图：**1200×630、cover 裁切、jpg、q=80**。
+ *
+ * 为什么要统一走这一层（2026-09-15 实测发现）：此前页面通过 `image` 传入的图是**原图直用**——
+ * `/products/helix` 的 og:image 直接指向 2048×2048、约 1.4 MB 的 JPEG，博客文是 2848×1600 的图。
+ * 社交平台与 Google 抓取端会因此拿到体积大、比例也不符合 1.91:1 的图。
+ *
+ * 两个必须注意的细节：
+ *  1) **先前置 decodeURIComponent 再编码**：内容里的路径本身可能已经是
+ *     `emerald%20ipl%20white%20color.webp`（带 %20）。若直接丢给 URLSearchParams，
+ *     `%` 会被再编码成 `%2520`，CDN 就去取一个名字里带字面百分号的、不存在的文件。
+ *     测试过：解码后统一编码能得到正确的 200 + 1200×630。
+ *  2) 已经走过图片 CDN 的 URL（含 `/.netlify/images`）不再套一层，避免双重处理。
+ *  3) 外链图（如 Pexels）原样使用：它们归第三方，套 CDN 只是多一跳。
+ */
+function buildOgImage(source?: string): string {
+  const src = (source || OG_FALLBACK_SOURCE).trim();
+  if (!src) return `${siteBaseUrl}${OG_FALLBACK_SOURCE}`;
+  if (src.includes('/.netlify/images')) return src.startsWith('http') ? src : `${siteBaseUrl}${src}`;
+  if (!src.startsWith('/')) return src;
+  let decoded = src;
+  try { decoded = decodeURIComponent(src); } catch { /* 非法转义就按原样用 */ }
+  const query = `url=${encodeURIComponent(decoded)}&w=1200&h=630&fit=cover&fm=jpg&q=80`;
+  return `${siteBaseUrl}/.netlify/images?${query}`;
+}
+const ogImageUrl = buildOgImage(image);
 ---
 
 <meta charset="utf-8" />
@@ -182,7 +207,7 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
   Discover 也要求 large 才有机会展示大图。这一项与页面是否提供图片无关，是"允许 Google
   用大图预览"的开关，属最省事、影响面最大的一处改动（一次覆盖全站所有页面）。
 */}
-<meta name="robots" content="max-image-preview:large" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <script is:inline>
   // 语言偏好持久化：读取用户选定的语言（localStorage），
   // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 21 语言）
@@ -262,6 +287,6 @@ const defaultOgImage = '/.netlify/images?url=/images/home/hero-section-sapphire-
   duration: 'PT26S',
   contentUrl: `${siteBaseUrl}/videos/head-video.mp4`,
 })}></script>}
-<meta property="og:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
-<meta name="twitter:image" content={new URL(image || defaultOgImage, canonicalUrl).href} />
+<meta property="og:image" content={ogImageUrl} />
+<meta name="twitter:image" content={ogImageUrl} />
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
