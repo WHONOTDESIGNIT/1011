@@ -72,12 +72,57 @@ const uiText = {
   emptyArchiveTitle: t(locale, 'blog.emptyArchive.title'),
   emptyArchiveDescription: t(locale, 'blog.emptyArchive.description'),
 };
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SSR 数据切片 —— 与原客户端渲染器 applyFilters() 的首帧（无筛选）逐条对应：
+     const filtered = posts;
+     const featured = filtered[0];
+     const latest   = filtered.slice(1, 5);
+     const visibleRegular = filtered.slice(0, visibleCount);   // 从索引 0 开始
+   即：常规网格 = posts 全集，前 initialVisibleCount 篇可见，其余交给 JS 分页。
+   ═══════════════════════════════════════════════════════════════════════════ */
+const featuredPost = posts[0];
+const latestPosts = posts.slice(1, 5);
+const gridPosts = posts;
+
+/** 图片路径可能已是 %20 形态；先解码再编码，避免二次编码产生 %2520 */
+const decodePath = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
+/** 与旧渲染器 netlifyImage() 一致：/.netlify/images?url=<encoded>&w=<w>&fm=<fm>&q=80 */
+const netlifyImage = (path: string, width: number, format = 'webp') =>
+  `/.netlify/images?url=${encodeURIComponent(decodePath(path))}&w=${width}&fm=${format}&q=80`;
+
+/** 与旧渲染器 buildSrcSet() 一致：srcset 宽度 256/512（精选 400/800） */
+const buildSrcSet = (path: string, format: string, widths: number[]) =>
+  widths.map((width) => `${netlifyImage(path, width, format)} ${width}w`).join(', ');
+
+/** 与旧渲染器 readTimeLabel() / author 回退一致 */
+const readTimeLabel = (post: { readTime: string }) => post.readTime || '5 min read';
+const authorLabel = (post: { author: string }) => post.author || 'iShine Team';
+
+/** 首帧结果计数文案：与旧渲染器 applyFilters() 首次执行时写入的文本完全一致 */
+const initialResultsSummary = (uiText.resultsTemplate || 'Showing {shown} of {total} articles')
+  .replace('{shown}', String(Math.min(posts.length, initialVisibleCount)))
+  .replace('{total}', String(posts.length));
 ---
 
 <BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical}>
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
+    <!--
+      渐进增强的「降级闸门」：超出首屏数量的卡片在 SSR 阶段带 .blog-deferred，
+      正文样式表把它隐藏（仅 JS 运行时需要）。禁用 JS 时 <noscript> 内的覆盖样式生效，
+      这些卡片全部放行 —— 因此「禁用 JS 也能看到全部文章链接」。
+      条件用 html 前缀提高特异性，确保不受样式表先后顺序影响。
+    -->
+    <noscript><style is:inline>html .blog-deferred{display:flex !important}</style></noscript>
   </Fragment>
 
   <style is:inline>
@@ -87,6 +132,10 @@ const uiText = {
     .content-area{max-width:var(--max-w-page,1843px);padding-left:0;padding-right:0}
     @media(max-width:1279px){.content-area{max-width:100%}}
     .hidden{display:none !important}
+    /* 渐进增强：首屏之外的文章卡片（SSR 直接带类，JS 分页/筛选时切这个类）。
+       禁用 JS 时由 <head> 的 <noscript> 覆盖样式放行，不依赖 JS 也能看到全部链接。
+       display:flex 与 .browse-card 自身的 display 一致，避免降级后布局偏移。 */
+    .blog-deferred{display:none !important}
 
     /* Hero */
     .blog-hero{width:100%;max-width:var(--max-w-page,1843px);margin:0 auto 24px;padding:0 100px}
@@ -242,15 +291,52 @@ const uiText = {
       </div>
     </section>
 
-    <!-- ═══ FEATURED + LATEST ═══ -->
+    <!-- ═══ FEATURED + LATEST（构建期渲染：精选 1 篇 + 最新 4 篇） ═══ -->
     <section class="featured-latest-section">
       <div class="featured-latest-container">
         <div class="featured-col" id="blog-featured-section">
-          <div id="blog-featured-container"></div>
+          <div id="blog-featured-container">
+            {featuredPost ? (
+              <a class="featured-card" href={featuredPost.href} data-category={featuredPost.category}>
+                {featuredPost.image ? (
+                  <div class="blog-card-img blog-card-img-featured">
+                    <picture>
+                      <source srcset={buildSrcSet(featuredPost.image, 'avif', [400, 800])} sizes="(min-width: 1024px) 50vw, 100vw" type="image/avif" />
+                      <source srcset={buildSrcSet(featuredPost.image, 'webp', [400, 800])} sizes="(min-width: 1024px) 50vw, 100vw" type="image/webp" />
+                      <img src={netlifyImage(featuredPost.image, 800, 'webp')} srcset={buildSrcSet(featuredPost.image, 'webp', [400, 800])} sizes="(min-width: 1024px) 50vw, 100vw" alt={featuredPost.title} loading="eager" decoding="async" width="1200" height="750" class="h-full w-full object-cover" />
+                    </picture>
+                  </div>
+                ) : (
+                  <div class="flex items-end blog-card-img blog-card-img-featured" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)">
+                    <span class="blog-no-image">{uiText.noImage || 'No Image'}</span>
+                  </div>
+                )}
+                <span class="blog-read-time">{readTimeLabel(featuredPost)}</span>
+                {featuredPost.category ? <span class="blog-cat-tag">{featuredPost.category}</span> : null}
+                <h2>{featuredPost.title}</h2>
+                {featuredPost.excerpt ? <p class="featured-card-desc">{featuredPost.excerpt}</p> : null}
+                <div class="blog-meta">
+                  <span class="blog-meta-author">{authorLabel(featuredPost)}</span>
+                  <span class="blog-meta-date">{featuredPost.date}</span>
+                </div>
+              </a>
+            ) : null}
+          </div>
         </div>
         <div class="latest-col">
           <h2>{uiText.gridLabel}</h2>
-          <div class="latest-list" id="blog-latest-list"></div>
+          <div class="latest-list" id="blog-latest-list">
+            {latestPosts.map((post) => (
+              <a class="latest-item" href={post.href} data-category={post.category}>
+                {post.category ? <span class="blog-cat-tag">{post.category}</span> : null}
+                <h3>{post.title}<svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
+                <div class="blog-meta">
+                  <span class="blog-meta-author">{authorLabel(post)}</span>
+                  <span class="blog-meta-date">{post.date}</span>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -273,7 +359,41 @@ const uiText = {
           <button id="blog-clear-filters" type="button">{uiText.clearFilters}</button>
         </div>
 
-        <div id="blog-regular-grid" class="browse-grid"></div>
+        <!--
+          常规网格：构建期渲染全部文章；前 initialVisibleCount 篇直接可见，
+          其余带 .blog-deferred（JS 分页时撤销；禁用 JS 时由 <head> 的 <noscript> 放行）。
+        -->
+        <div id="blog-regular-grid" class="browse-grid">
+          {gridPosts.map((post, index) => (
+            <a
+              class:list={['browse-card', index >= initialVisibleCount && 'blog-deferred']}
+              href={post.href}
+              data-category={post.category}
+              data-search={[post.title, post.category, post.excerpt, post.author].filter(Boolean).join(' ').toLowerCase()}
+            >
+              {post.image ? (
+                <div class="blog-card-img blog-card-img-grid">
+                  <picture>
+                    <source srcset={buildSrcSet(post.image, 'avif', [256, 512])} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/avif" />
+                    <source srcset={buildSrcSet(post.image, 'webp', [256, 512])} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" type="image/webp" />
+                    <img src={netlifyImage(post.image, 512, 'webp')} srcset={buildSrcSet(post.image, 'webp', [256, 512])} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" alt={post.title} loading="lazy" decoding="async" width="1200" height="675" class="h-full w-full object-cover" />
+                  </picture>
+                </div>
+              ) : (
+                <div class="flex items-end blog-card-img blog-card-img-grid" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)">
+                  <span class="blog-no-image">{uiText.noImage || 'No Image'}</span>
+                </div>
+              )}
+              <span class="blog-read-time">{readTimeLabel(post)}</span>
+              {post.category ? <span class="blog-cat-tag">{post.category}</span> : null}
+              <h3>{post.title}</h3>
+              <div class="browse-card-meta">
+                <span class="blog-meta-author">{authorLabel(post)}</span>
+                <span class="blog-meta-date">{post.date}</span>
+              </div>
+            </a>
+          ))}
+        </div>
 
         <section id="blog-empty-state" class="blog-empty-state hidden">
           <h3>{uiText.emptyTitle}</h3>
@@ -281,241 +401,125 @@ const uiText = {
           <button id="blog-reset-empty" type="button" class="pagination-btn">{uiText.resetFilters}</button>
         </section>
 
-        <div class="blog-load-more-wrap" id="blog-load-more-wrap">
+        <!-- 分页按钮由 JS 控制显隐：SSR 先隐藏，禁用 JS 时不会出现无效按钮 -->
+        <div class="blog-load-more-wrap hidden" id="blog-load-more-wrap">
           <button id="blog-load-more" type="button" class="pagination-btn">{uiText.loadMore}</button>
         </div>
 
-        <div id="blog-results-summary" class="blog-results-summary"></div>
+        <div id="blog-results-summary" class="blog-results-summary">{initialResultsSummary}</div>
       </div>
     </section>
   </div>
 
-  {posts.length ? (
-    <>
-      <script type="application/json" id="blog-posts-data" set:html={JSON.stringify(posts)} />
-      <script is:inline>
-        (() => {
-          const dataScript = document.getElementById('blog-posts-data');
-          const root = document.getElementById('blog-discovery');
-          if (!dataScript || !root) return;
+  <!--
+    ═══ 渐进增强脚本 ═══
+    只操作上面已经渲染好的 DOM：不注入任何 HTML 字符串、不读取任何 JSON 数据块，
+    仅仅切换 .blog-deferred / .hidden 两个类并更新文本节点。
+    功能：分类筛选 / 清除筛选 / 搜索 / 清空搜索 / 加载更多（每点一次 +6）/
+          空态 / 复位 / 结果计数 / 分类 chip 高亮
+  -->
+  <script is:inline>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const root = $('blog-discovery');
+      const grid = $('blog-regular-grid');
+      if (!root || !grid) return;
+      const ui = JSON.parse(root.dataset.ui || '{}');
+      const cards = Array.from(grid.querySelectorAll('.browse-card'));
+      const latest = Array.from(document.querySelectorAll('#blog-latest-list .latest-item'));
+      const search = $('blog-search');
+      const clearSearch = $('blog-search-clear');
+      const chips = $('blog-category-filters');
+      const summary = $('blog-active-summary');
+      const summaryText = $('blog-active-summary-text');
+      const clearFilters = $('blog-clear-filters');
+      const featured = $('blog-featured-section');
+      const empty = $('blog-empty-state');
+      const emptyReset = $('blog-reset-empty');
+      const moreWrap = $('blog-load-more-wrap');
+      const moreBtn = $('blog-load-more');
+      const count = $('blog-results-summary');
+      const step = Number(root.dataset.initialVisibleCount || '6');
+      let term = '';
+      let cat = 'All';
+      let limit = step;
 
-          const posts = JSON.parse(dataScript.textContent || '[]');
-          const ui = JSON.parse(root.dataset.ui || '{}');
-          const searchInput = document.getElementById('blog-search');
-          const clearSearchButton = document.getElementById('blog-search-clear');
-          const filterWrap = document.getElementById('blog-category-filters');
-          const activeSummary = document.getElementById('blog-active-summary');
-          const activeSummaryText = document.getElementById('blog-active-summary-text');
-          const clearFiltersButton = document.getElementById('blog-clear-filters');
-          const featuredSection = document.getElementById('blog-featured-section');
-          const featuredContainer = document.getElementById('blog-featured-container');
-          const latestList = document.getElementById('blog-latest-list');
-          const regularGrid = document.getElementById('blog-regular-grid');
-          const emptyState = document.getElementById('blog-empty-state');
-          const emptyResetButton = document.getElementById('blog-reset-empty');
-          const loadMoreWrap = document.getElementById('blog-load-more-wrap');
-          const loadMoreButton = document.getElementById('blog-load-more');
-          const resultsSummary = document.getElementById('blog-results-summary');
-          const initialVisibleCount = Number(root.dataset.initialVisibleCount || '6');
+      const apply = () => {
+        const q = term.trim().toLowerCase();
+        // 搜索范围必须与改造前完全一致：title + category + excerpt + author（旧渲染器里那串
+        // searchBlob 就是这四个字段）。不能直接用 textContent —— 卡片上不显示 excerpt，
+        // 用它会导致「按摘要搜索」失效（实测 cooling 6→1、australian 1→0），
+        // 同时把日期与阅读时长也纳入匹配（"2026" 5→52、"5 min" 0→43）产生噪音。
+        // data-search 由构建期写入这四个字段；缺失时回退 textContent。
+        const haystack = (c) => (c.dataset.search || c.textContent).toLowerCase();
+        const hit = cards.map((c) => (cat === 'All' || c.dataset.category === cat) && (!q || haystack(c).includes(q)));
+        const total = hit.filter(Boolean).length;
+        let shown = 0;
+        cards.forEach((c, i) => {
+          const on = hit[i] && shown < limit;
+          if (on) shown++;
+          c.classList.toggle('blog-deferred', !on);
+        });
 
-          let searchTerm = '';
-          let activeCategory = 'All';
-          let visibleCount = initialVisibleCount;
+        const active = (q ? 1 : 0) + (cat === 'All' ? 0 : 1);
+        search.value = term;
+        clearSearch.classList.toggle('hidden', !q);
+        summary.classList.toggle('hidden', !active);
+        if (active) {
+          const word = total === 1 ? (ui.resultSingular || 'result') : (ui.resultPlural || 'results');
+          const parts = [total + ' ' + word];
+          if (q) parts.push((ui.resultsFor || 'for') + ' "' + term.trim() + '"');
+          if (cat !== 'All') parts.push((ui.resultsIn || 'in') + ' ' + cat);
+          summaryText.textContent = parts.join(' ');
+        }
 
-          const escapeHtml = (value) =>
-            String(value ?? '')
-              .replaceAll('&', '&amp;')
-              .replaceAll('<', '&lt;')
-              .replaceAll('>', '&gt;')
-              .replaceAll('"', '&quot;')
-              .replaceAll("'", '&#39;');
+        chips.querySelectorAll('[data-category]').forEach((chip) => {
+          chip.className = chip.dataset.category === cat ? 'browse-cat-btn active' : 'browse-cat-btn';
+        });
 
-          const netlifyImage = (path, width, format = 'webp', quality = 80) =>
-            '/.netlify/images?url=' + encodeURIComponent(path) + '&w=' + width + '&fm=' + format + '&q=' + quality;
+        empty.classList.toggle('hidden', total > 0);
+        featured.classList.toggle('hidden', !total);
+        grid.classList.toggle('hidden', !total);
+        latest.forEach((item) => item.classList.toggle('hidden', !total));
+        moreWrap.classList.toggle('hidden', !total || shown >= total);
 
-          const buildSrcSet = (path, format, widths = [256, 512]) =>
-            widths
-              .map((width) => escapeHtml(netlifyImage(path, width, format)) + ' ' + width + 'w')
-              .join(', ');
+        const tpl = ui.resultsTemplate || 'Showing {shown} of {total} articles';
+        count.textContent = tpl.replace('{shown}', String(shown)).replace('{total}', String(total));
+      };
 
-          const readTimeLabel = (post) => escapeHtml(post.readTime || '5 min read');
+      const reset = () => {
+        term = '';
+        cat = 'All';
+        limit = step;
+        apply();
+      };
 
-          const imageMarkup = (post, containerClass, sizes, width, height, loading = 'lazy', widths = [256, 512]) => {
-            if (post.image) {
-              const avifSrcSet = buildSrcSet(post.image, 'avif', widths);
-              const webpSrcSet = buildSrcSet(post.image, 'webp', widths);
-              const fallbackSrc = escapeHtml(netlifyImage(post.image, widths[widths.length - 1], 'webp'));
-              return (
-                '<div class="' + containerClass + '">' +
-                '<picture>' +
-                '<source srcset="' + avifSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/avif" />' +
-                '<source srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" type="image/webp" />' +
-                '<img src="' + fallbackSrc + '" srcset="' + webpSrcSet + '" sizes="' + escapeHtml(sizes) + '" alt="' + escapeHtml(post.title) + '" loading="' + escapeHtml(loading) + '" decoding="async" width="' + width + '" height="' + height + '" class="h-full w-full object-cover" />' +
-                '</picture>' +
-                '</div>'
-              );
-            }
+      search.addEventListener('input', (e) => {
+        term = e.currentTarget.value;
+        limit = step;
+        apply();
+      });
+      clearSearch.addEventListener('click', () => {
+        term = '';
+        limit = step;
+        apply();
+        search.focus();
+      });
+      chips.addEventListener('click', (e) => {
+        const chip = e.target instanceof HTMLElement ? e.target.closest('[data-category]') : null;
+        if (!chip) return;
+        cat = chip.dataset.category || 'All';
+        limit = step;
+        apply();
+      });
+      clearFilters.addEventListener('click', reset);
+      emptyReset.addEventListener('click', reset);
+      moreBtn.addEventListener('click', () => {
+        limit += step;
+        apply();
+      });
 
-            return (
-              '<div class="flex items-end ' + containerClass + '" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)">' +
-              '<span class="blog-no-image">' + escapeHtml(ui.noImage || 'No Image') + '</span>' +
-              '</div>'
-            );
-          };
-
-          const renderFeatured = (post) => {
-            if (!post) {
-              featuredSection.classList.add('hidden');
-              featuredContainer.innerHTML = '';
-              return;
-            }
-
-            featuredSection.classList.remove('hidden');
-            featuredContainer.innerHTML =
-              '<a class="featured-card" href="' + escapeHtml(post.href) + '">' +
-                imageMarkup(post, 'blog-card-img blog-card-img-featured', '(min-width: 1024px) 50vw, 100vw', 1200, 750, 'eager', [400, 800]) +
-                '<span class="blog-read-time">' + readTimeLabel(post) + '</span>' +
-                (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
-                '<h2>' + escapeHtml(post.title) + '</h2>' +
-                (post.excerpt ? '<p class="featured-card-desc">' + escapeHtml(post.excerpt) + '</p>' : '') +
-                '<div class="blog-meta">' +
-                  '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
-                  '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
-                '</div>' +
-              '</a>';
-          };
-
-          const renderLatest = (items) => {
-            latestList.innerHTML = items
-              .map((post) =>
-                '<a class="latest-item" href="' + escapeHtml(post.href) + '">' +
-                  (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
-                  '<h3>' + escapeHtml(post.title) +
-                    '<svg class="title-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-                  '</h3>' +
-                  '<div class="blog-meta">' +
-                    '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
-                    '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
-                  '</div>' +
-                '</a>'
-              )
-              .join('');
-          };
-
-          const renderGrid = (items) => {
-            regularGrid.innerHTML = items
-              .map((post) =>
-                '<a class="browse-card" href="' + escapeHtml(post.href) + '">' +
-                  imageMarkup(post, 'blog-card-img blog-card-img-grid', '(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw', 1200, 675) +
-                  '<span class="blog-read-time">' + readTimeLabel(post) + '</span>' +
-                  (post.category ? '<span class="blog-cat-tag">' + escapeHtml(post.category) + '</span>' : '') +
-                  '<h3>' + escapeHtml(post.title) + '</h3>' +
-                  '<div class="browse-card-meta">' +
-                    '<span class="blog-meta-author">' + escapeHtml(post.author || 'iShine Team') + '</span>' +
-                    '<span class="blog-meta-date">' + escapeHtml(post.date) + '</span>' +
-                  '</div>' +
-                '</a>'
-              )
-              .join('');
-          };
-
-          const updateFilterChipState = () => {
-            filterWrap.querySelectorAll('[data-category]').forEach((button) => {
-              const isActive = button.dataset.category === activeCategory;
-              button.className = isActive ? 'browse-cat-btn active' : 'browse-cat-btn';
-            });
-          };
-
-          const applyFilters = () => {
-            const query = searchTerm.trim().toLowerCase();
-            const filtered = posts.filter((post) => {
-              const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
-              const searchBlob = [post.title, post.category, post.excerpt, post.author].filter(Boolean).join(' ').toLowerCase();
-              const matchesSearch = !query || searchBlob.includes(query);
-              return matchesCategory && matchesSearch;
-            });
-
-            const featured = filtered[0] || null;
-            const latest = filtered.slice(1, 5);
-            const visibleRegular = filtered.slice(0, visibleCount);
-            const activeFilterCount = Number(Boolean(searchTerm.trim())) + Number(activeCategory !== 'All');
-
-            renderFeatured(featured);
-            renderLatest(latest);
-            renderGrid(visibleRegular);
-            updateFilterChipState();
-
-            if (searchInput) {
-              searchInput.value = searchTerm;
-            }
-
-            clearSearchButton.classList.toggle('hidden', !searchTerm.trim());
-            activeSummary.classList.toggle('hidden', activeFilterCount === 0);
-
-            if (activeFilterCount > 0) {
-              const parts = [];
-              const resultWord = filtered.length === 1 ? (ui.resultSingular || 'result') : (ui.resultPlural || 'results');
-              parts.push(filtered.length + ' ' + resultWord);
-              if (searchTerm.trim()) {
-                parts.push((ui.resultsFor || 'for') + ' "' + searchTerm.trim() + '"');
-              }
-              if (activeCategory !== 'All') {
-                parts.push((ui.resultsIn || 'in') + ' ' + activeCategory);
-              }
-              activeSummaryText.textContent = parts.join(' ');
-            }
-
-            const hasResults = filtered.length > 0;
-            emptyState.classList.toggle('hidden', hasResults);
-            featuredSection.classList.toggle('hidden', !hasResults);
-            regularGrid.classList.toggle('hidden', !hasResults);
-            loadMoreWrap.classList.toggle('hidden', !hasResults || visibleCount >= filtered.length);
-
-            const template = ui.resultsTemplate || 'Showing {shown} of {total} articles';
-            resultsSummary.textContent = hasResults
-              ? template.replace('{shown}', String(Math.min(filtered.length, visibleCount))).replace('{total}', String(filtered.length))
-              : template.replace('{shown}', '0').replace('{total}', '0');
-          };
-
-          const resetFilters = () => {
-            searchTerm = '';
-            activeCategory = 'All';
-            visibleCount = initialVisibleCount;
-            applyFilters();
-          };
-
-          searchInput?.addEventListener('input', (event) => {
-            searchTerm = event.currentTarget.value;
-            visibleCount = initialVisibleCount;
-            applyFilters();
-          });
-
-          clearSearchButton?.addEventListener('click', () => {
-            searchTerm = '';
-            visibleCount = initialVisibleCount;
-            applyFilters();
-            searchInput?.focus();
-          });
-
-          filterWrap?.addEventListener('click', (event) => {
-            const target = event.target instanceof HTMLElement ? event.target.closest('[data-category]') : null;
-            if (!target) return;
-            activeCategory = target.dataset.category || 'All';
-            visibleCount = initialVisibleCount;
-            applyFilters();
-          });
-
-          clearFiltersButton?.addEventListener('click', resetFilters);
-          emptyResetButton?.addEventListener('click', resetFilters);
-
-          loadMoreButton?.addEventListener('click', () => {
-            visibleCount += initialVisibleCount;
-            applyFilters();
-          });
-
-          applyFilters();
-        })();
-      </script>
-    </>
-  ) : null}
+      apply();
+    })();
+  </script>
 </BaseLayout>
