@@ -21,6 +21,9 @@ export const BLOG_CATEGORIES = [
   'B2B',
   'Industry Insights',
   'Brand Building',
+  // 2026-09-15 新增：公司对外公告类（工厂参观邀请、展会通知、假期与产能安排）。
+  // 与 'Industry Insights'（行业观察）区分：本类目是「我方发出的通知」，署名方是公司本体。
+  'Press',
 ] as const;
 
 export type BlogCategory = (typeof BLOG_CATEGORIES)[number];

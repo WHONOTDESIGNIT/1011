@@ -31,10 +31,10 @@ function organizationJsonLd(lang: string) {
       '@type': 'PostalAddress',
       // 3.3 补齐：地址信息与隐私政策页/各语言 contact 页保持同源，
       // 消除 RRT 对 PostalAddress 缺失 streetAddress / postalCode 的非严重警告。
-      streetAddress: "401 Room, 5 Building, No.27, Makan Road, Xi'li Street",
+      streetAddress: "Room 401, Building 5, No.37, Makan Road, Makan Community, Xili Sub-district, Nanshan District",
       addressLocality: 'Shenzhen',
       addressRegion: 'Guangdong',
-      postalCode: '518071',
+      postalCode: '518000',
       addressCountry: 'CN',
     },
     contactPoint: {
@@ -74,9 +74,17 @@ type Props = {
   video?: { name?: string; description?: string };
   /** 是否启用统一品牌尾缀规范化（内部工具页如 admin/upload 置 false） */
   appendBrand?: boolean;
+  /** robots 指令。默认允许索引 + 大图预览；404 等页面传 'noindex, follow' 覆盖 */
+  robots?: string;
+  /** type='article' 时的 Open Graph 文章元数据（ISO 8601 带时区） */
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs, video, appendBrand = true } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', hreflangs, video, appendBrand = true,
+  robots = 'index, follow, max-image-preview:large', publishedTime, modifiedTime, author, section } = Astro.props as Props;
 
 // 统一 <title> 规范化：自动补「 | iShine」，超长不补，已含品牌去重（见 lib/seo-title.ts）
 const finalTitle = appendBrand ? buildFinalTitle(title) : (title ?? '');
@@ -207,7 +215,7 @@ const ogImageUrl = buildOgImage(image);
   Discover 也要求 large 才有机会展示大图。这一项与页面是否提供图片无关，是"允许 Google
   用大图预览"的开关，属最省事、影响面最大的一处改动（一次覆盖全站所有页面）。
 */}
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content={robots} />
 <script is:inline>
   // 语言偏好持久化：读取用户选定的语言（localStorage），
   // 若当前 URL 语言与偏好不一致，立即重定向到偏好语言对应页面（支持 21 语言）
@@ -262,6 +270,11 @@ const ogImageUrl = buildOgImage(image);
 <meta property="og:description" content={description || SITE_DESCRIPTION} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content={type} />
+{type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{type === 'article' && author && <meta property="article:author" content={author} />}
+{type === 'article' && section && <meta property="article:section" content={section} />}
+{author && <meta name="author" content={author} />}
 <meta property="og:site_name" content={SITE_NAME} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={finalTitle} />

@@ -210,7 +210,7 @@ const faqSchema = post.faqs.length
   : null;
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={hreflangEntries}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} type="article" stickyNav={false} image={post.meta.image} hreflangs={hreflangEntries} publishedTime={toIsoDateTime(post.meta.date)} modifiedTime={toIsoDateTime(post.meta.updatedDate || post.meta.date)} author={post.meta.author || 'iShine Team'} section={post.meta.category}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />

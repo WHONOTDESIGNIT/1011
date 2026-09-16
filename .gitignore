@@ -114,3 +114,9 @@ astro/ui-audit-shots/
 # all env files ignored, keep only the example (security review: .env.production was not covered)
 .env*
 !.env.example
+
+# 内部材料：证书与尽调证据（禁止公开、禁止提交 —— 仓库为 public）
+docs/internal/
+
+# 子代理/脚本的本地备份文件（绝不提交）
+*.bak

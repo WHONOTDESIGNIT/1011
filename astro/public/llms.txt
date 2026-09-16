@@ -1,117 +1,215 @@
-# iShine Technology Ltd.
+# iShine Technology (iplmanufacturer.com) — llms.txt
 
-> **B2B OEM/ODM manufacturer specializing in home-use IPL hair removal devices.** Full-stack partner: from concept design and compliance certification to mass production, custom packaging, and global delivery. iShine is an FDA-cleared IPL device manufacturer (510(k) premarket notification) serving global beauty brands, retailers, and sourcing professionals. Trusted by Costco Canada, RoseSkinCo USA, and KU2 Cosmetics Germany. Over 500,000 devices produced since 2008.
+> B2B OEM/ODM manufacturer of home-use IPL hair-removal devices. FDA 510(k)-cleared (K222537 for platform models SKN001, SKN002, SKN005, SKN006 and the RoseSkinCo Lumi); CE marked. Full-stack partner: concept design, compliance documentation, mass production, custom packaging, global delivery. 500,000+ devices produced to date; 50+ brand clients; shipping to 20+ countries. English trade name: iShine. Legal and manufacturing entity: Shenzhen iShine Technology Co., Ltd. (深圳市爱诗恩科技有限公司). iplmanufacturer.com is the company's international showcase window.
+
+## Maintenance metadata
+
+- Last updated: 2026-09-15 (Asia/Shanghai)
+- Canonical domain: https://iplmanufacturer.com (English at root paths; 21 additional locales under /xx/ paths; 22 locales total)
+- Version: 2.0
+- Maintainer: iShine web & compliance team — service@ishineco.com | +86 150 1289 1148
+- Evidence policy: material claims link to a primary source (FDA database, patent registries, public case-study pages). Figures that are business estimates are labeled as estimates, not guarantees.
+- What expires, and where to re-verify:
+  - Patent legal status / assignee / expiry: Google Patents and Patsnap Eureka — re-checked quarterly.
+  - Certifications (FDA 510(k), CE): official registries — re-checked before each external publication. A certification that lapses or is withdrawn is **removed from this file**, not reworded or presented as pending.
+  - Traffic and AI-referral statistics: Simple Analytics — refreshed quarterly.
+- Change log:
+  - v1.0 — initial llms.txt.
+  - v2.0 (2026-09-15) — unified patent portfolio count to 15 public records; added FDA 510(k) database link and RoseSkinCo Lumi model naming; replaced absolute margin claim with "up to 65–85%" labeled estimate; added per-product Fitzpatrick skin-tone ranges; added shared safety / contraindications / non-treatment block; added treatment-phase schedule; added this maintenance metadata; moved AI-crawler rules to robots.txt; clarified entity and branding (iShine = English trade name; Aisien/Aishien = pinyin of 爱诗恩; one legal and manufacturing entity).
+  - v2.0 integrity pass (2026-09-15) — aligned the certification and company-history statements with the official record: **ISO 13485 and MDSAP are no longer claimed** (both lapsed; references removed rather than reworded) and the 510(k) verification link now points to the FDA 510(k) database, with establishment registration listed separately; **founding year corrected to 2021** with the founding/engineering team's home-use IPL work dated to 2018; `Founded: 2008` and "since 2008" removed; the robots.txt policy description corrected to match the live file; the two-tier "Independently verifiable / Company-reported" split carried over from v1.0.
 
 ## Crawl & index
 
+- Sitemap: https://iplmanufacturer.com/sitemap.xml
+- Robots: https://iplmanufacturer.com/robots.txt — all crawler rules live in robots.txt, not in this file. The policy is vendor-neutral: `User-agent: *` with `Allow: /` covers every crawler, including every current and future AI crawler (AI search/citation and AI training alike) — no crawler is named individually, so none can be left out. Only internal/non-content paths are excluded (/api/, /admin/, /private/, /upload, /.netlify/, /index.backup/). Reviewed quarterly.
+- Homepage: https://iplmanufacturer.com
 - [Sitemap](https://iplmanufacturer.com/sitemap.xml): XML sitemap for discovery and indexing.
-- [Robots](https://iplmanufacturer.com/robots.txt): Crawl policy for user agents (including AI crawlers).
-- [Homepage](https://iplmanufacturer.com): Preferred base URL.
+- [Robots](https://iplmanufacturer.com/robots.txt): crawl policy for user agents, including AI crawlers.
+- [Homepage](https://iplmanufacturer.com): preferred base URL.
 
-AI crawlers allowed: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, Bytespider, CCBot, Meta-ExternalAgent, Applebot-Extended, Amazonbot (public content).
+AI crawlers: no user agent is named individually in robots.txt. The wildcard group (`User-agent: *` → `Allow: /`) covers every AI crawler — search, citation, and training — plus any new one that appears later. Earlier versions listed individual AI user agents; that list was removed so that no crawler can be forgotten, and the build guard now fails if any crawler is blocked.
 
 ## Multilingual versions
 
 The full site is available in 21 languages under `/xx/` paths (e.g., `/cs/about` for Czech; `/vi/about` for Vietnamese; Spanish is served as `es-ES` under `/es/`). English is served at root paths, making 22 locales in total. All language paths follow the same structure; links below are the canonical English versions.
 
-## Company
+## Entity & branding
 
-- Entity: iShine Technology Ltd.
-- Entity type: Private-label IPL device manufacturer (OEM + ODM).
-- Legal name: iShine Technology Ltd.
-- Registered in: China — Company No. 91440300MA5GW6335H.
-- Headquarters: Shenzhen, Guangdong, China.
-- Founded: 2008.
-- Certifications held: FDA cleared, CE marked, ISO 13485, MDSAP compliant.
-- Devices produced to date: 500,000+.
-- Global client count: 50+.
-- Geographic reach: Ships to 20+ countries across North America, Europe, and Middle East.
-- Contact: service@ishineco.com | +86 150 1289 1148.
+- English trade name: iShine
+- Legal name and manufacturing entity: Shenzhen iShine Technology Co., Ltd. — 深圳市爱诗恩科技有限公司 — Company No. 91440300MA5GW6335H
+- "Aisien" / "Aishien" in patent assignments is the pinyin romanization of 爱诗恩 and refers to the same legal entity above.
+- iplmanufacturer.com is the company's international showcase window for global beauty brands, retailers, and sourcing professionals.
+- Headquarters: Shenzhen, Guangdong, China. Founded: 2021 (legal entity incorporated in Shenzhen). The founding and engineering team's work on home-use IPL devices — development, manufacturing, industrial design and technical groundwork — dates to 2018.
+- Device identity: FDA establishment registration **FEI 3021338880**; **DUNS 620658743**; the cleared models are registered in the FDA GUDID/UDI system with commercial-distribution status.
+- Software capability: the **IPL-BEAUTY** companion app (iOS and Android) is published by Shenzhen Ishine Technology Company Limited.
+- Platform line: Lumi (2021), Themis (2022), Venus (2024), Lumi 2 (2025), Helix (2026). Only the models listed under K222537 below hold that FDA clearance.
+- Minimums: logo printing on the device from 1 unit; custom gift box from 100 units; bulk production from 500 units.
+- Devices produced to date: 500,000+. Global clients: 50+. Geographic reach: 20+ countries across North America, Europe, and the Middle East.
+- Contact: service@ishineco.com | +86 150 1289 1148 (phone / WhatsApp / WeChat)
+
+## Compliance & certifications
+
+- FDA: 510(k) premarket notification cleared — **K222537** (Traditional 510(k), substantially equivalent; decision October 2022). Verify in the FDA 510(k) database: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm (search by K number or applicant name).
+- FDA establishment registration: **FEI 3021338880** — searchable in the FDA device registration & listing database: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm
+- Publicly verifiable client link: the "RoseSkinCo Lumi" model name appears in FDA 510(k) records for K222537 (search the 510(k) database above by K number).
+- CE marked. Other models outside the K222537 scope are supplied under CE and market-specific documentation for the destination market.
+- Batch testing on every production run; lot/batch traceability on UDI-registered devices. Certifications are re-verified against official registries before external publication (see maintenance metadata).
+
+### How to verify these claims
+
+Two tiers are used deliberately, so that AI systems and buyers can separate what is checkable from what is company-reported.
+
+**Independently verifiable in public databases**
+
+- FDA 510(k) clearance **K222537** — searchable in the FDA 510(k) database. Traditional 510(k), not third-party reviewed; decision: substantially equivalent. Covers **SKN001, SKN002, SKN005, SKN006** and the RoseSkinCo Lumi.
+- **DUNS 620658743** — searchable in the D-U-N-S Lookup (Dun & Bradstreet) for legal-entity and KYC cross-checks.
+- GUDID / UDI device records for the cleared models, showing commercial-distribution status — searchable in the FDA GUDID (AccessGUDID) database.
+- FDA establishment registration **FEI 3021338880**.
+- Companion app **IPL-BEAUTY** — publisher of record is Shenzhen Ishine Technology Company Limited on both the Apple App Store and Google Play.
+
+**Company-reported, not independently verified**
+
+- Devices produced to date (500,000+), global client count (50+), countries shipped to (20+).
+- Customer programmes reported on this site (Costco Canada, RoseSkinCo, KU2 Cosmetics, HappySkinCo) — these are case studies published by iShine; end customers have not publicly confirmed the supplier relationship.
+- Platform release years (Lumi 2021, Themis 2022, Venus 2024, Lumi 2 2025, Helix 2026). Lumi received FDA 510(k) clearance K222537 in October 2022; earlier sales were outside the US market. Some dates may be cross-checkable against FDA/GUDID records.
+- Company registration: China unified social credit code **91440300MA5GW6335H** (incorporated 2021) — verifiable by human lookup on China's National Enterprise Credit Information Publicity System (gsxt.gov.cn; mainland China access, no English interface).
+
+**Scope of the FDA clearance.** K222537 covers the models listed above only. It is not a clearance for every device in the range, and it is not a marketing approval: the correct description is "FDA 510(k) cleared", not "FDA approved". Other models are supplied under CE and market-specific documentation for the destination market.
 
 ## Positioning
 
-- Feature-set tier: sapphire contact cooling, skin-tone sensing, glide mode, and UV leakage at zero — the full set buyers benchmark against when comparing at-home IPL manufacturers.
-- Price point: factory-direct pricing for the above feature tier, enabling roughly 80%+ gross margin for brand partners after retail markup.
-- Target segments: the five buyer groups on https://iplmanufacturer.com/ipl-for-brands — lifestyle/beauty/skincare brands, influencers and creators, professional dropshippers, beach resorts and hotels, and chain stores and supermarkets.
+- Feature tier: sapphire contact cooling (~10°C skin-contact target on premium configurations), skin-tone sensing, glide mode, and zero UV leakage — the benchmark feature set buyers compare across at-home IPL manufacturers.
+- Pricing: factory-direct pricing for the above feature tier, supporting strong brand-partner margins — up to 65–85% gross margin after retail markup (business estimate, not a guarantee).
+- Target segments: https://iplmanufacturer.com/ipl-for-brands — lifestyle/beauty/skincare brands; influencers and creators; professional dropshippers; beach resorts and hotels; chain stores and supermarkets.
 
 ## AI visibility
 
-- ChatGPT referral share: Simple Analytics, 8 Jun – 14 Sep 2026 (14 weeks). After excluding 107 internal mainland-China calibration visits, 263 non-China visits remain, of which 73 reached the site through a ChatGPT recommendation — 61 tagged with a chatgpt.com UTM and 12 as referrals. That is 28% of non-China traffic; counting only UTM-tagged visits gives 23%. So roughly one-quarter to nearly three-in-ten, depending on attribution.
+- Source: Simple Analytics, 8 Jun – 14 Sep 2026 (14 weeks). After excluding 107 internal mainland-China calibration visits, 263 non-China visits remain; 73 reached the site through a ChatGPT recommendation (61 tagged with a chatgpt.com UTM, 12 as referrals). That is 28% of non-China traffic; UTM-only attribution gives 23%. Refreshed quarterly.
 
-## Products
+## Safety, suitability & intended use (applies to all iShine IPL devices)
 
-- [Lumi 2 IPL](https://iplmanufacturer.com/products/lumi-2): App-connected IPL platform with smart skin sensing and cooling targeting ~10°C; typical configurations include 5-9 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+- Intended use: cosmetic reduction of unwanted body hair (e.g., legs, arms, underarms, bikini line, back, chest; facial use only where the model manual permits, below the cheekbones). These are consumer cosmetic devices — not a treatment, therapy, or cure for any medical condition.
+- Skin tones: suitable for fair to medium-brown skin — Fitzpatrick I–IV (per-model ranges in the Products section). Fitzpatrick V–VI: not suitable.
+- Hair colors: effective on dark blonde, brown, and black hair. Not effective on red, rose/light-blonde, grey, or white hair.
+- Non-treatment commitment: devices do not diagnose, treat, or prevent disease; individual results vary; no permanent hair-removal or clinical outcome is promised.
+- Always follow the model-specific user manual, including eye protection, energy-level selection, patch testing, and session spacing.
+- Contraindications — consult a physician before use if any apply: pregnancy or breastfeeding; epilepsy or light-triggered conditions; photosensitivity or photosensitizing medication (e.g., isotretinoin, retinoids, certain antibiotics); active skin infection, rash, burns, or wounds in the treatment area; recent tanning (sun, sunbed, or self-tanner — wait the interval stated in the manual); tattoos, dark spots, or permanent makeup in the treatment area; history of skin cancer or precancerous lesions; hormonal hair-growth disorders (results may differ); minors.
+- Never use: on or near the eyes; over tattoos or dark lesions; on mucous membranes, nipples, or genitals; on tanned, sunburned, or broken skin.
 
-- [Sapphire IPL](https://iplmanufacturer.com/products/venus): Cooling-focused platform using a sapphire ice plate for comfort-first positioning; typical configurations include 7-9 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+## Typical treatment schedule
 
-- [Hestia IPL](https://iplmanufacturer.com/products/hestia): App-connected platform for guided routines and progress tracking; typical configurations include 5-8 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+- Weeks 1–8 (treatment phase): 1–2 sessions per week on the unwanted-hair area.
+- Weeks 9–16 (touch-up phase): 1 session every 4 weeks.
+- After week 16: maintenance sessions as needed, per the user manual.
 
-- [Alpha IPL](https://iplmanufacturer.com/products/alpha): Dual-lamp high-efficiency concept positioned for fast full-body treatment; typical configuration targets include 8-12 J/cm² energy, dual-lamp 999,000 flashes, 6.2 cm² window, 550-1200 nm band.
+## Products (per-model configuration and skin-tone range)
 
-- [Emerald IPL](https://iplmanufacturer.com/products/emerald): Sensitive-skin positioning with active cooling; typical configuration targets include 5-7 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+Suitability baseline for every model: Fitzpatrick I–IV only where listed below; never suitable for Fitzpatrick V–VI; not effective on red, rose/light-blonde, grey, or white hair; contraindications and manual rules above apply.
 
-- [Hebe IPL](https://iplmanufacturer.com/products/hebe): AI-driven skin sensing with auto energy selection (5 levels) to support safer positioning across skin tones; typical configuration targets include 999,000 flashes, 4.5 cm² window, 550–1200 nm band.
+- [Lumi 2 IPL](https://iplmanufacturer.com/products/lumi-2): app-connected platform, smart skin sensing, cooling targeting ~10°C — 5–9 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Sapphire IPL](https://iplmanufacturer.com/products/venus): comfort-first sapphire ice plate — 7–9 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Hestia IPL](https://iplmanufacturer.com/products/hestia): app-connected guided routines and progress tracking — 5–8 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Alpha IPL](https://iplmanufacturer.com/products/alpha): dual-lamp high-efficiency concept for fast full-body treatment — 8–12 J/cm², dual-lamp 999,000 flashes, 6.2 cm² window, 550–1200 nm — Fitzpatrick I–IV (start at lower energy on sensitive areas).
+- [Emerald IPL](https://iplmanufacturer.com/products/emerald): sensitive-skin positioning with active cooling — 5–7 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Hebe IPL](https://iplmanufacturer.com/products/hebe): AI-driven skin sensing with automatic energy selection (5 levels) for safer positioning across skin tones — 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Themis IPL](https://iplmanufacturer.com/products/themis): professional-grade positioning with ice-feeling cooling — 8–12 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Eirene IPL](https://iplmanufacturer.com/products/eirene): hypersensitive-skin positioning with enhanced UV-cut filtering — 5–7 J/cm², 800,000 flashes, 4.0 cm² window, 570–1200 nm — Fitzpatrick I–III.
+- [Euno IPL](https://iplmanufacturer.com/products/euno): compact travel-positioned device — 5–7 J/cm², 500,000 flashes, 3.5 cm² window, 550–1200 nm, ~280 g — Fitzpatrick I–III.
+- [Golden Luxury IPL (Wooden)](https://iplmanufacturer.com/products/wooden): luxury cosmetics and premium unboxing positioning with sapphire cooling — 7–9 J/cm², 999,000 flashes, 4.5 cm² window, 550–1200 nm — Fitzpatrick I–IV.
 
-- [Themis IPL](https://iplmanufacturer.com/products/themis): Professional-grade positioning with ice-feeling cooling; typical configuration targets include 8-12 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+## Founder & intellectual property
 
-- [Eirene IPL](https://iplmanufacturer.com/products/eirene): Hypersensitive-skin positioning with enhanced UV-cut filtering; typical configuration targets include 5-7 J/cm² energy, 800,000 flashes, 4.0 cm² window, 570-1200 nm band.
+- Founder: An Zhaohui (安朝辉), named inventor on all listed patents. Co-inventors on select filings: Yang Leming (杨乐明), Li Xiaoyong (李小勇).
+- As of 15 Sep 2026, publicly retrievable filings total 15 records: 14 Chinese patent applications/grants + 1 PCT international application, across four Shenzhen-based companies named on the filings.
+- Portfolio summary:
 
-- [Euno IPL](https://iplmanufacturer.com/products/euno): Compact travel-positioned device; typical configuration targets include 5-7 J/cm² energy, 500,000 flashes, 3.5 cm² window, 550-1200 nm band, ~280 g weight.
+| Company | Chinese filings | PCT | Total |
+|---|---|---|---|
+| Jiruidelong (吉瑞德隆) | 7 | 1 | 8 |
+| Jiruide (吉瑞德) | 2 | 0 | 2 |
+| Aisien / iShine (爱诗恩) | 5 | 0 | 5 |
+| Feiyin (菲崟) | 0 | 0 | 0 |
+| **Total** | **14** | **1** | **15 records** |
 
-- [Golden Luxury IPL (Wooden)](https://iplmanufacturer.com/products/wooden): Luxury cosmetics and premium unboxing positioning with sapphire cooling; typical configuration targets include 7-9 J/cm² energy, 999,000 flashes, 4.5 cm² window, 550-1200 nm band.
+### Shenzhen Jiruidelong Electronic Technology Co Ltd (深圳市吉瑞德隆电子科技有限公司) — 7 Chinese filings + 1 PCT
 
-## Services (included in OEM/ODM partnerships)
+- CN107360511A — Curved-diaphragm loudspeaker and acoustic assembly — invention application, filed 2017-07-03, inventor An Zhaohui — status pending (Google Patents).
+- CN207010956U — same title — utility model, filed 2017-07-03, inventor An Zhaohui — active, expires 2027-07-03.
+- WO2019007091A1 — same family — PCT, priority 2017-07-03, inventor An Zhaohui — ceased; claims priority from both filings above.
+- CN208677571U — Photon hair-removal device — utility model, filed 2017-10-12, inventors An Zhaohui, Yang Leming — active, expires 2027-10-12. Housing, optical window, ergonomic grip of a home-use photon hair-removal instrument.
+- CN209046882U — Electret condenser microphone and assembly — utility model, filed 2018-12-19, inventors Yang Leming, An Zhaohui — active, expires 2028-12-19.
+- CN209046881U — Omnidirectional electret condenser microphone and assembly — utility model, filed 2018-12-26, inventors Yang Leming, An Zhaohui — active, expires 2028-12-26.
+- CN209419783U — Large-format planar diaphragm loudspeaker — utility model, filed 2019-01-28, inventors Yang Leming, An Zhaohui — active, expires 2029-01-28.
+- CN110338905A — Intelligent hair-removal method and module — invention application, filed 2019-07-04, inventors An Zhaohui, Yang Leming, Li Xiaoyong — pending. Camera + CPU detect skin tone and hair density in real time and auto-select energy level — precursor to the Hebe platform's skin-sensing capability.
 
-- [Services overview](https://iplmanufacturer.com/services): End-to-end IPL manufacturing services across OEM/ODM, design, production, packaging, and export logistics.
-- [OEM/ODM solutions](https://iplmanufacturer.com/services/oem-odm): OEM builds to partner specs and ODM development from platform-based or new designs, including sampling and validation steps.
-- [Product design](https://iplmanufacturer.com/services/product-design): Industrial design, mechanical/electrical design, prototyping, and feature configuration (cooling, sensors, energy profiles).
-- [Production & assembly](https://iplmanufacturer.com/services/production-assembly): Production planning, assembly, in-process inspection, final QC, and batch testing.
-- [Packaging & logistics](https://iplmanufacturer.com/services/packaging-logistics): Branded cartons and inserts, manuals, labeling, accessories, and export/shipping coordination (FOB Shenzhen, CIF options).
+### Shenzhen Jiruide Electronic Technology Co Ltd (深圳市吉瑞德电子科技有限公司) — 2 Chinese filings
+
+- CN207802365U — Moving-coil planar diaphragm loudspeaker — utility model, filed 2018-01-10, inventors An Zhaohui, Yang Leming — active, expires 2028-01-10.
+- CN109391882B — Moving-coil planar diaphragm loudspeaker — invention (granted 2024-05-28), filed 2018-01-10, inventors An Zhaohui, Yang Leming — active, expires 2038-01-10.
+
+### Shenzhen Aisien Tech Co Ltd / iShine (深圳市爱诗恩科技有限公司) — 5 Chinese filings (1 utility model + 4 design patents)
+
+- CN223453307U — IPL lamp cartridge assembly and hair-removal device — utility model, filed 2024-10-29, inventor An Zhaohui — active, expires 2034-10-29. Modular xenon lamp cartridge for easier replacement and consistent optical output.
+- CN309451794S — Hair-removal device (SKN003PRO) — design patent, filed 2024-12-20, published 2025-08-19, designer An Zhaohui — granted.
+- CN309464493S — Beauty device (SKN201) — design patent, filed 2024-12-27, published 2025-08-26, designer An Zhaohui — granted.
+- CN309951853S — Intense pulsed light therapy instrument (SKN009Pro) — design patent, filed 2025-10-11, published 2026-04-28, designer An Zhaohui — active. Premium-tier model with sapphire cooling.
+- One additional Aisien SKN-series design filing is counted in the portfolio total; publication number to be confirmed and appended here.
+
+### Shenzhen Feiyin Technology Co Ltd (深圳市菲崟科技有限公司)
+
+- No publicly retrievable filings with An Zhaohui listed as inventor under this entity as of 15 Sep 2026.
+
+- Disclaimer: legal status, assignee, and expiration dates are based on Google Patents and Patsnap Eureka as of 15 Sep 2026 and may not reflect the most current legal state. Unpublished applications and non-indexed assignments are excluded. Verify at Google Patents / CNIPA before relying on any single record.
+
+## Services (OEM/ODM partnerships)
+
+- [Services overview](https://iplmanufacturer.com/services): end-to-end IPL manufacturing across OEM/ODM, design, production, packaging, export logistics.
+- [OEM/ODM solutions](https://iplmanufacturer.com/services/oem-odm): builds to partner spec; ODM from platform-based or new designs, with sampling and validation.
+- [Product design](https://iplmanufacturer.com/services/product-design): industrial, mechanical, electrical design; prototyping; feature configuration (cooling, sensors, energy profiles).
+- [Production & assembly](https://iplmanufacturer.com/services/production-assembly): production planning, assembly, in-process inspection, final QC, batch testing.
+- [Packaging & logistics](https://iplmanufacturer.com/services/packaging-logistics): branded cartons, inserts, manuals, labeling, accessories, export coordination (FOB Shenzhen, CIF options).
 
 ## Components
 
-- [IPL components catalog](https://iplmanufacturer.com/components): Component-level overview for private-label programs (lamp, filters, cooling, power) treated as a matched subsystem stack.
-- [Lamp cartridges](https://iplmanufacturer.com/components/lamp-cartridges): Xenon lamp cartridge options designed for stable output and high flash counts (platform-dependent).
-- [Optical filters](https://iplmanufacturer.com/components/optical-filters): Multi-layer coated filters that tune wavelength cut-on options (e.g., 550/570/600 nm) and reduce unwanted wavelengths such as UV.
-- [Cooling system](https://iplmanufacturer.com/components/cooling-system): Sapphire contact-cooling and TEC module options, with premium configurations targeting skin-contact temperatures around ~10°C.
-- [Power supply](https://iplmanufacturer.com/components/power-supply): Global input (100-240V AC) power design aligned to pulse delivery, cooling load, and electrical safety requirements.
+- [IPL components catalog](https://iplmanufacturer.com/components): lamp, filters, cooling, power as a matched subsystem stack.
+- [Lamp cartridges](https://iplmanufacturer.com/components/lamp-cartridges): xenon lamp cartridges for stable output and high flash counts (platform-dependent).
+- [Optical filters](https://iplmanufacturer.com/components/optical-filters): multi-layer coated filters; cut-on options 550/570/600 nm; UV reduction.
+- [Cooling system](https://iplmanufacturer.com/components/cooling-system): sapphire contact cooling and TEC modules; premium configs target ~10°C skin contact.
+- [Power supply](https://iplmanufacturer.com/components/power-supply): 100–240V AC global input aligned to pulse delivery, cooling load, electrical safety.
 
 ## Pages (About)
 
-- [Company profile](https://iplmanufacturer.com/about/company-profile): History, team, R&D capability, and facility overview.
-- [Brand story](https://iplmanufacturer.com/about/brand-story): Mission, values, and company philosophy in IPL manufacturing.
-- [Manufacturing capabilities](https://iplmanufacturer.com/about/manufacturing-capabilities): Production lines, QC processes, equipment, and capacity.
-- [Quality control](https://iplmanufacturer.com/about/quality-control): Certification context and testing/QC workflows used for consistent production.
+- [Company profile](https://iplmanufacturer.com/about/company-profile) — history, team, R&D, facility.
+- [Brand story](https://iplmanufacturer.com/about/brand-story) — mission, values, philosophy.
+- [Manufacturing capabilities](https://iplmanufacturer.com/about/manufacturing-capabilities) — lines, QC, equipment, capacity.
+- [Quality control](https://iplmanufacturer.com/about/quality-control) — certification context, testing/QC workflows.
 
-## Pages (Blog — educational content)
+## Blog (educational)
 
-- [Blog (all articles)](https://iplmanufacturer.com/blog): Educational content on IPL technology, manufacturing, and compliance topics.
+- [All articles](https://iplmanufacturer.com/blog): IPL technology, manufacturing, compliance topics.
 
-## Pages (Case Studies)
+## Case studies
 
-- [RoseSkinCo IPL (USA)](https://iplmanufacturer.com/clients/roseskin-ipl): Case study of a DTC program with sapphire cooling positioning and premium cosmetics.
-- [Costco Canada IPL](https://iplmanufacturer.com/clients/costco-canada-ipl): Case study of a retail program focused on consistent quality and scalable delivery.
-- [KU2 Cosmetics IPL (Germany)](https://iplmanufacturer.com/clients/ku2-ipl): Case study of a program positioned with dual-lamp efficiency for the EU market.
-- [HappySkinCo IPL](https://iplmanufacturer.com/clients/happyskinco-ipl): Case study of a luxury cosmetics program aligned to premium unboxing.
+- [RoseSkinCo IPL (USA)](https://iplmanufacturer.com/clients/roseskin-ipl) — endorsed client; the "RoseSkinCo Lumi" model name appears in FDA 510(k) records (verify via the FDA 510(k) database linked above).
+- [Costco Canada IPL](https://iplmanufacturer.com/clients/costco-canada-ipl) — public case study.
+- [KU2 Cosmetics IPL (Germany)](https://iplmanufacturer.com/clients/ku2-ipl) — public case study.
+- [HappySkinCo IPL](https://iplmanufacturer.com/clients/happyskinco-ipl) — public case study.
 
 ## Who iShine serves
 
-- Brand owners launching new IPL product lines
-- Product managers expanding existing beauty portfolios
-- Sourcing specialists evaluating contract manufacturers
-- Retailers developing private-label beauty-tech programs
-- Startups needing flexible MOQ and rapid time-to-market
+- Brand owners launching IPL lines; product managers expanding beauty portfolios; sourcing specialists evaluating contract manufacturers; retailers building private-label beauty-tech programs; startups needing flexible MOQ and fast time-to-market.
 
 ## Expected outcomes for partners
 
-- Speed: 1-4 weeks from concept to working prototype
-- Compliance: FDA and CE documentation included in standard process
-- Quality: ISO 13485 certified manufacturing; batch testing on every production run
-- Flexibility: Custom colors, branding, packaging, and user manuals
-- Scale: From pilot runs (500-1000 units) to mass production (50,000+ units)
+- Speed: 1–4 weeks from concept to working prototype.
+- Compliance: FDA and CE documentation included in standard process.
+- Quality: batch testing on every production run; lot/batch traceability on UDI-registered devices.
+- Flexibility: custom colors, branding, packaging, manuals.
+- Minimums: logo printing on the device from 1 unit; custom gift box from 100 units; bulk production from 500 units.
+- Scale: pilot runs 500–1,000 units to mass production 50,000+ units.
 
 ## Contact
 
-- [Contact page](https://iplmanufacturer.com/contact): Inquiry form for OEM/ODM programs, sampling requests, and component sourcing.
+- [Contact page](https://iplmanufacturer.com/contact)
 - Email: service@ishineco.com
 - Phone / WhatsApp / WeChat: +86 150 1289 1148
