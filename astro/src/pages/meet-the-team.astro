@@ -87,6 +87,30 @@ const logoImg = (path: string) => {
 <meta name="description" content={t(locale, 'teamPage.meta.description')} />
 <SeoHead title={t(locale, 'teamPage.meta.title')} lang={locale} description={t(locale, 'teamPage.meta.description')} />
 
+{/* Person 结构化数据（Eric An）：供搜索引擎与 AI 机器读取持有人的可核实资质。
+    证书原件按内部材料留存、不对外公开，因此这里只声明事实字段（名称/类别/编号/日期/颁发机构），
+    不提供任何证书文件链接。范围说明：这是「个人培训结业证」，不是审核员资格认证，
+    也不代表公司持有 MDSAP/ISO 13485（公司该证书已于 2026-04-03 到期）。 */}
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://iplmanufacturer.com/meet-the-team#eric-an',
+  name: 'Eric An',
+  alternateName: ['安朝辉', 'An Chaohui', 'An Zhaohui'],
+  jobTitle: 'Co-Founder & CEO',
+  worksFor: { '@id': 'https://iplmanufacturer.com/#organization' },
+  image: 'https://iplmanufacturer.com/images/about/team/eric-an.webp',
+  url: 'https://iplmanufacturer.com/meet-the-team',
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Medical Device Single Audit Programme (MDSAP) Internal Auditor Training',
+    credentialCategory: 'Certificate of successful completion',
+    identifier: 'PTAMED2026051407',
+    dateCreated: '2026-05-14',
+    recognizedBy: { '@type': 'Organization', name: 'Intertek', url: 'https://www.intertek.com/' },
+  },
+})} />
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 {/* 字体内联（2026-08-21 CLS 优化）：@font-face 随首帧 HTML 送达，浏览器立即并行下载 woff2，
     替代原 Google Fonts 外链，避免 render-blocking 且提前字体下载窗口 */}
@@ -402,6 +426,8 @@ a{text-decoration:none;color:inherit}
 .team-card-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .team-card-name{font-family:Syne,sans-serif;font-size:21px;font-weight:400;line-height:27px;color:var(--color-ink);margin:4px 0 0}
 .team-card-role{font-family:Manrope,sans-serif;font-size:14px;font-weight:400;line-height:21px;color:var(--color-gray-500);margin:0}
+.team-card-alias{font-family:Manrope,sans-serif;font-size:13px;font-weight:400;line-height:19px;color:var(--color-gray-500);margin:0}
+.team-card-credential{font-family:Manrope,sans-serif;font-size:13px;font-weight:600;line-height:19px;color:var(--color-primary);margin:2px 0 0}
 @media(max-width:959px){.team-section-container{padding:60px var(--pad-40)}}
 @media(max-width:767px){
   .team-section-container{padding:40px var(--pad-24)}
@@ -1007,9 +1033,11 @@ a{text-decoration:none;color:inherit}
     <p class="team-section-desc">{t(locale, 'teamPage.team.description')}</p>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-card-photo"><img src="/images/about/team/eric-an.webp" alt="Eric An" loading="lazy" /></div>
+        <div class="team-card-photo"><img src="/images/about/team/eric-an.webp" alt="Eric An (安朝辉 / An Chaohui)" loading="lazy" /></div>
         <h3 class="team-card-name">Eric An</h3>
         <p class="team-card-role">Co-Founder &amp; CEO</p>
+        <p class="team-card-alias">安朝辉 · An Chaohui</p>
+        <p class="team-card-credential">MDSAP Internal Auditor Training — Intertek (2026)</p>
       </div>
       <div class="team-card">
         <div class="team-card-photo"><img src="/images/about/team/shayne-chen.webp" alt="Shayne Chen" loading="lazy" /></div>
