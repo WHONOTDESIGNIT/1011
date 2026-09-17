@@ -35,7 +35,11 @@ posts.sort((a, b) => (a.date === b.date ? 0 : a.date > b.date ? -1 : 1));
 const blogHref = locale === 'en' ? '/blog' : `/${blogUrlPath(locale)}/blog`;
 const canonical = `${resolveBaseUrl()}${categoryHref(locale, label)}`;
 // 确定性模板（含品牌，buildFinalTitle 不会再追加 | iShine）
-const pageTitle = `${label} Articles | iShine Blog`;
+// 标题按语种模板生成；t() 缺键时回退英文，若模板不含占位符则用英文兜底
+const titleTemplate = t(locale, 'blog.category.titleTemplate');
+const pageTitle = titleTemplate.includes('{category}')
+  ? titleTemplate.replace('{category}', label)
+  : `${label} Articles | iShine Blog`;
 // 分类页描述按「语种模板 + 分类名」生成，保证 19 个分类页各自唯一
 // （此前所有分类页复用博客首页描述，构建产物里 399 个分类页只有 21 个不同的 description 值）
 const pageDescription = categoryDescription(locale, label);
