@@ -7,16 +7,17 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-frontmatter.mjs && node scripts/generate-site-urls.mjs && node scripts/check-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/check-llms-specs.mjs && node scripts/check-jsonld.mjs && node scripts/generate-sitemap.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
+    "build": "node scripts/check-frontmatter.mjs && node scripts/check-meganav-drift.mjs && node scripts/generate-site-urls.mjs && node scripts/check-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/check-llms-specs.mjs && node scripts/check-jsonld.mjs && node scripts/generate-sitemap.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
     "check:site-urls": "node scripts/check-site-urls.mjs",
     "check:jsonld": "node scripts/check-jsonld.mjs",
-    "check:all": "npm run check:site-urls && npm run check:jsonld && npm run check:llms-specs",
+    "check:all": "npm run check:site-urls && npm run check:jsonld && npm run check:llms-specs && npm run check:meganav",
     "preview": "astro preview",
     "astro": "astro",
     "seo:check": "node scripts/check-links.mjs",
     "audit-titles": "node scripts/audit-titles.mjs",
     "audit-titles:preview": "node scripts/audit-titles.mjs --preview",
-    "check:llms-specs": "node scripts/check-llms-specs.mjs"
+    "check:llms-specs": "node scripts/check-llms-specs.mjs",
+    "check:meganav": "node scripts/check-meganav-drift.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
