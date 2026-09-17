@@ -167,12 +167,15 @@ const articleSchema = {
     name: post.meta.author || 'iShine Team',
     // 3.3 补齐：作者链接指向团队/关于页（站内无独立作者页，统一指向 /about）
     url: `${resolveBaseUrl()}/about`,
-    ...(post.meta.authorAvatar ? { image: post.meta.authorAvatar } : {}),
+    // 2026-09-17 修正：frontmatter 的 authorAvatar 可能是站内相对路径（如 /images/...），
+    // 而 schema.org/Google 要求 image 为绝对 URL。用 new URL 归一化：原本已是绝对 URL 的原样返回。
+    ...(post.meta.authorAvatar ? { image: new URL(post.meta.authorAvatar, `${resolveBaseUrl()}/`).href } : {}),
   },
   publisher: {
     '@type': 'Organization',
     '@id': 'https://iplmanufacturer.com/#organization',
     name: 'iShine Technology Ltd',
+    url: 'https://iplmanufacturer.com',
     logo: {
       '@type': 'ImageObject',
       url: `${resolveBaseUrl()}/images/logos/ishine-logo.webp`,

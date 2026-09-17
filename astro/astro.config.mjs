@@ -6,6 +6,12 @@ import rehypeLocaleLinks from './plugins/rehype-locale-links.mjs';
 
 export default defineConfig({
   output: 'static',
+  // 【2026-09-17 补】全局站点根 URL。
+  // 此前未配置 site → Astro.site 为 undefined，canonical / hreflang / sitemap / JSON-LD 的
+  // 绝对 URL 只能靠 process.env.URL 或硬编码域名兜底（全站 34 处硬编码）。配置后有了单一来源。
+  // 行为变化一处：Deploy Preview 构建过去会以预览域名生成 canonical，现在统一为生产域名 ——
+  // 这正是期望效果（避免预览域名被搜索引擎当作 canonical 收录）。
+  site: 'https://iplmanufacturer.com',
   // 本地化文章正文内链补语种前缀（渲染层单点修复，2026-09-12）：
   // 21 语种 × 61 篇正文共 2,972 处内链原本全部指向英文（/blog/<slug>、/products…），
   // 把本地化集群的站内权重与读者单向送回英文。本插件只改渲染结果，不动 1,281 个内容文件，
