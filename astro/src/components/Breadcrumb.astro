@@ -2,6 +2,7 @@
 import type { BreadcrumbItem } from '../lib/breadcrumbs';
 import { getSubNavigation } from '../lib/navigation-data';
 import { t } from '../lib/i18n';
+import { createHash } from 'node:crypto';
 
 type Props = {
   items: BreadcrumbItem[];
@@ -11,7 +12,9 @@ type Props = {
 };
 
 const { items, variant = 'light', locale = 'en', class: className = '' } = Astro.props as Props;
-const id = `bc-${Math.random().toString(16).slice(2)}`;
+// 作用域 id 必须可复现：此前用 Math.random()，导致每次构建都重写全站带面包屑页面的这段 id，
+// 构建产物因此不可复现、也无法做逐字节比对。改为按面包屑内容派生（同页稳定、跨页互不相同）。
+const id = `bc-${createHash('sha1').update(`${locale}|${items.map((i) => `${i.label}>${i.href ?? ''}`).join('|')}`).digest('hex').slice(0, 12)}`;
 const lastLinked = [...items].reverse().find((item) => item.href)?.href ?? '';
 const subNavigation = lastLinked ? getSubNavigation(locale, lastLinked) : [];
 const currentLabel = items[items.length - 1]?.label ?? '';
