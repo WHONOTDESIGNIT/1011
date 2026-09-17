@@ -7,7 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-frontmatter.mjs && node scripts/generate-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/generate-sitemap.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
+    "build": "node scripts/check-frontmatter.mjs && node scripts/generate-site-urls.mjs && node scripts/check-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/check-jsonld.mjs && node scripts/generate-sitemap.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
+    "check:site-urls": "node scripts/check-site-urls.mjs",
+    "check:jsonld": "node scripts/check-jsonld.mjs",
+    "check:all": "npm run check:site-urls && npm run check:jsonld",
     "preview": "astro preview",
     "astro": "astro",
     "seo:check": "node scripts/check-links.mjs",
