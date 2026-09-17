@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "DDP Shipping Rates",
+      "intro": "Single-unit DDP (duty-free) shipping to the markets below. The rate shown is the total per unit and includes duties and taxes, so the recipient pays nothing on delivery.",
+      "colMarket": "Destination",
+      "colRate": "DDP rate (USD)",
+      "colDays": "Transit time",
+      "colOnTime": "On-time rate",
+      "daysUnit": "business days",
+      "unsupportedHeading": "Markets without DDP service",
+      "unsupportedNote": "No DDP carrier covers these markets yet.",
+      "note": "Rates are per unit and updated periodically. Ask us for a current quote on your volume.",
+      "faqSpeedQuestion": "Can DDP shipping be faster?",
+      "faqSpeedAnswer": "No. This is the fastest DDP service available to us. Other carriers are faster, but the recipient then has to pay import duties and taxes, and the exact rate is set by the local customs authority or government.",
+      "faqCostQuestion": "Can DDP shipping be cheaper?",
+      "faqCostAnswer": "No. This is the cheapest DDP service we can offer. Cheaper options exist only as non-DDP services, where the recipient carries the duty and tax cost."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Logo Printing | iShine",
