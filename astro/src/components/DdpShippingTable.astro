@@ -1,0 +1,61 @@
+---
+// DDP 单件运费表（共享组件）——产品详情页复用服务页同一份数据、同一套文案与同一外观。
+//
+// 约定：
+//   · 数据、汇率、国名本地化全部来自 lib/ddp-shipping，页面不硬编码任何金额或天数；
+//   · 文案全部复用 messages 的 servicesPage.ddpShipping.* 现成键（22 语种已翻译），本组件不引入新键；
+//   · 外观照抄 src/pages/services/dropshipping.astro 里那段表格的 Tailwind 类名，保证全站一致；
+//   · 只展示单件 DDP 总价（美元），不出现「基础运费 + 附加项 + 第三项」的拆分口径。
+import { t } from '../lib/i18n';
+import { DDP_MARKETS, DDP_UNSUPPORTED, ddpName, ddpTotalUsd } from '../lib/ddp-shipping';
+
+type Props = {
+  /** 语种（Astro currentLocale，如 en / de / pt-BR）；用于 t() 与 Intl.DisplayNames 国名 */
+  lang: string;
+};
+
+const { lang } = Astro.props as Props;
+
+// 行序按单件美元合计升序（便宜 → 贵）。无时效数据的市场显示 —，无准时率数据显示 —。
+const ddpRows = DDP_MARKETS.slice()
+  .sort((a, b) => ddpTotalUsd(a) - ddpTotalUsd(b))
+  .map((m) => ({
+    name: ddpName(lang, m.code),
+    rate: `$${ddpTotalUsd(m).toFixed(2)}`,
+    days:
+      m.daysFrom === null || m.daysTo === null
+        ? '—'
+        : `${m.daysFrom}-${m.daysTo} ${t(lang, 'servicesPage.ddpShipping.daysUnit')}`,
+    onTime: m.onTime ?? '—',
+  }));
+const ddpUnsupportedList = DDP_UNSUPPORTED.map((code) => ddpName(lang, code)).join(', ');
+---
+
+<div class="overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
+  <table class="w-full min-w-[720px] border-collapse text-sm">
+    <thead>
+      <tr class="bg-neutral-50">
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colMarket')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colRate')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colDays')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colOnTime')}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {ddpRows.map((row) => (
+        <tr class="border-t border-neutral-100">
+          <td class="px-5 py-3.5 font-semibold text-ink-900">{row.name}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.rate}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.days}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.onTime}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<div class="mt-10 rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+  <h3 class="text-xl font-semibold text-ink-900">{t(lang, 'servicesPage.ddpShipping.unsupportedHeading')}</h3>
+  <p class="mt-3 text-sm leading-relaxed text-neutral-700">{t(lang, 'servicesPage.ddpShipping.unsupportedNote')}</p>
+  <p class="mt-3 text-sm leading-relaxed text-neutral-700">{ddpUnsupportedList}</p>
+</div>
+<p class="mt-6 text-sm leading-relaxed text-neutral-500">{t(lang, 'servicesPage.ddpShipping.note')}</p>

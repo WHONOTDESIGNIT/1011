@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import DdpShippingTable from '../../components/DdpShippingTable.astro';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import enMessages from '../../../../messages/en.json';
@@ -733,6 +734,22 @@ const productSchema = {
         </div>
       </section>
     )}
+
+    {/* DDP 运费报价区块：33 个市场的单件 DDP 总价与时效（数据/国名见 components/DdpShippingTable.astro）。
+        文案除本区块标题与链接文字（productDetail.ddpShipping.*）外，全部复用服务页现成的 servicesPage.ddpShipping.* 键。 */}
+    <section>
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.ddpShipping.heading')}</h2>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">{t(locale, 'servicesPage.ddpShipping.intro')}</p>
+      <div class="mt-8">
+        <DdpShippingTable lang={locale} />
+      </div>
+      <a
+        class="mt-8 inline-flex items-center justify-center rounded-2xl bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800"
+        href={getLocalizedPath(locale, '/services/dropshipping')}
+      >
+        {t(locale, 'productDetail.ddpShipping.cta')}
+      </a>
+    </section>
 
     <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
       <h2 class="text-3xl font-bold md:text-4xl">{fill(t(locale, 'productDetail.ctaTitle'), { productName: product.name })}</h2>
