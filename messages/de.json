@@ -1765,6 +1765,22 @@
     }
   },
   "servicesPage": {
+    "ddpShipping": {
+      "heading": "DDP-Versandtarife",
+      "intro": "DDP-Versand (verzollt und versteuert) pro Einzelstück in die unten aufgeführten Märkte. Der angegebene Tarif ist der Gesamtpreis pro Stück und enthält Zölle und Steuern – der Empfänger zahlt bei der Lieferung nichts.",
+      "colMarket": "Zielmarkt",
+      "colRate": "DDP-Tarif (USD)",
+      "colDays": "Transportzeit",
+      "colOnTime": "Pünktlichkeitsrate",
+      "daysUnit": "Werktage",
+      "unsupportedHeading": "Märkte ohne DDP-Service",
+      "unsupportedNote": "Für diese Märkte gibt es noch keinen DDP-Versanddienstleister.",
+      "note": "Die Tarife gelten pro Stück und werden regelmäßig aktualisiert. Fragen Sie uns nach einem aktuellen Angebot für Ihre Menge.",
+      "faqSpeedQuestion": "Kann der DDP-Versand schneller sein?",
+      "faqSpeedAnswer": "Nein. Das ist der schnellste DDP-Service, der uns zur Verfügung steht. Andere Dienstleister sind schneller, doch dann muss der Empfänger Einfuhrabgaben und Steuern zahlen, und die genaue Höhe legt die örtliche Zollbehörde oder Regierung fest.",
+      "faqCostQuestion": "Kann der DDP-Versand günstiger sein?",
+      "faqCostAnswer": "Nein. Das ist der günstigste DDP-Service, den wir anbieten können. Günstigere Optionen gibt es nur als Nicht-DDP-Services, bei denen der Empfänger die Kosten für Zoll und Steuern trägt."
+    },
     "breadcrumb": {
       "services": "Leistungen"
     },

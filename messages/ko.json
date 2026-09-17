@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "DDP 배송 요금",
+      "intro": "아래 시장으로의 1개 단위 DDP(관세 포함) 배송입니다. 표시된 요금은 1개당 총액이며 관세와 세금이 포함되어 있어 수령인은 배송 시 아무것도 지불하지 않습니다.",
+      "colMarket": "배송지",
+      "colRate": "DDP 요금(USD)",
+      "colDays": "운송 기간",
+      "colOnTime": "정시 도착률",
+      "daysUnit": "영업일",
+      "unsupportedHeading": "DDP 서비스 미지원 시장",
+      "unsupportedNote": "아직 이 시장을 커버하는 DDP 운송사가 없습니다.",
+      "note": "요금은 1개당 기준이며 정기적으로 업데이트됩니다. 물량에 맞춘 최신 견적을 문의해 주세요.",
+      "faqSpeedQuestion": "DDP 배송을 더 빠르게 할 수 있나요?",
+      "faqSpeedAnswer": "아니요. 이것이 저희가 이용할 수 있는 가장 빠른 DDP 서비스입니다. 다른 운송사가 더 빠르지만, 그 경우 수령인이 수입 관세와 세금을 지불해야 하며 정확한 요금은 현지 세관 당국 또는 정부가 정합니다.",
+      "faqCostQuestion": "DDP 배송을 더 저렴하게 할 수 있나요?",
+      "faqCostAnswer": "아니요. 이것이 저희가 제공할 수 있는 가장 저렴한 DDP 서비스입니다. 더 저렴한 옵션은 비DDP 서비스로만 존재하며, 이 경우 수령인이 관세와 세금 비용을 부담합니다."
+    },
     "logoPrinting": {
       "meta": {
         "title": "로고 인쇄 | iShine",

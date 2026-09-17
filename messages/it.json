@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "Tariffe di spedizione DDP",
+      "intro": "Spedizione DDP (senza dazi) per singola unità verso i mercati indicati di seguito. La tariffa mostrata è il totale per unità e include dazi e imposte, quindi il destinatario non paga nulla alla consegna.",
+      "colMarket": "Destinazione",
+      "colRate": "Tariffa DDP (USD)",
+      "colDays": "Tempi di transito",
+      "colOnTime": "Tasso di puntualità",
+      "daysUnit": "giorni lavorativi",
+      "unsupportedHeading": "Mercati senza servizio DDP",
+      "unsupportedNote": "Nessun corriere DDP copre ancora questi mercati.",
+      "note": "Le tariffe sono per unità e vengono aggiornate periodicamente. Ci chieda un preventivo aggiornato in base ai Suoi volumi.",
+      "faqSpeedQuestion": "La spedizione DDP può essere più veloce?",
+      "faqSpeedAnswer": "No. Questo è il servizio DDP più veloce a nostra disposizione. Altri corrieri sono più rapidi, ma in quel caso il destinatario deve pagare dazi e imposte all'importazione, e la tariffa esatta è stabilita dall'autorità doganale locale o dal governo.",
+      "faqCostQuestion": "La spedizione DDP può costare meno?",
+      "faqCostAnswer": "No. Questo è il servizio DDP più economico che possiamo offrire. Le opzioni più economiche esistono solo come servizi non DDP, in cui il destinatario sostiene il costo di dazi e imposte."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Stampa del logo | iShine",

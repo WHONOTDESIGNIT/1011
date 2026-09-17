@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "Biểu phí vận chuyển DDP",
+      "intro": "Vận chuyển DDP (đã gồm thuế) cho từng đơn vị sản phẩm đến các thị trường bên dưới. Mức phí hiển thị là tổng chi phí cho mỗi đơn vị và đã bao gồm thuế nhập khẩu cùng các loại thuế, nên người nhận không phải trả thêm khi nhận hàng.",
+      "colMarket": "Điểm đến",
+      "colRate": "Phí DDP (USD)",
+      "colDays": "Thời gian vận chuyển",
+      "colOnTime": "Tỷ lệ giao đúng hạn",
+      "daysUnit": "ngày làm việc",
+      "unsupportedHeading": "Thị trường chưa có dịch vụ DDP",
+      "unsupportedNote": "Hiện chưa có đơn vị vận chuyển DDP nào phục vụ các thị trường này.",
+      "note": "Phí tính theo từng đơn vị và được cập nhật định kỳ. Hãy liên hệ để nhận báo giá hiện tại theo sản lượng của bạn.",
+      "faqSpeedQuestion": "Vận chuyển DDP có thể nhanh hơn không?",
+      "faqSpeedAnswer": "Không. Đây là dịch vụ DDP nhanh nhất mà chúng tôi có. Các đơn vị vận chuyển khác nhanh hơn, nhưng khi đó người nhận phải trả thuế nhập khẩu và các loại thuế, và mức phí chính xác do cơ quan hải quan địa phương hoặc chính phủ quy định.",
+      "faqCostQuestion": "Vận chuyển DDP có thể rẻ hơn không?",
+      "faqCostAnswer": "Không. Đây là dịch vụ DDP rẻ nhất mà chúng tôi có thể cung cấp. Các lựa chọn rẻ hơn chỉ tồn tại dưới dạng dịch vụ không phải DDP, khi đó người nhận chịu chi phí thuế và phí."
+    },
     "logoPrinting": {
       "meta": {
         "title": "In logo | iShine",

@@ -1765,6 +1765,22 @@
     }
   },
   "servicesPage": {
+    "ddpShipping": {
+      "heading": "Sazby přepravy DDP",
+      "intro": "Přeprava DDP (cla a daně v ceně) po jednotlivých kusech do níže uvedených trhů. Uvedená sazba je celková cena za kus a zahrnuje cla a daně, takže příjemce při dodání nic neplatí.",
+      "colMarket": "Destinace",
+      "colRate": "Sazba DDP (USD)",
+      "colDays": "Doba přepravy",
+      "colOnTime": "Podíl včasných dodávek",
+      "daysUnit": "pracovních dnů",
+      "unsupportedHeading": "Trhy bez služby DDP",
+      "unsupportedNote": "Tyto trhy zatím nepokrývá žádný přepravce DDP.",
+      "note": "Sazby platí za kus a jsou pravidelně aktualizovány. Požádejte nás o aktuální nabídku pro váš objem.",
+      "faqSpeedQuestion": "Může být přeprava DDP rychlejší?",
+      "faqSpeedAnswer": "Ne. Toto je nejrychlejší služba DDP, kterou máme k dispozici. Jiní přepravci jsou rychlejší, ale příjemce pak musí zaplatit dovozní cla a daně a přesnou sazbu stanovuje místní celní úřad nebo vláda.",
+      "faqCostQuestion": "Může být přeprava DDP levnější?",
+      "faqCostAnswer": "Ne. Toto je nejlevnější služba DDP, kterou můžeme nabídnout. Levnější možnosti existují pouze jako služby bez DDP, u nichž náklady na clo a daně nese příjemce."
+    },
     "breadcrumb": {
       "services": "Služby"
     },

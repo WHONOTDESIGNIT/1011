@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "Tarif Pengiriman DDP",
+      "intro": "Pengiriman DDP (bebas bea masuk) per unit ke pasar di bawah ini. Tarif yang ditampilkan adalah total per unit dan sudah termasuk bea masuk dan pajak, sehingga penerima tidak membayar apa pun saat pengiriman.",
+      "colMarket": "Tujuan",
+      "colRate": "Tarif DDP (USD)",
+      "colDays": "Waktu transit",
+      "colOnTime": "Tingkat ketepatan waktu",
+      "daysUnit": "hari kerja",
+      "unsupportedHeading": "Pasar tanpa layanan DDP",
+      "unsupportedNote": "Belum ada jasa pengiriman DDP yang melayani pasar-pasar ini.",
+      "note": "Tarif dihitung per unit dan diperbarui secara berkala. Hubungi kami untuk penawaran terkini sesuai volume Anda.",
+      "faqSpeedQuestion": "Bisakah pengiriman DDP lebih cepat?",
+      "faqSpeedAnswer": "Tidak. Ini adalah layanan DDP tercepat yang tersedia bagi kami. Jasa pengiriman lain lebih cepat, tetapi penerima harus membayar bea masuk dan pajak impor, dan tarif pastinya ditetapkan oleh otoritas bea cukai setempat atau pemerintah.",
+      "faqCostQuestion": "Bisakah pengiriman DDP lebih murah?",
+      "faqCostAnswer": "Tidak. Ini adalah layanan DDP termurah yang dapat kami tawarkan. Opsi yang lebih murah hanya tersedia sebagai layanan non-DDP, di mana penerima menanggung biaya bea masuk dan pajak."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Pencetakan Logo | iShine",

@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "DDP-verzendtarieven",
+      "intro": "DDP-verzending (vrij van douanerechten) per stuk naar de onderstaande markten. Het getoonde tarief is het totaal per stuk en is inclusief rechten en belastingen, zodat de ontvanger bij aflevering niets betaalt.",
+      "colMarket": "Bestemming",
+      "colRate": "DDP-tarief (USD)",
+      "colDays": "Transittijd",
+      "colOnTime": "Percentage op tijd",
+      "daysUnit": "werkdagen",
+      "unsupportedHeading": "Markten zonder DDP-service",
+      "unsupportedNote": "Nog geen enkele DDP-vervoerder dekt deze markten.",
+      "note": "Tarieven zijn per stuk en worden periodiek bijgewerkt. Vraag ons om een actuele prijsopgave voor uw volume.",
+      "faqSpeedQuestion": "Kan DDP-verzending sneller?",
+      "faqSpeedAnswer": "Nee. Dit is de snelste DDP-service die wij kunnen aanbieden. Andere vervoerders zijn sneller, maar dan moet de ontvanger invoerrechten en belastingen betalen, en het exacte tarief wordt bepaald door de plaatselijke douaneautoriteit of overheid.",
+      "faqCostQuestion": "Kan DDP-verzending goedkoper?",
+      "faqCostAnswer": "Nee. Dit is de goedkoopste DDP-service die wij kunnen bieden. Goedkopere opties bestaan alleen als niet-DDP-diensten, waarbij de ontvanger de kosten van rechten en belastingen draagt."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Logodruk | iShine",

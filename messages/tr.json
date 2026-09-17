@@ -2927,6 +2927,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "DDP Gönderim Ücretleri",
+      "intro": "Aşağıdaki pazarlara tek birimlik DDP (vergiler dahil) gönderim. Gösterilen ücret birim başına toplam tutardır ve gümrük vergileri ile diğer vergileri içerir; alıcı teslimatta hiçbir ödeme yapmaz.",
+      "colMarket": "Varış yeri",
+      "colRate": "DDP ücreti (USD)",
+      "colDays": "Taşıma süresi",
+      "colOnTime": "Zamanında teslim oranı",
+      "daysUnit": "iş günü",
+      "unsupportedHeading": "DDP hizmeti olmayan pazarlar",
+      "unsupportedNote": "Bu pazarlara henüz hiçbir DDP taşıyıcısı hizmet vermiyor.",
+      "note": "Ücretler birim başına geçerlidir ve düzenli olarak güncellenir. Hacminiz için güncel fiyat teklifi isteyin.",
+      "faqSpeedQuestion": "DDP gönderim daha hızlı olabilir mi?",
+      "faqSpeedAnswer": "Hayır. Bu, elimizdeki en hızlı DDP hizmetidir. Diğer taşıyıcılar daha hızlıdır, ancak o durumda alıcı ithalat vergilerini ve gümrük vergilerini ödemek zorundadır ve kesin ücret yerel gümrük idaresi veya hükümet tarafından belirlenir.",
+      "faqCostQuestion": "DDP gönderim daha ucuz olabilir mi?",
+      "faqCostAnswer": "Hayır. Bu, sunabileceğimiz en ucuz DDP hizmetidir. Daha ucuz seçenekler yalnızca DDP olmayan hizmetler olarak mevcuttur; bu durumda gümrük vergisi ve vergi maliyetini alıcı üstlenir."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Logo Baskısı | iShine",

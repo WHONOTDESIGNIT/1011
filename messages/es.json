@@ -1765,6 +1765,22 @@
     }
   },
   "servicesPage": {
+    "ddpShipping": {
+      "heading": "Tarifas de envío DDP",
+      "intro": "Envío DDP (con derechos e impuestos incluidos) por unidad a los mercados indicados abajo. La tarifa mostrada es el total por unidad e incluye aranceles e impuestos, así que el destinatario no paga nada en la entrega.",
+      "colMarket": "Destino",
+      "colRate": "Tarifa DDP (USD)",
+      "colDays": "Tiempo de tránsito",
+      "colOnTime": "Tasa de puntualidad",
+      "daysUnit": "días laborables",
+      "unsupportedHeading": "Mercados sin servicio DDP",
+      "unsupportedNote": "Ningún transportista DDP cubre estos mercados todavía.",
+      "note": "Las tarifas son por unidad y se actualizan periódicamente. Pídanos una cotización actual para su volumen.",
+      "faqSpeedQuestion": "¿El envío DDP puede ser más rápido?",
+      "faqSpeedAnswer": "No. Este es el servicio DDP más rápido del que disponemos. Otros transportistas son más rápidos, pero entonces el destinatario debe pagar los aranceles e impuestos de importación, y la tarifa exacta la fija la autoridad aduanera local o el gobierno.",
+      "faqCostQuestion": "¿El envío DDP puede ser más barato?",
+      "faqCostAnswer": "No. Este es el servicio DDP más económico que podemos ofrecer. Las opciones más baratas solo existen como servicios no DDP, en los que el destinatario asume el coste de derechos e impuestos."
+    },
     "breadcrumb": {
       "services": "Servicios"
     },

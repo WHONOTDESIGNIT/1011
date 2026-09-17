@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "Stawki wysyłki DDP",
+      "intro": "Wysyłka DDP (bez cła) za pojedynczą sztukę do rynków poniżej. Podana stawka to kwota łączna za sztukę i obejmuje cła i podatki, więc odbiorca nie płaci nic przy dostawie.",
+      "colMarket": "Miejsce docelowe",
+      "colRate": "Stawka DDP (USD)",
+      "colDays": "Czas tranzytu",
+      "colOnTime": "Wskaźnik terminowości",
+      "daysUnit": "dni roboczych",
+      "unsupportedHeading": "Rynki bez usługi DDP",
+      "unsupportedNote": "Żaden przewoźnik DDP nie obsługuje jeszcze tych rynków.",
+      "note": "Stawki są za sztukę i są okresowo aktualizowane. Poproś nas o aktualną wycenę dla swojego wolumenu.",
+      "faqSpeedQuestion": "Czy wysyłka DDP może być szybsza?",
+      "faqSpeedAnswer": "Nie. To najszybsza usługa DDP, jaką możemy zaoferować. Inni przewoźnicy są szybsi, ale wtedy odbiorca musi zapłacić cła i podatki importowe, a dokładną stawkę ustala lokalna administracja celna lub rząd.",
+      "faqCostQuestion": "Czy wysyłka DDP może być tańsza?",
+      "faqCostAnswer": "Nie. To najtańsza usługa DDP, jaką możemy zaoferować. Tańsze opcje istnieją wyłącznie jako usługi inne niż DDP, w których koszt ceł i podatków ponosi odbiorca."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Druk logo | iShine",

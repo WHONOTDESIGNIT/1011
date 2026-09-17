@@ -3411,6 +3411,22 @@
         ]
       }
     },
+    "ddpShipping": {
+      "heading": "Tarifários de Envio DDP",
+      "intro": "Envio DDP (com impostos incluídos) de unidades avulsas para os mercados abaixo. O tarifário indicado é o total por unidade e inclui direitos aduaneiros e impostos, pelo que o destinatário não paga nada na entrega.",
+      "colMarket": "Destino",
+      "colRate": "Tarifário DDP (USD)",
+      "colDays": "Prazo de trânsito",
+      "colOnTime": "Taxa de pontualidade",
+      "daysUnit": "dias úteis",
+      "unsupportedHeading": "Mercados sem serviço DDP",
+      "unsupportedNote": "Ainda nenhum transportador DDP cobre estes mercados.",
+      "note": "Os tarifários são por unidade e atualizados periodicamente. Peça-nos uma cotação atual para o seu volume.",
+      "faqSpeedQuestion": "O envio DDP pode ser mais rápido?",
+      "faqSpeedAnswer": "Não. Este é o serviço DDP mais rápido que temos disponível. Há transportadores mais rápidos, mas nesse caso o destinatário tem de pagar direitos aduaneiros e impostos, e o valor exato é definido pela autoridade aduaneira local ou pelo governo.",
+      "faqCostQuestion": "O envio DDP pode ser mais barato?",
+      "faqCostAnswer": "Não. Este é o serviço DDP mais barato que podemos oferecer. As opções mais baratas existem apenas como serviços não DDP, em que o destinatário suporta o custo dos direitos e impostos."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Impressão de Logótipos | iShine",
