@@ -77,6 +77,15 @@ const recommendationTracks = [
   },
 ];
 
+// 核心对比表格上方的主推平台卡片：按指定只放「主图 + 型号名称」，不放价格/参数/按钮
+const featuredPlatforms = [
+  { key: 'helix', name: t(locale, 'nav.helix'), image: '/images/products/Helix/helix-ipl-front-view.jpg' },
+  { key: 'lumi-2', name: t(locale, 'nav.lumi2'), image: '/images/products/lumi-2/lumi-2-images-1.webp' },
+  { key: 'venus', name: t(locale, 'nav.venus'), image: '/images/products/Venus/purple-venus-sapphire-ipl.webp' },
+  { key: 'lumi', name: t(locale, 'nav.lumi'), image: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp' },
+  { key: 'themis', name: t(locale, 'nav.themis'), image: '/images/products/Themis/golden-luxury-front-view.jpg' },
+];
+
 const catalogueFaq = [
   {
     question: t(locale, 'clientPage.catalogue.citableSummaryTitle'),
@@ -186,6 +195,26 @@ const catalogueFaq = [
       <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
         {t(locale, 'clientPage.catalogue.citableSummaryBody')}
       </p>
+    </section>
+
+    {/* 主推平台卡片（5 款）：仅主图 + 型号名称，置于核心对比表格之上 */}
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        {featuredPlatforms.map((platform) => (
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <div class="flex aspect-square items-center justify-center bg-neutral-50 p-4">
+              <img
+                src={platform.image}
+                alt={platform.name}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <h3 class="px-3 py-3 text-center text-base font-semibold text-ink-900">{platform.name}</h3>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="overflow-x-auto px-4 md:px-0">

@@ -28,9 +28,13 @@ const title = t(locale, `${ns}.header.title`);
 const description = t(locale, `${ns}.header.description`);
 
 const heroImageBySlug: Record<string, string> = {
-  'lamp-cartridges': '/images/components/lamp-cartridge-closeup.jpg',
+  // 2026-09-15：原值 lamp-cartridge-closeup.jpg 是 43 字节的文本占位文件（线上裂图），
+  // 改用老板指定的 Component Quality Determines Device Performance 实拍图。
+  'lamp-cartridges': '/images/components/component-quality-determines-device-performance.webp',
   'optical-filters': '/images/components/optical-filters.jpg',
-  'cooling-system': '/images/components/cooling-system-closeup.jpg',
+  // 2026-09-15：原值 cooling-system-closeup.jpg 是 43 字节的文本占位文件（线上裂图），
+  // 改用 Cooling IPL 博客的实拍主图（2752×1504），与索引页卡片同源。
+  'cooling-system': '/images/blog/blog-cooling-ipl-hair-remover-buying-guide.webp',
   'power-supply': '/images/components/power-supply-hero.webp',
 };
 // fallback for an unrecognised slug: ipl-device-diagram.jpg was never uploaded, so this
@@ -238,7 +242,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
             </div>
             <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
               <div class="aspect-[4/3]">
-                <Image src="/images/components/cooling-system-closeup.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
+                <Image src="/images/components/cooling-system.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
               </div>
             </div>
           </div>
@@ -591,7 +595,7 @@ const breadcrumbs = buildBreadcrumbs(locale, [
           </div>
           <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <div class="aspect-[4/3]">
-              <Image src="/images/components/lamp-cartridge-closeup.jpg" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
+              <Image src="/images/components/component-quality-determines-device-performance.webp" alt={t(locale, `${ns}.highlight.imageAlt`)} loading="lazy" class="h-full w-full object-cover" width={1200} height={900} />
             </div>
           </div>
         </section>
