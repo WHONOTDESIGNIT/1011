@@ -66,6 +66,19 @@ Voltando ao 510 contra o 610. Filtrar de 510 para 610 muda duas coisas que você
 
 Para pele escura ou bronzeada (Fitzpatrick IV–VI), o perfil de comprimentos de onda mais longos é a escolha mais segura — mais energia chega ao folículo em vez da epiderme rica em pigmento. Comparações clínicas de redução de pelos baseada em luz apoiam isso: os comprimentos de onda considerados mais seguros em peles mais escuras são os mais longos, como o diodo de 810nm e o Nd:YAG de 1064nm, justamente porque penetram mais fundo enquanto poupam a epiderme rica em melanina ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). A própria escala de tipos de pele vem da classificação original do dermatologista Thomas Fitzpatrick, que segue sendo a referência da indústria para definir os parâmetros dos dispositivos ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Para pele clara, qualquer uma das janelas funciona.
 
+## O Que Anos de Uso Clínico Nos Ensinaram: Cortes de Filtro e Tipo de Pele
+
+A teoria aponta a direção: comprimentos de onda mais curtos atingem a superfície, os mais longos vão fundo. Anos de uso clínico na iShine apontam o mapa prático:
+
+- **Filtros de 510nm e 530nm são para pele clara.** Em pele clara eles são de fato *mais eficientes* que os filtros de 560nm ou 600nm, porque se filtra menos luz e se aproveita uma parcela maior da energia do flash.
+- **Filtros de 560nm e 600nm são para pele mais escura.** O corte mais alto mantém longe da superfície da pele os comprimentos de onda curtos mais irritantes.
+- **A sensação é simétrica.** Pele clara com filtro 510/530 incomoda mais ou menos o mesmo que pele escura com filtro 560/600: nos dois casos a sensação é confortável.
+- **A direção importa, e ela é de mão única.** Pele clara com filtro 560/600 vai bem, apenas um pouco menos eficiente. Já pele escura com filtro 510/530 fica visivelmente mais dolorida, porque a superfície absorve bem mais energia desse comprimento de onda curto.
+
+![Espectro do IPL da iShine medido com um espectrômetro OHSP-350FA: a energia está distribuída entre as bandas do visível e do infravermelho próximo](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Medido na nossa linha de produção com um espectrômetro OHSP-350FA: comprimento de onda dominante 571nm, pico 825nm, comprimento de onda central 828.6nm. Boa parte da energia do espectro fica nas bandas mais baixas, as visíveis, e é exatamente por isso que subir o corte do filtro custa energia de verdade.*
+
 ## Qual Você Deve Escolher?
 
 Se você está comprando um dispositivo para você mesmo:
@@ -73,6 +86,7 @@ Se você está comprando um dispositivo para você mesmo:
 - **Pele clara e sensível a picadas → 610–1200nm** costuma ser a escolha mais confortável.
 - **Pele mais escura ou bronzeada → opte por 610–1200nm ou mais longos** pela margem de segurança.
 - **Você quer versatilidade máxima → 510–1200nm** mantém mais espectro disponível, ao custo de uma sensação superficial levemente maior.
+- **Conheça o seu filtro, não apenas a faixa impressa** — nos aparelhos da iShine, pele clara combina melhor com filtros de 510/530nm, pele mais escura com filtros de 560/600nm.
 
 Mas, sendo honestos — a faixa de comprimento de onda é a segunda pergunta. Pergunte primeiro pela **largura de pulso**, depois pela **densidade de energia** e então pela **faixa de comprimento de onda**. Essa ordem reflete o que a sua pele realmente sente.
 
@@ -81,6 +95,16 @@ Mas, sendo honestos — a faixa de comprimento de onda é a segunda pergunta. Pe
 Se você é dono de uma marca que compra dispositivos de IPL, é nessa distinção que você ganha ou perde nas avaliações. Clientes devolvem dispositivos que ardem. Eles ficam com dispositivos que parecem um pulso quente e ainda mostram resultados. A diferença raramente está na faixa de comprimento de onda impressa na caixa — está em se a largura de pulso foi projetada para o conforto.
 
 Esse é o tipo de especificação que testamos na linha de produção da iShine, e não apenas citamos. Quando construímos um dispositivo para uma marca, ajustamos a corrente da lâmpada, o banco de capacitores e o filtro em conjunto, para que os números publicados correspondam ao que a pele realmente sente. Se você está avaliando fornecedores, pergunte como eles definem a largura de pulso e se conseguem mostrar a forma de onda medida — não apenas a folha de dados.
+
+## O Trade-Off de Engenharia Que Ninguém Imprime na Caixa
+
+Mudar o corte de 510 para 610 não é só trocar o filtro. Como o espectro concentra boa parte da energia nas bandas mais baixas (veja a medição acima), um filtro de 560nm ou 600nm joga fora uma parcela significativa da luz, e essa energia precisa ser reposta em algum lugar:
+
+- **Capacitor maior.** A energia filtrada é compensada por um capacitor de armazenamento maior, para que o flash ainda entregue potência suficiente à pele.
+- **Temperatura do sistema mais alta.** Um capacitor maior significa mais calor dentro do aparelho, então a elevação de temperatura de todo o sistema aumenta.
+- **Dissipação de calor mais robusta.** Mais calor exige uma solução de refrigeração mais reforçada (dissipador maior, ventoinha ou um projeto de fluxo de ar), o que afeta tamanho, custo e ruído.
+
+É esse o trade-off por trás de "610–1200nm incomoda menos": o conforto é pago com um sistema mais pesado, mais quente e mais caro. Também é por isso que aparelhos de corte baixo podem ser mais leves, mais baratos e mais eficientes: eles jogam para o usuário o custo de "escolher os próprios tons de pele", em vez de assumi-lo na máquina.
 
 Quer comparar especificações de comprimento de onda, largura de pulso e energia entre plataformas reais? Conheça nossos [aparelhos IPL de depilação](/products) ou comece por [como escolher o comprimento de onda de um aparelho IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), onde abordei o quadro mais amplo de decisão. Se você tem uma ficha técnica sobre a qual quer uma segunda opinião, [envie-a para nós](/contact) — vamos explicar o que os números significam.
 

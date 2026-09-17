@@ -66,6 +66,19 @@ Wracamy do porównania 510 i 610. Przesunięcie odcięcia z 510 na 610 zmienia d
 
 W przypadku ciemnej lub opalonej skóry (Fitzpatrick IV–VI) profil z dłuższymi falami to bezpieczniejszy wybór — więcej energii dociera do mieszka zamiast do bogatego w pigment naskórka. Potwierdzają to kliniczne porównania metod usuwania włosów światłem: za najbezpieczniejsze na ciemniejszej skórze uznaje się właśnie dłuższe fale, takie jak dioda 810nm czy Nd:YAG 1064nm, właśnie dlatego, że wnikają głębiej, oszczędzając naskórek bogaty w melaninę ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). Sama skala typów skóry pochodzi z pierwotnej klasyfikacji dermatologa Thomasa Fitzpatricka, która do dziś pozostaje branżowym punktem odniesienia przy ustawianiu parametrów urządzeń ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). W przypadku jasnej skóry działa każde z tych okien.
 
+## Czego nauczyły nas lata praktyki klinicznej: punkty odcięcia filtrów a typ skóry
+
+Teoria wskazuje kierunek: krótsze fale trafiają w powierzchnię, dłuższe wnikają głębiej. Lata praktyki klinicznej w iShine dają ci praktyczne przypisanie:
+
+- **Filtry 510nm i 530nm są dla jasnej skóry.** Na jaśniejszej skórze są wręcz *skuteczniejsze* niż filtry 560nm czy 600nm — więcej energii błysku zostaje wykorzystane, bo mniej się odfiltrowuje.
+- **Filtry 560nm i 600nm są dla ciemniejszej skóry.** Wyższy punkt odcięcia trzyma najbardziej drażniące krótkie fale z dala od powierzchni skóry.
+- **Odczucie jest symetryczne.** Jasna skóra z filtrem 510/530 czuje mniej więcej to samo co ciemniejsza skóra z filtrem 560/600 — oba warianty są komfortowe.
+- **Kierunek ma znaczenie i jest jednostronny.** Jasna skóra z filtrem 560/600 czuje się dobrze, tylko nieco mniej efektywnie. Ale ciemniejsza skóra z filtrem 510/530 odczuwa wyraźnie większy ból, bo powierzchnia pochłania znacznie więcej energii tych krótkich fal.
+
+![Widmo IPL iShine zmierzone spektrometrem OHSP-350FA — energia rozkłada się na pasmach widzialnym i bliskiej podczerwieni](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Zmierzone na naszej linii produkcyjnej spektrometrem OHSP-350FA: dominująca długość fali 571nm, szczyt 825nm, długość fali środkowa 828.6nm. Duża część energii widma leży w niższych (widzialnych) pasmach — i właśnie dlatego podniesienie punktu odcięcia filtra kosztuje realną energię.*
+
 ## Który wybrać?
 
 Jeśli kupujesz urządzenie dla siebie:
@@ -73,6 +86,7 @@ Jeśli kupujesz urządzenie dla siebie:
 - **Jasna skóra wrażliwa na ukłucia → 610–1200nm** to zwykle wybór zapewniający większy komfort.
 - **Ciemniejsza skóra lub opalenizna → skłoń się ku 610–1200nm lub dłuższym falom** ze względu na margines bezpieczeństwa.
 - **Chcesz maksymalnej wszechstronności → 510–1200nm** pozostawia do dyspozycji większą część spektrum, kosztem nieco mocniejszych odczuć na powierzchni skóry.
+- **Znaj swój filtr, nie tylko wydrukowany zakres** — w urządzeniach iShine jasna skóra najlepiej łączy się z filtrami 510/530nm, a ciemniejsza z filtrami 560/600nm.
 
 Ale szczerze — zakres długości fal to pytanie drugorzędne. Zapytaj najpierw o **szerokość impulsu**, potem o **gęstość energii**, a na końcu o **zakres długości fal**. Ta kolejność odzwierciedla to, co Twoja skóra faktycznie odczuwa.
 
@@ -81,6 +95,16 @@ Ale szczerze — zakres długości fal to pytanie drugorzędne. Zapytaj najpierw
 Jeśli jesteś właścicielem marki pozyskującym urządzenia IPL, to na tej właśnie różnicy wygrywasz lub przegrywasz w opiniach. Klienci zwracają urządzenia, które kłują. Zatrzymują te, które dają odczucie ciepłego impulsu i wciąż przynoszą efekty. Różnica rzadko leży w zakresie długości fal wydrukowanym na pudełku — chodzi o to, czy szerokość impulsu została zaprojektowana pod kątem komfortu.
 
 To specyfikacja, którą w iShine testujemy na linii produkcyjnej, a nie tylko cytujemy. Kiedy budujemy urządzenie dla marki, wspólnie dopasowujemy prąd lampy, baterię kondensatorów i filtr tak, aby publikowane liczby odpowiadały temu, co skóra faktycznie odczuwa. Jeśli oceniasz dostawców, zapytaj, jak ustawiają szerokość impulsu i czy pokażą ci zmierzony przebieg — a nie tylko kartę katalogową.
+
+## Kompromis inżynieryjny, którego nikt nie drukuje na pudełku
+
+Przesunięcie punktu odcięcia z 510 na 610 to nie tylko wymiana filtra. Ponieważ widmo skupia większość swojej energii w niższych pasmach (patrz pomiar powyżej), filtr 560nm lub 600nm wyrzuca znaczącą część światła — a tę energię trzeba gdzieś uzupełnić:
+
+- **Większy kondensator.** Odfiltrowaną energię kompensuje się większym kondensatorem magazynującym, dzięki czemu błysk nadal dostarcza do skóry wystarczającą moc.
+- **Wyższa temperatura układu.** Większy kondensator to więcej ciepła wewnątrz urządzenia, więc rośnie przyrost temperatury całego układu.
+- **Mocniejsze odprowadzanie ciepła.** Więcej ciepła wymaga solidniejszego chłodzenia — większego radiatora, wentylatora albo lepszego przepływu powietrza — co wpływa na rozmiar, koszt i hałas.
+
+Na tym polega kompromis kryjący się za zdaniem „610–1200nm jest łagodniejsze": komfort płaci się cięższym, gorętszym i droższym układem. Dlatego urządzenia z niskim punktem odcięcia mogą być lżejsze, tańsze i bardziej efektywne — przenoszą koszt „dobierania się do typów skóry" na użytkownika, a nie na maszynę.
 
 Chcesz porównać specyfikacje długości fali, szerokości impulsu i energii na realnych platformach? Przejrzyj nasze [urządzenia IPL do usuwania włosów](/products) albo zacznij od artykułu [jak dobrać długość fali do urządzenia IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), w którym omówiłem szersze ramy podejmowania decyzji. Jeśli masz kartę specyfikacji, co do której chcesz drugiej opinii, [wyślij ją do nas](/contact) — powiemy ci, co oznaczają te liczby.
 

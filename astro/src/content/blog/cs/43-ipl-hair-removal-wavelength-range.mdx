@@ -66,6 +66,19 @@ Zpět k 510 vs 610. Přechod filtrace z 510 na 610 mění dvě věci, které lze
 
 Pro tmavou nebo opálenou pleť (Fitzpatrick IV–VI) je profil s delšími vlnovými délkami bezpečnější volbou — více energie se dostane k folikulu místo k pokožce bohaté na pigment. Klinická srovnání světelné redukce chloupků to potvrzují: vlnové délky považované za nejbezpečnější na tmavší pleti jsou ty delší, jako dioda 810nm a Nd:YAG 1064nm, právě proto, že pronikají hlouběji a šetří pokožku bohatou na melanin ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). Samotná stupnice typů pleti pochází z původní klasifikace dermatologa Thomase Fitzpatricka, která zůstává průmyslovým referenčním standardem pro nastavování parametrů přístrojů ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Pro světlou pleť funguje obojí.
 
+## Co nám léta klinického používání ukázala: hranice filtrů a odstín pleti
+
+Teorie vám ukáže směr — kratší vlnové délky zasahují povrch, delší jdou do hloubky. Léta klinického používání v iShine vám dají praktické přiřazení:
+
+- **Filtry 510nm a 530nm jsou pro světlou pleť.** Na světlejší pleti jsou vlastně *účinnější* než filtry 560nm nebo 600nm — využije se více energie záblesku, protože se méně odfiltruje.
+- **Filtry 560nm a 600nm jsou pro tmavší pleť.** Vyšší hranice udrží nejdráždivější krátké vlnové délky mimo povrch pleti.
+- **Vjem je symetrický.** Světlá pleť s filtrem 510/530 působí zhruba stejně jako tmavší pleť s filtrem 560/600 — obojí je pohodlné.
+- **Směr je důležitý a je jednosměrný.** Světlé pleti je s filtrem 560/600 dobře — jen mírně méně účinně. Ale tmavší pleť s filtrem 510/530 působí znatelně bolestivěji, protože povrch pohlcuje mnohem více energie těchto krátkých vln.
+
+![Spektrum IPL od iShine změřené spektrometrem OHSP-350FA: energie je rozložena napříč viditelným a blízkým infračerveným pásmem](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Změřeno na naší výrobní lince spektrometrem OHSP-350FA: dominantní vlnová délka 571nm, maximum 825nm, střední vlnová délka 828.6nm. Velký podíl energie spektra leží v nižších (viditelných) pásmech — právě proto vás zvýšení hranice filtru stojí skutečnou energii.*
+
 ## Který si vybrat?
 
 Pokud si pořizujete přístroj pro sebe:
@@ -73,6 +86,7 @@ Pokud si pořizujete přístroj pro sebe:
 - **Světlá pleť citlivá na štípání → 610–1200nm** je obvykle pohodlnější volba.
 - **Tmavší pleť nebo opálení → přiklánějte se k 610–1200nm nebo delším vlnovým délkám** kvůli bezpečnostní rezervě.
 - **Chcete maximální univerzálnost → 510–1200nm** ponechává k dispozici větší část spektra, za cenu mírně výraznějšího povrchového vjemu.
+- **Znáte svůj filtr, ne jen tištěný rozsah** — u přístrojů iShine se světlá pleť nejlépe snáší s filtry 510/530nm, tmavší pleť s filtry 560/600nm.
 
 Ale upřímně — rozsah vlnových délek je až druhá otázka. Ptejte se **nejdřív na šířku pulzu**, pak na **hustotu energie** a poté na **rozsah vlnových délek**. Toto pořadí odpovídá tomu, co vaše pleť skutečně vnímá.
 
@@ -81,6 +95,16 @@ Ale upřímně — rozsah vlnových délek je až druhá otázka. Ptejte se **ne
 Pokud jste majitelem značky, která nakupuje IPL přístroje, právě tady se rozhoduje o tom, jestli v recenzích vyhrajete, nebo prohrajete. Zákazníci vracejí přístroje, které štípou. Ponechávají si ty, které působí jako teplý pulz a přesto přinášejí výsledky. Rozdíl málokdy spočívá v rozsahu vlnových délek vytištěném na krabici — rozhoduje to, zda byla šířka pulzu navržena s ohledem na komfort.
 
 Právě takové parametry v iShine na lince testujeme, nejen citujeme. Když pro značku stavíme přístroj, ladíme proud výbojky, kondenzátorovou banku a filtr společně tak, aby uváděné hodnoty odpovídaly tomu, co pleť skutečně cítí. Pokud hodnotíte dodavatele, ptejte se, jak nastavují šířku pulzu a zda vám dokážou ukázat změřený průběh — ne jen technický list.
+
+## Inženýrský kompromis, který nikdo netiskne na krabici
+
+Přesun hranice z 510 na 610 není jen výměna filtru. Protože se spektrum soustředí ve velké míře v nižších pásmech (viz měření výše), filtr 560nm nebo 600nm vyhodí významný podíl světla — a tuto energii je třeba někde nahradit:
+
+- **Větší kondenzátor.** Odfiltrovanou energii kompenzuje větší zásobní kondenzátor, aby záblesk dodal pleti stále dost výkonu.
+- **Vyšší teplota systému.** Větší kondenzátor znamená více tepla uvnitř přístroje, takže roste oteplení celého systému.
+- **Silnější odvod tepla.** Více tepla vyžaduje robustnější chlazení — větší chladič, ventilátor nebo návrh proudění vzduchu — což ovlivňuje velikost, náklady a hlučnost.
+
+To je kompromis za tvrzením, že „610–1200nm působí šetrněji": komfort se platí těžším, teplejším a dražším systémem. Právě proto mohou být přístroje s nižší hranicí lehčí, levnější a účinnější — přenášejí náklad na „volbu odstínu pleti" na uživatele místo na stroj.
 
 Chcete porovnat parametry vlnových délek, šířky pulzu a energie napříč skutečnými platformami? Prohlédněte si naše [IPL přístroje pro redukci chloupků](/products) nebo začněte u článku [jak vybrat vlnovou délku pro IPL přístroj](/blog/05-choosing-the-right-wavelength-for-ipl-devices), kde jsem popsal širší rozhodovací rámec. Pokud máte technický list, ke kterému byste chtěli druhý názor, [pošlete nám ho](/contact) — řekneme vám, co čísla znamenají.
 

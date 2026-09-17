@@ -66,6 +66,19 @@ Revenons au duel 510 contre 610. Passer d'un filtrage à 510 à un filtrage à 6
 
 Pour une peau foncée ou bronzée (types de peau de Fitzpatrick IV–VI), le profil à longueurs d'onde longues est le choix le plus sûr — davantage d'énergie atteint le follicule au lieu de l'épiderme riche en pigments. Les comparaisons cliniques sur l'épilation par la lumière le confirment : les longueurs d'onde jugées les plus sûres sur peau foncée sont les plus longues, comme la diode à 810nm et le Nd:YAG à 1064nm, précisément parce qu'elles pénètrent plus profondément tout en épargnant l'épiderme riche en mélanine ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). L'échelle des types de peau elle-même provient de la classification originale du dermatologue Thomas Fitzpatrick, qui reste la référence de l'industrie pour régler les paramètres des appareils ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Pour une peau claire, les deux fenêtres fonctionnent.
 
+## Ce que des années d'usage clinique nous ont appris : coupures de filtre et teint de la peau
+
+La théorie indique la direction — les longueurs d'onde courtes frappent la surface, les longues vont en profondeur. Des années d'usage clinique chez iShine en donnent la correspondance pratique :
+
+- **Les filtres à 510nm et 530nm sont destinés aux peaux claires.** Sur une peau claire, ils sont même *plus efficaces* que les filtres à 560nm ou 600nm : une plus grande part de l'énergie de l'impulsion est utilisée, puisqu'on en filtre moins.
+- **Les filtres à 560nm et 600nm sont destinés aux peaux foncées.** La coupure plus élevée tient les longueurs d'onde courtes les plus irritantes à l'écart de la surface de la peau.
+- **La sensation est symétrique.** Une peau claire avec un filtre 510/530 donne à peu près la même sensation qu'une peau foncée avec un filtre 560/600 : dans les deux cas, c'est confortable.
+- **Le sens compte, et il est à sens unique.** Une peau claire avec un filtre 560/600 ne pose aucun problème — simplement un peu moins d'efficacité. Mais une peau foncée avec un filtre 510/530 est nettement plus douloureuse, car la surface absorbe bien davantage cette énergie de longueur d'onde courte.
+
+![Spectre IPL iShine mesuré avec un spectromètre OHSP-350FA — l'énergie se répartit sur les bandes visibles et proche infrarouge](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Mesuré sur notre chaîne de production avec un spectromètre OHSP-350FA : longueur d'onde dominante 571nm, pic à 825nm, longueur d'onde centrale 828.6nm. Une grande partie de l'énergie du spectre se situe dans les bandes basses (visibles), et c'est exactement pourquoi relever la coupure du filtre coûte de la vraie énergie.*
+
 ## Laquelle choisir ?
 
 Si vous achetez un appareil pour vous-même :
@@ -73,6 +86,7 @@ Si vous achetez un appareil pour vous-même :
 - **Peau claire, sensible aux piqûres → 610–1200nm** est généralement le choix le plus confortable.
 - **Peau foncée ou bronzée → privilégiez 610–1200nm ou plus** pour la marge de sécurité.
 - **Vous voulez une polyvalence maximale → 510–1200nm** conserve une plus grande partie du spectre disponible, au prix d'une sensation de surface légèrement plus marquée.
+- **Connaissez votre filtre, pas seulement la plage imprimée** — sur les appareils iShine, une peau claire s'associe au mieux aux filtres 510/530nm, une peau foncée aux filtres 560/600nm.
 
 Mais soyons honnêtes : la plage de longueurs d'onde n'est que la deuxième question. Renseignez-vous d'abord sur la **largeur d'impulsion**, puis sur la **densité d'énergie**, et enfin sur la **plage de longueurs d'onde**. Cet ordre reflète ce que votre peau ressent réellement.
 
@@ -81,6 +95,16 @@ Mais soyons honnêtes : la plage de longueurs d'onde n'est que la deuxième ques
 Si vous êtes propriétaire d'une marque qui s'approvisionne en appareils IPL, c'est là que se joue votre réputation sur les avis clients. Les clients retournent les appareils qui piquent. Ils gardent ceux qui procurent une chaleur douce tout en montrant des résultats. La différence tient rarement à la plage de longueurs d'onde imprimée sur la boîte — elle tient au fait que la largeur d'impulsion a été conçue pour le confort.
 
 C'est le genre de spécification que nous testons sur la chaîne de production chez iShine, et pas seulement que nous annonçons. Lorsque nous fabriquons un appareil pour une marque, nous accordons ensemble le courant de la lampe, la banque de condensateurs et le filtre, pour que les chiffres publiés correspondent à ce que la peau ressent réellement. Si vous évaluez des fournisseurs, demandez-leur comment ils règlent la largeur d'impulsion et s'ils peuvent vous montrer la forme d'onde mesurée — pas seulement la fiche technique.
+
+## Le compromis technique que personne n'imprime sur la boîte
+
+Déplacer la coupure de 510 à 610 n'est pas un simple échange de filtre. Comme le spectre concentre une grande partie de son énergie dans les bandes basses (voir la mesure ci-dessus), un filtre à 560nm ou 600nm jette une part significative de la lumière — et cette énergie doit bien être compensée quelque part :
+
+- **Condensateur plus gros.** L'énergie filtrée est compensée par un condensateur de stockage plus grand, pour que l'impulsion délivre toujours assez de puissance à la peau.
+- **Température système plus élevée.** Un condensateur plus gros, c'est plus de chaleur à l'intérieur de l'appareil : l'élévation de température de tout le système augmente.
+- **Dissipation thermique renforcée.** Plus de chaleur exige une solution de refroidissement plus musclée — dissipateur plus grand, ventilateur ou circulation d'air —, ce qui pèse sur l'encombrement, le coût et le bruit.
+
+Voilà le compromis derrière « le 610–1200nm est plus doux » : le confort se paie par un système plus lourd, plus chaud et plus cher. C'est aussi pourquoi les appareils à coupure basse peuvent être plus légers, moins chers et plus efficaces : ils reportent sur l'utilisateur le coût du « choix des teints » plutôt que de l'assumer eux-mêmes.
 
 Vous souhaitez comparer les spécifications de longueur d'onde, de largeur d'impulsion et d'énergie sur de vraies plateformes ? Parcourez nos [appareils d'épilation IPL](/products), ou commencez par [comment choisir la longueur d'onde d'un appareil IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), où j'ai présenté le cadre de décision dans son ensemble. Si vous avez une fiche technique dont vous aimeriez un second avis, [envoyez-la-nous](/contact) — nous vous expliquerons ce que signifient les chiffres.
 

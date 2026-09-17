@@ -66,6 +66,19 @@ Terug naar 510 versus 610. Filteren van 510 naar 610 verandert twee dingen die u
 
 Voor een donkere of gebruinde huid (Fitzpatrick IV–VI) is het profiel met langere golflengten de veiligere keuze — meer energie bereikt het haarzakje in plaats van de pigmentrijke opperhuid. Klinische vergelijkingen van ontharing op basis van licht ondersteunen dit: de golflengten die op een donkere huid als het veiligst worden beschouwd, zijn de langere, zoals de 810nm-diode en de 1064nm Nd:YAG, juist omdat ze dieper doordringen terwijl ze de melaninerijke opperhuid sparen ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). De huidtypenschaal zelf komt voort uit de oorspronkelijke classificatie van dermatoloog Thomas Fitzpatrick, die nog altijd de referentie van de sector is voor het instellen van apparaatparameters ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Bij een lichte huid werkt elk van beide vensters.
 
+## Wat jaren klinisch gebruik ons heeft geleerd: filtercutoffs en huidtint
+
+De theorie wijst de richting aan — kortere golflengten treffen het oppervlak, langere gaan diep. Jaren van klinisch gebruik bij iShine geven de praktische vertaling:
+
+- **Filters van 510nm en 530nm zijn voor een lichte huid.** Op een lichtere huid zijn ze zelfs *efficiënter* dan filters van 560nm of 600nm — er wordt meer van de flitsenergie benut, omdat er minder wordt weggefilterd.
+- **Filters van 560nm en 600nm zijn voor een donkere huid.** De hogere cutoff houdt de meest irriterende korte golflengten van het huidoppervlak.
+- **De sensatie is symmetrisch.** Een lichte huid met een 510/530-filter voelt ongeveer hetzelfde als een donkere huid met een 560/600-filter — beide zijn comfortabel.
+- **De richting doet ertoe, en ze gaat maar één kant op.** Een lichte huid met een 560/600-filter voelt prima aan — alleen iets minder efficiënt. Maar een donkere huid met een 510/530-filter voelt merkbaar pijnlijker, omdat het oppervlak veel meer van die kortegolfenergie absorbeert.
+
+![iShine IPL-spectrum gemeten met een OHSP-350FA-spectrometer — de energie is verdeeld over de zichtbare en nabij-infrarode banden](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Gemeten op onze productielijn met een OHSP-350FA-spectrometer: dominante golflengte 571nm, piek 825nm, centrale golflengte 828.6nm. Een groot deel van de energie van het spectrum zit in de lagere (zichtbare) banden — en dat is precies waarom een hogere filtercutoff je echte energie kost.*
+
 ## Welke moet u kiezen?
 
 Koopt u een apparaat voor uzelf:
@@ -73,6 +86,7 @@ Koopt u een apparaat voor uzelf:
 - **Lichte huid, gevoelig voor prikken → 610–1200nm** is meestal de comfortabelere keuze.
 - **Donkere huid of bruine teint → kies eerder 610–1200nm of langer** vanwege de veiligheidsmarge.
 - **U wilt maximale veelzijdigheid → 510–1200nm** houdt meer van het spectrum beschikbaar, ten koste van iets meer gevoel aan het huidoppervlak.
+- **Ken uw filter, niet alleen het afgedrukte bereik** — bij iShine-apparaten past een lichte huid het beste bij filters van 510/530nm, een donkere huid bij filters van 560/600nm.
 
 Maar eerlijk gezegd — het golflengtebereik is de tweede vraag. Vraag eerst naar de **pulsbreedte**, dan naar de **energiedichtheid**, en pas daarna naar het **golflengtebereik**. Die volgorde weerspiegelt wat uw huid daadwerkelijk voelt.
 
@@ -81,6 +95,16 @@ Maar eerlijk gezegd — het golflengtebereik is de tweede vraag. Vraag eerst naa
 Bent u merkeigenaar en betrekt u IPL-apparaten, dan is dit onderscheid waar u het op reviews wint of verliest. Klanten sturen apparaten terug die prikken. Ze houden apparaten die aanvoelen als een warme puls en toch resultaat laten zien. Het verschil zit zelden in het golflengtebereik dat op de doos staat — het zit in de vraag of de pulsbreedte op comfort is ontworpen.
 
 Dat is het soort specificatie dat we bij iShine op de lijn testen, niet alleen citeren. Wanneer we een apparaat voor een merk bouwen, stemmen we de lampstroom, de condensatorbank en het filter op elkaar af, zodat de gepubliceerde cijfers kloppen met wat de huid daadwerkelijk voelt. Beoordeelt u leveranciers, vraag dan hoe ze de pulsbreedte instellen en of ze u de gemeten golfvorm kunnen laten zien — niet alleen het gegevensblad.
+
+## De technische afweging die niemand op de doos afdrukt
+
+De cutoff van 510 naar 610 verschuiven is niet zomaar een filterwissel. Omdat het spectrum een groot deel van zijn energie in de lagere banden concentreert (zie de meting hierboven), gooit een filter van 560nm of 600nm een aanzienlijk deel van het licht weg — en die energie moet ergens vandaan komen:
+
+- **Grotere condensator.** De weggefilterde energie wordt gecompenseerd door een grotere opslagcondensator, zodat de flits de huid nog steeds genoeg vermogen levert.
+- **Hogere systeemtemperatuur.** Een grotere condensator betekent meer warmte in het apparaat, dus de temperatuurstijging van het hele systeem loopt op.
+- **Sterkere warmteafvoer.** Meer warmte vraagt om een robuustere koeloplossing — grotere koelvin, ventilator of luchtstroomontwerp — wat gevolgen heeft voor formaat, kosten en geluid.
+
+Dat is de afweging achter '610–1200nm voelt zachter': comfort wordt betaald met een zwaarder, heter en duurder systeem. Daarom kunnen apparaten met een lage cutoff lichter, goedkoper en efficiënter zijn — ze schuiven de kosten van het 'uitkiezen van huidtinten' af op de gebruiker in plaats van op het apparaat.
 
 Wilt u golflengte, pulsbreedte en energiespecificaties over echte platformen vergelijken? Bekijk dan onze [IPL-ontharingsapparaten](/products), of begin bij [zo kiest u de golflengte voor een IPL-apparaat](/blog/05-choosing-the-right-wavelength-for-ipl-devices), waar ik het bredere beslissingskader heb behandeld. Heeft u een specificatieblad waar u een tweede mening over wilt, [stuur het ons dan op](/contact) — wij vertellen u wat de cijfers betekenen.
 

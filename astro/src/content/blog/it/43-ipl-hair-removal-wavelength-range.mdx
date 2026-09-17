@@ -66,6 +66,19 @@ Torniamo a 510 contro 610. Passare dal taglio a 510 a quello a 610 cambia due co
 
 Per la pelle scura o abbronzata (fototipi di Fitzpatrick IV–VI), il profilo con lunghezze d'onda più lunghe è la scelta più sicura: più energia raggiunge il follicolo invece dell'epidermide ricca di pigmento. I confronti clinici sulla rimozione dei peli basata sulla luce lo confermano: le lunghezze d'onda considerate più sicure sulla pelle scura sono quelle più lunghe, come il diodo a 810nm e l'Nd:YAG a 1064nm, proprio perché penetrano più in profondità risparmiando l'epidermide ricca di melanina ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). La scala dei fototipi nasce dalla classificazione originale del dermatologo Thomas Fitzpatrick, che resta il riferimento del settore per impostare i parametri dei dispositivi ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Per la pelle chiara, entrambe le finestre vanno bene.
 
+## Cosa ci hanno insegnato anni di uso clinico: tagli del filtro e fototipo
+
+La teoria indica la direzione: le lunghezze d'onda corte colpiscono la superficie, quelle lunghe vanno in profondità. Anni di uso clinico in iShine indicano la mappatura pratica:
+
+- **I filtri a 510nm e 530nm sono per la pelle chiara.** Sulla pelle chiara sono persino *più efficienti* dei filtri a 560nm o 600nm, perché si filtra via meno luce e una quota maggiore dell'energia del flash viene utilizzata.
+- **I filtri a 560nm e 600nm sono per la pelle scura.** Il taglio più alto tiene le lunghezze d'onda corte più irritanti lontane dalla superficie della pelle.
+- **La sensazione è simmetrica.** La pelle chiara con un filtro 510/530 si sente più o meno come la pelle scura con un filtro 560/600: in entrambi i casi la sensazione è confortevole.
+- **La direzione conta, ed è a senso unico.** La pelle chiara con un filtro 560/600 va bene, solo leggermente meno efficiente. La pelle scura con un filtro 510/530, invece, risulta decisamente più dolorosa, perché la superficie assorbe molta più energia a lunghezza d'onda corta.
+
+![Spettro IPL iShine misurato con uno spettrometro OHSP-350FA: l'energia è distribuita tra le bande del visibile e dell'infrarosso vicino](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Misurato sulla nostra linea di produzione con uno spettrometro OHSP-350FA: lunghezza d'onda dominante 571nm, picco 825nm, lunghezza d'onda centrale 828.6nm. Una quota consistente dell'energia dello spettro sta nelle bande più basse, quelle visibili, ed è esattamente per questo che alzare il taglio del filtro costa energia reale.*
+
 ## Quale scegliere?
 
 Se state acquistando un dispositivo per voi stessi:
@@ -73,6 +86,7 @@ Se state acquistando un dispositivo per voi stessi:
 - **Pelle chiara, sensibile alle fitte → 610–1200nm** di solito è la scelta più confortevole.
 - **Pelle scura o abbronzata → orientatevi su 610–1200nm o su lunghezze più lunghe** per il margine di sicurezza.
 - **Volete la massima versatilità → 510–1200nm** mantiene disponibile una porzione maggiore dello spettro, a costo di una sensazione superficiale leggermente più marcata.
+- **Conoscete il filtro, non solo l'intervallo stampato** — sui dispositivi iShine la pelle chiara si abbina meglio ai filtri 510/530nm, quella scura ai filtri 560/600nm.
 
 Ma a essere onesti — l'intervallo di lunghezze d'onda è la seconda domanda. Chiedete prima la **larghezza dell'impulso**, poi la **densità di energia**, poi l'**intervallo di lunghezze d'onda**. Quest'ordine rispecchia ciò che la vostra pelle percepisce davvero.
 
@@ -81,6 +95,16 @@ Ma a essere onesti — l'intervallo di lunghezze d'onda è la seconda domanda. C
 Se siete proprietari di un marchio che acquista dispositivi IPL, è qui che si vince o si perde sulle recensioni. I clienti restituiscono i dispositivi che pungono. Tengono quelli che sembrano un impulso caldo e mostrano comunque risultati. La differenza raramente sta nell'intervallo di lunghezze d'onda stampato sulla confezione — sta nel fatto che la larghezza dell'impulso sia stata progettata per il comfort.
 
 È il tipo di specifica che in iShine testiamo sulla linea, non ci limitiamo a citarla. Quando costruiamo un dispositivo per un marchio, calibriamo insieme corrente della lampada, banco di condensatori e filtro, così che i numeri pubblicati corrispondano a ciò che la pelle percepisce davvero. Se state valutando i fornitori, chiedete come impostano la larghezza dell'impulso e se possono mostrarvi la forma d'onda misurata — non solo la scheda tecnica.
+
+## Il compromesso ingegneristico che nessuno stampa sulla confezione
+
+Spostare il taglio da 510 a 610 non è solo un cambio di filtro. Poiché lo spettro concentra gran parte della sua energia nelle bande più basse (vedi la misurazione qui sopra), un filtro a 560nm o 600nm butta via una quota significativa della luce, e quell'energia va recuperata da qualche parte:
+
+- **Condensatore più grande.** L'energia filtrata viene compensata con un condensatore di accumulo più grande, così il flash eroga comunque abbastanza potenza alla pelle.
+- **Temperatura di sistema più alta.** Un condensatore più grande significa più calore dentro il dispositivo, quindi sale la temperatura dell'intero sistema.
+- **Dissipazione del calore più robusta.** Più calore richiede una soluzione di raffreddamento più massiccia (dissipatore più grande, ventola o design del flusso d'aria), il che incide su dimensioni, costo e rumorosità.
+
+Ecco il compromesso dietro l'idea che «il 610–1200nm sia più delicato»: il comfort si paga con un sistema più pesante, più caldo e più costoso. È anche il motivo per cui i dispositivi a taglio basso possono essere più leggeri, più economici e più efficienti: spostano sull'utente il costo di «scegliersi i fototipi» invece che sulla macchina.
 
 Volete confrontare le specifiche di lunghezza d'onda, larghezza dell'impulso ed energia su piattaforme reali? Sfogliate i nostri [dispositivi per la rimozione dei peli con IPL](/products), oppure partite da [come scegliere la lunghezza d'onda per un dispositivo IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), dove ho trattato il quadro decisionale più ampio. Se avete una scheda tecnica di cui volete un secondo parere, [inviatecela](/contact) — vi diremo cosa significano quei numeri.
 

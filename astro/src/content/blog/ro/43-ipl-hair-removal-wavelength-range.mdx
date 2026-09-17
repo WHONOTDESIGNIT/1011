@@ -66,6 +66,19 @@ Așadar, când compari două fișe tehnice care spun ambele „5 J/cm²", nu com
 
 Pentru pielea închisă la culoare sau bronzată (Fitzpatrick IV–VI), profilul cu lungimi de undă mai lungi este alegerea mai sigură — mai multă energie ajunge la folicul, în locul epidermei bogate în pigment. Comparațiile clinice privind reducerea părului pe bază de lumină susțin acest lucru: lungimile de undă considerate cele mai sigure pe pielea închisă sunt cele mai lungi, precum dioda de 810nm și Nd:YAG de 1064nm, tocmai pentru că pătrund mai adânc, cruțând epiderma bogată în melanină ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). Scara tipurilor de piele provine ea însăși din clasificarea originală a dermatologului Thomas Fitzpatrick, care rămâne referința industriei pentru setarea parametrilor dispozitivelor ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Pentru pielea deschisă, oricare dintre ferestre funcționează.
 
+## Ce ne-au învățat anii de utilizare clinică: pragurile filtrelor și tonul pielii
+
+Teoria îți arată direcția: lungimile de undă scurte lovesc suprafața, iar cele lungi merg adânc. Anii de utilizare clinică la iShine îți dau corespondența practică:
+
+- **Filtrele de 510nm și 530nm sunt pentru pielea deschisă.** Pe pielea mai deschisă sunt chiar *mai eficiente* decât filtrele de 560nm sau 600nm, pentru că se folosește mai multă energie din impuls și se filtrează mai puțin.
+- **Filtrele de 560nm și 600nm sunt pentru pielea mai închisă.** Pragul mai ridicat ține cele mai iritante lungimi de undă scurte departe de suprafața pielii.
+- **Senzația este simetrică.** Pielea deschisă cu un filtru de 510/530 se simte cam la fel ca pielea mai închisă cu un filtru de 560/600; ambele variante sunt confortabile.
+- **Direcția contează și merge într-un singur sens.** Pielea deschisă cu un filtru de 560/600 se simte bine, doar puțin mai puțin eficient. În schimb, pielea mai închisă cu un filtru de 510/530 se simte vizibil mai dureroasă, pentru că suprafața absoarbe mult mai mult din energia acelor lungimi de undă scurte.
+
+![Spectrul IPL iShine măsurat cu un spectrometru OHSP-350FA — energia este distribuită pe benzile vizibil și infraroșu apropiat](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Măsurat pe linia noastră de producție cu un spectrometru OHSP-350FA: lungime de undă dominantă 571nm, vârf 825nm, lungime de undă centrală 828.6nm. O parte mare din energia spectrului se află în benzile inferioare (vizibile), motiv pentru care ridicarea pragului filtrului te costă energie reală.*
+
 ## Pe care ar trebui să o alegi?
 
 Dacă îți cumperi un dispozitiv pentru tine:
@@ -73,6 +86,7 @@ Dacă îți cumperi un dispozitiv pentru tine:
 - **Piele deschisă, sensibilă la înțepături → 610–1200nm** este, de obicei, alegerea mai confortabilă.
 - **Piele închisă la culoare sau bronzată → orientează-te spre 610–1200nm sau mai mult**, pentru marja de siguranță.
 - **Vrei versatilitate maximă → 510–1200nm** păstrează disponibilă o parte mai mare din spectru, cu prețul unei senzații ușor mai puternice la suprafață.
+- **Cunoaște-ți filtrul, nu doar intervalul tipărit** — pe dispozitivele iShine, pielea deschisă se potrivește cel mai bine cu filtrele de 510/530nm, iar pielea mai închisă cu filtrele de 560/600nm.
 
 Dar, sincer — intervalul de lungimi de undă este a doua întrebare. Întreabă mai întâi de **lățimea pulsului**, apoi de **densitatea de energie** și abia apoi de **intervalul de lungimi de undă**. Această ordine reflectă ceea ce simte de fapt pielea ta.
 
@@ -81,6 +95,16 @@ Dar, sincer — intervalul de lungimi de undă este a doua întrebare. Întreab�
 Dacă ești proprietar de brand și achiziționezi dispozitive IPL, această distincție este locul unde câștigi sau pierzi în recenzii. Clienții returnează dispozitivele care înțeapă. Păstrează dispozitivele care se simt ca un puls cald și care totuși dau rezultate. Diferența rareori vine din intervalul de lungimi de undă tipărit pe cutie — ci din faptul că lățimea pulsului a fost proiectată pentru confort.
 
 Acesta este tipul de specificație pe care o testăm pe linia de producție la iShine, nu doar o cităm. Când construim un dispozitiv pentru un brand, reglăm împreună curentul lămpii, banca de condensatoare și filtrul, astfel încât numerele publicate să corespundă cu ceea ce simte de fapt pielea. Dacă evaluezi furnizori, întreabă cum setează lățimea pulsului și dacă îți pot arăta forma de undă măsurată — nu doar fișa de date.
+
+## Compromisul de inginerie pe care nimeni nu îl tipărește pe cutie
+
+Mutarea pragului de la 510 la 610 nu este doar o schimbare de filtru. Pentru că spectrul își concentrează multă energie în benzile inferioare (vezi măsurătoarea de mai sus), un filtru de 560nm sau 600nm aruncă o parte însemnată din lumină, iar energia aceea trebuie recuperată undeva:
+
+- **Condensator mai mare.** Energia filtrată este compensată printr-un condensator de stocare mai mare, astfel încât impulsul să livreze în continuare suficientă putere pielii.
+- **Temperatură mai ridicată a sistemului.** Un condensator mai mare înseamnă mai multă căldură în interiorul dispozitivului, deci creșterea de temperatură a întregului sistem devine mai mare.
+- **Disipare a căldurii mai puternică.** Mai multă căldură cere o soluție de răcire mai solidă — radiator mai mare, ventilator sau un flux de aer mai bun — ceea ce afectează dimensiunea, costul și zgomotul.
+
+Acesta este compromisul din spatele ideii că „610–1200nm se simte mai blând": confortul se plătește cu un sistem mai greu, mai fierbinte și mai scump. De aceea dispozitivele cu prag scăzut pot fi mai ușoare, mai ieftine și mai eficiente: mută costul de „alegere a tonurilor de piele" asupra utilizatorului, nu asupra aparatului.
 
 Vrei să compari specificațiile de lungime de undă, lățime a pulsului și energie pe platforme reale? Parcurge [dispozitivele noastre de reducere a părului cu IPL](/products) sau începe cu [cum să alegi lungimea de undă pentru un dispozitiv IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), unde am acoperit cadrul general de decizie. Dacă ai o fișă tehnică despre care vrei o a doua opinie, [trimite-ne-o](/contact) — îți spunem ce înseamnă numerele.
 

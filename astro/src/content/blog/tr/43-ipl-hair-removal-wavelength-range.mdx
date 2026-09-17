@@ -66,6 +66,19 @@ Dolayısıyla ikisi de "5 J/cm²" yazan iki teknik özellik belgesini karşıla�
 
 Koyu veya bronzlaşmış ciltlerde (Fitzpatrick IV–VI) daha uzun dalga boylu profil daha güvenli seçimdir — pigment açısından zengin epidermis yerine foliküle daha fazla enerji ulaşır. Işık bazlı tüy azaltmanın klinik karşılaştırmaları bunu destekler: koyu ciltlerde en güvenli kabul edilen dalga boyları daha uzun olanlardır — 810nm diyot ve 1064nm Nd:YAG gibi — tam da melanin açısından zengin epidermisi korurken daha derine nüfuz ettikleri için ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). Cilt tipi ölçeğinin kendisi, dermatolog Thomas Fitzpatrick'in orijinal sınıflandırmasından gelir ve cihaz parametrelerinin belirlenmesinde sektörün referansı olmaya devam eder ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). Açık tenli ciltler için iki pencere de işe yarar.
 
+## Klinik Kullanım Yıllarının Öğrettiği: Filtre Kesimleri ve Cilt Tonu
+
+Teori size yönü söyler — kısa dalga boyları yüzeye çarpar, uzun olanlar derine iner. iShine'daki yıllara dayanan klinik kullanım ise pratik eşleştirmeyi gösterir:
+
+- **510nm ve 530nm filtreler açık cilt içindir.** Açık ciltte 560nm veya 600nm filtrelere kıyasla aslında *daha verimlidir* — flaşın enerjisinin daha fazlası kullanılır, çünkü daha azı filtrelenip harcanır.
+- **560nm ve 600nm filtreler daha koyu cilt içindir.** Daha yüksek kesim noktası, en çok tahriş eden kısa dalga boylarını cilt yüzeyinden uzak tutar.
+- **His simetriktir.** 510/530 filtre üzerindeki açık cilt, 560/600 filtre üzerindeki koyu ciltle yaklaşık aynı hissi verir — ikisi de konforludur.
+- **Yön önemlidir ve tek yönlüdür.** 560/600 filtre üzerindeki açık cilt sorun yaşamaz — yalnızca biraz daha az verimli olur. Ama 510/530 filtre üzerindeki koyu cilt belirgin biçimde daha çok acı hisseder; çünkü yüzey o kısa dalga boylu enerjinin çok daha fazlasını emer.
+
+![OHSP-350FA spektrometreyle ölçülen iShine IPL spektrumu — enerji görünür ve yakın kızılötesi bantlara yayılmıştır](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Üretim hattımızda OHSP-350FA spektrometreyle ölçüldü: baskın dalga boyu 571nm, tepe 825nm, merkez dalga boyu 828.6nm. Spektrumun enerjisinin büyük bir kısmı alt (görünür) bantlarda yer alır — filtre kesim noktasını yükseltmenin size gerçek enerjiye mal olmasının nedeni tam da budur.*
+
 ## Hangisini Seçmelisiniz?
 
 Kendiniz için bir cihaz alıyorsanız:
@@ -73,6 +86,7 @@ Kendiniz için bir cihaz alıyorsanız:
 - **Açık cilt, batmaya duyarlı → 610–1200nm** genellikle daha konforlu seçimdir.
 - **Koyu cilt veya bronz ten → güvenlik payı için 610–1200nm veya daha uzun dalga boylarına** yönelin.
 - **Maksimum çok yönlülük istiyorsanız → 510–1200nm** spektrumun daha büyük bir kısmını kullanılabilir tutar; bedeli, yüzeydeki hissin biraz daha güçlü olmasıdır.
+- **Basılı aralığı değil, filtrenizi bilin** — iShine cihazlarında açık cilt en iyi 510/530nm filtrelerle, daha koyu cilt ise 560/600nm filtrelerle eşleşir.
 
 Ama dürüst olmak gerekirse — dalga boyu aralığı ikinci sorudur. Önce **darbe genişliğini**, sonra **enerji yoğunluğunu**, en son **dalga boyu aralığını** sorun. Bu sıralama, cildinizin gerçekte ne hissettiğini yansıtır.
 
@@ -81,6 +95,16 @@ Ama dürüst olmak gerekirse — dalga boyu aralığı ikinci sorudur. Önce **d
 IPL cihazı tedarik eden bir marka sahibiyseniz, yorumlarda kazanıp kaybettiğiniz nokta tam da bu ayrımdır. Müşteriler batan cihazları iade eder. Sıcak bir darbe gibi hissedilen ve yine de sonuç gösteren cihazları ellerinde tutar. Fark nadiren kutunun üzerine basılmış dalga boyu aralığıdır — fark, darbe genişliğinin konfor için tasarlanıp tasarlanmadığıdır.
 
 iShine'da üretim hattında test ettiğimiz — yalnızca kağıda yazmadığımız — özellikler tam da bunlardır. Bir marka için cihaz ürettiğimizde, lamba akımını, kondansatör bankını ve filtreyi birlikte ayarlarız; böylece yayınlanan rakamlar cildin gerçekte hissettikleriyle örtüşür. Tedarikçileri değerlendiriyorsanız, darbe genişliğini nasıl belirlediklerini ve yalnızca veri sayfasını değil, ölçülmüş dalga formunu gösterip gösteremeyeceklerini sorun.
+
+## Kimsenin Kutuya Basmadığı Mühendislik Ödünleşmesi
+
+Kesim noktasını 510'dan 610'a taşımak yalnızca bir filtre değişimi değildir. Spektrum enerjisinin büyük bir kısmını alt bantlarda topladığı için (yukarıdaki ölçüme bakın), 560nm veya 600nm bir filtre ışığın kayda değer bir kısmını atar — ve o enerjinin bir yerden telafi edilmesi gerekir:
+
+- **Daha büyük kondansatör.** Filtrelenip atılan enerji daha büyük bir depolama kondansatörüyle telafi edilir; böylece flaş cilde yine yeterli gücü ulaştırır.
+- **Daha yüksek sistem sıcaklığı.** Daha büyük kondansatör, cihazın içinde daha fazla ısı demektir; dolayısıyla tüm sistemin sıcaklık artışı yükselir.
+- **Daha güçlü ısı tahliyesi.** Daha fazla ısı daha ağır bir soğutma çözümü gerektirir — daha büyük soğutucu, fan veya hava akışı tasarımı — bu da boyutu, maliyeti ve gürültüyü etkiler.
+
+"610–1200nm daha yumuşak hissettiriyor" sözünün arkasındaki ödünleşme budur: konfor, daha ağır, daha sıcak ve daha pahalı bir sistemle satın alınır. Düşük kesimli cihazların neden daha hafif, daha ucuz ve daha verimli olabildiğinin nedeni de budur — "hangi cilt tonunu seçtiği" maliyetini makineden kullanıcıya kaydırırlar.
 
 Gerçek platformlarda dalga boyu, darbe genişliği ve enerji özelliklerini karşılaştırmak ister misiniz? [IPL tüy azaltma cihazlarımıza](/products) göz atın ya da daha geniş karar çerçevesini ele aldığım [IPL cihazı için dalga boyu nasıl seçilir](/blog/05-choosing-the-right-wavelength-for-ipl-devices) yazısıyla başlayın. İkinci bir görüş almak istediğiniz bir teknik özellik belgeniz varsa, [bize gönderin](/contact) — rakamların ne anlama geldiğini size anlatalım.
 

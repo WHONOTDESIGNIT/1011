@@ -66,6 +66,19 @@ Volvamos al 510 frente al 610. Pasar el filtro de 510 a 610 cambia dos cosas que
 
 Para la piel oscura o bronceada (Fitzpatrick IV–VI), el perfil de longitudes de onda largas es la opción más segura: más energía llega al folículo en lugar de a la epidermis rica en pigmento. Las comparaciones clínicas de la depilación basada en luz lo respaldan: las longitudes de onda consideradas más seguras para la piel oscura son las largas, como el diodo de 810nm y el Nd:YAG de 1064nm, precisamente porque penetran más profundo y respetan la epidermis rica en melanina ([PMC4477470](https://pmc.ncbi.nlm.nih.gov/articles/PMC4477470/)). La escala de tipos de piel procede de la clasificación original del dermatólogo Thomas Fitzpatrick, que sigue siendo la referencia del sector para fijar los parámetros de los dispositivos ([PubMed 3377516](https://pubmed.ncbi.nlm.nih.gov/3377516/)). En piel clara, cualquiera de las dos ventanas funciona.
 
+## Lo que nos enseñaron años de uso clínico: cortes del filtro y tipo de piel
+
+La teoría marca la dirección: las longitudes de onda cortas inciden en la superficie y las largas llegan al fondo. Años de uso clínico en iShine marcan el mapa práctico:
+
+- **Los filtros de 510nm y 530nm son para piel clara.** En piel clara resultan de hecho *más eficientes* que los filtros de 560nm o 600nm, porque se filtra menos luz y se aprovecha una mayor parte de la energía del destello.
+- **Los filtros de 560nm y 600nm son para piel oscura.** El corte más alto mantiene alejadas de la superficie de la piel las longitudes de onda cortas más irritantes.
+- **La sensación es simétrica.** La piel clara con un filtro 510/530 se siente más o menos igual que la piel oscura con un filtro 560/600: en ambos casos la sensación es cómoda.
+- **La dirección importa, y va en un solo sentido.** La piel clara con un filtro 560/600 va bien, solo un poco menos eficiente. La piel oscura con un filtro 510/530, en cambio, resulta claramente más dolorosa, porque la superficie absorbe mucha más energía de esas longitudes de onda cortas.
+
+![Espectro IPL de iShine medido con un espectrómetro OHSP-350FA: la energía se reparte entre las bandas del visible y del infrarrojo cercano](/images/blog/ishine-ipl-spectrum-ohsp350fa.webp)
+
+*Medido en nuestra línea de producción con un espectrómetro OHSP-350FA: longitud de onda dominante 571nm, pico 825nm, longitud de onda central 828.6nm. Una buena parte de la energía del espectro se concentra en las bandas bajas, las visibles, y por eso mismo subir el corte del filtro cuesta energía real.*
+
 ## ¿Cuál deberías elegir?
 
 Si vas a comprar un dispositivo para ti:
@@ -73,6 +86,7 @@ Si vas a comprar un dispositivo para ti:
 - **Piel clara y sensible a los pinchazos → 610–1200nm** suele ser la opción más cómoda.
 - **Piel oscura o bronceada → opta por 610–1200nm o más** para ganar margen de seguridad.
 - **Quieres la máxima versatilidad → 510–1200nm** conserva más espectro disponible, a costa de una sensación superficial ligeramente mayor.
+- **Conoce tu filtro, no solo el rango impreso** — en los dispositivos iShine la piel clara se lleva mejor con filtros de 510/530nm y la piel oscura con filtros de 560/600nm.
 
 Pero, siendo honestos, el rango de longitudes de onda es la segunda pregunta. Pregunta primero por **el ancho de pulso**, luego por **la densidad de energía** y después por **el rango de longitudes de onda**. Ese orden refleja lo que tu piel siente de verdad.
 
@@ -81,6 +95,16 @@ Pero, siendo honestos, el rango de longitudes de onda es la segunda pregunta. Pr
 Si eres el propietario de una marca que compra dispositivos IPL, esta distinción es donde se gana o se pierde en las reseñas. Los clientes devuelven los dispositivos que pican. Se quedan con los que se sienten como un pulso cálido y siguen dando resultados. La diferencia casi nunca está en el rango de longitudes de onda impreso en la caja, sino en si el ancho de pulso se diseñó para la comodidad.
 
 Ese es el tipo de especificación que en iShine probamos en la línea, no solo citamos. Cuando fabricamos un dispositivo para una marca, ajustamos la corriente de la lámpara, el banco de condensadores y el filtro en conjunto, para que las cifras publicadas coincidan con lo que la piel siente de verdad. Si estás evaluando proveedores, pregunta cómo fijan el ancho de pulso y si pueden mostrarte la forma de onda medida, no solo la ficha técnica.
+
+## El compromiso de ingeniería que nadie imprime en la caja
+
+Mover el corte de 510 a 610 no es solo cambiar el filtro. Como el espectro concentra buena parte de su energía en las bandas bajas (mira la medición de arriba), un filtro de 560nm o 600nm tira una parte importante de la luz, y esa energía hay que recuperarla en algún sitio:
+
+- **Condensador más grande.** La energía filtrada se compensa con un condensador de almacenamiento mayor, para que el destello siga entregando potencia suficiente a la piel.
+- **Mayor temperatura del sistema.** Un condensador más grande significa más calor dentro del dispositivo, así que sube la temperatura de todo el sistema.
+- **Disipación de calor más exigente.** Más calor exige una refrigeración más contundente (disipador más grande, ventilador o un diseño de flujo de aire distinto), lo que afecta al tamaño, al coste y al ruido.
+
+Ese es el compromiso que hay detrás de «el 610–1200nm se siente más suave»: la comodidad se paga con un sistema más pesado, más caliente y más caro. También es la razón de que los dispositivos de corte bajo puedan ser más ligeros, más baratos y más eficientes: trasladan al usuario el coste de «elegir sus tipos de piel» en lugar de asumirlo la máquina.
 
 ¿Quieres comparar las especificaciones de longitud de onda, ancho de pulso y energía entre plataformas reales? Echa un vistazo a nuestros [dispositivos de depilación IPL](/products), o empieza por [cómo elegir la longitud de onda de un dispositivo IPL](/blog/05-choosing-the-right-wavelength-for-ipl-devices), donde traté el marco general de decisión. Si tienes una ficha técnica sobre la que quieres una segunda opinión, [envíanosla](/contact): te diremos qué significan las cifras.
 
