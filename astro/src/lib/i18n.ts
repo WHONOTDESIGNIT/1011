@@ -69,3 +69,21 @@ export function t(locale: string, key: string): string {
   const enValue = getValue(messagesByLocale.en, key);
   return typeof enValue === 'string' ? enValue : key;
 }
+
+/**
+ * Same lookup as `t`, but returns null when the entry is missing from both the requested
+ * locale and English. Use it to build lists whose length differs per locale: a hardcoded
+ * index that no longer exists would otherwise print the message key onto the page.
+ */
+export function tMaybe(locale: string, key: string): string | null {
+  const messages = messagesByLocale[locale] ?? messagesByLocale.en;
+  const value = getValue(messages, key);
+  if (typeof value === 'string') return value;
+  const enValue = getValue(messagesByLocale.en, key);
+  return typeof enValue === 'string' ? enValue : null;
+}
+
+/** Key list reduced to the entries that actually resolve in this locale. */
+export function resolvableKeys(locale: string, keys: string[]): string[] {
+  return keys.filter((key) => tMaybe(locale, key) !== null);
+}

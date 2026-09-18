@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import { t } from '../../../lib/i18n';
+import { t, resolvableKeys } from '../../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../../lib/netlify-images';
 
@@ -65,12 +65,12 @@ const qcTests = [
   'aboutPages.companyProfile.qcTests.3',
 ];
 
-const qcCerts = [
+const qcCerts = resolvableKeys(locale, [
   'aboutPages.companyProfile.qcCerts.0',
   'aboutPages.companyProfile.qcCerts.1',
   'aboutPages.companyProfile.qcCerts.2',
   'aboutPages.companyProfile.qcCerts.3',
-];
+]);
 
 const customizationCards = [
   {
@@ -102,12 +102,12 @@ const customizationCards = [
   },
 ];
 
-const certifications = [
+const certifications = resolvableKeys(locale, [
   'aboutPages.companyProfile.certifications.0',
   'aboutPages.companyProfile.certifications.1',
   'aboutPages.companyProfile.certifications.2',
   'aboutPages.companyProfile.certifications.3',
-];
+]);
 
 const standards = [
   'aboutPages.companyProfile.standards.0',
