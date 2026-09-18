@@ -3427,6 +3427,13 @@
       "faqCostQuestion": "Can DDP shipping be cheaper?",
       "faqCostAnswer": "No. This is the cheapest DDP service we can offer. Cheaper options exist only as non-DDP services, where the recipient carries the duty and tax cost."
     },
+    "airShipping": {
+      "heading": "Express Air Shipping Cost",
+      "intro": "Indicative express air freight per device, shipped on its own, by destination market. Transit times are working days after dispatch.",
+      "colRate": "Rate (USD)",
+      "bulkNote": "Bulk orders change this arithmetic. Consolidate 50 units into one shipment and the freight per unit usually lands under USD 6 to 8. Sea freight under DDP brings it down further.",
+      "notAvailable": "Express air is not available to {market} at the moment."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Logo Printing | iShine",

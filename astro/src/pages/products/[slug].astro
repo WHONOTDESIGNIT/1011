@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DdpShippingTable from '../../components/DdpShippingTable.astro';
 import { t } from '../../lib/i18n';
+import AirShippingTable from '../../components/AirShippingTable.astro';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import enMessages from '../../../../messages/en.json';
 import { getSuitability } from '../../lib/skin-hair-suitability';
@@ -749,6 +750,15 @@ const productSchema = {
       >
         {t(locale, 'productDetail.ddpShipping.cta')}
       </a>
+    </section>
+
+    {/* 快递（空运）运费区块：94 个市场的单件运费与时效（数据/国名见 components/AirShippingTable.astro）。 */}
+    <section>
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'servicesPage.airShipping.heading')}</h2>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">{t(locale, 'servicesPage.airShipping.intro')}</p>
+      <div class="mt-8">
+        <AirShippingTable lang={locale} />
+      </div>
     </section>
 
     <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">

@@ -1,0 +1,67 @@
+---
+// 快递（空运）运费表（共享组件）——产品详情页与两个服务页复用同一份数据与同一套外观。
+//
+// 约定：
+//   · 数据与国名本地化全部来自 lib/air-shipping，页面不硬编码任何金额或天数；
+//   · 列头复用 servicesPage.ddpShipping.* 中与渠道无关的键（市场/时效/准时率/工作日单位），
+//     只有「费率」列因 DDP 专名而使用 servicesPage.airShipping.colRate；
+//   · 只展示最终单件运费（美元），不展示任何构成或加价说明。
+import { t } from '../lib/i18n';
+import { AIR_MARKETS, AIR_UNSUPPORTED, marketName, airTotalUsd } from '../lib/air-shipping';
+
+type Props = {
+  /** 语种（Astro currentLocale） */
+  lang: string;
+};
+
+const { lang } = Astro.props as Props;
+
+function fill(template: string, vars: Record<string, string>) {
+  return template.replace(/\{(\w+)\}/g, (_, k) => (k in vars ? vars[k] : `{${k}}`));
+}
+
+// 行序按单件美元运费升序（便宜 → 贵）；无时效数据显示 —，无准时率数据显示 —。
+const rows = AIR_MARKETS.slice()
+  .sort((a, b) => airTotalUsd(a) - airTotalUsd(b))
+  .map((m) => ({
+    name: marketName(lang, m.code),
+    rate: `$${airTotalUsd(m).toFixed(2)}`,
+    days:
+      m.daysFrom === null || m.daysTo === null
+        ? '—'
+        : `${m.daysFrom}-${m.daysTo} ${t(lang, 'servicesPage.ddpShipping.daysUnit')}`,
+    onTime: m.onTime ?? '—',
+  }));
+const notAvailable = AIR_UNSUPPORTED.map((code) => marketName(lang, code)).join(', ');
+---
+
+<div class="overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
+  <table class="w-full min-w-[720px] border-collapse text-sm">
+    <thead>
+      <tr class="bg-neutral-50">
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colMarket')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.airShipping.colRate')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colDays')}</th>
+        <th class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.08em] text-neutral-500">{t(lang, 'servicesPage.ddpShipping.colOnTime')}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr class="border-t border-neutral-100">
+          <td class="px-5 py-3.5 font-semibold text-ink-900">{row.name}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.rate}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.days}</td>
+          <td class="px-5 py-3.5 text-neutral-700">{row.onTime}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+{AIR_UNSUPPORTED.length > 0 && (
+  <p class="mt-6 text-sm leading-relaxed text-neutral-500">
+    {fill(t(lang, 'servicesPage.airShipping.notAvailable'), { market: notAvailable })}
+  </p>
+)}
+<div class="mt-6 rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm">
+  <p class="text-sm leading-relaxed text-neutral-700">{t(lang, 'servicesPage.airShipping.bulkNote')}</p>
+</div>
