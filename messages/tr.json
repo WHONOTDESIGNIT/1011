@@ -551,7 +551,7 @@
         "logoPrinting": "Logo Baskısı",
         "boxCustom": "Özel Kutu",
         "dropshipping": "Dropshipping",
-        "noMoq": "MOQ Yok"
+        "noMoq": "1 Adetten Logo"
       },
       "about": {
         "navTitle": "Hakkında",
@@ -1437,7 +1437,7 @@
             "title": "Bir Marka Başlatın",
             "description": "Daha az riskle başlayın, talebi doğrulayın, ardından tekrarlanabilir ikmal ile ölçeklenin.",
             "links": [
-              "MOQ'suz Başlayın",
+              "Numune ile Başlayın",
               "Katalogdan Bir Platform Seçin",
               "Numune Planı Talep Edin",
               "OEM/ODM Seçeneklerini Görün"
@@ -1471,7 +1471,7 @@
         "description": "Düşük riskli lansmanlardan kanala hazır ambalajlamaya kadar, fabrikadan çıkan hazır bir SKU'yu markaya hazır bir ürüne dönüştürmenize yardımcı oluyoruz.",
         "items": [
           {
-            "title": "MOQ Yok",
+            "title": "Düşük MOQ",
             "description": "Daha küçük siparişlerle başlayın, talebi doğrulayın, ardından öngörülebilir ikmal ile ölçeklenin.",
             "features": [
               "Hızlı numune alma için platforma hazır seçenekler",
@@ -1659,9 +1659,9 @@
         "items": [
           {
             "question": "Logo ve hediye kutusu özelleştirmesi için minimum sipariş miktarları nedir?",
-            "answer": "Evet. Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Birçok program, ölçeklenmeden önce konumlandırmayı ve talebi doğrulayabilmeniz için daha küçük pilot siparişlerle başlayabilir. Detaylar için MOQ'suz destek sayfasına bakın.",
+            "answer": "Evet. Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Böylece programlar, ölçeklenmeden önce küçük başlayarak konumlandırmayı doğrulayabilir.",
             "links": [
-              "MOQ'suz Başlayın"
+              "Numune ile Başlayın"
             ]
           },
           {
@@ -2765,23 +2765,23 @@
     },
     "noMoq": {
       "meta": {
-        "title": "MOQ'suz Markalama Desteği | iShine",
-        "description": "IPL özel etiket lansmanları için MOQ'suz destek: küçük başlayın, talebi doğrulayın, ardından tekrarlanabilir ikmal ve markaya hazır ambalajla ölçeklenin."
+        "title": "İlk Numune Siparişinizden Özel Logo ve Ambalaj | iShine",
+        "description": "IPL cihazınız için tek numune adedinden özel logo ve özel renkli kutu. Toplu özelleştirme 500 adetten başlar. Tek numuneyle başlayın, sonra ölçekleyin."
       },
       "hero": {
-        "title1": "MOQ Yok,",
-        "title2": "Başlamanın Daha Akıllı Yolu",
+        "title1": "Özel Logo ve Ambalaj",
+        "title2": "İlk Numune Siparişinizden İtibaren",
         "description": "Markalı IPL cihazınızı büyük stok yatırımlarına zorlamadan pazara sunun. Küçük bir pilot partiyle başlayın, hızla öğrenin, ardından istikrarlı bir ikmal iş akışıyla ölçeklenin.",
         "cta1": "Bir Uzmanla Görüşün",
         "cta2": "Hizmetlere Geri Dön"
       },
       "citable": {
-        "heading": "Özel etiketli bir IPL lansmanı için “MOQ Yok” ne anlama gelir?",
-        "body": "“MOQ Yok”, markalı bir IPL programına kanalınızı ve mesajlarınızı doğrulamak için daha küçük bir pilot miktarla başlayabileceğiniz, ardından büyük bir ön stok yatırımı yapmak yerine tekrarlanan siparişlerle üretimi ölçekleyebileceğiniz anlamına gelir. Pratik bir MOQ'suz kurulum; net markalama gereksinimlerini, tanımlı ambalaj ve kullanım kılavuzu içeriğini, istikrarlı malzeme listesi kontrolünü ve hacim arttıkça öngörülebilir teslim sürelerini destekleyen bir ikmal planını içerir. Amaç, profesyonel bir marka sunumu korurken lansman riskini azaltmaktır."
+        "heading": "Özel etiketli bir IPL lansmanı için markalama nasıl işler?",
+        "body": "Logo baskısı ve özel renkli kutu tek numune adedinden (1 adet) itibaren mümkündür; böylece hacme bağlanmadan önce kanalınızı ve mesajınızı doğrulayabilirsiniz. Toplu özelleştirme 500 adetten başlar. Pratik bir numune öncelikli kurulum; net markalama gereksinimlerini, tanımlı ambalaj ve kılavuz içeriğini, istikrarlı malzeme listesi (BOM) kontrolünü ve hacim arttıkça öngörülebilir teslim sürelerini destekleyen bir ikmal planını içerir. Amaç, profesyonel bir marka sunumunu korurken lansman riskini azaltmaktır."
       },
       "highlights": {
         "eyebrow": "Öne Çıkanlar",
-        "heading": "MOQ'suz destekle neler elde edersiniz?",
+        "heading": "Tek numuneyle başladığınızda ne elde edersiniz",
         "sub": "Hız, esneklik ve ölçeklenmeye giden net bir yol arayan marka sahipleri için tasarlandı.",
         "items": [
           {
@@ -4365,7 +4365,7 @@
         "viewProducts": "Ürünleri İnceleyin",
         "contactOurTeam": "Ekibimizle İletişime Geçin",
         "oemOdmOverview": "OEM / ODM Genel Bakış",
-        "startWithNoMoq": "MOQ Olmadan Başlayın",
+        "startWithNoMoq": "Numune ile Başlayın",
         "productDesign": "Ürün Tasarımı",
         "packagingLogistics": "Paketleme ve Lojistik",
         "getQuote": "Fiyat Teklifi Alın",
@@ -5174,7 +5174,7 @@
         "items": {
           "0": {
             "q": "Tek bir üründen kendi markamı çıkarabilir miyim?",
-            "a": "Evet — numuneler (cihaz, logo baskısı, özel kutu ve kılavuz) 1 adet MOQ'dan başlar. Toplu sipariş kademeleri şöyledir: cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar; böylece hacme bağlanmadan önce numuneyi doğrularsınız."
+            "a": "Evet — Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Böylece hacme bağlanmadan önce numuneyi doğrularsınız."
           },
           "1": {
             "q": "Özel etiketli bir cihazı pazara ne kadar hızlı çıkarabilirim?",
@@ -5283,7 +5283,7 @@
       "heroTitle": "IPL Ürün Kataloğu",
       "heroDescription": "IPL lazer epilasyon cihazlarının tüm ürün gamına göz atın. Her model; acısız soğutma ve yapay zekâ destekli cilt tespitinden taşınabilir seyahat tasarımlarına ve lüks ambalaj programlarına kadar belirli bir kullanım senaryosu için tasarlandı.",
       "getAQuote": "Teklif Alın",
-      "startWithNoMoq": "MOQ Olmadan Başlayın",
+      "startWithNoMoq": "Numune ile Başlayın",
       "exploreServices": "Hizmetleri Keşfedin",
       "oemNote": "Tüm modeller OEM/ODM özelleştirmesine uygundur. Asgari sipariş adetleri ve teslim süreleri modele göre değişir.",
       "howToChoose": "Nasıl Seçilir",
@@ -5609,7 +5609,7 @@
         "metrics": [
           {
             "title": "Daha Hızlı Pazara Çıkış",
-            "description": "Düşük MOQ pilot üretimler ve optimize edilmiş süreçlerle hızlandırılmış lansman"
+            "description": "Tek numune adedinden pilot üretimler ve optimize edilmiş süreçlerle hızlandırılmış lansman"
           },
           {
             "title": "Özel IPL Konumlandırması",
@@ -5649,7 +5649,7 @@
           },
           {
             "title": "Düşük MOQ Pilot Üretimler",
-            "description": "Tam ölçekli üretim taahhüdünden önce pazar testi için esnek minimum sipariş adetleri: cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten ve özel hediye kutusu 100 adetten başlar."
+            "description": "Tam ölçekli üretim öncesi pazar testi için cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten ve özel hediye kutusu 100 adetten başlar."
           },
           {
             "title": "Küresel Nakliye",
@@ -5774,7 +5774,7 @@
           },
           {
             "title": "Düşük MOQ Pilot Üretimler",
-            "description": "Tam ölçekli üretim taahhüdünden önce pazar testine olanak tanıyan esnek MOQ seçenekleri: cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten ve özel hediye kutusu 100 adetten başlar."
+            "description": "Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten ve özel hediye kutusu 100 adetten — tam ölçekli üretim öncesi pazar testi."
           },
           {
             "title": "Küresel Nakliye Ağı",
@@ -6424,7 +6424,7 @@
         },
         "item2": {
           "question": "Minimum sipariş adetleriniz nedir?",
-          "answer": "Düşük minimum sipariş adetlerini destekliyoruz. Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. MOQ'suz programımız, markanız büyürken ağır bir ön stok riski olmadan önce pazarı küçük partilerle test etmenize, ardından üretimi ölçeklendirmenize olanak tanır."
+          "answer": "Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Bu, önce pazarı test etmenizi sağlar ve ön stok riskini düşük tutar."
         },
         "item3": {
           "question": "Numune almak ne kadar sürer?",
@@ -7620,7 +7620,7 @@
         "logoPrinting": "Logo Baskısı",
         "boxCustom": "Özel Kutu",
         "dropshipping": "Dropshipping",
-        "noMoq": "MOQ Yok"
+        "noMoq": "1 Adetten Logo"
       },
       "viewAll": {
         "title": "Tüm Hizmetleri Görüntüleyin",
@@ -9394,7 +9394,7 @@
         "kicker": "Sonraki Adım",
         "title": "Bir platformu markaya hazır bir ürüne dönüştürün",
         "description": "Bir platformu kısa listenize aldıktan sonra gerisini iShine halleder: özel logo baskısı, çift dilli kullanım kılavuzları, özel kutu içi yerleşimler ve ihracat ambalajı. Markalar, fabrika kurmadan veya cihaz tasarlamadan tam bir ürün serisini bu şekilde piyasaya sürer.",
-        "startNoMoq": "MOQ'suz Başlayın",
+        "startNoMoq": "Numune ile Başlayın",
         "customizeBox": "Kutunuzu ve İç Yerleşimleri Özelleştirin",
         "shipDirectly": "Müşterilere Doğrudan Gönderim Yapın"
       },
@@ -9428,9 +9428,9 @@
           },
           {
             "question": "Küçük bir pilot siparişle başlayabilir miyiz?",
-            "answer": "Evet. cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. MOQ'suz ve numune için tek adetle başlayın. Doğrulandıktan sonra toplu fiyatlandırma kademelerine geçin.",
+            "answer": "Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Bir numuneyle başlayın, ardından ölçekleyin.",
             "links": [
-              "MOQ'suz Başlayın"
+              "Numune ile Başlayın"
             ]
           },
           {
@@ -9452,7 +9452,7 @@
             "question": "Mevcut bir IPL epilasyon cihazı platformunu özel marka olarak üretebilir miyiz?",
             "answer": "Evet — her platform logo baskısı, özel kullanım kılavuzları ve kutu içi eklerini destekler. Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar. Bir numune ile başlayın, ardından ölçeklendirin.",
             "links": [
-              "MOQ olmadan başlayın"
+              "Numune ile Başlayın"
             ]
           }
         ]
@@ -9644,7 +9644,7 @@
         "facts": [
           {
             "title": "1 adetten numune",
-            "body": "Düşük MOQ ve numune için tek adetle başlayın; cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar; SKU'nuz doğrulandıktan sonra toplu kademelere ölçeklenin."
+            "body": "Cihaz üzerine logo markalama 1 adetten, toplu logo baskısı 20 adetten, özel hediye kutusu 100 adetten ve toplu gövde renk özelleştirmesi 500 adetten başlar."
           },
           {
             "title": "Fabrika doğrudan fiyatlandırma",
