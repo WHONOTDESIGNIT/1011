@@ -1960,6 +1960,13 @@
       "faqCostQuestion": "O envio DDP pode ser mais barato?",
       "faqCostAnswer": "Não. Este é o serviço DDP mais barato que podemos oferecer. Opções mais baratas existem apenas como serviços não DDP, em que o destinatário assume o custo de impostos e tributos."
     },
+    "airShipping": {
+      "heading": "Custo do Envio Aéreo Expresso",
+      "intro": "Frete aéreo expresso indicativo por aparelho, enviado individualmente, por mercado de destino. Os prazos de trânsito são em dias úteis após o envio.",
+      "colRate": "Tarifa (USD)",
+      "bulkNote": "Os pedidos no atacado mudam essa aritmética. Consolide 50 unidades em um único envio e o frete por unidade costuma ficar abaixo de USD 6 a 8. O transporte marítimo com DDP reduz ainda mais.",
+      "notAvailable": "O envio aéreo expresso não está disponível para {market} no momento."
+    },
     "logoPrinting": {
       "meta": {
         "title": "Impressão de Logotipos | iShine",
@@ -8508,7 +8515,6 @@
       "relatedTitle": "Artigos relacionados",
       "relatedCta": "Ler →",
       "backToBlog": "Voltar ao blog",
-      "tocTitle": "Nesta página",
       "ctaTitle": "Precisa de uma resposta específica para o seu projeto?",
       "ctaHeading": "Fale com a nossa equipe de fabricação",
       "ctaDescription": "Contate a equipe para discutir o seu mercado, volume, necessidades de conformidade e direcionamento do produto.",

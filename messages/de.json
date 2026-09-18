@@ -845,7 +845,6 @@
       "relatedTitle": "Verwandte Artikel",
       "relatedCta": "Lesen →",
       "backToBlog": "Zurück zum Blog",
-      "tocTitle": "Auf dieser Seite",
       "ctaTitle": "Benötigen Sie eine projektspezifische Antwort?",
       "ctaHeading": "Sprechen Sie mit unserem Fertigungsteam",
       "ctaDescription": "Kontaktieren Sie das Team, um Markt, Volumen, Compliance-Anforderungen und Produktrichtung zu besprechen.",
@@ -1780,6 +1779,13 @@
       "faqSpeedAnswer": "Nein. Das ist der schnellste DDP-Service, der uns zur Verfügung steht. Andere Dienstleister sind schneller, doch dann muss der Empfänger Einfuhrabgaben und Steuern zahlen, und die genaue Höhe legt die örtliche Zollbehörde oder Regierung fest.",
       "faqCostQuestion": "Kann der DDP-Versand günstiger sein?",
       "faqCostAnswer": "Nein. Das ist der günstigste DDP-Service, den wir anbieten können. Günstigere Optionen gibt es nur als Nicht-DDP-Services, bei denen der Empfänger die Kosten für Zoll und Steuern trägt."
+    },
+    "airShipping": {
+      "heading": "Kosten für Express-Luftversand",
+      "intro": "Richtwerte für Express-Luftfracht pro Gerät, das einzeln versandt wird, nach Zielmarkt. Die Transportzeiten sind Werktage nach dem Versand.",
+      "colRate": "Tarif (USD)",
+      "bulkNote": "Bei Mengenbestellungen ändert sich diese Rechnung. Bündeln Sie 50 Stück in einer Sendung, und die Fracht pro Stück liegt in der Regel unter USD 6 bis 8. Seefracht unter DDP senkt das weiter.",
+      "notAvailable": "Express-Luftversand ist derzeit für {market} nicht verfügbar."
     },
     "breadcrumb": {
       "services": "Leistungen"

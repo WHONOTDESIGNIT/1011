@@ -845,7 +845,6 @@
       "relatedTitle": "Articles connexes",
       "relatedCta": "Lire →",
       "backToBlog": "Retour au blog",
-      "tocTitle": "Sur cette page",
       "ctaTitle": "Besoin d'une réponse adaptée à votre projet ?",
       "ctaHeading": "Parlez à notre équipe de fabrication",
       "ctaDescription": "Contactez l'équipe pour discuter de votre marché, de vos volumes, de vos besoins en conformité et de l'orientation de votre produit.",
@@ -1780,6 +1779,13 @@
       "faqSpeedAnswer": "Non. C'est le service DDP le plus rapide dont nous disposons. D'autres transporteurs sont plus rapides, mais le destinataire doit alors payer les droits d'importation et les taxes, et le montant exact est fixé par l'administration douanière locale ou le gouvernement.",
       "faqCostQuestion": "L'expédition DDP peut-elle être moins chère ?",
       "faqCostAnswer": "Non. C'est le service DDP le moins cher que nous puissions proposer. Les options moins chères n'existent qu'en services non DDP, où le destinataire supporte le coût des droits et des taxes."
+    },
+    "airShipping": {
+      "heading": "Coût de l'expédition aérienne express",
+      "intro": "Fret aérien express indicatif par appareil, expédié seul, par marché de destination. Les délais de transport sont en jours ouvrés après l'expédition.",
+      "colRate": "Tarif (USD)",
+      "bulkNote": "Les commandes en gros changent ce calcul. Regroupez 50 unités dans un seul envoi et le fret par unité tombe généralement sous USD 6 à 8. Le fret maritime sous DDP le réduit encore.",
+      "notAvailable": "L'expédition aérienne express n'est pas disponible pour {market} pour le moment."
     },
     "breadcrumb": {
       "services": "Services"

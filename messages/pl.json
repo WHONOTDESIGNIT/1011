@@ -845,7 +845,6 @@
       "relatedTitle": "Powiązane artykuły",
       "relatedCta": "Czytaj →",
       "backToBlog": "Powrót do bloga",
-      "tocTitle": "Na tej stronie",
       "ctaTitle": "Potrzebują Państwo odpowiedzi dopasowanej do konkretnego projektu?",
       "ctaHeading": "Porozmawiaj z naszym zespołem produkcyjnym",
       "ctaDescription": "Skontaktuj się z zespołem, aby omówić rynek, wolumeny, wymagania dotyczące zgodności i kierunek rozwoju produktu.",
@@ -3426,6 +3425,13 @@
       "faqSpeedAnswer": "Nie. To najszybsza usługa DDP, jaką możemy zaoferować. Inni przewoźnicy są szybsi, ale wtedy odbiorca musi zapłacić cła i podatki importowe, a dokładną stawkę ustala lokalna administracja celna lub rząd.",
       "faqCostQuestion": "Czy wysyłka DDP może być tańsza?",
       "faqCostAnswer": "Nie. To najtańsza usługa DDP, jaką możemy zaoferować. Tańsze opcje istnieją wyłącznie jako usługi inne niż DDP, w których koszt ceł i podatków ponosi odbiorca."
+    },
+    "airShipping": {
+      "heading": "Koszt wysyłki lotniczej express",
+      "intro": "Orientacyjny koszt frachtu lotniczego express za sztukę, wysyłanej osobno, według rynku docelowego. Czasy tranzytu podano w dniach roboczych po wysyłce.",
+      "colRate": "Stawka (USD)",
+      "bulkNote": "Zamówienia hurtowe zmieniają tę arytmetykę. Skonsoliduj 50 sztuk w jednej przesyłce, a fracht za sztukę zwykle spada poniżej 6 do 8 USD. Fracht morski w ramach DDP obniża go jeszcze bardziej.",
+      "notAvailable": "Wysyłka lotnicza express nie jest obecnie dostępna do {market}."
     },
     "logoPrinting": {
       "meta": {

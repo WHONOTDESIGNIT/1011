@@ -845,7 +845,6 @@
       "relatedTitle": "Artículos relacionados",
       "relatedCta": "Leer →",
       "backToBlog": "Volver al blog",
-      "tocTitle": "En esta página",
       "ctaTitle": "¿Necesitas una respuesta específica para tu proyecto?",
       "ctaHeading": "Habla con nuestro equipo de fabricación",
       "ctaDescription": "Ponte en contacto con el equipo para hablar de tu mercado, volumen, requisitos de cumplimiento y orientación del producto.",
@@ -1780,6 +1779,13 @@
       "faqSpeedAnswer": "No. Este es el servicio DDP más rápido del que disponemos. Otros transportistas son más rápidos, pero entonces el destinatario debe pagar los aranceles e impuestos de importación, y la tarifa exacta la fija la autoridad aduanera local o el gobierno.",
       "faqCostQuestion": "¿El envío DDP puede ser más barato?",
       "faqCostAnswer": "No. Este es el servicio DDP más económico que podemos ofrecer. Las opciones más baratas solo existen como servicios no DDP, en los que el destinatario asume el coste de derechos e impuestos."
+    },
+    "airShipping": {
+      "heading": "Coste del envío aéreo exprés",
+      "intro": "Flete aéreo exprés indicativo por dispositivo, enviado de forma individual, por mercado de destino. Los tiempos de tránsito son días laborables tras el envío.",
+      "colRate": "Tarifa (USD)",
+      "bulkNote": "Los pedidos al por mayor cambian esta aritmética. Consoliden 50 unidades en un solo envío y el flete por unidad suele quedar por debajo de USD 6 a 8. El flete marítimo con DDP lo reduce aún más.",
+      "notAvailable": "El envío aéreo exprés no está disponible para {market} en este momento."
     },
     "breadcrumb": {
       "services": "Servicios"
