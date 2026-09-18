@@ -24,6 +24,9 @@ export const BLOG_CATEGORIES = [
   // 2026-09-15 新增：公司对外公告类（工厂参观邀请、展会通知、假期与产能安排）。
   // 与 'Industry Insights'（行业观察）区分：本类目是「我方发出的通知」，署名方是公司本体。
   'Press',
+  // 2026-09-18 新增：外观定制类（壳体表面工艺、颜色与材质选择、logo 与包装定制项）。
+  // 与 'Manufacturing'（制造过程本身）区分：本类目谈的是客户可选的定制项与选型取舍。
+  'Customization',
 ] as const;
 
 export type BlogCategory = (typeof BLOG_CATEGORIES)[number];
