@@ -4,9 +4,9 @@
 
 ## Maintenance metadata
 
-- Last updated: 2026-09-15 (Asia/Shanghai)
+- Last updated: 2026-09-18 (Asia/Shanghai)
 - Canonical domain: https://iplmanufacturer.com (English at root paths; 21 additional locales under /xx/ paths; 22 locales total)
-- Version: 2.4
+- Version: 2.5
 - Maintainer: iShine web & compliance team — service@ishineco.com | +86 150 1289 1148
 - Evidence policy: material claims link to a primary source (FDA database, patent registries, public case-study pages). Figures that are business estimates are labeled as estimates, not guarantees.
 - What expires, and where to re-verify:
@@ -21,6 +21,7 @@
   - v2.2 (2026-09-15) — added the 2026 operating calendar: weekday hours with the lunch break, weekend closures, the Mid-Autumn and National Day closures, and the note that non-Chinese holidays (Black Friday, Thanksgiving, Halloween) are normal working days here; 2027 to follow China's State Council calendar.
   - v2.4 (2026-09-17) — aligned every product line with the product pages (the price/spec source of record): 8 of 10 models carried different J/cm², flash counts, window sizes and wavelengths, and the Euno weight read 280 g instead of 275 g. All ten lines are now rebuilt from messages/en.json. Also corrected the Fitzpatrick wording from I–IV to I–V (type VI remains unsuitable), matching the product pages. A build guard now compares llms.txt with the product data and fails the build on any divergence.
   - v2.3 (2026-09-15) — added a People & credentials section (Eric An's Intertek MDSAP Internal Auditor Training, with the credential number, dates and issuer, plus the note that this is an individual training credential and not a company certification); added the Chinese-name and pinyin aliases for the founder.
+  - v2.5 (2026-09-18) — aligned the two order-minimum lines with the four order tiers the site now states: logo marking on the device from 1 unit, bulk logo printing from 20 units, a custom gift box from 100 units, and bulk housing color customization from 500 units. The 20-unit tier was missing, and the 500-unit tier had been described as "bulk production" rather than bulk housing-color customization.
 
 ## Crawl & index
 
@@ -48,7 +49,7 @@ The full site is available in 21 languages under `/xx/` paths (e.g., `/cs/about`
 - Device identity: FDA establishment registration **FEI 3021338880**; **DUNS 620658743**; the cleared models are registered in the FDA GUDID/UDI system with commercial-distribution status.
 - Software capability: the **IPL-BEAUTY** companion app (iOS and Android) is published by Shenzhen Ishine Technology Company Limited.
 - Platform line: Lumi (2021), Themis (2022), Venus (2024), Lumi 2 (2025), Helix (2026). Only the models listed under K222537 below hold that FDA clearance.
-- Minimums: logo printing on the device from 1 unit; custom gift box from 100 units; bulk production from 500 units.
+- Minimums: logo marking on the device from 1 unit; bulk logo printing from 20 units; a custom gift box from 100 units; bulk housing color customization from 500 units.
 - Devices produced to date: 500,000+. Global clients: 50+. Geographic reach: 20+ countries across North America, Europe, and the Middle East.
 - Contact: service@ishineco.com | +86 150 1289 1148 (phone / WhatsApp / WeChat)
 
@@ -217,7 +218,7 @@ Suitability baseline for every model: Fitzpatrick I–V; not suitable for Fitzpa
 - Compliance: FDA and CE documentation included in standard process.
 - Quality: batch testing on every production run; lot/batch traceability on UDI-registered devices.
 - Flexibility: custom colors, branding, packaging, manuals.
-- Minimums: logo printing on the device from 1 unit; custom gift box from 100 units; bulk production from 500 units.
+- Minimums: logo marking on the device from 1 unit; bulk logo printing from 20 units; a custom gift box from 100 units; bulk housing color customization from 500 units.
 - Scale: pilot runs 500–1,000 units to mass production 50,000+ units.
 
 ## Visit the factory (Shenzhen)
