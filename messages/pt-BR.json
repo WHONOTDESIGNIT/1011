@@ -3174,7 +3174,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, com tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -3266,7 +3266,7 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Sensor de Pele Inteligente + Resfria a Pele até 10 °C",
+      "tagline": "Sensor de Pele Inteligente + Resfria a Pele até 8 °C",
       "description": "O aparelho Lumi 2 IPL de próxima geração combina tecnologia avançada de detecção da pele com resfriamento ativo para uma experiência de remoção de pelos confortável e eficaz.",
       "specs": {
         "type": {
@@ -3275,7 +3275,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Padrão + Resfria a pele até 10 °C"
+          "value": "Suportado, com tecnologia de sensação de gelo de safira"
         },
         "skinDetection": {
           "label": "Detecção da pele",
@@ -3291,7 +3291,7 @@
         },
         "window": {
           "label": "Janela",
-          "value": "4,5 cm²"
+          "value": "3,0 cm²"
         },
         "wavelength": {
           "label": "Comprimento de onda",
@@ -3305,7 +3305,7 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Tecnologia de Resfriamento da Pele",
-          "description": "O sistema de resfriamento ativo resfria a pele até 10 °C antes de cada flash para uma experiência de tratamento quase indolor."
+          "description": "O sistema de resfriamento ativo resfria a pele até 8 °C antes de cada flash para uma experiência de tratamento quase indolor."
         },
         "smartSkinSensor": {
           "title": "Sensor de Pele Inteligente",
@@ -3364,7 +3364,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "5 °C (ambiente 25 °C)"
+          "value": "8 °C (ambiente 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
@@ -3464,7 +3464,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, com tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -3492,11 +3492,11 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "5 °C"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
-          "value": "1 minuto"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "Faixa de energia total",
@@ -3592,7 +3592,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, com tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -3620,11 +3620,11 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "5 °C (ambiente 25 °C)"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
-          "value": "1 minuto"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "Faixa de energia total",
@@ -3719,7 +3719,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, com tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -3975,7 +3975,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, tecnologia de sensação de gelo de safira"
+          "value": "Suportado, tecnologia de sensação de gelo com metal"
         },
         "window": {
           "label": "Janela",
@@ -4103,7 +4103,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -4131,11 +4131,11 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "5 °C"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
-          "value": "1 minuto"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "Faixa de energia total",
@@ -4377,7 +4377,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, tecnologia de sensação de gelo de safira"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
@@ -4405,11 +4405,11 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "8 °C (ambiente 25 °C)"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
-          "value": "2 minutos"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "Faixa de energia total",
@@ -4596,7 +4596,7 @@
           "title": "Resfriamento com foco no conforto",
           "description": "O resfriamento com sensação de gelo mantém o tratamento confortável. Ideal para marcas que focam em sessões indolores, semelhantes a um spa.",
           "linkVenus": "Venus (Resfriamento)",
-          "linkLumi2": "Lumi 2 (Resfriamento até 10 °C)"
+          "linkLumi2": "Lumi 2 (Resfriamento até 8 °C)"
         },
         "smartApp": {
           "title": "Rotinas inteligentes guiadas por aplicativo",

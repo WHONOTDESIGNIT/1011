@@ -7905,7 +7905,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイアアイスフィーリング技術"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -7997,7 +7997,7 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "スマート肌センサー + 肌を10°Cまで冷却",
+      "tagline": "スマート肌センサー + 肌を8°Cまで冷却",
       "description": "次世代のLumi 2 光エステ脱毛器は、先進の肌センシング技術とアクティブ冷却を組み合わせ、快適で効果的な脱毛体験を提供します。",
       "specs": {
         "type": {
@@ -8006,7 +8006,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "標準 + 肌を10°Cまで冷却"
+          "value": "対応、サファイア氷感テクノロジー"
         },
         "skinDetection": {
           "label": "肌検知",
@@ -8022,7 +8022,7 @@
         },
         "window": {
           "label": "照射窓",
-          "value": "4.5 cm²"
+          "value": "3.0 cm²"
         },
         "wavelength": {
           "label": "波長",
@@ -8036,7 +8036,7 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "肌冷却テクノロジー",
-          "description": "アクティブ冷却システムが毎回のフラッシュ前に肌を10°Cまで冷却し、ほぼ痛みのない施術体験を実現します。"
+          "description": "アクティブ冷却システムが毎回のフラッシュ前に肌を8°Cまで冷却し、ほぼ痛みのない施術体験を実現します。"
         },
         "smartSkinSensor": {
           "title": "スマート肌センサー",
@@ -8095,7 +8095,7 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "5°C（室温25°C）"
+          "value": "8°C（室温25°C）"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
@@ -8195,7 +8195,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイア氷感テクノロジー"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -8223,11 +8223,11 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "5°C"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
-          "value": "1分"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "総エネルギー範囲",
@@ -8323,7 +8323,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応（サファイア氷冷感テクノロジー）"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -8351,11 +8351,11 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "5°C (ambient 25°C)"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
-          "value": "1分"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "総エネルギー範囲",
@@ -8450,7 +8450,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイア氷感冷却技術"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -8706,7 +8706,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイアアイスフィーリング技術"
+          "value": "対応、金属アイスフィーリング技術"
         },
         "window": {
           "label": "照射窓",
@@ -8834,7 +8834,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイアアイスフィーリング技術"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -8862,11 +8862,11 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "5°C"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
-          "value": "1分"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "総エネルギー範囲",
@@ -9108,7 +9108,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、サファイアアイス冷却技術"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
@@ -9136,11 +9136,11 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "8°C (ambient 25°C)"
+          "value": "—"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
-          "value": "2分"
+          "value": "—"
         },
         "totalEnergyRange": {
           "label": "総エネルギー範囲",
@@ -9327,7 +9327,7 @@
           "title": "快適性を最優先した冷却",
           "description": "アイス感覚の冷却で施術が快適に。痛みのないスパのようなセッションを重視するブランドに最適です。",
           "linkVenus": "Venus（冷却タイプ）",
-          "linkLumi2": "Lumi 2（10°Cまで冷却）"
+          "linkLumi2": "Lumi 2（8°Cまで冷却）"
         },
         "smartApp": {
           "title": "スマートアプリガイドのルーティン",
