@@ -1,0 +1,119 @@
+---
+title: "Safírová okénka: od raketových kamer k IPL přístrojům"
+description: "Safír chrání kameru vedle raketového motoru a chladí okénko, které váš IPL přístroj tlačí na kůži. Jeden materiál, dva úkoly, ze stejných důvodů."
+citableSummary: "Safír (monokrystalický oxid hlinitý) je standardní materiál okének tam, kde se střetává teplo, oděr a optická propustnost: NASA kvalifikovala safírová okénka pro diagnostiku spalování za vysokých teplot a žádosti o FDA 510(k) pro domácí IPL přístroje uvádějí „sapphire treatment window“ jako optiku v kontaktu s pokožkou. Safír propouští zhruba od 0.15 do 5.5 µm s indexem lomu kolem 1.76, vede teplo přibližně 30–35 W/m·K, taje kolem 2,050 °C a dosahuje 9 na Mohsově stupnici. Na svých hranicích ale záleží také: tavený křemen se roztahuje mnohem méně a snáší rychlé tepelné cykly lépe, a safír je křehký krystal, který potřebuje pečlivé uchycení. iShine osazuje 3.0 cm² safírová okénka do platforem VENUS, HELIX a LUMI 2, přičemž kontaktní plocha drží 8 °C, jakmile se chlazení ustálí."
+pubDate: "2026-09-19"
+author: "iShine R&D Team"
+category: "Manufacturing"
+slug: "sapphire-windows-rocket-cameras-to-ipl"
+translationKey: "sapphire-windows-rocket-cameras-to-ipl"
+readTime: "9 min"
+---
+
+Kamery, které sledují zážeh boosteru Starship, stojí pár metrů od trysek a míří přímo do výfuku 33 motorů Raptor. Cokoli tyto objektivy kryje, musí přežít několik sekund žáru, který by zničil běžné optické okénko, a přitom zůstat dost průhledné, aby poslalo použitelný obraz. SpaceX je kryje safírem.
+
+Stovky milionů lidí vlastní přístroj, který po safírovém okénku chce mírnější verzi stejné práce. IPL přístroj vyšle xenonový záblesk skrz krystalové okénko přitisknuté na nohu a pak tím stejným okénkem odvede teplo z kůže dřív, než přijde další pulz. Jedno prostředí je raketová zkušebna. Druhé je koupelna. Požadavky na materiál se překrývají víc, než by nastavení napovídalo.
+
+## Co safír umí a co ne
+
+Safír je monokrystalický oxid hlinitý, Al₂O₃, pěstovaný v peci, ne těžený. Dodavatelé optiky pro něj zveřejňují stejná čísla a stojí za to je znát dřív, než někdo to slovo použije jako prodejní nálepku. Crystran a Tydex uvádějí propustné pásmo od zhruba 0.15 µm v ultrafialové oblasti až po přibližně 5.5 µm ve středním infračerveném pásmu, s indexem lomu kolem 1.76 až 1.77. Datový list Lawrence Berkeley National Laboratory uvádí tepelnou vodivost při pokojové teplotě kolem 30 až 35 W/m·K a Meller Optics i Shinkosha shodně kladou teplotu tání k 2,050 °C a tvrdost na 9 Mohsovy stupnice.
+
+Právě ten poslední údaj je důvod, proč stejný krystal skončí na drahých hodinkách. Ten tepelný údaj je důvod, proč skončí na okénkách, která se zahřívají.
+
+Index lomu si zaslouží vlastní větu, protože jde proti tomu, jak se safír obvykle prodává. Okénko s n≈1.76 odráží na svých dvou holých plochách asi 14% dopadajícího světla. Nepokryté safírové okénko tedy propustí méně světla, než naznačuje titulek datového listu, a číslo se zlepší teprve tehdy, když se na něj nanese dielektrická antireflexní vrstva. U IPL přístroje, kde každý joul dodaný do kůže stojí energii i životnost baterie, není tato vrstva kosmetická. Náš vlastní protokol z měření dlouhovlnných filtrů ukazuje, jak vypadá pokrytá optika, když se měří místo popisuje: sedm filtrů, průměry propustného pásma mezi 92.38% a 96.16%, blokování udržené mezi 1.70% a 4.81%, vše měřeno na Shimadzu UV-1800 v krocích po 1 nm.
+
+## Proč se letecká a kosmická okénka vyrábějí právě z něj
+
+Technický případ pro safír v extrémním žáru není nový. Lewis Research Center agentury NASA postavilo safírová okénka pro diagnostiku spalování za vysokých teplot, včetně konstrukce pro trubici s chudou předem smíchanou a odpařenou směsí při 3,200 °F, kde se laserová dopplerovská velocimetrie a laserem indukovaná fluorescence musely dívat skrz stěnu spalovací komory ([NTRS 19950023587](https://ntrs.nasa.gov/citations/19950023587)). Doprovodná zpráva o vysoce výkonných safírových okénkách je ve výčtu kompromisů přímočařejší: slabinou safíru bylo vždy chování při tepelném namáhání a dosáhnout jeho návrhové pevnosti si vyžádalo téměř dokonalé leštění povrchu a specializované uchycení, což použitelnou pevnost zvýšilo až desetkrát ([NTRS 19930013009](https://ntrs.nasa.gov/citations/19930013009)). Stejná zpráva poznamenává, že upravené a uchycené safírové okénko mechanicky zastoupí i vysoce pevnou ocel.
+
+Obraný výzkum šel stejnou logikou. Patent společnosti Raytheon popisuje safírová okénka zpevněná pro prostředí s vysokým namáháním a určená pro infračervené kryty senzorů řízených střel ([US6123026A](https://patents.google.com/patent/US6123026/en)) a evropská patentová přihláška říká rovnou, že monokrystalický safír se běžně používá pro okénka a kryty ve středním infračerveném pásmu vystavené silnému aerodynamickému ohřevu ([EP0826799](http://data.epo.org/publication-server/rest/v1.2/patents/EP0826799NWA2/document.xml)). Zakázka STTR od amerického námořnictva z roku 1998 financovala infračervená okénka ze safírového kompozitu odolná tepelnému šoku pro hypersonické prostředky ([SBIR 49072](https://www.sbir.gov/awards/49072)).
+
+Průmyslová zařízení používají stejný díl z přízemnějších důvodů. Safír je standardní materiál průhledů do vakuových komor a procesních nástrojů, kde obsluha potřebuje skrz stěnu vidět plazma, reakční pec nebo vysokoteplotní vsázku. MKS, která tato okénka prodává, je popisuje jako velmi tolerantní k extrémním rozdílům teplot a tlaků.
+
+Vzorec přes to všechno: safír se volí tam, kde okénko musí zůstat opticky čisté, zatímco je na jedné straně něco horkého, abrazivního nebo chemicky agresivního, a kde lze mechanickou sestavu navrhnout kolem křehkého krystalu.
+
+## Stejné tři požadavky se objevují i v IPL přístroji
+
+Rozeberte IPL přístroj na to, co musí jeho okénko zvládnout, a seznam je krátký.
+
+Musí propustit léčebné pásmo. Domácí IPL přístroje pracují zhruba mezi 510 nm a 1200 nm a okénko sedí v cestě paprsku před pokožkou. Naše vlastní spektra z výroby, měřená přístrojem OHSP-350FA, kladou typický přístroj na dominantní vlnovou délku 571 nm s maximem při 825 nm, tedy do té části pásma, kterou safír propouští bez diskuse ([naměřené spektrum](https://iplmanufacturer.com/blog/ipl-hair-removal-wavelength-range)).
+
+Musí odvádět teplo z kůže. Kontaktní chlazení je mechanismus za slovem „bezbolestné“ na krabici. Krystal s vysokou tepelnou vodivostí vytahuje teplo z povrchu kůže a posouvá ho k Peltierovu modulu a chladiči, a rychlost tohoto přenosu určuje materiál okénka, ne elektronika za ním. Tady sklo prohrává. Sodnovápenaté nebo borosilikátové okenní sklo vede teplo zhruba třicetkrát pomaleji než safír, takže při stejném přítlaku nezvládne stejnou práci ([proč na safíru záleží u pohodlí](https://iplmanufacturer.com/blog/13-sapphire-cooling-technology-benefits-and-applications)).
+
+Musí přežít zacházení. Uživatelé přístroje upustí, otírají je alkoholem, tisknou je na strniště a opalovací krém a čekají, že povrch bude v šestém měsíci vypadat stejně. Mohs 9 to pokrývá.
+
+Regulatorní papírování bere okénko jako pojmenovaný díl. Souhrny FDA 510(k) pro domácí IPL přístroje popisují optiku v kontaktu s pokožkou přímo: jeden schválený přístroj je podán jako „Ice Cooling IPL Hair Removal Device with sapphire treatment window“ ([K250942](https://fda.innolitics.com/device/K250942)), další uvádí své materiály jako „ABS+PC, Aluminum alloy, Sapphire (model dependent)“ ([K251707](https://fda.innolitics.com/submissions/SU/subpart-e-surgical-devices/OHT/K251707?doc=summary)) a třetí hovoří o „sapphire ice cooling function to manage treatment area temperature“ ([K252618](https://fda.innolitics.com/submissions/SU/subpart-e-surgical-devices/OHT/K252618?doc=summary)). Safír na IPL okénku není marketingová metafora. Je to díl pojmenovaný v podání.
+
+## Kde přirovnání skřípe
+
+Raketová okénka a okénka přístrojů nejsou stejný problém a právě v těch rozdílech většina dodavatelů mlčí.
+
+Tepelný šok je ten poctivý bod. Tepelná vodivost safíru je vysoká, ale tavený křemen se při zahřátí roztahuje mnohem méně, zhruba o řád méně, a proto tavený křemen často vyhraje, když hrozbou není trvalé teplo, ale prudký teplotní skok. Vlastní zpráva NASA nazývá špatné chování při tepelném namáhání historickou slabinou safíru a námořnictvo financovalo kompozitní okénkový program přesně z tohoto důvodu. Dodavatel, který vám řekne, že safír je prostě nejlepší materiál na každý tepelný problém, prodává závěr, ne materiál.
+
+Vlhkost je druhý bod. Hodnocení NASA pro zařízení na kapaliny a spalování Mezinárodní vesmírné stanice shledalo safír náchylný ke koroznímu praskání za napětí v přítomnosti vody zhruba stejně jako sklo ([NTRS 20050214734](https://ntrs.nasa.gov/citations/20050214734)). IPL přístroj žije ve vlhké místnosti a otírá se vlhkými hadříky. To safír nevylučuje, ale je to důvod, proč si těsnění hran, uchycení a dokončení povrchu zaslouží ve specifikaci pozornost místo jedné řádky o jakosti krystalu.
+
+Geometrie je třetí bod. Safír je křehký krystal a jeho použitelná pevnost závisí na tom, jak je podepřen. Stejná práce NASA, která dosáhla desetinásobného zvýšení pevnosti, ho dosáhla leštěním a návrhem uchycení, ne lepším krystalem.
+
+## Jak vybrat materiál okénka
+
+| Materiál | Propustné pásmo | Tepelná vodivost | Tepelná roztažnost | Tvrdost | Kam se hodí |
+|---|---|---|---|---|---|
+| Safír (monokrystalický Al₂O₃) | ~0.15–5.5 µm | ~30–35 W/m·K | ~5–8 ×10⁻⁶/K | Mohs 9 | Kontaktní chlazení a odolnost proti oděru v jednom dílu |
+| Tavený křemen | ~0.2–2.5 µm | ~1.4 W/m·K | ~0.5 ×10⁻⁶/K | Mohs 7 | Rychlé tepelné cykly, hluboké UV, bez potřeby kontaktního chlazení |
+| Borosilikátové sklo | ~0.35–2.5 µm | ~1.1 W/m·K | ~3 ×10⁻⁶/K | Mohs 5.5 | Optika s omezeným rozpočtem, nízký pracovní cyklus |
+| Zpevněné sodnovápenaté sklo | ~0.35–2.5 µm | ~1 W/m·K | ~9 ×10⁻⁶/K | Mohs 5.5 | Nejnižší cena, bez optické přesnosti |
+| Safír s AR vrstvou | jako výše, vyšší čistá propustnost | jako výše | jako výše | Mohs 9 | Tam, kde záleží na každém joulu dodaného světla |
+
+## Co napsat do specifikace okénka
+
+Pokud poptáváte IPL přístroj pro vlastní značku, okénko si zaslouží vlastní specifikaci místo řádky v kusovníku. Pět bodů pokrývá většinu rizika.
+
+Ptejte se na naměřenou propustnost v celém pracovním pásmu, na spektrofotometru, ne na jmenovitou hodnotu z brožury. Náš protokol z měření filtrů je formát, který očekáváme od vlastních dodavatelů, včetně výhrad: měření jednoho vzorku, přesnost vlnové délky kolem ±5 nm a přesnost propustnosti asi ±2%.
+
+Ptejte se, která vrstva se nanáší, jak se vytvrzuje a jak se testuje přilnavost. Trvanlivost vrstvy rozhoduje o tom, zda přístroj dodá stejnou energii při záblesku 400,000 jako při záblesku 400.
+
+Ptejte se na dokončení hran a těsnění. Korozní praskání za napětí ve vlhkém prostředí začíná na hranách a vadách.
+
+Požadujte test tepelných cyklů, který odpovídá skutečnému použití: studený start, dvacet minut nepřetržitého blikání, otření, opakovat. Ten test má ke koupelně blíž než datový list.
+
+Ptejte se, co se děje napříč šarží. Tloušťka okénka a tloušťka vrstvy posouvají propustnost mezi výrobními běhy a značka, která stejný přístroj prodává dva roky, potřebuje mít tuto odchylku ohraničenou.
+
+## Které platformy iShine používají safírové okénko
+
+Tři platformy současné řady nesou 3.0 cm² safírové okénko: [VENUS](https://iplmanufacturer.com/products/venus), [HELIX](https://iplmanufacturer.com/products/helix) a [LUMI 2](https://iplmanufacturer.com/products/lumi-2). U všech tří se kontaktní plocha ustálí na 8 °C, jakmile chladicí okruh chvíli běží, což je údaj, na kterém záleží u pohodlí během desetiminutové kúry, ne hodnota ze studeného startu při prvním záblesku.
+
+Okénko je jeden díl chladicí sestavy a zbytek řetězce je zdokumentovaný na [stránce chladicího systému](https://iplmanufacturer.com/components/cooling-system), spolu s [optickým filtrem](https://iplmanufacturer.com/components/optical-filters), který určuje léčebné pásmo a blokuje všechno pod ním. Kupující, kteří přístroje srovnávají, obvykle začínají u [průvodce nákupem chlazení](https://iplmanufacturer.com/blog/cooling-ipl-hair-remover-buying-guide), než se dostanou k materiálovým specifikacím.
+
+## FAQ
+
+**Dělá safír IPL přístroj výkonnějším?**
+Ne. Okénko energii nepřidává. Zachovává ji tím, že propouští léčebné pásmo s menší odrazovou ztrátou než nepokrytá alternativa, a mění pohodlí tím, že odvádí teplo z kůže. Výkon přichází z lampy, kondenzátorové banky a driveru.
+
+**Je safír nejlepší materiál na jakékoli optické okénko?**
+Ne. Mezi běžnými materiály okének má nejvyšší tepelnou vodivost a lépe odolává poškrábání než sklo, ale rychlé tepelné cykly snáší lépe tavený křemen, protože se roztahuje mnohem méně. Vyberte tu vlastnost, kterou vaše aplikace skutečně zatěžuje.
+
+**Proč nepoužít křemen?**
+Tavený křemen a tavené křemičité sklo jsou levnější a roztahují se méně, což sedí k optice pro hluboké UV a k laboratorním okénkům. Nevedou ale teplo, takže nemohou v přístroji zastat roli kontaktního chlazení.
+
+**Odchází antireflexní vrstva?**
+Může, pokud se vrstva a způsob čištění k sobě nehodí. Proto se trvanlivost testuje proti oděru a opakovanému otírání, místo aby se předpokládala z metody nanášení.
+
+**Jak ověřím okénko, než objednám 5,000 kusů?**
+Odeberte vzorky uprostřed a na hranách, změřte propustnost v léčebném pásmu, proveďte test tepelných cyklů, zkontrolujte dokončení hran pod zvětšením a měření zopakujte na druhé šarži. [Práce na měření energie](https://iplmanufacturer.com/blog/the-truth-about-ipl-energy) ukazuje, co se stane, když se zobrazené číslo a naměřené číslo rozcházejí.
+
+## Zdroje a reference
+
+- [NASA NTRS 19950023587: Návrh optického okénka pro vysoké teploty do trubice LPP při 3,200 °F](https://ntrs.nasa.gov/citations/19950023587)
+- [NASA NTRS 19930013009: Vysoce výkonná safírová okénka](https://ntrs.nasa.gov/citations/19930013009)
+- [NASA NTRS 20050214734: Hodnocení safírového okénka pro zařízení na kapaliny a spalování na ISS](https://ntrs.nasa.gov/citations/20050214734)
+- [US6123026A: Safírová okénka pro prostředí s vysokým namáháním (Raytheon)](https://patents.google.com/patent/US6123026/en)
+- [EP0826799: Monokrystalický safír pro kryty ve středním IR pod aerodynamickým ohřevem](http://data.epo.org/publication-server/rest/v1.2/patents/EP0826799NWA2/document.xml)
+- [SBIR 49072: IR okénka ze safírového kompozitu odolná tepelnému šoku (US Navy STTR, 1998)](https://www.sbir.gov/awards/49072)
+- [Crystran: Optická data safíru (Al₂O₃)](https://www.crystran.com/optical-materials/sapphire-al2o3/)
+- [Lawrence Berkeley National Laboratory: Fyzikální a mechanické vlastnosti safíru](https://www-eng.lbl.gov/~shuman/NEXT/MATERIALS%26COMPONENTS/Quartz/Sapphire_Physical_Mechanical_Properties.pdf)
+- [Meller Optics: Vlastnosti safíru](https://melleroptics.com/wp-content/uploads/2021/10/PROPERTIES-OF-SAPPHIRE.pdf)
+- [FDA 510(k) K250942](https://fda.innolitics.com/device/K250942), [K251707](https://fda.innolitics.com/submissions/SU/subpart-e-surgical-devices/OHT/K251707?doc=summary), [K252618](https://fda.innolitics.com/submissions/SU/subpart-e-surgical-devices/OHT/K252618?doc=summary)
+
+---
+
+**Stavíte řadu IPL pro vlastní značku a potřebujete okénko správně specifikované?** iShine vede programy OEM/ODM od vzorku po sériovou výrobu, včetně optické a chladicí sestavy. [Promluvte si s týmem](https://iplmanufacturer.com/contact) o svém cílovém trhu, objemech a cíli pohodlí, kterého chcete dosáhnout.
