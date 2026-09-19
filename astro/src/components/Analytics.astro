@@ -17,6 +17,22 @@
  * ⚠ 未包含瑞士（CH）：它不是 EEA 成员，但其 nFADP 同样要求非必要 cookie 事先同意。
  *   若希望把瑞士也按"需同意"处理，在下方 region 数组里加一个 'CH' 即可（已与你确认前不擅自扩大范围）。
  * 欧盟/英国侧 wait_for_update=2000，给 CookieConsent 2 秒窗口，避免首屏过早按 denied 处理。
+ *
+ * ── Ahrefs Web Analytics（2026-09-22 安装）──────────────────────────────────
+ * 官方片段：<script src="https://analytics.ahrefs.com/analytics.js" data-key="…" async></script>
+ *  · 放在本组件：这里是全站统计脚本的唯一出口 —— BaseLayout 与 7 个「自建 <head>」的路由
+ *    （/、/marketplace、/meet-the-team、/services/*）都引用 Analytics.astro，放这里一次覆盖
+ *    22 语种全部路由，不会重演"部分路由漏装 GA4"那类问题（见上）。
+ *  · 不做同意门控：Ahrefs Web Analytics 不写 cookie、不采集个人数据（官方文档明确 cookieless），
+ *    与站内已在用的 Simple Analytics 同类（后者也是直接加载）；GA4 需要门控是因为它写 _ga cookie。
+ *    若将来要求"仅同意后统计"：给它加 id，由 CookieConsent 在授权时再注入脚本（不是简单加 async），
+ *    并同步调整 Simple Analytics 口径，避免两个 cookieless 工具待遇不一致。
+ *  · 不做 preconnect：第三方异步统计不应与首屏字体/关键资源抢连接优先级（preconnect 名额有限）。
+ *  · CSP 同步：netlify.toml 的 Report-Only 策略 script-src / connect-src 已加入
+ *    https://analytics.ahrefs.com，否则会持续产生 CSP 违规报告。
+ *  · data-key 是公开的项目标识（必然出现在 HTML 源码里），不是密钥。
+ *  ⚠ 本文件顶部的注释不出现在产物里；页面上**不要**再加解释性 <!-- --> —— Astro 会把 HTML 注释
+ *    原样输出到 3125 个页面（含其中的 URL 字符串），既浪费字节又会让"脚本出现次数"类审计误判。
  */
 ---
 
@@ -74,3 +90,4 @@
   gtag('config', 'G-94BDNGHHJH');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH"></script>
+<script async src="https://analytics.ahrefs.com/analytics.js" data-key="ZmxwmQzl6pN56zZcP5+8Ag"></script>

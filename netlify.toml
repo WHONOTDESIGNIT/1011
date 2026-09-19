@@ -111,9 +111,13 @@
     # 策略不是文档里那份通用样板（default-src 'none'; script-src 'self'; …），而是按**本站实际加载的资源**
     # 实测后写的（2026-09-14 逐页扫过 script/style/img/font/iframe 的来源，6 个代表页）：
     #   · script：本站 + googletagmanager.com（GA4）+ scripts.simpleanalyticscdn.com（Simple Analytics）
+    #             + analytics.ahrefs.com（Ahrefs Web Analytics，2026-09-22 安装）
     #   · img：本站 + flagcdn.com（语言旗标）+ coresg-normal.trae.ai（早期 AI 生成配图）
+    #          + images.pexels.com（2026-09-22 补：实测 618 个页面仍有 pexels 直链 <img src>，
+    #            另 264 个页面走 Netlify Image CDN 代理；直链属 img-src 管辖，缺白名单会持续产生违规报告）
     #   · font：fonts.gstatic.com；无外部 stylesheet；无 iframe/video
     #   · connect：GA4 与 Simple Analytics 的运行时上报端点（静态 HTML 里看不到，按运行时需要补）
+    #              + analytics.ahrefs.com（同域承载脚本与上报，官方片段只有这一个域）
     # 若直接用通用样板，报告会被"我们本来就在用"的资源淹没，真正的异常反而看不见。
     #
     # 内联为何仍留 'unsafe-inline'：实测这些页面共有 81 个内联 <script>、19 个内联 <style>、
@@ -123,4 +127,4 @@
     #
     # frame-ancestors 先设 'self'：报告阶段用来**观察**谁在嵌入本站（应用内浏览器预览就是一种嵌入），
     # Report-Only 不会挡住任何嵌入。
-    Content-Security-Policy-Report-Only = "default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://coresg-normal.trae.ai; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://queue.simpleanalyticscdn.com; media-src 'self'; worker-src 'self'; manifest-src 'self'"
+    Content-Security-Policy-Report-Only = "default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com https://analytics.ahrefs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://coresg-normal.trae.ai https://images.pexels.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://queue.simpleanalyticscdn.com https://analytics.ahrefs.com; media-src 'self'; worker-src 'self'; manifest-src 'self'"
