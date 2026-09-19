@@ -30,6 +30,9 @@ const LANG_URL_PATHS = ['tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el', 'p
 // 这里保留名字是防御性的——将来若有人再加同名页面，默认不会被塞进 sitemap。
 const SKIP_ROOT_FILES = new Set(['404', 'admin', 'upload']);
 
+// 与 blog/[slug].astro 的 DEFAULT_OG_IMAGE_PATH 保持一致：无 hero 文章的兜底图。
+const DEFAULT_OG_IMAGE_PATH = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
+
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
 }
@@ -50,6 +53,36 @@ function extractCanonical(html) {
 
 function normalizeAbsoluteUrl(value) {
   return String(value).split('#')[0].split('?')[0].replace(/\/+$/, '');
+}
+
+// 文章主图：取 Article schema 的 image（可能是 URL 字符串或 ImageObject），
+// 用 Netlify Image CDN 的 url= 参数还原成原始素材地址（站内相对路径 → 绝对；远程图原样返回）。
+// 目的是把「原始图片文件」而不是 CDN 变体写进图片 sitemap，便于图片搜索索引。
+function extractArticleImage(html) {
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    let node;
+    try { node = JSON.parse(m[1]); } catch { continue; }
+    const candidates = Array.isArray(node) ? node : [node];
+    for (const c of candidates) {
+      if (!c || c['@type'] !== 'Article') continue;
+      const img = c.image;
+      const url = typeof img === 'string' ? img : img && typeof img.url === 'string' ? img.url : null;
+      if (!url) return null;
+      const raw = url.match(/[?&]url=([^&]+)/);
+      if (raw) {
+        try {
+          const decoded = decodeURIComponent(raw[1]);
+          // 无自有 hero 的文章会回退到全站默认 OG 图；这种共用图不进图片 sitemap，避免噪音。
+          if (decoded === DEFAULT_OG_IMAGE_PATH) return null;
+          return /^https?:\/\//i.test(decoded) ? decoded : `${resolveBaseUrl()}${decoded.startsWith('/') ? '' : '/'}${decoded}`;
+        } catch { /* fall through */ }
+      }
+      return url;
+    }
+  }
+  return null;
 }
 
 // 从页面 head 提取同内容各语言版本（与 SeoHead 输出逐字一致，跳过 x-default）
@@ -87,10 +120,10 @@ function main() {
   const files = walkHtml(DIST);
 
   // 1) 文件 → { 语言组, URL }
-  const groups = {}; // lang -> [{ url, alternates }]
-  const add = (lang, url, alternates) => {
+  const groups = {}; // lang -> [{ url, alternates, image }]
+  const add = (lang, url, alternates, image = null) => {
     if (!groups[lang]) groups[lang] = [];
-    groups[lang].push({ url, alternates });
+    groups[lang].push({ url, alternates, image });
   };
 
   let skipped = 0;
@@ -141,7 +174,7 @@ function main() {
     }
 
     allUrls.add(url);
-    add(lang, url, alternates);
+    add(lang, url, alternates, extractArticleImage(html));
   }
 
   // 2) 组内按 URL 排序并渲染子文件
@@ -157,11 +190,15 @@ function main() {
         const links = e.alternates
           .map((h) => `    <xhtml:link rel="alternate" hreflang="${xmlEscapeAttrs(h.lang)}" href="${xmlEscapeAttrs(h.href)}"/>`)
           .join('\n');
-        return `  <url>\n    <loc>${xmlEscapeAttrs(loc)}</loc>\n${links}\n  </url>`;
+        // 图片 sitemap 扩展：把文章主图显式提交给搜索引擎（帮助图片搜索与大图预览索引）
+        const image = e.image
+          ? `\n    <image:image>\n      <image:loc>${xmlEscapeAttrs(e.image)}</image:loc>\n    </image:image>`
+          : '';
+        return `  <url>\n    <loc>${xmlEscapeAttrs(loc)}</loc>\n${links}${image}\n  </url>`;
       });
     locTotal += entries.length;
     const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
-      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
       entries.join('\n') +
       '\n</urlset>\n';
     const outName = `sitemap-${lang}.xml`;

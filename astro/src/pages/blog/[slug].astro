@@ -8,6 +8,7 @@ import StageRouteMap from '../../components/StageRouteMap.astro';
 import { getAllArticleVersions, getPostBySlug, getPostTranslations, getRelatedPosts, getRouteStages, postHref, categoryHref } from '../../lib/blog';
 import { t } from '../../lib/i18n';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
+import { localImageSize } from '../../lib/image-dimensions';
 
 // 注意：i18n fallback 路由（/vi/blog/x 等）渲染时 Astro.url 会被重写为无前缀路径
 // （Astro.url.pathname === '/blog/x'），而 Astro.currentLocale 才是该 URL 的实际语言。
@@ -105,7 +106,9 @@ const pageTitle = post.meta.title;
 const pageDescription = post.meta.excerpt || t(locale, 'blog.meta.description');
 const canonical = `${resolveBaseUrl()}${post.meta.href}`;
 const hreflangEntries = translations.map((x) => ({ locale: x.locale, href: `${resolveBaseUrl()}${x.href}` }));
-const blogImageWidths = [400, 800, 1200];
+// 本地 hero 图多暴露一档 1600w（搜索大图预览要求 ≥1200px，多一档更保险）；
+// 远程图（如 Pexels，URL 自带 w=800）不加，避免 CDN 拉小图再放大。
+const blogImageWidths = post.meta.image && !/^https?:\/\//i.test(post.meta.image) ? [400, 800, 1200, 1600] : [400, 800, 1200];
 const articleHeroImage = post.meta.image
   ? {
       src: netlifyImage(post.meta.image, 800, 'webp'),
@@ -120,6 +123,18 @@ const DEFAULT_OG_IMAGE_PATH = '/images/home/hero-section-sapphire-ipl-device-whi
 const articleImageUrl = post.meta.image
   ? new URL(netlifyImage(post.meta.image, 1200, 'webp'), `${resolveBaseUrl()}/`).href
   : new URL(`/.netlify/images?url=${encodeURIComponent(DEFAULT_OG_IMAGE_PATH)}&w=1200&h=630&fit=cover&fm=png`, `${resolveBaseUrl()}/`).href;
+
+// Article 主图升级为 ImageObject：声明 1200w 输出的真实像素尺寸（Netlify 只给 w 时按原图比例缩放，
+// 所以高度要按源图比例算，不能直接写源图尺寸）。远程图或读不到尺寸时退化为纯 URL。
+const heroSourceSize = post.meta.image ? localImageSize(post.meta.image) : null;
+const articleImage = heroSourceSize
+  ? {
+      '@type': 'ImageObject',
+      url: articleImageUrl,
+      width: 1200,
+      height: Math.round((heroSourceSize.height * 1200) / heroSourceSize.width),
+    }
+  : articleImageUrl;
 
 // 3.3 修复：Google Article 要求 ISO 8601 日期时间（带时区）。纯日期（YYYY-MM-DD）
 // 会触发「日期时间值无效」+「缺少时区信息」两条非严重警告，统一补全为 UTC 午夜。
@@ -183,7 +198,7 @@ const articleSchema = {
       height: 160,
     },
   },
-  image: articleImageUrl,
+  image: articleImage,
   ...(post.meta.category ? { articleSection: post.meta.category } : {}),
   mainEntityOfPage: {
     '@type': 'WebPage',
