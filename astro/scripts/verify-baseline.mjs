@@ -133,6 +133,53 @@ function measure() {
   }
   hreflang.ok = hreflang.issues.length === 0;
 
+  // 全站级 SEO 健全性（2026-09-22 新增，对应 Ahrefs Site Audit 的两个 Error 级问题）：
+  //  a) 每页必须恰好 1 个 <title> 与 1 个 meta description —— 曾有 6 个「自建 head」的页面
+  //     同时手写这两者又调用 SeoHead，等于 132 个页面重复输出（Ahrefs 报 Multiple title/description tags）。
+  //  b) hreflang 互指闭环 —— 每个 alternate 的目标必须真实存在（是某页的 canonical）且回指本页，
+  //     否则即 Ahrefs 的 "Missing reciprocal hreflang (no return-tag)"。
+  //     注意 x-default 指向英文页是设计如此，不参与互指判定。
+  const seo = { ok: true, issues: [], pages: 0, dupTitle: [], dupDesc: [], noReciprocal: [], unknownTarget: [] };
+  if (existsSync(DIST)) {
+    // 注意：上面的 walkFiles 只返回 {name,size}，这里需要相对路径，故单独递归一遍
+    const allHtml = [];
+    (function rec(dir) {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) rec(full);
+        else if (entry.name.endsWith('.html')) allHtml.push(full);
+      }
+    })(DIST);
+    seo.pages = allHtml.length;
+    const canonOf = new Map();
+    const altsOf = new Map();
+    for (const p of allHtml) {
+      let html;
+      try { html = readFileSync(p, 'utf8'); } catch { continue; }
+      const rel = path.relative(DIST, p).replace(/\\/g, '/');
+      if ((html.match(/<title[\s>]/g) ?? []).length > 1) seo.dupTitle.push(rel);
+      const descCount = (html.match(/<meta\s+name="description"/g) ?? []).length + (html.match(/<meta\s+content="[^"]*"\s+name="description"/g) ?? []).length;
+      if (descCount > 1) seo.dupDesc.push(rel);
+      const canon = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+      if (!canon) continue;
+      const key = canon.replace(/\/$/, '');
+      canonOf.set(key, rel);
+      altsOf.set(key, [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)"[^>]*href="([^"]+)"/g)].map((m) => ({ lang: m[1], href: m[2].replace(/\/$/, '') })));
+    }
+    for (const [url, alts] of altsOf) {
+      for (const a of alts) {
+        if (a.lang === 'x-default') continue; // 设计上指向英文页
+        if (!canonOf.has(a.href)) { seo.unknownTarget.push(`${url} → ${a.href}`); continue; }
+        if (!(altsOf.get(a.href) ?? []).some((b) => b.href === url)) seo.noReciprocal.push(`${url} --${a.lang}--> ${a.href}`);
+      }
+    }
+    if (seo.dupTitle.length) seo.issues.push(`${seo.dupTitle.length} 个页面有多个 <title>（例：${seo.dupTitle.slice(0, 3).join(', ')}）`);
+    if (seo.dupDesc.length) seo.issues.push(`${seo.dupDesc.length} 个页面有多个 meta description（例：${seo.dupDesc.slice(0, 3).join(', ')}）`);
+    if (seo.noReciprocal.length) seo.issues.push(`${seo.noReciprocal.length} 条 hreflang 缺回指（例：${seo.noReciprocal.slice(0, 3).join(' | ')}）`);
+    if (seo.unknownTarget.length) seo.issues.push(`${seo.unknownTarget.length} 条 hreflang 指向不存在的 URL（例：${seo.unknownTarget.slice(0, 3).join(' | ')}）`);
+    seo.ok = seo.issues.length === 0;
+  }
+
   return {
     htmlTotal: htmlFiles.length,
     htmlPerLocale: countBlogPerLocale(),
@@ -147,6 +194,8 @@ function measure() {
     hreflangComplete: hreflang.ok,
     hreflangIssues: hreflang.issues,
     hreflangChecked: hreflang.checked,
+    seoPagesChecked: seo.pages,
+    seoIssues: seo.issues,
   };
 }
 
@@ -207,6 +256,15 @@ function compare() {
 
   if (cur.hreflangComplete) ok(`hreflang: ${cur.hreflangChecked} 页首页 × ${HREFLANG_CONTRACT.length}+x-default 齐全，无大写 pt href`);
   else fail(`hreflang: ${cur.hreflangIssues.join('；')}`);
+
+  // 全站级 SEO 健全性（对应 Ahrefs Site Audit 的 Error 级问题，严格失败）
+  if (Array.isArray(cur.seoIssues) && cur.seoIssues.length === 0) {
+    ok(`SEO 健全性: ${cur.seoPagesChecked} 个页面均只有 1 个 <title> 与 1 个 meta description，hreflang 全部互指闭环`);
+  } else if (Array.isArray(cur.seoIssues)) {
+    fail(`SEO 健全性: ${cur.seoIssues.join('；')}`);
+  } else {
+    fail('SEO 健全性: 未产出检查结果（seoIssues 缺失）');
+  }
 }
 
 // ── 主流程 ────────────────────────────────────────────────
