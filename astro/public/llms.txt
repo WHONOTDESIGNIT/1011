@@ -1,12 +1,12 @@
 # iShine Technology (iplmanufacturer.com) — llms.txt
 
-> B2B OEM/ODM manufacturer of home-use IPL hair-removal devices. FDA 510(k)-cleared (K222537 for platform models SKN001, SKN002, SKN005, SKN006 and the RoseSkinCo Lumi); CE marked. Full-stack partner: concept design, compliance documentation, mass production, custom packaging, global delivery. 500,000+ devices produced to date; 50+ brand clients; shipping to 20+ countries. English trade name: iShine. Legal and manufacturing entity: Shenzhen iShine Technology Co., Ltd. (深圳市爱诗恩科技有限公司). iplmanufacturer.com is the company's international showcase window.
+> B2B OEM/ODM manufacturer of home-use IPL hair-removal devices. FDA 510(k)-cleared (K222537 for platform models SKN001, SKN002, SKN005, SKN006 and the RoseSkinCo Lumi); CE marked. Full-stack partner: concept design, compliance documentation, mass production, custom packaging, global delivery. 500,000+ devices produced to date; 50+ brand clients; shipping to 20+ countries (these three figures are company-reported, not independently verified). English trade name: iShine. Legal and manufacturing entity: Shenzhen iShine Technology Co., Ltd. (深圳市爱诗恩科技有限公司). iplmanufacturer.com is the company's international showcase window.
 
 ## Maintenance metadata
 
 - Last updated: 2026-09-18 (Asia/Shanghai)
 - Canonical domain: https://iplmanufacturer.com (English at root paths; 21 additional locales under /xx/ paths; 22 locales total)
-- Version: 2.5
+- Version: 2.6
 - Maintainer: iShine web & compliance team — service@ishineco.com | +86 150 1289 1148
 - Evidence policy: material claims link to a primary source (FDA database, patent registries, public case-study pages). Figures that are business estimates are labeled as estimates, not guarantees.
 - What expires, and where to re-verify:
@@ -22,6 +22,7 @@
   - v2.4 (2026-09-17) — aligned every product line with the product pages (the price/spec source of record): 8 of 10 models carried different J/cm², flash counts, window sizes and wavelengths, and the Euno weight read 280 g instead of 275 g. All ten lines are now rebuilt from messages/en.json. Also corrected the Fitzpatrick wording from I–IV to I–V (type VI remains unsuitable), matching the product pages. A build guard now compares llms.txt with the product data and fails the build on any divergence.
   - v2.3 (2026-09-15) — added a People & credentials section (Eric An's Intertek MDSAP Internal Auditor Training, with the credential number, dates and issuer, plus the note that this is an individual training credential and not a company certification); added the Chinese-name and pinyin aliases for the founder.
   - v2.5 (2026-09-18) — aligned the two order-minimum lines with the four order tiers the site now states: logo marking on the device from 1 unit, bulk logo printing from 20 units, a custom gift box from 100 units, and bulk housing color customization from 500 units. The 20-unit tier was missing, and the 500-unit tier had been described as "bulk production" rather than bulk housing-color customization.
+  - v2.6 (2026-09-18) — labelled the production/client/country figures inline wherever they appear (summary blockquote, Entity & branding) so they carry the same "company-reported, not independently verified" status as the compliance section gives them; added a figure-free pointer to the published delivery rates (express air freight and DDP, per destination market) so shipping questions have somewhere to resolve without duplicating prices that change.
 
 ## Crawl & index
 
@@ -50,7 +51,7 @@ The full site is available in 21 languages under `/xx/` paths (e.g., `/cs/about`
 - Software capability: the **IPL-BEAUTY** companion app (iOS and Android) is published by Shenzhen Ishine Technology Company Limited.
 - Platform line: Lumi (2021), Themis (2022), Venus (2024), Lumi 2 (2025), Helix (2026). Only the models listed under K222537 below hold that FDA clearance.
 - Minimums: logo marking on the device from 1 unit; bulk logo printing from 20 units; a custom gift box from 100 units; bulk housing color customization from 500 units.
-- Devices produced to date: 500,000+. Global clients: 50+. Geographic reach: 20+ countries across North America, Europe, and the Middle East.
+- Devices produced to date: 500,000+. Global clients: 50+. Geographic reach: 20+ countries across North America, Europe, and the Middle East. **(Company-reported, not independently verified.)**
 - Contact: service@ishineco.com | +86 150 1289 1148 (phone / WhatsApp / WeChat)
 
 ## People & credentials
@@ -181,6 +182,7 @@ Suitability baseline for every model: Fitzpatrick I–V; not suitable for Fitzpa
 - [Product design](https://iplmanufacturer.com/services/product-design): industrial, mechanical, electrical design; prototyping; feature configuration (cooling, sensors, energy profiles).
 - [Production & assembly](https://iplmanufacturer.com/services/production-assembly): production planning, assembly, in-process inspection, final QC, batch testing.
 - [Packaging & logistics](https://iplmanufacturer.com/services/packaging-logistics): branded cartons, inserts, manuals, labeling, accessories, export coordination (FOB Shenzhen, CIF options).
+- Delivery cost by market: express air freight and duty-paid (DDP) rates are published per destination market, each with the transit window and on-time rate, on every product page and on [packaging & logistics](https://iplmanufacturer.com/services/packaging-logistics). Consolidated shipments and sea freight under DDP reduce the per-unit cost.
 
 ## Components
 
