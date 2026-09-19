@@ -33,6 +33,18 @@ const SKIP_ROOT_FILES = new Set(['404', 'admin', 'upload']);
 // 与 blog/[slug].astro 的 DEFAULT_OG_IMAGE_PATH 保持一致：无 hero 文章的兜底图。
 const DEFAULT_OG_IMAGE_PATH = '/images/home/hero-section-sapphire-ipl-device-white-color.webp';
 
+// 允许被排除的「canonical 指向别的语言」产物数量上限，默认 0。
+//
+// 为什么需要这道门槛：本站 sitemap 只收录 canonical 指向自身语言 URL 的页面。若某篇内容
+// 只发布了英文版，它的 21 个语言副本的 canonical 仍指向 /blog/<slug>，于是这些语言
+// sitemap 里会**静默**少一条 URL —— 这正是 sapphire 那篇文章在 21 个语言 sitemap 中
+// 缺失的原因，且当时构建全绿、无任何提示，只能靠人工对数量才发现。
+//
+// 因此：内容缺口必须在内容层修（补齐翻译），不允许靠 sitemap 兜底。数量超限直接 fail，
+// 让 CI/Netlify 构建当场红掉。确需临时放行时显式声明环境变量，并在提交信息写明原因：
+//   SITEMAP_MAX_CANONICAL_MISMATCH=21 npm run build
+const MAX_CANONICAL_MISMATCH = Number(process.env.SITEMAP_MAX_CANONICAL_MISMATCH ?? 0);
+
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
 }
@@ -126,18 +138,25 @@ function main() {
     groups[lang].push({ url, alternates, image });
   };
 
+  // 跳过台账：每一次跳过都记下产物路径与原因，收尾统一打印 + 阈值校验（见文件头 MAX_CANONICAL_MISMATCH）。
+  const skippedByReason = {};
   let skipped = 0;
+  const skip = (rel, reason, detail = '') => {
+    skipped++;
+    (skippedByReason[reason] ??= []).push({ rel, detail });
+  };
+
   const allUrls = new Set();
   for (const f of files) {
     const parts = f.rel.split('/');
     const stem = parts[parts.length - 1].replace(/\.html$/, '');
     const dirs = parts.slice(0, -1);
-    if (stem === '404') { skipped++; continue; }
+    if (stem === '404') { skip(f.rel, '404-page'); continue; }
     const html = readFileSync(f.full, 'utf8');
     const canonical = extractCanonical(html);
     const alternates = extractHreflangs(html);
     if (!canonical || alternates.length === 0) {
-      skipped++;
+      skip(f.rel, canonical ? 'no-hreflang' : 'no-canonical', canonical ?? '');
       continue;
     }
 
@@ -147,7 +166,7 @@ function main() {
       // 顶层平铺产物
       if (stem === 'index') { lang = 'en'; url = '/'; }
       else if (LANG_URL_PATHS.includes(stem)) { lang = stem; url = `/${stem}`; }
-      else if (SKIP_ROOT_FILES.has(stem)) { skipped++; continue; }
+      else if (SKIP_ROOT_FILES.has(stem)) { skip(f.rel, 'root-non-page'); continue; }
       else { lang = 'en'; url = `/${stem}`; }
     } else {
       const d0 = dirs[0];
@@ -169,12 +188,43 @@ function main() {
 
     const expectedLoc = url === '/' ? base : `${base}${url}`;
     if (normalizeAbsoluteUrl(canonical) !== normalizeAbsoluteUrl(expectedLoc)) {
-      skipped++;
+      // 该语言的产物存在，但 canonical 指向别的语言 → 内容缺该语言版本，不收进本语言 sitemap。
+      skip(f.rel, 'canonical-other-locale', `${canonical} ≠ ${expectedLoc}`);
       continue;
     }
 
     allUrls.add(url);
     add(lang, url, alternates, extractArticleImage(html));
+  }
+
+  // 1.5) 跳过台账：显式打印 + 阈值校验（不允许静默丢 URL）
+  const REASON_LABEL = {
+    '404-page': '404 页（按规则不收）',
+    'root-non-page': '顶层非页面产物（admin/upload 等，按规则不收）',
+    'no-canonical': '产物缺少 <link rel="canonical">',
+    'no-hreflang': '产物缺少 hreflang alternate（有 canonical）',
+    'canonical-other-locale': 'canonical 指向别的语言（= 该语言没有这篇内容）',
+  };
+  for (const [reason, list] of Object.entries(skippedByReason)) {
+    console.log(`  ↷ 跳过 ${list.length} 个：${REASON_LABEL[reason] ?? reason}`);
+    // 缺内容/缺标签属于「需要人管」的情况，逐条列出；404 之类常规跳过只报数量。
+    if (reason === 'canonical-other-locale' || reason === 'no-canonical' || reason === 'no-hreflang') {
+      for (const item of list.sort((a, b) => a.rel.localeCompare(b.rel))) {
+        console.log(`      ${item.rel}${item.detail ? `  ←  ${item.detail}` : ''}`);
+      }
+    }
+  }
+
+  const mismatchCount = (skippedByReason['canonical-other-locale'] ?? []).length;
+  if (mismatchCount > MAX_CANONICAL_MISMATCH) {
+    console.error('');
+    console.error(`❌ sitemap 完整性检查未通过：${mismatchCount} 个产物因 canonical 指向别的语言被排除，超过上限 ${MAX_CANONICAL_MISMATCH}。`);
+    console.error('   上述条目 = 这些语言缺少对应的内容版本（内容缺口），必须在内容层补齐翻译；');
+    console.error('   不要通过放宽 sitemap 规则来消除报错。');
+    console.error('   确需临时放行（请在提交信息写明原因与补齐计划）：');
+    console.error(`     SITEMAP_MAX_CANONICAL_MISMATCH=${mismatchCount} npm run build`);
+    console.error('');
+    process.exit(1);
   }
 
   // 2) 组内按 URL 排序并渲染子文件
