@@ -23,6 +23,22 @@ const pathWithoutLocale = pathHasLocale(currentPath)
 
 const current = LANGUAGE_CONFIG.find((l) => l.code === lang) ?? LANGUAGE_CONFIG[0];
 
+// 国旗改由 CSS 伪元素承载（2026-09-22）：本组件每页渲染 2 个实例（header + 移动菜单），
+// 每个实例 1 个 trigger + 22 个选项 —— 原来的 <img> 写法等于每页 46 个图片节点，
+// 既计入 Lighthouse 的 DOM 规模，也让 a11y 审计把它当成"46 个空 alt 图片"反复提示。
+// 伪元素不产生 DOM 节点、不产生 <img>、也不进入可访问性树（装饰图本就该如此），
+// 而 <a>/<button> 上原有的 aria-label / 可见语言名语义完全不变。
+// 下面这张表必须与 <style> 里的国旗规则表一一对应：新增语种若换了国旗国家代码，
+// 这里会直接让构建失败，避免出现"语种加了、旗子不显示"的静默缺口。
+const FLAG_CCS = ['us', 'tr', 'il', 'ru', 'ro', 'pl', 'gr', 'it', 'kr', 'jp', 'cz', 'de', 'sa', 'nl', 'es', 'fr', 'br', 'pt', 'id', 'th', 'vn', 'ir'];
+const missingFlag = LANGUAGE_CONFIG.filter((l) => !FLAG_CCS.includes(l.countryCode));
+if (missingFlag.length) {
+  throw new Error(
+    `LanguageSwitcher: 缺少国旗 CSS 规则 —— ${missingFlag.map((l) => `${l.code}(${l.countryCode})`).join(', ')}；` +
+      `请在 <style> 的国旗规则表里补上 .ls-flag[data-flag='${missingFlag[0].countryCode}'] 这一行。`
+  );
+}
+
 // 链接规范：所有语种链接统一不带末尾斜杠（根路径除外），如 /tr/products/lumi
 // normalizeLocale:false 保留 locale 原始大小写（pt-BR），与构建目录一致，
 // 避免在 Linux（Netlify）上因大小写不敏感差异导致 /pt-pt/ 404
@@ -35,13 +51,13 @@ const localeHref = (l: string, p: string) => {
 <div class:list={['ls', variant === 'mobile' && 'ls--mobile']} data-lang-switcher>
   <button
     type="button"
-    class="ls-trigger"
+    class="ls-trigger ls-flag"
     data-ls-trigger
+    data-flag={current.countryCode}
     aria-haspopup="dialog"
     aria-expanded="false"
     aria-label={t(lang, 'languageSwitcher.switchLanguage')}
   >
-    <img class="ls-flag" src={current.flagUrl} alt="" width="28" height="21" loading="lazy" />
     <span class="ls-trigger-label">{current.nativeName}</span>
     <svg class="ls-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
@@ -59,20 +75,19 @@ const localeHref = (l: string, p: string) => {
       {LANGUAGE_CONFIG.map((l) =>
         l.enabled ? (
           <a
-            class:list={['ls-option', { active: l.code === lang }]}
+            class:list={['ls-option', 'ls-flag', { active: l.code === lang }]}
             href={localeHref(l.code, pathWithoutLocale)}
             hreflang={l.code}
             lang={l.code}
             aria-label={l.label}
             aria-current={l.code === lang ? 'true' : undefined}
             data-ls-option
+            data-flag={l.countryCode}
           >
-            <img class="ls-flag" src={l.flagUrl} alt="" width="28" height="21" loading="lazy" />
             <span class="ls-option-name">{l.nativeName}</span>
           </a>
         ) : (
-          <div class="ls-option ls-option--disabled" title={`${l.label} — ${t(lang, 'languageSwitcher.comingSoon')}`}>
-            <img class="ls-flag" src={l.flagUrl} alt="" width="28" height="21" loading="lazy" />
+          <div class="ls-option ls-option--disabled ls-flag" data-flag={l.countryCode} title={`${l.label} — ${t(lang, 'languageSwitcher.comingSoon')}`}>
             <span class="ls-option-name">{l.nativeName}</span>
             <span class="ls-option-badge">{t(lang, 'languageSwitcher.comingSoon')}</span>
           </div>
@@ -86,8 +101,6 @@ const localeHref = (l: string, p: string) => {
   (function () {
     // 语言偏好持久化 key（与各页面 <head> 内的重定向脚本共用）
     const LS_KEY = 'ishine_lang';
-    const flagFallback = 'data:image/svg+xml;charset=utf-8,' +
-      encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="28" height="21"><rect width="28" height="21" fill="#e5e7eb" rx="3"/></svg>');
 
     document.querySelectorAll('[data-lang-switcher]').forEach((root) => {
       const trigger = root.querySelector('[data-ls-trigger]');
@@ -156,13 +169,11 @@ const localeHref = (l: string, p: string) => {
         });
       });
 
-      // 国旗加载失败时的灰色兜底
-      root.querySelectorAll('.ls-flag').forEach((img) => {
-        img.addEventListener('error', () => {
-          img.src = flagFallback;
-          img.removeEventListener('error', () => {});
-        });
-      });
+      // 国旗预载：面板里的 44 面旗子只在"用户真要打开弹窗"时才去取（悬停/聚焦即预先放行，
+      // 键盘用户点开前 focusin 也已触发，所以看不到加载过程），首屏因此不为隐藏内容发图片请求。
+      const markReady = () => root.classList.add('ls--ready');
+      root.addEventListener('pointerenter', markReady, { once: true });
+      root.addEventListener('focusin', markReady, { once: true });
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && root.classList.contains('open')) close();
@@ -204,16 +215,54 @@ const localeHref = (l: string, p: string) => {
 }
 .ls.open .ls-chevron { transform: rotate(180deg); }
 
-/* 国旗统一尺寸（4:3），object-fit 防变形 */
-.ls-flag {
+/* 国旗：由 CSS 伪元素承载（2026-09-22 改造）
+   每页原本有 46 个 <img class="ls-flag">（2 个切换器实例 × (1 trigger + 22 选项)），
+   既占 Lighthouse 的 DOM 规模，又被 a11y 审计当成 46 个空 alt 图片反复提示。
+   现在旗标是 anchor/button 上的 ::before：不产生 DOM 节点、不产生 <img>、也不进可访问性树
+   （装饰图本该如此），而语言名的可见文本与 aria-label 语义完全不变。
+   配色/圆角/描边在此统一；URL 由下面每行的 data-flag 规则提供。
+   ⚠ 新增语种时：先确认 LANGUAGE_CONFIG 的国家代码已在本表里，否则构建会报错提示补哪一行。 */
+.ls-flag::before {
+  content: '';
+  flex-shrink: 0;
   width: 28px;
   height: 21px;
-  flex-shrink: 0;
-  object-fit: cover;
+  background-color: #e5e7eb; /* 图片未就绪/被拦截时的灰色占位（替代原 JS 兜底 <img>） */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-  display: block;
 }
+/* 各语种国旗（data-flag = 国家代码，来自 LANGUAGE_CONFIG.countryCode） */
+.ls-flag[data-flag='us'] { --ls-flag-url: url('https://flagcdn.com/us.svg'); }
+.ls-flag[data-flag='tr'] { --ls-flag-url: url('https://flagcdn.com/tr.svg'); }
+.ls-flag[data-flag='il'] { --ls-flag-url: url('https://flagcdn.com/il.svg'); }
+.ls-flag[data-flag='ru'] { --ls-flag-url: url('https://flagcdn.com/ru.svg'); }
+.ls-flag[data-flag='ro'] { --ls-flag-url: url('https://flagcdn.com/ro.svg'); }
+.ls-flag[data-flag='pl'] { --ls-flag-url: url('https://flagcdn.com/pl.svg'); }
+.ls-flag[data-flag='gr'] { --ls-flag-url: url('https://flagcdn.com/gr.svg'); }
+.ls-flag[data-flag='it'] { --ls-flag-url: url('https://flagcdn.com/it.svg'); }
+.ls-flag[data-flag='kr'] { --ls-flag-url: url('https://flagcdn.com/kr.svg'); }
+.ls-flag[data-flag='jp'] { --ls-flag-url: url('https://flagcdn.com/jp.svg'); }
+.ls-flag[data-flag='cz'] { --ls-flag-url: url('https://flagcdn.com/cz.svg'); }
+.ls-flag[data-flag='de'] { --ls-flag-url: url('https://flagcdn.com/de.svg'); }
+.ls-flag[data-flag='sa'] { --ls-flag-url: url('https://flagcdn.com/sa.svg'); }
+.ls-flag[data-flag='nl'] { --ls-flag-url: url('https://flagcdn.com/nl.svg'); }
+.ls-flag[data-flag='es'] { --ls-flag-url: url('https://flagcdn.com/es.svg'); }
+.ls-flag[data-flag='fr'] { --ls-flag-url: url('https://flagcdn.com/fr.svg'); }
+.ls-flag[data-flag='br'] { --ls-flag-url: url('https://flagcdn.com/br.svg'); }
+.ls-flag[data-flag='pt'] { --ls-flag-url: url('https://flagcdn.com/pt.svg'); }
+.ls-flag[data-flag='id'] { --ls-flag-url: url('https://flagcdn.com/id.svg'); }
+.ls-flag[data-flag='th'] { --ls-flag-url: url('https://flagcdn.com/th.svg'); }
+.ls-flag[data-flag='vn'] { --ls-flag-url: url('https://flagcdn.com/vn.svg'); }
+.ls-flag[data-flag='ir'] { --ls-flag-url: url('https://flagcdn.com/ir.svg'); }
+
+/* trigger 上的国旗立即加载（它是可见的当前语言标识）；面板内 44 面延迟到悬停/聚焦/展开 */
+.ls-trigger.ls-flag::before { background-image: var(--ls-flag-url); }
+.ls-panel .ls-flag::before { background-image: none; }
+.ls.open .ls-panel .ls-flag::before,
+.ls--ready .ls-panel .ls-flag::before { background-image: var(--ls-flag-url); }
 
 /* 弹窗遮罩：浅灰色、不透明度固定 30% */
 .ls-backdrop {
