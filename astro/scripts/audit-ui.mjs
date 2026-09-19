@@ -4,7 +4,7 @@
 // 可用环境变量 AUDIT_BASE_URL 覆盖目标站点（默认本地 preview）。
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import { designTokens } from '../design-tokens.config.js';
+import { designTokens } from '../design-tokens.config.mjs';
 import fs from 'node:fs';
 
 const BASE = process.env.AUDIT_BASE_URL || 'http://localhost:4321';

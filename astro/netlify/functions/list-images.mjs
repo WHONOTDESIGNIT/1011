@@ -45,7 +45,7 @@ export const handler = async (event) => {
 
   try {
     // 不再显式传 siteID/token（此前传的是未定义的环境变量 → Blobs 无凭据 → 每次 401）。
-    // 留空由运行时自动注入站点上下文，与 get-image.mjs / vote.ts 的写法一致。
+    // 留空由运行时自动注入站点上下文，与 get-image.mjs / vote.mts 的写法一致。
     const imageStore = getStore({ name: STORE_NAME, consistency: 'strong' });
     const { blobs } = await imageStore.list();
 

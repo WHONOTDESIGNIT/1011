@@ -97,7 +97,7 @@ export const handler = async (event) => {
 
     // 不再显式传 siteID/token：此前传入的是未定义的环境变量，
     // 导致 Blobs 客户端没有凭据、每次都 401（线上表现为 "Blobs has generated an internal error (401)"）。
-    // 留空即由 Netlify 运行时自动注入站点上下文——同目录的 get-image.mjs / vote.ts 一直是这样且工作正常。
+    // 留空即由 Netlify 运行时自动注入站点上下文——同目录的 get-image.mjs / vote.mts 一直是这样且工作正常。
     const imageStore = getStore({ name: STORE_NAME, consistency: 'strong' });
 
     const uniqueKey = `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
