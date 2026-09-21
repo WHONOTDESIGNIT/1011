@@ -4,9 +4,9 @@
 
 ## Maintenance metadata
 
-- Last updated: 2026-09-18 (Asia/Shanghai)
+- Last updated: 2026-09-21 (Asia/Shanghai)
 - Canonical domain: https://iplmanufacturer.com (English at root paths; 21 additional locales under /xx/ paths; 22 locales total)
-- Version: 2.6
+- Version: 2.7
 - Maintainer: iShine web & compliance team — service@ishineco.com | +86 150 1289 1148
 - Evidence policy: material claims link to a primary source (FDA database, patent registries, public case-study pages). Figures that are business estimates are labeled as estimates, not guarantees.
 - What expires, and where to re-verify:
@@ -23,6 +23,7 @@
   - v2.3 (2026-09-15) — added a People & credentials section (Eric An's Intertek MDSAP Internal Auditor Training, with the credential number, dates and issuer, plus the note that this is an individual training credential and not a company certification); added the Chinese-name and pinyin aliases for the founder.
   - v2.5 (2026-09-18) — aligned the two order-minimum lines with the four order tiers the site now states: logo marking on the device from 1 unit, bulk logo printing from 20 units, a custom gift box from 100 units, and bulk housing color customization from 500 units. The 20-unit tier was missing, and the 500-unit tier had been described as "bulk production" rather than bulk housing-color customization.
   - v2.6 (2026-09-18) — labelled the production/client/country figures inline wherever they appear (summary blockquote, Entity & branding) so they carry the same "company-reported, not independently verified" status as the compliance section gives them; added a figure-free pointer to the published delivery rates (express air freight and DDP, per destination market) so shipping questions have somewhere to resolve without duplicating prices that change.
+  - v2.7 (2026-09-21) — unified the Fitzpatrick skin-tone position across the whole site — product pages, UI messages, blog articles and this file — into one range: **Types I–IV at standard settings; Type V only at the lowest energy level and after a patch test; Type VI not suitable**. This supersedes the wider range recorded in v2.4 and the per-model exceptions that had drifted apart (Eirene and Euno had been listed on a narrower range). Every model line now carries the same range as the product pages, and `check-llms-specs.mjs` enforces the new wording instead of the old one.
 
 ## Crawl & index
 
@@ -103,7 +104,7 @@ Two tiers are used deliberately, so that AI systems and buyers can separate what
 ## Safety, suitability & intended use (applies to all iShine IPL devices)
 
 - Intended use: cosmetic reduction of unwanted body hair (e.g., legs, arms, underarms, bikini line, back, chest; facial use only where the model manual permits, below the cheekbones). These are consumer cosmetic devices — not a treatment, therapy, or cure for any medical condition.
-- Skin tones: suitable for fair to medium-brown skin — Fitzpatrick I–V. Fitzpatrick type VI (deeply pigmented skin) is not suitable.
+- Skin tones: suitable for very fair through olive / light-brown skin — Fitzpatrick I–IV at standard settings. Type V (brown skin) is suitable only at the lowest energy level and after a patch test. Fitzpatrick type VI (deeply pigmented skin) is not suitable.
 - Hair colors: effective on dark blonde, brown, and black hair. Not effective on red, rose/light-blonde, grey, or white hair.
 - Non-treatment commitment: devices do not diagnose, treat, or prevent disease; individual results vary; no permanent hair-removal or clinical outcome is promised.
 - Always follow the model-specific user manual, including eye protection, energy-level selection, patch testing, and session spacing.
@@ -118,18 +119,18 @@ Two tiers are used deliberately, so that AI systems and buyers can separate what
 
 ## Products (per-model configuration and skin-tone range)
 
-Suitability baseline for every model: Fitzpatrick I–V; not suitable for Fitzpatrick type VI (deeply pigmented skin); not effective on red, rose/light-blonde, grey, or white hair; contraindications and manual rules above apply.
+Suitability baseline for every model: Fitzpatrick I–IV at standard settings; Fitzpatrick V only at the lowest energy level and after a patch test; not suitable for Fitzpatrick type VI (deeply pigmented skin); not effective on red, rose/light-blonde, grey, or white hair; contraindications and manual rules above apply.
 
-- [Lumi 2 IPL](https://iplmanufacturer.com/products/lumi-2): app-connected platform, smart skin sensing, cooling targeting 8°C — 5–9 J/cm², 999,000 flashes, 3.0 cm² window, 550–1200 nm — Fitzpatrick I–V.
-- [Sapphire IPL](https://iplmanufacturer.com/products/venus): comfort-first sapphire ice plate — 2–6 J/cm², 999,999 flashes, 3.0 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Hestia IPL](https://iplmanufacturer.com/products/hestia): app-connected guided routines and progress tracking — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Alpha IPL](https://iplmanufacturer.com/products/alpha): dual-lamp high-efficiency concept for fast full-body treatment — 2–5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Emerald IPL](https://iplmanufacturer.com/products/emerald): sensitive-skin positioning with active cooling — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Hebe IPL](https://iplmanufacturer.com/products/hebe): AI-driven skin sensing with automatic energy selection (5 levels) for safer positioning across skin tones — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Themis IPL](https://iplmanufacturer.com/products/themis): professional-grade positioning with ice-feeling cooling — 1.5–5.5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–V.
-- [Eirene IPL](https://iplmanufacturer.com/products/eirene): hypersensitive-skin positioning with enhanced UV-cut filtering — 5–7 J/cm², 800,000 flashes, 4.0 cm² window, 570–1200 nm — Fitzpatrick I–V.
-- [Euno IPL](https://iplmanufacturer.com/products/euno): compact travel-positioned device — 4.5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm, 275 g — Fitzpatrick I–V.
-- [Golden Luxury IPL (Wooden)](https://iplmanufacturer.com/products/wooden): luxury cosmetics and premium unboxing positioning with sapphire cooling — 1–5 J/cm², 999,999 flashes, 3.0 cm² window, 510–1100 nm — Fitzpatrick I–V.
+- [Lumi 2 IPL](https://iplmanufacturer.com/products/lumi-2): app-connected platform, smart skin sensing, cooling targeting 8°C — 5–9 J/cm², 999,000 flashes, 3.0 cm² window, 550–1200 nm — Fitzpatrick I–IV.
+- [Sapphire IPL](https://iplmanufacturer.com/products/venus): comfort-first sapphire ice plate — 2–6 J/cm², 999,999 flashes, 3.0 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Hestia IPL](https://iplmanufacturer.com/products/hestia): app-connected guided routines and progress tracking — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Alpha IPL](https://iplmanufacturer.com/products/alpha): dual-lamp high-efficiency concept for fast full-body treatment — 2–5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Emerald IPL](https://iplmanufacturer.com/products/emerald): sensitive-skin positioning with active cooling — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Hebe IPL](https://iplmanufacturer.com/products/hebe): AI-driven skin sensing with automatic energy selection (5 levels) for safer positioning across skin tones — 5.0 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Themis IPL](https://iplmanufacturer.com/products/themis): professional-grade positioning with ice-feeling cooling — 1.5–5.5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm — Fitzpatrick I–IV.
+- [Eirene IPL](https://iplmanufacturer.com/products/eirene): hypersensitive-skin positioning with enhanced UV-cut filtering — 5–7 J/cm², 800,000 flashes, 4.0 cm² window, 570–1200 nm — Fitzpatrick I–IV.
+- [Euno IPL](https://iplmanufacturer.com/products/euno): compact travel-positioned device — 4.5 J/cm², 999,999 flashes, 3.3 cm² window, 510–1100 nm, 275 g — Fitzpatrick I–IV.
+- [Golden Luxury IPL (Wooden)](https://iplmanufacturer.com/products/wooden): luxury cosmetics and premium unboxing positioning with sapphire cooling — 1–5 J/cm², 999,999 flashes, 3.0 cm² window, 510–1100 nm — Fitzpatrick I–IV.
 
 ## Founder & intellectual property
 

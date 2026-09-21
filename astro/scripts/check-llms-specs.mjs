@@ -3,13 +3,14 @@
  * check-llms-specs.mjs — llms.txt 与产品页参数一致性守卫
  *
  * 背景：llms.txt 曾被写入一份与产品页不符的参数（10 个型号中 8 个的 J/cm²、闪数、
- * 窗口、波长都不同，Euno 净重写成 280 g 而产品页是 275 g），且 llms.txt 写
- * Fitzpatrick I–IV 而产品页写 I–V。两份口径分叉会让 AI 复述出与产品页互相打脸的参数。
- * 2026-09-17 老板裁定：**以站点产品页（messages/*.json）为准**。
+ * 窗口、波长都不同，Euno 净重写成 280 g 而产品页是 275 g）。两份口径分叉会让 AI
+ * 复述出与产品页互相打脸的参数。2026-09-17 老板裁定：**以站点产品页（messages/*.json）
+ * 为准**；2026-09-21 老板进一步裁定全站 Fitzpatrick 口径统一（见下面第 2 条）。
  *
  * 本守卫在构建时比对两者，任何不一致即以非零退出码中断构建：
  *   1. 每个型号的 J/cm²、闪数、cm²、波长必须与 messages/en.json 的 productDetail 一致
- *   2. llms.txt 不得声称 Fitzpatrick I–IV 适用（应为 I–V，仅 VI 不适用）
+ *   2. Fitzpatrick 口径必须为全站统一口径：I–IV 为标准档，V 仅最低能量档位 + 先做
+ *      斑贴测试，VI 不适用；不得再出现「I–V 适用」的旧写法
  *
  * 用法：node scripts/check-llms-specs.mjs
  */
@@ -76,9 +77,12 @@ for (const [display, slug] of Object.entries(PRODUCTS)) {
   }
 }
 
-// Fitzpatrick 口径：不得再声称 I–IV 适用
-if (/Fitzpatrick I–IV/.test(llms)) {
-  problems.push('llms.txt 仍出现「Fitzpatrick I–IV」（应为 I–V，仅 VI 不适用）');
+// Fitzpatrick 口径（2026-09-21 全站统一）：I–IV 标准档；V 仅最低档位 + 斑贴；VI 不适用
+if (/Fitzpatrick I–V/.test(llms)) {
+  problems.push('llms.txt 仍出现「Fitzpatrick I–V」（应为 I–IV 标准档；V 仅最低档位 + 斑贴；VI 不适用）');
+}
+if (!/Fitzpatrick I–IV/.test(llms)) {
+  problems.push('llms.txt 未出现「Fitzpatrick I–IV」（标准档范围应写明 I–IV）');
 }
 
 if (problems.length) {
@@ -87,4 +91,4 @@ if (problems.length) {
   console.error('[llms-specs] 以产品页（messages/en.json）为准修正 llms.txt 后重新构建。');
   process.exit(1);
 }
-console.log(`[llms-specs] ✓ ${Object.keys(PRODUCTS).length} 个型号参数与产品页一致；Fitzpatrick 口径为 I–V`);
+console.log(`[llms-specs] ✓ ${Object.keys(PRODUCTS).length} 个型号参数与产品页一致；Fitzpatrick 口径为 I–IV（V 仅最低档位 + 斑贴，VI 不适用）`);

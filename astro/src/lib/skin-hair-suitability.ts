@@ -7,10 +7,11 @@
  *      脚本整份重写会产生无法人工复核的 diff；② 本组文案是「一组同构短句 + 固定结构」，
  *      集中一处更好审核；③ 批次 B 正在并发改 messages/*.json，避免争用。
  *
- * 口径来源（老板 2026-09-15 指示 + 站点既有文案交叉验证）：
- *   - 肤色：Fitzpatrick **I–V 适用，VI 型不适用**。
- *     （站点 en.json 既有文案即为 "Most models are suitable for Fitzpatrick skin types I-V"，
- *       与本次指示一致；llms.txt v2.0 里写的 I–IV / V–VI 不适用与该口径冲突，待修。）
+ * 口径来源（老板 2026-09-21 全站口径统一指示）：
+ *   - 肤色：**I–IV ✅ 适用；V ⚠️ 仅最低档位 + 先斑贴测试；VI ❌ 不适用**。
+ *     （2026-09-21 前本站同时跑着 4 套互相冲突的口径：本文件与 messages/en.json 写 I–V，
+ *       llms.txt 写 I–IV 且 Eirene/Euno 写 I–III，iplForBrands.compare.limitBody 还改推 diode laser。
+ *       现已全站收敛到上表，llms.txt / messages / 博文同口径。）
  *   - 毛发：**除浅金色（light blonde）、红色、浅灰色外**均适用。
  *   - 表述借鉴 Philips 的科普式讲法：先说结论，再用一句话讲机理（黑色素吸光转热）。
  */
@@ -30,15 +31,15 @@ export const SKIN_HAIR_SUITABILITY: Record<string, SuitabilityCopy> = {
   en: {
     heading: 'Skin and hair suitability',
     intro: 'Two things decide whether IPL is right for you: your skin tone and your natural hair colour.',
-    skinTitle: 'Skin tone: Fitzpatrick I–V',
+    skinTitle: 'Skin tone: Fitzpatrick I–IV',
     skinBody:
-      'Suitable for skin tones from very light through brown — Fitzpatrick types I to V. Not suitable for Fitzpatrick type VI (deeply pigmented skin): the light cannot be delivered at a safe, effective dose, so we do not recommend IPL for that skin tone.',
+      'Suitable for skin tones from very fair through olive and light brown — Fitzpatrick types I to IV. Type V (brown skin) is suitable only at the lowest energy levels and after a patch test. Type VI (deeply pigmented skin) is not suitable: the light cannot be delivered at a safe, effective dose, so we do not recommend IPL for that skin tone.',
     hairTitle: 'Hair colour: all natural colours except light blonde, red and light grey',
     hairBody:
       'IPL works because the melanin in your hair absorbs the light and converts it into heat at the root. Dark blonde, brown and black hair contain enough melanin to be treated effectively. Light blonde, red and light grey hair contain too little, so results are poor.',
     note: 'Patch-test a small area 24 hours before your first full treatment, and follow the manual for your model. Individual results vary.',
     imageAlt:
-      'IPL suitability chart: Fitzpatrick skin tones I to V are suitable and type VI is not; dark blonde, brown and black hair are suitable, while light blonde, red and light grey hair are not.',
+      'IPL suitability chart: Fitzpatrick skin tones I to IV are suitable, type V is suitable at lower energy levels with a patch test, and type VI is not; dark blonde, brown and black hair are suitable, while light blonde, red and light grey hair are not.',
   },
   ar: {
     heading: 'ملاءمة الجلد والشعر',
