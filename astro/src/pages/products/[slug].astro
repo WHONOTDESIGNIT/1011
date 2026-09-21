@@ -471,7 +471,13 @@ const productSchema = {
       </div>
 
       <div class="grid gap-8 lg:grid-cols-2">
-        <div class="space-y-4" data-product-gallery>
+        {/* min-w-0 必需：本列是 grid 子项，自动最小尺寸取内容 min-content。
+            缩略图行是 flex + flex-shrink-0 的 80px 方块（gap 12px），6 张即 540px；
+            缺 min-w-0 时本列收缩不到 540px 以下，会把单列轨道顶宽并连带右列同宽，
+            表现为 375px 手机上图片区偏右、Pricing 表格右侧约 179px 被裁——html/body 的
+            overflow-x:hidden 把它变成静默裁切，看不出滚动条。加 min-w-0 后列可收缩到
+            容器宽，缩略图行恢复成行内横向滚动。 */}
+        <div class="min-w-0 space-y-4" data-product-gallery>
           <div class="overflow-hidden rounded-2xl bg-neutral-100">
             <picture>
               <source
@@ -566,7 +572,8 @@ const productSchema = {
           </script>
         </div>
 
-        <div class="space-y-6">
+        {/* 右列同样是 grid 子项，加上 min-w-0 以免内部（规格值/价格/长文案）把它顶宽 */}
+        <div class="min-w-0 space-y-6">
           <div class="space-y-3">
             {product.badge && (
               <span class="inline-block rounded-full bg-sky-700 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
