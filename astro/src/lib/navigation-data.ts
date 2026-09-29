@@ -24,13 +24,13 @@ export function getSubNavigation(locale: string, href: string): NavigationLink[]
     const items = [
       { path: '/products/lumi', label: t(locale, 'nav.lumi') },
       { path: '/products/venus', label: t(locale, 'nav.venus') },
+      { path: '/products/helix', label: t(locale, 'nav.helix') },
+      { path: '/products/themis', label: t(locale, 'nav.themis') },
       { path: '/products/hestia', label: t(locale, 'nav.hestia') },
       { path: '/products/alpha', label: t(locale, 'nav.alpha') },
       { path: '/products/emerald', label: t(locale, 'nav.emerald') },
       { path: '/products/euno', label: t(locale, 'nav.euno') },
-      { path: '/products/themis', label: t(locale, 'nav.themis') },
       { path: '/products/hebe', label: t(locale, 'nav.hebe') },
-      { path: '/products/helix', label: t(locale, 'nav.helix') },
       { path: '/products/eirene', label: t(locale, 'nav.eirene') },
       { path: '/products/wooden', label: t(locale, 'nav.wooden') },
     ];

@@ -592,14 +592,17 @@ const megaCardImg = (path: string) => {
 /* Nav collapse button */
 .nav-collapse-btn{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:40px;height:40px;min-width:40px;min-height:40px;max-width:40px;max-height:40px;border-radius:100px;background:var(--blue);border:none;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility 0s .2s,background .2s ease}
 .nav-collapse-btn svg{width:20px;height:20px}
-.site-header.header-menu-only .header-main-nav{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility 0s .18s}
+.site-header.header-menu-only .header-main-nav{opacity:0;visibility:hidden;pointer-events:none;width:0;min-width:0;overflow:hidden;transition:opacity .18s ease,visibility 0s .18s}
 .site-header.header-menu-only .nav-collapse-btn{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s 0s,background .2s ease}
 
 @media(max-width:767px){
 }
 @media(max-width:698px){
-  .site-header{top:66px;width:calc(100% - 32px)}
-  .header-inner{height:56px;padding:0 24px 0 32px;border-radius:40px}
+  /* 左右留白与正文容器（BaseLayout 的 .content-area = max-w-6xl px-6）保持一致：
+     此前这里是 calc(100% - 32px)（每侧 16px），而正文是 24px，页头比内容宽 8px/侧，
+     手机上看整页就是"没对齐"；.header-inner 的左右内边距也统一为 24px（原来左 32 右 24 也不对称）。 */
+  .site-header{top:66px;width:calc(100% - 48px)}
+  .header-inner{height:56px;padding:0 24px;border-radius:40px}
 }
 
 /* ═══ Mega Dropdown ═══ */
