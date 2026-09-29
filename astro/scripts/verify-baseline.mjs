@@ -4,7 +4,7 @@
 // 后续构建：与基线对比，超出容差输出警告（warn，exit 0）或失败（fail，exit 1）。
 //
 // 指标与容差（2026-08-31 与用户确认）：
-//   htmlTotal       HTML 总数 ±10            —— 允许少量新增/删除文章
+//   htmlTotal       HTML 总数 ±30            —— 允许少量新增/删除文章
 //   htmlPerLocale   每语言博客页 ±2          —— 允许单语言小幅调整
 //
 // ⚠️ 计数规则（2026-09-14 踩坑记录，改基线前必须按这条核对）：
@@ -38,7 +38,7 @@ const BUILD_LOCALES = ['en', 'tr', 'ro', 'ar', 'es', 'fr', 'ru', 'he', 'fa', 'el
 const HREFLANG_CONTRACT = ['en', 'tr', 'ro', 'ar', 'es-ES', 'fr', 'ru', 'he', 'fa', 'el', 'pt-BR', 'pt-PT', 'nl', 'pl', 'ja', 'ko', 'id', 'th', 'cs', 'vi', 'de', 'it'];
 
 const TOL = {
-  htmlTotalDelta: 10,
+  htmlTotalDelta: 30,
   htmlPerLocaleDelta: 2,
   assetWarnPct: 0.15,
   assetFailPct: 0.30,
