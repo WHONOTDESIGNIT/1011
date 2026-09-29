@@ -2478,6 +2478,72 @@
         "heading": "Bir IPL markası lansmanı için ambalajlama ve lojistik kapsamında neler yer alır?",
         "body": "Bir IPL markası lansmanı için ambalajlama ve lojistik, hem müşterinin karşılaştığı kutudan çıkarma (unboxing) deneyimini hem de küresel teslimat için gereken pratik korumaları kapsar. Programlar tipik olarak markalı koliler, iç parçalar, kullanım kılavuzları, etiketleme ve aksesuar seçiminin yanı sıra taşıma sırasında hasarı azaltmak için tasarlanmış koruyucu yapıları içerir. E-ticaret için ambalaj genellikle kompakt boyut ve dayanıklılık açısından optimize edilir; perakende için raf çekiciliği ve net iletişim düşünülerek tasarlanır. Lojistik desteği; ihracat belgeleri, deniz veya hava yoluyla sevkiyat koordinasyonu, gümrük işlemleri ve takibi kapsar; rota seçimleri maliyet, varış noktası ve zaman çizelgesi gereksinimlerine göre yapılır. iShine, OEM/ODM üretim programlarıyla uyumlu ambalajlama süreçlerini destekler; böylece ürünler tutarlı şekilde sevk edilir ve pazara hazır durumda teslim edilir."
       },
+      "dropTest": {
+        "heading": "Düşme Testinden Geçmiş Ambalaj",
+        "sub": "Standart tek ünitelik kargo kutumuz bağımsız üçüncü taraf ISTA 1A ambalaj testini geçmiştir.",
+        "badge": "PASS",
+        "body": "Seri üretime geçmeden önce, müşterilerimize gönderdiğimiz standart kargo kutusu — tek bir perakende ürününü taşıyan kahverengi oluklu kutu — bağımsız bir üçüncü taraf laboratuvarı tarafından düşme testine tabi tutuldu. Ambalaj, ISTA 1A standardındaki bir köşe, üç kenar ve altı yüzeyden oluşan düşme sırasına uygun olarak 30 inç (762 mm) yükseklikten yapılan 10 düşme sonrasında PASS olarak derecelendirildi ve gözle görülür bir hasar oluşmadı. Test edilen ünite, boş veya maket bir numune değil, perakende kiti içindeki çalışır durumda bir üretim cihazıydı; kargo kutusu ise seri üretimdeki tasarım ve spesifikasyonun aynısına göre üretildi. Rapor NDA (gizlilik sözleşmesi) kapsamında temin edilebilir.",
+        "metricsLabel": "Test sonuçları",
+        "metrics": [
+          {
+            "metric": "PASS",
+            "label": "Genel değerlendirme"
+          },
+          {
+            "metric": "10",
+            "label": "Düşme"
+          },
+          {
+            "metric": "30 in",
+            "label": "Düşme yüksekliği (762 mm)"
+          },
+          {
+            "metric": "Hasar yok",
+            "label": "Sonuç"
+          }
+        ],
+        "specLabel": "Test edilen konfigürasyon",
+        "specs": [
+          {
+            "label": "Ürün",
+            "value": "Ev tipi IPL epilasyon cihazı (perakende kiti)"
+          },
+          {
+            "label": "Test edilen ambalaj",
+            "value": "Standart kargo kutusu, ambalaj başına bir ünite"
+          },
+          {
+            "label": "Kargo kutusu ölçüleri",
+            "value": "8-1/8\" x 6-1/4\" x 4-5/8\""
+          },
+          {
+            "label": "Hediye kutusu ölçüleri",
+            "value": "7-7/8\" x 5-7/8\" x 4\""
+          },
+          {
+            "label": "Brüt ağırlık",
+            "value": "2.1 lbs"
+          },
+          {
+            "label": "Test standardı",
+            "value": "ISTA 1A"
+          },
+          {
+            "label": "Ambalaj türü",
+            "value": "Kahverengi oluklu mukavva, düz klapeli kutu (regular slotted), yapıştırılmış ve bantla kapatılmış"
+          },
+          {
+            "label": "Testi yapan",
+            "value": "Bureau Veritas Shenzhen Co., Ltd."
+          },
+          {
+            "label": "Test dönemi",
+            "value": "Eylül 2026"
+          }
+        ],
+        "imageAlt": "ISTA 1A düşme testini geçen standart IPL epilasyon cihazı kargo kutusu — 30 inçten 10 düşme, hasar yok",
+        "imageCaption": "Üçüncü taraf düşme testinden görseller: bantla kapatılmış kargo kutusu, açılmış ambalaj, perakende hediye kutusu ve iç koruma."
+      },
       "services": {
         "heading": "Hangi ambalajlama ve lojistik hizmetlerini sunuyoruz?",
         "sub": "Özel ambalaj tasarımından dünya çapında teslimata kadar fabrikadan müşteriye güvenilir bir yol inşa ediyoruz.",

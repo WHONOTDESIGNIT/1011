@@ -2985,6 +2985,72 @@
         "heading": "¿Qué incluye el embalaje y la logística para el lanzamiento de una marca IPL?",
         "body": "El embalaje y la logística para el lanzamiento de una marca IPL cubren tanto la experiencia de apertura orientada al cliente como las protecciones prácticas necesarias para la entrega global. Los programas suelen incluir cartones con marca, insertos, manuales, etiquetado y selección de accesorios, además de estructuras protectoras diseñadas para reducir los daños durante el transporte. Para el comercio electrónico, el embalaje suele optimizarse en tamaño compacto y durabilidad; para el retail, se diseña para atraer en el punto de venta y comunicar con claridad. El soporte logístico incluye documentos de exportación, coordinación de envíos por mar o aire, gestión aduanera y seguimiento, con opciones de ruta basadas en el coste, el destino y los plazos. iShine respalda flujos de embalaje alineados con los calendarios de producción OEM/ODM, de modo que los productos puedan enviarse de forma consistente y llegar en condiciones óptimas para el mercado."
       },
+      "dropTest": {
+        "heading": "Embalaje con prueba de caída",
+        "sub": "Nuestra caja de envío estándar para una unidad ha superado el ensayo de embalaje ISTA 1A realizado por un tercero independiente.",
+        "badge": "PASS",
+        "body": "Antes de la producción en serie, la caja de envío estándar que entregamos a nuestros clientes —la caja de cartón corrugado marrón que contiene una sola unidad de venta al público— fue sometida a una prueba de caída por un laboratorio independiente externo. El embalaje obtuvo la calificación PASS, sin daños apreciables, tras 10 caídas desde una altura de 30 in (762 mm), siguiendo la secuencia estándar ISTA 1A: una esquina, tres aristas y seis caras. La unidad sometida a ensayo era un dispositivo de producción funcional con su kit de venta al público, no una muestra vacía ni una maqueta, y la caja de envío se fabricó con el mismo diseño y las mismas especificaciones que la producción en serie. El informe está disponible bajo NDA (acuerdo de confidencialidad).",
+        "metricsLabel": "Resultados del ensayo",
+        "metrics": [
+          {
+            "metric": "PASS",
+            "label": "Calificación global"
+          },
+          {
+            "metric": "10",
+            "label": "Caídas"
+          },
+          {
+            "metric": "30 in",
+            "label": "Altura de caída (762 mm)"
+          },
+          {
+            "metric": "Sin daños",
+            "label": "Resultado"
+          }
+        ],
+        "specLabel": "Configuración ensayada",
+        "specs": [
+          {
+            "label": "Producto",
+            "value": "Depiladora IPL de uso doméstico (kit de venta al público)"
+          },
+          {
+            "label": "Embalaje ensayado",
+            "value": "Caja de envío estándar, una unidad por caja"
+          },
+          {
+            "label": "Medidas de la caja de envío",
+            "value": "8-1/8\" x 6-1/4\" x 4-5/8\""
+          },
+          {
+            "label": "Medidas de la caja de regalo",
+            "value": "7-7/8\" x 5-7/8\" x 4\""
+          },
+          {
+            "label": "Peso bruto",
+            "value": "2.1 lbs"
+          },
+          {
+            "label": "Norma de ensayo",
+            "value": "ISTA 1A"
+          },
+          {
+            "label": "Tipo de contenedor",
+            "value": "Cartón corrugado marrón, de solapas regulares, encolado y sellado con cinta adhesiva"
+          },
+          {
+            "label": "Laboratorio responsable",
+            "value": "Bureau Veritas Shenzhen Co., Ltd."
+          },
+          {
+            "label": "Periodo de ensayo",
+            "value": "Septiembre 2026"
+          }
+        ],
+        "imageAlt": "Caja de envío estándar de la depiladora IPL después de superar la prueba de caída ISTA 1A: 10 caídas desde 30 in sin daños",
+        "imageCaption": "Muestras de la prueba de caída realizada por un tercero: caja de envío sellada, embalaje abierto, caja de regalo y protección interior."
+      },
       "services": {
         "heading": "¿Qué servicios de embalaje y logística ofrecemos?",
         "sub": "Del diseño de embalaje personalizado a la entrega mundial, construimos una vía fiable de la fábrica al cliente.",

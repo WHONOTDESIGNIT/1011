@@ -2985,6 +2985,72 @@
         "heading": "Was ist bei Verpackung und Logistik für den Marktstart einer IPL-Marke enthalten?",
         "body": "Verpackung und Logistik für den Marktstart einer IPL-Marke umfassen sowohl das kundenseitige Auspackerlebnis als auch den praktischen Schutz für die weltweite Lieferung. Programme umfassen in der Regel markengeprägte Kartons, Einsätze, Anleitungen, Kennzeichnung und die Auswahl von Zubehör sowie Schutzstrukturen, die Transportschäden reduzieren. Im E-Commerce wird die Verpackung häufig auf kompakte Größe und Robustheit optimiert; im Handel ist sie auf Regalwirkung und klare Kommunikation ausgelegt. Der Logistik-Support umfasst Exportdokumente, die Koordination des Versands per See- oder Luftfracht, die Zollabwicklung und das Tracking – mit Routing-Optionen je nach Kosten, Zielland und Zeitplan. iShine unterstützt Verpackungsabläufe, die auf die OEM/ODM-Produktionspläne abgestimmt sind, damit Produkte konsistent versendet werden und marktreif ankommen."
       },
+      "dropTest": {
+        "heading": "Fallgetestete Verpackung",
+        "sub": "Unsere standardmäßige Versandschachtel für eine Einheit hat die Verpackungsprüfung ISTA 1A durch einen unabhängigen Dritten bestanden.",
+        "badge": "PASS",
+        "body": "Vor der Serienproduktion wurde die standardmäßige Versandschachtel, in der wir an unsere Kunden liefern — die braune Wellpappschachtel für eine einzelne Verkaufseinheit — von einem unabhängigen Drittlabor einem Falltest unterzogen. Die Verpackung wurde mit PASS bewertet, ohne erkennbare Schäden nach 10 Stürzen aus einer Höhe von 30 Zoll (762 mm), gemäß der Standardabfolge von ISTA 1A: eine Ecke, drei Kanten und sechs Flächen. Das getestete Gerät war ein funktionsfähiges Seriengerät im Verkaufs-Set, keine leere oder unechte Probe, und die Versandschachtel wurde nach demselben Design und derselben Spezifikation wie die Serienproduktion gefertigt. Der Bericht ist unter NDA (Geheimhaltungsvereinbarung) verfügbar.",
+        "metricsLabel": "Testergebnisse",
+        "metrics": [
+          {
+            "metric": "PASS",
+            "label": "Gesamtbewertung"
+          },
+          {
+            "metric": "10",
+            "label": "Stürze"
+          },
+          {
+            "metric": "30 in",
+            "label": "Fallhöhe (762 mm)"
+          },
+          {
+            "metric": "Keine Schäden",
+            "label": "Ergebnis"
+          }
+        ],
+        "specLabel": "Getestete Konfiguration",
+        "specs": [
+          {
+            "label": "Produkt",
+            "value": "IPL-Haarentfernungsgerät für den Heimgebrauch (Verkaufs-Set)"
+          },
+          {
+            "label": "Getestete Verpackung",
+            "value": "Standard-Versandschachtel, eine Einheit pro Packstück"
+          },
+          {
+            "label": "Maße Versandschachtel",
+            "value": "8-1/8\" x 6-1/4\" x 4-5/8\""
+          },
+          {
+            "label": "Maße Geschenkbox",
+            "value": "7-7/8\" x 5-7/8\" x 4\""
+          },
+          {
+            "label": "Bruttogewicht",
+            "value": "2.1 lbs"
+          },
+          {
+            "label": "Prüfnorm",
+            "value": "ISTA 1A"
+          },
+          {
+            "label": "Behältertyp",
+            "value": "Braune Wellpappe, regelmäßig geschlitzt (RSC), geklebt und mit Klebeband versiegelt"
+          },
+          {
+            "label": "Getestet von",
+            "value": "Bureau Veritas Shenzhen Co., Ltd."
+          },
+          {
+            "label": "Testzeitraum",
+            "value": "September 2026"
+          }
+        ],
+        "imageAlt": "Standard-Versandschachtel des IPL-Haarentfernungsgeräts nach bestandener ISTA 1A-Fallprüfung – 10 Stürze aus 30 Zoll ohne Schäden",
+        "imageCaption": "Exponate aus der Fallprüfung durch einen Dritten: versiegelte Versandschachtel, geöffnetes Packstück, Verkaufs-Geschenkbox und Innenverpackung."
+      },
       "services": {
         "heading": "Welche Verpackungs- und Logistikservices bieten wir an?",
         "sub": "Von individuellem Verpackungsdesign bis zur weltweiten Lieferung: Wir schaffen einen verlässlichen Weg von der Fabrik zum Kunden.",

@@ -2962,6 +2962,72 @@
         "heading": "Co obejmują opakowania i logistyka przy wprowadzaniu marki IPL na rynek?",
         "body": "Opakowania i logistyka przy wprowadzaniu marki IPL na rynek obejmują zarówno doświadczenie rozpakowywania widoczne dla klienta, jak i praktyczną ochronę niezbędną przy dostawach globalnych. Programy zazwyczaj obejmują kartoniki z brandingiem, wkładki, instrukcje obsługi, etykietowanie i dobór akcesoriów, a także struktury ochronne zaprojektowane w celu ograniczenia uszkodzeń podczas transportu. W e-commerce opakowania są często optymalizowane pod kątem kompaktowego rozmiaru i trwałości; w sprzedaży detalicznej projektuje się je z myślą o atrakcyjności na półce i przejrzystej komunikacji. Wsparcie logistyczne obejmuje dokumenty eksportowe, koordynację wysyłek morskich lub lotniczych, obsługę celną i śledzenie przesyłek, przy czym trasy dobierane są w zależności od kosztów, miejsca docelowego i wymagań czasowych. iShine wspiera procesy pakowania zsynchronizowane z harmonogramami produkcji OEM/ODM, dzięki czemu produkty mogą być wysyłane regularnie i docierać w stanie gotowym do sprzedaży."
       },
+      "dropTest": {
+        "heading": "Opakowanie poddane testom zrzutowym",
+        "sub": "Nasze standardowe jednostkowe opakowanie wysyłkowe przeszło test pakowania ISTA 1A przeprowadzony przez niezależną stronę trzecią.",
+        "badge": "PASS",
+        "body": "Przed rozpoczęciem produkcji masowej standardowe opakowanie wysyłkowe, w którym dostarczamy produkty klientom — brązowy karton z tektury falistej mieszczący jedno opakowanie detaliczne — zostało poddane testom zrzutowym w niezależnym laboratorium zewnętrznym. Opakowanie otrzymało ocenę PASS i nie wykazało zauważalnych uszkodzeń po 10 zrzutach z wysokości 30 cali (762 mm), zgodnie ze standardową sekwencją ISTA 1A obejmującą jeden narożnik, trzy krawędzie i sześć ścian. Testowany egzemplarz był sprawnym urządzeniem produkcyjnym w zestawie detalicznym, a nie pustą atrapą ani próbką zastępczą, a opakowanie wysyłkowe wykonano według tej samej konstrukcji i specyfikacji co w produkcji masowej. Raport jest dostępny na podstawie NDA (umowy o zachowaniu poufności).",
+        "metricsLabel": "Wyniki testów",
+        "metrics": [
+          {
+            "metric": "PASS",
+            "label": "Ocena ogólna"
+          },
+          {
+            "metric": "10",
+            "label": "Zrzuty"
+          },
+          {
+            "metric": "30 in",
+            "label": "Wysokość zrzutu (762 mm)"
+          },
+          {
+            "metric": "Bez uszkodzeń",
+            "label": "Wynik"
+          }
+        ],
+        "specLabel": "Testowana konfiguracja",
+        "specs": [
+          {
+            "label": "Produkt",
+            "value": "Domowe urządzenie do depilacji IPL (zestaw detaliczny)"
+          },
+          {
+            "label": "Testowane opakowanie",
+            "value": "Standardowe opakowanie wysyłkowe, jedna sztuka na opakowanie"
+          },
+          {
+            "label": "Wymiary opakowania wysyłkowego",
+            "value": "8-1/8\" x 6-1/4\" x 4-5/8\""
+          },
+          {
+            "label": "Wymiary opakowania prezentowego",
+            "value": "7-7/8\" x 5-7/8\" x 4\""
+          },
+          {
+            "label": "Masa brutto",
+            "value": "2.1 lbs"
+          },
+          {
+            "label": "Standard testu",
+            "value": "ISTA 1A"
+          },
+          {
+            "label": "Rodzaj opakowania",
+            "value": "Brązowa tektura falista, karton klapowy (regular slotted), klejony i zaklejany taśmą"
+          },
+          {
+            "label": "Testowane przez",
+            "value": "Bureau Veritas Shenzhen Co., Ltd."
+          },
+          {
+            "label": "Okres testów",
+            "value": "Wrzesień 2026"
+          }
+        ],
+        "imageAlt": "Standardowe opakowanie wysyłkowe domowego urządzenia do depilacji IPL po przejściu testu zrzutowego ISTA 1A — 10 zrzutów z wysokości 30 cali bez uszkodzeń",
+        "imageCaption": "Materiały z testu zrzutowego przeprowadzonego przez stronę trzecią: zaklejone opakowanie wysyłkowe, otwarte opakowanie, opakowanie prezentowe oraz zabezpieczenie wnętrza."
+      },
       "services": {
         "heading": "Jakie usługi pakowania i logistyki oferujemy?",
         "sub": "Od projektowania opakowań na zamówienie po dostawy na cały świat — budujemy niezawodną ścieżkę od fabryki do klienta.",

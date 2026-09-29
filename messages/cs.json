@@ -2985,6 +2985,72 @@
         "heading": "Co zahrnuje balení a logistika při uvedení značky IPL na trh?",
         "body": "Balení a logistika při uvedení značky IPL na trh pokrývají jak zážitek z rozbalování, který vnímá zákazník, tak praktickou ochranu potřebnou pro celosvětové dodávky. Programy obvykle zahrnují značkové kartony, vložky, návody, etikety a výběr příslušenství a dále ochranné konstrukce navržené ke snížení poškození během přepravy. Pro e-shopy je balení často optimalizováno na kompaktní rozměry a odolnost; pro maloobchod je navrženo pro atraktivitu na regálu a jasnou komunikaci. Logistická podpora zahrnuje vývozní dokumenty, koordinaci dopravy po moři nebo vzduchem, celní odbavení a sledování zásilek, přičemž volba trasy se řídí náklady, cílovou destinací a časovými požadavky. Společnost iShine podporuje balicí procesy sladěné s výrobním harmonogramem OEM/ODM, takže produkty lze konzistentně expedovat a doručovat připravené pro trh."
       },
+      "dropTest": {
+        "heading": "Obal testovaný pádovou zkouškou",
+        "sub": "Naše standardní přepravní krabice pro jednu jednotku prošla testováním balení ISTA 1A u nezávislé třetí strany.",
+        "badge": "PASS",
+        "body": "Před zahájením sériové výroby byla standardní přepravní krabice, kterou zasíláme svým zákazníkům — hnědá vlnitá krabice pro jednu maloobchodní jednotku — podrobena pádové zkoušce v nezávislé laboratoři třetí strany. Obal byl hodnocen jako PASS bez znatelného poškození po 10 pádech z výšky 30 palců (762 mm) podle standardní posloupnosti ISTA 1A: jeden roh, tři hrany a šest stěn. Testovanou jednotkou bylo funkční sériové zařízení v maloobchodní sadě, nikoli prázdný nebo atrapový vzorek, a přepravní krabice byla vyrobena podle stejného provedení a specifikace jako sériová výroba. Protokol je k dispozici na základě NDA.",
+        "metricsLabel": "Výsledky testu",
+        "metrics": [
+          {
+            "metric": "PASS",
+            "label": "Celkové hodnocení"
+          },
+          {
+            "metric": "10",
+            "label": "Počet pádů"
+          },
+          {
+            "metric": "30 in",
+            "label": "Výška pádu (762 mm)"
+          },
+          {
+            "metric": "Bez poškození",
+            "label": "Výsledek"
+          }
+        ],
+        "specLabel": "Testovaná konfigurace",
+        "specs": [
+          {
+            "label": "Produkt",
+            "value": "Přístroj na odstraňování chloupků IPL pro domácí použití (maloobchodní sada)"
+          },
+          {
+            "label": "Testovaný obal",
+            "value": "Standardní přepravní krabice, jedna jednotka v balení"
+          },
+          {
+            "label": "Rozměry přepravní krabice",
+            "value": "8-1/8\" x 6-1/4\" x 4-5/8\""
+          },
+          {
+            "label": "Rozměry dárkové krabice",
+            "value": "7-7/8\" x 5-7/8\" x 4\""
+          },
+          {
+            "label": "Hrubá hmotnost",
+            "value": "2.1 lbs"
+          },
+          {
+            "label": "Zkušební norma",
+            "value": "ISTA 1A"
+          },
+          {
+            "label": "Typ obalu",
+            "value": "Hnědá vlnitá lepenka, pravidelná štěrbinová (RSC), lepená a přelepená páskou"
+          },
+          {
+            "label": "Test provedl",
+            "value": "Bureau Veritas Shenzhen Co., Ltd."
+          },
+          {
+            "label": "Období testování",
+            "value": "září 2026"
+          }
+        ],
+        "imageAlt": "Standardní přepravní krabice přístroje na odstraňování chloupků IPL po úspěšném absolvování pádové zkoušky ISTA 1A – 10 pádů z výšky 30 palců bez poškození",
+        "imageCaption": "Exponáty z pádové zkoušky provedené třetí stranou: zapečetěná přepravní krabice, otevřené balení, maloobchodní dárková krabice a vnitřní ochrana."
+      },
       "services": {
         "heading": "Jaké služby balení a logistiky nabízíme?",
         "sub": "Od vlastního designu balení po celosvětové doručení budujeme spolehlivou cestu od továrny k zákazníkovi.",
