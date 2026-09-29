@@ -8046,12 +8046,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Akıllı Cilt Sensörü + Cildi 8°C'ye Soğutur",
+      "tagline": "Akıllı Cilt Sensörü + Cildi 10°C'ye Soğutur",
       "description": "Yeni nesil Lumi 2 IPL cihazı, gelişmiş cilt algılama teknolojisini aktif soğutma ile birleştirerek konforlu ve etkili bir epilasyon deneyimi sunar.",
       "specs": {
         "type": {
           "label": "Tip",
-          "value": "Akıllı uygulama bağlantılı"
+          "value": "Ev kullanımı IPL (tek kuvars lamba)"
         },
         "cooling": {
           "label": "Soğutma",
@@ -8063,11 +8063,11 @@
         },
         "energy": {
           "label": "Enerji",
-          "value": "5-9 J/cm²"
+          "value": "2.33-5.33 J/cm²"
         },
         "lamp": {
           "label": "Lamba",
-          "value": "999.000 atım"
+          "value": "999.999 atım"
         },
         "window": {
           "label": "Pencere",
@@ -8075,29 +8075,21 @@
         },
         "wavelength": {
           "label": "Dalga boyu",
-          "value": "550-1200nm"
-        },
-        "connectivity": {
-          "label": "Bağlantı",
-          "value": "Bluetooth 5.0 uygulaması"
+          "value": "510-1100nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "Cilt Soğutma Teknolojisi",
-          "description": "Aktif soğutma sistemi, neredeyse ağrısız bir tedavi deneyimi için her atımdan önce cildi 8°C'ye kadar soğutur."
+          "description": "Aktif soğutma sistemi, neredeyse ağrısız bir tedavi deneyimi için her atımdan önce cildi 10°C'ye kadar soğutur."
         },
         "smartSkinSensor": {
           "title": "Akıllı Cilt Sensörü",
           "description": "Gerçek zamanlı cilt tonu algılama, tüm cilt tiplerinde güvenlik için enerji çıkışını otomatik olarak ayarlar."
         },
-        "appConnectedPrecision": {
-          "title": "Uygulama Bağlantılı Hassasiyet",
-          "description": "Eşlik eden mobil uygulama üzerinden seanslarınızı takip edin, tedavi geçmişinizi görüntüleyin ve rehberlik alın."
-        },
         "highFlashCapacity": {
           "title": "Yüksek Atım Kapasitesi",
-          "description": "999.000 atım kapasiteli lamba yıllarca tedavi sağlar ve uzun süreli kullanım için idealdir."
+          "description": "999.999 atım kapasiteli lamba yıllarca tedavi sağlar ve uzun süreli kullanım için idealdir."
         }
       },
       "priceNote": "Lumi 2 platformu için güncel fabrika fiyatları, numune kapsamı ve MOQ planlaması hakkında bizimle iletişime geçin.",
@@ -9376,7 +9368,7 @@
           "title": "Konfor öncelikli soğutma",
           "description": "Buz hissi soğutma, tedaviyi konforlu tutar. Ağrısız ve spa benzeri bir deneyim sunmak isteyen markalar için idealdir.",
           "linkVenus": "Venus (Soğutma)",
-          "linkLumi2": "Lumi 2 (8°C'ye Soğutma)"
+          "linkLumi2": "Lumi 2 (10°C'ye Soğutma)"
         },
         "smartApp": {
           "title": "Akıllı uygulama destekli rutinler",

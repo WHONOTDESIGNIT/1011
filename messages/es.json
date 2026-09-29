@@ -8046,12 +8046,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Sensor de piel inteligente + enfría la piel a 8 °C",
+      "tagline": "Sensor de piel inteligente + enfría la piel a 10 °C",
       "description": "La depiladora Lumi 2 IPL de nueva generación combina tecnología avanzada de detección de piel con enfriamiento activo para ofrecer una experiencia de depilación cómoda y eficaz.",
       "specs": {
         "type": {
           "label": "Tipo",
-          "value": "Conectado a la app inteligente"
+          "value": "IPL de uso doméstico (lámpara de cuarzo única)"
         },
         "cooling": {
           "label": "Enfriamiento",
@@ -8063,11 +8063,11 @@
         },
         "energy": {
           "label": "Energía",
-          "value": "5-9 J/cm²"
+          "value": "2.33-5.33 J/cm²"
         },
         "lamp": {
           "label": "Lámpara",
-          "value": "999.000 destellos"
+          "value": "999.999 destellos"
         },
         "window": {
           "label": "Ventana",
@@ -8075,29 +8075,21 @@
         },
         "wavelength": {
           "label": "Longitud de onda",
-          "value": "550-1200nm"
-        },
-        "connectivity": {
-          "label": "Conectividad",
-          "value": "App con Bluetooth 5.0"
+          "value": "510-1100nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "Tecnología de enfriamiento de la piel",
-          "description": "El sistema de enfriamiento activo enfría la piel a 8 °C antes de cada destello para una experiencia de tratamiento casi sin dolor."
+          "description": "El sistema de enfriamiento activo enfría la piel a 10 °C antes de cada destello para una experiencia de tratamiento casi sin dolor."
         },
         "smartSkinSensor": {
           "title": "Sensor de piel inteligente",
           "description": "La detección del tono de piel en tiempo real ajusta automáticamente la salida de energía para garantizar la seguridad en todos los tipos de piel."
         },
-        "appConnectedPrecision": {
-          "title": "Precisión conectada a la app",
-          "description": "Realice un seguimiento de las sesiones, consulta el historial de tratamientos y recibe orientación a través de la aplicación móvil complementaria."
-        },
         "highFlashCapacity": {
           "title": "Alta capacidad de destello",
-          "description": "La lámpara de 999.000 destellos ofrece años de tratamientos, lo que la hace ideal para un uso a largo plazo."
+          "description": "La lámpara de 999.999 destellos ofrece años de tratamientos, lo que la hace ideal para un uso a largo plazo."
         }
       },
       "priceNote": "Ponte en contacto con nosotros para conocer los precios de fábrica actuales, el alcance del muestreo y la planificación del MOQ para la plataforma Lumi 2.",
@@ -9376,7 +9368,7 @@
           "title": "Refrigeración centrada en el confort",
           "description": "La refrigeración con sensación de frío mantiene el tratamiento confortable. Ideal para marcas que se posicionan en torno a sesiones indoloras, similares a las de un spa.",
           "linkVenus": "Venus (Refrigeración)",
-          "linkLumi2": "Lumi 2 (Refrigeración hasta 8 °C)"
+          "linkLumi2": "Lumi 2 (Refrigeración hasta 10 °C)"
         },
         "smartApp": {
           "title": "Rutinas guiadas por aplicación inteligente",

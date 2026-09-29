@@ -8046,12 +8046,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Capteur de peau intelligent + refroidissement de la peau à 8 °C",
+      "tagline": "Capteur de peau intelligent + refroidissement de la peau à 10 °C",
       "description": "L'appareil Lumi 2 IPL nouvelle génération combine une technologie avancée de détection de la peau à un refroidissement actif pour une expérience d'épilation confortable et efficace.",
       "specs": {
         "type": {
           "label": "Type",
-          "value": "Connecté à une application intelligente"
+          "value": "IPL à usage domestique (lampe à quartz unique)"
         },
         "cooling": {
           "label": "Refroidissement",
@@ -8063,11 +8063,11 @@
         },
         "energy": {
           "label": "Énergie",
-          "value": "5-9 J/cm²"
+          "value": "2.33-5.33 J/cm²"
         },
         "lamp": {
           "label": "Lampe",
-          "value": "999 000 impulsions"
+          "value": "999 999 impulsions"
         },
         "window": {
           "label": "Fenêtre",
@@ -8075,29 +8075,21 @@
         },
         "wavelength": {
           "label": "Longueur d'onde",
-          "value": "550-1200nm"
-        },
-        "connectivity": {
-          "label": "Connectivité",
-          "value": "Application Bluetooth 5.0"
+          "value": "510-1100nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "Technologie de refroidissement de la peau",
-          "description": "Le système de refroidissement actif refroidit la peau à 8 °C avant chaque impulsion pour une expérience de traitement quasi indolore."
+          "description": "Le système de refroidissement actif refroidit la peau à 10 °C avant chaque impulsion pour une expérience de traitement quasi indolore."
         },
         "smartSkinSensor": {
           "title": "Capteur de peau intelligent",
           "description": "La détection en temps réel du teint ajuste automatiquement la puissance délivrée pour une sécurité optimale sur tous les types de peau."
         },
-        "appConnectedPrecision": {
-          "title": "Précision connectée à l'application",
-          "description": "Suivez vos séances, consultez votre historique de traitements et recevez des recommandations via l'application mobile dédiée."
-        },
         "highFlashCapacity": {
           "title": "Grande capacité d'impulsions",
-          "description": "La lampe de 999 000 impulsions offre des années de traitements, idéale pour une utilisation à long terme."
+          "description": "La lampe de 999 999 impulsions offre des années de traitements, idéale pour une utilisation à long terme."
         }
       },
       "priceNote": "Contactez-nous pour connaître les prix d'usine actuels, le périmètre d'échantillonnage et la planification des MOQ pour la plateforme Lumi 2.",
@@ -9376,7 +9368,7 @@
           "title": "Refroidissement axé sur le confort",
           "description": "Le refroidissement à sensation de glace rend le traitement confortable. Idéal pour les marques qui se positionnent sur des séances indolores, dignes d'un spa.",
           "linkVenus": "Venus (Refroidissement)",
-          "linkLumi2": "Lumi 2 (Refroidissement jusqu'à 8 °C)"
+          "linkLumi2": "Lumi 2 (Refroidissement jusqu'à 10 °C)"
         },
         "smartApp": {
           "title": "Routines guidées par application intelligente",

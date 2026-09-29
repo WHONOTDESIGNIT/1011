@@ -8046,12 +8046,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "스마트 피부 센서 + 피부 8°C 쿨링",
+      "tagline": "스마트 피부 센서 + 피부 10°C 쿨링",
       "description": "차세대 Lumi 2 IPL 기기는 첨단 피부 감지 기술과 능동형 쿨링을 결합하여 편안하고 효과적인 제모 경험을 제공합니다.",
       "specs": {
         "type": {
           "label": "유형",
-          "value": "스마트 앱 연동"
+          "value": "가정용 IPL (단일 석영 램프)"
         },
         "cooling": {
           "label": "쿨링",
@@ -8063,11 +8063,11 @@
         },
         "energy": {
           "label": "에너지",
-          "value": "5-9 J/cm²"
+          "value": "2.33-5.33 J/cm²"
         },
         "lamp": {
           "label": "램프",
-          "value": "999,000회 섬광"
+          "value": "999,999회 섬광"
         },
         "window": {
           "label": "조사창",
@@ -8075,29 +8075,21 @@
         },
         "wavelength": {
           "label": "파장",
-          "value": "550-1200nm"
-        },
-        "connectivity": {
-          "label": "연결성",
-          "value": "Bluetooth 5.0 앱"
+          "value": "510-1100nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "피부 쿨링 기술",
-          "description": "능동형 쿨링 시스템이 매 섬광 전에 피부를 8°C로 식혀 무통증에 가까운 시술 경험을 제공합니다."
+          "description": "능동형 쿨링 시스템이 매 섬광 전에 피부를 10°C로 식혀 무통증에 가까운 시술 경험을 제공합니다."
         },
         "smartSkinSensor": {
           "title": "스마트 피부 센서",
           "description": "실시간 피부톤 감지 기능이 에너지 출력을 자동으로 조절하여 모든 피부 타입에서 안전한 사용을 보장합니다."
         },
-        "appConnectedPrecision": {
-          "title": "앱 연동 정밀 제어",
-          "description": "전용 모바일 앱으로 세션을 기록하고 시술 이력을 확인하며, 시술 가이드를 받을 수 있습니다."
-        },
         "highFlashCapacity": {
           "title": "높은 섬광 용량",
-          "description": "최대 999,000회의 섬광을 제공하는 램프로 수년간 사용할 수 있어 장기간 사용에 이상적입니다."
+          "description": "최대 999,999회의 섬광을 제공하는 램프로 수년간 사용할 수 있어 장기간 사용에 이상적입니다."
         }
       },
       "priceNote": "Lumi 2 플랫폼의 현재 공장 가격, 샘플링 범위, MOQ 계획에 대해 문의해 주시기 바랍니다.",
@@ -9376,7 +9368,7 @@
           "title": "편안함 우선 쿨링",
           "description": "아이스 쿨링이 시술을 편안하게 유지해 줍니다. 무통증, 스파 같은 시술을 내세우는 브랜드에 적합합니다.",
           "linkVenus": "Venus (쿨링)",
-          "linkLumi2": "Lumi 2 (8°C 쿨링)"
+          "linkLumi2": "Lumi 2 (10°C 쿨링)"
         },
         "smartApp": {
           "title": "스마트 앱 기반 시술 루틴",

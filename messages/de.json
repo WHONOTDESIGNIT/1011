@@ -8046,12 +8046,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Intelligenter Hautsensor + kühlt die Haut auf 8 °C",
+      "tagline": "Intelligenter Hautsensor + kühlt die Haut auf 10 °C",
       "description": "Das IPL-Gerät Lumi 2 der nächsten Generation verbindet fortschrittliche Hauterkennungstechnologie mit aktiver Kühlung für ein angenehmes und effektives Haarentfernungserlebnis.",
       "specs": {
         "type": {
           "label": "Typ",
-          "value": "Smart-App-fähig"
+          "value": "IPL-Gerät für zu Hause (einzelne Quarzlampe)"
         },
         "cooling": {
           "label": "Kühlung",
@@ -8063,11 +8063,11 @@
         },
         "energy": {
           "label": "Energie",
-          "value": "5–9 J/cm²"
+          "value": "2.33–5.33 J/cm²"
         },
         "lamp": {
           "label": "Lampe",
-          "value": "999.000 Lichtblitze"
+          "value": "999.999 Lichtblitze"
         },
         "window": {
           "label": "Behandlungsfenster",
@@ -8075,29 +8075,21 @@
         },
         "wavelength": {
           "label": "Wellenlänge",
-          "value": "550–1200 nm"
-        },
-        "connectivity": {
-          "label": "Konnektivität",
-          "value": "Bluetooth-5.0-App"
+          "value": "510–1100 nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "Hautkühlungstechnologie",
-          "description": "Das aktive Kühlsystem kühlt die Haut vor jedem Lichtblitz auf 8 °C – für eine nahezu schmerzfreie Behandlung."
+          "description": "Das aktive Kühlsystem kühlt die Haut vor jedem Lichtblitz auf 10 °C – für eine nahezu schmerzfreie Behandlung."
         },
         "smartSkinSensor": {
           "title": "Intelligenter Hautsensor",
           "description": "Die Hauttonerkennung in Echtzeit passt die Energieabgabe automatisch an – für Sicherheit bei allen Hauttypen."
         },
-        "appConnectedPrecision": {
-          "title": "Präzision per App",
-          "description": "Verfolgen Sie Ihre Sitzungen, rufen Sie die Behandlungshistorie ab und erhalten Sie über die begleitende App hilfreiche Anleitungen."
-        },
         "highFlashCapacity": {
           "title": "Hohe Blitzkapazität",
-          "description": "Die Lampe mit 999.000 Lichtblitzen liefert Behandlungen für viele Jahre – ideal für den langfristigen Einsatz."
+          "description": "Die Lampe mit 999.999 Lichtblitzen liefert Behandlungen für viele Jahre – ideal für den langfristigen Einsatz."
         }
       },
       "priceNote": "Kontaktieren Sie uns für aktuelle Werkpreise, den Musterumfang und die MOQ-Planung für die Lumi-2-Plattform.",
@@ -9376,7 +9368,7 @@
           "title": "Kühlung mit Fokus auf Komfort",
           "description": "Eisgefühl-Kühlung sorgt für angenehme Behandlungen. Am besten geeignet für Marken, die auf schmerzfreie, spa-ähnliche Anwendungen setzen.",
           "linkVenus": "Venus (Kühlung)",
-          "linkLumi2": "Lumi 2 (Kühlung auf 8 °C)"
+          "linkLumi2": "Lumi 2 (Kühlung auf 10 °C)"
         },
         "smartApp": {
           "title": "Smart-App-gesteuerte Behandlungsroutinen",

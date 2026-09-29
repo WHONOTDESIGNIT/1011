@@ -7997,12 +7997,12 @@
     },
     "lumi-2": {
       "name": "Lumi 2 IPL",
-      "tagline": "Smart Skin Sensor + Chills Skin to 8°C",
+      "tagline": "Smart Skin Sensor + Chills Skin to 10°C",
       "description": "The next-generation Lumi 2 IPL device combines advanced skin sensing technology with active cooling for a comfortable, effective hair removal experience.",
       "specs": {
         "type": {
           "label": "Type",
-          "value": "Smart app-connected"
+          "value": "Home-use IPL (single quartz lamp)"
         },
         "cooling": {
           "label": "Cooling",
@@ -8014,11 +8014,11 @@
         },
         "energy": {
           "label": "Energy",
-          "value": "5-9 J/cm²"
+          "value": "2.33-5.33 J/cm²"
         },
         "lamp": {
           "label": "Lamp",
-          "value": "999,000 flashes"
+          "value": "999,999 flashes"
         },
         "window": {
           "label": "Window",
@@ -8026,29 +8026,21 @@
         },
         "wavelength": {
           "label": "Wavelength",
-          "value": "550-1200nm"
-        },
-        "connectivity": {
-          "label": "Connectivity",
-          "value": "Bluetooth 5.0 app"
+          "value": "510-1100nm"
         }
       },
       "features": {
         "skinCoolingTechnology": {
           "title": "Skin Cooling Technology",
-          "description": "Active cooling system chills skin to 8°C before each flash for a nearly painless treatment experience."
+          "description": "Active cooling system chills skin to 10°C before each flash for a nearly painless treatment experience."
         },
         "smartSkinSensor": {
           "title": "Smart Skin Sensor",
           "description": "Real-time skin tone detection automatically adjusts energy output for safety across all skin types."
         },
-        "appConnectedPrecision": {
-          "title": "App-Connected Precision",
-          "description": "Track sessions, view treatment history, and receive guidance through the companion mobile app."
-        },
         "highFlashCapacity": {
           "title": "High Flash Capacity",
-          "description": "999,000 flash lamp delivers years of treatments, making it ideal for long-term use."
+          "description": "999,999 flash lamp delivers years of treatments, making it ideal for long-term use."
         }
       },
       "priceNote": "Contact us for current factory pricing, sampling scope, and MOQ planning for the Lumi 2 platform.",
@@ -9533,7 +9525,7 @@
           "title": "Comfort-first cooling",
           "description": "Ice-feeling cooling keeps treatment comfortable. Best for brands positioning around painless, spa-like sessions.",
           "linkVenus": "Venus (Cooling)",
-          "linkLumi2": "Lumi 2 (Cooling to 8°C)"
+          "linkLumi2": "Lumi 2 (Cooling to 10°C)"
         },
         "smartApp": {
           "title": "Smart app-guided routines",
