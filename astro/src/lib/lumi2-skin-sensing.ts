@@ -41,7 +41,15 @@ export type Lumi2SensingDetail = {
   stabilityNote: string;
 };
 
-export type Lumi2TechnologyCopy = Lumi2CoreCopy & Lumi2SensingDetail;
+export type Lumi2IgbtDetail = {
+  /** 为什么肤色识别必须靠 IGBT 控制（按放电时间调能量） */
+  igbtControlBody: string;
+  /** 器件选型：不绑单一型号，多型号兼容设计 */
+  igbtSourcingTitle: string;
+  igbtSourcingBody: string;
+};
+
+export type Lumi2TechnologyCopy = Lumi2CoreCopy & Lumi2SensingDetail & Lumi2IgbtDetail;
 
 export type Lumi2CoreCopy = {
   kicker: string;
@@ -1077,6 +1085,169 @@ export const LUMI2_SENSING_DETAIL: Record<string, Lumi2SensingDetail> = {
   },
 };
 
+/**
+ * IGBT 技术补充组（2026-09-22 老板补充）：带肤色识别的设备一般都用 IGBT 控制，
+ * 因为肤色识别要求快速调整能量；IGBT 通过导通时间控制电容放电长短来决定闪光能量，
+ * 所以能快速配合肤色识别。IGBT 一般不固定一个型号，市面同类可互相兼容；
+ * 我们设计产品时为后续供货稳定与成本做多型号兼容设计。
+ */
+export const LUMI2_IGBT_DETAIL: Record<string, Lumi2IgbtDetail> = {
+  en: {
+    igbtControlBody:
+      'Skin tone sensing is why the switch matters. The sensor decides the tone immediately before each flash, so the device has to change its energy on that timescale. An IGBT sets the flash energy by controlling how long the capacitor is allowed to discharge — a longer conduction time releases more energy, a shorter one releases less. Adjusting discharge time is fast, which is what lets the energy level follow the sensor from one flash to the next instead of being fixed before the session starts.',
+    igbtSourcingTitle: 'One function, several part numbers',
+    igbtSourcingBody:
+      'An IGBT in this role is not tied to a single part number. Many equivalent devices on the market are mutually compatible for the same function, so a design does not have to depend on one supplier. We lay out our boards so that several compatible IGBTs can be fitted, which protects supply continuity and keeps the cost of the finished device under control. If your market later needs a different specification, the board does not have to be redesigned from scratch.',
+  },
+  ar: {
+    igbtControlBody:
+      'استشعار لون البشرة هو سبب أهمية هذا المفتاح. يحدّد المستشعر اللون قبل كل ومضة مباشرة، فيجب أن يغيّر الجهاز طاقته على هذا القدر من السرعة. ويضبط الـ IGBT طاقة الوميض عبر التحكم في مدة السماح للخازن بالتفريغ — زمن توصيل أطول يُطلق طاقة أكبر، وأقصر يُطلق أقل. وضبط زمن التفريغ سريع، وهذا ما يسمح لمستوى الطاقة بأن يتبع المستشعر من ومضة إلى التي تليها بدل أن يكون ثابتًا قبل بدء الجلسة.',
+    igbtSourcingTitle: 'وظيفة واحدة، وأرقام قطع متعددة',
+    igbtSourcingBody:
+      'الـ IGBT في هذا الدور غير مرتبط برقم قطعة واحد. هناك في السوق قطع مكافئة كثيرة متوافقة مع بعضها لأداء الوظيفة نفسها، لذا لا يضطر التصميم إلى الاعتماد على مورّد واحد. نصمّم لوحاتنا بحيث يمكن تركيب عدة أنواع IGBT متوافقة، وهذا يحمي استمرارية التوريد ويُبقي تكلفة الجهاز النهائي تحت السيطرة. وإذا احتاج سوقك لاحقًا إلى مواصفة مختلفة، فلا يلزم إعادة تصميم اللوحة من الصفر.',
+  },
+  cs: {
+    igbtControlBody:
+      'Snímání tónu pleti je důvod, proč na tom spínači záleží. Senzor určí tón bezprostředně před každým zábleskem, takže zařízení musí měnit energii ve stejném časovém měřítku. IGBT nastavuje energii záblesku tím, jak dlouho dovolí kondenzátoru vybíjet — delší doba vedení uvolní více energie, kratší méně. Nastavení doby vybíjení je rychlé, a právě proto může energetická úroveň sledovat senzor od jednoho záblesku k dalšímu, místo aby byla pevná před začátkem seance.',
+    igbtSourcingTitle: 'Jedna funkce, několik typů součástek',
+    igbtSourcingBody:
+      'IGBT v této roli není vázán na jediné číslo součástky. Na trhu je mnoho rovnocenných typů, které jsou pro tuto funkci vzájemně zaměnitelné, takže konstrukce nemusí záviset na jednom dodavateli. Naše desky navrhujeme tak, aby se dal osadit kterýkoli z několika kompatibilních IGBT — chrání to plynulost dodávek a drží cenu hotového zařízení pod kontrolou. Pokud váš trh později potřebuje jinou specifikaci, desku není nutné navrhovat znovu od začátku.',
+  },
+  de: {
+    igbtControlBody:
+      'Die Hauttonerkennung ist der Grund, warum dieser Schalter zählt. Der Sensor legt den Ton unmittelbar vor jedem Blitz fest, das Gerät muss seine Energie also in derselben Zeitskala ändern. Ein IGBT stellt die Blitzenergie ein, indem er steuert, wie lange sich der Kondensator entladen darf — eine längere Einschaltdauer setzt mehr Energie frei, eine kürzere weniger. Die Entladezeit lässt sich schnell verstellen, und genau das erlaubt es der Energiestufe, dem Sensor von Blitz zu Blitz zu folgen, statt vor der Sitzung festzuliegen.',
+    igbtSourcingTitle: 'Eine Funktion, mehrere Typenbezeichnungen',
+    igbtSourcingBody:
+      'Ein IGBT in dieser Rolle ist nicht an eine einzige Typenbezeichnung gebunden. Auf dem Markt gibt es viele gleichwertige Bauteile, die für diese Funktion untereinander kompatibel sind, sodass eine Konstruktion nicht von einem Lieferanten abhängt. Wir legen unsere Platinen so aus, dass sich mehrere kompatible IGBTs bestücken lassen — das sichert die Versorgung und hält die Kosten des fertigen Geräts im Griff. Braucht Ihr Markt später eine andere Spezifikation, muss die Platine nicht von Grund auf neu entwickelt werden.',
+  },
+  el: {
+    igbtControlBody:
+      'Η ανίχνευση τόνου δέρματος είναι ο λόγος που αυτός ο διακόπτης μετράει. Ο αισθητήρας κρίνει τον τόνο ακριβώς πριν από κάθε λάμψη, άρα η συσκευή πρέπει να αλλάζει ενέργεια στην ίδια χρονική κλίμακα. Το IGBT ρυθμίζει την ενέργεια της λάμψης ελέγχοντας πόσο χρόνο επιτρέπεται στον πυκνωτή να εκφορτιστεί — μεγαλύτερος χρόνος αγωγής ελευθερώνει περισσότερη ενέργεια, μικρότερος λιγότερη. Η ρύθμιση του χρόνου εκφόρτισης είναι γρήγορη, και αυτό επιτρέπει στο επίπεδο ενέργειας να ακολουθεί τον αισθητήρα από λάμψη σε λάμψη αντί να είναι σταθερό πριν αρχίσει η συνεδρία.',
+    igbtSourcingTitle: 'Μία λειτουργία, πολλοί κωδικοί εξαρτήματος',
+    igbtSourcingBody:
+      'Ένα IGBT σε αυτόν τον ρόλο δεν δεσμεύεται σε έναν μόνο κωδικό εξαρτήματος. Στην αγορά υπάρχουν πολλά ισοδύναμα εξαρτήματα που είναι μεταξύ τους συμβατά για την ίδια λειτουργία, ώστε μια σχεδίαση να μη εξαρτάται από έναν προμηθευτή. Σχεδιάζουμε τις πλακέτες μας ώστε να δέχονται πολλά συμβατά IGBT — αυτό προστατεύει τη συνέχεια εφοδιασμού και κρατά το κόστος της τελικής συσκευής υπό έλεγχο. Αν η αγορά σας χρειαστεί αργότερα άλλη προδιαγραφή, η πλακέτα δεν χρειάζεται να σχεδιαστεί από την αρχή.',
+  },
+  es: {
+    igbtControlBody:
+      'La detección del tono de piel es la razón por la que este interruptor importa. El sensor decide el tono justo antes de cada destello, así que el dispositivo tiene que cambiar su energía en esa misma escala de tiempo. Un IGBT fija la energía del destello controlando cuánto tiempo se permite descargar al condensador: un tiempo de conducción más largo libera más energía y uno más corto, menos. Ajustar el tiempo de descarga es rápido, y eso es lo que permite que el nivel de energía siga al sensor de un destello al siguiente en lugar de quedar fijado antes de empezar la sesión.',
+    igbtSourcingTitle: 'Una función, varias referencias',
+    igbtSourcingBody:
+      'Un IGBT en este papel no está atado a una única referencia. En el mercado hay muchos componentes equivalentes que son compatibles entre sí para la misma función, así que un diseño no tiene que depender de un solo proveedor. Diseñamos nuestras placas para que admitan varios IGBT compatibles: eso protege la continuidad de suministro y mantiene bajo control el coste del equipo acabado. Si tu mercado necesita más adelante otra especificación, no hay que rediseñar la placa desde cero.',
+  },
+  fa: {
+    igbtControlBody:
+      'حسگری رنگ پوست دلیل اهمیت این کلید است. حسگر بلافاصله پیش از هر فلاش رنگ را تعیین می‌کند، پس دستگاه باید انرژی را در همان مقیاس زمانی تغییر دهد. IGBT انرژی فلاش را با کنترل مدت‌زمانی که خازن اجازه دارد تخلیه شود تنظیم می‌کند — زمان هدایت طولانی‌تر انرژی بیشتری آزاد می‌کند و کوتاه‌تر کمتر. تنظیم زمان تخلیه سریع است و همین اجازه می‌دهد سطح انرژی از یک فلاش به فلاش بعدی از حسگر پیروی کند، نه اینکه پیش از آغاز جلسه ثابت شده باشد.',
+    igbtSourcingTitle: 'یک کار، چند شماره قطعه',
+    igbtSourcingBody:
+      'IGBT در این نقش به یک شماره قطعه واحد گره نخورده است. در بازار قطعات هم‌ارز بسیاری هست که برای همین کار با یکدیگر سازگارند، پس یک طراحی لازم نیست به یک تأمین‌کننده وابسته باشد. ما بردهایمان را طوری طراحی می‌کنیم که چند IGBT سازگار روی آن نصب شود؛ این کار پیوستگی تأمین را حفظ می‌کند و هزینه دستگاه نهایی را کنترل‌شده نگه می‌دارد. اگر بازار شما بعدها مشخصات دیگری بخواهد، لازم نیست برد از صفر بازطراحی شود.',
+  },
+  fr: {
+    igbtControlBody:
+      'La détection du teint est la raison d’être de ce commutateur. Le capteur décide du teint juste avant chaque flash, l’appareil doit donc changer d’énergie à cette échelle de temps. Un IGBT fixe l’énergie du flash en contrôlant la durée pendant laquelle le condensateur peut se décharger : une conduction plus longue libère plus d’énergie, une plus courte moins. Régler la durée de décharge est rapide, et c’est ce qui permet au niveau d’énergie de suivre le capteur d’un flash à l’autre au lieu d’être figé avant le début de la séance.',
+    igbtSourcingTitle: 'Une fonction, plusieurs références',
+    igbtSourcingBody:
+      'Un IGBT à ce poste n’est pas lié à une référence unique. Le marché propose de nombreux composants équivalents, compatibles entre eux pour cette fonction, si bien qu’une conception ne dépend pas d’un seul fournisseur. Nous concevons nos cartes pour accueillir plusieurs IGBT compatibles : cela sécurise la continuité d’approvisionnement et garde le coût de l’appareil fini sous contrôle. Si votre marché exige plus tard une autre spécification, la carte n’a pas à être reconçue de zéro.',
+  },
+  he: {
+    igbtControlBody:
+      'חישת גוון העור היא הסיבה שהמפסק הזה חשוב. החיישן קובע את הגוון ממש לפני כל הבזק, כך שהמכשיר חייב לשנות אנרגיה באותו סדר גודל של זמן. IGBT קובע את אנרגיית ההבזק על ידי שליטה במשך הזמן שבו הקבל מורשה להתפרק — זמן הולכה ארוך יותר משחרר יותר אנרגיה, וקצר יותר פחות. כיוונון זמן הפריקה מהיר, וזה מה שמאפשר לרמת האנרגיה לעקוב אחרי החיישן מהבזק להבזק במקום להיות קבועה לפני תחילת הסשן.',
+    igbtSourcingTitle: 'תפקיד אחד, כמה מק"טים',
+    igbtSourcingBody:
+      'IGBT בתפקיד הזה אינו כבול למק"ט אחד. בשוק יש רכיבים מקבילים רבים שתואמים זה לזה לאותו תפקיד, כך שתכנון אינו חייב להיות תלוי בספק אחד. אנחנו מתכננים את המעגלים כך שניתן להרכיב כמה סוגי IGBT תואמים; זה שומר על רציפות אספקה ומשאיר את עלות המכשיר המוגמר בשליטה. אם השוק שלך יזדקק בהמשך למפרט אחר, אין צורך לתכנן את המעגל מחדש מאפס.',
+  },
+  id: {
+    igbtControlBody:
+      'Penginderaan warna kulit adalah alasan sakelar ini penting. Sensor menentukan warna tepat sebelum setiap kilatan, jadi perangkat harus mengubah energinya dalam skala waktu yang sama. IGBT menetapkan energi kilatan dengan mengatur berapa lama kapasitor diizinkan melepaskan muatan — waktu konduksi lebih panjang melepaskan lebih banyak energi, yang lebih pendek lebih sedikit. Menyetel waktu pelepasan itu cepat, dan itulah yang membuat tingkat energi bisa mengikuti sensor dari satu kilatan ke kilatan berikutnya, bukan dipatok sebelum sesi dimulai.',
+    igbtSourcingTitle: 'Satu fungsi, beberapa nomor komponen',
+    igbtSourcingBody:
+      'IGBT dalam peran ini tidak terikat pada satu nomor komponen. Di pasar ada banyak komponen setara yang saling kompatibel untuk fungsi yang sama, sehingga sebuah rancangan tidak harus bergantung pada satu pemasok. Kami merancang papan agar bisa dipasangi beberapa IGBT yang kompatibel — ini menjaga kelangsungan pasokan dan menahan biaya perangkat jadi. Jika pasar Anda nanti membutuhkan spesifikasi lain, papan tidak perlu dirancang ulang dari nol.',
+  },
+  it: {
+    igbtControlBody:
+      'Il rilevamento del tono cutaneo è il motivo per cui questo interruttore conta. Il sensore decide il tono subito prima di ogni flash, quindi il dispositivo deve cambiare energia su quella scala temporale. Un IGBT imposta l’energia del flash controllando per quanto tempo il condensatore può scaricarsi: un tempo di conduzione più lungo libera più energia, uno più breve meno. Regolare il tempo di scarica è rapido, ed è ciò che permette al livello di energia di seguire il sensore da un flash all’altro invece di restare fisso prima dell’inizio della seduta.',
+    igbtSourcingTitle: 'Una funzione, più codici componente',
+    igbtSourcingBody:
+      'Un IGBT in questo ruolo non è legato a un unico codice componente. Sul mercato esistono molti componenti equivalenti, compatibili tra loro per la stessa funzione, così un progetto non deve dipendere da un solo fornitore. Progettiamo le nostre schede perché possano montare diversi IGBT compatibili: questo tutela la continuità di fornitura e tiene sotto controllo il costo del dispositivo finito. Se il vostro mercato in futuro richiede un’altra specifica, la scheda non va riprogettata da zero.',
+  },
+  ja: {
+    igbtControlBody:
+      '肌トーン検出があるからこそ、このスイッチが重要になります。センサーはフラッシュの直前にトーンを判定するため、機器は同じ時間スケールでエネルギーを変える必要があります。IGBT はコンデンサーを放電させる時間の長さを制御してフラッシュエネルギーを決めます。導通時間が長ければ放出されるエネルギーは多く、短ければ少なくなります。放電時間の調整は高速なので、セッション開始前に固定するのではなく、エネルギー段階をフラッシュごとにセンサーへ追従させられます。',
+    igbtSourcingTitle: '一つの機能に複数の型番',
+    igbtSourcingBody:
+      'この役割の IGBT は特定の型番に縛られません。同じ機能に対して相互に互換できる同等品が市場に多数あり、設計が一社の供給に依存する必要はありません。当社は複数の互換 IGBT を実装できるよう基板を設計しており、これが供給の継続性を守り、完成品のコストを抑えます。将来あなたの市場で別の仕様が必要になっても、基板をゼロから設計し直す必要はありません。',
+  },
+  ko: {
+    igbtControlBody:
+      '피부 톤 감지가 있기 때문에 이 스위치가 중요합니다. 센서는 플래시 직전에 톤을 판정하므로, 기기는 같은 시간 규모로 에너지를 바꿔야 합니다. IGBT는 커패시터가 방전되도록 허용하는 시간을 제어해 플래시 에너지를 정합니다. 도통 시간이 길면 더 많은 에너지가 나오고, 짧으면 더 적게 나옵니다. 방전 시간 조정은 빠르기 때문에, 세션 시작 전에 고정하는 대신 에너지 단계를 플래시마다 센서에 맞춰 따라가게 할 수 있습니다.',
+    igbtSourcingTitle: '하나의 기능, 여러 부품 번호',
+    igbtSourcingBody:
+      '이 역할의 IGBT는 특정 부품 번호에 묶이지 않습니다. 같은 기능에 대해 서로 호환되는 동등 부품이 시장에 많이 있어, 설계가 한 공급처에 의존할 필요가 없습니다. 저희는 여러 호환 IGBT를 실장할 수 있도록 기판을 설계하며, 이는 공급 연속성을 지키고 완제품 원가를 관리하는 방법입니다. 나중에 시장이 다른 사양을 요구해도 기판을 처음부터 다시 설계할 필요가 없습니다.',
+  },
+  nl: {
+    igbtControlBody:
+      'Huidtintdetectie is de reden dat deze schakelaar ertoe doet. De sensor bepaalt de tint vlak voor elke flits, dus het apparaat moet zijn energie op die tijdschaal kunnen veranderen. Een IGBT stelt de flitsenergie in door te bepalen hoe lang de condensator mag ontladen: een langere geleidingstijd geeft meer energie vrij, een kortere minder. Het instellen van de ontlaadtijd is snel, en dat is wat het energieniveau van flits tot flits de sensor laat volgen in plaats van vooraf vast te liggen.',
+    igbtSourcingTitle: 'Eén functie, meerdere typenummers',
+    igbtSourcingBody:
+      'Een IGBT in deze rol zit niet vast aan één typenummer. Op de markt zijn veel gelijkwaardige onderdelen die voor deze functie onderling compatibel zijn, zodat een ontwerp niet van één leverancier afhankelijk hoeft te zijn. Wij ontwerpen onze printplaten zo dat er meerdere compatibele IGBT’s op passen — dat beschermt de leveringscontinuïteit en houdt de kostprijs van het eindapparaat in de hand. Vraagt uw markt later een andere specificatie, dan hoeft de printplaat niet vanaf nul opnieuw te worden ontworpen.',
+  },
+  pl: {
+    igbtControlBody:
+      'Wykrywanie odcienia skóry jest powodem, dla którego ten przełącznik ma znaczenie. Czujnik rozpoznaje odcień tuż przed każdym błyskiem, więc urządzenie musi zmieniać energię w tej samej skali czasu. IGBT ustala energię błysku, kontrolując, jak długo kondensator może się rozładowywać — dłuższy czas przewodzenia uwalnia więcej energii, krótszy mniej. Regulacja czasu rozładowania jest szybka i to właśnie pozwala poziomowi energii podążać za czujnikiem z błysku na błysk, zamiast być ustalonym przed rozpoczęciem sesji.',
+    igbtSourcingTitle: 'Jedna funkcja, kilka oznaczeń części',
+    igbtSourcingBody:
+      'IGBT w tej roli nie jest przywiązany do jednego oznaczenia części. Na rynku jest wiele równoważnych elementów wzajemnie zgodnych dla tej samej funkcji, więc konstrukcja nie musi zależeć od jednego dostawcy. Projektujemy płytki tak, aby można było montować kilka zgodnych IGBT — chroni to ciągłość dostaw i pozwala utrzymać koszt gotowego urządzenia pod kontrolą. Jeśli Twój rynek będzie później wymagał innej specyfikacji, płytki nie trzeba projektować od zera.',
+  },
+  'pt-BR': {
+    igbtControlBody:
+      'A detecção de tom de pele é a razão de esse interruptor importar. O sensor decide o tom imediatamente antes de cada flash, então o aparelho precisa mudar de energia nessa mesma escala de tempo. O IGBT define a energia do flash controlando por quanto tempo o capacitor pode descarregar — um tempo de condução maior libera mais energia, um menor libera menos. Ajustar o tempo de descarga é rápido, e é isso que permite ao nível de energia seguir o sensor de um flash para o outro, em vez de ficar fixo antes de a sessão começar.',
+    igbtSourcingTitle: 'Uma função, vários códigos de componente',
+    igbtSourcingBody:
+      'Um IGBT nessa função não está preso a um único código de componente. Há no mercado muitos componentes equivalentes, compatíveis entre si para a mesma função, de modo que um projeto não precisa depender de um único fornecedor. Projetamos nossas placas para receber vários IGBTs compatíveis — isso protege a continuidade de fornecimento e mantém o custo do aparelho pronto sob controle. Se o seu mercado exigir outra especificação mais adiante, a placa não precisa ser reprojetada do zero.',
+  },
+  'pt-PT': {
+    igbtControlBody:
+      'A deteção de tom de pele é a razão pela qual este interruptor importa. O sensor decide o tom imediatamente antes de cada flash, por isso o aparelho tem de mudar de energia nessa mesma escala de tempo. O IGBT define a energia do flash controlando durante quanto tempo o condensador pode descarregar — um tempo de condução maior liberta mais energia, um menor liberta menos. Ajustar o tempo de descarga é rápido, e é isso que permite ao nível de energia seguir o sensor de um flash para o outro, em vez de ficar fixo antes de a sessão começar.',
+    igbtSourcingTitle: 'Uma função, vários códigos de componente',
+    igbtSourcingBody:
+      'Um IGBT nesta função não está preso a um único código de componente. Existem no mercado muitos componentes equivalentes, compatíveis entre si para a mesma função, pelo que um projeto não tem de depender de um único fornecedor. Projetamos as nossas placas para receber vários IGBT compatíveis — isso protege a continuidade de fornecimento e mantém o custo do aparelho final sob controlo. Se o seu mercado exigir outra especificação mais tarde, a placa não precisa de ser reprojetada de raiz.',
+  },
+  ro: {
+    igbtControlBody:
+      'Detectarea tonului pielii este motivul pentru care acest întrerupător contează. Senzorul decide tonul imediat înainte de fiecare fulger, așa că aparatul trebuie să își schimbe energia la aceeași scară de timp. Un IGBT stabilește energia fulgerului controlând cât timp are voie condensatorul să se descarce — un timp de conducție mai lung eliberează mai multă energie, unul mai scurt mai puțină. Reglarea timpului de descărcare este rapidă, iar asta permite nivelului de energie să urmeze senzorul de la un fulger la altul în loc să fie fixat înainte de începerea ședinței.',
+    igbtSourcingTitle: 'O funcție, mai multe coduri de componentă',
+    igbtSourcingBody:
+      'Un IGBT în acest rol nu este legat de un singur cod de componentă. Pe piață există multe componente echivalente, compatibile între ele pentru aceeași funcție, așa că un proiect nu trebuie să depindă de un singur furnizor. Ne proiectăm plăcile astfel încât să accepte mai multe IGBT-uri compatibile — asta protejează continuitatea aprovizionării și ține sub control costul aparatului finit. Dacă piața dumneavoastră va cere mai târziu altă specificație, placa nu trebuie reproiectată de la zero.',
+  },
+  ru: {
+    igbtControlBody:
+      'Определение тона кожи — причина, по которой этот ключ важен. Датчик определяет тон непосредственно перед каждой вспышкой, поэтому устройство должно менять энергию в том же масштабе времени. IGBT задаёт энергию вспышки, управляя тем, как долго конденсатору разрешено разряжаться: более длительное время проводимости отдаёт больше энергии, более короткое — меньше. Регулировка времени разряда выполняется быстро, и именно это позволяет уровню энергии следовать за датчиком от вспышки к вспышке, а не фиксироваться до начала процедуры.',
+    igbtSourcingTitle: 'Одна функция — несколько обозначений компонента',
+    igbtSourcingBody:
+      'IGBT в этой роли не привязан к единственному обозначению компонента. На рынке есть много равноценных компонентов, взаимозаменяемых для этой функции, поэтому конструкция не обязана зависеть от одного поставщика. Мы проектируем платы так, чтобы на них можно было установить несколько совместимых IGBT, — это защищает непрерывность поставок и держит под контролем себестоимость готового устройства. Если вашему рынку позже понадобится другая спецификация, плату не придётся проектировать заново.',
+  },
+  th: {
+    igbtControlBody:
+      'การตรวจจับโทนผิวคือเหตุผลที่สวิตช์นี้สำคัญ เซ็นเซอร์ตัดสินโทนก่อนการยิงแสงแต่ละครั้งทันที อุปกรณ์จึงต้องเปลี่ยนพลังงานในสเกลเวลาเดียวกัน IGBT กำหนดพลังงานยิงแสงด้วยการควบคุมระยะเวลาที่ตัวเก็บประจุได้รับอนุญาตให้คายประจุ ระยะเวลานำไฟฟ้าที่ยาวกว่าปล่อยพลังงานมากกว่า และที่สั้นกว่าปล่อยน้อยกว่า การปรับระยะเวลาคายประจุทำได้เร็ว จึงทำให้ระดับพลังงานตามเซ็นเซอร์ได้ในทุกครั้งที่ยิงแสง แทนที่จะถูกตรึงไว้ก่อนเริ่มเซสชัน',
+    igbtSourcingTitle: 'หน้าที่เดียว หลายรหัสชิ้นส่วน',
+    igbtSourcingBody:
+      'IGBT ในบทบาทนี้ไม่ได้ผูกกับรหัสชิ้นส่วนเดียว ในตลาดมีชิ้นส่วนเทียบเท่าจำนวนมากที่ใช้แทนกันได้สำหรับหน้าที่เดียวกัน การออกแบบจึงไม่จำเป็นต้องพึ่งผู้ผลิตรายเดียว เราออกแบบแผงวงจรให้ติดตั้ง IGBT ที่เข้ากันได้หลายแบบ ซึ่งช่วยรักษาความต่อเนื่องของอุปทานและคุมต้นทุนของเครื่องสำเร็จรูปไว้ได้ หากตลาดของคุณต้องการสเปกอื่นในภายหลัง ก็ไม่ต้องออกแบบแผงวงจรใหม่ตั้งแต่ต้น',
+  },
+  tr: {
+    igbtControlBody:
+      'Cilt tonu algılama, bu anahtarın önemli olmasının nedenidir. Sensör tonu her flaştan hemen önce belirler, dolayısıyla cihazın enerjisini aynı zaman ölçeğinde değiştirmesi gerekir. Bir IGBT, kondansatörün ne kadar süre deşarj olmasına izin verildiğini kontrol ederek flaş enerjisini belirler: daha uzun iletim süresi daha fazla enerji açığa çıkarır, daha kısa süre daha az. Deşarj süresini ayarlamak hızlıdır ve enerji seviyesinin seans başlamadan sabitlenmesi yerine flaştan flaşa sensörü izlemesini sağlayan da budur.',
+    igbtSourcingTitle: 'Tek işlev, birden çok parça numarası',
+    igbtSourcingBody:
+      'Bu roldeki bir IGBT tek bir parça numarasına bağlı değildir. Piyasada aynı işlev için birbiriyle uyumlu çok sayıda eşdeğer parça vardır; bu yüzden bir tasarım tek tedarikçiye bağlı kalmak zorunda değildir. Kartlarımızı birden fazla uyumlu IGBT takılabilecek şekilde tasarlıyoruz — bu, tedarik sürekliliğini korur ve bitmiş cihazın maliyetini kontrol altında tutar. Pazarınız ileride farklı bir şartname gerektirirse kartın sıfırdan yeniden tasarlanması gerekmez.',
+  },
+  vi: {
+    igbtControlBody:
+      'Cảm biến tông màu da là lý do công tắc này quan trọng. Cảm biến quyết định tông ngay trước mỗi lần phát xung, nên thiết bị phải thay đổi năng lượng trong cùng thang thời gian đó. IGBT đặt năng lượng phát xung bằng cách điều khiển tụ điện được phép phóng điện trong bao lâu — thời gian dẫn dài hơn giải phóng nhiều năng lượng hơn, ngắn hơn thì ít hơn. Việc điều chỉnh thời gian phóng điện diễn ra nhanh, và đó là điều cho phép mức năng lượng bám theo cảm biến qua từng lần phát xung thay vì cố định trước khi buổi bắt đầu.',
+    igbtSourcingTitle: 'Một chức năng, nhiều mã linh kiện',
+    igbtSourcingBody:
+      'IGBT ở vai trò này không bị gắn với một mã linh kiện duy nhất. Trên thị trường có nhiều linh kiện tương đương, thay thế được cho nhau cho cùng chức năng, nên một thiết kế không buộc phải phụ thuộc vào một nhà cung cấp. Chúng tôi thiết kế bo mạch để lắp được nhiều loại IGBT tương thích — điều này bảo vệ tính liên tục của nguồn cung và giữ chi phí thiết bị thành phẩm trong tầm kiểm soát. Nếu sau này thị trường của bạn cần thông số khác, bo mạch không phải thiết kế lại từ đầu.',
+  },
+};
+
 /** 按语种取一组内容，含大小写归一化与 en 兜底 */
 function pickLocale<T>(map: Record<string, T>, locale: string | undefined, fallback: T): T {
   if (!locale) return fallback;
@@ -1090,10 +1261,11 @@ function pickLocale<T>(map: Record<string, T>, locale: string | undefined, fallb
   return fallback;
 }
 
-/** locale 归一化 + 两组内容合并：调用方只看到一个完整对象 */
+/** locale 归一化 + 三组内容合并：调用方只看到一个完整对象 */
 export function getLumi2Technology(locale: string | undefined): Lumi2TechnologyCopy {
   return {
     ...pickLocale(LUMI2_TECHNOLOGY, locale, LUMI2_TECHNOLOGY.en),
     ...pickLocale(LUMI2_SENSING_DETAIL, locale, LUMI2_SENSING_DETAIL.en),
+    ...pickLocale(LUMI2_IGBT_DETAIL, locale, LUMI2_IGBT_DETAIL.en),
   };
 }
