@@ -20,7 +20,30 @@
  *     待确认后再补一句话，避免公开页发布互相矛盾的安全说明。
  */
 
-export type Lumi2TechnologyCopy = {
+/**
+ * 补充组：传感机理细节 + 行业基线 + 「稳定优先」结论。
+ *
+ * 2026-09-22 老板补充口径：感光芯片 + 复合光源；设备接触皮肤后光源才开始发射；
+ * 光经导光柱照射皮肤后返回，不同肤色反射回的光能量不同；感光芯片按返回能量判定肤色，
+ * 不同肤色分配到不同闪光能量；各公司按经验值与设计要求做不同分配；
+ * 行业基本要求 = 黑色 + 空气 + 3–5 级肤色识别（黑色与空气不得闪光、不分配能量）；
+ * 肤色识别不是分级越多越好，而是越稳定越好。
+ *
+ * 为什么单独成组而不并进上面 22 个 locale 对象：并进去需要重写 22 个大对象（含 RTL 文案），
+ * diff 无法人工复核；分成两组后 getLumi2Technology() 仍返回同一个合并对象，调用方无感。
+ */
+export type Lumi2SensingDetail = {
+  mechanismTitle: string;
+  mechanismBody: string;
+  baselineTitle: string;
+  baselineBody: string;
+  baselinePoints: string[];
+  stabilityNote: string;
+};
+
+export type Lumi2TechnologyCopy = Lumi2CoreCopy & Lumi2SensingDetail;
+
+export type Lumi2CoreCopy = {
   kicker: string;
   heading: string;
   intro: string;
@@ -63,7 +86,7 @@ export const LUMI2_REFERENCES: { label: string; url: string; internal?: boolean 
   },
 ];
 
-export const LUMI2_TECHNOLOGY: Record<string, Lumi2TechnologyCopy> = {
+export const LUMI2_TECHNOLOGY: Record<string, Lumi2CoreCopy> = {
   en: {
     kicker: 'Skin sensing',
     heading: 'How Lumi 2 reads your skin — and keeps up with it',
@@ -721,16 +744,356 @@ export const LUMI2_TECHNOLOGY: Record<string, Lumi2TechnologyCopy> = {
   },
 };
 
-/** locale 归一化：'es-ES'→es、'pt-br'→pt-BR 之类都要能命中（大小写不敏感） */
-export function getLumi2Technology(locale: string | undefined): Lumi2TechnologyCopy {
-  const base = LUMI2_TECHNOLOGY.en;
-  if (!locale) return base;
-  const lower: Record<string, Lumi2TechnologyCopy> = {};
-  for (const [k, v] of Object.entries(LUMI2_TECHNOLOGY)) lower[k.toLowerCase()] = v;
+export const LUMI2_SENSING_DETAIL: Record<string, Lumi2SensingDetail> = {
+  en: {
+    mechanismTitle: 'How the sensor reads your skin',
+    mechanismBody:
+      'The sensing head pairs a photosensor chip with a composite light source. The emitter does not run all the time: it starts once the device confirms contact with the skin. The light travels down a light guide to the skin and part of it comes back. Different skin tones send different amounts of energy back, and the photosensor chip decides the tone from the energy it receives. That decision sets the flash energy — each skin tone is allocated its own level.',
+    baselineTitle: 'What the industry treats as the baseline',
+    baselineBody:
+      'Skin tone recognition today works to a common baseline: no contact (air), black, and three to five skin tone levels. How a given tone is translated into flash energy is not standardised — every manufacturer sets that mapping from its own experience and design requirements, which is why two devices can behave differently on the same skin.',
+    baselinePoints: [
+      'No contact (air) and black: no flash — no energy is allocated at all.',
+      'Three to five skin tone levels: each one is allocated its own flash energy.',
+      'The tone-to-energy mapping is set per manufacturer, from experience and design limits.',
+    ],
+    stabilityNote:
+      'Skin tone recognition is not about how many levels you split the range into. It is about how stable the reading is — a sensor that holds its decision is worth more than one that offers more steps.',
+  },
+  ar: {
+    mechanismTitle: 'كيف يقرأ المستشعر بشرتك',
+    mechanismBody:
+      'تجمع رأس الاستشعار بين شريحة استشعار ضوئي ومصدر ضوء مركّب. لا يعمل الباعث طوال الوقت: يبدأ بعد أن يتأكد الجهاز من ملامسة البشرة. ينتقل الضوء عبر دليل ضوئي إلى البشرة ويعود جزء منه. وألوان البشرة المختلفة تُعيد كميات مختلفة من الطاقة، وتحدّد شريحة الاستشعار اللون من الطاقة الواصلة إليها. وهذا القرار يحدّد طاقة الوميض — لكل لون بشرة مستواه الخاص.',
+    baselineTitle: 'ما تعتبره الصناعة حدًا أدنى أساسيًا',
+    baselineBody:
+      'يعمل استشعار لون البشرة اليوم وفق حد أساسي مشترك: عدم التلامس (الهواء)، والأسود، وثلاث إلى خمس درجات لألوان البشرة. أما كيفية ترجمة اللون إلى طاقة وميض فليست موحّدة — كل شركة تضع هذا الربط وفق خبرتها ومتطلبات تصميمها، ولهذا قد يتصرف جهازان بشكل مختلف على البشرة نفسها.',
+    baselinePoints: [
+      'عدم التلامس (الهواء) والأسود: لا وميض — لا تُخصص أي طاقة.',
+      'ثلاث إلى خمس درجات لألوان البشرة: كل درجة تُخصص لها طاقة وميض خاصة.',
+      'ربط اللون بالطاقة تحدّده كل شركة وفق خبرتها وحدود تصميمها.',
+    ],
+    stabilityNote:
+      'استشعار لون البشرة ليس مسألة عدد الدرجات التي تقسّم إليها المدى، بل مدى استقرار القراءة — فمستشعر يثبت على قراره أنفع من مستشعر يعرض خطوات أكثر.',
+  },
+  cs: {
+    mechanismTitle: 'Jak senzor čte vaši pleť',
+    mechanismBody:
+      'Snímací hlava spojuje čip fotosenzoru s kompozitním světelným zdrojem. Zářič neběží pořád: spustí se, jakmile zařízení potvrdí kontakt s pletí. Světlo prochází světlovodem na pleť a část se ho vrací. Různé tóny pleti vracejí různé množství energie a čip fotosenzoru z přijaté energie určí tón. To rozhodne o energii záblesku — každý tón pleti má přiřazenou vlastní úroveň.',
+    baselineTitle: 'Co průmysl považuje za základní minimum',
+    baselineBody:
+      'Snímání tónu pleti dnes pracuje se společným základem: bez kontaktu (vzduch), černá a tři až pět úrovní tónu pleti. Jak se daný tón převádí na energii záblesku, sjednoceno není — mapování si každý výrobce nastavuje podle svých zkušeností a konstrukčních požadavků, a proto se dva přístroje mohou na stejné pleti chovat odlišně.',
+    baselinePoints: [
+      'Bez kontaktu (vzduch) a černá: žádný záblesk — energie se nepřiřazuje vůbec.',
+      'Tři až pět úrovní tónu pleti: každé je přiřazena vlastní energie záblesku.',
+      'Mapování tónu na energii si určuje každý výrobce podle zkušeností a konstrukčních limitů.',
+    ],
+    stabilityNote:
+      'U snímání tónu pleti nejde o to, na kolik úrovní rozsah rozdělíte, ale o to, jak stabilní je měření — senzor, který si stojí za svým rozhodnutím, má větší cenu než senzor s více stupni.',
+  },
+  de: {
+    mechanismTitle: 'Wie der Sensor Ihre Haut liest',
+    mechanismBody:
+      'Der Sensorkopf verbindet einen Fotosensor-Chip mit einer zusammengesetzten Lichtquelle. Der Emitter läuft nicht ständig: Er startet, sobald das Gerät Hautkontakt bestätigt. Das Licht läuft über einen Lichtleiter zur Haut, ein Teil kommt zurück. Verschiedene Hauttöne senden unterschiedlich viel Energie zurück, und der Fotosensor-Chip bestimmt den Ton aus der empfangenen Energie. Diese Entscheidung legt die Blitzenergie fest — jeder Hautton bekommt seine eigene Stufe.',
+    baselineTitle: 'Was die Branche als Grundstandard ansieht',
+    baselineBody:
+      'Die Hauttonerkennung arbeitet heute mit einem gemeinsamen Grundstandard: kein Kontakt (Luft), Schwarz und drei bis fünf Hauttonstufen. Wie ein Ton in Blitzenergie übersetzt wird, ist nicht genormt — diese Zuordnung legt jeder Hersteller nach eigener Erfahrung und Konstruktionsvorgabe fest, weshalb sich zwei Geräte bei gleicher Haut unterschiedlich verhalten können.',
+    baselinePoints: [
+      'Kein Kontakt (Luft) und Schwarz: kein Blitz — es wird überhaupt keine Energie zugeteilt.',
+      'Drei bis fünf Hauttonstufen: jeder wird eine eigene Blitzenergie zugeteilt.',
+      'Die Zuordnung Ton → Energie legt jeder Hersteller nach Erfahrung und Konstruktionsgrenzen fest.',
+    ],
+    stabilityNote:
+      'Bei der Hauttonerkennung geht es nicht darum, in wie viele Stufen man den Bereich teilt, sondern darum, wie stabil die Messung ist — ein Sensor, der bei seiner Entscheidung bleibt, ist mehr wert als einer mit mehr Stufen.',
+  },
+  el: {
+    mechanismTitle: 'Πώς ο αισθητήρας διαβάζει το δέρμα σας',
+    mechanismBody:
+      'Η κεφαλή ανίχνευσης συνδυάζει ένα τσιπ φωτοαισθητήρα με μια σύνθετη πηγή φωτός. Ο πομπός δεν λειτουργεί συνεχώς: ξεκινά μόλις η συσκευή επιβεβαιώσει επαφή με το δέρμα. Το φως διανύει έναν οδηγό φωτός προς το δέρμα και μέρος του επιστρέφει. Διαφορετικοί τόνοι δέρματος επιστρέφουν διαφορετικά ποσά ενέργειας, και το τσιπ φωτοαισθητήρα κρίνει τον τόνο από την ενέργεια που δέχεται. Η κρίση αυτή ορίζει την ενέργεια της λάμψης — κάθε τόνος δέρματος παίρνει το δικό του επίπεδο.',
+    baselineTitle: 'Τι θεωρεί η βιομηχανία ως βασική απαίτηση',
+    baselineBody:
+      'Η ανίχνευση τόνου δέρματος σήμερα δουλεύει με μια κοινή βάση: χωρίς επαφή (αέρας), μαύρο, και τρία έως πέντε επίπεδα τόνου δέρματος. Το πώς μεταφράζεται ένας τόνος σε ενέργεια λάμψης δεν είναι τυποποιημένο — κάθε κατασκευαστής ορίζει αυτή την αντιστοίχιση με βάση την εμπειρία και τις απαιτήσεις σχεδιασμού του, γι’ αυτό δύο συσκευές μπορούν να συμπεριφέρονται διαφορετικά στο ίδιο δέρμα.',
+    baselinePoints: [
+      'Χωρίς επαφή (αέρας) και μαύρο: καμία λάμψη — δεν διατίθεται καθόλου ενέργεια.',
+      'Τρία έως πέντε επίπεδα τόνου δέρματος: καθένα παίρνει τη δική του ενέργεια λάμψης.',
+      'Την αντιστοίχιση τόνου → ενέργειας την ορίζει κάθε κατασκευαστής, από εμπειρία και σχεδιαστικά όρια.',
+    ],
+    stabilityNote:
+      'Στην ανίχνευση τόνου δέρματος δεν μετρά σε πόσα επίπεδα κόβεις το εύρος, αλλά πόσο σταθερή είναι η μέτρηση — ένας αισθητήρας που μένει στην απόφασή του αξίζει περισσότερο από έναν με περισσότερα σκαλοπάτια.',
+  },
+  es: {
+    mechanismTitle: 'Cómo el sensor lee tu piel',
+    mechanismBody:
+      'El cabezal de detección combina un chip fotosensor con una fuente de luz compuesta. El emisor no está encendido todo el tiempo: arranca cuando el dispositivo confirma el contacto con la piel. La luz recorre una guía de luz hasta la piel y parte vuelve. Distintos tonos de piel devuelven distintas cantidades de energía, y el chip fotosensor decide el tono a partir de la energía que recibe. Esa decisión fija la energía del destello: cada tono de piel recibe su propio nivel.',
+    baselineTitle: 'Qué considera la industria como mínimo básico',
+    baselineBody:
+      'La detección del tono de piel trabaja hoy con una base común: sin contacto (aire), negro y entre tres y cinco niveles de tono. Cómo se traduce un tono en energía de destello no está normalizado: cada fabricante fija esa correspondencia según su experiencia y sus requisitos de diseño, y por eso dos dispositivos pueden comportarse distinto en la misma piel.',
+    baselinePoints: [
+      'Sin contacto (aire) y negro: sin destello — no se asigna energía alguna.',
+      'Entre tres y cinco niveles de tono: cada uno recibe su propia energía de destello.',
+      'La correspondencia tono → energía la fija cada fabricante, según experiencia y límites de diseño.',
+    ],
+    stabilityNote:
+      'En el tono de piel no importa en cuántos niveles dividas el rango, sino lo estable que sea la lectura: un sensor que sostiene su decisión vale más que uno con más escalones.',
+  },
+  fa: {
+    mechanismTitle: 'حسگر چگونه پوست شما را می‌خواند',
+    mechanismBody:
+      'سرِ حسگر یک تراشه حسگر نوری را با یک منبع نور ترکیبی همراه می‌کند. تابنده همیشه روشن نیست: وقتی دستگاه تماس با پوست را تأیید کند آغاز به کار می‌کند. نور از یک راهنمای نور به پوست می‌رسد و بخشی از آن بازمی‌گردد. رنگ‌های مختلف پوست مقدارهای متفاوتی انرژی بازمی‌گردانند و تراشه حسگر نوری از انرژی دریافتی، رنگ را تعیین می‌کند. همین تصمیم انرژی فلاش را مشخص می‌کند — هر رنگ پوست سطح خودش را می‌گیرد.',
+    baselineTitle: 'آنچه صنعت به‌عنوان حد پایه در نظر می‌گیرد',
+    baselineBody:
+      'حسگری رنگ پوست امروز بر یک پایه مشترک کار می‌کند: بدون تماس (هوا)، مشکی، و سه تا پنج سطح رنگ پوست. اما اینکه هر رنگ به چه انرژی فلاشی ترجمه شود استاندارد نیست — هر سازنده این نگاشت را بر پایه تجربه و الزامات طراحی خود تعیین می‌کند، و به همین دلیل دو دستگاه می‌توانند روی یک پوست رفتار متفاوتی داشته باشند.',
+    baselinePoints: [
+      'بدون تماس (هوا) و مشکی: بدون فلاش — هیچ انرژی تخصیص نمی‌یابد.',
+      'سه تا پنج سطح رنگ پوست: به هر سطح انرژی فلاش خودش تخصیص می‌یابد.',
+      'نگاشت رنگ به انرژی را هر سازنده بر پایه تجربه و محدودیت‌های طراحی تعیین می‌کند.',
+    ],
+    stabilityNote:
+      'در حسگری رنگ پوست، مهم این نیست که بازه را به چند سطح تقسیم کنید؛ مهم این است که خوانش چقدر پایدار باشد — حسگری که بر تصمیم خود می‌ماند از حسگری با پله‌های بیشتر ارزشمندتر است.',
+  },
+  fr: {
+    mechanismTitle: 'Comment le capteur lit votre peau',
+    mechanismBody:
+      'La tête de détection associe une puce photodétecteur à une source lumineuse composite. L’émetteur ne fonctionne pas en continu : il démarre dès que l’appareil confirme le contact avec la peau. La lumière passe par un guide de lumière jusqu’à la peau, et une partie revient. Des teints différents renvoient des quantités d’énergie différentes, et la puce photodétecteur détermine le teint à partir de l’énergie reçue. Cette décision fixe l’énergie du flash : chaque teint reçoit son propre niveau.',
+    baselineTitle: 'Ce que l’industrie considère comme le minimum de base',
+    baselineBody:
+      'La détection du teint fonctionne aujourd’hui sur une base commune : absence de contact (air), noir, et trois à cinq niveaux de teint. La façon de traduire un teint en énergie de flash n’est pas normalisée — chaque fabricant fixe cette correspondance selon son expérience et ses contraintes de conception, ce qui explique que deux appareils puissent réagir différemment sur la même peau.',
+    baselinePoints: [
+      'Absence de contact (air) et noir : pas de flash — aucune énergie n’est attribuée.',
+      'Trois à cinq niveaux de teint : chacun reçoit sa propre énergie de flash.',
+      'La correspondance teint → énergie est propre à chaque fabricant, selon son expérience et ses limites de conception.',
+    ],
+    stabilityNote:
+      'En détection du teint, l’important n’est pas le nombre de niveaux dans lequel on découpe la plage, mais la stabilité de la mesure : un capteur qui tient sa décision vaut mieux qu’un capteur qui offre plus de paliers.',
+  },
+  he: {
+    mechanismTitle: 'איך החיישן קורא את העור שלך',
+    mechanismBody:
+      'ראש החישה משלב שבב חיישן אופטי עם מקור אור מורכב. הפולט אינו פועל כל הזמן: הוא מתחיל לאחר שהמכשיר מאשר מגע עם העור. האור עובר במוביל אור אל העור וחלקו חוזר. גווני עור שונים מחזירים כמויות אנרגיה שונות, ושבב החיישן האופטי קובע את הגוון לפי האנרגיה שמתקבלת. ההחלטה הזו קובעת את אנרגיית ההבזק — לכל גוון עור מוקצית הרמה שלו.',
+    baselineTitle: 'מה שהתעשייה מחשיבה כבסיס מינימלי',
+    baselineBody:
+      'חישת גוון עור עובדת היום לפי בסיס משותף: בלי מגע (אוויר), שחור, ושלוש עד חמש רמות גוון עור. הדרך שבה גוון מתורגם לאנרגיית הבזק אינה מתוקננת — כל יצרן קובע את המיפוי הזה לפי הניסיון ודרישות התכנון שלו, ולכן שני מכשירים יכולים להתנהג אחרת על אותו עור.',
+    baselinePoints: [
+      'בלי מגע (אוויר) ושחור: אין הבזק — לא מוקצית אנרגיה כלל.',
+      'שלוש עד חמש רמות גוון עור: לכל אחת מוקצית אנרגיית הבזק משלה.',
+      'מיפוי הגוון לאנרגיה נקבע על ידי כל יצרן, לפי ניסיון ומגבלות תכנון.',
+    ],
+    stabilityNote:
+      'בחישת גוון עור לא החשוב הוא לכמה רמות מחלקים את הטווח, אלא עד כמה המדידה יציבה — חיישן שעומד בהחלטתו שווה יותר מחיישן עם יותר מדרגות.',
+  },
+  id: {
+    mechanismTitle: 'Cara sensor membaca kulit Anda',
+    mechanismBody:
+      'Kepala sensor memadukan cip fotosensor dengan sumber cahaya gabungan. Pemancarnya tidak menyala terus-menerus: ia mulai setelah perangkat memastikan ada kontak dengan kulit. Cahaya melewati pemandu cahaya ke kulit dan sebagian kembali. Warna kulit yang berbeda mengembalikan jumlah energi yang berbeda, dan cip fotosensor menentukan warna kulit dari energi yang diterimanya. Keputusan itu menetapkan energi kilatan — setiap warna kulit mendapat tingkatnya sendiri.',
+    baselineTitle: 'Apa yang dianggap industri sebagai dasar minimal',
+    baselineBody:
+      'Penginderaan warna kulit hari ini bekerja pada dasar yang sama: tanpa kontak (udara), hitam, dan tiga sampai lima tingkat warna kulit. Bagaimana suatu warna diterjemahkan menjadi energi kilatan tidak distandarkan — setiap produsen menetapkan pemetaan itu dari pengalaman dan persyaratan desainnya sendiri, dan karena itu dua perangkat bisa berperilaku berbeda pada kulit yang sama.',
+    baselinePoints: [
+      'Tanpa kontak (udara) dan hitam: tidak menyala — tidak ada energi yang dialokasikan.',
+      'Tiga sampai lima tingkat warna kulit: masing-masing mendapat energi kilatan sendiri.',
+      'Pemetaan warna ke energi ditetapkan tiap produsen, dari pengalaman dan batas desainnya.',
+    ],
+    stabilityNote:
+      'Pada penginderaan warna kulit, yang penting bukan seberapa banyak tingkat pembagian rentangnya, melainkan seberapa stabil pembacaannya — sensor yang teguh pada keputusannya lebih bernilai daripada sensor dengan lebih banyak tingkat.',
+  },
+  it: {
+    mechanismTitle: 'Come il sensore legge la tua pelle',
+    mechanismBody:
+      'La testina di rilevamento unisce un chip fotosensore a una sorgente luminosa composita. L’emettitore non resta sempre acceso: parte quando il dispositivo conferma il contatto con la pelle. La luce percorre una guida di luce fino alla pelle e una parte torna indietro. Tonalità diverse restituiscono quantità di energia diverse, e il chip fotosensore stabilisce il tono dall’energia che riceve. Questa decisione fissa l’energia del flash: ogni tonalità riceve il proprio livello.',
+    baselineTitle: 'Cosa l’industria considera il minimo di base',
+    baselineBody:
+      'Il rilevamento del tono cutaneo oggi lavora su una base comune: assenza di contatto (aria), nero e da tre a cinque livelli di tonalità. Come un tono venga tradotto in energia di flash non è standardizzato — ogni produttore fissa quella corrispondenza in base alla propria esperienza e ai requisiti di progetto, ed è per questo che due dispositivi possono comportarsi diversamente sulla stessa pelle.',
+    baselinePoints: [
+      'Assenza di contatto (aria) e nero: nessun flash — non viene assegnata alcuna energia.',
+      'Da tre a cinque livelli di tonalità: a ciascuno è assegnata la propria energia di flash.',
+      'La corrispondenza tono → energia è stabilita da ogni produttore, per esperienza e limiti di progetto.',
+    ],
+    stabilityNote:
+      'Nel rilevamento del tono cutaneo non conta in quanti livelli si divide l’intervallo, ma quanto è stabile la misura: un sensore che resta fermo sulla sua decisione vale più di uno con più gradini.',
+  },
+  ja: {
+    mechanismTitle: 'センサーが肌を読み取る仕組み',
+    mechanismBody:
+      'センサーヘッドはフォトセンサー素子と複合光源を組み合わせています。発光部は常時点灯ではなく、機器が肌への接触を確認してから発光を開始します。光は導光柱を通って肌に届き、その一部が戻ってきます。肌トーンによって戻る光のエネルギー量が異なり、フォトセンサー素子が受け取ったエネルギーから肌トーンを判定します。この判定がフラッシュエネルギーを決め、肌トーンごとにそれぞれのレベルが割り当てられます。',
+    baselineTitle: '業界が基本要件としているもの',
+    baselineBody:
+      '現在の肌トーン認識は共通の基本線で動いています。接触なし（空気）、黒、そして肌トーン3〜5段階です。ただし、あるトーンをどれだけのフラッシュエネルギーに変換するかは標準化されていません。各メーカーが自社の経験値と設計要件に基づいて対応表を決めるため、同じ肌でも機器によって挙動が異なることがあります。',
+    baselinePoints: [
+      '接触なし（空気）と黒：照射しません — エネルギーは一切割り当てられません。',
+      '肌トーン3〜5段階：それぞれに固有のフラッシュエネルギーが割り当てられます。',
+      'トーンとエネルギーの対応はメーカーごとに、経験値と設計上の制約から決められます。',
+    ],
+    stabilityNote:
+      '肌トーン認識で重要なのは、範囲を何段階に分けるかではなく、読み取りがどれだけ安定しているかです。判断がぶれないセンサーは、段階が多いだけのセンサーより価値があります。',
+  },
+  ko: {
+    mechanismTitle: '센서가 피부를 읽는 방식',
+    mechanismBody:
+      '센서 헤드는 포토센서 칩과 복합 광원을 함께 사용합니다. 발광부는 항상 켜져 있지 않고, 기기가 피부 접촉을 확인한 뒤에 발광을 시작합니다. 빛은 도광주를 지나 피부에 닿고 일부가 되돌아옵니다. 피부 톤마다 되돌아오는 에너지의 양이 다르고, 포토센서 칩은 받은 에너지로 피부 톤을 판정합니다. 이 판정이 플래시 에너지를 정하며, 피부 톤마다 각자의 단계가 배정됩니다.',
+    baselineTitle: '업계가 기본 요건으로 보는 것',
+    baselineBody:
+      '오늘날 피부 톤 인식은 공통된 기본선 위에서 동작합니다. 접촉 없음(공기), 검정, 그리고 피부 톤 3~5단계입니다. 다만 어떤 톤을 얼마의 플래시 에너지로 옮기는지는 표준화되어 있지 않습니다. 각 제조사가 자체 경험치와 설계 요건으로 대응표를 정하기 때문에, 같은 피부에서도 기기마다 다르게 동작할 수 있습니다.',
+    baselinePoints: [
+      '접촉 없음(공기)과 검정: 발사하지 않습니다 — 에너지가 전혀 배정되지 않습니다.',
+      '피부 톤 3~5단계: 각 단계에 고유한 플래시 에너지가 배정됩니다.',
+      '톤과 에너지의 대응은 제조사마다 경험치와 설계 한계로 정합니다.',
+    ],
+    stabilityNote:
+      '피부 톤 인식에서 중요한 것은 범위를 몇 단계로 나누는지가 아니라 판독이 얼마나 안정적인지입니다. 판단이 흔들리지 않는 센서가 단계만 많은 센서보다 값어치가 있습니다.',
+  },
+  nl: {
+    mechanismTitle: 'Hoe de sensor je huid leest',
+    mechanismBody:
+      'De sensorkop combineert een fotosensorchip met een samengestelde lichtbron. De zender brandt niet continu: hij start zodra het apparaat huidcontact bevestigt. Het licht gaat via een lichtgeleider naar de huid en een deel komt terug. Verschillende huidtinten sturen verschillende hoeveelheden energie terug, en de fotosensorchip bepaalt de tint uit de energie die hij ontvangt. Die beslissing bepaalt de flitsenergie — elke huidtint krijgt zijn eigen niveau.',
+    baselineTitle: 'Wat de branche als basisminimum beschouwt',
+    baselineBody:
+      'Huidtintdetectie werkt vandaag op een gemeenschappelijke basis: geen contact (lucht), zwart en drie tot vijf huidtintniveaus. Hoe een tint naar flitsenergie wordt vertaald, is niet gestandaardiseerd — elke fabrikant stelt die koppeling op basis van eigen ervaring en ontwerpeisen vast, waardoor twee apparaten zich op dezelfde huid anders kunnen gedragen.',
+    baselinePoints: [
+      'Geen contact (lucht) en zwart: geen flits — er wordt helemaal geen energie toegewezen.',
+      'Drie tot vijf huidtintniveaus: elk krijgt zijn eigen flitsenergie.',
+      'De koppeling tint → energie stelt elke fabrikant zelf vast, op basis van ervaring en ontwerpgrenzen.',
+    ],
+    stabilityNote:
+      'Bij huidtintdetectie gaat het er niet om in hoeveel niveaus je het bereik opdeelt, maar hoe stabiel de meting is — een sensor die bij zijn besluit blijft is meer waard dan een met meer stappen.',
+  },
+  pl: {
+    mechanismTitle: 'Jak czujnik odczytuje Twoją skórę',
+    mechanismBody:
+      'Głowica pomiarowa łączy chip fotoczujnika ze złożonym źródłem światła. Emiter nie pracuje bez przerwy: uruchamia się, gdy urządzenie potwierdzi kontakt ze skórą. Światło biegnie światłowodem do skóry, a jego część wraca. Różne odcienie skóry odsyłają różne ilości energii, a chip fotoczujnika rozpoznaje odcień na podstawie odebranej energii. Ta decyzja wyznacza energię błysku — każdy odcień dostaje własny poziom.',
+    baselineTitle: 'Co branża uznaje za podstawowe minimum',
+    baselineBody:
+      'Wykrywanie odcienia skóry działa dziś według wspólnej podstawy: brak kontaktu (powietrze), czerń i od trzech do pięciu poziomów odcienia. Sposób przełożenia odcienia na energię błysku nie jest znormalizowany — mapowanie każdego producenta wynika z jego doświadczenia i wymagań konstrukcyjnych, dlatego dwa urządzenia mogą zachować się różnie na tej samej skórze.',
+    baselinePoints: [
+      'Brak kontaktu (powietrze) i czerń: brak błysku — nie przydziela się żadnej energii.',
+      'Od trzech do pięciu poziomów odcienia: każdemu przydzielana jest własna energia błysku.',
+      'Mapowanie odcień → energia ustala każdy producent, na podstawie doświadczenia i ograniczeń konstrukcyjnych.',
+    ],
+    stabilityNote:
+      'W wykrywaniu odcienia skóry nie chodzi o to, na ile poziomów podzielisz zakres, ale o to, jak stabilny jest pomiar — czujnik, który trzyma się swojej decyzji, jest wart więcej niż taki z większą liczbą stopni.',
+  },
+  'pt-BR': {
+    mechanismTitle: 'Como o sensor lê a sua pele',
+    mechanismBody:
+      'A cabeça de detecção combina um chip fotossensor com uma fonte de luz composta. O emissor não fica ligado o tempo todo: ele começa quando o aparelho confirma o contato com a pele. A luz percorre um guia de luz até a pele e parte volta. Tons de pele diferentes devolvem quantidades diferentes de energia, e o chip fotossensor decide o tom a partir da energia que recebe. Essa decisão define a energia do flash — cada tom de pele recebe o próprio nível.',
+    baselineTitle: 'O que a indústria considera o mínimo básico',
+    baselineBody:
+      'A detecção de tom de pele hoje trabalha sobre uma base comum: sem contato (ar), preto e de três a cinco níveis de tom. Como um tom é traduzido em energia de flash não é padronizado — cada fabricante define esse mapeamento conforme a própria experiência e os requisitos de projeto, e por isso dois aparelhos podem se comportar de forma diferente na mesma pele.',
+    baselinePoints: [
+      'Sem contato (ar) e preto: nenhum flash — não se atribui energia alguma.',
+      'De três a cinco níveis de tom: cada um recebe a própria energia de flash.',
+      'O mapeamento tom → energia é definido por cada fabricante, conforme experiência e limites de projeto.',
+    ],
+    stabilityNote:
+      'Na detecção de tom de pele não importa em quantos níveis você divide a faixa, mas sim o quão estável é a leitura — um sensor que sustenta a decisão vale mais do que um com mais degraus.',
+  },
+  'pt-PT': {
+    mechanismTitle: 'Como o sensor lê a sua pele',
+    mechanismBody:
+      'A cabeça de deteção combina um chip fotossensor com uma fonte de luz composta. O emissor não fica ligado o tempo todo: começa quando o aparelho confirma o contacto com a pele. A luz percorre um guia de luz até à pele e parte regressa. Tons de pele diferentes devolvem quantidades diferentes de energia, e o chip fotossensor decide o tom a partir da energia que recebe. Essa decisão define a energia do flash — cada tom de pele recebe o seu próprio nível.',
+    baselineTitle: 'O que a indústria considera o mínimo básico',
+    baselineBody:
+      'A deteção de tom de pele trabalha hoje sobre uma base comum: sem contacto (ar), preto e três a cinco níveis de tom. A forma como um tom é traduzido em energia de flash não está normalizada — cada fabricante define esse mapeamento segundo a sua experiência e os requisitos de projeto, e por isso dois aparelhos podem comportar-se de maneira diferente na mesma pele.',
+    baselinePoints: [
+      'Sem contacto (ar) e preto: nenhum flash — não é atribuída energia alguma.',
+      'Três a cinco níveis de tom: cada um recebe a sua própria energia de flash.',
+      'O mapeamento tom → energia é definido por cada fabricante, conforme experiência e limites de projeto.',
+    ],
+    stabilityNote:
+      'Na deteção de tom de pele não importa em quantos níveis divide o intervalo, mas sim quão estável é a leitura — um sensor que mantém a sua decisão vale mais do que um com mais degraus.',
+  },
+  ro: {
+    mechanismTitle: 'Cum citește senzorul pielea ta',
+    mechanismBody:
+      'Capul de detectare combină un cip fotosenzor cu o sursă de lumină compusă. Emițătorul nu funcționează continuu: pornește după ce aparatul confirmă contactul cu pielea. Lumina parcurge un ghid de lumină până la piele, iar o parte se întoarce. Tonuri diferite de piele întorc cantități diferite de energie, iar cipul fotosenzor decide tonul din energia primită. Această decizie stabilește energia fulgerului — fiecare ton de piele primește propriul nivel.',
+    baselineTitle: 'Ce consideră industria drept minim de bază',
+    baselineBody:
+      'Detectarea tonului pielii lucrează astăzi pe o bază comună: fără contact (aer), negru și trei până la cinci niveluri de ton. Modul în care un ton este tradus în energie de fulger nu este standardizat — fiecare producător stabilește această corespondență după propria experiență și cerințele de proiectare, motiv pentru care două aparate se pot comporta diferit pe aceeași piele.',
+    baselinePoints: [
+      'Fără contact (aer) și negru: fără fulger — nu se atribuie nicio energie.',
+      'Trei până la cinci niveluri de ton: fiecare primește propria energie de fulger.',
+      'Corespondența ton → energie este stabilită de fiecare producător, după experiență și limite de proiectare.',
+    ],
+    stabilityNote:
+      'La detectarea tonului pielii nu contează în câte niveluri împarți intervalul, ci cât de stabilă este măsurătoarea — un senzor care își ține decizia valorează mai mult decât unul cu mai multe trepte.',
+  },
+  ru: {
+    mechanismTitle: 'Как датчик считывает вашу кожу',
+    mechanismBody:
+      'Измерительная головка объединяет чип фотодатчика и составной источник света. Излучатель не работает постоянно: он запускается после того, как устройство подтвердит контакт с кожей. Свет идёт по световоду к коже, и часть его возвращается. Разные тона кожи возвращают разное количество энергии, и чип фотодатчика определяет тон по полученной энергии. Это решение задаёт энергию вспышки — каждому тону кожи назначается свой уровень.',
+    baselineTitle: 'Что отрасль считает базовым минимумом',
+    baselineBody:
+      'Определение тона кожи сегодня работает по общей базе: без контакта (воздух), чёрный и от трёх до пяти уровней тона. Как именно тон переводится в энергию вспышки, не стандартизировано — каждый производитель задаёт это соответствие исходя из своего опыта и требований конструкции, поэтому два устройства могут вести себя по-разному на одной и той же коже.',
+    baselinePoints: [
+      'Без контакта (воздух) и чёрный: вспышки нет — энергия не выделяется вообще.',
+      'От трёх до пяти уровней тона: каждому назначается своя энергия вспышки.',
+      'Соответствие «тон → энергия» задаёт каждый производитель, исходя из опыта и конструктивных ограничений.',
+    ],
+    stabilityNote:
+      'В определении тона кожи важно не то, на сколько уровней разбит диапазон, а то, насколько стабильно измерение — датчик, который держит своё решение, ценнее датчика с большим числом ступеней.',
+  },
+  th: {
+    mechanismTitle: 'เซ็นเซอร์อ่านผิวของคุณอย่างไร',
+    mechanismBody:
+      'หัววัดรวมชิปโฟโตเซ็นเซอร์เข้ากับแหล่งกำเนิดแสงแบบผสม ตัวส่งแสงไม่ได้เปิดตลอดเวลา แต่จะเริ่มทำงานเมื่ออุปกรณ์ยืนยันว่าสัมผัสผิวแล้ว แสงวิ่งผ่านตัวนำแสงไปยังผิวและส่วนหนึ่งสะท้อนกลับมา ผิวต่างโทนสะท้อนพลังงานกลับมาไม่เท่ากัน และชิปโฟโตเซ็นเซอร์ตัดสินโทนผิวจากพลังงานที่ได้รับ การตัดสินนี้กำหนดพลังงานในการยิงแสง โดยแต่ละโทนผิวได้ระดับของตัวเอง',
+    baselineTitle: 'สิ่งที่อุตสาหกรรมถือเป็นพื้นฐานขั้นต่ำ',
+    baselineBody:
+      'การตรวจจับโทนผิวในปัจจุบันทำงานบนพื้นฐานร่วมกัน คือ ไม่สัมผัส (อากาศ) สีดำ และโทนผิว 3 ถึง 5 ระดับ แต่วิธีแปลโทนหนึ่งเป็นพลังงานยิงแสงนั้นยังไม่เป็นมาตรฐานเดียวกัน แต่ละผู้ผลิตกำหนดตารางนี้จากประสบการณ์และข้อกำหนดการออกแบบของตนเอง จึงเป็นเหตุให้อุปกรณ์สองเครื่องทำงานต่างกันบนผิวเดียวกันได้',
+    baselinePoints: [
+      'ไม่สัมผัส (อากาศ) และสีดำ: ไม่ยิงแสง — ไม่จัดสรรพลังงานใดเลย',
+      'โทนผิว 3 ถึง 5 ระดับ: แต่ละระดับได้รับการจัดสรรพลังงานยิงแสงของตัวเอง',
+      'การจับคู่โทนกับพลังงานเป็นของผู้ผลิตแต่ละราย กำหนดจากประสบการณ์และข้อจำกัดการออกแบบ',
+    ],
+    stabilityNote:
+      'การตรวจจับโทนผิวไม่ได้อยู่ที่ว่าแบ่งช่วงเป็นกี่ระดับ แต่อยู่ที่ว่าการวัดนั้นเสถียรแค่ไหน เซ็นเซอร์ที่ยึดคำตัดสินของตัวเองได้มีค่ากว่าเซ็นเซอร์ที่มีขั้นมากกว่า',
+  },
+  tr: {
+    mechanismTitle: 'Sensör cildinizi nasıl okur',
+    mechanismBody:
+      'Sensör başlığı bir fotosensör çipini bileşik bir ışık kaynağıyla birleştirir. Verici sürekli yanmaz: cihaz cilt temasını doğruladıktan sonra çalışmaya başlar. Işık bir ışık kılavuzundan cilde gider ve bir kısmı geri döner. Farklı cilt tonları farklı miktarda enerji geri gönderir ve fotosensör çipi aldığı enerjiden tonu belirler. Bu karar flaş enerjisini belirler — her cilt tonuna kendi seviyesi atanır.',
+    baselineTitle: 'Sektörün temel asgari olarak kabul ettiği şey',
+    baselineBody:
+      'Cilt tonu algılama bugün ortak bir temel üzerinde çalışır: temas yok (hava), siyah ve üç ila beş cilt tonu seviyesi. Bir tonun flaş enerjisine nasıl çevrileceği standartlaştırılmamıştır — bu eşlemeyi her üretici kendi deneyimine ve tasarım gereksinimlerine göre belirler; bu yüzden iki cihaz aynı ciltte farklı davranabilir.',
+    baselinePoints: [
+      'Temas yok (hava) ve siyah: flaş yok — hiç enerji atanmaz.',
+      'Üç ila beş cilt tonu seviyesi: her birine kendi flaş enerjisi atanır.',
+      'Ton → enerji eşlemesini her üretici deneyimine ve tasarım sınırlarına göre belirler.',
+    ],
+    stabilityNote:
+      'Cilt tonu algılamada önemli olan aralığı kaç seviyeye böldüğünüz değil, ölçümün ne kadar kararlı olduğudur — kararında duran bir sensör, daha çok kademesi olan bir sensörden daha değerlidir.',
+  },
+  vi: {
+    mechanismTitle: 'Cảm biến đọc da của bạn như thế nào',
+    mechanismBody:
+      'Đầu cảm biến kết hợp một chip cảm biến quang với nguồn sáng tổ hợp. Bộ phát không chạy liên tục: nó khởi động sau khi thiết bị xác nhận đã tiếp xúc với da. Ánh sáng đi qua ống dẫn sáng tới da và một phần phản hồi trở lại. Các tông da khác nhau trả về lượng năng lượng khác nhau, và chip cảm biến quang xác định tông da từ năng lượng nhận được. Quyết định đó đặt ra năng lượng phát xung — mỗi tông da được gán một mức riêng.',
+    baselineTitle: 'Điều mà ngành coi là mức cơ bản tối thiểu',
+    baselineBody:
+      'Cảm biến tông màu da hiện nay vận hành trên một nền chung: không tiếp xúc (không khí), màu đen, và ba đến năm mức tông da. Cách chuyển một tông thành năng lượng phát xung thì chưa được chuẩn hóa — mỗi nhà sản xuất đặt bảng ánh xạ này theo kinh nghiệm và yêu cầu thiết kế của mình, nên hai thiết bị có thể hành xử khác nhau trên cùng một làn da.',
+    baselinePoints: [
+      'Không tiếp xúc (không khí) và màu đen: không phát xung — không gán năng lượng nào.',
+      'Ba đến năm mức tông da: mỗi mức được gán năng lượng phát xung riêng.',
+      'Ánh xạ tông → năng lượng do từng nhà sản xuất đặt ra, theo kinh nghiệm và giới hạn thiết kế.',
+    ],
+    stabilityNote:
+      'Với cảm biến tông màu da, điều quan trọng không phải là chia dải thành bao nhiêu mức, mà là phép đo ổn định đến đâu — một cảm biến giữ vững quyết định của mình có giá trị hơn một cảm biến có nhiều bậc hơn.',
+  },
+};
+
+/** 按语种取一组内容，含大小写归一化与 en 兜底 */
+function pickLocale<T>(map: Record<string, T>, locale: string | undefined, fallback: T): T {
+  if (!locale) return fallback;
+  const lower: Record<string, T> = {};
+  for (const [k, v] of Object.entries(map)) lower[k.toLowerCase()] = v;
   const candidates = [locale, locale.toLowerCase(), locale.split('-')[0], locale.replace(/-/g, '')];
   for (const c of candidates) {
-    if (c && LUMI2_TECHNOLOGY[c]) return LUMI2_TECHNOLOGY[c];
+    if (c && map[c]) return map[c];
     if (c && lower[c.toLowerCase()]) return lower[c.toLowerCase()];
   }
-  return base;
+  return fallback;
+}
+
+/** locale 归一化 + 两组内容合并：调用方只看到一个完整对象 */
+export function getLumi2Technology(locale: string | undefined): Lumi2TechnologyCopy {
+  return {
+    ...pickLocale(LUMI2_TECHNOLOGY, locale, LUMI2_TECHNOLOGY.en),
+    ...pickLocale(LUMI2_SENSING_DETAIL, locale, LUMI2_SENSING_DETAIL.en),
+  };
 }
