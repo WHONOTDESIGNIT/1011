@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Yerel Ödeme Seçenekleri",
+      "intro": "Aşağıdaki bölgelerde tahsilat hesaplarımız bulunuyor; böylece kendi para biriminizde, yerel takas ağınız üzerinden ödeme yapabilirsiniz — zincirde aracı banka yok, daha düşük masraf ve daha hızlı mutabakat.",
+      "otherRegions": "Diğer bölgeler ve uluslararası transfer",
+      "otherIntro": "Yukarıda listelenen bölgelerin dışından mı ödeme yapıyorsunuz? Uluslararası banka havalesi (SWIFT / T/T) dünyanın geri kalanını kapsar.",
+      "timingNote": "Varış süreleri, ödeme ağının tipik işlem süreleridir; sözleşmesel bir taahhüt değildir.",
+      "regions": {
+        "eurozone": "Euro Bölgesi",
+        "uk": "Birleşik Krallık",
+        "denmark": "Danimarka",
+        "latam": "Latin Amerika",
+        "brazil": "Brezilya",
+        "vietnam": "Vietnam",
+        "thailand": "Tayland",
+        "indonesia": "Endonezya",
+        "india": "Hindistan",
+        "malaysia": "Malezya",
+        "africa": "Afrika",
+        "global": "Uluslararası (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Gerçek zamanlı",
+        "sameDay": "Aynı iş günü",
+        "oneDay": "1 iş günü",
+        "oneToTwoDays": "1–2 iş günü",
+        "oneToThreeDays": "1–3 iş günü",
+        "oneToFiveDays": "1–5 iş günü",
+        "twoHours": "2 saat içinde"
+      }
+    },
     "specifications": "Teknik Özellikler",
     "availableColors": "Mevcut Renkler",
     "featuresIntro": "{productName}, markanız için neden doğru seçimdir?",

@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Místní možnosti platby",
+      "intro": "V níže uvedených regionech máme zřízené přijímací účty, takže můžete platit ve vlastní měně prostřednictvím své vnitrostátní clearingové sítě — žádná korespondenční banka v řetězci, nižší poplatky a rychlejší vypořádání.",
+      "otherRegions": "Ostatní regiony a mezinárodní převod",
+      "otherIntro": "Platíte z regionu, který není uveden výše? Mezinárodní bankovní převod (SWIFT / T/T) pokrývá zbytek světa.",
+      "timingNote": "Doby připsání odpovídají obvyklým dobám zpracování v platební síti, nejde o smluvní závazek.",
+      "regions": {
+        "eurozone": "Eurozóna",
+        "uk": "Spojené království",
+        "denmark": "Dánsko",
+        "latam": "Latinská Amerika",
+        "brazil": "Brazílie",
+        "vietnam": "Vietnam",
+        "thailand": "Thajsko",
+        "indonesia": "Indonésie",
+        "india": "Indie",
+        "malaysia": "Malajsie",
+        "africa": "Afrika",
+        "global": "Mezinárodní (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "V reálném čase",
+        "sameDay": "Ve stejný pracovní den",
+        "oneDay": "1 pracovní den",
+        "oneToTwoDays": "1–2 pracovní dny",
+        "oneToThreeDays": "1–3 pracovní dny",
+        "oneToFiveDays": "1–5 pracovních dnů",
+        "twoHours": "Do 2 hodin"
+      }
+    },
     "specifications": "Technické údaje",
     "availableColors": "Dostupné barvy",
     "featuresIntro": "Proč je {productName} tou správnou volbou pro vaši značku.",

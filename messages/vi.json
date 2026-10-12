@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Phương thức thanh toán tại địa phương",
+      "intro": "Chúng tôi có tài khoản nhận tiền tại các khu vực dưới đây, nên bạn có thể thanh toán bằng đồng tiền của mình qua mạng thanh toán bù trừ nội địa — không qua ngân hàng đại lý trung gian, phí thấp hơn và nhận tiền nhanh hơn.",
+      "otherRegions": "Khu vực khác & chuyển khoản quốc tế",
+      "otherIntro": "Bạn thanh toán từ khu vực không có trong danh sách trên? Chuyển khoản ngân hàng quốc tế (SWIFT / T/T) sẽ đáp ứng cho phần còn lại của thế giới.",
+      "timingNote": "Thời gian nhận tiền là thời gian xử lý thông thường của mạng thanh toán, không phải cam kết trong hợp đồng.",
+      "regions": {
+        "eurozone": "Khu vực đồng euro",
+        "uk": "Vương quốc Anh",
+        "denmark": "Đan Mạch",
+        "latam": "Mỹ Latinh",
+        "brazil": "Brazil",
+        "vietnam": "Việt Nam",
+        "thailand": "Thái Lan",
+        "indonesia": "Indonesia",
+        "india": "Ấn Độ",
+        "malaysia": "Malaysia",
+        "africa": "Châu Phi",
+        "global": "Quốc tế (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Tức thời",
+        "sameDay": "Cùng ngày làm việc",
+        "oneDay": "1 ngày làm việc",
+        "oneToTwoDays": "1–2 ngày làm việc",
+        "oneToThreeDays": "1–3 ngày làm việc",
+        "oneToFiveDays": "1–5 ngày làm việc",
+        "twoHours": "Trong vòng 2 giờ"
+      }
+    },
     "specifications": "Thông số kỹ thuật",
     "availableColors": "Màu sắc có sẵn",
     "featuresIntro": "Điều gì khiến {productName} trở thành lựa chọn phù hợp cho thương hiệu của bạn.",

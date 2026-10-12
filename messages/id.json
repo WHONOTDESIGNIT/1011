@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Opsi Pembayaran Lokal",
+      "intro": "Kami memiliki rekening penerima di wilayah-wilayah berikut, sehingga Anda dapat membayar dalam mata uang Anda sendiri melalui jaringan kliring domestik Anda — tanpa bank koresponden dalam rantai transaksi, biaya lebih rendah, dan penyelesaian lebih cepat.",
+      "otherRegions": "Wilayah lain & transfer internasional",
+      "otherIntro": "Membayar dari wilayah yang tidak tercantum di atas? Transfer bank internasional (SWIFT / T/T) mencakup seluruh dunia.",
+      "timingNote": "Waktu kedatangan adalah waktu pemrosesan umum jaringan pembayaran, bukan komitmen kontraktual.",
+      "regions": {
+        "eurozone": "Zona Euro",
+        "uk": "Inggris Raya",
+        "denmark": "Denmark",
+        "latam": "Amerika Latin",
+        "brazil": "Brasil",
+        "vietnam": "Vietnam",
+        "thailand": "Thailand",
+        "indonesia": "Indonesia",
+        "india": "India",
+        "malaysia": "Malaysia",
+        "africa": "Afrika",
+        "global": "Internasional (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Waktu nyata",
+        "sameDay": "Hari kerja yang sama",
+        "oneDay": "1 hari kerja",
+        "oneToTwoDays": "1–2 hari kerja",
+        "oneToThreeDays": "1–3 hari kerja",
+        "oneToFiveDays": "1–5 hari kerja",
+        "twoHours": "Dalam waktu 2 jam"
+      }
+    },
     "specifications": "Spesifikasi",
     "availableColors": "Warna yang Tersedia",
     "featuresIntro": "Apa yang menjadikan {productName} pilihan yang tepat untuk merek Anda.",

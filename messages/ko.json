@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "현지 결제 옵션",
+      "intro": "당사는 아래 지역에 수취 계좌를 보유하고 있어, 현지 통화로 해당 국가의 자국 결제망을 통해 결제하실 수 있습니다. 중계 은행이 개입하지 않아 수수료가 낮고 정산이 빠릅니다.",
+      "otherRegions": "기타 지역 및 국제 송금",
+      "otherIntro": "위에 없는 지역에서 결제하시나요? 국제 은행 송금(SWIFT / T/T)이 전 세계 결제를 지원합니다.",
+      "timingNote": "도착 시간은 결제망의 일반적인 처리 시간이며, 계약상 확약 사항이 아닙니다.",
+      "regions": {
+        "eurozone": "유로존",
+        "uk": "영국",
+        "denmark": "덴마크",
+        "latam": "중남미",
+        "brazil": "브라질",
+        "vietnam": "베트남",
+        "thailand": "태국",
+        "indonesia": "인도네시아",
+        "india": "인도",
+        "malaysia": "말레이시아",
+        "africa": "아프리카",
+        "global": "국제 (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "실시간",
+        "sameDay": "영업일 당일",
+        "oneDay": "영업일 1일",
+        "oneToTwoDays": "영업일 1–2일",
+        "oneToThreeDays": "영업일 1–3일",
+        "oneToFiveDays": "영업일 1–5일",
+        "twoHours": "2시간 이내"
+      }
+    },
     "specifications": "제품 사양",
     "availableColors": "제공 색상",
     "featuresIntro": "{productName}이(가) 브랜드에 가장 적합한 선택인 이유를 확인하세요.",

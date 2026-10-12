@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "現地のお支払い方法",
+      "intro": "当社は下記の地域に受取口座を保有しているため、お客様は自国通貨で国内のクリアリングネットワークを通じてお支払いいただけます — コルレス銀行を介さず、手数料は抑えられ、着金も早くなります。",
+      "otherRegions": "その他地域・国際送金",
+      "otherIntro": "上記以外の地域からのお支払いですか？国際銀行送金（SWIFT / T/T）がその他の地域に対応しています。",
+      "timingNote": "入金までの時間は決済ネットワークの標準的な処理時間であり、契約上の確約ではありません。",
+      "regions": {
+        "eurozone": "ユーロ圏",
+        "uk": "英国",
+        "denmark": "デンマーク",
+        "latam": "中南米",
+        "brazil": "ブラジル",
+        "vietnam": "ベトナム",
+        "thailand": "タイ",
+        "indonesia": "インドネシア",
+        "india": "インド",
+        "malaysia": "マレーシア",
+        "africa": "アフリカ",
+        "global": "国際（SWIFT / T/T）"
+      },
+      "timings": {
+        "realTime": "リアルタイム",
+        "sameDay": "当日中",
+        "oneDay": "1営業日",
+        "oneToTwoDays": "1–2営業日",
+        "oneToThreeDays": "1–3営業日",
+        "oneToFiveDays": "1–5営業日",
+        "twoHours": "2時間以内"
+      }
+    },
     "specifications": "仕様",
     "availableColors": "対応カラー",
     "featuresIntro": "{productName}があなたのブランドに最適な理由。",

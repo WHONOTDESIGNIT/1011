@@ -4574,6 +4574,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Opções de Pagamento Locais",
+      "intro": "Mantemos contas de recebimento nas regiões abaixo, para que você possa pagar na sua própria moeda pela sua rede de compensação doméstica — sem banco correspondente na cadeia, taxas menores e liquidação mais rápida.",
+      "otherRegions": "Outras regiões e transferência internacional",
+      "otherIntro": "Vai pagar de uma região que não está listada acima? A transferência bancária internacional (SWIFT / T/T) cobre o resto do mundo.",
+      "timingNote": "Os prazos de chegada são os prazos típicos de processamento da rede de pagamento, não um compromisso contratual.",
+      "regions": {
+        "eurozone": "Zona do Euro",
+        "uk": "Reino Unido",
+        "denmark": "Dinamarca",
+        "latam": "América Latina",
+        "brazil": "Brasil",
+        "vietnam": "Vietnã",
+        "thailand": "Tailândia",
+        "indonesia": "Indonésia",
+        "india": "Índia",
+        "malaysia": "Malásia",
+        "africa": "África",
+        "global": "Internacional (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Em tempo real",
+        "sameDay": "No mesmo dia útil",
+        "oneDay": "1 dia útil",
+        "oneToTwoDays": "1–2 dias úteis",
+        "oneToThreeDays": "1–3 dias úteis",
+        "oneToFiveDays": "1–5 dias úteis",
+        "twoHours": "Em até 2 horas"
+      }
+    },
     "specifications": "Especificações",
     "availableColors": "Cores Disponíveis",
     "featuresIntro": "O que torna {productName} a escolha certa para sua marca.",

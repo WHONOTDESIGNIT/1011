@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Opzioni di pagamento locali",
+      "intro": "Disponiamo di conti di incasso nelle regioni indicate di seguito, così potete pagare nella vostra valuta tramite la vostra rete di compensazione nazionale — senza banche corrispondenti nella catena, commissioni più basse e regolamento più rapido.",
+      "otherRegions": "Altre regioni e bonifico internazionale",
+      "otherIntro": "Pagate da una regione non elencata sopra? Il bonifico bancario internazionale (SWIFT / T/T) copre il resto del mondo.",
+      "timingNote": "I tempi di arrivo sono i tempi di elaborazione tipici della rete di pagamento, non un impegno contrattuale.",
+      "regions": {
+        "eurozone": "Eurozona",
+        "uk": "Regno Unito",
+        "denmark": "Danimarca",
+        "latam": "America Latina",
+        "brazil": "Brasile",
+        "vietnam": "Vietnam",
+        "thailand": "Thailandia",
+        "indonesia": "Indonesia",
+        "india": "India",
+        "malaysia": "Malaysia",
+        "africa": "Africa",
+        "global": "Internazionale (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "In tempo reale",
+        "sameDay": "Stesso giorno lavorativo",
+        "oneDay": "1 giorno lavorativo",
+        "oneToTwoDays": "1–2 giorni lavorativi",
+        "oneToThreeDays": "1–3 giorni lavorativi",
+        "oneToFiveDays": "1–5 giorni lavorativi",
+        "twoHours": "Entro 2 ore"
+      }
+    },
     "specifications": "Specifiche tecniche",
     "availableColors": "Colori disponibili",
     "featuresIntro": "Cosa rende {productName} la scelta giusta per il Suo marchio.",
