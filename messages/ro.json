@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Opțiuni de plată locale",
+      "intro": "Deținem conturi de încasare în regiunile de mai jos, astfel încât puteți plăti în moneda dumneavoastră prin rețeaua de compensare națională — fără bancă corespondentă în lanț, comisioane mai mici și decontare mai rapidă.",
+      "otherRegions": "Alte regiuni și transfer internațional",
+      "otherIntro": "Plătiți dintr-o regiune care nu apare mai sus? Transferul bancar internațional (SWIFT / T/T) acoperă restul lumii.",
+      "timingNote": "Termenele de ajungere reprezintă timpii obișnuiți de procesare ai rețelei de plăți, nu un angajament contractual.",
+      "regions": {
+        "eurozone": "Zona euro",
+        "uk": "Regatul Unit",
+        "denmark": "Danemarca",
+        "latam": "America Latină",
+        "brazil": "Brazilia",
+        "vietnam": "Vietnam",
+        "thailand": "Thailanda",
+        "indonesia": "Indonezia",
+        "india": "India",
+        "malaysia": "Malaysia",
+        "africa": "Africa",
+        "global": "Internațional (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "În timp real",
+        "sameDay": "În aceeași zi lucrătoare",
+        "oneDay": "1 zi lucrătoare",
+        "oneToTwoDays": "1–2 zile lucrătoare",
+        "oneToThreeDays": "1–3 zile lucrătoare",
+        "oneToFiveDays": "1–5 zile lucrătoare",
+        "twoHours": "În maximum 2 ore"
+      }
+    },
     "specifications": "Specificații",
     "availableColors": "Culori disponibile",
     "featuresIntro": "Ce face din {productName} alegerea potrivită pentru brandul dumneavoastră.",

@@ -9246,6 +9246,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Local Payment Options",
+      "intro": "We hold receiving accounts in the regions below, so you can pay in your own currency through your domestic clearing network — no correspondent bank in the chain, lower fees and faster settlement.",
+      "otherRegions": "Other regions & international transfer",
+      "otherIntro": "Paying from a region not listed above? International bank transfer (SWIFT / T/T) covers the rest of the world.",
+      "timingNote": "Arrival times are the payment network's typical processing times, not a contractual commitment.",
+      "regions": {
+        "eurozone": "Eurozone",
+        "uk": "United Kingdom",
+        "denmark": "Denmark",
+        "latam": "Latin America",
+        "brazil": "Brazil",
+        "vietnam": "Vietnam",
+        "thailand": "Thailand",
+        "indonesia": "Indonesia",
+        "india": "India",
+        "malaysia": "Malaysia",
+        "africa": "Africa",
+        "global": "International (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Real time",
+        "sameDay": "Same business day",
+        "oneDay": "1 business day",
+        "oneToTwoDays": "1–2 business days",
+        "oneToThreeDays": "1–3 business days",
+        "oneToFiveDays": "1–5 business days",
+        "twoHours": "Within 2 hours"
+      }
+    },
     "specifications": "Specifications",
     "availableColors": "Available Colors",
     "featuresIntro": "What makes {productName} the right choice for your brand.",

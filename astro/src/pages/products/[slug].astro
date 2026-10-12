@@ -8,12 +8,17 @@ import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import enMessages from '../../../../messages/en.json';
 import { getSuitability } from '../../lib/skin-hair-suitability';
 import { getLumi2Technology, LUMI2_REFERENCES } from '../../lib/lumi2-skin-sensing';
+import { getPrimaryPaymentRegions, getOtherPaymentRegions, getPaymentRegionRows } from '../../lib/payment-solutions';
 
 const locale = Astro.currentLocale ?? 'en'; const { slug } = Astro.params;
 // 肤色 / 毛发适配性文案（22 语种，见 src/lib/skin-hair-suitability.ts）
 const suit = getSuitability(locale);
 // Lumi 2 专属技术区块（IGBT 快速闪光 + 肤色感应五档状态，22 语种，见 src/lib/lumi2-skin-sensing.ts）
 const lumi2Tech = slug === 'lumi-2' ? getLumi2Technology(locale) : undefined;
+// 本地收款方案：按语种给主推区域（展开）+ 其余区域（折叠）。只讲币种/清算网络/到账时效，
+// 不写银行名与账号 —— 账户信息一律随 PI 提供。数据与语种分配见 src/lib/payment-solutions.ts
+const primaryPaymentRegions = getPrimaryPaymentRegions(locale);
+const otherPaymentRegions = getOtherPaymentRegions(locale);
 
 interface ProductData {
   name: string;
@@ -649,6 +654,57 @@ const productSchema = {
                 {acceptedPayments.map((method) => (
                   <span class="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-700">{method}</span>
                 ))}
+              </div>
+
+              {/* 本地收款方案（22 语种，见 src/lib/payment-solutions.ts）
+                  主推区域展开、其余区域折叠；只出现币种 / 清算网络 / 到账时效，不出现银行名与账号。 */}
+              <div class="mt-6 border-t border-neutral-200 pt-6">
+                <h3 class="text-base font-semibold text-ink-900">{t(locale, 'productDetail.paymentSolutions.title')}</h3>
+                <p class="mt-2 text-sm text-neutral-600">{t(locale, 'productDetail.paymentSolutions.intro')}</p>
+
+                {primaryPaymentRegions.map((region) => (
+                  <div class="mt-4">
+                    <h4 class="text-sm font-semibold text-ink-900">
+                      {t(locale, `productDetail.paymentSolutions.regions.${region}`)}
+                    </h4>
+                    <dl class="mt-2 divide-y divide-neutral-100">
+                      {getPaymentRegionRows(region).map((row) => (
+                        <div class="flex justify-between gap-4 py-2 text-sm">
+                          <dt class="text-neutral-600">{row.currency} · {row.network}</dt>
+                          <dd class="ml-4 text-right font-medium text-ink-900">
+                            {t(locale, `productDetail.paymentSolutions.timings.${row.timing}`)}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ))}
+
+                <details class="mt-4 rounded-2xl border border-neutral-200 bg-neutral-50/60 px-4 py-3">
+                  <summary class="cursor-pointer text-sm font-semibold text-ink-900">
+                    {t(locale, 'productDetail.paymentSolutions.otherRegions')}
+                  </summary>
+                  <p class="mt-2 text-sm text-neutral-600">{t(locale, 'productDetail.paymentSolutions.otherIntro')}</p>
+                  {otherPaymentRegions.map((region) => (
+                    <div class="mt-4">
+                      <h4 class="text-sm font-semibold text-ink-900">
+                        {t(locale, `productDetail.paymentSolutions.regions.${region}`)}
+                      </h4>
+                      <dl class="mt-2 divide-y divide-neutral-100">
+                        {getPaymentRegionRows(region).map((row) => (
+                          <div class="flex justify-between gap-4 py-2 text-sm">
+                            <dt class="text-neutral-600">{row.currency} · {row.network}</dt>
+                            <dd class="ml-4 text-right font-medium text-ink-900">
+                              {t(locale, `productDetail.paymentSolutions.timings.${row.timing}`)}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  ))}
+                </details>
+
+                <p class="mt-4 text-xs text-neutral-500">{t(locale, 'productDetail.paymentSolutions.timingNote')}</p>
               </div>
             </div>
           </div>

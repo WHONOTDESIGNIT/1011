@@ -9295,6 +9295,36 @@
       "Diners Club",
       "American Express"
     ],
+    "paymentSolutions": {
+      "title": "Lokale betaalopties",
+      "intro": "Wij beschikken over ontvangstrekeningen in de onderstaande regio's, zodat u in uw eigen valuta kunt betalen via uw binnenlandse clearingsnetwerk — zonder correspondentbank in de keten, met lagere kosten en snellere verrekening.",
+      "otherRegions": "Overige regio's en internationale overschrijving",
+      "otherIntro": "Betaalt u vanuit een regio die hierboven niet wordt vermeld? Internationale bankoverschrijving (SWIFT / T/T) is beschikbaar voor de rest van de wereld.",
+      "timingNote": "De aankomsttijden zijn de gebruikelijke verwerkingstijden van het betaalnetwerk en vormen geen contractuele verplichting.",
+      "regions": {
+        "eurozone": "Eurozone",
+        "uk": "Verenigd Koninkrijk",
+        "denmark": "Denemarken",
+        "latam": "Latijns-Amerika",
+        "brazil": "Brazilië",
+        "vietnam": "Vietnam",
+        "thailand": "Thailand",
+        "indonesia": "Indonesië",
+        "india": "India",
+        "malaysia": "Maleisië",
+        "africa": "Afrika",
+        "global": "Internationaal (SWIFT / T/T)"
+      },
+      "timings": {
+        "realTime": "Direct",
+        "sameDay": "Dezelfde werkdag",
+        "oneDay": "1 werkdag",
+        "oneToTwoDays": "1–2 werkdagen",
+        "oneToThreeDays": "1–3 werkdagen",
+        "oneToFiveDays": "1–5 werkdagen",
+        "twoHours": "Binnen 2 uur"
+      }
+    },
     "specifications": "Specificaties",
     "availableColors": "Beschikbare kleuren",
     "featuresIntro": "Wat {productName} de juiste keuze maakt voor uw merk.",
