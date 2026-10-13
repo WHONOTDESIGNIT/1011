@@ -58,7 +58,7 @@ Konto GUDID posiada producent. Po naniesieniu Państwa marki produkt jest identy
 
 To ścieżka o mniejszym nakładzie pracy i zwykle właściwa, gdy Państwa udział sprowadza się do pozyskania, oznakowania marką i dystrybucji, a nie do projektowania urządzenia.
 
-Jedna uwaga terminologiczna, bo w dyskusjach o GUDID wywołuje realne nieporozumienia: rekord DI nie jest pomyślany po to, by edytować go w inne urządzenie. Zmiana elementu danych identyfikacyjnych — w tym nazwy marki — jest tym, co dokumentacja GUDID traktuje jako **new DI trigger**: właściwą odpowiedzią jest **nowy DI i nowy rekord**, a nie edycja istniejącego. „Wprowadzenie marki do GUDID” nigdy więc nie oznacza nadpisania rekordu; oznacza utworzenie rekordu identyfikującego Państwa konfigurację.
+Jedna uwaga terminologiczna, bo w dyskusjach o GUDID wywołuje realne nieporozumienia: **to, czy zmiana nazwy marki jest aktualizacją danych w istniejącym rekordzie DI, czy zdarzeniem wymagającym nowego DI, jest faktem o tym polu, a nie kwestią preferencji — i odpowiedź na to pytanie znajduje się w jednym konkretnym miejscu.** GUDID **business rules** dla każdego elementu danych są podane w publikowanej przez FDA **GUDID Data Elements Reference Table (DERT)**, która zawiera dla każdego pola rozstrzygnięcie **„New DI Trigger?”**. Dla porównania: Brand Name to atrybut na poziomie **DI** (GUDID przechowuje część DI kodu UDI; **production identifier** nie jest przechowywany, a jedynie oznaczany flagą), a same triggery są na ogół zbudowane wokół pytania, czy urządzenie nadal jest tym samym urządzeniem — chodzi na przykład o stan sterylizacji czy cechy jednorazowego użytku. To, czy nazwa marki mieści się w tej logice, czy poza nią, rozstrzyga właśnie ta kolumna w DERT. Warto sprawdzić ją przed wyborem któregokolwiek z trybów postępowania, bo te dwie ścieżki się różnią: aktualizacja danych w istniejącym rekordzie to inna czynność niż nadanie nowego DI i złożenie nowego rekordu.
 
 ### Opcja 2 — własne konto GUDID
 
@@ -81,19 +81,19 @@ Dwie decyzje trzeba podjąć *przed* zatwierdzeniem projektu graficznego, poniew
 
 | Nośnik | Logo | Nazwa marki |
 |---|---|---|
-| **Rekord DI w GUDID** | Nie jest przechowywane — pole jest wartością tekstową | Nazwa marki jako tekst; ® i ™ są akceptowane |
+| **Rekord DI w GUDID** | Nie jest przechowywane — pole jest wartością tekstową | Nazwa marki jako tekst; akceptowane znaki zgodnie z DERT |
 | **Fizyczna etykieta i opakowanie** | Pełny znak graficzny logo, w Państwa projekcie | Nazwa marki w formie wydrukowanej |
 
 Dwie kwestie, które w tym miejscu najczęściej prowadzą do błędnych założeń:
 
-- **Zestaw znaków: kwestia jest już rozstrzygnięta i wypada na Państwa korzyść.** GUDID prowadzi **accepted special-characters list** (listę akceptowanych znaków specjalnych), a symbole **®** i **™** są w polu **Brand Name** akceptowane. Tę regułę łatwo zastosować błędnie, dlatego warto ująć ją precyzyjnie: ścisłe ograniczenie zestawu znaków wynikające z **ISO/IEC 646** dotyczy **samego device identifier (DI)**, a nie opisowych pól tekstowych. Brand Name to element danych typu **string**, walidowany przez **business rules** GUDID właśnie względem tej akceptowanej listy. Marka zawierająca ® lub ™ może więc zostać zapisana w brzmieniu, w jakim jest używana.
+- **Zestaw znaków: sprawdź go w DERT, bo to jedyne miejsce, które na to odpowiada.** GUDID **business rules** dla każdego elementu danych — w tym akceptowanych znaków w danym polu — są publikowane w **GUDID Data Elements Reference Table (DERT)** FDA. Warto to sprawdzić, a nie zakładać, bo istnieje rozróżnienie, które łatwo odwrócić: ścisłe ograniczenie zestawu znaków wynikające z **ISO/IEC 646** dotyczy **samego device identifier (DI)**, natomiast **Brand Name** to opisowy element danych typu **string**, walidowany przez GUDID business rules. To, czy symbol towarowy taki jak **®** lub **™** przejdzie, jest więc pytaniem o regułę dla pola Brand Name w DERT — wiersz ten należy sprawdzić, zanim oprą się Państwo na tej regule, bo odrzucony znak przy zgłoszeniu kosztuje dodatkowy cykl poprawek.
 - **Grafika logo zostaje na etykiecie, a nie w polu.** Brand Name to wartość tekstowa; logotyp ani znak graficzny urządzenia nie są tym, co przechowuje to pole. Logo nadal jest drukowane na fizycznej etykiecie i opakowaniu — to Państwa grafika i rekord jej nie zmienia.
 
 To nie obejście problemu, lecz normalny podział między rekordem danych a projektem etykiety. Informacja ta musi jednak trafić do projektanta wcześnie, bo zmienia brief graficzny.
 
-**2. Oznaczenie modelu urządzenia.** Rekordy GUDID są powiązane z konfiguracją urządzenia, a nie z kampanią marketingową. Oznaczenie modelu należy ustalić przed utworzeniem rekordu; późniejsza zmiana nazwy oznacza edycję rekordu DI.
+**2. Oznaczenie modelu urządzenia.** Rekordy GUDID są powiązane z konfiguracją urządzenia, a nie z kampanią marketingową. Oznaczenie modelu należy ustalić przed utworzeniem rekordu, a jednocześnie rozstrzygnąć dwie otwarte kwestie DERT wskazane powyżej — bo to, czy późniejsza zmiana danych identyfikacyjnych oznacza edycję istniejącego rekordu, czy nadanie nowego DI, zależy od tego samego wiersza w DERT, a tańsza kolejność to wiedzieć, która to sytuacja, zanim cokolwiek zostanie nazwane.
 
-> Aby poznać wyczerpującą definicję formatu poszczególnych pól, warto sięgnąć do **GUDID Data Elements Reference Table (DERT)** publikowanej przez FDA — tabeli, która określa format i reguły dla każdego elementu danych. Po DERT należy sprawdzić wtedy, gdy nazwa marki zawiera cokolwiek poza literami, cyframi, spacjami i akceptowanym zestawem symboli: tam znajduje się pełna odpowiedź. Reguły dotyczące pól są utrzymywane przez FDA i mogą być aktualizowane, dlatego sprawdzenie DERT w momencie zgłoszenia to niezawodny nawyk.
+> Dwie kwestie oznaczone powyżej celowo pozostają do sprawdzenia w DERT, a nie jako rozstrzygnięte fakty: akceptowany zestaw znaków dla Brand Name oraz to, czy zmiana nazwy marki jest oznaczona jako **New DI Trigger**. Na oba pytania odpowiada **GUDID Data Elements Reference Table**, utrzymywana i aktualizowana przez FDA — dlatego wiarygodną odpowiedzią jest wiersz w aktualnej wersji DERT, a nie wnioskowanie z reguły ogólnej.
 
 ## Czy zmiana w ramach marki własnej wymaga nowego 510(k)?
 

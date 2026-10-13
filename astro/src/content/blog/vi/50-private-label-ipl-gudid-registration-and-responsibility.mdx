@@ -58,7 +58,7 @@ Nhà sản xuất giữ tài khoản GUDID. Khi thương hiệu của bạn đư
 
 Đây là lộ trình ít công sức hơn, và thường là lựa chọn đúng khi phần bạn tham gia là tìm nguồn, gắn thương hiệu và phân phối chứ không phải thiết kế thiết bị.
 
-Một điểm về thuật ngữ, vì nó gây nhầm lẫn thật sự trong các trao đổi về GUDID: một bản ghi DI không được thiết kế để bị sửa thành một sản phẩm khác. Việc thay đổi một yếu tố dữ liệu nhận diện (identification data element) — trong đó có tên thương hiệu — là điều tài liệu GUDID coi là một **new DI trigger**: cách xử lý đúng là **một DI mới và một bản ghi mới**, chứ không phải sửa bản ghi hiện có. Vì vậy "đưa thương hiệu của bạn vào GUDID" không bao giờ có nghĩa là ghi đè một bản ghi; nó có nghĩa là tạo ra bản ghi nhận diện cấu hình của bạn.
+Một điểm về thuật ngữ, vì nó gây nhầm lẫn thật sự trong các trao đổi về GUDID: **việc một thay đổi tên thương hiệu là một bản cập nhật dữ liệu cho bản ghi DI hiện có hay là một sự kiện đòi hỏi một DI mới là một sự thật về chính trường dữ liệu đó, không phải chuyện sở thích — và nó chỉ có câu trả lời ở một nơi.** Các business rules của GUDID cho từng data attribute được FDA nêu trong **GUDID Data Elements Reference Table (DERT)**, bảng này có một cột xác định **"New DI Trigger?"** cho từng trường. Đặt cạnh đó để đối chiếu: Brand Name là một thuộc tính ở **cấp DI** (GUDID chỉ lưu phần DI của UDI; production identifier không được lưu, chỉ được đánh dấu cờ), còn các trigger nói chung được thiết kế xoay quanh câu hỏi thiết bị có còn là cùng một thiết bị hay không — chẳng hạn tình trạng tiệt trùng hay thuộc tính dùng một lần. Tên thương hiệu nằm trong hay ngoài logic đó chính là điều mà cột DERT ấy phán định. Hãy tra cột đó trước khi chốt theo bất kỳ lộ trình nào, vì hai đường này khác nhau: cập nhật dữ liệu cho một bản ghi hiện có là một thao tác khác với việc gán một DI mới và nộp một bản ghi mới.
 
 ### Phương án 2 — tài khoản GUDID của riêng bạn
 
@@ -81,19 +81,19 @@ Hai quyết định phải được đưa ra *trước khi* artwork được ch�
 
 | Nơi thể hiện | Logo | Tên thương hiệu |
 |---|---|---|
-| **Bản ghi DI trên GUDID** | Không được lưu — trường này là một giá trị văn bản | Tên thương hiệu dạng văn bản; ® và ™ được chấp nhận |
+| **Bản ghi DI trên GUDID** | Không được lưu — trường này là một giá trị văn bản | Tên thương hiệu dạng văn bản; bộ ký tự được chấp nhận theo DERT |
 | **Nhãn vật lý và bao bì** | Toàn bộ dấu logo, trong artwork của bạn | Tên thương hiệu như được in |
 
 Hai điểm cần chốt trước khi artwork được hoàn tất, và không điểm nào đáng để đoán mò:
 
-- **Bộ ký tự: điểm này đã ngã ngũ, và nó có lợi cho bạn.** GUDID duy trì một **accepted special-characters list** (danh sách ký tự đặc biệt được chấp nhận), và hai ký hiệu **®** và **™** **được chấp nhận** trong trường **Brand Name**. Quy tắc này rất dễ bị áp dụng sai, nên cần phát biểu cho chính xác: giới hạn ký tự nghiêm ngặt của **ISO/IEC 646** gắn với **device identifier (DI)** — chính bản thân DI — chứ không gắn với các trường văn bản mô tả. Brand Name là một **string** data element, và nó được **business rules** của GUDID kiểm tra theo danh sách được chấp nhận đó, chứ không theo bộ ký tự của DI. Vì vậy một thương hiệu mang ® hoặc ™ vẫn có thể được ghi lại đúng như nguyên bản.
+- **Bộ ký tự: hãy tra nó trong DERT, vì đó là nơi duy nhất trả lời được câu này.** Các business rules của GUDID cho từng data attribute — bao gồm những ký tự được chấp nhận cho một trường — được FDA công bố trong **GUDID Data Elements Reference Table (DERT)**. Điều này đáng để tra thay vì giả định, và lý do là một phân biệt rất dễ bị hiểu ngược: giới hạn ký tự nghiêm ngặt của **ISO/IEC 646** gắn với **device identifier (DI)** — chính bản thân DI — trong khi **Brand Name** là một **string** data element mô tả, được **business rules** của GUDID kiểm tra. Vì vậy việc một ký hiệu thương hiệu như **®** hay **™** có qua được hay không là một câu hỏi về quy tắc của trường Brand Name trong DERT — hãy tra hàng đó trước khi dựa vào nó, vì một ký tự bị từ chối lúc nộp hồ sơ sẽ tốn thêm một vòng làm lại.
 - **Artwork logo ở lại trên nhãn, không vào trường dữ liệu.** Brand Name là một giá trị văn bản; logotype hay device mark không phải là thứ mà trường này lưu giữ. Logo vẫn được in trên nhãn vật lý và bao bì — đó là artwork của bạn, và nó không bị ảnh hưởng bởi bản ghi.
 
 Đây không phải một cách lách; đây là sự phân chia bình thường giữa một bản ghi dữ liệu và artwork của nhãn. Nhưng nó phải đến tay nhà thiết kế sớm, vì nó thay đổi brief thiết kế.
 
-**2. Định danh model của thiết bị.** Các bản ghi GUDID được khóa theo một cấu hình thiết bị, không theo một chiến dịch marketing. Hãy chốt định danh model trước khi bản ghi được tạo; đổi tên về sau nghĩa là phải sửa một bản ghi DI.
+**2. Định danh model của thiết bị.** Các bản ghi GUDID được khóa theo một cấu hình thiết bị, không theo một chiến dịch marketing. Hãy chốt định danh model trước khi bản ghi được tạo, và giải quyết luôn hai câu hỏi DERT còn để mở ở trên cùng lúc — vì việc một thay đổi nhận diện về sau có nghĩa là sửa một bản ghi hiện có hay là gán một DI mới phụ thuộc vào chính hàng DERT đó, và trình tự ít tốn kém hơn là biết rõ đó là trường hợp nào trước khi đặt tên cho bất cứ thứ gì.
 
-> Để có định nghĩa đầy đủ về định dạng của từng trường, FDA công bố **GUDID Data Elements Reference Table (DERT)** — bảng quy định định dạng và quy tắc cho mỗi yếu tố dữ liệu. Hãy tra DERT khi tên thương hiệu chứa ký tự nằm ngoài tập hợp chữ cái, chữ số, dấu cách và bộ ký tự đã được chấp nhận — câu trả lời đầy đủ nằm ở đó. Các quy tắc về trường do FDA duy trì và có thể được cập nhật, nên tra DERT một lần tại thời điểm nộp hồ sơ là thói quen đáng tin cậy.
+> Hai câu hỏi được đánh dấu ở trên được cố ý để lại như những mục cần tra trong DERT thay vì được nêu như sự thật đã ngã ngũ: bộ ký tự được chấp nhận cho Brand Name, và việc một thay đổi tên thương hiệu có được đánh dấu là một **New DI Trigger** hay không. Cả hai đều được trả lời trong **GUDID Data Elements Reference Table** do FDA duy trì và cập nhật — nên hàng của bản DERT hiện hành, chứ không phải một suy luận từ quy tắc chung, mới là câu trả lời đáng tin cậy.
 
 ## Một thay đổi nhãn riêng có cần 510(k) mới không?
 

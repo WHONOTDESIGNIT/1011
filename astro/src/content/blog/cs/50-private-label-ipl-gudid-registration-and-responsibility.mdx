@@ -58,7 +58,7 @@ GUDID (Global Unique Device Identification Database) je místo, kde žijí zázn
 
 Toto je cesta s nižší zátěží a obvykle ta správná, když vaše zapojení spočívá spíše v získávání zdroje, budování značky a distribuci než v návrhu přístroje.
 
-Jedna poznámka k terminologii, protože v diskusích o GUDID způsobuje skutečné zmatení: záznam DI není určen k tomu, aby byl upravován na jiný produkt. Změna identifikačního datového prvku — mezi nimi i názvu značky — je v dokumentaci GUDID považována za **new DI trigger** (spouštěč nového DI): správnou reakcí je **nové DI a nový záznam**, nikoli úprava záznamu stávajícího. „Dostat svou značku do GUDID“ tedy nikdy neznamená přepsat záznam; znamená to vytvořit záznam, který identifikuje vaši konfiguraci.
+Jedna poznámka k terminologii, protože v diskusích o GUDID způsobuje skutečné zmatení: **zda je změna názvu značky datovou aktualizací stávajícího záznamu DI, nebo událostí vyžadující nové DI, je vlastnost daného pole, nikoli věc preference — a odpověď na ni existuje na jednom konkrétním místě.** **business rules** GUDID pro každý datový prvek jsou uvedena v **GUDID Data Elements Reference Table (DERT)** od FDA, která obsahuje u každého pole určení **„New DI Trigger?“**. Pro srovnání: Brand Name je atribut na **úrovni DI** (GUDID uchovává část DI z UDI; **production identifier** se neukládá, pouze se označuje příznakem) a triggery jsou obecně koncipovány kolem toho, zda je přístroj stále stejným přístrojem — jde například o stav sterilizace nebo atributy jednorázového použití. Zda název značky do této logiky spadá, nebo stojí mimo ni, je přesně to, co daný sloupec v DERT určuje. Ověřte to dřív, než se přikloníte k jednomu z obou postupů, protože obě cesty se liší: datová aktualizace stávajícího záznamu je jiná operace než přidělení nového DI a podání nového záznamu.
 
 ### Možnost 2 — váš vlastní účet GUDID
 
@@ -81,19 +81,19 @@ Dvě rozhodnutí musí padnout *před* dokončením grafiky, protože obě se po
 
 | Nosné médium | Logo | Název značky |
 |---|---|---|
-| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky jako text; ® a ™ jsou přijímány |
+| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky jako text; přijímané znaky podle DERT |
 | **Fyzická etiketa a obal** | Celá grafická podoba loga, ve vaší grafice | Název značky tak, jak je vytištěn |
 
 Dvě omezení, která je třeba vyřešit před dokončením grafiky, a ani jedno z nich se nevyplatí odhadovat:
 
-- **Znaková sada: tato otázka je vyřešená a hraje ve váš prospěch.** GUDID vede **accepted special-characters list** (seznam přijímaných speciálních znaků) a symboly **®** a **™** jsou v poli **Brand Name** přijímány. Pravidlo se snadno použije nesprávně, proto stojí za to formulovat je přesně: striktní omezení znakové sady podle **ISO/IEC 646** se váže na **device identifier (DI) jako takový**, nikoli na popisná textová pole. Brand Name je datový prvek typu **string** a validují jej **business rules** GUDID proti tomuto přijímanému seznamu, nikoli znaková sada DI. Značku nesoucí ® nebo ™ tedy lze zaznamenat tak, jak je napsána.
+- **Znaková sada: ověřte ji v DERT, protože to je jediné místo, které na ni odpovídá.** **business rules** GUDID pro každý datový prvek — včetně přijímaných znaků pro dané pole — jsou zveřejněna v **GUDID Data Elements Reference Table (DERT)** od FDA. Vyplatí se to ověřit, nikoli předpokládat, a to kvůli rozlišení, které se snadno obrátí naruby: striktní omezení znakové sady podle **ISO/IEC 646** se váže na **device identifier (DI) jako takový**, zatímco **Brand Name** je popisný datový prvek typu **string** validovaný **business rules** GUDID. Zda projde znak ochranné známky, například **®** nebo **™**, je proto otázkou pravidla pro pole Brand Name v DERT — než se na něj spolehnete, ověřte tento řádek, protože odmítnutý znak při podání znamená další kolo přepracování.
 - **Grafika loga zůstává na etiketě, ne v poli.** Brand Name je textová hodnota; logotyp nebo grafická značka přístroje není to, co toto pole uchovává. Logo se stále tiskne na fyzickou etiketu a obal — to je vaše grafika a záznamem zůstává nedotčena.
 
 Není to obcházení pravidla; je to běžné rozdělení mezi datovým záznamem a grafikou etikety. Musí se ale dostat k designérovi včas, protože mění zadání pro grafiku.
 
-**2. Označení modelu přístroje.** Záznamy GUDID se klíčují ke konfiguraci přístroje, ne k marketingové kampani. Označení modelu stanovte před vytvořením záznamu; pozdější přejmenování znamená úpravu záznamu DI.
+**2. Označení modelu přístroje.** Záznamy GUDID se klíčují ke konfiguraci přístroje, ne k marketingové kampani. Označení modelu stanovte před vytvořením záznamu a zároveň vyřešte dvě otevřené otázky k DERT uvedené výše — protože to, zda pozdější změna identifikace znamená úpravu stávajícího záznamu, nebo přidělení nového DI, závisí na tomtéž řádku v DERT, a levnější je vědět to dřív, než cokoli pojmenujete.
 
-> Pro vyčerpávající definici formátu jednotlivých polí vydává FDA **GUDID Data Elements Reference Table (DERT)**, která stanoví formát a pravidla pro každý datový prvek. Do DERT nahlédněte, když název značky obsahuje něco nad rámec písmen, číslic, mezer a přijímané sady symbolů — právě tam najdete úplnou odpověď. Pravidla pro pole spravuje FDA a mohou se aktualizovat, proto je kontrola DERT v okamžiku podání spolehlivým návykem.
+> Dvě otázky označené výše jsou záměrně ponechány jako body k ověření v DERT, a nikoli jako hotové skutečnosti: přijímaná znaková sada pro Brand Name a to, zda je změna názvu značky označena jako **New DI Trigger**. Na obě odpovídá **GUDID Data Elements Reference Table**, kterou FDA spravuje a aktualizuje — spolehlivou odpovědí je tedy řádek v aktuální DERT, nikoli odvození z obecného pravidla.
 
 ## Vyžaduje změna private label nové 510(k)?
 

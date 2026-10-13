@@ -58,7 +58,7 @@ Produsen memegang akun GUDID. Ketika merek Anda diterapkan, produk diidentifikas
 
 Ini adalah jalur dengan usaha lebih rendah, dan biasanya jalur yang tepat ketika keterlibatan Anda adalah penyediaan sumber, pemberian merek, dan distribusi, bukan perancangan perangkat.
 
-Satu catatan istilah, karena hal ini menimbulkan kebingungan nyata dalam diskusi GUDID: catatan DI tidak dimaksudkan untuk disunting menjadi produk yang berbeda. Mengubah data element identifikasi — nama merek termasuk di dalamnya — adalah apa yang oleh dokumentasi GUDID diperlakukan sebagai **new DI trigger (pemicu DI baru)**: respons yang benar adalah **DI baru dan catatan baru**, bukan penyuntingan atas catatan yang sudah ada. Jadi "memasukkan merek Anda ke GUDID" tidak pernah berarti menimpa sebuah catatan; artinya membuat catatan yang mengidentifikasi konfigurasi Anda.
+Satu catatan istilah, karena hal ini menimbulkan kebingungan nyata dalam diskusi GUDID: **pertanyaan apakah perubahan nama merek merupakan pembaruan data atas catatan DI yang sudah ada atau peristiwa yang memerlukan DI baru adalah fakta tentang kolom tersebut, bukan soal preferensi — dan jawabannya ada di satu tempat tertentu.** Business rules GUDID untuk setiap data attribute (atribut data) dituangkan dalam **GUDID Data Elements Reference Table (DERT)** terbitan FDA, yang memuat penetapan **"New DI Trigger?"** untuk setiap kolom. Sebagai pembanding: Brand Name adalah atribut pada **tingkat DI** (GUDID hanya menyimpan bagian DI dari UDI; production identifier tidak disimpan, hanya ditandai dengan flag), sedangkan pemicunya secara umum dirumuskan di sekitar apakah perangkat masih merupakan perangkat yang sama — misalnya status sterilisasi atau atribut sekali pakai. Apakah nama merek masuk atau tidak masuk ke dalam logika itu justru yang ditetapkan oleh kolom DERT tersebut. Periksa hal itu sebelum Anda memutuskan salah satu alur kerja, karena kedua jalur itu berbeda: pembaruan data atas catatan yang sudah ada adalah operasi yang berbeda dari pemberian DI baru dan penyerahan catatan baru.
 
 ### Opsi 2 — Akun GUDID Anda Sendiri
 
@@ -81,19 +81,19 @@ Dua keputusan harus diambil *sebelum* artwork diselesaikan, karena keduanya maha
 
 | Pembawa | Logo | Nama merek |
 |---|---|---|
-| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek dalam bentuk teks; ® dan ™ diterima |
+| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek dalam bentuk teks; karakter yang diterima sesuai DERT |
 | **Label fisik dan kemasan** | Perangkat logo lengkap, dalam artwork Anda | Nama merek sebagaimana dicetak |
 
 Dua batas yang perlu ditetapkan sebelum artwork diselesaikan, dan tidak satu pun layak ditebak:
 
-- **Kumpulan karakter: hal ini sudah tuntas, dan hasilnya menguntungkan Anda.** GUDID memelihara sebuah **accepted special-characters list (daftar karakter khusus yang diterima)**, dan simbol merek dagang **®** serta **™** diterima di kolom **Brand Name**. Aturan ini mudah salah diterapkan, jadi perlu dirumuskan secara tepat: pembatasan karakter **ISO/IEC 646** yang ketat melekat pada **device identifier (DI) itu sendiri**, bukan pada kolom teks deskriptif. Brand Name adalah data element **string**, dan divalidasi oleh **business rules** GUDID terhadap daftar yang diterima tersebut, bukan oleh kumpulan karakter DI. Jadi merek yang memuat ® atau ™ dapat dicatat apa adanya.
+- **Kumpulan karakter: verifikasi di DERT, karena hanya di sanalah hal itu terjawab.** Business rules GUDID untuk setiap data attribute — termasuk karakter apa yang diterima untuk suatu kolom — dipublikasikan dalam **GUDID Data Elements Reference Table (DERT)** terbitan FDA. Hal ini layak diperiksa alih-alih diasumsikan, dan alasannya adalah sebuah perbedaan yang mudah dibalik: pembatasan karakter **ISO/IEC 646** yang ketat melekat pada **device identifier (DI) itu sendiri**, sedangkan **Brand Name** adalah data element **string** deskriptif yang divalidasi oleh business rules GUDID. Karena itu, apakah simbol merek dagang seperti **®** atau **™** dapat lolos adalah pertanyaan tentang aturan kolom Brand Name di dalam DERT — periksa baris itu sebelum Anda mengandalkannya, karena karakter yang ditolak saat penyerahan berarti satu siklus kerja ulang.
 - **Artwork logo tetap pada label, bukan di dalam kolom.** Brand Name adalah nilai teks; logotype atau device mark bukanlah yang disimpan oleh kolom itu. Logo tetap dicetak pada label fisik dan kemasan — itu artwork Anda, dan tidak terpengaruh oleh catatan.
 
 Ini bukan akal-akalan; ini adalah pembagian normal antara catatan data dan artwork label. Tetapi hal ini harus sampai ke desainer sejak awal, karena ia mengubah brief artwork.
 
-**2. Penetapan model perangkat.** Catatan GUDID dikaitkan pada konfigurasi perangkat, bukan pada kampanye pemasaran. Tetapkan penamaan model sebelum catatan dibuat; mengganti nama setelahnya berarti menyunting catatan DI.
+**2. Penetapan model perangkat.** Catatan GUDID dikaitkan pada konfigurasi perangkat, bukan pada kampanye pemasaran. Tetapkan penamaan model sebelum catatan dibuat, dan selesaikan sekaligus dua pertanyaan DERT yang masih terbuka di atas — karena apakah perubahan identifikasi di kemudian hari berarti menyunting catatan yang sudah ada atau memberikan DI baru bergantung pada baris DERT yang sama itu, dan urutan yang lebih murah adalah mengetahui yang mana sebelum Anda menamai apa pun.
 
-> Untuk definisi format per kolom yang menyeluruh, FDA menerbitkan **GUDID Data Elements Reference Table (DERT)**, yang menetapkan format dan aturan bagi setiap data element. Periksa DERT ketika nama merek memuat sesuatu di luar huruf, angka, spasi, dan kumpulan simbol yang diterima — di sanalah jawaban lengkapnya berada. Aturan kolom dipelihara oleh FDA dan dapat diperbarui, sehingga memeriksa DERT pada saat penyerahan adalah kebiasaan yang andal.
+> Dua pertanyaan yang ditandai di atas sengaja dibiarkan sebagai pemeriksaan DERT, bukan sebagai fakta yang sudah final: kumpulan karakter yang diterima untuk Brand Name, dan apakah perubahan nama merek ditandai sebagai **New DI Trigger**. Keduanya dijawab dalam **GUDID Data Elements Reference Table**, yang dipelihara dan diperbarui oleh FDA — jadi baris pada DERT yang berlaku saat ini, bukan inferensi dari aturan umum, adalah jawaban yang dapat diandalkan.
 
 ## Apakah Perubahan Private Label Memerlukan 510(k) Baru?
 

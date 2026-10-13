@@ -56,7 +56,7 @@ GUDID (Global Unique Device Identification Database), device identifier kayıtla
 - **DI kaydı üreticinin hesabı altında dosyalanır**;
 - bu faaliyet nedeniyle bir tesis (establishment) olarak **kayıt yaptırmanız gerekmez**.
 
-GUDID tartışmalarında gerçek bir kafa karışıklığına yol açtığı için bir terminoloji notu: bir DI kaydı, başka bir ürüne dönüştürülmek üzere düzenlenmek için tasarlanmamıştır. Bir tanımlama veri elemanını — marka adı da bunların arasındadır — değiştirmek, GUDID dokümantasyonunun **new DI trigger (yeni DI tetikleyicisi)** olarak ele aldığı bir durumdur: doğru yanıt mevcut kaydı düzenlemek değil, **yeni bir DI ve yeni bir kayıttır**. Dolayısıyla "markanızı GUDID'e taşımak" hiçbir zaman bir kaydın üzerine yazmak anlamına gelmez; konfigürasyonunuzu tanımlayan kaydı oluşturmak anlamına gelir.
+GUDID tartışmalarında gerçek bir kafa karışıklığına yol açtığı için bir terminoloji notu: **bir marka adı değişikliğinin mevcut bir DI kaydına yapılan bir veri güncellemesi mi, yoksa yeni bir DI gerektiren bir olay mı olduğu, alana ilişkin bir olgudur — bir tercih meselesi değildir — ve bunun cevabı tek bir yerde verilir.** Her veri özniteliği için GUDID business rules, FDA'nın **GUDID Data Elements Reference Table (DERT)** tablosunda ortaya konur; bu tablo her alan için bir **"New DI Trigger?"** değerlendirmesi içerir. Bunun yanına şunu koyun: Brand Name bir **DI düzeyi** özniteliktir (GUDID, UDI'nin DI kısmını tutar; production identifier saklanmaz, yalnızca işaretlenir) ve tetikleyiciler genellikle cihazın hâlâ aynı cihaz olup olmadığı etrafında kurgulanır — örneğin sterilizasyon durumu ya da tek kullanımlık öznitelikleri gibi. Marka adının bu mantığın içinde mi yoksa dışında mı kaldığını tam olarak DERT'teki o sütun belirler. Hangi iş akışına bağlanacağınıza karar vermeden önce bunu kontrol edin, çünkü iki yol birbirinden farklıdır: mevcut bir kayda veri güncellemesi yapmak, yeni bir DI atayıp yeni bir kayıt göndermekten farklı bir işlemdir.
 
 Bu, daha az emek gerektiren yoldur ve katkınız cihaz tasarımı değil de tedarik, markalama ve dağıtım olduğunda genellikle doğru seçenektir.
 
@@ -81,19 +81,19 @@ Seçenek 2 yalnızca bir veri kaydını taşımaz; *sorumluluğu* taşır. Seçe
 
 | Taşıyıcı | Logo | Marka adı |
 |---|---|---|
-| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; ® ve ™ kabul edilir |
+| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; kabul edilen karakterler DERT'e göre |
 | **Fiziksel etiket ve ambalaj** | Etiket tasarımınızdaki tam logo öğesi | Basıldığı şekliyle marka adı |
 
 Bu iki noktanın, etiket tasarımı kesinleşmeden önce bilinmesi gerekir:
 
-- **Karakter seti: bu nokta artık kesin ve lehinize.** GUDID bir **accepted special-characters list** (kabul edilen özel karakterler listesi) tutar ve **®** ile **™** sembolleri **Brand Name** alanında kabul edilir. Kuralın yanlış uygulanması kolay olduğu için kesin biçimde ifade etmek gerekir: katı **ISO/IEC 646** karakter kısıtı, tanımlayıcı metin alanlarına değil, **device identifier (DI)**'nın kendisine bağlanır. Brand Name bir **string** veri elemanıdır ve DI karakter setine göre değil, GUDID **business rules** tarafından bu kabul edilen listeye göre doğrulanır. Dolayısıyla ® veya ™ taşıyan bir marka, yazıldığı biçimde kaydedilebilir.
+- **Karakter seti: DERT'te doğrulayın, çünkü bunu cevaplayan tek yer orasıdır.** Her veri özniteliği için — bir alanda hangi karakterlerin kabul edildiği dâhil — GUDID business rules, FDA'nın **GUDID Data Elements Reference Table (DERT)** tablosunda yayımlanır. Bunu varsaymak yerine yapmaya değer ve nedeni, ters anlaşılması çok kolay bir ayrımdır: katı **ISO/IEC 646** karakter kısıtı **device identifier (DI)**'nın kendisine bağlanır; **Brand Name** ise GUDID business rules tarafından doğrulanan tanımlayıcı bir **string** veri elemanıdır. Dolayısıyla **®** veya **™** gibi bir ticari marka sembolünün geçip geçmediği, **DERT'teki Brand Name alanı kuralına** ilişkin bir sorudur — ona güvenmeden önce o satırı kontrol edin, çünkü gönderim sırasında reddedilen bir karakter bir yeniden çalışma döngüsüne mal olur.
 - **Logo tasarımı etikette kalır, alana girmez.** Brand Name bir metin değeridir; bir logotype ya da cihaz işareti bu alanın taşıdığı şey değildir. Logo yine fiziksel etikete ve ambalaja basılır — bu sizin etiket tasarımınızdır ve kayıttan etkilenmez.
 
 Bu bir geçici çözüm değil; bir veri kaydı ile etiket tasarımı arasındaki normal ayrımdır. Ancak tasarımcıya erken ulaşması gerekir, çünkü etiket tasarımı brief'ini değiştirir.
 
-**2. Cihaz model adı.** GUDID kayıtları bir pazarlama kampanyasına değil, bir cihaz konfigürasyonuna bağlıdır. Model adını kayıt oluşturulmadan önce sabitleyin; sonradan yeniden adlandırmak bir DI kaydını düzenlemek anlamına gelir.
+**2. Cihaz model adı.** GUDID kayıtları bir pazarlama kampanyasına değil, bir cihaz konfigürasyonuna bağlıdır. Model adını kayıt oluşturulmadan önce sabitleyin ve yukarıdaki iki açık DERT sorusunu da aynı anda çözün — çünkü sonradan yapılacak bir tanımlama değişikliğinin mevcut bir kaydı düzenlemek mi yoksa yeni bir DI atamak mı anlamına geldiği aynı DERT satırına bağlıdır; ve daha ucuz sıralama, herhangi bir şeye ad vermeden önce hangisi olduğunu bilmektir.
 
-> Her veri elemanı için kapsamlı biçim tanımına ihtiyaç duyduğunuzda, FDA **GUDID Data Elements Reference Table (DERT)** tablosunu yayımlar; bu tablo her veri elemanının biçimini ve kurallarını belirtir. Bir marka adı harflerin, rakamların, boşlukların ve kabul edilen sembol setinin **ötesinde** bir şey içeriyorsa DERT'e bakın — tam cevap oradadır. Alan kuralları FDA tarafından yürütülür ve güncellenebilir; bu nedenle gönderim sırasında bir DERT kontrolü yapmak güvenilir alışkanlıktır.
+> Yukarıda işaretlenen iki soru, kesinleşmiş olgular olarak değil, bilinçli biçimde DERT kontrolü olarak bırakılmıştır: Brand Name için kabul edilen karakter seti ve bir marka adı değişikliğinin **New DI Trigger** olarak işaretlenip işaretlenmediği. Her ikisinin cevabı da FDA'nın sürdürüp güncellediği **GUDID Data Elements Reference Table** tablosundadır — dolayısıyla güvenilir cevap, genel kuraldan yapılan bir çıkarım değil, güncel DERT'teki o satırdır.
 
 ## Bir private-label değişikliği yeni bir 510(k) gerektirir mi?
 
