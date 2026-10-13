@@ -48,15 +48,17 @@ Továrna, která skutečně zastává několik z těchto rolí, je dokáže dolo
 
 GUDID (Global Unique Device Identification Database) je místo, kde žijí záznamy o identifikátorech přístrojů. Pokud je váš přístroj IPL třídy II uváděný na americký trh, potřebuje záznam DI. Ve vztahu private label existují přesně dvě uspořádání a rozdíl mezi nimi spočívá v tom, **kdo je právním labelerem** — což je zároveň to, co určuje vaši registrační povinnost.
 
-### Možnost 1 — vaše značka uvnitř účtu GUDID výrobce
+### Možnost 1 — nové DI zapsané pod účtem GUDID výrobce
 
-Výrobce dodává jednotku neutrálně, nebo na ni aplikuje vaši značku a **přidá název vaší značky do svého stávajícího účtu GUDID a do záznamů DI**. Protože etiketu aplikuje výrobce a UDI zůstává v záznamu výrobce:
+Účet GUDID drží výrobce. Jakmile je na přístroj aplikována vaše značka, je produkt identifikován pod **vaším názvem značky**, tedy jako **vlastní konfigurace přístroje** — a proto potřebuje **vlastní DI a vlastní záznam v GUDID**, který výrobce zapíše pod svým účtem. Protože etiketu aplikuje výrobce a záznam se podává pod účtem výrobce:
 
-- **labelerem of record je výrobce** a je to strana odpovědná FDA;
-- **záznam UDI je výrobcem**;
+- **labelerem of record je výrobce** a je to strana, která se zodpovídá FDA;
+- **záznam DI se podává pod účtem výrobce**;
 - **nemusíte se registrovat** jako establishment pro tuto činnost.
 
 Toto je cesta s nižší zátěží a obvykle ta správná, když vaše zapojení spočívá spíše v získávání zdroje, budování značky a distribuci než v návrhu přístroje.
+
+Jedna poznámka k terminologii, protože v diskusích o GUDID způsobuje skutečné zmatení: záznam DI není určen k tomu, aby byl upravován na jiný produkt. Změna identifikačního datového prvku — mezi nimi i názvu značky — je v dokumentaci GUDID považována za **new DI trigger** (spouštěč nového DI): správnou reakcí je **nové DI a nový záznam**, nikoli úprava záznamu stávajícího. „Dostat svou značku do GUDID“ tedy nikdy neznamená přepsat záznam; znamená to vytvořit záznam, který identifikuje vaši konfiguraci.
 
 ### Možnost 2 — váš vlastní účet GUDID
 
@@ -75,18 +77,23 @@ Možnost 2 nepřesouvá jen datový záznam; přesouvá *odpovědnost*. Podle Mo
 
 Dvě rozhodnutí musí padnout *před* dokončením grafiky, protože obě se později mění draze.
 
-**1. Název značky je datový údaj, ne grafika.** GUDID uchovává název značky jako **text**. Produktová grafika často obsahuje logotyp nebo grafickou značku přístroje a textové pole nemůže pojmout grafiku. Náš pracovní předpoklad — který si před tím, než se na něj spolehnete, ověřte proti aktuálnímu datovému slovníku GUDID — je, že pole pro název značky přijímá alfanumerické znaky plus znaky **®** a **™**, ale nikoli sadu symbolů nebo obrázek loga.
+**1. Název značky je datový údaj a je to řetězec.** GUDID zaznamenává název značky jako proprietary nebo trade name (vlastnické či obchodní označení) používaný na etiketě přístroje nebo v katalogu — jde o textovou hodnotu, nikoli o obrázek. Produktová grafika často nese logotyp nebo grafickou značku přístroje, a tato grafika patří na fyzickou etiketu; záznam GUDID ji neuchovává.
 
 | Nosné médium | Logo | Název značky |
 |---|---|---|
-| **Záznam DI v GUDID** | Nic — pouze text | Název značky v textu, s ® nebo ™ tam, kde se použijí |
+| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky v textu, s ® nebo ™ tam, kde se použijí |
 | **Fyzická etiketa a obal** | Celá grafická podoba loga, ve vaší grafice | Název značky tak, jak je vytištěn |
+
+Dvě omezení, která je třeba vyřešit před dokončením grafiky, a ani jedno z nich se nevyplatí odhadovat:
+
+- **Které znaky pole přijímá.** Implementační dokumentace GUDID definuje přijímanou znakovou sadu pro každý datový prvek. Pravidlo pro pole názvu značky si ověřte proti aktuální dokumentaci, místo abyste je předpokládali — odmítnutý znak při podání znamená další kolo přepracování.
+- **Zda ® nebo ™ projde jako znak.** Berte to jako kontrolu při podání, nikoli jako předpoklad při návrhu.
 
 Není to obcházení pravidla; je to běžné rozdělení mezi datovým záznamem a grafikou etikety. Musí se ale dostat k designérovi včas, protože mění zadání pro grafiku.
 
 **2. Označení modelu přístroje.** Záznamy GUDID se klíčují ke konfiguraci přístroje, ne k marketingové kampani. Označení modelu stanovte před vytvořením záznamu; pozdější přejmenování znamená úpravu záznamu DI.
 
-> Chování znaků ® / ™ popsané výše odráží naše vlastní provozní porozumění a naši korespondenci. Ověřte je proti aktuálnímu datovému slovníku GUDID od FDA a tuto sekci opravte, pokud se liší.
+> Otázky znakové sady uvedené výše jsou záměrně formulovány jako kontrolní body, nikoli jako daná fakta: pravidla pro pole GUDID jsou definována v implementační dokumentaci GUDID od FDA a čas od času se aktualizují. Ověřte je proti aktuální dokumentaci v okamžiku podání.
 
 ## Vyžaduje změna private label nové 510(k)?
 

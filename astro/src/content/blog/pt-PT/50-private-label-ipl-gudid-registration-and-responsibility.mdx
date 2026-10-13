@@ -48,15 +48,17 @@ Uma fábrica que desempenha genuinamente vários destes papéis consegue comprov
 
 O GUDID (Global Unique Device Identification Database — a base de dados global de identificação única de dispositivos) é onde residem os registos de device identifier. Se o seu aparelho é um IPL de Classe II comercializado nos EUA, precisa de um registo DI. Numa relação de marca própria existem exatamente dois arranjos, e a diferença entre eles está em **quem é o labeler legal** — o que também decide o seu dever de registo.
 
-### Opção 1 — a sua marca dentro da conta GUDID do fabricante
+### Opção 1 — uma nova DI submetida na conta GUDID do fabricante
 
-O fabricante fornece a unidade neutra, ou aplica a sua marca e **adiciona o nome da sua marca à sua conta GUDID e aos seus registos DI existentes**. Como o rótulo é aplicado pelo fabricante e a UDI permanece no registo do fabricante:
+O fabricante detém a conta GUDID e é ele que aplica a sua marca (ou fornece a unidade neutra para que a marca seja aplicada). Quando a sua marca é aplicada, o produto passa a ser identificado sob **o nome da sua marca**, o que significa que é identificado como **uma configuração de aparelho própria** — pelo que precisa de **uma DI própria e do seu próprio registo GUDID**, submetido pelo fabricante na conta do fabricante. Como o rótulo é aplicado pelo fabricante e o registo é submetido na conta do fabricante:
 
 - o **fabricante é o labeler of record** e a parte que responde perante a FDA;
-- o **registo UDI é do fabricante**;
+- o **registo DI é submetido na conta do fabricante**;
 - **não precisa de se registar** como estabelecimento para esta atividade.
 
 Esta é a via de menor esforço, e normalmente a correta quando o seu envolvimento é de sourcing, marca e distribuição, e não de conceção do aparelho.
+
+Uma nota de vocabulário, porque causa confusão real nas discussões sobre o GUDID: um registo DI não foi concebido para ser editado e transformado noutro produto. Alterar um elemento de dados de identificação — o nome da marca entre eles — é o que a documentação do GUDID trata como um **new DI trigger** (desencadeador de uma nova DI): a resposta correta é **uma nova DI e um novo registo**, e não uma edição do registo existente. Por isso, «pôr a sua marca no GUDID» nunca significa sobrescrever um registo; significa criar o registo que identifica a sua configuração.
 
 ### Opção 2 — a sua própria conta GUDID
 
@@ -75,18 +77,23 @@ A Opção 2 não desloca apenas um registo de dados; desloca *responsabilidade*.
 
 Duas decisões têm de ser tomadas *antes* de a arte final ficar fechada, porque ambas são caras de alterar depois.
 
-**1. O nome da marca é um dado, não arte final.** O GUDID guarda o nome da marca como **texto**. A arte do produto inclui frequentemente um logótipo ou uma marca figurativa do aparelho, e um campo de texto não consegue conter um gráfico. A nossa posição de trabalho — a confirmar junto do data dictionary atual do GUDID antes de se apoiar nela — é que o campo do nome da marca aceita caracteres alfanuméricos mais os caracteres **®** e **™**, mas não um conjunto de símbolos nem uma imagem de logótipo.
+**1. O nome da marca é um elemento de dados, e é um valor de texto.** O GUDID regista o nome da marca como o nome de propriedade ou o nome comercial usado no rótulo ou no catálogo do aparelho — um valor de texto, não uma imagem. A arte do produto inclui frequentemente um logótipo ou uma marca figurativa do aparelho, e essa arte pertence ao rótulo físico; não é o que o registo contém.
 
 | Suporte | O logótipo | O nome da marca |
 |---|---|---|
-| **Registo DI no GUDID** | Nada — apenas texto | Nome da marca em texto, com ® ou ™ onde aplicável |
+| **Registo DI no GUDID** | Não consta — o campo é um valor de texto | Nome da marca em texto, com ® ou ™ onde aplicável |
 | **Rótulo físico e embalagem** | O logótipo completo, na sua arte final | Nome da marca tal como impresso |
+
+Dois limites a esclarecer antes de a arte final ficar fechada, e nenhum deles vale a pena adivinhar:
+
+- **Que caracteres o campo aceita.** A documentação de implementação do GUDID define o conjunto de caracteres aceite para cada elemento de dados. Confirme a regra do nome da marca na documentação em vigor, em vez de a presumir, porque um caractere recusado na submissão custa um ciclo de retrabalho.
+- **Se ® ou ™ passa como caractere.** Trate isto como uma verificação a fazer no momento da submissão, e não como um pressuposto de conceção.
 
 Isto não é um contorno; é a divisão normal entre um registo de dados e a arte do rótulo. Mas tem de chegar ao designer cedo, porque altera o briefing da arte.
 
-**2. A designação do modelo do aparelho.** Os registos GUDID estão associados a uma configuração do aparelho, não a uma campanha de marketing. Fixe a designação do modelo antes de o registo ser criado; mudar o nome mais tarde significa editar um registo DI.
+**2. A designação do modelo do aparelho.** Os registos GUDID estão associados a uma configuração do aparelho, não a uma campanha de marketing. Fixe a designação do modelo antes de o registo ser criado. Lembre-se de que alterar um elemento de identificação mais tarde desencadeia uma **nova DI e um novo registo**, e não uma edição do registo existente — pelo que, quanto mais cedo a configuração ficar fixada, menos submissões repetirá.
 
-> O comportamento dos caracteres ® / ™ descrito acima reflete o nosso próprio entendimento operacional e a nossa correspondência. Confirme-o junto do data dictionary atual do GUDID da FDA e corrija esta secção se for diferente.
+> As questões de conjunto de caracteres acima são deliberadamente apresentadas como verificações, e não como factos estabelecidos: as regras dos campos do GUDID constam da documentação de implementação do GUDID da FDA e são atualizadas periodicamente. Confirme na documentação em vigor no momento da submissão.
 
 ## Uma alteração de marca própria exige um novo 510(k)?
 

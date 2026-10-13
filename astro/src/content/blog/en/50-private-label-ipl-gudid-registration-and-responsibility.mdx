@@ -48,15 +48,17 @@ A factory that genuinely carries several of these roles can evidence them rather
 
 GUDID (the Global Unique Device Identification Database) is where device identifier records live. If your device is a US-marketed Class II IPL, it needs a DI record. In a private-label relationship there are exactly two arrangements, and the difference between them is **who the legal labeler is** — which is also what decides your registration duty.
 
-### Option 1 — your brand inside the manufacturer's GUDID account
+### Option 1 — a new DI filed under the manufacturer's GUDID account
 
-The manufacturer supplies the unit neutral, or applies your brand and **adds your brand name to its existing GUDID account and DI records**. Because the label is applied by the manufacturer and the UDI remains in the manufacturer's record:
+The manufacturer holds the GUDID account. When your brand is applied, the product is identified under **your brand name**, which means it is identified as **its own device configuration** — so it needs **its own DI and its own GUDID record**, filed by the manufacturer under the manufacturer's account. Because the label is applied by the manufacturer, and the record is filed under the manufacturer's account:
 
 - the **manufacturer is the labeler of record** and the party answerable to FDA;
-- the **UDI record is the manufacturer's**;
+- the **DI record is filed under the manufacturer's account**;
 - **you do not need to register** as an establishment for this activity.
 
 This is the lower-effort route, and usually the right one when your involvement is sourcing, branding and distribution rather than device design.
+
+One point of vocabulary, because it causes real confusion in GUDID discussions: a DI record is not meant to be edited into a different product. Changing an identification data element — brand name among them — is what the GUDID documentation treats as a **new DI trigger**: the correct response is a **new DI and a new record**, not an edit to the existing one. So "getting your brand into GUDID" never means overwriting a record; it means creating the record that identifies your configuration.
 
 ### Option 2 — your own GUDID account
 
@@ -75,18 +77,23 @@ Option 2 does not merely move a data record; it moves *responsibility*. Under Op
 
 Two decisions must be made *before* artwork is finalised, because both are expensive to change afterwards.
 
-**1. The brand name is data, not artwork.** GUDID holds the brand name as **text**. Product artwork frequently carries a logotype or a device mark, and a text field cannot hold a graphic. Our working position — to be confirmed against the current GUDID data dictionary before you rely on it — is that the brand-name field accepts alphanumerics plus the characters **®** and **™**, but not a symbol set or a logo image.
+**1. The brand name is a data element, and it is a string.** GUDID records the brand name as the proprietary or trade name used on the device label or catalogue — a text value, not an image. Product artwork frequently carries a logotype or a device mark, and that artwork belongs on the physical label; it is not what the record holds.
 
 | Carrier | The logo | The brand name |
 |---|---|---|
-| **GUDID DI record** | Nothing — text only | Brand name in text, with ® or ™ where applicable |
+| **GUDID DI record** | Not held — the field is a text value | Brand name as text, with ® or ™ where applicable |
 | **Physical label and packaging** | The full logo device, in your artwork | Brand name as printed |
+
+Two limits to settle before artwork is finalised, and neither is worth guessing:
+
+- **Which characters the field accepts.** The GUDID implementation documentation defines the accepted character set for each data element. Confirm the brand-name rule against the current documentation rather than assuming, because a rejected character at submission costs a rework cycle.
+- **Whether ® or ™ survives as a character.** Treat this as a submission-time check, not a design-time assumption.
 
 This is not a workaround; it is the normal division between a data record and label artwork. But it has to reach the designer early, because it changes the artwork brief.
 
-**2. The device model designation.** GUDID records are keyed to a device configuration, not to a marketing campaign. Fix the model designation before the record is created; renaming later means editing a DI record.
+**2. The device model designation.** GUDID records are keyed to a device configuration, not to a marketing campaign. Fix the model designation before the record is created — and bear in mind that changing an identification element later triggers a **new DI and a new record** rather than an edit to the existing one, so the earlier the configuration is settled, the less re-filing you do.
 
-> The ® / ™ character behaviour described above reflects our own operational understanding and correspondence. Confirm it against FDA's current GUDID data dictionary, and correct this section if it differs.
+> The character-set questions above are deliberately stated as checks rather than as settled facts: GUDID field rules are defined in FDA's GUDID implementation documentation and are updated from time to time. Confirm against the current documentation at submission time.
 
 ## Does a private-label change need a new 510(k)?
 
@@ -125,7 +132,7 @@ The matrix below is assessed **on activities**, and it holds regardless of the n
 | 510(k) holder | **Yes** | No |
 | Labeler of record | **Yes** under Option 1; third-party submitter under Option 2 | **Yes** under Option 2 only |
 | Specification developer | **Yes** | Not on this activity — **not automatic**, and not conferred by brand ownership |
-| GUDID account / DI records | **Yes** — holds account and DI; can add your brand (Option 1) or file as third-party submitter (Option 2) | Optional — only if you hold your own account |
+| GUDID account / DI records | **Yes** — holds the account; files the new DI record carrying your brand name (Option 1), or files as third-party submitter (Option 2) | Optional — only if you hold your own account |
 | UDI / DI submission | Submits as labeler under Option 1; as authorised third party under Option 2 | Submits, or authorises the manufacturer, under Option 2 |
 | Initial importer | No | **Must exist in the chain, with a US place of business** |
 | US agent | **Yes** — on file | Only if you register as a foreign establishment |

@@ -48,15 +48,17 @@ Une usine qui exerce réellement plusieurs de ces rôles peut les prouver plutô
 
 Le GUDID (Global Unique Device Identification Database) est la base où résident les enregistrements de device identifier. Si votre appareil est un IPL de classe II commercialisé aux États-Unis, il lui faut un enregistrement DI. Dans une relation de marque blanche, il existe exactement deux montages, et la différence entre eux tient à **qui est le labeler légal** — ce qui décide aussi de votre obligation d'enregistrement.
 
-### Option 1 — votre marque à l'intérieur du compte GUDID du fabricant
+### Option 1 — un nouveau DI déposé sous le compte GUDID du fabricant
 
-Le fabricant fournit l'unité neutre, ou applique votre marque et **ajoute le nom de votre marque à son compte GUDID et à ses enregistrements DI existants**. L'étiquette étant appliquée par le fabricant et l'UDI restant dans l'enregistrement du fabricant :
+Le fabricant détient le compte GUDID. Lorsque votre marque est appliquée, le produit est identifié sous **votre nom de marque**, donc comme **sa propre configuration de dispositif** — il lui faut par conséquent **son propre DI et son propre enregistrement GUDID**, déposés par le fabricant sous le compte de celui-ci. L'étiquette étant appliquée par le fabricant, et l'enregistrement étant déposé sous le compte du fabricant :
 
-- le **fabricant est le labeler of record** et la partie responsable devant la FDA ;
-- l'**enregistrement UDI est celui du fabricant** ;
+- le **fabricant est le labeler of record** et la partie qui répond devant la FDA ;
+- l'**enregistrement DI est déposé sous le compte du fabricant** ;
 - **vous n'avez pas besoin de vous enregistrer** comme établissement pour cette activité.
 
 C'est la voie la moins exigeante, et généralement la bonne lorsque votre intervention relève du sourcing, de la marque et de la distribution plutôt que de la conception de l'appareil.
+
+Un point de vocabulaire, car il provoque de vraies confusions dans les discussions sur le GUDID : un enregistrement DI n'a pas vocation à être modifié pour décrire un autre produit. La modification d'un élément de données d'identification — le nom de marque en fait partie — est ce que la documentation GUDID traite comme un **new DI trigger** (le déclencheur d'un nouveau DI) : la réponse correcte est un **nouveau DI et un nouvel enregistrement**, et non une modification de l'enregistrement existant. Ainsi, « faire entrer votre marque dans le GUDID » ne signifie jamais écraser un enregistrement ; cela signifie créer l'enregistrement qui identifie votre configuration.
 
 ### Option 2 — votre propre compte GUDID
 
@@ -75,18 +77,23 @@ L'option 2 ne déplace pas seulement un enregistrement de données ; elle dépla
 
 Deux décisions doivent être prises *avant* la finalisation des visuels, car toutes deux coûtent cher à modifier ensuite.
 
-**1. Le nom de marque est une donnée, pas un visuel.** Le GUDID conserve le nom de marque sous forme de **texte**. Les visuels produit comportent souvent un logotype ou une marque figurative, et un champ texte ne peut pas contenir un graphique. Notre position de travail — à confirmer au regard du data dictionary GUDID en vigueur avant de vous y appuyer — est que le champ du nom de marque accepte les caractères alphanumériques ainsi que les caractères **®** et **™**, mais pas un jeu de symboles ni une image de logo.
+**1. Le nom de marque est une donnée, et c'est une chaîne de caractères.** Le GUDID enregistre le nom de marque sous forme de **valeur textuelle** — le nom propriétaire ou commercial utilisé sur l'étiquette ou dans le catalogue du dispositif — et non sous forme d'image. Les visuels produit comportent souvent un logotype ou une marque figurative, et ces visuels appartiennent à l'étiquette physique ; ce n'est pas ce que l'enregistrement contient.
 
 | Support | Le logo | Le nom de marque |
 |---|---|---|
-| **Enregistrement GUDID DI** | Rien — texte uniquement | Nom de marque en texte, avec ® ou ™ le cas échéant |
+| **Enregistrement GUDID DI** | Non détenu — le champ est une valeur textuelle | Nom de marque sous forme de texte (le passage des caractères ® ou ™ reste à vérifier à la soumission) |
 | **Étiquette physique et emballage** | Le logo complet, dans vos visuels | Nom de marque tel qu'imprimé |
+
+Deux points à trancher avant la finalisation des visuels, et aucun ne mérite d'être deviné :
+
+- **Quels caractères le champ accepte.** La documentation d'implémentation du GUDID définit le jeu de caractères accepté pour chaque élément de données. Confirmez la règle applicable au nom de marque au regard de la documentation en vigueur plutôt que de la supposer, car un caractère rejeté à la soumission coûte un cycle de reprise.
+- **Le passage des caractères ® ou ™.** À traiter comme une vérification au moment de la soumission, et non comme une hypothèse prise au stade de la conception.
 
 Ce n'est pas un contournement ; c'est la répartition normale entre un enregistrement de données et les visuels d'étiquette. Mais elle doit parvenir au designer tôt, car elle modifie le brief des visuels.
 
 **2. La désignation du modèle de l'appareil.** Les enregistrements GUDID sont indexés sur une configuration d'appareil, non sur une campagne marketing. Fixez la désignation du modèle avant la création de l'enregistrement ; la renommer plus tard revient à modifier un enregistrement DI.
 
-> Le comportement des caractères ® / ™ décrit ci-dessus reflète notre propre compréhension opérationnelle et nos échanges. Confirmez-le au regard du data dictionary GUDID en vigueur de la FDA, et corrigez cette section s'il diffère.
+> Les questions de jeu de caractères ci-dessus sont volontairement énoncées comme des points à vérifier, et non comme des faits établis : les règles de champ du GUDID sont définies dans la documentation d'implémentation du GUDID de la FDA et sont mises à jour de temps à autre. Confirmez-les au regard de la documentation en vigueur au moment de la soumission.
 
 ## Une modification en marque blanche exige-t-elle un nouveau 510(k) ?
 

@@ -48,15 +48,17 @@ Una fabbrica che ricopre davvero diversi di questi ruoli può dimostrarli invece
 
 Il GUDID (Global Unique Device Identification Database) è il database in cui sono conservati i record del device identifier. Se il vostro dispositivo è un IPL di Classe II commercializzato negli Stati Uniti, gli serve un record DI. In un rapporto di private label esistono esattamente due soluzioni, e la differenza tra loro è **chi è il legal labeler** — che è anche ciò che decide il vostro obbligo di registrazione.
 
-### Opzione 1 — il vostro marchio dentro l'account GUDID del produttore
+### Opzione 1 — un nuovo DI presentato nell'account GUDID del produttore
 
-Il produttore fornisce l'unità neutra, oppure applica il vostro marchio e **aggiunge il nome del vostro marchio al proprio account GUDID e ai propri record DI già esistenti**. Poiché l'etichetta è applicata dal produttore e l'UDI resta nel record del produttore:
+Il produttore detiene l'account GUDID. Quando viene applicato il vostro marchio, il prodotto è identificato con **il nome del vostro marchio**: è quindi identificato come **una configurazione a sé**, e per questo gli servono **un proprio DI e un proprio record GUDID**, presentati dal produttore nel suo account. Poiché l'etichetta è applicata dal produttore e il record è presentato nell'account del produttore:
 
 - il **produttore è il labeler of record** e la parte che risponde alla FDA;
-- il **record UDI è del produttore**;
+- il **record DI è presentato nell'account del produttore**;
 - **non dovete registrarvi** come stabilimento per questa attività.
 
 Questa è la strada a minore sforzo, e di solito quella giusta quando il vostro coinvolgimento è approvvigionamento, branding e distribuzione, non progettazione del dispositivo.
+
+Una precisazione di vocabolario, perché nelle discussioni sul GUDID genera confusione reale: un record DI non è fatto per essere modificato fino a diventare un altro prodotto. Cambiare un elemento di identificazione del record — il nome del marchio tra gli altri — è ciò che la documentazione GUDID tratta come **new DI trigger**: la risposta corretta è **un nuovo DI e un nuovo record**, non una modifica a quello esistente. Quindi «far entrare il vostro marchio nel GUDID» non significa mai sovrascrivere un record: significa creare il record che identifica la vostra configurazione.
 
 ### Opzione 2 — un vostro account GUDID
 
@@ -75,18 +77,23 @@ L'Opzione 2 non sposta semplicemente un record di dati; sposta la *responsabilit
 
 Due decisioni vanno prese *prima* che la grafica sia finalizzata, perché cambiarle dopo costa caro in entrambi i casi.
 
-**1. Il nome del marchio è un dato, non grafica.** Il GUDID conserva il nome del marchio come **testo**. La grafica di prodotto porta spesso un logotipo o un marchio figurativo, e un campo di testo non può contenere un elemento grafico. La nostra posizione operativa — da confermare con il dizionario dati GUDID vigente prima di farvi affidamento — è che il campo del nome del marchio accetti caratteri alfanumerici più i simboli **®** e **™**, ma non un set di simboli o un'immagine di logo.
+**1. Il nome del marchio è un dato, ed è una stringa.** Il GUDID registra il nome del marchio come il nome proprietario o commerciale usato sull'etichetta o nel catalogo del dispositivo: un valore testuale, non un'immagine. La grafica di prodotto porta spesso un logotipo o un marchio figurativo, e quella grafica appartiene all'etichetta fisica; non è ciò che il record contiene.
 
 | Supporto | Il logo | Il nome del marchio |
 |---|---|---|
-| **Record DI nel GUDID** | Niente — solo testo | Nome del marchio in testo, con ® o ™ dove applicabile |
+| **Record DI nel GUDID** | Non contenuto — il campo è un valore testuale | Nome del marchio in testo, con ® o ™ dove applicabile |
 | **Etichetta fisica e imballaggio** | Il logo completo, nella vostra grafica | Nome del marchio come stampato |
+
+Due limiti da chiarire prima che la grafica sia finalizzata, e su nessuno dei due conviene tirare a indovinare:
+
+- **Quali caratteri accetta il campo.** La documentazione di implementazione del GUDID definisce il set di caratteri accettato per ciascun data element. Verificate la regola del nome del marchio sulla documentazione vigente invece di darla per scontata, perché un carattere rifiutato al momento della presentazione costa un ciclo di rilavorazione.
+- **Se ® o ™ vengono accettati come caratteri.** Trattatelo come un controllo da fare al momento della presentazione, non come un presupposto in fase di progettazione.
 
 Non è un espediente; è la normale divisione tra un record di dati e la grafica dell'etichetta. Ma deve arrivare presto al designer, perché cambia il brief della grafica.
 
 **2. La designazione del modello del dispositivo.** I record GUDID sono legati a una configurazione del dispositivo, non a una campagna di marketing. Fissate la designazione del modello prima che il record venga creato; rinominarlo dopo significa modificare un record DI.
 
-> Il comportamento dei caratteri ® / ™ descritto sopra riflette la nostra comprensione operativa e la nostra corrispondenza. Confermatelo con il dizionario dati GUDID vigente della FDA e correggete questa sezione se differisce.
+> Le questioni sul set di caratteri qui sopra sono deliberatamente formulate come verifiche da fare, non come fatti acquisiti: le regole sui campi del GUDID sono definite nella documentazione di implementazione del GUDID della FDA e vengono aggiornate di tanto in tanto. Confermatele sulla documentazione vigente al momento della presentazione.
 
 ## Una modifica in private label richiede una nuova 510(k)?
 

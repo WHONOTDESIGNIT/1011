@@ -48,15 +48,17 @@ O fabrică ce poartă cu adevărat mai multe dintre aceste roluri le poate doved
 
 GUDID (Global Unique Device Identification Database) este locul unde există înregistrările de device identifier. Dacă dispozitivul dumneavoastră este un IPL de Clasa II comercializat în SUA, are nevoie de o înregistrare DI. Într-o relație de private-label există exact două aranjamente, iar diferența dintre ele este **cine este labeler of record** — ceea ce decide, de asemenea, obligația dumneavoastră de înregistrare.
 
-### Opțiunea 1 — brandul dumneavoastră în contul GUDID al producătorului
+### Opțiunea 1 — un DI nou depus în contul GUDID al producătorului
 
-Producătorul livrează unitatea neutră sau aplică brandul dumneavoastră și **adaugă numele brandului dumneavoastră în contul său GUDID existent și în înregistrările DI**. Deoarece eticheta este aplicată de producător, iar UDI rămâne în înregistrarea producătorului:
+Producătorul deține contul GUDID. Când brandul dumneavoastră este aplicat, produsul este identificat sub **numele brandului dumneavoastră**, ceea ce înseamnă că este identificat ca **propria sa configurație de dispozitiv** — prin urmare are nevoie de **un DI propriu și de o înregistrare GUDID proprie**, depuse de producător în contul producătorului. Deoarece eticheta este aplicată de producător, iar înregistrarea este depusă în contul producătorului:
 
 - **producătorul este labeler of record** și partea care răspunde în fața FDA;
-- **înregistrarea UDI este a producătorului**;
-- **nu trebuie să vă înregistrați** ca unitate pentru această activitate.
+- **înregistrarea DI este depusă în contul producătorului**;
+- **nu trebuie să vă înregistrați** ca unitate (establishment registration) pentru această activitate.
 
 Aceasta este ruta cu efort mai mic și, de regulă, cea corectă atunci când implicarea dumneavoastră constă în achiziție, brand și distribuție, nu în proiectarea dispozitivului.
+
+O precizare de vocabular, pentru că în discuțiile despre GUDID provoacă o confuzie reală: o înregistrare DI nu este menită să fie editată până devine un alt produs. Modificarea unui element de date de identificare — numele de marcă fiind unul dintre ele — este ceea ce documentația GUDID tratează ca **new DI trigger** (declanșator pentru un DI nou): răspunsul corect este **un DI nou și o înregistrare nouă**, nu o editare a celei existente. Prin urmare, „aducerea brandului dumneavoastră în GUDID” nu înseamnă niciodată suprascrierea unei înregistrări; înseamnă crearea înregistrării care identifică configurația dumneavoastră.
 
 ### Opțiunea 2 — propriul dumneavoastră cont GUDID
 
@@ -75,18 +77,23 @@ Opțiunea 2 nu mută doar o înregistrare de date; ea mută *responsabilitatea*.
 
 Două decizii trebuie luate *înainte* ca grafica să fie finalizată, pentru că ambele sunt costisitor de schimbat ulterior.
 
-**1. Numele de marcă este dată, nu grafică.** GUDID păstrează numele de marcă sub formă de **text**. Grafica produsului include frecvent un logotip sau un semn grafic al dispozitivului, iar un câmp de text nu poate conține o grafică. Poziția noastră de lucru — de confirmat față de dicționarul de date GUDID actual înainte de a vă baza pe ea — este că câmpul pentru numele de marcă acceptă caractere alfanumerice plus caracterele **®** și **™**, dar nu un set de simboluri sau o imagine de tip logo.
+**1. Numele de marcă este un element de date, iar acesta este un șir de caractere.** GUDID înregistrează numele de marcă drept numele de proprietate sau denumirea comercială (proprietary or trade name) folosită pe eticheta dispozitivului sau în catalog — o valoare textuală, nu o imagine. Grafica produsului include frecvent un logotip sau un semn grafic al dispozitivului, iar acea grafică aparține etichetei fizice; nu este ceea ce reține înregistrarea.
 
 | Suport | Logoul | Numele de marcă |
 |---|---|---|
-| **Înregistrarea DI din GUDID** | Nimic — doar text | Numele de marcă în text, cu ® sau ™ acolo unde se aplică |
+| **Înregistrarea DI din GUDID** | Nu este reținut — câmpul este o valoare textuală | Numele de marcă în text, cu ® sau ™ acolo unde se aplică |
 | **Eticheta fizică și ambalajul** | Elementul grafic complet al logoului, în grafica dumneavoastră | Numele de marcă așa cum este imprimat |
+
+Două aspecte de lămurit înainte de finalizarea graficii, niciunul demn de ghicit:
+
+- **Ce caractere acceptă câmpul.** Documentația de implementare GUDID (GUDID implementation documentation) definește setul de caractere acceptat pentru fiecare element de date. Confirmați regula privind numele de marcă față de documentația actuală, în loc să o presupuneți, pentru că un caracter respins la depunere costă un ciclu de refacere.
+- **Dacă ® sau ™ este acceptat ca caracter.** Tratați acest punct ca o verificare la momentul depunerii, nu ca o presupunere din faza de proiectare.
 
 Aceasta nu este o soluție de ocolire; este împărțirea normală între o înregistrare de date și grafica etichetei. Dar trebuie să ajungă la designer din timp, pentru că schimbă brief-ul grafic.
 
 **2. Denumirea modelului de dispozitiv.** Înregistrările GUDID sunt legate de o configurație de dispozitiv, nu de o campanie de marketing. Stabiliți denumirea modelului înainte de crearea înregistrării; redenumirea ulterioară înseamnă editarea unei înregistrări DI.
 
-> Comportamentul caracterelor ® / ™ descris mai sus reflectă înțelegerea și corespondența noastră operațională. Confirmați-l față de dicționarul de date GUDID actual al FDA și corectați această secțiune dacă diferă.
+> Întrebările privind setul de caractere de mai sus sunt formulate deliberat ca verificări, nu ca fapte stabilite: regulile privind câmpurile GUDID sunt definite în documentația de implementare GUDID a FDA și sunt actualizate din când în când. Confirmați-le față de documentația actuală la momentul depunerii.
 
 ## O modificare de private-label necesită un nou 510(k)?
 

@@ -48,15 +48,17 @@ Fabryka, która rzeczywiście pełni kilka z tych ról, potrafi je udokumentowa�
 
 GUDID (Global Unique Device Identification Database) to baza, w której przechowywane są rekordy device identifier. Jeśli Państwa urządzenie to wprowadzane na rynek USA urządzenie IPL klasy II, potrzebuje rekordu DI. W relacji marki własnej istnieją dokładnie dwa rozwiązania, a różnica między nimi sprowadza się do tego, **kto jest legal labeler** — i to również rozstrzyga o obowiązku rejestracji.
 
-### Opcja 1 — marka wewnątrz konta GUDID producenta
+### Opcja 1 — nowy DI zgłoszony w ramach konta GUDID producenta
 
-Producent dostarcza urządzenie bez oznakowania albo nanosi Państwa markę i **dodaje nazwę marki do swojego istniejącego konta GUDID oraz rekordów DI**. Ponieważ etykietę nanosi producent, a UDI pozostaje w rekordzie producenta:
+Konto GUDID posiada producent. Po naniesieniu Państwa marki produkt jest identyfikowany pod **Państwa nazwą marki**, co oznacza, że jest identyfikowany jako **odrębna konfiguracja urządzenia** — potrzebuje zatem **własnego DI i własnego rekordu GUDID**, zgłoszonego przez producenta w ramach konta producenta. Ponieważ etykietę nanosi producent, a rekord jest zgłaszany w ramach konta producenta:
 
 - **producent jest labeler of record** i stroną odpowiadającą przed FDA;
-- **rekord UDI należy do producenta**;
+- **rekord DI jest zgłaszany w ramach konta producenta**;
 - **nie muszą Państwo rejestrować się** jako zakład w związku z tą czynnością.
 
 To ścieżka o mniejszym nakładzie pracy i zwykle właściwa, gdy Państwa udział sprowadza się do pozyskania, oznakowania marką i dystrybucji, a nie do projektowania urządzenia.
+
+Jedna uwaga terminologiczna, bo w dyskusjach o GUDID wywołuje realne nieporozumienia: rekord DI nie jest pomyślany po to, by edytować go w inne urządzenie. Zmiana elementu danych identyfikacyjnych — w tym nazwy marki — jest tym, co dokumentacja GUDID traktuje jako **new DI trigger**: właściwą odpowiedzią jest **nowy DI i nowy rekord**, a nie edycja istniejącego. „Wprowadzenie marki do GUDID” nigdy więc nie oznacza nadpisania rekordu; oznacza utworzenie rekordu identyfikującego Państwa konfigurację.
 
 ### Opcja 2 — własne konto GUDID
 
@@ -75,18 +77,23 @@ Opcja 2 nie przenosi wyłącznie rekordu danych; przenosi *odpowiedzialność*. 
 
 Dwie decyzje trzeba podjąć *przed* zatwierdzeniem projektu graficznego, ponieważ późniejsza zmiana obu jest kosztowna.
 
-**1. Nazwa marki to dane, a nie element grafiki.** GUDID przechowuje nazwę marki jako **tekst**. Grafika produktu często zawiera logotyp lub znak graficzny, a pole tekstowe nie pomieści grafiki. Nasze robocze stanowisko — które należy potwierdzić w aktualnym słowniku danych GUDID, zanim się Państwo na nim oprą — jest takie, że pole nazwy marki przyjmuje znaki alfanumeryczne oraz znaki **®** i **™**, ale nie zestaw symboli ani obraz logo.
+**1. Nazwa marki to element danych i ma postać tekstu (string).** GUDID zapisuje nazwę marki jako nazwę proprietary lub trade używaną na etykiecie urządzenia albo w katalogu — jako wartość tekstową, a nie obraz. Projekt graficzny produktu często zawiera logotyp lub znak graficzny urządzenia, a taka grafika należy na fizyczną etykietę; to nie ona jest przechowywana w rekordzie.
 
 | Nośnik | Logo | Nazwa marki |
 |---|---|---|
-| **Rekord DI w GUDID** | Nic — wyłącznie tekst | Nazwa marki jako tekst, z ® lub ™, jeśli mają zastosowanie |
+| **Rekord DI w GUDID** | Nie jest przechowywane — pole jest wartością tekstową | Nazwa marki jako tekst, z ® lub ™, jeśli mają zastosowanie |
 | **Fizyczna etykieta i opakowanie** | Pełny znak graficzny logo, w Państwa projekcie | Nazwa marki w formie wydrukowanej |
+
+Dwa ograniczenia do ustalenia przed zatwierdzeniem projektu graficznego — w żadnym z nich nie warto zgadywać:
+
+- **Jakie znaki przyjmuje to pole.** Dokumentacja implementacyjna GUDID określa dopuszczalny zestaw znaków dla każdego elementu danych. Regułę dotyczącą nazwy marki należy potwierdzić w aktualnej dokumentacji, a nie zakładać, bo odrzucony znak przy zgłoszeniu oznacza dodatkowy cykl poprawek.
+- **Czy znaki ® lub ™ przechodzą jako znak.** Kwestię tę należy potraktować jako sprawdzenie na etapie zgłoszenia, a nie założenie na etapie projektowania.
 
 To nie obejście problemu, lecz normalny podział między rekordem danych a projektem etykiety. Informacja ta musi jednak trafić do projektanta wcześnie, bo zmienia brief graficzny.
 
 **2. Oznaczenie modelu urządzenia.** Rekordy GUDID są powiązane z konfiguracją urządzenia, a nie z kampanią marketingową. Oznaczenie modelu należy ustalić przed utworzeniem rekordu; późniejsza zmiana nazwy oznacza edycję rekordu DI.
 
-> Opisane powyżej zachowanie znaków ® / ™ odzwierciedla nasze własne zrozumienie operacyjne i prowadzoną korespondencję. Należy potwierdzić je w aktualnym słowniku danych GUDID FDA i poprawić tę sekcję, jeśli będzie się różnić.
+> Powyższe pytania o zestaw znaków celowo podano jako punkty do sprawdzenia, a nie jako ustalone fakty: reguły dotyczące pól GUDID określa dokumentacja implementacyjna GUDID opublikowana przez FDA i jest ona od czasu do czasu aktualizowana. Należy je potwierdzić w aktualnej dokumentacji w momencie zgłoszenia.
 
 ## Czy zmiana w ramach marki własnej wymaga nowego 510(k)?
 

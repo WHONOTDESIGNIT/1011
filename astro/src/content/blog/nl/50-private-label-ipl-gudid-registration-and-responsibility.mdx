@@ -48,15 +48,17 @@ Een fabriek die werkelijk meerdere van deze rollen draagt, kan ze aantonen in pl
 
 GUDID (de Global Unique Device Identification Database) is de plaats waar registraties van de device identifier staan. Is uw apparaat een in de VS op de markt gebracht klasse II-IPL-apparaat, dan heeft het een DI-registratie nodig. In een private-labelrelatie bestaan er precies twee regelingen, en het verschil ertussen is **wie de wettelijke labeler is** — wat ook bepaalt wat uw registratieverplichting is.
 
-### Optie 1 — uw merk binnen het GUDID-account van de fabrikant
+### Optie 1 — een nieuwe DI, ingediend onder het GUDID-account van de fabrikant
 
-De fabrikant levert het apparaat neutraal, of brengt uw merk aan en **voegt uw merknaam toe aan zijn bestaande GUDID-account en DI-registraties**. Omdat het etiket door de fabrikant wordt aangebracht en de UDI in de registratie van de fabrikant blijft:
+De fabrikant beheert het GUDID-account. Zodra uw merk wordt aangebracht, wordt het product onder **uw merknaam** geïdentificeerd, wat betekent dat het als **een eigen apparaatconfiguratie** wordt geïdentificeerd — en dus **een eigen DI en een eigen GUDID-registratie** nodig heeft, ingediend door de fabrikant onder het account van de fabrikant. Omdat het etiket door de fabrikant wordt aangebracht en de registratie onder het account van de fabrikant wordt ingediend:
 
-- is de **fabrikant de labeler of record** en de partij die zich tegenover de FDA verantwoordt;
-- is de **UDI-registratie eigendom van de fabrikant**;
+- is de **fabrikant de labeler of record** en de partij die zich tegenover de FDA voor dat etiket verantwoordt;
+- wordt de **DI-registratie onder het account van de fabrikant ingediend**;
 - hoeft **u zich voor deze activiteit niet te registreren** als vestiging.
 
 Dit is de route met de minste inspanning, en meestal de juiste wanneer uw betrokkenheid bestaat uit inkoop, branding en distributie in plaats van apparaatontwerp.
+
+Eén terminologische opmerking, want juist hier ontstaat in GUDID-discussies echte verwarring: een DI-registratie is er niet voor bedoeld om tot een ander product te worden omgeschreven. Het wijzigen van een identificerend data-element — de merknaam hoort daarbij — is wat de GUDID-documentatie als een **new DI trigger** behandelt: het juiste antwoord is **een nieuwe DI en een nieuwe registratie**, niet een aanpassing van de bestaande. "Uw merk in GUDID krijgen" betekent dus nooit een registratie overschrijven; het betekent de registratie aanmaken die uw configuratie identificeert.
 
 ### Optie 2 — uw eigen GUDID-account
 
@@ -75,18 +77,23 @@ Optie 2 verplaatst niet zomaar een dataregistratie; het verplaatst *verantwoorde
 
 Twee beslissingen moeten *voordat* het artwork (de etiketopmaak) definitief wordt gemaakt, omdat beide achteraf duur zijn om te wijzigen.
 
-**1. De merknaam is data, geen artwork.** GUDID bewaart de merknaam als **tekst**. Productartwork bevat vaak een logotype of een beeldmerk, en een tekstveld kan geen grafische afbeelding bevatten. Ons werkstandpunt — te bevestigen tegen het actuele GUDID-gegevenswoordenboek voordat u erop vertrouwt — is dat het merknaamveld alfanumerieke tekens plus de tekens **®** en **™** accepteert, maar geen symbolenset of logo-afbeelding.
+**1. De merknaam is een data-element, en het is een tekenreeks.** GUDID registreert de merknaam als de proprietary of trade name (de eigen of handelsnaam) die op het etiket of in de catalogus van het apparaat wordt gebruikt — een tekstwaarde, geen afbeelding. Productartwork bevat vaak een logotype of een beeldmerk, en dat artwork hoort op het fysieke etiket; het is niet wat de registratie bevat.
 
 | Drager | Het logo | De merknaam |
 |---|---|---|
-| **GUDID DI-registratie** | Niets — alleen tekst | Merknaam in tekst, met ® of ™ waar van toepassing |
+| **GUDID DI-registratie** | Niet opgenomen — het veld is een tekstwaarde | Merknaam als tekst; of de tekens ® / ™ daar kunnen staan, wordt bij de indiening gecontroleerd |
 | **Fysiek etiket en verpakking** | Het volledige logotype, in uw artwork | Merknaam zoals gedrukt |
+
+Twee punten om op het moment van indiening te bevestigen, en geen van beide is het gokken waard:
+
+- **Welke tekens het veld accepteert.** De GUDID implementation documentation (implementatiedocumentatie) definieert de toegestane tekenset per data-element. Bevestig de regel voor de merknaam tegen de actuele documentatie in plaats van er iets van aan te nemen, want één afgewezen teken bij de indiening kost een herwerkronde.
+- **Of ® / ™ als teken doorkomen.** Behandel dit als een controle bij de indiening, niet als een aanname bij het ontwerp.
 
 Dit is geen omweg; het is de normale scheiding tussen een dataregistratie en etiketartwork. Maar het moet de ontwerper vroeg bereiken, want het verandert de briefing voor het artwork.
 
 **2. De modelaanduiding van het apparaat.** GUDID-registraties zijn gekoppeld aan een apparaatconfiguratie, niet aan een marketingcampagne. Leg de modelaanduiding vast voordat de registratie wordt aangemaakt; later hernoemen betekent een DI-registratie bewerken.
 
-> Het hierboven beschreven gedrag van de tekens ® / ™ weerspiegelt onze eigen operationele opvatting en correspondentie. Bevestig het tegen het actuele GUDID-gegevenswoordenboek van de FDA, en corrigeer deze sectie als het afwijkt.
+> De hierboven genoemde vragen over de tekenset zijn met opzet als controlepunten geformuleerd en niet als vaststaande feiten: de veldregels van GUDID staan in de GUDID implementation documentation van de FDA en worden van tijd tot tijd bijgewerkt. Bevestig ze op het moment van indiening tegen de actuele documentatie.
 
 ## Heeft een private-labelwijziging een nieuwe 510(k) nodig?
 

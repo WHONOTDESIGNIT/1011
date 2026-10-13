@@ -48,15 +48,17 @@ Một nhà máy thực sự đảm nhận nhiều vai trò trong số này có t
 
 GUDID (Global Unique Device Identification Database) là nơi lưu các bản ghi device identifier. Nếu thiết bị của bạn là một máy IPL Loại II lưu hành tại Mỹ, nó cần một bản ghi DI. Trong một quan hệ nhãn riêng chỉ có đúng hai cách sắp xếp, và khác biệt giữa chúng là **ai là labeler hợp pháp** — đây cũng chính là điều quyết định nghĩa vụ đăng ký của bạn.
 
-### Phương án 1 — thương hiệu của bạn nằm trong tài khoản GUDID của nhà sản xuất
+### Phương án 1 — một DI mới được nộp dưới tài khoản GUDID của nhà sản xuất
 
-Nhà sản xuất cung cấp máy ở dạng trung tính, hoặc dán thương hiệu của bạn và **thêm tên thương hiệu của bạn vào tài khoản GUDID cùng các bản ghi DI hiện có của mình**. Vì nhãn được dán bởi nhà sản xuất và UDI vẫn nằm trong bản ghi của nhà sản xuất:
+Nhà sản xuất giữ tài khoản GUDID. Khi thương hiệu của bạn được áp lên sản phẩm, sản phẩm được nhận diện dưới **tên thương hiệu của bạn**, nghĩa là nó được nhận diện như **một cấu hình thiết bị riêng** — vì vậy nó cần **DI riêng và bản ghi GUDID riêng**, do nhà sản xuất nộp dưới tài khoản của nhà sản xuất. Vì nhãn được dán bởi nhà sản xuất, và bản ghi được nộp dưới tài khoản của nhà sản xuất:
 
 - **nhà sản xuất là labeler of record** và là bên chịu trách nhiệm trước FDA;
-- **bản ghi UDI thuộc về nhà sản xuất**;
+- **bản ghi DI được nộp dưới tài khoản của nhà sản xuất**;
 - **bạn không cần đăng ký** như một cơ sở cho hoạt động này.
 
 Đây là lộ trình ít công sức hơn, và thường là lựa chọn đúng khi phần bạn tham gia là tìm nguồn, gắn thương hiệu và phân phối chứ không phải thiết kế thiết bị.
+
+Một điểm về thuật ngữ, vì nó gây nhầm lẫn thật sự trong các trao đổi về GUDID: một bản ghi DI không được thiết kế để bị sửa thành một sản phẩm khác. Việc thay đổi một yếu tố dữ liệu nhận diện (identification data element) — trong đó có tên thương hiệu — là điều tài liệu GUDID coi là một **new DI trigger**: cách xử lý đúng là **một DI mới và một bản ghi mới**, chứ không phải sửa bản ghi hiện có. Vì vậy "đưa thương hiệu của bạn vào GUDID" không bao giờ có nghĩa là ghi đè một bản ghi; nó có nghĩa là tạo ra bản ghi nhận diện cấu hình của bạn.
 
 ### Phương án 2 — tài khoản GUDID của riêng bạn
 
@@ -75,18 +77,23 @@ Phương án 2 không chỉ dịch chuyển một bản ghi dữ liệu; nó d�
 
 Hai quyết định phải được đưa ra *trước khi* artwork được chốt, vì cả hai đều tốn kém nếu thay đổi về sau.
 
-**1. Tên thương hiệu là dữ liệu, không phải artwork.** GUDID lưu tên thương hiệu dưới dạng **văn bản**. Artwork sản phẩm thường mang một logotype hoặc một dấu thiết bị, mà một trường văn bản thì không chứa được đồ họa. Quan điểm vận hành của chúng tôi — cần được đối chiếu với data dictionary hiện hành của GUDID trước khi bạn dựa vào nó — là trường tên thương hiệu chấp nhận chữ và số cùng hai ký tự **®** và **™**, nhưng không chấp nhận một bộ ký hiệu hay một ảnh logo.
+**1. Tên thương hiệu là một yếu tố dữ liệu, và nó là một chuỗi.** GUDID ghi tên thương hiệu dưới dạng **giá trị văn bản** — tên độc quyền (proprietary) hoặc tên thương mại của thiết bị như được dùng trên nhãn thiết bị hoặc trong catalogue — chứ không phải một hình ảnh. Artwork sản phẩm thường mang một logotype hoặc một dấu thiết bị, và phần artwork đó thuộc về nhãn vật lý; nó không phải là thứ mà bản ghi lưu giữ.
 
 | Nơi thể hiện | Logo | Tên thương hiệu |
 |---|---|---|
-| **Bản ghi DI trên GUDID** | Không có gì — chỉ văn bản | Tên thương hiệu dạng văn bản, kèm ® hoặc ™ khi áp dụng |
+| **Bản ghi DI trên GUDID** | Không được lưu — trường này là một giá trị văn bản | Tên thương hiệu dạng văn bản; ký tự cụ thể cần đối chiếu khi nộp hồ sơ |
 | **Nhãn vật lý và bao bì** | Toàn bộ dấu logo, trong artwork của bạn | Tên thương hiệu như được in |
+
+Hai điểm cần chốt trước khi artwork được hoàn tất, và không điểm nào đáng để đoán mò:
+
+- **Trường này chấp nhận những ký tự nào.** Tài liệu triển khai GUDID (GUDID implementation documentation) quy định bộ ký tự được chấp nhận cho từng yếu tố dữ liệu. Hãy đối chiếu quy tắc dành cho tên thương hiệu với tài liệu hiện hành thay vì giả định, vì một ký tự bị từ chối khi nộp hồ sơ sẽ tốn thêm một vòng làm lại.
+- **Liệu các ký tự như ® hoặc ™ có được chấp nhận hay không.** Hãy coi đây là việc phải kiểm tra tại thời điểm nộp hồ sơ, chứ không phải một giả định ở khâu thiết kế.
 
 Đây không phải một cách lách; đây là sự phân chia bình thường giữa một bản ghi dữ liệu và artwork của nhãn. Nhưng nó phải đến tay nhà thiết kế sớm, vì nó thay đổi brief thiết kế.
 
 **2. Định danh model của thiết bị.** Các bản ghi GUDID được khóa theo một cấu hình thiết bị, không theo một chiến dịch marketing. Hãy chốt định danh model trước khi bản ghi được tạo; đổi tên về sau nghĩa là phải sửa một bản ghi DI.
 
-> Cách hai ký tự ® / ™ hoạt động như mô tả ở trên phản ánh hiểu biết vận hành và trao đổi của chính chúng tôi. Hãy đối chiếu với data dictionary GUDID hiện hành của FDA, và sửa lại phần này nếu có khác biệt.
+> Những câu hỏi về bộ ký tự ở trên được nêu một cách có chủ đích như các mục cần kiểm tra, chứ không phải như những điều đã ngã ngũ: các quy tắc về trường của GUDID được định nghĩa trong tài liệu triển khai GUDID của FDA và được cập nhật theo thời gian. Hãy đối chiếu với tài liệu hiện hành tại thời điểm nộp hồ sơ.
 
 ## Một thay đổi nhãn riêng có cần 510(k) mới không?
 

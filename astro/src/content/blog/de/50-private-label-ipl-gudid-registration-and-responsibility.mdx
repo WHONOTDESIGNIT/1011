@@ -48,15 +48,17 @@ Eine Fabrik, die tatsächlich mehrere dieser Rollen trägt, kann sie belegen sta
 
 GUDID (die Global Unique Device Identification Database) ist der Ort, an dem die Datensätze zum Device Identifier liegen. Ist Ihr Gerät ein in den USA vermarktetes IPL der Klasse II, braucht es einen DI-Datensatz. In einer Private-Label-Beziehung gibt es genau zwei Regelungen, und der Unterschied zwischen ihnen ist die Frage, **wer der rechtliche labeler of record ist** – was zugleich Ihre Registrierungspflicht entscheidet.
 
-### Option 1 – Ihr Brand im GUDID-Konto des Herstellers
+### Option 1 – ein neuer DI, eingereicht unter dem GUDID-Konto des Herstellers
 
-Der Hersteller liefert das Gerät neutral, oder er bringt Ihren Brand an und **fügt Ihren Markennamen seinem bestehenden GUDID-Konto und den DI-Datensätzen hinzu**. Da das Label vom Hersteller angebracht wird und die UDI im Datensatz des Herstellers bleibt:
+Der Hersteller hält das GUDID-Konto. Wird Ihr Brand angebracht, wird das Produkt unter **Ihrem Markennamen** identifiziert – und damit als **eigene Gerätekonfiguration**. Es braucht deshalb **einen eigenen DI und einen eigenen GUDID-Datensatz**, den der Hersteller unter dem Konto des Herstellers einreicht. Da das Label vom Hersteller angebracht wird und der Datensatz unter dem Konto des Herstellers eingereicht wird:
 
 - ist der **Hersteller der labeler of record** und die gegenüber der FDA rechenschaftspflichtige Partei;
-- ist der **UDI-Datensatz der des Herstellers**;
+- wird der **DI-Datensatz unter dem Konto des Herstellers eingereicht**;
 - **müssen Sie sich für diese Tätigkeit nicht als Establishment registrieren**.
 
 Dies ist der Weg mit dem geringeren Aufwand und meist der richtige, wenn Ihr Beitrag im Sourcing, Branding und Vertrieb liegt und nicht im Gerätedesign.
+
+Ein Hinweis zur Begrifflichkeit, weil er in GUDID-Diskussionen regelmäßig für Verwirrung sorgt: Ein DI-Datensatz ist nicht dafür gedacht, zu einem anderen Produkt umgeschrieben zu werden. Die Änderung eines Identifikations-Datenelements – der Markenname gehört dazu – gilt in der GUDID-Dokumentation als **new DI trigger**: Die richtige Antwort ist **ein neuer DI und ein neuer Datensatz**, nicht die Bearbeitung des bestehenden. „Ihren Brand in GUDID bringen“ bedeutet also nie, einen Datensatz zu überschreiben; es bedeutet, den Datensatz anzulegen, der Ihre Konfiguration identifiziert.
 
 ### Option 2 – Ihr eigenes GUDID-Konto
 
@@ -75,18 +77,23 @@ Option 2 verschiebt nicht bloß einen Datensatz; sie verschiebt *Verantwortung*.
 
 Zwei Entscheidungen müssen *vor* der Finalisierung des Artworks fallen, weil beide danach teuer zu ändern sind.
 
-**1. Der Markenname sind Daten, nicht Artwork.** GUDID führt den Markennamen als **Text**. Produkt-Artwork enthält häufig ein Logotype oder eine Device-Marke, und ein Textfeld kann keine Grafik aufnehmen. Unsere Arbeitsannahme – vor dem Verlass darauf gegen das aktuelle GUDID data dictionary zu bestätigen – ist, dass das Feld für den Markennamen alphanumerische Zeichen plus die Zeichen **®** und **™** annimmt, jedoch keinen Symbolsatz und kein Logobild.
+**1. Der Markenname ist ein Datenelement und liegt als String vor.** GUDID führt den Markennamen als Textwert: den proprietary oder trade name, der auf dem Gerätelabel oder im Katalog verwendet wird – nicht als Bild. Produkt-Artwork enthält häufig ein Logotype oder eine Device-Marke; dieses Artwork gehört auf das physische Label und ist nicht das, was der Datensatz führt.
 
 | Träger | Das Logo | Der Markenname |
 |---|---|---|
-| **GUDID DI-Datensatz** | Nichts – nur Text | Markenname als Text, mit ® oder ™, wo zutreffend |
+| **GUDID DI-Datensatz** | Nicht geführt – das Feld ist ein Textwert | Markenname als Text, mit ® oder ™, wo zutreffend |
 | **Physisches Label und Verpackung** | Das vollständige Logo-Device, in Ihrem Artwork | Markenname wie gedruckt |
+
+Zwei Punkte sind vor der Finalisierung des Artworks zu klären, und keiner davon sollte geraten werden:
+
+- **Welche Zeichen das Feld annimmt.** Die GUDID implementation documentation legt den zulässigen Zeichensatz für jedes Datenelement fest. Prüfen Sie die Regel für den Markennamen gegen die aktuelle Dokumentation, statt sie anzunehmen – ein abgelehntes Zeichen kostet bei der Submission einen Nacharbeitszyklus.
+- **Ob ® oder ™ als Zeichen durchgehen.** Behandeln Sie das als Prüfung zum Zeitpunkt der Submission, nicht als Annahme im Design.
 
 Das ist kein Workaround; es ist die normale Trennung zwischen einem Datensatz und Label-Artwork. Sie muss den Designer aber früh erreichen, weil sie das Artwork-Briefing verändert.
 
 **2. Die Gerätemodellbezeichnung.** GUDID-Datensätze sind auf eine Gerätekonfiguration geschlüsselt, nicht auf eine Marketingkampagne. Legen Sie die Modellbezeichnung fest, bevor der Datensatz angelegt wird; eine spätere Umbenennung bedeutet die Bearbeitung eines DI-Datensatzes.
 
-> Das oben beschriebene Verhalten der Zeichen ® und ™ spiegelt unser eigenes operatives Verständnis und unseren Schriftwechsel wider. Bestätigen Sie es gegen das aktuelle GUDID data dictionary der FDA und korrigieren Sie diesen Abschnitt, falls es abweicht.
+> Die Fragen zum Zeichensatz oben sind bewusst als Prüfpunkte und nicht als gesicherte Tatsachen formuliert: Die Feldregeln von GUDID sind in der GUDID implementation documentation der FDA definiert und werden von Zeit zu Zeit aktualisiert. Prüfen Sie sie zum Zeitpunkt der Submission gegen die aktuelle Dokumentation.
 
 ## Erfordert eine Private-Label-Änderung eine neue 510(k)?
 

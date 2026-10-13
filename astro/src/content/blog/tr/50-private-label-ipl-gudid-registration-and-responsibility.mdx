@@ -48,13 +48,15 @@ Bu rollerden birkaçını gerçekten taşıyan bir fabrika, bunları iddia etmek
 
 GUDID (Global Unique Device Identification Database), device identifier kayıtlarının bulunduğu yerdir. Cihazınız ABD pazarına sunulan bir Sınıf II IPL ise bir DI kaydına ihtiyaç duyar. Bir private-label ilişkisinde tam olarak iki düzenleme vardır ve aralarındaki fark **yasal etiketleyicinin (legal labeler) kim olduğudur** — kayıt yükümlülüğünüzü belirleyen de budur.
 
-### Seçenek 1 — markanız üreticinin GUDID hesabının içinde
+### Seçenek 1 — üreticinin GUDID hesabı altında dosyalanan yeni bir DI
 
-Üretici üniteyi markasız olarak tedarik eder ya da markanızı uygular ve **marka adınızı mevcut GUDID hesabına ve DI kayıtlarına ekler**. Etiket üretici tarafından uygulandığı ve UDI üreticinin kaydında kaldığı için:
+Üretici GUDID hesabını elinde tutar. Markanız uygulandığında ürün **marka adınız** altında tanımlanır; bu da onun **kendi cihaz konfigürasyonu** olarak tanımlandığı anlamına gelir. Dolayısıyla ürünün **kendi DI'sı ve kendi GUDID kaydı** gerekir; bu kaydı üretici, üreticinin hesabı altında dosyalar. Etiket üretici tarafından uygulandığı ve kayıt üreticinin hesabı altında dosyalandığı için:
 
-- **labeler of record üreticidir** ve FDA'ya karşı hesap veren taraf odur;
-- **UDI kaydı üreticiye aittir**;
-- bu faaliyet için bir tesis olarak **kayıt yaptırmanız gerekmez**.
+- **labeler of record üreticidir** ve o etiket için FDA'ya karşı hesap veren taraf odur;
+- **DI kaydı üreticinin hesabı altında dosyalanır**;
+- bu faaliyet nedeniyle bir tesis (establishment) olarak **kayıt yaptırmanız gerekmez**.
+
+GUDID tartışmalarında gerçek bir kafa karışıklığına yol açtığı için bir terminoloji notu: bir DI kaydı, başka bir ürüne dönüştürülmek üzere düzenlenmek için tasarlanmamıştır. Bir tanımlama veri elemanını — marka adı da bunların arasındadır — değiştirmek, GUDID dokümantasyonunun **new DI trigger (yeni DI tetikleyicisi)** olarak ele aldığı bir durumdur: doğru yanıt mevcut kaydı düzenlemek değil, **yeni bir DI ve yeni bir kayıttır**. Dolayısıyla "markanızı GUDID'e taşımak" hiçbir zaman bir kaydın üzerine yazmak anlamına gelmez; konfigürasyonunuzu tanımlayan kaydı oluşturmak anlamına gelir.
 
 Bu, daha az emek gerektiren yoldur ve katkınız cihaz tasarımı değil de tedarik, markalama ve dağıtım olduğunda genellikle doğru seçenektir.
 
@@ -75,18 +77,23 @@ Seçenek 2 yalnızca bir veri kaydını taşımaz; *sorumluluğu* taşır. Seçe
 
 İki karar, etiket tasarımı (artwork) kesinleşmeden *önce* verilmelidir; çünkü ikisini sonradan değiştirmek pahalıdır.
 
-**1. Marka adı veridir, etiket tasarımı değil.** GUDID marka adını **metin** olarak tutar. Ürün etiket tasarımı sıklıkla bir logotype ya da bir cihaz işareti taşır ve bir metin alanı grafik barındıramaz. Bizim çalışma pozisyonumuz — buna dayanmadan önce güncel GUDID veri sözlüğüyle doğrulanması gereken — marka adı alanının alfanümerik karakterler ile **®** ve **™** işaretlerini kabul ettiği, ancak bir sembol setini ya da logo görselini kabul etmediği yönündedir.
+**1. Marka adı bir veri elemanıdır ve bir metin dizesidir.** GUDID marka adını, cihaz etiketinde ya da katalogda kullanılan proprietary ya da trade name olarak — yani bir metin değeri olarak, bir görüntü olarak değil — kaydeder. Ürün etiket tasarımı sıklıkla bir logotype ya da bir cihaz işareti taşır; bu tasarım fiziksel etikete aittir ve kaydın tuttuğu şey bu değildir.
 
 | Taşıyıcı | Logo | Marka adı |
 |---|---|---|
-| **GUDID DI kaydı** | Hiçbiri — yalnızca metin | Metin olarak marka adı; geçerli olduğu yerde ® ya da ™ ile |
+| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; kabul edilen karakterler için aşağıdaki kontrol maddesine bakın |
 | **Fiziksel etiket ve ambalaj** | Etiket tasarımınızdaki tam logo öğesi | Basıldığı şekliyle marka adı |
+
+İki sınırlama, etiket tasarımı kesinleşmeden önce netleştirilmelidir ve ikisi de tahmine bırakılmaya değmez:
+
+- **Alanın hangi karakterleri kabul ettiği.** GUDID implementation documentation, her veri elemanı için kabul edilen karakter setini tanımlar. Marka adı kuralını varsaymak yerine güncel dokümantasyondan doğrulayın; çünkü gönderim sırasında reddedilen bir karakter bir yeniden çalışma döngüsüne mal olur.
+- **® ya da ™ işaretlerinin bir karakter olarak geçip geçmediği.** Bunu tasarım aşamasında bir varsayım değil, gönderim sırasında yapılacak bir kontrol olarak ele alın.
 
 Bu bir geçici çözüm değil; bir veri kaydı ile etiket tasarımı arasındaki normal ayrımdır. Ancak tasarımcıya erken ulaşması gerekir, çünkü etiket tasarımı brief'ini değiştirir.
 
 **2. Cihaz model adı.** GUDID kayıtları bir pazarlama kampanyasına değil, bir cihaz konfigürasyonuna bağlıdır. Model adını kayıt oluşturulmadan önce sabitleyin; sonradan yeniden adlandırmak bir DI kaydını düzenlemek anlamına gelir.
 
-> Yukarıda açıklanan ® / ™ karakter davranışı, bizim kendi operasyonel anlayışımızı ve yazışmalarımızı yansıtır. Bunu FDA'nın güncel GUDID veri sözlüğüyle doğrulayın ve farklıysa bu bölümü düzeltin.
+> Yukarıdaki karakter seti soruları, kasıtlı olarak kesinleşmiş olgular biçiminde değil, kontrol maddeleri biçiminde ifade edilmiştir: GUDID alan kuralları FDA'nın GUDID implementation documentation'ında tanımlanır ve zaman zaman güncellenir. Gönderim sırasında güncel dokümantasyona göre doğrulayın.
 
 ## Bir private-label değişikliği yeni bir 510(k) gerektirir mi?
 

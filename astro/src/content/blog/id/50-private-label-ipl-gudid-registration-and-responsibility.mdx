@@ -48,15 +48,17 @@ Pabrik yang benar-benar mengemban beberapa peran ini dapat membuktikannya alih-a
 
 GUDID (Global Unique Device Identification Database — basis data identifikasi perangkat unik global) adalah tempat catatan device identifier berada. Jika perangkat Anda adalah IPL Kelas II yang dipasarkan di AS, perangkat itu memerlukan catatan DI. Dalam hubungan private label hanya ada dua pengaturan, dan perbedaan di antara keduanya adalah **siapa labeler legalnya** — yang juga menentukan kewajiban registrasi Anda.
 
-### Opsi 1 — Merek Anda di Dalam Akun GUDID Produsen
+### Opsi 1 — DI Baru yang Diajukan di Bawah Akun GUDID Produsen
 
-Produsen memasok unit tanpa merek, atau memasang merek Anda dan **menambahkan nama merek Anda ke akun GUDID serta catatan DI miliknya yang sudah ada**. Karena label dipasang oleh produsen dan UDI tetap berada dalam catatan produsen:
+Produsen memegang akun GUDID. Ketika merek Anda diterapkan, produk diidentifikasi dengan **nama merek Anda**, yang berarti produk itu diidentifikasi sebagai **konfigurasi perangkat tersendiri** — sehingga ia memerlukan **DI sendiri dan catatan GUDID sendiri**, yang diajukan oleh produsen di bawah akun produsen. Karena label dipasang oleh produsen dan catatannya diajukan di bawah akun produsen:
 
 - **produsenlah labeler of record** dan pihak yang bertanggung jawab kepada FDA;
-- **catatan UDI adalah milik produsen**;
+- **catatan DI tersebut diajukan di bawah akun produsen**;
 - **Anda tidak perlu mendaftar** sebagai tempat usaha untuk aktivitas ini.
 
 Ini adalah jalur dengan usaha lebih rendah, dan biasanya jalur yang tepat ketika keterlibatan Anda adalah penyediaan sumber, pemberian merek, dan distribusi, bukan perancangan perangkat.
+
+Satu catatan istilah, karena hal ini menimbulkan kebingungan nyata dalam diskusi GUDID: catatan DI tidak dimaksudkan untuk disunting menjadi produk yang berbeda. Mengubah data element identifikasi — nama merek termasuk di dalamnya — adalah apa yang oleh dokumentasi GUDID diperlakukan sebagai **new DI trigger (pemicu DI baru)**: respons yang benar adalah **DI baru dan catatan baru**, bukan penyuntingan atas catatan yang sudah ada. Jadi "memasukkan merek Anda ke GUDID" tidak pernah berarti menimpa sebuah catatan; artinya membuat catatan yang mengidentifikasi konfigurasi Anda.
 
 ### Opsi 2 — Akun GUDID Anda Sendiri
 
@@ -75,18 +77,23 @@ Opsi 2 tidak sekadar memindahkan catatan data; ia memindahkan *tanggung jawab*. 
 
 Dua keputusan harus diambil *sebelum* artwork diselesaikan, karena keduanya mahal untuk diubah setelahnya.
 
-**1. Nama merek adalah data, bukan artwork.** GUDID menyimpan nama merek sebagai **teks**. Artwork produk sering kali memuat logotype atau device mark, dan kolom teks tidak dapat memuat grafik. Posisi kerja kami — yang perlu dikonfirmasi terhadap GUDID data dictionary terkini sebelum Anda mengandalkannya — adalah bahwa kolom nama merek menerima alfanumerik ditambah karakter **®** dan **™**, tetapi tidak menerima kumpulan simbol atau gambar logo.
+**1. Nama merek adalah data element, dan wujudnya adalah string.** GUDID mencatat nama merek sebagai proprietary atau trade name yang digunakan pada label atau katalog perangkat — sebuah nilai teks, bukan gambar. Artwork produk sering kali memuat logotype atau device mark, dan artwork itu tempatnya pada label fisik; bukan itu yang disimpan dalam catatan.
 
 | Pembawa | Logo | Nama merek |
 |---|---|---|
-| **Catatan DI GUDID** | Tidak ada — hanya teks | Nama merek dalam bentuk teks, dengan ® atau ™ bila berlaku |
+| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek dalam bentuk teks, dengan ® atau ™ bila berlaku |
 | **Label fisik dan kemasan** | Perangkat logo lengkap, dalam artwork Anda | Nama merek sebagaimana dicetak |
+
+Dua batas yang perlu ditetapkan sebelum artwork diselesaikan, dan tidak satu pun layak ditebak:
+
+- **Karakter apa saja yang diterima kolom ini.** Dokumentasi implementasi GUDID menetapkan kumpulan karakter yang diterima untuk setiap data element. Konfirmasikan aturan nama merek terhadap dokumentasi yang berlaku saat ini alih-alih berasumsi, karena karakter yang ditolak saat penyerahan berarti satu siklus kerja ulang.
+- **Apakah ® atau ™ lolos sebagai karakter.** Perlakukan hal ini sebagai pemeriksaan pada saat penyerahan (submission time), bukan asumsi pada saat perancangan.
 
 Ini bukan akal-akalan; ini adalah pembagian normal antara catatan data dan artwork label. Tetapi hal ini harus sampai ke desainer sejak awal, karena ia mengubah brief artwork.
 
 **2. Penetapan model perangkat.** Catatan GUDID dikaitkan pada konfigurasi perangkat, bukan pada kampanye pemasaran. Tetapkan penamaan model sebelum catatan dibuat; mengganti nama setelahnya berarti menyunting catatan DI.
 
-> Perilaku karakter ® / ™ yang dijelaskan di atas mencerminkan pemahaman dan korespondensi operasional kami sendiri. Konfirmasikan hal itu terhadap GUDID data dictionary FDA yang berlaku saat ini, dan koreksi bagian ini jika berbeda.
+> Pertanyaan tentang kumpulan karakter di atas sengaja dinyatakan sebagai pemeriksaan, bukan sebagai fakta yang sudah pasti: aturan kolom GUDID ditetapkan dalam dokumentasi implementasi GUDID milik FDA dan diperbarui dari waktu ke waktu. Konfirmasikan terhadap dokumentasi yang berlaku saat penyerahan.
 
 ## Apakah Perubahan Private Label Memerlukan 510(k) Baru?
 
