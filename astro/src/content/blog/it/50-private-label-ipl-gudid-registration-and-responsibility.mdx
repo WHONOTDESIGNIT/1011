@@ -81,19 +81,19 @@ Due decisioni vanno prese *prima* che la grafica sia finalizzata, perché cambia
 
 | Supporto | Il logo | Il nome del marchio |
 |---|---|---|
-| **Record DI nel GUDID** | Non contenuto — il campo è un valore testuale | Nome del marchio in testo, con ® o ™ dove applicabile |
+| **Record DI nel GUDID** | Non contenuto — il campo è un valore testuale | Nome del marchio come testo; ® e ™ sono accettati |
 | **Etichetta fisica e imballaggio** | Il logo completo, nella vostra grafica | Nome del marchio come stampato |
 
-Due limiti da chiarire prima che la grafica sia finalizzata, e su nessuno dei due conviene tirare a indovinare:
+Due regole certe su cui vale la pena essere precisi, perché sono quelle che più spesso vengono applicate male:
 
-- **Quali caratteri accetta il campo.** La documentazione di implementazione del GUDID definisce il set di caratteri accettato per ciascun data element. Verificate la regola del nome del marchio sulla documentazione vigente invece di darla per scontata, perché un carattere rifiutato al momento della presentazione costa un ciclo di rilavorazione.
-- **Se ® o ™ vengono accettati come caratteri.** Trattatelo come un controllo da fare al momento della presentazione, non come un presupposto in fase di progettazione.
+- **Set di caratteri: la questione è risolta, e a vostro favore.** Il GUDID mantiene un **accepted special-characters list**, e i simboli di marchio **®** e **™** sono accettati nel campo **Brand Name**. La regola è facile da applicare male, quindi conviene enunciarla con precisione: la restrizione stretta ai caratteri **ISO/IEC 646** si applica al **device identifier (DI) stesso**, non ai campi di testo descrittivi. Il Brand Name è un data element di tipo **string**, validato dalle **business rules** del GUDID proprio contro quell'elenco di caratteri accettati. Un marchio che porta ® o ™ può quindi essere registrato così com'è scritto.
+- **La grafica del logo resta sull'etichetta, non nel campo.** Il Brand Name è un valore testuale; un logotipo o un marchio figurativo non è ciò che il campo contiene. Il logo continua a essere stampato sull'etichetta fisica e sull'imballaggio — è la vostra grafica, e il record non la tocca.
 
 Non è un espediente; è la normale divisione tra un record di dati e la grafica dell'etichetta. Ma deve arrivare presto al designer, perché cambia il brief della grafica.
 
 **2. La designazione del modello del dispositivo.** I record GUDID sono legati a una configurazione del dispositivo, non a una campagna di marketing. Fissate la designazione del modello prima che il record venga creato; rinominarlo dopo significa modificare un record DI.
 
-> Le questioni sul set di caratteri qui sopra sono deliberatamente formulate come verifiche da fare, non come fatti acquisiti: le regole sui campi del GUDID sono definite nella documentazione di implementazione del GUDID della FDA e vengono aggiornate di tanto in tanto. Confermatele sulla documentazione vigente al momento della presentazione.
+> Per la definizione esaustiva del formato campo per campo, la FDA pubblica la **GUDID Data Elements Reference Table (DERT)**, che specifica il formato e le regole di ciascun data element. Consultate la DERT quando un nome di marchio contiene qualcosa oltre a lettere, cifre, spazi e il set di simboli accettato: la risposta completa è lì. Le regole sui campi sono mantenute dalla FDA e possono essere aggiornate, quindi un controllo della DERT al momento della presentazione è l'abitudine affidabile.
 
 ## Una modifica in private label richiede una nuova 510(k)?
 

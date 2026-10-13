@@ -81,19 +81,19 @@ Dwie decyzje trzeba podjąć *przed* zatwierdzeniem projektu graficznego, poniew
 
 | Nośnik | Logo | Nazwa marki |
 |---|---|---|
-| **Rekord DI w GUDID** | Nie jest przechowywane — pole jest wartością tekstową | Nazwa marki jako tekst, z ® lub ™, jeśli mają zastosowanie |
+| **Rekord DI w GUDID** | Nie jest przechowywane — pole jest wartością tekstową | Nazwa marki jako tekst; ® i ™ są akceptowane |
 | **Fizyczna etykieta i opakowanie** | Pełny znak graficzny logo, w Państwa projekcie | Nazwa marki w formie wydrukowanej |
 
-Dwa ograniczenia do ustalenia przed zatwierdzeniem projektu graficznego — w żadnym z nich nie warto zgadywać:
+Dwie kwestie, które w tym miejscu najczęściej prowadzą do błędnych założeń:
 
-- **Jakie znaki przyjmuje to pole.** Dokumentacja implementacyjna GUDID określa dopuszczalny zestaw znaków dla każdego elementu danych. Regułę dotyczącą nazwy marki należy potwierdzić w aktualnej dokumentacji, a nie zakładać, bo odrzucony znak przy zgłoszeniu oznacza dodatkowy cykl poprawek.
-- **Czy znaki ® lub ™ przechodzą jako znak.** Kwestię tę należy potraktować jako sprawdzenie na etapie zgłoszenia, a nie założenie na etapie projektowania.
+- **Zestaw znaków: kwestia jest już rozstrzygnięta i wypada na Państwa korzyść.** GUDID prowadzi **accepted special-characters list** (listę akceptowanych znaków specjalnych), a symbole **®** i **™** są w polu **Brand Name** akceptowane. Tę regułę łatwo zastosować błędnie, dlatego warto ująć ją precyzyjnie: ścisłe ograniczenie zestawu znaków wynikające z **ISO/IEC 646** dotyczy **samego device identifier (DI)**, a nie opisowych pól tekstowych. Brand Name to element danych typu **string**, walidowany przez **business rules** GUDID właśnie względem tej akceptowanej listy. Marka zawierająca ® lub ™ może więc zostać zapisana w brzmieniu, w jakim jest używana.
+- **Grafika logo zostaje na etykiecie, a nie w polu.** Brand Name to wartość tekstowa; logotyp ani znak graficzny urządzenia nie są tym, co przechowuje to pole. Logo nadal jest drukowane na fizycznej etykiecie i opakowaniu — to Państwa grafika i rekord jej nie zmienia.
 
 To nie obejście problemu, lecz normalny podział między rekordem danych a projektem etykiety. Informacja ta musi jednak trafić do projektanta wcześnie, bo zmienia brief graficzny.
 
 **2. Oznaczenie modelu urządzenia.** Rekordy GUDID są powiązane z konfiguracją urządzenia, a nie z kampanią marketingową. Oznaczenie modelu należy ustalić przed utworzeniem rekordu; późniejsza zmiana nazwy oznacza edycję rekordu DI.
 
-> Powyższe pytania o zestaw znaków celowo podano jako punkty do sprawdzenia, a nie jako ustalone fakty: reguły dotyczące pól GUDID określa dokumentacja implementacyjna GUDID opublikowana przez FDA i jest ona od czasu do czasu aktualizowana. Należy je potwierdzić w aktualnej dokumentacji w momencie zgłoszenia.
+> Aby poznać wyczerpującą definicję formatu poszczególnych pól, warto sięgnąć do **GUDID Data Elements Reference Table (DERT)** publikowanej przez FDA — tabeli, która określa format i reguły dla każdego elementu danych. Po DERT należy sprawdzić wtedy, gdy nazwa marki zawiera cokolwiek poza literami, cyframi, spacjami i akceptowanym zestawem symboli: tam znajduje się pełna odpowiedź. Reguły dotyczące pól są utrzymywane przez FDA i mogą być aktualizowane, dlatego sprawdzenie DERT w momencie zgłoszenia to niezawodny nawyk.
 
 ## Czy zmiana w ramach marki własnej wymaga nowego 510(k)?
 

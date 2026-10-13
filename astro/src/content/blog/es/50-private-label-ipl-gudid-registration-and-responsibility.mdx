@@ -81,19 +81,19 @@ Hay dos decisiones que deben tomarse *antes* de cerrar los artes finales, porque
 
 | Soporte | El logotipo | El nombre de marca |
 |---|---|---|
-| **Registro DI del GUDID** | No se guarda — el campo es un valor de texto | Nombre de marca en texto, con ® o ™ cuando proceda |
+| **Registro DI del GUDID** | No se guarda — el campo es un valor de texto | Nombre de marca como texto; ® y ™ están aceptados |
 | **Etiqueta física y embalaje** | El logotipo completo, en tu arte final | Nombre de marca tal como se imprime |
 
-Hay dos cuestiones que conviene resolver antes de cerrar los artes finales, y ninguna merece una suposición:
+Dos puntos conviene tener claros antes de cerrar los artes finales:
 
-- **Qué caracteres acepta el campo.** La documentación de implementación del GUDID define el conjunto de caracteres admitido para cada elemento de datos. Confirma la regla del nombre de marca contra la documentación vigente en lugar de darla por supuesta, porque un carácter rechazado en el momento del envío cuesta un ciclo de retrabajo.
-- **Si ® o ™ pasan como caracteres.** Trátalo como una comprobación que se hace en el momento del envío, no como una suposición de la fase de diseño.
+- **Conjunto de caracteres: la cuestión está resuelta, y además a tu favor.** El GUDID mantiene una **accepted special-characters list** (lista de caracteres especiales aceptados), y los símbolos de marca **®** y **™** están aceptados en el campo **Brand Name**. La regla se presta a aplicarse mal, así que merece la pena formularla con precisión: la restricción estricta de caracteres **ISO/IEC 646** afecta al **device identifier (DI)** en sí, no a los campos de texto descriptivo. Brand Name es un elemento de datos de tipo **string**, y son las **business rules** del GUDID las que lo validan contra esa lista aceptada, no el conjunto de caracteres del DI. Así que una marca que lleve ® o ™ puede registrarse tal como se escribe.
+- **El arte del logotipo se queda en la etiqueta, no en el campo.** Brand Name es un valor de texto; un logotipo o una marca gráfica no es lo que contiene ese campo. El logotipo se sigue imprimiendo en la etiqueta física y en el embalaje: es tu arte final, y el registro no lo altera.
 
 Esto no es un apaño; es la división normal entre un registro de datos y el arte final de la etiqueta. Pero tiene que llegar al diseñador pronto, porque cambia el brief del arte final.
 
 **2. La designación de modelo del dispositivo.** Los registros del GUDID están vinculados a una configuración del dispositivo, no a una campaña de marketing. Fija la designación de modelo antes de crear el registro; cambiarle el nombre después significa editar un registro DI.
 
-> Las cuestiones sobre el conjunto de caracteres anteriores se plantean deliberadamente como comprobaciones, y no como hechos ya establecidos: las reglas de los campos del GUDID se definen en la documentación de implementación del GUDID de la FDA y se actualizan de vez en cuando. Confírmalas contra la documentación vigente en el momento del envío.
+> Para la definición exhaustiva del formato de cada campo, la FDA publica la **GUDID Data Elements Reference Table (DERT)** (tabla de referencia de elementos de datos del GUDID), que especifica el formato y las reglas de cada elemento de datos. Consulta la DERT cuando un nombre de marca contenga algo que vaya más allá de letras, dígitos, espacios y el conjunto de símbolos aceptados: ahí está la respuesta completa. Las reglas de los campos las mantiene la FDA y pueden actualizarse, así que consultar la DERT en el momento del envío es el hábito fiable.
 
 ## ¿Necesita un cambio de marca blanca un nuevo 510(k)?
 

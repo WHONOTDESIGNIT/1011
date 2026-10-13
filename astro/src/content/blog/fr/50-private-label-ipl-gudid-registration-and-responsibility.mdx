@@ -81,19 +81,19 @@ Deux décisions doivent être prises *avant* la finalisation des visuels, car to
 
 | Support | Le logo | Le nom de marque |
 |---|---|---|
-| **Enregistrement GUDID DI** | Non détenu — le champ est une valeur textuelle | Nom de marque sous forme de texte (le passage des caractères ® ou ™ reste à vérifier à la soumission) |
+| **Enregistrement GUDID DI** | Non détenu — le champ est une valeur textuelle | Nom de marque sous forme de texte ; ® et ™ sont acceptés |
 | **Étiquette physique et emballage** | Le logo complet, dans vos visuels | Nom de marque tel qu'imprimé |
 
-Deux points à trancher avant la finalisation des visuels, et aucun ne mérite d'être deviné :
+Deux points à retenir pour le brief des visuels, et le premier joue en votre faveur :
 
-- **Quels caractères le champ accepte.** La documentation d'implémentation du GUDID définit le jeu de caractères accepté pour chaque élément de données. Confirmez la règle applicable au nom de marque au regard de la documentation en vigueur plutôt que de la supposer, car un caractère rejeté à la soumission coûte un cycle de reprise.
-- **Le passage des caractères ® ou ™.** À traiter comme une vérification au moment de la soumission, et non comme une hypothèse prise au stade de la conception.
+- **Jeu de caractères : la question est tranchée, et elle vous est favorable.** Le GUDID tient une **accepted special-characters list** (liste des caractères spéciaux acceptés), et les symboles **®** et **™** sont acceptés dans le champ **Brand Name**. La règle est facile à mal appliquer, aussi vaut-il la peine de la formuler précisément : la restriction stricte au jeu de caractères **ISO/IEC 646** s'attache au **device identifier (DI)** lui-même, et non aux champs de texte descriptif. Le Brand Name est un élément de données de type **string** (chaîne de caractères), validé par les **business rules** du GUDID au regard de cette liste acceptée, et non par le jeu de caractères du DI. Une marque portant ® ou ™ peut donc être enregistrée telle qu'écrite.
+- **Les visuels du logo restent sur l'étiquette, pas dans le champ.** Le Brand Name est une valeur textuelle ; un logotype ou une marque figurative n'est pas ce que le champ contient. Le logo continue d'être imprimé sur l'étiquette physique et sur l'emballage — c'est votre création graphique, et l'enregistrement n'y change rien.
 
 Ce n'est pas un contournement ; c'est la répartition normale entre un enregistrement de données et les visuels d'étiquette. Mais elle doit parvenir au designer tôt, car elle modifie le brief des visuels.
 
 **2. La désignation du modèle de l'appareil.** Les enregistrements GUDID sont indexés sur une configuration d'appareil, non sur une campagne marketing. Fixez la désignation du modèle avant la création de l'enregistrement ; la renommer plus tard revient à modifier un enregistrement DI.
 
-> Les questions de jeu de caractères ci-dessus sont volontairement énoncées comme des points à vérifier, et non comme des faits établis : les règles de champ du GUDID sont définies dans la documentation d'implémentation du GUDID de la FDA et sont mises à jour de temps à autre. Confirmez-les au regard de la documentation en vigueur au moment de la soumission.
+> Pour la définition exhaustive du format, champ par champ, la FDA publie la **GUDID Data Elements Reference Table (DERT)** (table de référence des éléments de données du GUDID), qui précise le format et les règles de chaque élément de données. Consultez la DERT lorsqu'un nom de marque contient autre chose que des lettres, des chiffres, des espaces et le jeu de symboles accepté : c'est là que se trouve la réponse complète. Les règles de champ sont maintenues par la FDA et peuvent être mises à jour ; vérifier la DERT au moment de la soumission est donc l'habitude fiable.
 
 ## Une modification en marque blanche exige-t-elle un nouveau 510(k) ?
 

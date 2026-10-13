@@ -81,19 +81,17 @@ Zwei Entscheidungen müssen *vor* der Finalisierung des Artworks fallen, weil be
 
 | Träger | Das Logo | Der Markenname |
 |---|---|---|
-| **GUDID DI-Datensatz** | Nicht geführt – das Feld ist ein Textwert | Markenname als Text, mit ® oder ™, wo zutreffend |
+| **GUDID DI-Datensatz** | Nicht geführt – das Feld ist ein Textwert | Markenname als Text; ® und ™ sind zugelassen |
 | **Physisches Label und Verpackung** | Das vollständige Logo-Device, in Ihrem Artwork | Markenname wie gedruckt |
 
-Zwei Punkte sind vor der Finalisierung des Artworks zu klären, und keiner davon sollte geraten werden:
-
-- **Welche Zeichen das Feld annimmt.** Die GUDID implementation documentation legt den zulässigen Zeichensatz für jedes Datenelement fest. Prüfen Sie die Regel für den Markennamen gegen die aktuelle Dokumentation, statt sie anzunehmen – ein abgelehntes Zeichen kostet bei der Submission einen Nacharbeitszyklus.
-- **Ob ® oder ™ als Zeichen durchgehen.** Behandeln Sie das als Prüfung zum Zeitpunkt der Submission, nicht als Annahme im Design.
+- **Zeichensatz: geklärt – und zu Ihren Gunsten.** GUDID führt eine **accepted special-characters list** (Liste der zugelassenen Sonderzeichen), und die Markenzeichen **®** und **™** sind im Feld **Brand Name** zugelassen. Die Regel wird leicht falsch angewandt, deshalb lohnt die präzise Formulierung: Die strikte Zeichenbeschränkung nach **ISO/IEC 646** hängt am **device identifier (DI) selbst**, nicht an beschreibenden Textfeldern. Der Brand Name ist ein **string**-Datenelement und wird von den **business rules** von GUDID gegen diese akzeptierte Liste validiert, nicht gegen den Zeichensatz des DI. Ein Brand, der ® oder ™ trägt, kann also so erfasst werden, wie er geschrieben wird.
+- **Logo-Artwork bleibt auf dem Label, nicht im Feld.** Der Brand Name ist ein Textwert; ein Logotype oder eine Device-Marke ist nicht das, was dieses Feld führt. Das Logo wird weiterhin auf das physische Label und die Verpackung gedruckt – das ist Ihr Artwork, und der Datensatz lässt es unberührt.
 
 Das ist kein Workaround; es ist die normale Trennung zwischen einem Datensatz und Label-Artwork. Sie muss den Designer aber früh erreichen, weil sie das Artwork-Briefing verändert.
 
 **2. Die Gerätemodellbezeichnung.** GUDID-Datensätze sind auf eine Gerätekonfiguration geschlüsselt, nicht auf eine Marketingkampagne. Legen Sie die Modellbezeichnung fest, bevor der Datensatz angelegt wird; eine spätere Umbenennung bedeutet die Bearbeitung eines DI-Datensatzes.
 
-> Die Fragen zum Zeichensatz oben sind bewusst als Prüfpunkte und nicht als gesicherte Tatsachen formuliert: Die Feldregeln von GUDID sind in der GUDID implementation documentation der FDA definiert und werden von Zeit zu Zeit aktualisiert. Prüfen Sie sie zum Zeitpunkt der Submission gegen die aktuelle Dokumentation.
+> Für die vollständige Formatdefinition Feld für Feld veröffentlicht die FDA die **GUDID Data Elements Reference Table (DERT)**, die Format und Regeln für jedes Datenelement festlegt. Ziehen Sie die DERT heran, wenn ein Markenname etwas enthält, das über Buchstaben, Ziffern, Leerzeichen und den akzeptierten Symbolsatz hinausgeht – dort steht die vollständige Antwort. Die Feldregeln werden von der FDA gepflegt und können aktualisiert werden; eine DERT-Prüfung zum Zeitpunkt der Submission ist deshalb die verlässliche Routine.
 
 ## Erfordert eine Private-Label-Änderung eine neue 510(k)?
 

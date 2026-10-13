@@ -81,19 +81,17 @@ Two decisions must be made *before* artwork is finalised, because both are expen
 
 | Carrier | The logo | The brand name |
 |---|---|---|
-| **GUDID DI record** | Not held — the field is a text value | Brand name as text, with ® or ™ where applicable |
+| **GUDID DI record** | Not held — the field is a text value | Brand name as text; ® and ™ are accepted |
 | **Physical label and packaging** | The full logo device, in your artwork | Brand name as printed |
 
-Two limits to settle before artwork is finalised, and neither is worth guessing:
-
-- **Which characters the field accepts.** The GUDID implementation documentation defines the accepted character set for each data element. Confirm the brand-name rule against the current documentation rather than assuming, because a rejected character at submission costs a rework cycle.
-- **Whether ® or ™ survives as a character.** Treat this as a submission-time check, not a design-time assumption.
+- **Character set: this is settled, and it favours you.** GUDID maintains an **accepted special-characters list**, and the trademark symbols **®** and **™** are accepted in the **Brand Name** field. The rule is easy to mis-apply, so it is worth stating precisely: the strict **ISO/IEC 646** character restriction attaches to the **device identifier (DI) itself**, not to descriptive text fields. Brand Name is a **string** data element, and it is validated by the GUDID business rules against that accepted list rather than by the DI character set. So a brand carrying ® or ™ can be recorded as written.
+- **Logo artwork stays on the label, not in the field.** Brand Name is a text value; a logotype or device mark is not what the field holds. The logo still prints on the physical label and packaging — that is your artwork, and it is unaffected by the record.
 
 This is not a workaround; it is the normal division between a data record and label artwork. But it has to reach the designer early, because it changes the artwork brief.
 
 **2. The device model designation.** GUDID records are keyed to a device configuration, not to a marketing campaign. Fix the model designation before the record is created — and bear in mind that changing an identification element later triggers a **new DI and a new record** rather than an edit to the existing one, so the earlier the configuration is settled, the less re-filing you do.
 
-> The character-set questions above are deliberately stated as checks rather than as settled facts: GUDID field rules are defined in FDA's GUDID implementation documentation and are updated from time to time. Confirm against the current documentation at submission time.
+> For the exhaustive per-field format definition, FDA publishes the **GUDID Data Elements Reference Table (DERT)**, which specifies the format and rules for each data element. Check the DERT when a brand name contains something beyond letters, digits, spaces and the accepted symbol set — that is where the complete answer lives. Field rules are maintained by FDA and can be updated, so a DERT check at submission time is the reliable habit.
 
 ## Does a private-label change need a new 510(k)?
 

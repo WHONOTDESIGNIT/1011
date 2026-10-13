@@ -81,19 +81,19 @@ Seçenek 2 yalnızca bir veri kaydını taşımaz; *sorumluluğu* taşır. Seçe
 
 | Taşıyıcı | Logo | Marka adı |
 |---|---|---|
-| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; kabul edilen karakterler için aşağıdaki kontrol maddesine bakın |
+| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; ® ve ™ kabul edilir |
 | **Fiziksel etiket ve ambalaj** | Etiket tasarımınızdaki tam logo öğesi | Basıldığı şekliyle marka adı |
 
-İki sınırlama, etiket tasarımı kesinleşmeden önce netleştirilmelidir ve ikisi de tahmine bırakılmaya değmez:
+Bu iki noktanın, etiket tasarımı kesinleşmeden önce bilinmesi gerekir:
 
-- **Alanın hangi karakterleri kabul ettiği.** GUDID implementation documentation, her veri elemanı için kabul edilen karakter setini tanımlar. Marka adı kuralını varsaymak yerine güncel dokümantasyondan doğrulayın; çünkü gönderim sırasında reddedilen bir karakter bir yeniden çalışma döngüsüne mal olur.
-- **® ya da ™ işaretlerinin bir karakter olarak geçip geçmediği.** Bunu tasarım aşamasında bir varsayım değil, gönderim sırasında yapılacak bir kontrol olarak ele alın.
+- **Karakter seti: bu nokta artık kesin ve lehinize.** GUDID bir **accepted special-characters list** (kabul edilen özel karakterler listesi) tutar ve **®** ile **™** sembolleri **Brand Name** alanında kabul edilir. Kuralın yanlış uygulanması kolay olduğu için kesin biçimde ifade etmek gerekir: katı **ISO/IEC 646** karakter kısıtı, tanımlayıcı metin alanlarına değil, **device identifier (DI)**'nın kendisine bağlanır. Brand Name bir **string** veri elemanıdır ve DI karakter setine göre değil, GUDID **business rules** tarafından bu kabul edilen listeye göre doğrulanır. Dolayısıyla ® veya ™ taşıyan bir marka, yazıldığı biçimde kaydedilebilir.
+- **Logo tasarımı etikette kalır, alana girmez.** Brand Name bir metin değeridir; bir logotype ya da cihaz işareti bu alanın taşıdığı şey değildir. Logo yine fiziksel etikete ve ambalaja basılır — bu sizin etiket tasarımınızdır ve kayıttan etkilenmez.
 
 Bu bir geçici çözüm değil; bir veri kaydı ile etiket tasarımı arasındaki normal ayrımdır. Ancak tasarımcıya erken ulaşması gerekir, çünkü etiket tasarımı brief'ini değiştirir.
 
 **2. Cihaz model adı.** GUDID kayıtları bir pazarlama kampanyasına değil, bir cihaz konfigürasyonuna bağlıdır. Model adını kayıt oluşturulmadan önce sabitleyin; sonradan yeniden adlandırmak bir DI kaydını düzenlemek anlamına gelir.
 
-> Yukarıdaki karakter seti soruları, kasıtlı olarak kesinleşmiş olgular biçiminde değil, kontrol maddeleri biçiminde ifade edilmiştir: GUDID alan kuralları FDA'nın GUDID implementation documentation'ında tanımlanır ve zaman zaman güncellenir. Gönderim sırasında güncel dokümantasyona göre doğrulayın.
+> Her veri elemanı için kapsamlı biçim tanımına ihtiyaç duyduğunuzda, FDA **GUDID Data Elements Reference Table (DERT)** tablosunu yayımlar; bu tablo her veri elemanının biçimini ve kurallarını belirtir. Bir marka adı harflerin, rakamların, boşlukların ve kabul edilen sembol setinin **ötesinde** bir şey içeriyorsa DERT'e bakın — tam cevap oradadır. Alan kuralları FDA tarafından yürütülür ve güncellenebilir; bu nedenle gönderim sırasında bir DERT kontrolü yapmak güvenilir alışkanlıktır.
 
 ## Bir private-label değişikliği yeni bir 510(k) gerektirir mi?
 

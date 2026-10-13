@@ -81,19 +81,19 @@ Dvě rozhodnutí musí padnout *před* dokončením grafiky, protože obě se po
 
 | Nosné médium | Logo | Název značky |
 |---|---|---|
-| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky v textu, s ® nebo ™ tam, kde se použijí |
+| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky jako text; ® a ™ jsou přijímány |
 | **Fyzická etiketa a obal** | Celá grafická podoba loga, ve vaší grafice | Název značky tak, jak je vytištěn |
 
 Dvě omezení, která je třeba vyřešit před dokončením grafiky, a ani jedno z nich se nevyplatí odhadovat:
 
-- **Které znaky pole přijímá.** Implementační dokumentace GUDID definuje přijímanou znakovou sadu pro každý datový prvek. Pravidlo pro pole názvu značky si ověřte proti aktuální dokumentaci, místo abyste je předpokládali — odmítnutý znak při podání znamená další kolo přepracování.
-- **Zda ® nebo ™ projde jako znak.** Berte to jako kontrolu při podání, nikoli jako předpoklad při návrhu.
+- **Znaková sada: tato otázka je vyřešená a hraje ve váš prospěch.** GUDID vede **accepted special-characters list** (seznam přijímaných speciálních znaků) a symboly **®** a **™** jsou v poli **Brand Name** přijímány. Pravidlo se snadno použije nesprávně, proto stojí za to formulovat je přesně: striktní omezení znakové sady podle **ISO/IEC 646** se váže na **device identifier (DI) jako takový**, nikoli na popisná textová pole. Brand Name je datový prvek typu **string** a validují jej **business rules** GUDID proti tomuto přijímanému seznamu, nikoli znaková sada DI. Značku nesoucí ® nebo ™ tedy lze zaznamenat tak, jak je napsána.
+- **Grafika loga zůstává na etiketě, ne v poli.** Brand Name je textová hodnota; logotyp nebo grafická značka přístroje není to, co toto pole uchovává. Logo se stále tiskne na fyzickou etiketu a obal — to je vaše grafika a záznamem zůstává nedotčena.
 
 Není to obcházení pravidla; je to běžné rozdělení mezi datovým záznamem a grafikou etikety. Musí se ale dostat k designérovi včas, protože mění zadání pro grafiku.
 
 **2. Označení modelu přístroje.** Záznamy GUDID se klíčují ke konfiguraci přístroje, ne k marketingové kampani. Označení modelu stanovte před vytvořením záznamu; pozdější přejmenování znamená úpravu záznamu DI.
 
-> Otázky znakové sady uvedené výše jsou záměrně formulovány jako kontrolní body, nikoli jako daná fakta: pravidla pro pole GUDID jsou definována v implementační dokumentaci GUDID od FDA a čas od času se aktualizují. Ověřte je proti aktuální dokumentaci v okamžiku podání.
+> Pro vyčerpávající definici formátu jednotlivých polí vydává FDA **GUDID Data Elements Reference Table (DERT)**, která stanoví formát a pravidla pro každý datový prvek. Do DERT nahlédněte, když název značky obsahuje něco nad rámec písmen, číslic, mezer a přijímané sady symbolů — právě tam najdete úplnou odpověď. Pravidla pro pole spravuje FDA a mohou se aktualizovat, proto je kontrola DERT v okamžiku podání spolehlivým návykem.
 
 ## Vyžaduje změna private label nové 510(k)?
 

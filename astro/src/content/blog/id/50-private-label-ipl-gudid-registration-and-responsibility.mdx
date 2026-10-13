@@ -81,19 +81,19 @@ Dua keputusan harus diambil *sebelum* artwork diselesaikan, karena keduanya maha
 
 | Pembawa | Logo | Nama merek |
 |---|---|---|
-| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek dalam bentuk teks, dengan ® atau ™ bila berlaku |
+| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek dalam bentuk teks; ® dan ™ diterima |
 | **Label fisik dan kemasan** | Perangkat logo lengkap, dalam artwork Anda | Nama merek sebagaimana dicetak |
 
 Dua batas yang perlu ditetapkan sebelum artwork diselesaikan, dan tidak satu pun layak ditebak:
 
-- **Karakter apa saja yang diterima kolom ini.** Dokumentasi implementasi GUDID menetapkan kumpulan karakter yang diterima untuk setiap data element. Konfirmasikan aturan nama merek terhadap dokumentasi yang berlaku saat ini alih-alih berasumsi, karena karakter yang ditolak saat penyerahan berarti satu siklus kerja ulang.
-- **Apakah ® atau ™ lolos sebagai karakter.** Perlakukan hal ini sebagai pemeriksaan pada saat penyerahan (submission time), bukan asumsi pada saat perancangan.
+- **Kumpulan karakter: hal ini sudah tuntas, dan hasilnya menguntungkan Anda.** GUDID memelihara sebuah **accepted special-characters list (daftar karakter khusus yang diterima)**, dan simbol merek dagang **®** serta **™** diterima di kolom **Brand Name**. Aturan ini mudah salah diterapkan, jadi perlu dirumuskan secara tepat: pembatasan karakter **ISO/IEC 646** yang ketat melekat pada **device identifier (DI) itu sendiri**, bukan pada kolom teks deskriptif. Brand Name adalah data element **string**, dan divalidasi oleh **business rules** GUDID terhadap daftar yang diterima tersebut, bukan oleh kumpulan karakter DI. Jadi merek yang memuat ® atau ™ dapat dicatat apa adanya.
+- **Artwork logo tetap pada label, bukan di dalam kolom.** Brand Name adalah nilai teks; logotype atau device mark bukanlah yang disimpan oleh kolom itu. Logo tetap dicetak pada label fisik dan kemasan — itu artwork Anda, dan tidak terpengaruh oleh catatan.
 
 Ini bukan akal-akalan; ini adalah pembagian normal antara catatan data dan artwork label. Tetapi hal ini harus sampai ke desainer sejak awal, karena ia mengubah brief artwork.
 
 **2. Penetapan model perangkat.** Catatan GUDID dikaitkan pada konfigurasi perangkat, bukan pada kampanye pemasaran. Tetapkan penamaan model sebelum catatan dibuat; mengganti nama setelahnya berarti menyunting catatan DI.
 
-> Pertanyaan tentang kumpulan karakter di atas sengaja dinyatakan sebagai pemeriksaan, bukan sebagai fakta yang sudah pasti: aturan kolom GUDID ditetapkan dalam dokumentasi implementasi GUDID milik FDA dan diperbarui dari waktu ke waktu. Konfirmasikan terhadap dokumentasi yang berlaku saat penyerahan.
+> Untuk definisi format per kolom yang menyeluruh, FDA menerbitkan **GUDID Data Elements Reference Table (DERT)**, yang menetapkan format dan aturan bagi setiap data element. Periksa DERT ketika nama merek memuat sesuatu di luar huruf, angka, spasi, dan kumpulan simbol yang diterima — di sanalah jawaban lengkapnya berada. Aturan kolom dipelihara oleh FDA dan dapat diperbarui, sehingga memeriksa DERT pada saat penyerahan adalah kebiasaan yang andal.
 
 ## Apakah Perubahan Private Label Memerlukan 510(k) Baru?
 

@@ -81,19 +81,19 @@ Hai quyết định phải được đưa ra *trước khi* artwork được ch�
 
 | Nơi thể hiện | Logo | Tên thương hiệu |
 |---|---|---|
-| **Bản ghi DI trên GUDID** | Không được lưu — trường này là một giá trị văn bản | Tên thương hiệu dạng văn bản; ký tự cụ thể cần đối chiếu khi nộp hồ sơ |
+| **Bản ghi DI trên GUDID** | Không được lưu — trường này là một giá trị văn bản | Tên thương hiệu dạng văn bản; ® và ™ được chấp nhận |
 | **Nhãn vật lý và bao bì** | Toàn bộ dấu logo, trong artwork của bạn | Tên thương hiệu như được in |
 
 Hai điểm cần chốt trước khi artwork được hoàn tất, và không điểm nào đáng để đoán mò:
 
-- **Trường này chấp nhận những ký tự nào.** Tài liệu triển khai GUDID (GUDID implementation documentation) quy định bộ ký tự được chấp nhận cho từng yếu tố dữ liệu. Hãy đối chiếu quy tắc dành cho tên thương hiệu với tài liệu hiện hành thay vì giả định, vì một ký tự bị từ chối khi nộp hồ sơ sẽ tốn thêm một vòng làm lại.
-- **Liệu các ký tự như ® hoặc ™ có được chấp nhận hay không.** Hãy coi đây là việc phải kiểm tra tại thời điểm nộp hồ sơ, chứ không phải một giả định ở khâu thiết kế.
+- **Bộ ký tự: điểm này đã ngã ngũ, và nó có lợi cho bạn.** GUDID duy trì một **accepted special-characters list** (danh sách ký tự đặc biệt được chấp nhận), và hai ký hiệu **®** và **™** **được chấp nhận** trong trường **Brand Name**. Quy tắc này rất dễ bị áp dụng sai, nên cần phát biểu cho chính xác: giới hạn ký tự nghiêm ngặt của **ISO/IEC 646** gắn với **device identifier (DI)** — chính bản thân DI — chứ không gắn với các trường văn bản mô tả. Brand Name là một **string** data element, và nó được **business rules** của GUDID kiểm tra theo danh sách được chấp nhận đó, chứ không theo bộ ký tự của DI. Vì vậy một thương hiệu mang ® hoặc ™ vẫn có thể được ghi lại đúng như nguyên bản.
+- **Artwork logo ở lại trên nhãn, không vào trường dữ liệu.** Brand Name là một giá trị văn bản; logotype hay device mark không phải là thứ mà trường này lưu giữ. Logo vẫn được in trên nhãn vật lý và bao bì — đó là artwork của bạn, và nó không bị ảnh hưởng bởi bản ghi.
 
 Đây không phải một cách lách; đây là sự phân chia bình thường giữa một bản ghi dữ liệu và artwork của nhãn. Nhưng nó phải đến tay nhà thiết kế sớm, vì nó thay đổi brief thiết kế.
 
 **2. Định danh model của thiết bị.** Các bản ghi GUDID được khóa theo một cấu hình thiết bị, không theo một chiến dịch marketing. Hãy chốt định danh model trước khi bản ghi được tạo; đổi tên về sau nghĩa là phải sửa một bản ghi DI.
 
-> Những câu hỏi về bộ ký tự ở trên được nêu một cách có chủ đích như các mục cần kiểm tra, chứ không phải như những điều đã ngã ngũ: các quy tắc về trường của GUDID được định nghĩa trong tài liệu triển khai GUDID của FDA và được cập nhật theo thời gian. Hãy đối chiếu với tài liệu hiện hành tại thời điểm nộp hồ sơ.
+> Để có định nghĩa đầy đủ về định dạng của từng trường, FDA công bố **GUDID Data Elements Reference Table (DERT)** — bảng quy định định dạng và quy tắc cho mỗi yếu tố dữ liệu. Hãy tra DERT khi tên thương hiệu chứa ký tự nằm ngoài tập hợp chữ cái, chữ số, dấu cách và bộ ký tự đã được chấp nhận — câu trả lời đầy đủ nằm ở đó. Các quy tắc về trường do FDA duy trì và có thể được cập nhật, nên tra DERT một lần tại thời điểm nộp hồ sơ là thói quen đáng tin cậy.
 
 ## Một thay đổi nhãn riêng có cần 510(k) mới không?
 

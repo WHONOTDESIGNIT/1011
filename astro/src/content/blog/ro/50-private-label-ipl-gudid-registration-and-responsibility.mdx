@@ -81,19 +81,17 @@ Două decizii trebuie luate *înainte* ca grafica să fie finalizată, pentru c�
 
 | Suport | Logoul | Numele de marcă |
 |---|---|---|
-| **Înregistrarea DI din GUDID** | Nu este reținut — câmpul este o valoare textuală | Numele de marcă în text, cu ® sau ™ acolo unde se aplică |
+| **Înregistrarea DI din GUDID** | Nu este reținut — câmpul este o valoare textuală | Numele de marcă în text; ® și ™ sunt acceptate |
 | **Eticheta fizică și ambalajul** | Elementul grafic complet al logoului, în grafica dumneavoastră | Numele de marcă așa cum este imprimat |
 
-Două aspecte de lămurit înainte de finalizarea graficii, niciunul demn de ghicit:
-
-- **Ce caractere acceptă câmpul.** Documentația de implementare GUDID (GUDID implementation documentation) definește setul de caractere acceptat pentru fiecare element de date. Confirmați regula privind numele de marcă față de documentația actuală, în loc să o presupuneți, pentru că un caracter respins la depunere costă un ciclu de refacere.
-- **Dacă ® sau ™ este acceptat ca caracter.** Tratați acest punct ca o verificare la momentul depunerii, nu ca o presupunere din faza de proiectare.
+- **Setul de caractere: punctul este acum stabilit și vă este favorabil.** GUDID menține o **accepted special-characters list** (listă de caractere speciale acceptate), iar simbolurile de marcă **®** și **™** sunt acceptate în câmpul **Brand Name**. Regula este ușor de aplicat greșit, așa că merită formulată precis: restricția strictă de caractere **ISO/IEC 646** se atașează de **device identifier (DI) în sine**, nu de câmpurile de text descriptiv. Brand Name este un element de date de tip **string**, iar acesta este validat de **business rules** ale GUDID pe baza listei acceptate, nu de setul de caractere al DI. Prin urmare, un brand care poartă ® sau ™ poate fi înregistrat exact așa cum este scris.
+- **Grafica logoului rămâne pe etichetă, nu în câmp.** Brand Name este o valoare textuală; un logotip sau un semn grafic al dispozitivului nu este ceea ce reține câmpul. Logoul se imprimă în continuare pe eticheta fizică și pe ambalaj — aceasta este grafica dumneavoastră și nu este afectată de înregistrare.
 
 Aceasta nu este o soluție de ocolire; este împărțirea normală între o înregistrare de date și grafica etichetei. Dar trebuie să ajungă la designer din timp, pentru că schimbă brief-ul grafic.
 
 **2. Denumirea modelului de dispozitiv.** Înregistrările GUDID sunt legate de o configurație de dispozitiv, nu de o campanie de marketing. Stabiliți denumirea modelului înainte de crearea înregistrării; redenumirea ulterioară înseamnă editarea unei înregistrări DI.
 
-> Întrebările privind setul de caractere de mai sus sunt formulate deliberat ca verificări, nu ca fapte stabilite: regulile privind câmpurile GUDID sunt definite în documentația de implementare GUDID a FDA și sunt actualizate din când în când. Confirmați-le față de documentația actuală la momentul depunerii.
+> Pentru definiția exhaustivă, câmp cu câmp, a formatului, FDA publică **GUDID Data Elements Reference Table (DERT)**, care specifică formatul și regulile pentru fiecare element de date. Consultați DERT atunci când un nume de marcă conține ceva dincolo de litere, cifre, spații și setul de simboluri acceptate — acolo se află răspunsul complet. Regulile câmpurilor sunt menținute de FDA și pot fi actualizate, așa că verificarea DERT la momentul depunerii este obiceiul sigur.
 
 ## O modificare de private-label necesită un nou 510(k)?
 
