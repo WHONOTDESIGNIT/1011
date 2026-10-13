@@ -1,0 +1,153 @@
+---
+title: "IPL de marca própria (private label) nos EUA: quem registra o quê e como adicionar um aparelho ao GUDID"
+description: "Adicionar sua marca a um IPL liberado pela FDA não faz de você o fabricante — isso depende de quais atividades reguladas você exerce. O guia de uma fábrica sobre o labeler of record, as duas rotas de conta no GUDID e quando uma mudança de rotulagem exige um novo 510(k)."
+citableSummary: "Ser dono de uma marca de IPL não determina as obrigações de registro junto à FDA; o que as determina são as atividades reguladas que a parte exerce. Em um IPL inalterado e liberado pela FDA, fornecido por um fabricante por contrato chinês e entregue a um initial importer (importador inicial) nos EUA sob a marca do cliente, o fabricante normalmente continua sendo o fabricante legal, o detentor do 510(k), o labeler of record e o exportador estrangeiro, e o dono da marca não adquire nenhuma obrigação de registro. Um aparelho com marca pode ser adicionado ao GUDID tanto dentro da conta existente do fabricante quanto em uma conta própria do cliente, com o fabricante atuando como terceiro submissor autorizado. Uma mudança apenas de rotulagem é avaliada segundo o Flowchart A da orientação da FDA sobre modificação de 510(k), em que um resultado 'documentation' ainda exige controle de mudanças de projeto e produção e um lançamento no device master record."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Leitura relacionada: [como ler Fabricante, Fabricante por Contrato e Exportador Estrangeiro no registro e na listagem da FDA](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) e [como encontrar um fabricante liberado pela FDA em vez de uma trading company](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Se você é dono de uma marca, compra um IPL liberado pela FDA e coloca seu próprio nome nele, a pergunta que decide sua carga regulatória não é *de quem é a marca na caixa*. É *quais atividades reguladas você realmente exerce*.
+
+Na rota comum de marca própria — você compra um aparelho inalterado e já liberado, entrega-o a um importador nos EUA e não desenvolve nem hardware nem firmware —, o fabricante normalmente continua sendo o **fabricante legal, o detentor do 510(k), o labeler of record (responsável pelo rótulo perante a FDA) e o exportador estrangeiro**. Você não se torna o specification developer por ser dono da marca, e não adquire obrigação de registro apenas por ter seu nome no produto. Colocar sua marca no GUDID passa, então, a ser uma escolha entre duas rotas de conta, e é essa escolha que desloca a responsabilidade.
+
+Os dois lados de uma negociação de marca própria costumam chutar, e chutam em direções opostas. O dono da marca presume que precisa se registrar; a fábrica presume que é "apenas o fornecedor". Em geral os dois estão errados, e o custo do chute é ou um registro desnecessário, ou uma obrigação sem dono.
+
+## A única regra que resolve a maioria das discussões sobre marca própria
+
+As obrigações perante a FDA se prendem a **atividades**, não à titularidade da marca. Um nome de marca no rótulo não é, em si, uma atividade regulada. Registro, listagem, envio de UDI, tratamento de reclamações e reporte de MDR se prendem à parte que exerce a atividade regulada que os dispara.
+
+É por isso que a pergunta produtiva não é "quem é dono da marca?", mas "quais dos papéis abaixo cada parte exerce, e ela consegue comprovar isso?".
+
+Uma marca registrada é um direito comercial. Ela não confere nenhuma função regulatória. É por isso que o mesmo aparelho pode carregar uma marca conhecida enquanto o fabricante continua sendo o detentor do 510(k), o labeler of record e o exportador estrangeiro.
+
+## Os sete papéis — e o que cada um realmente dispara
+
+Estes são os papéis que aparecem em uma cadeia de IPL de marca própria. Apenas alguns deles criam obrigações, e apenas alguns são visíveis no banco de dados público da FDA.
+
+| Papel | O que significa | Visível no banco de dados público da FDA? |
+|---|---|---|
+| **Fabricante legal** | Projeta e fabrica o dispositivo acabado; detém o design history file | Sim — como *Manufacturer* |
+| **Fabricante por contrato** | Produz segundo a especificação de outra parte; pode ou não deter a liberação | Sim — como *Contract Manufacturer* |
+| **Exportador estrangeiro** | Exporta o dispositivo do país de fabricação; é uma operação de estabelecimento registrado | Sim — como *Foreign Exporter* |
+| **Detentor do 510(k)** | Detém a notificação prévia à comercialização sob a qual o dispositivo é comercializado | Não como rótulo; rastreável pelo número da submissão |
+| **Labeler of record** | A parte cujo rótulo é aplicado, e que responde à FDA por esse rótulo | Não — inferido a partir do rótulo |
+| **Specification developer** | A parte que desenvolve as especificações segundo as quais o dispositivo é construído | Não |
+| **Titular da conta GUDID** | Detém a conta GUDID e os registros de device identifier (DI) da plataforma | Não — apenas como *Company Name* do registro |
+
+**Quatro desses sete papéis são invisíveis nos dados públicos.** É por isso que um print da listagem FDA de um fornecedor é evidência fraca de quem responde à FDA pelo rótulo — e por isso que compradores que confiam só na listagem continuam fazendo a mesma pergunta um e-mail depois.
+
+Uma fábrica que realmente carrega vários desses papéis consegue comprová-los em vez de apenas afirmá-los: um número de establishment registration, um número de owner/operator, um número DUNS, o número do 510(k) e a conta GUDID. Para esta plataforma, nossas posições registradas são establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, liberado sob **K222537**, com atividades de listagem registradas como Manufacturer, Foreign Exporter e Contract Manufacturer.
+
+## Adicionar sua marca ao GUDID — os dois caminhos
+
+O GUDID (Global Unique Device Identification Database) é onde ficam os registros de device identifier. Se o seu aparelho é um IPL Classe II comercializado nos EUA, ele precisa de um registro de DI. Em uma relação de marca própria existem exatamente dois arranjos, e a diferença entre eles é **quem é o labeler legal** — que também é o que decide sua obrigação de registro.
+
+### Opção 1 — sua marca dentro da conta GUDID do fabricante
+
+O fabricante fornece a unidade neutra, ou aplica sua marca e **adiciona o nome da sua marca à sua conta GUDID e aos seus registros de DI existentes**. Como o rótulo é aplicado pelo fabricante e a UDI permanece no registro do fabricante:
+
+- o **fabricante é o labeler of record** e a parte que responde à FDA;
+- o **registro de UDI é do fabricante**;
+- **você não precisa se registrar** como estabelecimento por causa dessa atividade.
+
+Esta é a rota de menor esforço, e normalmente a correta quando o seu envolvimento é sourcing, marca e distribuição, e não projeto do aparelho.
+
+### Opção 2 — sua própria conta GUDID
+
+Se você ou sua entidade nos EUA mantém uma conta GUDID, o fabricante pode atuar como seu **terceiro submissor autorizado** e protocolar em seu nome. Aqui a **UDI é sua**, você é o **labeler of record legal**, e as obrigações que se prendem ao labeler se prendem a você — incluindo a exatidão do registro de DI e as obrigações pós-mercado que acompanham o rótulo.
+
+A Opção 2 não apenas move um registro de dados; ela move *responsabilidade*. Sob a Opção 2, o tratamento de reclamações, as correções e remoções e as obrigações de reporte de MDR acompanham o labeler. Escolha-a de forma deliberada, e não por acidente de quem acabou criando a conta.
+
+| Pergunta | Aponta para |
+|---|---|
+| Você desenvolve ou altera hardware, firmware ou especificações? | **Opção 2** — você está entrando no território de specification developer |
+| Você precisa do registro de DI no seu próprio nome para os seus próprios sistemas? | **Opção 2** |
+| O seu papel é comprar, aplicar a marca e distribuir um aparelho inalterado? | **Opção 1** |
+| Você não quer nenhuma obrigação de registro junto à FDA? | **Opção 1** |
+
+## O que decidir antes de o registro no GUDID ser criado
+
+Duas decisões precisam ser tomadas *antes* de a arte final ser fechada, porque as duas são caras de mudar depois.
+
+**1. O nome da marca é dado, não arte.** O GUDID guarda o nome da marca como **texto**. A arte do produto frequentemente traz um logotipo ou uma marca gráfica do aparelho, e um campo de texto não comporta um elemento gráfico. Nossa posição de trabalho — a ser confirmada no data dictionary atual do GUDID antes que você se apoie nela — é que o campo de nome da marca aceita caracteres alfanuméricos mais os caracteres **®** e **™**, mas não um conjunto de símbolos nem uma imagem de logotipo.
+
+| Suporte | O logotipo | O nome da marca |
+|---|---|---|
+| **Registro de DI no GUDID** | Nada — somente texto | Nome da marca em texto, com ® ou ™ quando aplicável |
+| **Rótulo físico e embalagem** | O logotipo completo, na sua arte | Nome da marca conforme impresso |
+
+Isso não é um contorno; é a divisão normal entre um registro de dados e a arte do rótulo. Mas precisa chegar ao designer cedo, porque muda o briefing da arte.
+
+**2. A designação do modelo do aparelho.** Os registros do GUDID são vinculados a uma configuração do aparelho, não a uma campanha de marketing. Fixe a designação do modelo antes de o registro ser criado; renomear depois significa editar um registro de DI.
+
+> O comportamento dos caracteres ® / ™ descrito acima reflete o nosso próprio entendimento operacional e a nossa correspondência. Confirme-o no data dictionary atual do GUDID da FDA e corrija esta seção se houver divergência.
+
+## Uma mudança de marca própria exige um novo 510(k)?
+
+Esta é a pergunta que os donos de marca fazem em segundo lugar, e ela tem uma resposta documentada. A orientação da FDA *Deciding When to Submit a 510(k) for a Change to an Existing Device* fornece um esquema de lógica — e é explícita ao afirmar que um resultado "documentation" **não** é passe livre.
+
+O fluxograma principal da FDA pergunta, nesta ordem:
+
+1. **A mudança é feita com a intenção de melhorar significativamente a segurança ou a eficácia do dispositivo?** Por exemplo, para mitigar um risco conhecido, ou em resposta a eventos adversos. Se sim, **um novo 510(k) provavelmente é exigido**, independentemente das perguntas restantes.
+2. **É uma mudança de rotulagem?** → vá para o **Flowchart A**.
+3. **É uma mudança de tecnologia, engenharia ou desempenho?** → **Flowchart B** (ou D para IVDs).
+4. **É uma mudança de materiais?** → **Flowchart C** (ou D para IVDs).
+
+Dois termos carregam um significado específico nos fluxogramas, e lê-los errado causa a maior parte da confusão: **"new 510(k)"** significa que um novo 510(k) é *provavelmente exigido*, enquanto **"documentation"** significa que um novo 510(k) é *provavelmente não exigido — documente sua análise e arquive-a para referência futura*.
+
+Pegue o conjunto de atividades que um dono de marca normalmente descreve: comprar da China um aparelho inalterado e liberado, entregá-lo a um importador nos EUA, sob a marca do cliente, sem desenvolvimento de hardware ou firmware. A mudança é de **rotulagem**, então a avaliação corre pelo **Flowchart A**, e não pelos fluxogramas de tecnologia ou materiais. A primeira pergunta ainda manda: se a mudança de rotulagem tem a intenção de melhorar significativamente a segurança ou a eficácia, um novo 510(k) provavelmente é exigido de qualquer forma. Caso contrário, a análise é documentada e arquivada.
+
+A leitura equivocada de maior consequência é esta: **"nenhum 510(k) novo" e "nenhum trabalho" não são a mesma afirmação.** A regulamentação do sistema da qualidade se aplica *independentemente de* a revisão pré-mercado ser disparada ou não. A revisão e a aprovação de mudanças de projeto e produção (21 CFR 820.30, 820.70) e a documentação no device master record (21 CFR 820.181) continuam valendo — e esses registros podem ser examinados durante uma inspeção da FDA sob o FD&C Act §704(e).
+
+Uma nuance adicional da orientação: para muitas mudanças, a submissão de um novo 510(k) não é exigida justamente porque a confiança nos requisitos existentes do sistema da qualidade é considerada a forma menos onerosa de assegurar razoavelmente a segurança e a eficácia do dispositivo alterado.
+
+## O papel que precisa existir em toda variante — o initial importer nos EUA
+
+Qualquer que seja a rota escolhida, um papel do lado americano precisa existir: um **initial importer com um local de negócios nos EUA**. Esse requisito se prende à *atividade de importação*, não à titularidade da marca. Na prática, ele pode ser a sua entidade nos EUA, um US agent, um distribuidor americano ou um parceiro de importação com capacidade de conformidade.
+
+Se você é uma empresa da UE sem estabelecimento nos EUA, vai precisar desse initial importer ou de um caminho de registro próprio — e qual dos dois decorre da escolha entre a Opção 1 e a Opção 2 acima.
+
+## A matriz provisória de responsabilidades
+
+A matriz abaixo é avaliada **por atividades**, e vale independentemente do nome no rótulo. Ela é provisória em apenas três pontos, porque esses três dependem da nomenclatura e da rota.
+
+| Papel / obrigação | Fabricante | Dono da marca (na atividade de compra e fornecimento) |
+|---|---|---|
+| Fabricante legal | **Sim** | Não |
+| Fabricante por contrato | **Sim** | Não |
+| Exportador estrangeiro | **Sim** — já registrado | Não |
+| Detentor do 510(k) | **Sim** | Não |
+| Labeler of record | **Sim** sob a Opção 1; terceiro submissor sob a Opção 2 | **Sim** apenas sob a Opção 2 |
+| Specification developer | **Sim** | Não nesta atividade — **não é automático**, e não é conferido pela titularidade da marca |
+| Conta GUDID / registros de DI | **Sim** — detém a conta e o DI; pode adicionar sua marca (Opção 1) ou protocolar como terceiro submissor (Opção 2) | Opcional — apenas se você mantém conta própria |
+| Envio de UDI / DI | Envia como labeler sob a Opção 1; como terceiro autorizado sob a Opção 2 | Envia, ou autoriza o fabricante a enviar, sob a Opção 2 |
+| Initial importer | Não | **Precisa existir na cadeia, com um local de negócios nos EUA** |
+| US agent | **Sim** — nos registros | Apenas se você se registrar como estabelecimento estrangeiro |
+| establishment registration e device listing | **Sim** | Apenas se você se tornar labeler of record ou specification developer |
+| Pós-mercado: reporte de MDR, correções e remoções, tratamento de reclamações | **Sim**, como fabricante e labeler of record | Registro em nível de distribuidor; as obrigações plenas de reporte surgem apenas ao se tornar labeler of record |
+
+A única decisão ramificada é a Opção 1 versus a Opção 2. Todo o resto decorre das atividades, e não muda quando o nome da marca muda.
+
+## O que um fabricante precisa de você antes de assinar uma determinação final
+
+Uma matriz provisória não depende da nomenclatura. Uma determinação **final e assinada** depende, em exatamente três pontos:
+
+1. **Nome da marca e designação do modelo** como aparecerão no rótulo.
+2. **A arte do rótulo ou um mock-up**, mostrando a posição da marca, do fabricante e da identificação do importador — porque se você se torna um *relabeler* depende de **o conteúdo do rótulo mudar**, e não de o seu nome aparecer.
+3. **A rota escolhida — Opção 1 ou Opção 2 — e quem será o initial importer nos EUA.**
+
+Com esses três itens, a função regulatória do fabricante pode assinar uma determinação fundamentada cobrindo se um novo 510(k), uma letter-to-file (carta arquivada junto à FDA documentando a decisão e os registros de suporte) ou nenhuma submissão é exigida para a rotulagem; a decisão de DI; e o titular da listagem.
+
+Peça a matriz provisória antes de a nomenclatura ser fixada. Um fornecedor que só responde depois que a arte existe tem a sequência invertida.
+
+## Fechamento — a pergunta a fazer a um fabricante em potencial
+
+Pergunte quais dos sete papéis a fábrica exerce, e peça que ela comprove cada um. Uma fábrica que detém e consegue comprovar vários — registro, listagem, a liberação, a conta GUDID — está dizendo algo sobre quanto da sua carga de conformidade ela consegue carregar. Uma fábrica que se descreve apenas como "o fornecedor" está deixando essa carga, e a titularidade dela, indefinida.
+
+*Este artigo descreve as nossas próprias posições operacionais em uma plataforma específica e não constitui aconselhamento jurídico. Determinações específicas de dispositivo exigem os três insumos listados acima e a aprovação formal (sign-off) da função regulatória do fabricante. Onde um ponto depende do data dictionary atual do GUDID ou de orientação publicada da FDA, confirme-o na fonte antes de se apoiar nele.*

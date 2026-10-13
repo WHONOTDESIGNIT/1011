@@ -1,0 +1,153 @@
+---
+title: "IPL private-label în SUA: cine înregistrează ce și cum se adaugă un dispozitiv în GUDID"
+description: "Faptul că vă puneți marca pe un dispozitiv IPL autorizat de FDA nu vă transformă în producător — totul depinde de activitățile reglementate pe care le exercitați. Ghidul unei fabrici despre labeler of record, despre cele două rute de cont GUDID și despre situațiile în care o modificare de etichetare necesită un nou 510(k)."
+citableSummary: "Deținerea unui brand de IPL nu determină obligațiile de înregistrare la FDA; ceea ce le determină sunt activitățile reglementate exercitate de fiecare parte. Pentru un dispozitiv IPL autorizat de FDA, nemodificat, achiziționat de la un contract manufacturer chinez și livrat unui importator american sub marca unui client, producătorul rămâne în mod normal producătorul legal, deținătorul 510(k), labeler of record și exportator străin, iar proprietarul mărcii nu dobândește nicio obligație de înregistrare. Un dispozitiv cu marcă proprie poate fi adăugat în GUDID fie în contul existent al producătorului, fie în contul propriu al clientului, producătorul acționând ca transmitent terț autorizat (authorised third-party submitter). O modificare care vizează exclusiv etichetarea se evaluează conform Flowchart A din ghidul FDA privind modificările la 510(k), unde un rezultat de tip „documentation” (documentație) impune totuși controlul modificărilor de proiectare și de producție, precum și o înregistrare în device master record."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Lectură conexă: [Cum se citesc rolurile Manufacturer, Contract Manufacturer și Foreign Exporter în establishment registration și device listing la FDA](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) și [cum se găsește un producător autorizat de FDA, nu o societate de trading](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Dacă sunteți proprietarul unui brand care cumpără un dispozitiv IPL autorizat de FDA și își pune propriul nume pe el, întrebarea care vă decide volumul de muncă de reglementare nu este *ce marcă scrie pe cutie*. Ci *ce activități reglementate exercitați efectiv dumneavoastră*.
+
+Pe ruta obișnuită de private-label — achiziționați un dispozitiv nemodificat, deja autorizat, îl livrați unui importator american și nu dezvoltați nici hardware, nici firmware — producătorul rămâne în mod normal **producătorul legal, deținătorul 510(k), labeler of record și exportatorul străin (foreign exporter)**. Nu deveniți specification developer prin faptul că dețineți brandul și nu dobândiți o obligație de înregistrare doar pentru că numele dumneavoastră apare pe produs. Aducerea brandului dumneavoastră în GUDID este, prin urmare, o alegere între două rute de cont, iar această alegere este exact ce deplasează responsabilitatea.
+
+Ambele părți ale unei negocieri de private-label au tendința să ghicească, și ghicesc în direcții opuse. Proprietarul brandului presupune că trebuie să se înregistreze; fabrica presupune că este „doar furnizorul". Ambele presupuneri sunt de obicei greșite, iar costul unei presupuneri greșite este fie o înregistrare inutilă, fie o obligație fără proprietar.
+
+## Singura regulă care închide majoritatea disputelor de private-label
+
+Obligațiile față de FDA se atașează de **activități**, nu de proprietatea asupra brandului. Un nume de marcă pe o etichetă nu este, în sine, o activitate reglementată. establishment registration, device listing, transmiterea UDI, gestionarea reclamațiilor și raportarea MDR se atașează de partea care exercită activitatea reglementată ce le declanșează.
+
+De aceea întrebarea productivă nu este „cine deține brandul?", ci „care dintre rolurile de mai jos este exercitat de fiecare parte și poate fiecare să îl dovedească?".
+
+O marcă înregistrată este un drept comercial. Ea nu conferă nicio funcție de reglementare. De aceea același dispozitiv poate purta un brand cunoscut, în timp ce producătorul rămâne deținătorul 510(k), labeler of record și exportatorul străin.
+
+## Cele șapte roluri — și ce declanșează efectiv fiecare
+
+Acestea sunt rolurile care apar într-un lanț IPL de private-label. Doar unele dintre ele creează obligații și doar unele sunt vizibile în baza de date publică a FDA.
+
+| Rol | Ce înseamnă | Vizibil în baza de date publică a FDA? |
+|---|---|---|
+| **Producător legal** | Proiectează și fabrică dispozitivul finit; deține design history file | Da — ca *Manufacturer* |
+| **Contract manufacturer** | Produce conform specificațiilor altei părți; poate deține sau nu autorizarea | Da — ca *Contract Manufacturer* |
+| **Exportator străin (foreign exporter)** | Exportă dispozitivul din țara de fabricație; operațiune a unei unități înregistrate | Da — ca *Foreign Exporter* |
+| **Deținător 510(k)** | Deține notificarea premergătoare comercializării sub care este vândut dispozitivul | Nu ca etichetă; se poate urmări prin numărul depunerii |
+| **Labeler of record** | Partea a cărei etichetă este aplicată și care răspunde în fața FDA pentru acea etichetă | Nu — se deduce din etichetă |
+| **Specification developer** | Partea care elaborează specificațiile după care este construit dispozitivul | Nu |
+| **Deținător de cont GUDID** | Deține contul GUDID și înregistrările de device identifier (DI) pentru platformă | Nu — doar ca nume de companie al înregistrării |
+
+**Patru dintre aceste șapte roluri sunt invizibile în datele publice.** De aceea o captură de ecran a listării FDA a unui furnizor este o dovadă slabă în privința cine răspunde în fața FDA pentru etichetă — și de aceea cumpărătorii care se bazează doar pe listare pun aceeași întrebare un e-mail mai târziu.
+
+O fabrică ce poartă cu adevărat mai multe dintre aceste roluri le poate dovedi, nu doar afirma: un număr de establishment registration, un număr de owner/operator, un număr DUNS, numărul 510(k) și contul GUDID. Pentru această platformă, pozițiile noastre înregistrate sunt establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, autorizare obținută sub **K222537**, cu activități de listing înregistrate ca Manufacturer, Foreign Exporter și Contract Manufacturer.
+
+## Adăugarea brandului dumneavoastră în GUDID — cele două căi
+
+GUDID (Global Unique Device Identification Database) este locul unde există înregistrările de device identifier. Dacă dispozitivul dumneavoastră este un IPL de Clasa II comercializat în SUA, are nevoie de o înregistrare DI. Într-o relație de private-label există exact două aranjamente, iar diferența dintre ele este **cine este labeler of record** — ceea ce decide, de asemenea, obligația dumneavoastră de înregistrare.
+
+### Opțiunea 1 — brandul dumneavoastră în contul GUDID al producătorului
+
+Producătorul livrează unitatea neutră sau aplică brandul dumneavoastră și **adaugă numele brandului dumneavoastră în contul său GUDID existent și în înregistrările DI**. Deoarece eticheta este aplicată de producător, iar UDI rămâne în înregistrarea producătorului:
+
+- **producătorul este labeler of record** și partea care răspunde în fața FDA;
+- **înregistrarea UDI este a producătorului**;
+- **nu trebuie să vă înregistrați** ca unitate pentru această activitate.
+
+Aceasta este ruta cu efort mai mic și, de regulă, cea corectă atunci când implicarea dumneavoastră constă în achiziție, brand și distribuție, nu în proiectarea dispozitivului.
+
+### Opțiunea 2 — propriul dumneavoastră cont GUDID
+
+Dacă dumneavoastră sau entitatea dumneavoastră din SUA deține un cont GUDID, producătorul poate acționa ca **transmitent terț autorizat (authorised third-party submitter)** și poate depune în numele dumneavoastră. Aici **UDI este al dumneavoastră**, dumneavoastră sunteți **labeler of record**, iar obligațiile care se atașează de labeler se atașează de dumneavoastră — inclusiv exactitatea înregistrării DI și obligațiile post-comercializare care urmează eticheta.
+
+Opțiunea 2 nu mută doar o înregistrare de date; ea mută *responsabilitatea*. În cadrul Opțiunii 2, gestionarea reclamațiilor, corecțiile și retragerile, precum și obligațiile de raportare MDR urmează labeler of record. Alegeți-o deliberat, nu din întâmplare, pentru că cineva a creat contul.
+
+| Întrebare | Indică spre |
+|---|---|
+| Dezvoltați sau modificați hardware, firmware sau specificații? | **Opțiunea 2** — intrați pe teritoriul de specification developer |
+| Aveți nevoie de înregistrarea DI pe numele dumneavoastră, pentru sistemele dumneavoastră? | **Opțiunea 2** |
+| Rolul dumneavoastră este achiziția, brandul și distribuția unui dispozitiv nemodificat? | **Opțiunea 1** |
+| Nu doriți nicio obligație de înregistrare la FDA? | **Opțiunea 1** |
+
+## Ce trebuie decis înainte de crearea înregistrării GUDID
+
+Două decizii trebuie luate *înainte* ca grafica să fie finalizată, pentru că ambele sunt costisitor de schimbat ulterior.
+
+**1. Numele de marcă este dată, nu grafică.** GUDID păstrează numele de marcă sub formă de **text**. Grafica produsului include frecvent un logotip sau un semn grafic al dispozitivului, iar un câmp de text nu poate conține o grafică. Poziția noastră de lucru — de confirmat față de dicționarul de date GUDID actual înainte de a vă baza pe ea — este că câmpul pentru numele de marcă acceptă caractere alfanumerice plus caracterele **®** și **™**, dar nu un set de simboluri sau o imagine de tip logo.
+
+| Suport | Logoul | Numele de marcă |
+|---|---|---|
+| **Înregistrarea DI din GUDID** | Nimic — doar text | Numele de marcă în text, cu ® sau ™ acolo unde se aplică |
+| **Eticheta fizică și ambalajul** | Elementul grafic complet al logoului, în grafica dumneavoastră | Numele de marcă așa cum este imprimat |
+
+Aceasta nu este o soluție de ocolire; este împărțirea normală între o înregistrare de date și grafica etichetei. Dar trebuie să ajungă la designer din timp, pentru că schimbă brief-ul grafic.
+
+**2. Denumirea modelului de dispozitiv.** Înregistrările GUDID sunt legate de o configurație de dispozitiv, nu de o campanie de marketing. Stabiliți denumirea modelului înainte de crearea înregistrării; redenumirea ulterioară înseamnă editarea unei înregistrări DI.
+
+> Comportamentul caracterelor ® / ™ descris mai sus reflectă înțelegerea și corespondența noastră operațională. Confirmați-l față de dicționarul de date GUDID actual al FDA și corectați această secțiune dacă diferă.
+
+## O modificare de private-label necesită un nou 510(k)?
+
+Aceasta este întrebarea pe care proprietarii de branduri o pun a doua, iar ea are un răspuns documentat. Ghidul FDA *Deciding When to Submit a 510(k) for a Change to an Existing Device* oferă o schemă logică — și este explicit că un rezultat de tip „documentation” **nu** este o scutire gratuită.
+
+Diagrama principală a FDA întreabă, în ordine:
+
+1. **Modificarea este făcută cu intenția de a îmbunătăți semnificativ siguranța sau eficacitatea dispozitivului?** De exemplu, pentru a atenua un risc cunoscut sau ca răspuns la evenimente adverse. Dacă da, **un nou 510(k) este probabil necesar**, indiferent de întrebările rămase.
+2. **Este o modificare de etichetare?** → treceți la **Flowchart A**.
+3. **Este o modificare de tehnologie, de inginerie sau de performanță?** → **Flowchart B** (sau D pentru IVD-uri).
+4. **Este o modificare de materiale?** → **Flowchart C** (sau D pentru IVD-uri).
+
+Doi termeni au o semnificație specifică în aceste diagrame, iar citirea lor greșită produce cea mai mare parte a confuziei: **„new 510(k)"** înseamnă că un nou 510(k) este *probabil necesar*, în timp ce **„documentation”** înseamnă că un nou 510(k) *probabil nu este necesar — documentați-vă analiza și arhivați-o pentru referință ulterioară*.
+
+Luați ansamblul de activități pe care îl descrie de obicei un proprietar de brand: achiziționează un dispozitiv nemodificat, autorizat, din China, îl livrează unui importator american, sub marca clientului, fără dezvoltare de hardware sau firmware. Modificarea este de **etichetare**, deci evaluarea trece prin **Flowchart A**, nu prin diagramele de tehnologie sau de materiale. Prima întrebare rămâne însă determinantă: dacă modificarea de etichetare are drept scop îmbunătățirea semnificativă a siguranței sau a eficacității, un nou 510(k) este probabil necesar indiferent de restul. În caz contrar, analiza se documentează și se arhivează.
+
+Cea mai păguboasă interpretare greșită este următoarea: **„fără 510(k) nou" și „fără nicio muncă" nu sunt același lucru.** Reglementarea privind sistemul calității se aplică *indiferent dacă* este declanșată sau nu revizuirea premergătoare comercializării. Revizuirea și aprobarea modificărilor de proiectare și de producție (21 CFR 820.30, 820.70) și documentarea în device master record (21 CFR 820.181) se aplică în continuare — iar aceste înregistrări pot fi examinate în timpul unei inspecții FDA, în temeiul FD&C Act §704(e).
+
+O nuanță suplimentară din ghid: pentru multe modificări, depunerea unui nou 510(k) nu este necesară tocmai pentru că bazarea pe cerințele existente ale sistemului calității este considerată cea mai puțin împovărătoare modalitate de a asigura în mod rezonabil siguranța și eficacitatea dispozitivului modificat.
+
+## Rolul care trebuie să existe în orice variantă — initial importer din SUA
+
+Indiferent de ruta pe care o alegeți, un rol pe partea americană trebuie să existe: un **initial importer (importator inițial) cu un loc de desfășurare a activității în SUA**. Această cerință se atașează de *activitatea de import*, nu de proprietatea asupra brandului. În practică, poate fi entitatea dumneavoastră din SUA, un US agent, un distribuitor american sau un partener de import capabil să gestioneze conformitatea.
+
+Dacă sunteți o companie din UE fără unitate în SUA, veți avea nevoie fie de acel importator, fie de o cale proprie de înregistrare — iar care dintre ele decurge din alegerea Opțiunea 1 / Opțiunea 2 de mai sus.
+
+## Matricea provizorie a responsabilităților
+
+Matricea de mai jos este evaluată **pe activități** și este valabilă indiferent de numele de pe etichetă. Este provizorie doar în trei locuri, pentru că acele trei depind de denumire și de ruta aleasă.
+
+| Rol / obligație | Producător | Proprietar de brand (pe activitatea de achiziție și livrare) |
+|---|---|---|
+| Producător legal | **Da** | Nu |
+| Contract manufacturer | **Da** | Nu |
+| Exportator străin (foreign exporter) | **Da** — deja înregistrat | Nu |
+| Deținător 510(k) | **Da** | Nu |
+| Labeler of record | **Da** în cadrul Opțiunii 1; transmitent terț în cadrul Opțiunii 2 | **Da** doar în cadrul Opțiunii 2 |
+| Specification developer | **Da** | Nu pe această activitate — **nu este automat** și nu este conferit de proprietatea asupra brandului |
+| Cont GUDID / înregistrări DI | **Da** — deține contul și DI; poate adăuga brandul dumneavoastră (Opțiunea 1) sau poate depune ca transmitent terț (Opțiunea 2) | Opțional — doar dacă dețineți propriul cont |
+| Depunere UDI / DI | Depune ca labeler în cadrul Opțiunii 1; ca terț autorizat în cadrul Opțiunii 2 | Depune, sau autorizează producătorul, în cadrul Opțiunii 2 |
+| Initial importer | Nu | **Trebuie să existe în lanț, cu un loc de desfășurare a activității în SUA** |
+| US agent | **Da** — înregistrat | Doar dacă vă înregistrați ca unitate străină |
+| Establishment registration & device listing | **Da** | Doar dacă deveniți labeler of record sau specification developer |
+| Post-comercializare: raportare MDR, corecții și retrageri, gestionarea reclamațiilor | **Da**, ca producător și labeler of record | Evidență la nivel de distribuitor; obligațiile complete de raportare apar doar la devenirea labeler of record |
+
+Singura decizie ramificată este Opțiunea 1 versus Opțiunea 2. Tot restul decurge din activități și nu se schimbă atunci când se schimbă numele de marcă.
+
+## Ce are nevoie un producător de la dumneavoastră înainte de a semna o determinare finală
+
+O matrice provizorie nu depinde de denumire. O determinare **finală, semnată** depinde, în exact trei locuri:
+
+1. **Numele de marcă și denumirea modelului** astfel cum vor apărea pe etichetă.
+2. **Grafica etichetei sau o machetă**, care să arate amplasarea brandului, a producătorului și a identificării importatorului — pentru că dacă deveniți *relabeler* depinde de faptul dacă **se modifică conținutul etichetei**, nu de faptul dacă numele dumneavoastră apare pe ea.
+3. **Ruta aleasă — Opțiunea 1 sau Opțiunea 2 — și cine va fi initial importer în SUA.**
+
+Cu aceste trei elemente, funcția de reglementare a producătorului poate semna o determinare fundamentată care să acopere dacă este necesar un nou 510(k), un letter-to-file (scrisoare depusă la dosar) sau nicio depunere pentru etichetare; decizia privind DI; și proprietarul listării.
+
+Cereți matricea provizorie înainte ca denumirea să fie fixată. Un furnizor care răspunde doar după ce grafica există are secvența inversată.
+
+## Încheiere — întrebarea de adresat unui potențial producător
+
+Întrebați care dintre cele șapte roluri le exercită fabrica și cereți-i să dovedească fiecare rol. O fabrică ce deține și poate dovedi mai multe — înregistrare, listing, autorizarea, contul GUDID — vă spune ceva despre cât de mult din povara dumneavoastră de conformitate poate prelua. O fabrică ce se descrie doar ca „furnizorul" lasă acea povară, și proprietatea asupra ei, nedecisă.
+
+*Acest articol descrie pozițiile noastre operaționale pe o platformă specifică și nu constituie consultanță juridică. Determinările specifice unui dispozitiv necesită cele trei elemente de intrare enumerate mai sus și aprobarea de către funcția de reglementare a producătorului. Acolo unde un punct depinde de dicționarul de date actual al FDA sau de un ghid publicat, confirmați-l față de sursă înainte de a vă baza pe el.*
