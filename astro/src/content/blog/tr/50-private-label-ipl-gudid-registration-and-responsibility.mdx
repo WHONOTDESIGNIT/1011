@@ -1,0 +1,160 @@
+---
+title: "ABD'de Private-Label IPL: Kim Neyi Kaydettirir ve GUDID'e Cihaz Nasıl Eklenir"
+description: "FDA onaylı bir IPL cihazına kendi markanızı eklemek sizi üretici yapmaz — bu, hangi düzenlenmiş faaliyetleri yürüttüğünüze bağlıdır. Bir fabrikanın gözünden labeler of record, iki GUDID hesap yolu ve bir etiketleme değişikliğinin ne zaman yeni bir 510(k) gerektirdiği."
+citableSummary: "Bir IPL markasına sahip olmak FDA kayıt yükümlülüklerini belirlemez; belirleyici olan, bir tarafın yürüttüğü düzenlenmiş faaliyetlerdir. Bir Çin sözleşmeli üreticisinden tedarik edilen ve müşterinin markası altında bir ABD ithalatçısına teslim edilen, değiştirilmemiş, FDA onaylı bir IPL'de üretici normalde legal manufacturer, 510(k) sahibi, labeler of record ve foreign exporter olarak kalır; marka sahibi ise hiçbir kayıt yükümlülüğü kazanmaz. Markalı bir cihaz GUDID'e ya üreticinin mevcut hesabı içinde ya da üreticinin yetkili üçüncü taraf gönderici olarak hareket etmesiyle müşterinin kendi hesabı altında eklenebilir. Yalnızca etiketlemeye ilişkin bir değişiklik, FDA'nın 510(k) değişiklik rehberindeki Flowchart A uyarınca değerlendirilir; burada 'documentation' sonucu bile tasarım ve üretim değişiklik kontrolünü ve device master record'a bir kayıt girişini gerektirir."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+İlgili okumalar: [FDA kayıt ve liste kaydında Manufacturer, Contract Manufacturer ve Foreign Exporter nasıl okunur](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) ve [bir ticaret şirketi yerine FDA onaylı bir üretici nasıl bulunur](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+FDA onaylı bir IPL satın alıp üzerine kendi adınızı koyan bir marka sahibiyseniz, düzenleyici iş yükünüzü belirleyen soru *kutunun üzerinde kimin markası olduğu* değildir. *Fiilen hangi düzenlenmiş faaliyetleri yürüttüğünüzdür*.
+
+Yaygın private-label (özel etiketli üretim) yolunda — değiştirilmemiş, hâlihazırda onaylanmış bir cihazı tedarik eder, onu bir ABD ithalatçısına teslim eder ve ne donanım ne de yazılım geliştirirsiniz — üretici normalde **legal manufacturer (yasal üretici), 510(k) sahibi, labeler of record ve foreign exporter** olarak kalır. Markaya sahip olmakla specification developer olmazsınız ve yalnızca ürünün üzerinde adınız bulunduğu için bir kayıt yükümlülüğü kazanmazsınız. Markanızı GUDID'e taşımak da iki hesap yolu arasında bir seçimdir ve sorumluluğu değiştiren tam olarak bu seçimdir.
+
+Bir private-label görüşmesinin iki tarafı da tahmin yürütme eğilimindedir ve zıt yönlerde tahmin ederler. Marka sahibi kayıt yaptırmak zorunda olduğunu varsayar; fabrika ise kendini "sadece tedarikçi" olarak görür. İkisi de genellikle yanılır ve tahminin bedeli ya gereksiz bir kayıt ya da sahipsiz kalmış bir yükümlülüktür.
+
+## Private-label tartışmalarının çoğunu çözen tek kural
+
+FDA yükümlülükleri marka sahipliğine değil, **faaliyetlere** bağlanır. Etiket üzerindeki bir marka adı tek başına düzenlenmiş bir faaliyet değildir. Kayıt, liste kaydı, UDI gönderimi, şikâyet yönetimi ve MDR bildirimi, bunları doğuran düzenlenmiş faaliyeti hangi taraf yürütüyorsa ona bağlanır.
+
+Bu yüzden verimli soru "markanın sahibi kim?" değil, "aşağıdaki rollerden hangilerini her bir taraf yürütüyor ve bunu kanıtlayabiliyor mu?" sorusudur.
+
+Bir ticari marka ticari bir haktır. Hiçbir düzenleyici işlev vermez. Aynı cihazın tanınmış bir marka taşıyabilmesinin ve buna rağmen üreticinin 510(k) sahibi, labeler of record ve foreign exporter olarak kalmasının nedeni budur.
+
+## Yedi rol — ve her birinin gerçekte neyi doğurduğu
+
+Bunlar bir private-label IPL zincirinde ortaya çıkan roller. Yalnızca bazıları yükümlülük doğurur ve yalnızca bazıları kamuya açık FDA veritabanında görünür.
+
+| Rol | Ne anlama gelir | FDA'nın kamuya açık veritabanında görünür mü? |
+|---|---|---|
+| **Legal manufacturer** | Nihai cihazı tasarlar ve üretir; tasarım geçmişi dosyasının (design history file) sahibidir | Evet — *Manufacturer* olarak |
+| **Contract manufacturer** | Başka bir tarafın spesifikasyonuna göre üretir; onayı elinde tutup tutmaması değişebilir | Evet — *Contract Manufacturer* olarak |
+| **Foreign exporter** | Cihazı üretim ülkesinden ihraç eder; kayıtlı bir tesis faaliyetidir | Evet — *Foreign Exporter* olarak |
+| **510(k) holder** | Cihazın pazara sunulduğu pazarlama öncesi bildirimin sahibidir | Etiket olarak görünmez; başvuru numarası üzerinden izlenebilir |
+| **Labeler of record** | Etiketi uygulanan ve o etiket için FDA'ya karşı hesap veren taraf | Hayır — etiketten çıkarılır |
+| **Specification developer** | Cihazın kendisine göre üretildiği spesifikasyonları geliştiren taraf | Hayır |
+| **GUDID account holder** | Platform için GUDID hesabını ve device identifier (DI) kayıtlarını elinde tutar | Hayır — yalnızca kaydın Company Name alanı olarak |
+
+**Bu yedinin dördü kamuya açık verilerde görünmez.** Bu yüzden bir tedarikçinin FDA liste kaydının ekran görüntüsü, etiket için FDA'ya kimin hesap verdiğine dair zayıf bir kanıttır — ve yalnızca liste kaydına güvenen alıcıların bir e-posta sonra aynı soruyu tekrar sormasının nedeni de budur.
+
+Bu rollerden birkaçını gerçekten taşıyan bir fabrika, bunları iddia etmek yerine kanıtlayabilir: bir establishment registration numarası, bir owner/operator numarası, bir DUNS numarası, 510(k) numarası ve GUDID hesabı. Bu platform için kayıtlı konumlarımız establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, **K222537** ile onaylanmış olup liste kaydı faaliyetlerimiz Manufacturer, Foreign Exporter ve Contract Manufacturer olarak kayıtlıdır.
+
+## Markanızı GUDID'e eklemek — iki yol
+
+GUDID (Global Unique Device Identification Database), device identifier kayıtlarının bulunduğu yerdir. Cihazınız ABD pazarına sunulan bir Sınıf II IPL ise bir DI kaydına ihtiyaç duyar. Bir private-label ilişkisinde tam olarak iki düzenleme vardır ve aralarındaki fark **yasal etiketleyicinin (legal labeler) kim olduğudur** — kayıt yükümlülüğünüzü belirleyen de budur.
+
+### Seçenek 1 — üreticinin GUDID hesabı altında dosyalanan yeni bir DI
+
+Üretici GUDID hesabını elinde tutar. Markanız uygulandığında ürün **marka adınız** altında tanımlanır; bu da onun **kendi cihaz konfigürasyonu** olarak tanımlandığı anlamına gelir. Dolayısıyla ürünün **kendi DI'sı ve kendi GUDID kaydı** gerekir; bu kaydı üretici, üreticinin hesabı altında dosyalar. Etiket üretici tarafından uygulandığı ve kayıt üreticinin hesabı altında dosyalandığı için:
+
+- **labeler of record üreticidir** ve o etiket için FDA'ya karşı hesap veren taraf odur;
+- **DI kaydı üreticinin hesabı altında dosyalanır**;
+- bu faaliyet nedeniyle bir tesis (establishment) olarak **kayıt yaptırmanız gerekmez**.
+
+GUDID tartışmalarında gerçek bir kafa karışıklığına yol açtığı için bir terminoloji notu — ve bu yalnızca söylemi değil, iş akışını değiştirdiği için önemli: **Brand Name**, FDA'nın **GUDID Data Elements Reference Table (DERT)** tablosunda **New DI Trigger** olarak işaretlenmiştir — o sütunun değeri **Yes**'tir. Yani bir marka adı değişikliği mevcut bir DI kaydında yapılan düzenleme değildir: **yeni bir DI atanması ve yeni bir kayıt gönderilmesi** anlamına gelir. Aynı DERT satırındaki iki ayrıntı tabloyu tamamlar: alan **alphanumeric, 80 karakter**tir ve "Edit Rules After Grace Period" değeri **None**'dır — bu da alanın yayımlandıktan sonra düzenlenmek üzere tasarlanmadığıyla tutarlıdır. DERT marka adını cihazın **this version/model of the device** ifadesine özgü olarak tanımladığı için pratik okuma şudur: bir marka adı değişikliği, tanımlama açısından cihazın yeni bir sürümünü oluşturur. Bu, pratikte daha pahalı değil **daha ucuz** olan sonuçtur: markanız, veritabanında kaynak markanın kaydını paylaşmak yerine kendi kimliğine kavuşur.
+
+Bu, daha az emek gerektiren yoldur ve katkınız cihaz tasarımı değil de tedarik, markalama ve dağıtım olduğunda genellikle doğru seçenektir.
+
+### Seçenek 2 — kendi GUDID hesabınız
+
+Siz ya da ABD'deki şirketiniz bir GUDID hesabına sahipse, üretici sizin adınıza **yetkili üçüncü taraf gönderici (authorised third-party submitter)** olarak hareket edip başvuruyu yapabilir. Burada **UDI size aittir**, **legal labeler of record sizsiniz** ve etiketleyiciye bağlanan yükümlülükler size bağlanır — DI kaydının doğruluğu ve etiketi takip eden pazarlama sonrası yükümlülükler dâhil.
+
+Seçenek 2 yalnızca bir veri kaydını taşımaz; *sorumluluğu* taşır. Seçenek 2'de şikâyet yönetimi, düzeltmeler ve geri çekmeler ile MDR bildirim yükümlülükleri etiketleyiciyi takip eder. Bunu, hesabı kimin açtığına bağlı bir tesadüfle değil, bilinçli olarak seçin.
+
+| Soru | İşaret ettiği seçenek |
+|---|---|
+| Donanım, yazılım (firmware) veya spesifikasyonları geliştiriyor ya da değiştiriyor musunuz? | **Seçenek 2** — specification developer alanına giriyorsunuz |
+| DI kaydının kendi sistemleriniz için kendi adınıza olması gerekiyor mu? | **Seçenek 2** |
+| Rolünüz değiştirilmemiş bir cihazı tedarik etmek, markalamak ve dağıtmak mı? | **Seçenek 1** |
+| Hiç FDA kayıt yükümlülüğü istemiyor musunuz? | **Seçenek 1** |
+
+## GUDID kaydı oluşturulmadan önce karar verilmesi gerekenler
+
+İki karar, etiket tasarımı (artwork) kesinleşmeden *önce* verilmelidir; çünkü ikisini sonradan değiştirmek pahalıdır.
+
+**1. Marka adı bir veri elemanıdır ve bir metin dizesidir.** GUDID marka adını, cihaz etiketinde ya da katalogda kullanılan proprietary ya da trade name olarak — yani bir metin değeri olarak, bir görüntü olarak değil — kaydeder. Ürün etiket tasarımı sıklıkla bir logotype ya da bir cihaz işareti taşır; bu tasarım fiziksel etikete aittir ve kaydın tuttuğu şey bu değildir.
+
+| Taşıyıcı | Logo | Marka adı |
+|---|---|---|
+| **GUDID DI kaydı** | Tutulmaz — bu alan bir metin değeridir | Metin olarak marka adı; ® ve ™ kabul edilir (DERT) |
+| **Fiziksel etiket ve ambalaj** | Etiket tasarımınızdaki tam logo öğesi | Basıldığı şekliyle marka adı |
+
+Bu iki noktanın, etiket tasarımı kesinleşmeden önce bilinmesi gerekir:
+
+- **Karakter seti: kesinleşti ve lehinize.** DERT'in Brand Name için data entry notes alanı açıkça şöyle der: *"You may include the ® and/or TM symbol, if applicable."* Her iki karakter de DERT'in **"Special Characters Accepted in GUDID"** sayfasında ayrı ayrı listelenmiştir — **®** *Registered*, **™** ise *Trademark* olarak. Alanın kendisi **alphanumeric, en fazla 80 karakter** olduğundan bu, device identifier için geçerli katı karakter rejiminden farklı olarak tanımlayıcı bir string alanıdır. Dolayısıyla ® veya ™ taşıyan bir marka, yazıldığı şekliyle kaydedilebilir. (Aynı kabul edilen karakterler sayfasının aksanlı Latin harflerini, bir dizi Yunan harfini ve ©, °, ± ile ² gibi yaygın sembolleri de kapsadığını bilmekte yarar var; yani marka adı alanı nadiren kısıtlayıcı olur.)
+- **Logo tasarımı etikette kalır, alana girmez.** Brand Name bir metin değeridir; bir logotype ya da cihaz işareti bu alanın taşıdığı şey değildir. Logo yine fiziksel etikete ve ambalaja basılır — bu sizin etiket tasarımınızdır ve kayıttan etkilenmez.
+
+Bu bir geçici çözüm değil; bir veri kaydı ile etiket tasarımı arasındaki normal ayrımdır. Ancak tasarımcıya erken ulaşması gerekir, çünkü etiket tasarımı brief'ini değiştirir.
+
+**2. Cihaz model adı.** GUDID kayıtları bir pazarlama kampanyasına değil, bir cihaz konfigürasyonuna bağlıdır — ve DERT, marka adını cihazın *this version/model of the device* ifadesine özgü olarak tanımlar. Model adını kayıt oluşturulmadan önce sabitleyin; çünkü marka adı değişikliğinin kendisi bir **New DI Trigger**'dır: mevcut kaydın düzenlenmesi yerine yeni bir DI ve yeni bir kayıt üretir. Dolayısıyla konfigürasyon ne kadar erken kesinleşirse, o kadar az yeniden başvuru yaparsınız.
+
+> Yukarıdaki iki nokta **GUDID Data Elements Reference Table (DERT)** tarafından kesinleştirilmiştir ve burada çıkarım olarak değil, bulgu olarak ifade edilmektedir: Brand Name alanı **alphanumeric (80 karakter)**tir ve **®** ile **™** kabul eder; **New DI Trigger** sütununun değeri **Yes**'tir ve **Edit Rules After Grace Period = None**'dır. FDA bu kuralları sürdürür ve günceller; bu nedenle gönderim sırasında DERT'in o satırına yeniden bakmakta yarar var — ancak konumun kendisi tartışmalı değildir.
+
+## Bir private-label değişikliği yeni bir 510(k) gerektirir mi?
+
+Bu, marka sahiplerinin ikinci sırada sorduğu sorudur ve belgelenmiş bir cevabı vardır. FDA'nın *Deciding When to Submit a 510(k) for a Change to an Existing Device* rehberi bir mantık şeması sunar — ve bir "documentation" sonucunun **serbest geçiş hakkı** olmadığını açıkça belirtir.
+
+FDA'nın ana akış şeması sırasıyla şunları sorar:
+
+1. **Değişiklik, cihazın güvenliğini veya etkinliğini önemli ölçüde iyileştirme amacıyla mı yapılıyor?** Örneğin bilinen bir riski azaltmak için ya da istenmeyen olaylara yanıt olarak. Cevap evetse, kalan sorular ne olursa olsun **yeni bir 510(k) büyük olasılıkla gereklidir**.
+2. **Bir etiketleme değişikliği mi?** → **Flowchart A**'ya gidin.
+3. **Bir teknoloji, mühendislik veya performans değişikliği mi?** → **Flowchart B** (IVD'ler için D).
+4. **Bir malzeme değişikliği mi?** → **Flowchart C** (IVD'ler için D).
+
+Akış şemalarında iki terim özel bir anlam taşır ve bunları yanlış okumak karışıklığın çoğuna yol açar: **"new 510(k)"** yeni bir 510(k)'nın *büyük olasılıkla gerekli olduğu* anlamına gelir; **"documentation"** ise yeni bir 510(k)'nın *büyük olasılıkla gerekli olmadığı — analizinizi belgeleyin ve ileride başvurmak üzere dosyalayın* anlamına gelir.
+
+Bir marka sahibinin tipik olarak tanımladığı faaliyet setini ele alalım: Çin'den değiştirilmemiş, onaylı bir cihaz tedarik etmek, onu müşterinin markası altında bir ABD ithalatçısına teslim etmek, donanım veya yazılım geliştirmesi olmadan. Değişiklik **etiketlemedir**, dolayısıyla değerlendirme teknoloji veya malzeme şemalarından değil **Flowchart A** üzerinden yürür. İlk soru yine belirleyicidir: etiketleme değişikliği güvenliği veya etkinliği önemli ölçüde iyileştirme amacı taşıyorsa, yeni bir 510(k) her hâlükârda büyük olasılıkla gereklidir. Aksi hâlde analiz belgelenir ve dosyalanır.
+
+En kritik tek yanlış okuma şudur: **"yeni bir 510(k) yok" ile "iş yok" aynı ifade değildir.** Kalite sistemi düzenlemesi, pazarlama öncesi inceleme tetiklensin ya da tetiklenmesin *geçerlidir*. Tasarım ve üretim değişikliklerinin incelenmesi ve onaylanması (21 CFR 820.30, 820.70) ile device master record'da belgelendirme (21 CFR 820.181) yine geçerlidir — ve bu kayıtlar FD&C Act §704(e) uyarınca bir FDA denetiminde incelenebilir.
+
+Rehberden bir incelik daha: birçok değişiklik için yeni bir 510(k) sunulması, tam da mevcut kalite sistemi gerekliliklerine güvenmenin değiştirilmiş cihazın güvenliğini ve etkinliğini makul biçimde sağlamanın en az külfetli yolu sayılması nedeniyle gerekli değildir.
+
+## Her senaryoda var olması gereken rol — ABD'deki initial importer
+
+Hangi yolu seçerseniz seçin, ABD tarafında bir rolün var olması gerekir: **ABD'de iş yeri bulunan bir initial importer**. Bu gereklilik marka sahipliğine değil, *ithalat faaliyetine* bağlanır. Pratikte bu, ABD'deki şirketiniz, bir US agent, bir ABD distribütörü ya da uyumluluk yetkinliği olan bir ithalat ortağı olabilir.
+
+ABD'de tesisi olmayan bir AB şirketiyseniz, ya o ithalatçıya ya da kendinize ait bir kayıt yoluna ihtiyacınız olacaktır — hangisinin geçerli olduğu yukarıdaki Seçenek 1 / Seçenek 2 tercihinden çıkar.
+
+## Geçici sorumluluk matrisi
+
+Aşağıdaki matris **faaliyetler üzerinden** değerlendirilir ve etiketteki isim ne olursa olsun geçerlidir. Yalnızca üç yerde geçicidir, çünkü bu üç nokta adlandırmaya ve seçilen yola bağlıdır.
+
+| Rol / yükümlülük | Üretici | Marka sahibi (tedarik edilip sunulan faaliyette) |
+|---|---|---|
+| Legal manufacturer | **Evet** | Hayır |
+| Contract manufacturer | **Evet** | Hayır |
+| Foreign exporter | **Evet** — hâlihazırda kayıtlı | Hayır |
+| 510(k) holder | **Evet** | Hayır |
+| Labeler of record | Seçenek 1'de **Evet**; Seçenek 2'de üçüncü taraf gönderici | Yalnızca Seçenek 2'de **Evet** |
+| Specification developer | **Evet** | Bu faaliyette değil — **otomatik değildir** ve marka sahipliğiyle kazanılmaz |
+| GUDID hesabı / DI kayıtları | **Evet** — hesabı ve DI'yı elinde tutar; markanızı ekleyebilir (Seçenek 1) ya da üçüncü taraf gönderici olarak başvurabilir (Seçenek 2) | İsteğe bağlı — yalnızca kendi hesabınız varsa |
+| UDI / DI gönderimi | Seçenek 1'de etiketleyici olarak gönderir; Seçenek 2'de yetkili üçüncü taraf olarak | Seçenek 2'de gönderir ya da üreticiyi yetkilendirir |
+| Initial importer | Hayır | **Zincirde var olmalıdır ve ABD'de bir iş yeri bulunmalıdır** |
+| US agent | **Evet** — kayıtlı | Yalnızca yabancı bir tesis olarak kayıt yaptırırsanız |
+| Establishment registration & device listing | **Evet** | Yalnızca labeler of record ya da specification developer olursanız |
+| Pazarlama sonrası: MDR bildirimi, düzeltmeler ve geri çekmeler, şikâyet yönetimi | Üretici ve labeler of record olarak **Evet** | Distribütör düzeyinde kayıt tutma; tam bildirim yükümlülükleri yalnızca labeler of record olunduğunda doğar |
+
+Tek dallanma kararı Seçenek 1 ile Seçenek 2 arasındadır. Geri kalan her şey faaliyetlerden çıkar ve marka adı değiştiğinde değişmez.
+
+## Bir üreticinin nihai bir değerlendirmeyi imzalamadan önce sizden ihtiyaç duyduğu şeyler
+
+Geçici bir matris adlandırmaya bağlı değildir. **Nihai ve imzalı** bir değerlendirme ise tam olarak üç noktada buna bağlıdır:
+
+1. **Marka adı ve model adı**, etikette görünecekleri şekliyle.
+2. Markanın, üreticinin ve ithalatçı bilgisinin yerleşimini gösteren **etiket tasarımı ya da bir mock-up** — çünkü *relabeler* olup olmayacağınız, adınızın görünüp görünmemesine değil, **etiket içeriğinin değişip değişmemesine** bağlıdır.
+3. **Seçilen yol — Seçenek 1 mi Seçenek 2 mi — ve ABD'deki initial importer'ın kim olacağı.**
+
+Bu üçüyle birlikte üreticinin düzenleyici birimi, etiketleme için yeni bir 510(k), bir letter-to-file ya da hiç başvuru gerekmediğini; DI kararını; ve liste kaydının sahibini kapsayan gerekçeli bir değerlendirmeyi imzalayabilir.
+
+Adlandırma sabitlenmeden önce geçici matrisi isteyin. Yalnızca etiket tasarımı ortaya çıktıktan sonra cevap veren bir tedarikçi, sıralamayı tersine çevirmiş demektir.
+
+## Kapanış — potansiyel bir üreticiye sorulacak soru
+
+Fabrikanın yedi rolden hangilerini yürüttüğünü sorun ve her birini kanıtlamasını isteyin. Birkaçını elinde tutan ve kanıtlayabilen bir fabrika — kayıt, liste kaydı, onay, GUDID hesabı — uyumluluk yükünüzün ne kadarını taşıyabileceği konusunda size bir şey söylüyor demektir. Kendini yalnızca "tedarikçi" olarak tanımlayan bir fabrika ise bu yükü ve onun sahipliğini belirsiz bırakıyor.
+
+*Bu makale, belirli bir platforma ilişkin kendi operasyonel pozisyonlarımızı açıklar ve hukuki tavsiye niteliği taşımaz. Cihaza özel değerlendirmeler, yukarıda sıralanan üç girdiyi ve üreticinin düzenleyici biriminin onayını gerektirir. Bir nokta FDA'nın güncel veri sözlüğüne ya da yayımlanmış rehberine bağlıysa, ona dayanmadan önce kaynaktan doğrulayın.*

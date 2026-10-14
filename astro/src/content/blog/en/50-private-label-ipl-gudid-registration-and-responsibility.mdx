@@ -1,0 +1,158 @@
+---
+title: "US Private-Label IPL: Who Registers What, and How to Add a Device to GUDID"
+description: "Adding your brand to an FDA-cleared IPL does not make you the manufacturer — it depends on which regulated activities you perform. A factory's guide to the labeler of record, the two GUDID account routes, and when a labelling change needs a new 510(k)."
+citableSummary: "Owning an IPL brand does not determine FDA registration duties; the regulated activities a party performs do. For an unchanged, FDA-cleared IPL sourced from a Chinese contract manufacturer and delivered to a US importer under a customer's brand, the manufacturer normally remains the legal manufacturer, 510(k) holder, labeler of record and foreign exporter, and the brand owner acquires no registration obligation. A branded device can be added to GUDID either inside the manufacturer's existing account or under the customer's own account with the manufacturer acting as authorised third-party submitter. A labelling-only change is assessed under Flowchart A of FDA's 510(k) modification guidance, where a 'documentation' outcome still requires design and production change control and a device master record entry."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Related reading: [How to read Manufacturer, Contract Manufacturer and Foreign Exporter in FDA registration and listing](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) and [finding an FDA-cleared manufacturer rather than a trading company](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+If you are a brand owner buying an FDA-cleared IPL and putting your own name on it, the question that decides your regulatory workload is not *whose brand is on the box*. It is *which regulated activities you actually perform*.
+
+On the common private-label route — you source an unchanged, already-cleared device, deliver it to a US importer, and develop neither hardware nor firmware — the manufacturer normally remains the **legal manufacturer, the 510(k) holder, the labeler of record and the foreign exporter**. You do not become the specification developer by owning the brand, and you do not acquire a registration obligation merely by having your name on the product. Getting your brand into GUDID is then a choice between two account routes, and that choice is what moves responsibility.
+
+Both sides of a private-label negotiation tend to guess, and they guess in opposite directions. The brand owner assumes it must register; the factory assumes it is "just the supplier." Both are usually wrong, and the cost of guessing is either an unnecessary registration or an unowned obligation.
+
+## The one rule that settles most private-label arguments
+
+FDA obligations attach to **activities**, not to brand ownership. A brand name on a label is not itself a regulated activity. Registration, listing, UDI submission, complaint handling and MDR reporting attach to whichever party performs the regulated activity that triggers them.
+
+That is why the productive question is not "who owns the brand?" but "which of the roles below does each party perform, and can it evidence it?"
+
+A trademark is a commercial right. It confers no regulatory function. This is why the same device can carry a well-known brand while the manufacturer remains the 510(k) holder, the labeler of record and the foreign exporter.
+
+## The seven roles — and what each one actually triggers
+
+These are the roles that appear in a private-label IPL chain. Only some of them create duties, and only some of them are visible in the public FDA database.
+
+| Role | What it means | Visible in FDA's public database? |
+|---|---|---|
+| **Legal manufacturer** | Designs and manufactures the finished device; owns the design history file | Yes — as *Manufacturer* |
+| **Contract manufacturer** | Produces to another party's specification; may or may not hold the clearance | Yes — as *Contract Manufacturer* |
+| **Foreign exporter** | Exports the device from the manufacturing country; a registered establishment operation | Yes — as *Foreign Exporter* |
+| **510(k) holder** | Owns the premarket notification the device is marketed under | Not as a label; traceable via the submission number |
+| **Labeler of record** | The party whose label is applied, and who answers to FDA for that label | No — inferred from the label |
+| **Specification developer** | The party that develops the specifications the device is built to | No |
+| **GUDID account holder** | Holds the GUDID account and the device identifier (DI) records for the platform | No — only as the record's Company Name |
+
+**Four of these seven are invisible in public data.** That is why a screenshot of a supplier's FDA listing is weak evidence of who answers to FDA for the label — and why buyers who rely on the listing alone keep asking the same question one email later.
+
+A factory that genuinely carries several of these roles can evidence them rather than assert them: an establishment registration number, an owner/operator number, a DUNS number, the 510(k) number, and the GUDID account. For this platform, our registered positions are establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, cleared under **K222537**, with listing activities recorded as Manufacturer, Foreign Exporter and Contract Manufacturer.
+
+## Adding your brand to GUDID — the two paths
+
+GUDID (the Global Unique Device Identification Database) is where device identifier records live. If your device is a US-marketed Class II IPL, it needs a DI record. In a private-label relationship there are exactly two arrangements, and the difference between them is **who the legal labeler is** — which is also what decides your registration duty.
+
+### Option 1 — a new DI filed under the manufacturer's GUDID account
+
+The manufacturer holds the GUDID account. When your brand is applied, the product is identified under **your brand name**, which means it is identified as **its own device configuration** — so it needs **its own DI and its own GUDID record**, filed by the manufacturer under the manufacturer's account. Because the label is applied by the manufacturer, and the record is filed under the manufacturer's account:
+
+- the **manufacturer is the labeler of record** and the party answerable to FDA;
+- the **DI record is filed under the manufacturer's account**;
+- **you do not need to register** as an establishment for this activity.
+
+This is the lower-effort route, and usually the right one when your involvement is sourcing, branding and distribution rather than device design.
+
+One point of vocabulary, because it causes real confusion in GUDID discussions, and because it changes the workflow rather than just the wording. **Brand Name is flagged as a New DI Trigger in FDA's GUDID Data Elements Reference Table (DERT)** — that column reads **Yes**. So a brand-name change is not an edit to an existing DI record: it means **assigning a new DI and submitting a new record**. Two details from the same DERT row make the picture complete: the field is **alphanumeric, 80 characters**, and its "Edit Rules After Grace Period" value is **None** — consistent with a field that is not designed to be edited after publication. And because DERT defines the brand name as specific to **this version/model of the device**, the practical reading is that a brand-name change constitutes a new version of the device for identification purposes. In practice this is the cheaper outcome, not the more expensive one: your brand gets its own identity in the database rather than sharing one with the source brand's record.
+
+### Option 2 — your own GUDID account
+
+If you or your US entity holds a GUDID account, the manufacturer can act as your **authorised third-party submitter** and file on your behalf. Here the **UDI is yours**, you are the **legal labeler of record**, and the obligations that attach to the labeler attach to you — including the accuracy of the DI record and the post-market duties that follow the label.
+
+Option 2 does not merely move a data record; it moves *responsibility*. Under Option 2, complaint handling, corrections and removals, and MDR reporting obligations follow the labeler. Elect it deliberately, not by accident of who happened to create the account.
+
+| Question | Points to |
+|---|---|
+| Do you develop or change hardware, firmware or specifications? | **Option 2** — you are moving into specification-developer territory |
+| Do you need the DI record in your own name for your own systems? | **Option 2** |
+| Is your role sourcing, branding and distributing an unchanged device? | **Option 1** |
+| Do you want no FDA registration obligation at all? | **Option 1** |
+
+## What to decide before the GUDID record is created
+
+Two decisions must be made *before* artwork is finalised, because both are expensive to change afterwards.
+
+**1. The brand name is a data element, and it is a string.** GUDID records the brand name as the proprietary or trade name used on the device label or catalogue — a text value, not an image. Product artwork frequently carries a logotype or a device mark, and that artwork belongs on the physical label; it is not what the record holds.
+
+| Carrier | The logo | The brand name |
+|---|---|---|
+| **GUDID DI record** | Not held — the field is a text value | Brand name as text; ® and ™ accepted (DERT) |
+| **Physical label and packaging** | The full logo device, in your artwork | Brand name as printed |
+
+- **Character set: settled, and it favours you.** The DERT's data entry notes for Brand Name state plainly: *"You may include the ® and/or TM symbol, if applicable."* Both characters are also listed individually on the DERT's **"Special Characters Accepted in GUDID"** sheet — **®** as *Registered* and **™** as *Trademark*. The field itself is **alphanumeric, up to 80 characters**, so this is a descriptive string field rather than the strict character regime that applies to the device identifier. A brand carrying ® or ™ can therefore be recorded as written. (It is worth knowing that the same accepted-characters sheet also covers accented Latin letters, a set of Greek letters, and common symbols such as ©, °, ± and ², so the brand-name field is rarely the constraint.)
+- **Logo artwork stays on the label, not in the field.** Brand Name is a text value; a logotype or device mark is not what the field holds. The logo still prints on the physical label and packaging — that is your artwork, and it is unaffected by the record.
+
+This is not a workaround; it is the normal division between a data record and label artwork. But it has to reach the designer early, because it changes the artwork brief.
+
+**2. The device model designation.** GUDID records are keyed to a device configuration, not to a marketing campaign — and DERT defines the brand name as specific to *this version/model of the device*. Fix the model designation before the record is created, because a brand-name change is itself a **New DI Trigger**: it produces a new DI and a new record rather than an edit, so the earlier the configuration is settled, the less re-filing you do.
+
+> Both points above are settled by the **GUDID Data Elements Reference Table (DERT)** and are stated here as findings, not as inferences: the Brand Name field is **alphanumeric (80 characters)** and accepts **®** and **™**; and its **New DI Trigger** column reads **Yes**, with **Edit Rules After Grace Period = None**. FDA maintains and updates these rules, so it is worth re-reading the DERT row at submission time — but the position itself is not in doubt.
+
+## Does a private-label change need a new 510(k)?
+
+This is the question brand owners ask second, and it has a documented answer. FDA's guidance *Deciding When to Submit a 510(k) for a Change to an Existing Device* provides a logic scheme — and it is explicit that a "documentation" outcome is **not** a free pass.
+
+FDA's main flowchart asks, in order:
+
+1. **Is the change made with the intent to significantly improve the safety or effectiveness of the device?** For example to mitigate a known risk, or in response to adverse events. If yes, a **new 510(k) is likely required**, regardless of the remaining questions.
+2. **Is it a labelling change?** → go to **Flowchart A**.
+3. **Is it a technology, engineering or performance change?** → **Flowchart B** (or D for IVDs).
+4. **Is it a materials change?** → **Flowchart C** (or D for IVDs).
+
+Two terms carry specific meaning in the flowcharts, and misreading them causes most of the confusion: **"new 510(k)"** means a new 510(k) is *likely required*, while **"documentation"** means a new 510(k) is *likely not required — document your analysis and file it for future reference*.
+
+Take the activity set a brand owner typically describes: source an unchanged, cleared device from China, deliver it to a US importer, under the customer's brand, with no hardware or firmware development. The change is **labelling**, so the assessment runs through **Flowchart A**, not the technology or materials charts. The first question still controls: if the labelling change is intended to significantly improve safety or effectiveness, a new 510(k) is likely required regardless. Otherwise the analysis is documented and filed.
+
+The single most consequential misreading is this: **"no new 510(k)" and "no work" are not the same statement.** The quality system regulation applies *whether or not* premarket review is triggered. Review and approval of design and production changes (21 CFR 820.30, 820.70) and documentation in the device master record (21 CFR 820.181) still apply — and those records are reviewable during an FDA inspection under FD&C Act §704(e).
+
+A further nuance from the guidance: for many changes, submission of a new 510(k) is not required precisely because reliance on existing quality-system requirements is considered the least burdensome way to reasonably assure the safety and effectiveness of the changed device.
+
+## The role that must exist in every variant — the US initial importer
+
+Whatever route you choose, one US-side role has to exist: an **initial importer with a US place of business**. This requirement attaches to the *importing activity*, not to brand ownership. In practice it can be your US entity, a US agent, a US distributor, or a compliance-capable import partner.
+
+If you are an EU company with no US establishment, you will need either that importer or a registration path of your own — and which one follows from the Option 1 / Option 2 election above.
+
+## The provisional responsibility matrix
+
+The matrix below is assessed **on activities**, and it holds regardless of the name on the label. It is provisional in only three places, because those three depend on naming and route.
+
+| Role / obligation | Manufacturer | Brand owner (on the sourced-and-supplied activity) |
+|---|---|---|
+| Legal manufacturer | **Yes** | No |
+| Contract manufacturer | **Yes** | No |
+| Foreign exporter | **Yes** — already registered | No |
+| 510(k) holder | **Yes** | No |
+| Labeler of record | **Yes** under Option 1; third-party submitter under Option 2 | **Yes** under Option 2 only |
+| Specification developer | **Yes** | Not on this activity — **not automatic**, and not conferred by brand ownership |
+| GUDID account / DI records | **Yes** — holds the account; files the new DI record carrying your brand name (Option 1), or files as third-party submitter (Option 2) | Optional — only if you hold your own account |
+| UDI / DI submission | Submits as labeler under Option 1; as authorised third party under Option 2 | Submits, or authorises the manufacturer, under Option 2 |
+| Initial importer | No | **Must exist in the chain, with a US place of business** |
+| US agent | **Yes** — on file | Only if you register as a foreign establishment |
+| Establishment registration & device listing | **Yes** | Only if you become labeler of record or specification developer |
+| Post-market: MDR reporting, corrections and removals, complaint handling | **Yes**, as manufacturer and labeler of record | Distributor-level record-keeping; full reporting duties arise only on becoming labeler of record |
+
+The only branching decision is Option 1 versus Option 2. Everything else follows from activities, and does not change when the brand name changes.
+
+## What a manufacturer needs from you before it can sign a final determination
+
+A provisional matrix does not depend on naming. A **final, signed** determination does, in exactly three places:
+
+1. **Brand name and model designation** as they will appear on the label.
+2. **Label artwork or a mock-up**, showing placement of the brand, the manufacturer and the importer identification — because whether you become a *relabeler* turns on whether **label content changes**, not on whether your name appears.
+3. **The route elected — Option 1 or Option 2 — and who the US initial importer will be.**
+
+With those three, the manufacturer's regulatory function can sign a reasoned determination covering whether a new 510(k), a letter-to-file, or no submission is required for the labelling; the DI decision; and the listing owner.
+
+Ask for the provisional matrix before naming is fixed. A supplier that will only answer after the artwork exists has the sequence backwards.
+
+## Closing — the question to ask a prospective manufacturer
+
+Ask which of the seven roles the factory performs, and ask it to evidence each one. A factory that holds and can evidence several — registration, listing, the clearance, the GUDID account — is telling you something about how much of your compliance burden it can carry. A factory that describes itself only as "the supplier" is leaving that burden, and its ownership, undecided.
+
+*This article describes our own operational positions on a specific platform and is not legal advice. Device-specific determinations require the three inputs listed above and sign-off by the manufacturer's regulatory function. Where a point depends on FDA's current data dictionary or published guidance, confirm it against the source before relying on it.*

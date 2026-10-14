@@ -1,0 +1,160 @@
+---
+title: "IPL en marque blanche aux États-Unis : qui enregistre quoi, et comment ajouter un dispositif au GUDID"
+description: "Ajouter votre marque à un appareil IPL autorisé par la FDA ne fait pas de vous le fabricant — tout dépend des activités réglementées que vous exercez réellement. Le guide d'une usine sur le labeler of record, les deux voies de compte GUDID, et le moment où une modification d'étiquetage exige un nouveau 510(k)."
+citableSummary: "Détenir une marque d'IPL ne détermine pas les obligations d'enregistrement FDA ; ce sont les activités réglementées exercées par une partie qui les déterminent. Pour un appareil IPL inchangé et autorisé par la FDA, sourcé auprès d'un fabricant sous contrat chinois et livré à un importateur américain sous la marque d'un client, le fabricant reste normalement le fabricant légal, le détenteur du 510(k), le labeler of record et l'exportateur étranger, et le propriétaire de la marque n'acquiert aucune obligation d'enregistrement. Un appareil sous marque peut être ajouté au GUDID soit à l'intérieur du compte existant du fabricant, soit sous le propre compte du client, le fabricant agissant alors comme tiers soumissionnaire autorisé. Une modification portant uniquement sur l'étiquetage s'évalue au regard du Flowchart A des lignes directrices de la FDA sur les modifications de 510(k), où un résultat « documentation » exige malgré tout une maîtrise des modifications de conception et de production ainsi qu'une inscription au device master record."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Lectures connexes : [comment lire les rôles Manufacturer, Contract Manufacturer et Foreign Exporter dans l'enregistrement et le référencement FDA](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) et [trouver un fabricant autorisé par la FDA plutôt qu'une société de négoce](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Si vous êtes un propriétaire de marque qui achète un appareil IPL autorisé par la FDA pour y apposer son propre nom, la question qui détermine votre charge réglementaire n'est pas *quelle marque figure sur la boîte*. C'est *quelles activités réglementées vous exercez réellement*.
+
+Sur la voie courante de la marque blanche — vous sourcez un appareil inchangé et déjà autorisé, vous le livrez à un importateur américain, et vous ne développez ni matériel ni micrologiciel — le fabricant reste normalement le **fabricant légal, le détenteur du 510(k), le labeler of record (la partie dont l'étiquette est appliquée) et l'exportateur étranger**. Vous ne devenez pas le specification developer (le concepteur des spécifications) du simple fait que vous détenez la marque, et vous n'acquérez pas d'obligation d'enregistrement simplement parce que votre nom figure sur le produit. Faire entrer votre marque dans le GUDID devient alors un choix entre deux voies de compte, et c'est ce choix qui déplace la responsabilité.
+
+Les deux parties d'une négociation en marque blanche ont tendance à deviner, et elles devinent en sens opposé. Le propriétaire de la marque suppose qu'il doit s'enregistrer ; l'usine suppose qu'elle n'est « que le fournisseur ». Les deux se trompent le plus souvent, et le coût de cette supposition est soit un enregistrement inutile, soit une obligation sans titulaire.
+
+## La règle unique qui tranche la plupart des débats en marque blanche
+
+Les obligations FDA s'attachent aux **activités**, pas à la propriété d'une marque. Un nom de marque sur une étiquette n'est pas en soi une activité réglementée. L'enregistrement (establishment registration), le référencement (device listing), la soumission UDI, le traitement des réclamations et la déclaration MDR s'attachent à la partie qui exerce l'activité réglementée qui les déclenche.
+
+C'est pourquoi la question utile n'est pas « qui détient la marque ? » mais « lequel des rôles ci-dessous chaque partie exerce-t-elle, et peut-elle le prouver ? »
+
+Une marque déposée est un droit commercial. Elle ne confère aucune fonction réglementaire. C'est pourquoi le même appareil peut porter une marque connue alors que le fabricant reste le détenteur du 510(k), le labeler of record et l'exportateur étranger.
+
+## Les sept rôles — et ce que chacun déclenche réellement
+
+Voici les rôles qui apparaissent dans une chaîne IPL en marque blanche. Seuls certains créent des obligations, et seuls certains sont visibles dans la base de données publique de la FDA.
+
+| Rôle | Ce qu'il signifie | Visible dans la base publique de la FDA ? |
+|---|---|---|
+| **Legal manufacturer** (fabricant légal) | Conçoit et fabrique le dispositif fini ; détient le design history file | Oui — comme *Manufacturer* |
+| **Contract manufacturer** (fabricant sous contrat) | Produit selon les spécifications d'une autre partie ; détient ou non l'autorisation | Oui — comme *Contract Manufacturer* |
+| **Foreign exporter** (exportateur étranger) | Exporte le dispositif depuis le pays de fabrication ; opération d'un établissement enregistré | Oui — comme *Foreign Exporter* |
+| **510(k) holder** (détenteur du 510(k)) | Détient la notification préalable à la mise sur le marché sous laquelle le dispositif est commercialisé | Pas comme étiquette ; traçable via le numéro de soumission |
+| **Labeler of record** | La partie dont l'étiquette est appliquée, et qui répond de cette étiquette devant la FDA | Non — déduit de l'étiquette |
+| **Specification developer** | La partie qui élabore les spécifications selon lesquelles le dispositif est construit | Non |
+| **GUDID account holder** (titulaire du compte GUDID) | Détient le compte GUDID et les enregistrements de device identifier (DI) de la plateforme | Non — seulement comme Company Name de l'enregistrement |
+
+**Quatre de ces sept rôles sont invisibles dans les données publiques.** C'est pourquoi une capture d'écran du référencement FDA d'un fournisseur prouve faiblement qui répond devant la FDA de l'étiquette — et pourquoi les acheteurs qui s'appuient sur le référencement seul reposent la même question un e-mail plus tard.
+
+Une usine qui exerce réellement plusieurs de ces rôles peut les prouver plutôt que les affirmer : un numéro d'enregistrement d'établissement, un numéro owner/operator, un numéro DUNS, le numéro 510(k) et le compte GUDID. Pour cette plateforme, nos positions enregistrées sont l'enregistrement d'établissement **3021338880**, owner/operator **10086240**, DUNS **620658743**, autorisé sous **K222537**, avec des activités de référencement enregistrées comme Manufacturer, Foreign Exporter et Contract Manufacturer.
+
+## Ajouter votre marque au GUDID — les deux voies
+
+Le GUDID (Global Unique Device Identification Database) est la base où résident les enregistrements de device identifier. Si votre appareil est un IPL de classe II commercialisé aux États-Unis, il lui faut un enregistrement DI. Dans une relation de marque blanche, il existe exactement deux montages, et la différence entre eux tient à **qui est le labeler légal** — ce qui décide aussi de votre obligation d'enregistrement.
+
+### Option 1 — un nouveau DI déposé sous le compte GUDID du fabricant
+
+Le fabricant détient le compte GUDID. Lorsque votre marque est appliquée, le produit est identifié sous **votre nom de marque**, donc comme **sa propre configuration de dispositif** — il lui faut par conséquent **son propre DI et son propre enregistrement GUDID**, déposés par le fabricant sous le compte de celui-ci. L'étiquette étant appliquée par le fabricant, et l'enregistrement étant déposé sous le compte du fabricant :
+
+- le **fabricant est le labeler of record** et la partie qui répond devant la FDA ;
+- l'**enregistrement DI est déposé sous le compte du fabricant** ;
+- **vous n'avez pas besoin de vous enregistrer** comme établissement pour cette activité.
+
+C'est la voie la moins exigeante, et généralement la bonne lorsque votre intervention relève du sourcing, de la marque et de la distribution plutôt que de la conception de l'appareil.
+
+Un point de vocabulaire, car il provoque de vraies confusions dans les discussions sur le GUDID, et parce qu'il modifie le déroulé des opérations, pas seulement les mots. **Le Brand Name est signalé comme un New DI Trigger dans la GUDID Data Elements Reference Table (DERT)** de la FDA — cette colonne indique **Yes**. Une modification du nom de marque n'est donc **pas** une modification d'un enregistrement DI existant : elle signifie **attribuer un nouveau DI et soumettre un nouvel enregistrement**. Deux détails de la même ligne de la DERT complètent le tableau : le champ est **alphanumeric, 80 caractères**, et sa valeur « Edit Rules After Grace Period » est **None** — ce qui concorde avec un champ non conçu pour être modifié après publication. Et comme la DERT définit le nom de marque comme propre à **cette version/modèle du dispositif** (« specific to this version/model of the device »), la lecture pratique est qu'une modification du nom de marque constitue une nouvelle version du dispositif aux fins de l'identification. En pratique, c'est l'issue la moins coûteuse, et non la plus coûteuse : votre marque obtient sa propre identité dans la base, au lieu de partager celle de l'enregistrement de la marque d'origine.
+
+### Option 2 — votre propre compte GUDID
+
+Si vous ou votre entité américaine détenez un compte GUDID, le fabricant peut agir comme votre **tiers soumissionnaire autorisé** et déposer en votre nom. Ici, l'**UDI est la vôtre**, vous êtes le **labeler of record légal**, et les obligations qui s'attachent au labeler vous incombent — y compris l'exactitude de l'enregistrement DI et les obligations post-commercialisation qui suivent l'étiquette.
+
+L'option 2 ne déplace pas seulement un enregistrement de données ; elle déplace la *responsabilité*. Sous l'option 2, le traitement des réclamations, les corrections et retraits, et les obligations de déclaration MDR suivent le labeler. Choisissez-la délibérément, et non par accident de la personne qui a créé le compte.
+
+| Question | Indique |
+|---|---|
+| Développez-vous ou modifiez-vous le matériel, le micrologiciel ou les spécifications ? | **Option 2** — vous entrez sur le territoire du specification developer |
+| Avez-vous besoin de l'enregistrement DI à votre nom pour vos propres systèmes ? | **Option 2** |
+| Votre rôle est-il le sourcing, la marque et la distribution d'un appareil inchangé ? | **Option 1** |
+| Voulez-vous aucune obligation d'enregistrement FDA ? | **Option 1** |
+
+## Ce qu'il faut décider avant la création de l'enregistrement GUDID
+
+Deux décisions doivent être prises *avant* la finalisation des visuels, car toutes deux coûtent cher à modifier ensuite.
+
+**1. Le nom de marque est une donnée, et c'est une chaîne de caractères.** Le GUDID enregistre le nom de marque sous forme de **valeur textuelle** — le nom propriétaire ou commercial utilisé sur l'étiquette ou dans le catalogue du dispositif — et non sous forme d'image. Les visuels produit comportent souvent un logotype ou une marque figurative, et ces visuels appartiennent à l'étiquette physique ; ce n'est pas ce que l'enregistrement contient.
+
+| Support | Le logo | Le nom de marque |
+|---|---|---|
+| **Enregistrement GUDID DI** | Non détenu — le champ est une valeur textuelle | Nom de marque sous forme de texte ; ® et ™ acceptés (DERT) |
+| **Étiquette physique et emballage** | Le logo complet, dans vos visuels | Nom de marque tel qu'imprimé |
+
+Deux points à retenir pour le brief des visuels :
+
+- **Jeu de caractères : c'est établi, et cela joue en votre faveur.** Les notes de saisie (Data Entry Notes) de la DERT pour le Brand Name le disent explicitement : *« You may include the ® and/or TM symbol, if applicable. »* Les deux caractères figurent en outre individuellement sur la feuille de la DERT intitulée **« Special Characters Accepted in GUDID »** — **®** pour *Registered* et **™** pour *Trademark*. Le champ lui-même est **alphanumeric, jusqu'à 80 caractères** : il s'agit donc d'un champ de chaîne descriptif, et non du régime strict de caractères qui s'applique au device identifier. Une marque portant ® ou ™ peut donc être enregistrée telle qu'elle s'écrit. (À savoir : la même feuille des caractères acceptés couvre aussi les lettres latines accentuées, un ensemble de lettres grecques et des symboles courants tels que ©, °, ± et ² — le champ du nom de marque est donc rarement la contrainte.)
+- **Les visuels du logo restent sur l'étiquette, pas dans le champ.** Le Brand Name est une valeur textuelle ; un logotype ou une marque figurative n'est pas ce que le champ contient. Le logo continue d'être imprimé sur l'étiquette physique et sur l'emballage — c'est votre création graphique, et l'enregistrement n'y change rien.
+
+Ce n'est pas un contournement ; c'est la répartition normale entre un enregistrement de données et les visuels d'étiquette. Mais elle doit parvenir au designer tôt, car elle modifie le brief des visuels.
+
+**2. La désignation du modèle de l'appareil.** Les enregistrements GUDID sont indexés sur une configuration d'appareil, et non sur une campagne marketing — et la DERT définit le nom de marque comme propre à *cette version/modèle du dispositif*. Fixez la désignation du modèle avant la création de l'enregistrement, car une modification du nom de marque est elle-même un **New DI Trigger** : elle produit un nouveau DI et un nouvel enregistrement plutôt qu'une modification, si bien que plus tôt la configuration est arrêtée, moins vous aurez de dossiers à redéposer.
+
+> Les deux points ci-dessus sont établis par la **GUDID Data Elements Reference Table (DERT)** et sont énoncés ici comme des constats, et non comme des déductions : le champ Brand Name est **alphanumeric (80 caractères)** et accepte **®** et **™** ; et sa colonne **New DI Trigger** indique **Yes**, avec **Edit Rules After Grace Period = None**. La FDA maintient et met à jour ces règles, de sorte qu'il vaut la peine de relire la ligne de la DERT au moment de la soumission — mais la position elle-même ne fait aucun doute.
+
+## Une modification en marque blanche exige-t-elle un nouveau 510(k) ?
+
+C'est la question que les propriétaires de marques posent en second, et elle a une réponse documentée. Les lignes directrices de la FDA *Deciding When to Submit a 510(k) for a Change to an Existing Device* fournissent un schéma logique — et elles précisent explicitement qu'un résultat « documentation » n'est **pas** un laissez-passer.
+
+Le flowchart principal de la FDA demande, dans l'ordre :
+
+1. **La modification est-elle apportée dans l'intention d'améliorer significativement la sécurité ou l'efficacité du dispositif ?** Par exemple pour atténuer un risque connu, ou en réponse à des événements indésirables. Si oui, un **nouveau 510(k) est probablement requis**, quelles que soient les questions restantes.
+2. **S'agit-il d'une modification d'étiquetage ?** → allez au **Flowchart A**.
+3. **S'agit-il d'une modification de technologie, d'ingénierie ou de performance ?** → **Flowchart B** (ou D pour les IVD).
+4. **S'agit-il d'une modification de matériaux ?** → **Flowchart C** (ou D pour les IVD).
+
+Deux termes ont un sens précis dans les flowcharts, et les mal lire provoque l'essentiel de la confusion : **« new 510(k) »** signifie qu'un nouveau 510(k) est *probablement requis*, tandis que **« documentation »** signifie qu'un nouveau 510(k) n'est *probablement pas requis — documentez votre analyse et classez-la pour référence ultérieure*.
+
+Prenons l'ensemble d'activités qu'un propriétaire de marque décrit typiquement : sourcer en Chine un appareil autorisé et inchangé, le livrer à un importateur américain, sous la marque du client, sans développement matériel ni micrologiciel. La modification est un **étiquetage**, donc l'évaluation passe par le **Flowchart A**, et non par les schémas technologie ou matériaux. La première question garde la main : si la modification d'étiquetage vise à améliorer significativement la sécurité ou l'efficacité, un nouveau 510(k) est probablement requis malgré tout. Sinon, l'analyse est documentée et classée.
+
+La méprise la plus lourde de conséquences est celle-ci : **« pas de nouveau 510(k) » et « aucun travail » ne sont pas la même affirmation.** Le règlement sur le système qualité s'applique *que* la revue préalable à la mise sur le marché soit déclenchée *ou non*. La revue et l'approbation des modifications de conception et de production (21 CFR 820.30, 820.70) et la documentation au device master record (21 CFR 820.181) s'appliquent toujours — et ces enregistrements sont examinables lors d'une inspection FDA au titre du FD&C Act §704(e).
+
+Une nuance supplémentaire issue des lignes directrices : pour de nombreuses modifications, la soumission d'un nouveau 510(k) n'est pas exigée précisément parce que le recours aux exigences existantes du système qualité est considéré comme le moyen le moins contraignant d'assurer raisonnablement la sécurité et l'efficacité du dispositif modifié.
+
+## Le rôle qui doit exister dans chaque variante — l'initial importer américain
+
+Quelle que soit la voie choisie, un rôle côté américain doit exister : un **initial importer (importateur initial) disposant d'un établissement aux États-Unis**. Cette exigence s'attache à l'*activité d'importation*, non à la propriété de la marque. En pratique, il peut s'agir de votre entité américaine, d'un US agent, d'un distributeur américain ou d'un partenaire d'importation capable d'assurer la conformité.
+
+Si vous êtes une entreprise de l'UE sans établissement aux États-Unis, il vous faudra soit cet importateur, soit une voie d'enregistrement qui vous soit propre — et le choix entre les deux découle de l'élection Option 1 / Option 2 ci-dessus.
+
+## La matrice de responsabilité provisoire
+
+La matrice ci-dessous est évaluée **sur les activités**, et elle tient quel que soit le nom figurant sur l'étiquette. Elle n'est provisoire qu'à trois endroits, car ces trois-là dépendent du nommage et de la voie retenue.
+
+| Rôle / obligation | Fabricant | Propriétaire de la marque (sur l'activité de sourcing et de fourniture) |
+|---|---|---|
+| Legal manufacturer | **Oui** | Non |
+| Contract manufacturer | **Oui** | Non |
+| Foreign exporter | **Oui** — déjà enregistré | Non |
+| 510(k) holder | **Oui** | Non |
+| Labeler of record | **Oui** sous l'option 1 ; tiers soumissionnaire sous l'option 2 | **Oui** sous l'option 2 uniquement |
+| Specification developer | **Oui** | Pas sur cette activité — **pas automatique**, et non conféré par la propriété de la marque |
+| Compte GUDID / enregistrements DI | **Oui** — détient le compte et les DI ; peut ajouter votre marque (option 1) ou déposer comme tiers soumissionnaire (option 2) | Facultatif — uniquement si vous détenez votre propre compte |
+| Soumission UDI / DI | Dépose comme labeler sous l'option 1 ; comme tiers autorisé sous l'option 2 | Dépose, ou autorise le fabricant à déposer, sous l'option 2 |
+| Initial importer | Non | **Doit exister dans la chaîne, avec un établissement aux États-Unis** |
+| US agent | **Oui** — au dossier | Uniquement si vous vous enregistrez comme établissement étranger |
+| Establishment registration & device listing | **Oui** | Uniquement si vous devenez labeler of record ou specification developer |
+| Post-commercialisation : déclaration MDR, corrections et retraits, traitement des réclamations | **Oui**, en tant que fabricant et labeler of record | Tenue de registres au niveau distributeur ; les obligations de déclaration complètes n'apparaissent qu'en devenant labeler of record |
+
+La seule décision à embranchement est l'option 1 contre l'option 2. Tout le reste découle des activités et ne change pas lorsque le nom de marque change.
+
+## Ce qu'un fabricant attend de vous avant de signer une détermination finale
+
+Une matrice provisoire ne dépend pas du nommage. Une détermination **finale et signée** en dépend, à exactement trois endroits :
+
+1. **Le nom de marque et la désignation du modèle** tels qu'ils figureront sur l'étiquette.
+2. **Les visuels d'étiquette ou une maquette**, montrant le placement de la marque, l'identification du fabricant et celle de l'importateur — car le fait que vous deveniez *relabeler* (reconditionneur d'étiquette) dépend de **la modification du contenu de l'étiquette**, et non de la présence de votre nom.
+3. **La voie retenue — option 1 ou option 2 — et l'identité de l'initial importer américain.**
+
+Avec ces trois éléments, la fonction réglementaire du fabricant peut signer une détermination motivée couvrant la nécessité ou non d'un nouveau 510(k), d'un letter-to-file (lettre versée au dossier) ou d'aucune soumission pour l'étiquetage ; la décision DI ; et le titulaire du référencement.
+
+Demandez la matrice provisoire avant que le nommage ne soit figé. Un fournisseur qui ne répondra qu'une fois les visuels existants a la séquence à l'envers.
+
+## En conclusion — la question à poser à un fabricant potentiel
+
+Demandez lequel des sept rôles l'usine exerce, et demandez-lui de prouver chacun d'eux. Une usine qui en détient plusieurs et peut le prouver — enregistrement, référencement, autorisation, compte GUDID — vous dit quelque chose sur la part de votre charge de conformité qu'elle peut porter. Une usine qui ne se décrit que comme « le fournisseur » laisse cette charge, et sa propriété, en suspens.
+
+*Cet article décrit nos propres positions opérationnelles sur une plateforme donnée et ne constitue pas un conseil juridique. Les déterminations propres à un dispositif exigent les trois éléments listés ci-dessus et la validation par la fonction réglementaire du fabricant. Lorsqu'un point dépend du data dictionary ou des lignes directrices publiées en vigueur de la FDA, confirmez-le auprès de la source avant de vous y appuyer.*

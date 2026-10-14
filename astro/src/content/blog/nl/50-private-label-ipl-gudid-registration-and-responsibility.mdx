@@ -1,0 +1,158 @@
+---
+title: "Private-label-IPL voor de VS: wie registreert wat, en hoe voegt u een apparaat toe aan GUDID"
+description: "Uw merk plakken op een door de FDA goedgekeurd IPL-apparaat maakt u nog geen fabrikant — het hangt af van welke gereguleerde activiteiten u uitvoert. Een gids uit de fabriek over de labeler of record, de twee GUDID-accountroutes en wanneer een etiketteringswijziging een nieuwe 510(k) vereist."
+citableSummary: "Het bezit van een IPL-merk bepaalt niet de FDA-registratieverplichtingen; de gereguleerde activiteiten die een partij uitvoert doen dat wel. Voor een ongewijzigd, door de FDA goedgekeurd IPL-apparaat dat bij een Chinese contractfabrikant wordt ingekocht en onder het merk van de klant aan een Amerikaanse importeur wordt geleverd, blijft de fabrikant doorgaans de wettelijke fabrikant, de 510(k)-houder, de labeler of record en de buitenlandse exporteur (foreign exporter), en krijgt de merkeigenaar geen registratieverplichting. Een apparaat met een merk kan aan GUDID worden toegevoegd, hetzij binnen het bestaande account van de fabrikant, hetzij onder het eigen account van de klant, waarbij de fabrikant optreedt als gemachtigde externe indiener. Een wijziging die alleen de etikettering betreft, wordt beoordeeld volgens Flowchart A van de FDA-richtlijn over 510(k)-wijzigingen, waarbij een uitkomst 'documentatie' nog steeds wijzigingsbeheersing voor ontwerp en productie en een vermelding in het device master record vereist."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Gerelateerde lectuur: [hoe u Manufacturer, Contract Manufacturer en Foreign Exporter leest in FDA-registratie en -listing](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) en [het vinden van een door de FDA goedgekeurde fabrikant in plaats van een handelsbedrijf](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Als u een merkeigenaar bent die een door de FDA goedgekeurd IPL-apparaat inkoopt en er uw eigen naam op zet, dan is de vraag die uw regelgevende werklast bepaalt niet *wiens merk er op de doos staat*. Het is *welke gereguleerde activiteiten u daadwerkelijk uitvoert*.
+
+Op de gangbare private-label-route — u koopt een ongewijzigd, al goedgekeurd apparaat in, levert het aan een Amerikaanse importeur, en ontwikkelt zelf geen hardware en geen firmware — blijft de fabrikant normaal gesproken de **wettelijke fabrikant, de 510(k)-houder, de labeler of record en de buitenlandse exporteur (foreign exporter)**. U wordt geen specification developer doordat u het merk bezit, en u krijgt geen registratieverplichting louter omdat uw naam op het product staat. Uw merk in GUDID krijgen is dan een keuze tussen twee accountroutes, en die keuze is wat de verantwoordelijkheid verplaatst.
+
+Beide partijen in een private-labelonderhandeling gokken meestal, en ze gokken in tegengestelde richting. De merkeigenaar gaat ervan uit dat hij zich moet registreren; de fabriek gaat ervan uit dat zij "slechts de leverancier" is. Beide hebben het meestal mis, en de prijs van het gokken is ofwel een onnodige registratie ofwel een verplichting zonder eigenaar.
+
+## De ene regel die de meeste private-labeldiscussies beslecht
+
+FDA-verplichtingen hangen aan **activiteiten**, niet aan merkeigendom. Een merknaam op een etiket is op zichzelf geen gereguleerde activiteit. Registratie, listing, UDI-indiening, klachtbehandeling en MDR-rapportage hangen aan de partij die de gereguleerde activiteit uitvoert die ze oproept.
+
+Daarom is de productieve vraag niet "wie bezit het merk?", maar "welke van de onderstaande rollen vervult elke partij, en kan zij dat aantonen?"
+
+Een handelsmerk is een commercieel recht. Het verleent geen enkele regelgevende functie. Daarom kan hetzelfde apparaat een bekend merk dragen terwijl de fabrikant de 510(k)-houder, de labeler of record en de buitenlandse exporteur (foreign exporter) blijft.
+
+## De zeven rollen — en wat elk ervan werkelijk oproept
+
+Dit zijn de rollen die in een private-label-IPL-keten voorkomen. Slechts enkele ervan scheppen verplichtingen, en slechts enkele ervan zijn zichtbaar in de openbare FDA-database.
+
+| Rol | Wat het betekent | Zichtbaar in de openbare database van de FDA? |
+|---|---|---|
+| **Wettelijke fabrikant** | Ontwerpt en produceert het eindapparaat; bezit het design history file (ontwerpgeschiedenisdossier) | Ja — als *Manufacturer* |
+| **Contractfabrikant** | Produceert volgens de specificatie van een andere partij; is al dan niet houder van de goedkeuring | Ja — als *Contract Manufacturer* |
+| **Buitenlandse exporteur (foreign exporter)** | Exporteert het apparaat uit het productieland; een activiteit van een geregistreerde vestiging | Ja — als *Foreign Exporter* |
+| **510(k)-houder** | Bezit de premarketnotificatie waaronder het apparaat op de markt wordt gebracht | Niet als etiket; traceerbaar via het indieningsnummer |
+| **Labeler of record** | De partij wier etiket wordt aangebracht, en die zich tegenover de FDA voor dat etiket verantwoordt | Nee — afgeleid uit het etiket |
+| **Specification developer** | De partij die de specificaties ontwikkelt waaraan het apparaat wordt gebouwd | Nee |
+| **Beheerder van het GUDID-account** | Beheert het GUDID-account en de registraties van de device identifier (DI) voor het platform | Nee — alleen als de Company Name van de registratie |
+
+**Vier van deze zeven zijn onzichtbaar in openbare gegevens.** Daarom is een screenshot van de FDA-listing van een leverancier zwak bewijs voor wie zich tegenover de FDA voor het etiket verantwoordt — en daarom blijven kopers die alleen op de listing vertrouwen één e-mail later dezelfde vraag stellen.
+
+Een fabriek die werkelijk meerdere van deze rollen draagt, kan ze aantonen in plaats van beweren: een vestigingsregistratienummer, een owner/operator-nummer, een DUNS-nummer, het 510(k)-nummer en het GUDID-account. Voor dit platform zijn onze geregistreerde posities establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, goedgekeurd onder **K222537**, met listingactiviteiten geregistreerd als Manufacturer, Foreign Exporter en Contract Manufacturer.
+
+## Uw merk toevoegen aan GUDID — de twee routes
+
+GUDID (de Global Unique Device Identification Database) is de plaats waar registraties van de device identifier staan. Is uw apparaat een in de VS op de markt gebracht klasse II-IPL-apparaat, dan heeft het een DI-registratie nodig. In een private-labelrelatie bestaan er precies twee regelingen, en het verschil ertussen is **wie de wettelijke labeler is** — wat ook bepaalt wat uw registratieverplichting is.
+
+### Optie 1 — een nieuwe DI, ingediend onder het GUDID-account van de fabrikant
+
+De fabrikant beheert het GUDID-account. Zodra uw merk wordt aangebracht, wordt het product onder **uw merknaam** geïdentificeerd, wat betekent dat het als **een eigen apparaatconfiguratie** wordt geïdentificeerd — en dus **een eigen DI en een eigen GUDID-registratie** nodig heeft, ingediend door de fabrikant onder het account van de fabrikant. Omdat het etiket door de fabrikant wordt aangebracht en de registratie onder het account van de fabrikant wordt ingediend:
+
+- is de **fabrikant de labeler of record** en de partij die zich tegenover de FDA voor dat etiket verantwoordt;
+- wordt de **DI-registratie onder het account van de fabrikant ingediend**;
+- hoeft **u zich voor deze activiteit niet te registreren** als vestiging.
+
+Dit is de route met de minste inspanning, en meestal de juiste wanneer uw betrokkenheid bestaat uit inkoop, branding en distributie in plaats van apparaatontwerp.
+
+Eén terminologische opmerking, want juist hier ontstaat in GUDID-discussies echte verwarring, en het verandert de **procedure**, niet alleen de formulering. **Brand Name is in de GUDID Data Elements Reference Table (DERT) van de FDA aangemerkt als New DI Trigger** — die kolom luidt **Yes**. Een merknaamwijziging is dus **geen** bewerking van een bestaande DI-registratie: het betekent **een nieuwe DI toekennen en een nieuwe registratie indienen**. Twee details uit dezelfde DERT-rij maken het beeld compleet: het veld is **alphanumeric, 80 tekens**, en de waarde van "Edit Rules After Grace Period" is **None** — in lijn met een veld dat niet bedoeld is om na publicatie te worden bewerkt. En omdat de DERT de merknaam definieert als specifiek voor **this version/model of the device**, is de praktische lezing dat een merknaamwijziging voor identificatiedoeleinden een nieuwe versie van het apparaat oplevert. In de praktijk is dat de **goedkopere** uitkomst, niet de duurdere: uw merk krijgt in de database een eigen identiteit in plaats van er een te delen met de registratie van het bronmerk.
+
+### Optie 2 — uw eigen GUDID-account
+
+Als u of uw Amerikaanse entiteit een GUDID-account beheert, kan de fabrikant optreden als uw **gemachtigde externe indiener** en namens u indienen. Hier is de **UDI van u**, bent u de **wettelijke labeler of record**, en komen de verplichtingen die aan de labeler hangen bij u terecht — inclusief de juistheid van de DI-registratie en de post-marketverplichtingen die het etiket volgen.
+
+Optie 2 verplaatst niet zomaar een dataregistratie; het verplaatst *verantwoordelijkheid*. Onder Optie 2 volgen klachtbehandeling, correcties en verwijderingen, en MDR-rapportageverplichtingen de labeler. Kies er bewust voor, niet bij toeval omdat nu eenmaal iemand dat account heeft aangemaakt.
+
+| Vraag | Wijst naar |
+|---|---|
+| Ontwikkelt of wijzigt u hardware, firmware of specificaties? | **Optie 2** — u beweegt zich op het terrein van de specification developer |
+| Heeft u de DI-registratie op uw eigen naam nodig voor uw eigen systemen? | **Optie 2** |
+| Bestaat uw rol uit het inkopen, branden en distribueren van een ongewijzigd apparaat? | **Optie 1** |
+| Wilt u helemaal geen FDA-registratieverplichting? | **Optie 1** |
+
+## Wat u moet beslissen voordat de GUDID-registratie wordt aangemaakt
+
+Twee beslissingen moeten *voordat* het artwork (de etiketopmaak) definitief wordt gemaakt, omdat beide achteraf duur zijn om te wijzigen.
+
+**1. De merknaam is een data-element, en het is een tekenreeks.** GUDID registreert de merknaam als de proprietary of trade name (de eigen of handelsnaam) die op het etiket of in de catalogus van het apparaat wordt gebruikt — een tekstwaarde, geen afbeelding. Productartwork bevat vaak een logotype of een beeldmerk, en dat artwork hoort op het fysieke etiket; het is niet wat de registratie bevat.
+
+| Drager | Het logo | De merknaam |
+|---|---|---|
+| **GUDID DI-registratie** | Niet opgenomen — het veld is een tekstwaarde | Merknaam als tekst; ® en ™ geaccepteerd (DERT) |
+| **Fysiek etiket en verpakking** | Het volledige logotype, in uw artwork | Merknaam zoals gedrukt |
+
+- **Tekenset: vastgesteld, en in uw voordeel.** De data entry notes van de DERT voor Brand Name zeggen letterlijk: *"You may include the ® and/or TM symbol, if applicable."* Beide tekens staan ook afzonderlijk vermeld op de DERT-tabel **"Special Characters Accepted in GUDID"** — **®** als *Registered* en **™** als *Trademark*. Het veld zelf is **alphanumeric, tot 80 tekens**, dus dit is een beschrijvend stringveld en niet het strikte tekenregime dat voor de device identifier geldt. Een merk dat ® of ™ voert, kan dus worden geregistreerd zoals het geschreven is. (Ter aanvulling: dezelfde tabel met geaccepteerde tekens dekt ook Latijnse letters met accenten, een reeks Griekse letters en gangbare symbolen zoals ©, °, ± en ², zodat het veld voor de merknaam zelden de beperkende factor is.)
+- **Logoartwork blijft op het etiket, niet in het veld.** Brand Name is een tekstwaarde; een logotype of een beeldmerk is niet wat het veld bevat. Het logo wordt nog altijd op het fysieke etiket en op de verpakking gedrukt — dat is uw artwork, en de registratie laat die ongemoeid.
+
+Dit is geen omweg; het is de normale scheiding tussen een dataregistratie en etiketartwork. Maar het moet de ontwerper vroeg bereiken, want het verandert de briefing voor het artwork.
+
+**2. De modelaanduiding van het apparaat.** GUDID-registraties zijn gekoppeld aan een apparaatconfiguratie, niet aan een marketingcampagne — en de DERT definieert de merknaam als specifiek voor *this version/model of the device*. Leg de modelaanduiding dus vast voordat de registratie wordt aangemaakt, want een merknaamwijziging is zelf een **New DI Trigger**: die levert een nieuwe DI en een nieuwe registratie op in plaats van een bewerking. Hoe eerder de configuratie dus vastligt, hoe minder u opnieuw hoeft in te dienen.
+
+> Beide bovenstaande punten staan met de **GUDID Data Elements Reference Table (DERT)** vast en worden hier als bevindingen gepresenteerd, niet als gevolgtrekkingen: het veld Brand Name is **alphanumeric (80 tekens)** en accepteert **®** en **™**; en de kolom **New DI Trigger** luidt **Yes**, met **Edit Rules After Grace Period = None**. De FDA onderhoudt en actualiseert deze regels, dus het is de moeite waard om de DERT-rij op het moment van indiening nog eens te lezen — maar over de conclusie zelf bestaat geen twijfel.
+
+## Heeft een private-labelwijziging een nieuwe 510(k) nodig?
+
+Dit is de vraag die merkeigenaren als tweede stellen, en er bestaat een gedocumenteerd antwoord op. De FDA-richtlijn *Deciding When to Submit a 510(k) for a Change to an Existing Device* biedt een logisch schema — en stelt uitdrukkelijk dat een uitkomst "documentatie" **geen** vrijbrief is.
+
+De hoofdlusschema (main flowchart) van de FDA vraagt, in deze volgorde:
+
+1. **Is de wijziging aangebracht met de bedoeling de veiligheid of doeltreffendheid van het apparaat aanzienlijk te verbeteren?** Bijvoorbeeld om een bekend risico te beperken, of naar aanleiding van ongewenste voorvallen. Zo ja, dan is **een nieuwe 510(k) waarschijnlijk vereist**, ongeacht de resterende vragen.
+2. **Is het een etiketteringswijziging?** → ga naar **Flowchart A**.
+3. **Is het een technische, engineering- of prestatiegerichte wijziging?** → **Flowchart B** (of D voor IVD's).
+4. **Is het een materiaalwijziging?** → **Flowchart C** (of D voor IVD's).
+
+Twee termen hebben een specifieke betekenis in de stroomschema's, en het verkeerd lezen ervan veroorzaakt het meeste misverstand: **"new 510(k)"** betekent dat een nieuwe 510(k) *waarschijnlijk vereist* is, terwijl **"documentation"** betekent dat een nieuwe 510(k) *waarschijnlijk niet vereist is — leg uw analyse vast en archiveer die voor toekomstige referentie*.
+
+Neem de set activiteiten die een merkeigenaar doorgaans beschrijft: een ongewijzigd, goedgekeurd apparaat inkopen uit China, het leveren aan een Amerikaanse importeur, onder het merk van de klant, zonder ontwikkeling van hardware of firmware. De wijziging is **etikettering**, dus de beoordeling loopt via **Flowchart A**, niet via de technologie- of materiaalschema's. De eerste vraag blijft echter bepalend: is de etiketteringswijziging bedoeld om de veiligheid of doeltreffendheid aanzienlijk te verbeteren, dan is een nieuwe 510(k) hoe dan ook waarschijnlijk vereist. Anders wordt de analyse vastgelegd en gearchiveerd.
+
+De meest ingrijpende verkeerde lezing is deze: **"geen nieuwe 510(k)" en "geen werk" zijn niet dezelfde uitspraak.** De kwaliteitssysteemverordening geldt *of* premarketbeoordeling wordt opgeroepen of niet. Beoordeling en goedkeuring van ontwerp- en productiewijzigingen (21 CFR 820.30, 820.70) en documentatie in het device master record (21 CFR 820.181) blijven van toepassing — en die registraties zijn tijdens een FDA-inspectie onder FD&C Act §704(e) in te zien.
+
+Een verdere nuance uit de richtlijn: voor veel wijzigingen is het indienen van een nieuwe 510(k) juist niet vereist omdat vertrouwen op de bestaande eisen van het kwaliteitssysteem wordt beschouwd als de minst belastende manier om de veiligheid en doeltreffendheid van het gewijzigde apparaat redelijkerwijs te waarborgen.
+
+## De rol die in elke variant moet bestaan — de Amerikaanse initial importer
+
+Welke route u ook kiest, één rol aan Amerikaanse zijde moet bestaan: een **initial importer met een Amerikaanse vestigingsplaats**. Deze eis hangt aan de *importactiviteit*, niet aan merkeigendom. In de praktijk kan dat uw Amerikaanse entiteit zijn, een US agent, een Amerikaanse distributeur, of een importpartner met nalevingscapaciteit.
+
+Bent u een EU-bedrijf zonder Amerikaanse vestiging, dan heeft u ofwel die importeur nodig ofwel een eigen registratietraject — en welke van de twee volgt uit de keuze tussen Optie 1 en Optie 2 hierboven.
+
+## De voorlopige verantwoordelijkheidsmatrix
+
+De onderstaande matrix is beoordeeld **op activiteiten**, en geldt ongeacht de naam op het etiket. Ze is slechts op drie plaatsen voorlopig, omdat die drie afhangen van naamgeving en route.
+
+| Rol / verplichting | Fabrikant | Merkeigenaar (op de activiteit inkopen en leveren) |
+|---|---|---|
+| Wettelijke fabrikant | **Ja** | Nee |
+| Contractfabrikant | **Ja** | Nee |
+| Buitenlandse exporteur (foreign exporter) | **Ja** — al geregistreerd | Nee |
+| 510(k)-houder | **Ja** | Nee |
+| Labeler of record | **Ja** onder Optie 1; externe indiener onder Optie 2 | **Ja**, alleen onder Optie 2 |
+| Specification developer | **Ja** | Niet op deze activiteit — **niet automatisch**, en niet verleend door merkeigendom |
+| GUDID-account / DI-registraties | **Ja** — beheert account en DI; kan uw merk toevoegen (Optie 1) of als externe indiener indienen (Optie 2) | Optioneel — alleen als u een eigen account beheert |
+| UDI- / DI-indiening | Dient in als labeler onder Optie 1; als gemachtigde derde onder Optie 2 | Dient in, of machtigt de fabrikant, onder Optie 2 |
+| Initial importer | Nee | **Moet in de keten bestaan, met een Amerikaanse vestigingsplaats** |
+| US agent | **Ja** — geregistreerd | Alleen als u zich als buitenlandse vestiging registreert |
+| Establishment registration & device listing | **Ja** | Alleen als u labeler of record of specification developer wordt |
+| Post-market: MDR-rapportage, correcties en verwijderingen, klachtbehandeling | **Ja**, als fabrikant en labeler of record | Registratie op distributeursniveau; volledige rapportageverplichtingen ontstaan pas bij het worden van labeler of record |
+
+De enige vertakkingsbeslissing is Optie 1 versus Optie 2. Al het overige volgt uit activiteiten, en verandert niet wanneer de merknaam verandert.
+
+## Wat een fabrikant van u nodig heeft voordat zij een definitieve bepaling kan ondertekenen
+
+Een voorlopige matrix is niet afhankelijk van naamgeving. Een **definitieve, ondertekende** bepaling wel, op precies drie punten:
+
+1. **Merknaam en modelaanduiding** zoals ze op het etiket komen te staan.
+2. **Etiketartwork of een mock-up**, waarop de plaatsing van het merk, de fabrikant en de identificatie van de importeur te zien is — want of u een *relabeler* wordt, hangt af van de vraag of **de etiketinhoud verandert**, niet van de vraag of uw naam erop staat.
+3. **De gekozen route — Optie 1 of Optie 2 — en wie de Amerikaanse initial importer zal zijn.**
+
+Met die drie kan de regelgevende functie van de fabrikant een onderbouwde bepaling ondertekenen over de vraag of voor de etikettering een nieuwe 510(k), een letter-to-file of geen indiening nodig is; over de DI-beslissing; en over de eigenaar van de listing.
+
+Vraag om de voorlopige matrix voordat de naamgeving vastligt. Een leverancier die pas antwoordt nadat het artwork bestaat, heeft de volgorde omgekeerd.
+
+## Tot slot — de vraag die u een potentiële fabrikant moet stellen
+
+Vraag welke van de zeven rollen de fabriek vervult, en vraag haar elke rol aan te tonen. Een fabriek die er meerdere bezit en kan aantonen — registratie, listing, de goedkeuring, het GUDID-account — vertelt u iets over hoeveel van uw nalevingslast zij kan dragen. Een fabriek die zichzelf alleen als "de leverancier" omschrijft, laat die last, en het eigenaarschap ervan, onbeslist.
+
+*Dit artikel beschrijft onze eigen operationele standpunten op een specifiek platform en is geen juridisch advies. Apparaatspecifieke bepalingen vereisen de drie hierboven genoemde inputs en goedkeuring door de regelgevende functie van de fabrikant. Waar een punt afhangt van het actuele gegevenswoordenboek of de gepubliceerde richtlijnen van de FDA, verifieer het dan bij de bron voordat u erop vertrouwt.*

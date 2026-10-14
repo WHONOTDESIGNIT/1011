@@ -1,0 +1,160 @@
+---
+title: "Private label IPL v USA: Kdo co registruje a jak přidat přístroj do GUDID"
+description: "Přidání vlastní značky na IPL přístroj s povolením FDA z vás ještě nedělá výrobce — záleží na tom, které regulované činnosti skutečně vykonáváte. Průvodce z továrny pojmy labeler of record, dvěma cestami k účtu GUDID a tím, kdy změna etiketace vyžaduje nové 510(k)."
+citableSummary: "Vlastnictví značky IPL přístroje neurčuje povinnosti registrace u FDA; určují je regulované činnosti, které daná strana vykonává. U nezměněného IPL přístroje s povolením FDA, odebíraného od čínského smluvního výrobce a dodávaného americkému dovozci pod značkou zákazníka, zůstává výrobce obvykle právním výrobcem, držitelem 510(k), labeler of record a zahraničním vývozcem a vlastníkovi značky nevzniká žádná registrační povinnost. Přístroj s vlastní značkou lze do GUDID přidat buď v rámci stávajícího účtu výrobce, nebo pod vlastním účtem zákazníka, přičemž výrobce vystupuje jako autorizovaný třetí submitter. Změna pouze etiketace se posuzuje podle Flowchart A pokynů FDA ke změnám 510(k), kde výsledek „documentation“ stále vyžaduje řízení změn designu a výroby a záznam v device master record."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Související čtení: [Jak číst pojmy Manufacturer, Contract Manufacturer a Foreign Exporter v registraci a listingu FDA](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) a [jak najít výrobce s povolením FDA, a ne obchodní společnost](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Pokud jste vlastník značky, který kupuje IPL přístroj s povolením FDA a dává na něj své jméno, o vaší regulační zátěži nerozhoduje *čí značka je na krabici*. Rozhoduje *které regulované činnosti skutečně vykonáváte*.
+
+Na běžné cestě private label — odebíráte nezměněný, již povolený přístroj, dodáváte jej americkému dovozci a nevyvíjíte hardware ani firmware — zůstává výrobce obvykle **právním výrobcem, držitelem 510(k), labeler of record a zahraničním vývozcem**. Vlastnictvím značky se nestáváte specification developerem a registrační povinnost vám nevzniká jen proto, že je na produktu vaše jméno. Dostání vaší značky do GUDID je pak volbou mezi dvěma cestami k účtu — a právě tato volba přesouvá odpovědnost.
+
+Obě strany vyjednávání o private label obvykle hádají, a hádají opačným směrem. Vlastník značky předpokládá, že se registrovat musí; továrna předpokládá, že je „jen dodavatel“. Obě strany se obvykle mýlí a cena omylu je buď zbytečná registrace, nebo nevlastněná povinnost.
+
+## Jedno pravidlo, které vyřeší většinu sporů o private label
+
+Povinnosti vůči FDA se vážou na **činnosti**, ne na vlastnictví značky. Název značky na etiketě sám o sobě není regulovanou činností. Registrace (establishment registration), listing přístrojů (device listing), podání UDI, vyřizování stížností a hlášení MDR se vážou na tu stranu, která vykonává regulovanou činnost, jež je spouští.
+
+Proto je produktivní otázkou nikoli „kdo vlastní značku?“, ale „kterou z níže uvedených rolí každá strana zastává a dokáže ji doložit?“
+
+Ochranná známka je obchodní právo. Nezakládá žádnou regulační funkci. Proto může stejný přístroj nést známou značku, zatímco výrobce zůstává držitelem 510(k), labeler of record a zahraničním vývozcem.
+
+## Sedm rolí — a co každá z nich skutečně spouští
+
+Toto jsou role, které se v řetězci private label IPL přístroje objevují. Jen některé z nich zakládají povinnosti a jen některé jsou viditelné ve veřejné databázi FDA.
+
+| Role | Co znamená | Je viditelná ve veřejné databázi FDA? |
+|---|---|---|
+| **Legal manufacturer** | Navrhuje a vyrábí hotový přístroj; vlastní design history file | Ano — jako *Manufacturer* |
+| **Contract manufacturer** | Vyrábí podle specifikace jiné strany; povolení může, ale nemusí držet | Ano — jako *Contract Manufacturer* |
+| **Foreign exporter** | Vyváží přístroj ze země výroby; jde o činnost registrovaného establishmentu | Ano — jako *Foreign Exporter* |
+| **510(k) holder** | Vlastní premarket notification, pod kterou se přístroj uvádí na trh | Ne jako označení; dohledatelné podle čísla podání |
+| **Labeler of record** | Strana, jejíž etiketa se aplikuje a která za tuto etiketu odpovídá FDA | Ne — odvozuje se z etikety |
+| **Specification developer** | Strana, která vytváří specifikace, podle nichž je přístroj postaven | Ne |
+| **GUDID account holder** | Drží účet GUDID a záznamy o identifikátoru přístroje (DI) pro platformu | Ne — pouze jako Company Name daného záznamu |
+
+**Čtyři z těchto sedmi rolí jsou ve veřejných datech neviditelné.** Proto je snímek obrazovky s listingem dodavatele u FDA slabým důkazem o tom, kdo odpovídá FDA za etiketu — a proto se kupující, kteří se spoléhají jen na listing, ptají na totéž znovu o jeden e-mail později.
+
+Továrna, která skutečně zastává několik z těchto rolí, je dokáže doložit, místo aby je jen tvrdila: registrační číslo establishmentu, číslo vlastníka/provozovatele, číslo DUNS, číslo 510(k) a účet GUDID. Pro tuto platformu jsou naše registrované pozice establishment registration **3021338880**, vlastník/provozovatel **10086240**, DUNS **620658743**, povoleno pod **K222537**, s listingovými činnostmi zaznamenanými jako Manufacturer, Foreign Exporter a Contract Manufacturer.
+
+## Přidání vaší značky do GUDID — dvě cesty
+
+GUDID (Global Unique Device Identification Database) je místo, kde žijí záznamy o identifikátorech přístrojů. Pokud je váš přístroj IPL třídy II uváděný na americký trh, potřebuje záznam DI. Ve vztahu private label existují přesně dvě uspořádání a rozdíl mezi nimi spočívá v tom, **kdo je právním labelerem** — což je zároveň to, co určuje vaši registrační povinnost.
+
+### Možnost 1 — nové DI zapsané pod účtem GUDID výrobce
+
+Účet GUDID drží výrobce. Jakmile je na přístroj aplikována vaše značka, je produkt identifikován pod **vaším názvem značky**, tedy jako **vlastní konfigurace přístroje** — a proto potřebuje **vlastní DI a vlastní záznam v GUDID**, který výrobce zapíše pod svým účtem. Protože etiketu aplikuje výrobce a záznam se podává pod účtem výrobce:
+
+- **labelerem of record je výrobce** a je to strana, která se zodpovídá FDA;
+- **záznam DI se podává pod účtem výrobce**;
+- **nemusíte se registrovat** jako establishment pro tuto činnost.
+
+Toto je cesta s nižší zátěží a obvykle ta správná, když vaše zapojení spočívá spíše v získávání zdroje, budování značky a distribuci než v návrhu přístroje.
+
+Jedna poznámka k terminologii, protože v diskusích o GUDID způsobuje skutečné zmatení a protože mění samotný postup, ne jen formulaci. **Brand Name je v GUDID Data Elements Reference Table (DERT) od FDA označen jako New DI Trigger** — tento sloupec má hodnotu **Yes**. Změna názvu značky tedy **není** úpravou stávajícího záznamu DI: znamená **přidělení nového DI a podání nového záznamu**. Dva údaje ze stejného řádku DERT dotvářejí obrázek: pole je **alphanumeric, 80 znaků**, a hodnota **Edit Rules After Grace Period** je **None** — což odpovídá poli, které není určeno k tomu, aby se po zveřejnění upravovalo. A protože DERT vymezuje název značky jako specific to **this version/model of the device** (specifický pro tuto verzi a model přístroje), praktickým čtením je, že změna názvu značky představuje pro účely identifikace novou verzi přístroje. V praxi je to levnější, a nikoli dražší varianta: vaše značka získá v databázi vlastní identitu, místo aby sdílela záznam se zdrojovou značkou.
+
+### Možnost 2 — váš vlastní účet GUDID
+
+Pokud vy nebo vaše americká entita držíte účet GUDID, může výrobce vystupovat jako váš **autorizovaný třetí submitter** a podávat za vás. Zde je **UDI vaše**, vy jste **právním labelerem of record** a povinnosti, které se vážou k labelerovi, se vážou k vám — včetně přesnosti záznamu DI a povinností po uvedení na trh, které etiketu následují.
+
+Možnost 2 nepřesouvá jen datový záznam; přesouvá *odpovědnost*. Podle Možnosti 2 se povinnosti v oblasti vyřizování stížností, oprav a odstranění přístrojů z trhu a hlášení MDR řídí labelerem. Zvolte ji vědomě, ne náhodou podle toho, kdo účet zrovna vytvořil.
+
+| Otázka | Ukazuje na |
+|---|---|
+| Vyvíjíte nebo měníte hardware, firmware nebo specifikace? | **Možnost 2** — přesouváte se do teritoria specification developer |
+| Potřebujete záznam DI na své vlastní jméno pro své vlastní systémy? | **Možnost 2** |
+| Vaše role je získání zdroje, brandování a distribuce nezměněného přístroje? | **Možnost 1** |
+| Nechcete vůbec žádnou registrační povinnost u FDA? | **Možnost 1** |
+
+## Co rozhodnout před vytvořením záznamu GUDID
+
+Dvě rozhodnutí musí padnout *před* dokončením grafiky, protože obě se později mění draze.
+
+**1. Název značky je datový údaj a je to řetězec.** GUDID zaznamenává název značky jako proprietary nebo trade name (vlastnické či obchodní označení) používaný na etiketě přístroje nebo v katalogu — jde o textovou hodnotu, nikoli o obrázek. Produktová grafika často nese logotyp nebo grafickou značku přístroje, a tato grafika patří na fyzickou etiketu; záznam GUDID ji neuchovává.
+
+| Nosné médium | Logo | Název značky |
+|---|---|---|
+| **Záznam DI v GUDID** | Neuchovává se — pole je textová hodnota | Název značky jako text; ® a ™ jsou přijímány (DERT) |
+| **Fyzická etiketa a obal** | Celá grafická podoba loga, ve vaší grafice | Název značky tak, jak je vytištěn |
+
+Dvě omezení, která je třeba vyřešit před dokončením grafiky, a ani jedno z nich se nevyplatí odhadovat:
+
+- **Znaková sada: je vyřešená, a hraje ve váš prospěch.** Data entry notes k poli Brand Name v DERT uvádějí jasně: *„You may include the ® and/or TM symbol, if applicable.“* Oba znaky jsou navíc jednotlivě uvedeny na listu DERT **„Special Characters Accepted in GUDID“** — **®** jako *Registered* a **™** jako *Trademark*. Samotné pole je **alphanumeric, až 80 znaků**, jde tedy o popisné řetězcové pole, a nikoli o striktní znakový režim, který platí pro device identifier. Značku nesoucí ® nebo ™ je proto možné zaznamenat tak, jak je napsána. (Stojí za to vědět, že stejný list přijímaných znaků pokrývá také akcentované latinské znaky, sadu řeckých písmen a běžné symboly jako ©, °, ± a ², takže pole názvu značky bývá omezujícím faktorem jen zřídka.)
+- **Grafika loga zůstává na etiketě, ne v poli.** Brand Name je textová hodnota; logotyp nebo grafická značka přístroje není to, co toto pole uchovává. Logo se stále tiskne na fyzickou etiketu a obal — to je vaše grafika a záznamem zůstává nedotčena.
+
+Není to obcházení pravidla; je to běžné rozdělení mezi datovým záznamem a grafikou etikety. Musí se ale dostat k designérovi včas, protože mění zadání pro grafiku.
+
+**2. Označení modelu přístroje.** Záznamy GUDID se klíčují ke konfiguraci přístroje, ne k marketingové kampani — a DERT vymezuje název značky jako specific to *this version/model of the device*. Označení modelu proto stanovte před vytvořením záznamu: změna názvu značky je sama o sobě **New DI Trigger** — vytváří nové DI a nový záznam, a nikoli úpravu stávajícího. Čím dřív je konfigurace pevně daná, tím méně opakovaných podání vás čeká.
+
+> Oba výše uvedené body jsou doloženy v **GUDID Data Elements Reference Table (DERT)** a jsou zde uvedeny jako zjištění, nikoli jako odvození: pole Brand Name je **alphanumeric (80 znaků)** a přijímá **®** a **™**; jeho sloupec **New DI Trigger** má hodnotu **Yes** a **Edit Rules After Grace Period = None**. FDA tato pravidla spravuje a aktualizuje, takže vyplatí se při podání znovu nahlédnout do příslušného řádku DERT — na samotném zjištění to však nic nemění.
+
+## Vyžaduje změna private label nové 510(k)?
+
+To je otázka, kterou se vlastníci značek ptají jako druhou, a má dokumentovanou odpověď. Pokyny FDA *Deciding When to Submit a 510(k) for a Change to an Existing Device* poskytují logické schéma — a výslovně uvádějí, že výsledek „documentation“ **není** volná jízdenka.
+
+Hlavní vývojový diagram FDA se ptá v tomto pořadí:
+
+1. **Je změna provedena s úmyslem výrazně zlepšit bezpečnost nebo účinnost přístroje?** Například aby se zmírnilo známé riziko, nebo v reakci na nežádoucí příhody. Pokud ano, **nové 510(k) je pravděpodobně vyžadováno**, bez ohledu na zbývající otázky.
+2. **Jde o změnu etiketace?** → přejděte na **Flowchart A**.
+3. **Jde o technologickou, inženýrskou nebo výkonnostní změnu?** → **Flowchart B** (u IVD pak D).
+4. **Jde o změnu materiálů?** → **Flowchart C** (u IVD pak D).
+
+Dva pojmy mají ve vývojových diagramech specifický význam a jejich nesprávné čtení způsobuje většinu zmatení: **„new 510(k)“** znamená, že nové 510(k) je *pravděpodobně vyžadováno*, zatímco **„documentation“** znamená, že nové 510(k) *pravděpodobně není vyžadováno — zdokumentujte svou analýzu a založte ji pro budoucí použití*.
+
+Vezměte soubor činností, který vlastník značky obvykle popisuje: získat nezměněný, povolený přístroj z Číny, dodat jej americkému dovozci, pod značkou zákazníka, bez vývoje hardwaru nebo firmwaru. Změna je **etiketace**, takže posouzení probíhá podle **Flowchart A**, nikoli podle diagramů pro technologii nebo materiály. První otázka stále rozhoduje: pokud má změna etiketace v úmyslu výrazně zlepšit bezpečnost nebo účinnost, je nové 510(k) pravděpodobně vyžadováno bez ohledu na ostatní. V opačném případě se analýza zdokumentuje a založí.
+
+Nejdůslednější nesprávné čtení je toto: **„žádné nové 510(k)“ a „žádná práce“ nejsou totéž tvrzení.** Nařízení o systému kvality platí *bez ohledu na to*, zda je spuštěno předběžné přezkoumání. Přezkoumání a schválení změn designu a výroby (21 CFR 820.30, 820.70) a dokumentace v device master record (21 CFR 820.181) stále platí — a tyto záznamy jsou přezkoumatelné při inspekci FDA podle FD&C Act §704(e).
+
+Další nuance z pokynů: u mnoha změn není podání nového 510(k) vyžadováno právě proto, že spoléhání se na stávající požadavky systému kvality je považováno za nejméně zatěžující způsob, jak přiměřeně zajistit bezpečnost a účinnost změněného přístroje.
+
+## Role, která musí existovat v každé variantě — americký initial importer
+
+Ať zvolíte kteroukoli cestu, jedna role na americké straně musí existovat: **initial importer s místem podnikání v USA**. Tento požadavek se váže na *dovážející činnost*, nikoli na vlastnictví značky. V praxi jím může být vaše americká entita, US agent, americký distributor nebo dovozní partner schopný zajistit soulad s předpisy.
+
+Pokud jste společnost z EU bez sídla v USA, budete potřebovat buď tohoto dovozce, nebo vlastní cestu k registraci — a která z nich to je, vyplývá z výše uvedené volby mezi Možností 1 a Možností 2.
+
+## Provizorní matice odpovědností
+
+Matice níže se posuzuje **podle činností** a platí bez ohledu na jméno na etiketě. Provizorní je pouze ve třech místech, protože ta tři závisí na pojmenování a na zvolené cestě.
+
+| Role / povinnost | Výrobce | Vlastník značky (u činnosti získání zdroje a dodání) |
+|---|---|---|
+| Legal manufacturer | **Ano** | Ne |
+| Contract manufacturer | **Ano** | Ne |
+| Foreign exporter | **Ano** — již registrován | Ne |
+| 510(k) holder | **Ano** | Ne |
+| Labeler of record | **Ano** podle Možnosti 1; třetí submitter podle Možnosti 2 | **Ano** pouze podle Možnosti 2 |
+| Specification developer | **Ano** | U této činnosti ne — **není automatické** a nezakládá se vlastnictvím značky |
+| Účet GUDID / záznamy DI | **Ano** — drží účet a DI; může přidat vaši značku (Možnost 1) nebo podávat jako třetí submitter (Možnost 2) | Volitelné — pouze pokud držíte vlastní účet |
+| Podání UDI / DI | Podává jako labeler podle Možnosti 1; jako autorizovaná třetí strana podle Možnosti 2 | Podává, nebo k podání autorizuje výrobce, podle Možnosti 2 |
+| Initial importer | Ne | **Musí v řetězci existovat, s místem podnikání v USA** |
+| US agent | **Ano** — je veden v záznamech | Pouze pokud se registrujete jako zahraniční establishment |
+| Establishment registration & device listing | **Ano** | Pouze pokud se stanete labelerem of record nebo specification developerem |
+| Po uvedení na trh: hlášení MDR, opravy a odstranění z trhu, vyřizování stížností | **Ano**, jako výrobce a labeler of record | Záznamy na úrovni distributora; plné ohlašovací povinnosti vznikají až okamžikem, kdy se stanete labelerem of record |
+
+Jediné větvící rozhodnutí je Možnost 1 versus Možnost 2. Vše ostatní vyplývá z činností a nemění se, když se změní název značky.
+
+## Co výrobce potřebuje od vás, než může podepsat konečné rozhodnutí
+
+Provizorní matice na pojmenování nezávisí. **Konečné, podepsané** rozhodnutí na něm závisí, a to přesně ve třech místech:
+
+1. **Název značky a označení modelu** tak, jak se objeví na etiketě.
+2. **Grafika etikety nebo maketa**, která ukazuje umístění značky, výrobce a identifikace dovozce — protože to, zda se stanete *relabelerem*, se odvíjí od toho, zda se **mění obsah etikety**, a ne od toho, zda se na ní objeví vaše jméno.
+3. **Zvolená cesta — Možnost 1 nebo Možnost 2 — a kdo bude americkým initial importer.**
+
+S těmito třemi vstupy může regulační útvar výrobce podepsat odůvodněné rozhodnutí pokrývající to, zda je pro etiketaci vyžadováno nové 510(k), letter-to-file, nebo žádné podání; rozhodnutí o DI; a vlastníka listingu.
+
+Vyžádejte si provizorní matici dřív, než je pojmenování pevně dané. Dodavatel, který odpoví až poté, co existuje grafika, má pořadí kroků obráceně.
+
+## Závěr — otázka, kterou položit potenciálnímu výrobci
+
+Zeptejte se, kterou ze sedmi rolí továrna zastává, a požádejte ji, aby každou z nich doložila. Továrna, která jich několik drží a dokáže to doložit — registraci, listing, povolení, účet GUDID — vám říká něco o tom, jak velkou část vaší zátěže v oblasti compliance dokáže nést. Továrna, která se popisuje jen jako „dodavatel“, nechává tuto zátěž a její vlastnictví nerozhodnuté.
+
+*Tento článek popisuje naše vlastní provozní postoje ke konkrétní platformě a není právním poradenstvím. Rozhodnutí specifická pro konkrétní přístroj vyžadují tři výše uvedené vstupy a schválení regulačním útvarem výrobce. Pokud některý bod závisí na aktuálním datovém slovníku FDA nebo na zveřejněných pokynech, ověřte si jej před tím, než se na něj spolehnete, přímo u zdroje.*

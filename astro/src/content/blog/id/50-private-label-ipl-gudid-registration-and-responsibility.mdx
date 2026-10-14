@@ -1,0 +1,160 @@
+---
+title: "IPL Private-Label di AS: Siapa Mendaftarkan Apa, dan Bagaimana Menambahkan Perangkat ke GUDID"
+description: "Menambahkan merek Anda ke perangkat IPL berizin FDA tidak menjadikan Anda produsennya — semuanya bergantung pada aktivitas teregulasi yang Anda jalankan. Panduan dari pabrik tentang labeler of record (pihak yang bertanggung jawab atas label), dua jalur akun GUDID, dan kapan perubahan pelabelan memerlukan 510(k) baru."
+citableSummary: "Memiliki merek IPL tidak menentukan kewajiban registrasi FDA; yang menentukan adalah aktivitas teregulasi yang dijalankan suatu pihak. Untuk perangkat IPL yang tidak diubah dan sudah berizin FDA, yang dipasok dari contract manufacturer di Tiongkok lalu dikirim ke importir AS dengan merek milik pelanggan, produsen biasanya tetap menjadi legal manufacturer, pemegang 510(k), labeler of record, dan foreign exporter, sementara pemilik merek tidak memperoleh kewajiban registrasi apa pun. Perangkat bermerek dapat ditambahkan ke GUDID baik di dalam akun produsen yang sudah ada maupun di bawah akun pelanggan sendiri dengan produsen bertindak sebagai authorised third-party submitter. Perubahan yang hanya menyangkut pelabelan dinilai melalui Flowchart A dari panduan modifikasi 510(k) FDA, di mana hasil 'documentation' tetap memerlukan change control desain dan produksi serta pencatatan device master record."
+pubDate: "2026-10-13"
+author: "Eric"
+category: "Regulatory"
+heroImage: "/images/blog/blog-03-fda-clearance-for-ipl-devices-a-complete-guide.webp"
+slug: "50-private-label-ipl-gudid-registration-and-responsibility"
+translationKey: "50-private-label-ipl-gudid-registration-and-responsibility"
+---
+
+Bacaan terkait: [Cara membaca peran Manufacturer, Contract Manufacturer, dan Foreign Exporter dalam registrasi dan pencantuman FDA](/blog/35-fda-establishment-registration-device-listing-roles-manufacturer-contract-manufacturer-foreign-exporter) dan [menemukan produsen berizin FDA, bukan perusahaan dagang](/blog/14-fda-cleared-ipl-device-manufacturer-guide).
+
+Jika Anda adalah pemilik merek yang membeli perangkat IPL berizin FDA lalu mencantumkan nama Anda sendiri di atasnya, pertanyaan yang menentukan beban kerja regulasi Anda bukanlah *merek siapa yang tercetak di kotak*. Melainkan *aktivitas teregulasi mana yang benar-benar Anda jalankan*.
+
+Pada jalur private label yang umum — Anda menyediakan perangkat yang tidak diubah dan sudah berizin, mengirimkannya ke importir AS, serta tidak mengembangkan perangkat keras maupun firmware — produsen biasanya tetap menjadi **legal manufacturer, pemegang 510(k), labeler of record, dan foreign exporter**. Anda tidak menjadi specification developer (pengembang spesifikasi) hanya karena memiliki merek, dan Anda tidak memperoleh kewajiban registrasi hanya karena nama Anda tercantum pada produk. Memasukkan merek Anda ke GUDID kemudian menjadi pilihan antara dua jalur akun, dan pilihan itulah yang memindahkan tanggung jawab.
+
+Kedua pihak dalam negosiasi private label cenderung menebak, dan mereka menebak ke arah yang berlawanan. Pemilik merek mengasumsikan dirinya harus mendaftar; pabrik mengasumsikan dirinya "hanya pemasok". Keduanya biasanya keliru, dan biaya dari menebak adalah registrasi yang tidak perlu atau kewajiban yang tidak bertuan.
+
+## Satu Aturan yang Menyelesaikan Sebagian Besar Perdebatan Private Label
+
+Kewajiban FDA melekat pada **aktivitas**, bukan pada kepemilikan merek. Nama merek pada label bukanlah aktivitas teregulasi. Establishment registration (registrasi tempat usaha), device listing (pencantuman perangkat), penyerahan UDI, penanganan keluhan, dan pelaporan MDR melekat pada pihak mana pun yang menjalankan aktivitas teregulasi yang memicunya.
+
+Itulah sebabnya pertanyaan yang produktif bukanlah "siapa yang memiliki merek?" melainkan "peran mana di bawah ini yang dijalankan masing-masing pihak, dan dapatkah pihak itu membuktikannya?"
+
+Merek dagang adalah hak komersial. Ia tidak memberikan fungsi regulasi apa pun. Itulah sebabnya perangkat yang sama dapat menyandang merek terkenal sementara produsennya tetap menjadi pemegang 510(k), labeler of record, dan foreign exporter.
+
+## Tujuh Peran — dan Apa yang Sebenarnya Dipicu Masing-Masing
+
+Berikut adalah peran-peran yang muncul dalam rantai IPL private label. Hanya sebagian di antaranya menciptakan kewajiban, dan hanya sebagian dari peran itu yang terlihat di basis data publik FDA.
+
+| Peran | Artinya | Terlihat di basis data publik FDA? |
+|---|---|---|
+| **Legal manufacturer** | Merancang dan memproduksi perangkat jadi; memiliki design history file | Ya — sebagai *Manufacturer* |
+| **Contract manufacturer** | Memproduksi sesuai spesifikasi pihak lain; mungkin memegang izin edar, mungkin tidak | Ya — sebagai *Contract Manufacturer* |
+| **Foreign exporter** | Mengekspor perangkat dari negara manufaktur; merupakan operasi tempat usaha terdaftar | Ya — sebagai *Foreign Exporter* |
+| **Pemegang 510(k)** | Memiliki premarket notification yang menjadi dasar pemasaran perangkat | Tidak sebagai label; dapat ditelusuri melalui nomor submission |
+| **Labeler of record** | Pihak yang labelnya dipasang, dan yang bertanggung jawab kepada FDA atas label tersebut | Tidak — disimpulkan dari label |
+| **Specification developer** | Pihak yang mengembangkan spesifikasi yang menjadi dasar pembuatan perangkat | Tidak |
+| **Pemegang akun GUDID** | Memegang akun GUDID dan catatan device identifier (DI) untuk platform tersebut | Tidak — hanya sebagai Company Name dalam catatan |
+
+**Empat dari tujuh peran ini tidak terlihat dalam data publik.** Itulah sebabnya tangkapan layar device listing FDA milik seorang pemasok merupakan bukti yang lemah tentang siapa yang bertanggung jawab kepada FDA atas label — dan mengapa pembeli yang hanya mengandalkan listing itu akan menanyakan pertanyaan yang sama satu email kemudian.
+
+Pabrik yang benar-benar mengemban beberapa peran ini dapat membuktikannya alih-alih sekadar mengklaimnya: nomor establishment registration, nomor owner/operator, nomor DUNS, nomor 510(k), dan akun GUDID. Untuk platform ini, posisi terdaftar kami adalah establishment registration **3021338880**, owner/operator **10086240**, DUNS **620658743**, berizin berdasarkan **K222537**, dengan aktivitas device listing tercatat sebagai Manufacturer, Foreign Exporter, dan Contract Manufacturer.
+
+## Menambahkan Merek Anda ke GUDID — Dua Jalurnya
+
+GUDID (Global Unique Device Identification Database — basis data identifikasi perangkat unik global) adalah tempat catatan device identifier berada. Jika perangkat Anda adalah IPL Kelas II yang dipasarkan di AS, perangkat itu memerlukan catatan DI. Dalam hubungan private label hanya ada dua pengaturan, dan perbedaan di antara keduanya adalah **siapa labeler legalnya** — yang juga menentukan kewajiban registrasi Anda.
+
+### Opsi 1 — DI Baru yang Diajukan di Bawah Akun GUDID Produsen
+
+Produsen memegang akun GUDID. Ketika merek Anda diterapkan, produk diidentifikasi dengan **nama merek Anda**, yang berarti produk itu diidentifikasi sebagai **konfigurasi perangkat tersendiri** — sehingga ia memerlukan **DI sendiri dan catatan GUDID sendiri**, yang diajukan oleh produsen di bawah akun produsen. Karena label dipasang oleh produsen dan catatannya diajukan di bawah akun produsen:
+
+- **produsenlah labeler of record** dan pihak yang bertanggung jawab kepada FDA;
+- **catatan DI tersebut diajukan di bawah akun produsen**;
+- **Anda tidak perlu mendaftar** sebagai tempat usaha untuk aktivitas ini.
+
+Ini adalah jalur dengan usaha lebih rendah, dan biasanya jalur yang tepat ketika keterlibatan Anda adalah penyediaan sumber, pemberian merek, dan distribusi, bukan perancangan perangkat.
+
+Satu catatan istilah, karena hal ini menimbulkan kebingungan nyata dalam diskusi GUDID, dan karena yang berubah adalah alur kerjanya, bukan sekadar istilahnya. **Brand Name ditandai sebagai New DI Trigger di dalam GUDID Data Elements Reference Table (DERT)** terbitan FDA — kolom itu berbunyi **Yes**. Jadi perubahan nama merek bukanlah penyuntingan atas catatan DI yang sudah ada: ia berarti **memberikan DI baru dan menyerahkan catatan baru**. Dua detail dari baris DERT yang sama melengkapi gambarannya: kolom ini bersifat **alphanumeric, 80 karakter**, dan nilai "Edit Rules After Grace Period"-nya adalah **None** — konsisten dengan kolom yang memang tidak dirancang untuk disunting setelah diterbitkan. Dan karena DERT mendefinisikan nama merek sebagai specific to **this version/model of the device**, bacaan praktisnya adalah bahwa perubahan nama merek merupakan versi baru perangkat untuk keperluan identifikasi. Dalam praktiknya ini justru hasil yang lebih murah, bukan yang lebih mahal: merek Anda memperoleh identitasnya sendiri di dalam basis data, alih-alih berbagi catatan dengan merek sumbernya.
+
+### Opsi 2 — Akun GUDID Anda Sendiri
+
+Jika Anda atau entitas AS Anda memegang akun GUDID, produsen dapat bertindak sebagai **authorised third-party submitter (penyerah pihak ketiga yang diberi wewenang)** Anda dan mengajukan berkas atas nama Anda. Di sini **UDI adalah milik Anda**, Anda adalah **labeler of record yang legal**, dan kewajiban yang melekat pada labeler melekat pada Anda — termasuk ketepatan catatan DI dan kewajiban pasca-pasar yang mengikuti label.
+
+Opsi 2 tidak sekadar memindahkan catatan data; ia memindahkan *tanggung jawab*. Di bawah Opsi 2, penanganan keluhan, koreksi dan penarikan, serta kewajiban pelaporan MDR mengikuti labeler. Pilihlah secara sadar, bukan karena kebetulan siapa yang membuat akunnya.
+
+| Pertanyaan | Mengarah ke |
+|---|---|
+| Apakah Anda mengembangkan atau mengubah perangkat keras, firmware, atau spesifikasi? | **Opsi 2** — Anda sedang masuk ke wilayah specification developer |
+| Apakah Anda memerlukan catatan DI atas nama Anda sendiri untuk sistem Anda sendiri? | **Opsi 2** |
+| Apakah peran Anda adalah menyediakan sumber, memberi merek, dan mendistribusikan perangkat yang tidak diubah? | **Opsi 1** |
+| Apakah Anda ingin sama sekali tidak memiliki kewajiban registrasi FDA? | **Opsi 1** |
+
+## Yang Harus Diputuskan Sebelum Catatan GUDID Dibuat
+
+Dua keputusan harus diambil *sebelum* artwork diselesaikan, karena keduanya mahal untuk diubah setelahnya.
+
+**1. Nama merek adalah data element, dan wujudnya adalah string.** GUDID mencatat nama merek sebagai proprietary atau trade name yang digunakan pada label atau katalog perangkat — sebuah nilai teks, bukan gambar. Artwork produk sering kali memuat logotype atau device mark, dan artwork itu tempatnya pada label fisik; bukan itu yang disimpan dalam catatan.
+
+| Pembawa | Logo | Nama merek |
+|---|---|---|
+| **Catatan DI GUDID** | Tidak disimpan — kolom ini adalah nilai teks | Nama merek sebagai teks; **®** dan **™** diterima (DERT) |
+| **Label fisik dan kemasan** | Perangkat logo lengkap, dalam artwork Anda | Nama merek sebagaimana dicetak |
+
+Dua batas yang perlu ditetapkan sebelum artwork diselesaikan, dan tidak satu pun layak ditebak:
+
+- **Kumpulan karakter: sudah pasti, dan hasilnya menguntungkan Anda.** Data entry notes DERT untuk Brand Name menyatakan secara tegas: *"You may include the ® and/or TM symbol, if applicable."* Kedua karakter itu juga tercantum satu per satu pada lembar DERT **"Special Characters Accepted in GUDID"** — **®** sebagai *Registered* dan **™** sebagai *Trademark*. Kolom ini sendiri bersifat **alphanumeric, maksimal 80 karakter**, sehingga ia adalah kolom string deskriptif, bukan rezim karakter ketat yang berlaku bagi device identifier. Merek yang menyandang ® atau ™ karena itu dapat dicatat apa adanya. (Perlu diketahui bahwa lembar karakter yang diterima itu juga mencakup huruf Latin beraksen, sekumpulan huruf Yunani, dan simbol umum seperti ©, °, ± dan ², sehingga kolom nama merek jarang menjadi kendala.)
+- **Artwork logo tetap pada label, bukan di dalam kolom.** Brand Name adalah nilai teks; logotype atau device mark bukanlah yang disimpan oleh kolom itu. Logo tetap dicetak pada label fisik dan kemasan — itu artwork Anda, dan tidak terpengaruh oleh catatan.
+
+Ini bukan akal-akalan; ini adalah pembagian normal antara catatan data dan artwork label. Tetapi hal ini harus sampai ke desainer sejak awal, karena ia mengubah brief artwork.
+
+**2. Penetapan model perangkat.** Catatan GUDID dikaitkan pada konfigurasi perangkat, bukan pada kampanye pemasaran — dan DERT mendefinisikan nama merek sebagai specific to *this version/model of the device*. Tetapkan penetapan model sebelum catatan dibuat, karena perubahan nama merek sendiri merupakan **New DI Trigger**: ia menghasilkan DI baru dan catatan baru, bukan penyuntingan, sehingga semakin awal konfigurasinya ditetapkan, semakin sedikit pengajuan ulang yang Anda lakukan.
+
+> Kedua poin di atas sudah dipastikan oleh **GUDID Data Elements Reference Table (DERT)** dan dinyatakan di sini sebagai temuan, bukan sebagai inferensi: kolom Brand Name bersifat **alphanumeric (80 karakter)** dan menerima **®** dan **™**; dan kolom **New DI Trigger**-nya berbunyi **Yes**, dengan **Edit Rules After Grace Period = None**. FDA memelihara dan memperbarui aturan-aturan tersebut, jadi ada baiknya membaca ulang baris DERT itu pada saat penyerahan — tetapi posisinya sendiri tidak diragukan.
+
+## Apakah Perubahan Private Label Memerlukan 510(k) Baru?
+
+Ini adalah pertanyaan kedua yang diajukan pemilik merek, dan jawabannya terdokumentasi. Panduan FDA *Deciding When to Submit a 510(k) for a Change to an Existing Device* menyediakan skema logika — dan secara eksplisit menyatakan bahwa hasil "documentation" **bukan** izin bebas.
+
+Bagan alur utama FDA bertanya, secara berurutan:
+
+1. **Apakah perubahan dilakukan dengan maksud meningkatkan secara signifikan keselamatan atau efektivitas perangkat?** Misalnya untuk memitigasi risiko yang diketahui, atau sebagai respons terhadap kejadian merugikan. Jika ya, **510(k) baru kemungkinan besar diperlukan**, terlepas dari pertanyaan-pertanyaan berikutnya.
+2. **Apakah ini perubahan pelabelan?** → lanjut ke **Flowchart A**.
+3. **Apakah ini perubahan teknologi, rekayasa, atau kinerja?** → **Flowchart B** (atau D untuk IVD).
+4. **Apakah ini perubahan material?** → **Flowchart C** (atau D untuk IVD).
+
+Dua istilah membawa makna khusus di dalam flowchart, dan salah membacanya menyebabkan sebagian besar kebingungan: **"new 510(k)"** berarti 510(k) baru *kemungkinan besar diperlukan*, sedangkan **"documentation"** berarti 510(k) baru *kemungkinan besar tidak diperlukan — dokumentasikan analisis Anda dan simpan berkasnya untuk referensi di masa mendatang*.
+
+Ambil rangkaian aktivitas yang biasanya digambarkan pemilik merek: menyediakan perangkat berizin yang tidak diubah dari Tiongkok, mengirimkannya ke importir AS, dengan merek milik pelanggan, tanpa pengembangan perangkat keras atau firmware. Perubahannya adalah **pelabelan**, sehingga penilaiannya berjalan melalui **Flowchart A**, bukan bagan teknologi atau material. Pertanyaan pertama tetap mengendalikan: jika perubahan pelabelan dimaksudkan untuk secara signifikan meningkatkan keselamatan atau efektivitas, 510(k) baru kemungkinan besar tetap diperlukan. Jika tidak, analisisnya didokumentasikan dan diberkaskan.
+
+Salah baca tunggal yang paling berdampak adalah ini: **"tidak ada 510(k) baru" dan "tidak ada pekerjaan" bukan pernyataan yang sama.** Quality system regulation berlaku *terlepas dari* apakah tinjauan premarket dipicu. Tinjauan dan persetujuan atas perubahan desain dan produksi (21 CFR 820.30, 820.70) serta dokumentasi dalam device master record (catatan induk perangkat) (21 CFR 820.181) tetap berlaku — dan catatan-catatan itu dapat ditinjau selama inspeksi FDA berdasarkan FD&C Act §704(e).
+
+Satu nuansa lebih lanjut dari panduan tersebut: untuk banyak perubahan, penyerahan 510(k) baru tidak diwajibkan justru karena mengandalkan persyaratan sistem mutu yang sudah ada dianggap sebagai cara paling tidak membebani untuk secara wajar menjamin keselamatan dan efektivitas perangkat yang diubah.
+
+## Peran yang Harus Ada pada Setiap Varian — Initial Importer AS
+
+Jalur mana pun yang Anda pilih, satu peran di sisi AS harus ada: **initial importer (importir awal) dengan tempat usaha di AS**. Persyaratan ini melekat pada *aktivitas impor*, bukan pada kepemilikan merek. Dalam praktiknya pihak itu bisa berupa entitas AS Anda, US agent (agen AS), distributor AS, atau mitra impor yang mampu menangani kepatuhan.
+
+Jika Anda perusahaan Uni Eropa tanpa tempat usaha di AS, Anda memerlukan importir tersebut atau jalur registrasi Anda sendiri — dan yang mana di antara keduanya mengikuti pilihan Opsi 1 / Opsi 2 di atas.
+
+## Matriks Tanggung Jawab Sementara
+
+Matriks di bawah ini dinilai **berdasarkan aktivitas**, dan tetap berlaku terlepas dari nama yang tercantum pada label. Ia bersifat sementara hanya pada tiga tempat, karena ketiganya bergantung pada penamaan dan jalur.
+
+| Peran / kewajiban | Manufacturer | Pemilik merek (pada aktivitas penyediaan dan pemasokan) |
+|---|---|---|
+| Legal manufacturer | **Ya** | Tidak |
+| Contract manufacturer | **Ya** | Tidak |
+| Foreign exporter | **Ya** — sudah terdaftar | Tidak |
+| Pemegang 510(k) | **Ya** | Tidak |
+| Labeler of record | **Ya** pada Opsi 1; third-party submitter pada Opsi 2 | **Ya** hanya pada Opsi 2 |
+| Specification developer | **Ya** | Bukan pada aktivitas ini — **tidak otomatis**, dan tidak diberikan oleh kepemilikan merek |
+| Akun GUDID / catatan DI | **Ya** — memegang akun dan DI; dapat menambahkan merek Anda (Opsi 1) atau mengajukan berkas sebagai third-party submitter (Opsi 2) | Opsional — hanya jika Anda memegang akun sendiri |
+| Penyerahan UDI / DI | Menyerahkan sebagai labeler pada Opsi 1; sebagai pihak ketiga yang diberi wewenang pada Opsi 2 | Menyerahkan, atau memberi wewenang kepada produsen, pada Opsi 2 |
+| Initial importer | Tidak | **Harus ada dalam rantai, dengan tempat usaha di AS** |
+| US agent | **Ya** — tercatat dalam berkas | Hanya jika Anda mendaftar sebagai tempat usaha asing |
+| Establishment registration & device listing | **Ya** | Hanya jika Anda menjadi labeler of record atau specification developer |
+| Pasca-pasar: pelaporan MDR, koreksi dan penarikan, penanganan keluhan | **Ya**, sebagai manufacturer dan labeler of record | Pencatatan pada tingkat distributor; kewajiban pelaporan penuh baru muncul ketika menjadi labeler of record |
+
+Satu-satunya keputusan bercabang adalah Opsi 1 versus Opsi 2. Selebihnya mengikuti aktivitas, dan tidak berubah ketika nama merek berubah.
+
+## Apa yang Dibutuhkan Produsen dari Anda Sebelum Dapat Menandatangani Penetapan Final
+
+Matriks sementara tidak bergantung pada penamaan. Penetapan yang **final dan ditandatangani** bergantung pada penamaan, tepatnya di tiga tempat:
+
+1. **Nama merek dan penetapan model** sebagaimana akan tercantum pada label.
+2. **Artwork label atau mock-up**, yang menunjukkan penempatan merek, produsen, dan identifikasi importir — karena apakah Anda menjadi *relabeler* bergantung pada apakah **konten label berubah**, bukan pada apakah nama Anda muncul.
+3. **Jalur yang dipilih — Opsi 1 atau Opsi 2 — dan siapa yang akan menjadi initial importer AS.**
+
+Dengan ketiga hal itu, fungsi regulasi produsen dapat menandatangani penetapan beralasan yang mencakup apakah 510(k) baru, letter-to-file (surat pemberkasan), atau tidak ada penyerahan yang diperlukan untuk pelabelan; keputusan DI; dan pemilik device listing.
+
+Mintalah matriks sementara sebelum penamaan ditetapkan. Pemasok yang baru mau menjawab setelah artwork ada telah membalik urutannya.
+
+## Penutup — Pertanyaan yang Perlu Diajukan kepada Calon Produsen
+
+Tanyakan peran mana dari tujuh peran itu yang dijalankan pabrik tersebut, dan mintalah bukti untuk masing-masingnya. Pabrik yang memegang dan dapat membuktikan beberapa di antaranya — establishment registration, device listing, izin edar, akun GUDID — sedang memberi tahu Anda seberapa besar beban kepatuhan Anda yang dapat dipikulnya. Pabrik yang hanya menyebut dirinya "the supplier" membiarkan beban itu, dan kepemilikannya, tidak ditentukan.
+
+*Artikel ini menjelaskan posisi operasional kami sendiri pada platform tertentu dan bukan merupakan nasihat hukum. Penetapan yang spesifik perangkat memerlukan tiga masukan yang tercantum di atas dan persetujuan dari fungsi regulasi produsen. Jika suatu poin bergantung pada GUDID data dictionary atau panduan terbitan FDA yang berlaku saat ini, konfirmasikan pada sumbernya sebelum mengandalkannya.*
