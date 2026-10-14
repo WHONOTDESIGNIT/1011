@@ -28,7 +28,7 @@ const pageTitle = t(locale, 'aboutPages.overview.title');
 const seoTitle = locale === 'en' ? 'About iShine | Professional IPL Device Manufacturer' : pageTitle;
 const pageDescription = t(locale, 'aboutPages.overview.description');
 const aboutFacilityImage = responsiveImageSources(
-  'https://images.pexels.com/photos/3825569/pexels-photo-3825569.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  '/images/about/ipl-device-development-timeline-2021-2025.webp',
 );
 ---
 
@@ -66,7 +66,8 @@ const aboutFacilityImage = responsiveImageSources(
     .about-partner-text p{font-family:Manrope,sans-serif;font-size:15px;font-weight:400;line-height:23px;color:var(--color-gray-600);margin:20px 0 0}
     .about-partner-text p strong{font-weight:600;color:var(--color-ink)}
     .about-partner-image{width:46%;flex-shrink:0;border-radius:20px;overflow:hidden;background:var(--color-gray-200)}
-    .about-partner-image img{width:100%;height:100%;object-fit:cover}
+    /* 时间线信息图：整体完整显示，不用 cover 裁切（cover 会切掉 2021 / 2025 两端的文字） */
+    .about-partner-image img{width:100%;height:100%;object-fit:contain}
 
     /* Core Values（grey-50 底） */
     .about-values-section{background:var(--color-gray-50);padding:60px 0 80px}
@@ -183,7 +184,7 @@ const aboutFacilityImage = responsiveImageSources(
             decoding="async"
             width="1200"
             height="900"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-contain"
           />
         </picture>
       </div>
