@@ -169,12 +169,6 @@ const localeHref = (l: string, p: string) => {
         });
       });
 
-      // 国旗预载：面板里的 44 面旗子只在"用户真要打开弹窗"时才去取（悬停/聚焦即预先放行，
-      // 键盘用户点开前 focusin 也已触发，所以看不到加载过程），首屏因此不为隐藏内容发图片请求。
-      const markReady = () => root.classList.add('ls--ready');
-      root.addEventListener('pointerenter', markReady, { once: true });
-      root.addEventListener('focusin', markReady, { once: true });
-
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && root.classList.contains('open')) close();
       });
@@ -241,34 +235,31 @@ const localeHref = (l: string, p: string) => {
    格式为 80x60 PNG（显示尺寸 28x21 CSS px，约 2.9x 像素密度）：
    同等清晰度下 22 面合计约 7.6 KB，而矢量版因西班牙/沙特等国徽细节合计近 200 KB，
    在 28x21 的显示尺寸下既无必要也更慢。 */
-.ls-flag[data-flag='us'] { --ls-flag-url: url('/images/flags/us.png'); }
-.ls-flag[data-flag='tr'] { --ls-flag-url: url('/images/flags/tr.png'); }
-.ls-flag[data-flag='il'] { --ls-flag-url: url('/images/flags/il.png'); }
-.ls-flag[data-flag='ru'] { --ls-flag-url: url('/images/flags/ru.png'); }
-.ls-flag[data-flag='ro'] { --ls-flag-url: url('/images/flags/ro.png'); }
-.ls-flag[data-flag='pl'] { --ls-flag-url: url('/images/flags/pl.png'); }
-.ls-flag[data-flag='gr'] { --ls-flag-url: url('/images/flags/gr.png'); }
-.ls-flag[data-flag='it'] { --ls-flag-url: url('/images/flags/it.png'); }
-.ls-flag[data-flag='kr'] { --ls-flag-url: url('/images/flags/kr.png'); }
-.ls-flag[data-flag='jp'] { --ls-flag-url: url('/images/flags/jp.png'); }
-.ls-flag[data-flag='cz'] { --ls-flag-url: url('/images/flags/cz.png'); }
-.ls-flag[data-flag='de'] { --ls-flag-url: url('/images/flags/de.png'); }
-.ls-flag[data-flag='sa'] { --ls-flag-url: url('/images/flags/sa.png'); }
-.ls-flag[data-flag='nl'] { --ls-flag-url: url('/images/flags/nl.png'); }
-.ls-flag[data-flag='es'] { --ls-flag-url: url('/images/flags/es.png'); }
-.ls-flag[data-flag='fr'] { --ls-flag-url: url('/images/flags/fr.png'); }
-.ls-flag[data-flag='br'] { --ls-flag-url: url('/images/flags/br.png'); }
-.ls-flag[data-flag='pt'] { --ls-flag-url: url('/images/flags/pt.png'); }
-.ls-flag[data-flag='id'] { --ls-flag-url: url('/images/flags/id.png'); }
-.ls-flag[data-flag='th'] { --ls-flag-url: url('/images/flags/th.png'); }
-.ls-flag[data-flag='vn'] { --ls-flag-url: url('/images/flags/vn.png'); }
-.ls-flag[data-flag='ir'] { --ls-flag-url: url('/images/flags/ir.png'); }
+.ls-flag[data-flag='us']::before { background-image: url('/images/flags/us.png'); }
+.ls-flag[data-flag='tr']::before { background-image: url('/images/flags/tr.png'); }
+.ls-flag[data-flag='il']::before { background-image: url('/images/flags/il.png'); }
+.ls-flag[data-flag='ru']::before { background-image: url('/images/flags/ru.png'); }
+.ls-flag[data-flag='ro']::before { background-image: url('/images/flags/ro.png'); }
+.ls-flag[data-flag='pl']::before { background-image: url('/images/flags/pl.png'); }
+.ls-flag[data-flag='gr']::before { background-image: url('/images/flags/gr.png'); }
+.ls-flag[data-flag='it']::before { background-image: url('/images/flags/it.png'); }
+.ls-flag[data-flag='kr']::before { background-image: url('/images/flags/kr.png'); }
+.ls-flag[data-flag='jp']::before { background-image: url('/images/flags/jp.png'); }
+.ls-flag[data-flag='cz']::before { background-image: url('/images/flags/cz.png'); }
+.ls-flag[data-flag='de']::before { background-image: url('/images/flags/de.png'); }
+.ls-flag[data-flag='sa']::before { background-image: url('/images/flags/sa.png'); }
+.ls-flag[data-flag='nl']::before { background-image: url('/images/flags/nl.png'); }
+.ls-flag[data-flag='es']::before { background-image: url('/images/flags/es.png'); }
+.ls-flag[data-flag='fr']::before { background-image: url('/images/flags/fr.png'); }
+.ls-flag[data-flag='br']::before { background-image: url('/images/flags/br.png'); }
+.ls-flag[data-flag='pt']::before { background-image: url('/images/flags/pt.png'); }
+.ls-flag[data-flag='id']::before { background-image: url('/images/flags/id.png'); }
+.ls-flag[data-flag='th']::before { background-image: url('/images/flags/th.png'); }
+.ls-flag[data-flag='vn']::before { background-image: url('/images/flags/vn.png'); }
+.ls-flag[data-flag='ir']::before { background-image: url('/images/flags/ir.png'); }
 
 /* trigger 上的国旗立即加载（它是可见的当前语言标识）；面板内 44 面延迟到悬停/聚焦/展开 */
-.ls-trigger.ls-flag::before { background-image: var(--ls-flag-url); }
-.ls-panel .ls-flag::before { background-image: none; }
-.ls.open .ls-panel .ls-flag::before,
-.ls--ready .ls-panel .ls-flag::before { background-image: var(--ls-flag-url); }
+/* 每条规则自带 background-image：面板 / trigger / 移动端一律直接生效 */
 
 /* 弹窗遮罩：浅灰色、不透明度固定 30% */
 .ls-backdrop {
