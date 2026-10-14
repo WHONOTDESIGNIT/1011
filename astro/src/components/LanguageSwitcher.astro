@@ -234,29 +234,35 @@ const localeHref = (l: string, p: string) => {
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
-/* 各语种国旗（data-flag = 国家代码，来自 LANGUAGE_CONFIG.countryCode） */
-.ls-flag[data-flag='us'] { --ls-flag-url: url('https://flagcdn.com/us.svg'); }
-.ls-flag[data-flag='tr'] { --ls-flag-url: url('https://flagcdn.com/tr.svg'); }
-.ls-flag[data-flag='il'] { --ls-flag-url: url('https://flagcdn.com/il.svg'); }
-.ls-flag[data-flag='ru'] { --ls-flag-url: url('https://flagcdn.com/ru.svg'); }
-.ls-flag[data-flag='ro'] { --ls-flag-url: url('https://flagcdn.com/ro.svg'); }
-.ls-flag[data-flag='pl'] { --ls-flag-url: url('https://flagcdn.com/pl.svg'); }
-.ls-flag[data-flag='gr'] { --ls-flag-url: url('https://flagcdn.com/gr.svg'); }
-.ls-flag[data-flag='it'] { --ls-flag-url: url('https://flagcdn.com/it.svg'); }
-.ls-flag[data-flag='kr'] { --ls-flag-url: url('https://flagcdn.com/kr.svg'); }
-.ls-flag[data-flag='jp'] { --ls-flag-url: url('https://flagcdn.com/jp.svg'); }
-.ls-flag[data-flag='cz'] { --ls-flag-url: url('https://flagcdn.com/cz.svg'); }
-.ls-flag[data-flag='de'] { --ls-flag-url: url('https://flagcdn.com/de.svg'); }
-.ls-flag[data-flag='sa'] { --ls-flag-url: url('https://flagcdn.com/sa.svg'); }
-.ls-flag[data-flag='nl'] { --ls-flag-url: url('https://flagcdn.com/nl.svg'); }
-.ls-flag[data-flag='es'] { --ls-flag-url: url('https://flagcdn.com/es.svg'); }
-.ls-flag[data-flag='fr'] { --ls-flag-url: url('https://flagcdn.com/fr.svg'); }
-.ls-flag[data-flag='br'] { --ls-flag-url: url('https://flagcdn.com/br.svg'); }
-.ls-flag[data-flag='pt'] { --ls-flag-url: url('https://flagcdn.com/pt.svg'); }
-.ls-flag[data-flag='id'] { --ls-flag-url: url('https://flagcdn.com/id.svg'); }
-.ls-flag[data-flag='th'] { --ls-flag-url: url('https://flagcdn.com/th.svg'); }
-.ls-flag[data-flag='vn'] { --ls-flag-url: url('https://flagcdn.com/vn.svg'); }
-.ls-flag[data-flag='ir'] { --ls-flag-url: url('https://flagcdn.com/ir.svg'); }
+/* 各语种国旗（data-flag = 国家代码，来自 LANGUAGE_CONFIG.countryCode）
+   自持资源（2026-10-13）：原先指向第三方 flagcdn.com，一旦该域名在用户网络下不可达，
+   22 面旗子会静默退化成上面那层灰色占位块 —— 曾经发生过。现在旗子随站点一起发布，
+   不再依赖外部域名。
+   格式为 80x60 PNG（显示尺寸 28x21 CSS px，约 2.9x 像素密度）：
+   同等清晰度下 22 面合计约 7.6 KB，而矢量版因西班牙/沙特等国徽细节合计近 200 KB，
+   在 28x21 的显示尺寸下既无必要也更慢。 */
+.ls-flag[data-flag='us'] { --ls-flag-url: url('/images/flags/us.png'); }
+.ls-flag[data-flag='tr'] { --ls-flag-url: url('/images/flags/tr.png'); }
+.ls-flag[data-flag='il'] { --ls-flag-url: url('/images/flags/il.png'); }
+.ls-flag[data-flag='ru'] { --ls-flag-url: url('/images/flags/ru.png'); }
+.ls-flag[data-flag='ro'] { --ls-flag-url: url('/images/flags/ro.png'); }
+.ls-flag[data-flag='pl'] { --ls-flag-url: url('/images/flags/pl.png'); }
+.ls-flag[data-flag='gr'] { --ls-flag-url: url('/images/flags/gr.png'); }
+.ls-flag[data-flag='it'] { --ls-flag-url: url('/images/flags/it.png'); }
+.ls-flag[data-flag='kr'] { --ls-flag-url: url('/images/flags/kr.png'); }
+.ls-flag[data-flag='jp'] { --ls-flag-url: url('/images/flags/jp.png'); }
+.ls-flag[data-flag='cz'] { --ls-flag-url: url('/images/flags/cz.png'); }
+.ls-flag[data-flag='de'] { --ls-flag-url: url('/images/flags/de.png'); }
+.ls-flag[data-flag='sa'] { --ls-flag-url: url('/images/flags/sa.png'); }
+.ls-flag[data-flag='nl'] { --ls-flag-url: url('/images/flags/nl.png'); }
+.ls-flag[data-flag='es'] { --ls-flag-url: url('/images/flags/es.png'); }
+.ls-flag[data-flag='fr'] { --ls-flag-url: url('/images/flags/fr.png'); }
+.ls-flag[data-flag='br'] { --ls-flag-url: url('/images/flags/br.png'); }
+.ls-flag[data-flag='pt'] { --ls-flag-url: url('/images/flags/pt.png'); }
+.ls-flag[data-flag='id'] { --ls-flag-url: url('/images/flags/id.png'); }
+.ls-flag[data-flag='th'] { --ls-flag-url: url('/images/flags/th.png'); }
+.ls-flag[data-flag='vn'] { --ls-flag-url: url('/images/flags/vn.png'); }
+.ls-flag[data-flag='ir'] { --ls-flag-url: url('/images/flags/ir.png'); }
 
 /* trigger 上的国旗立即加载（它是可见的当前语言标识）；面板内 44 面延迟到悬停/聚焦/展开 */
 .ls-trigger.ls-flag::before { background-image: var(--ls-flag-url); }

@@ -4,7 +4,7 @@ export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 export interface LanguageMeta {
   /** 语言代码（Astro 路由前缀 / getRelativeLocaleUrl 使用） */
   code: string;
-  /** 国旗对应的国家代码（flagcdn.com 资源；实际 URL 由 LanguageSwitcher 的 CSS 规则表生成） */
+  /** 国旗对应的国家代码（自持资源 /images/flags/<cc>.png；实际 URL 由 LanguageSwitcher 的 CSS 规则表生成） */
   countryCode: string;
   /** 英文名称 */
   label: string;
