@@ -7,12 +7,18 @@ import AirShippingTable from '../../components/AirShippingTable.astro';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import enMessages from '../../../../messages/en.json';
 import { getSuitability } from '../../lib/skin-hair-suitability';
+import { LED_PRODUCT_PATHS } from '../../lib/faq-recommendations';
 import { getLumi2Technology, LUMI2_REFERENCES } from '../../lib/lumi2-skin-sensing';
 import { getPrimaryPaymentRegions, getOtherPaymentRegions, getPaymentRegionRows } from '../../lib/payment-solutions';
 
 const locale = Astro.currentLocale ?? 'en'; const { slug } = Astro.params;
 // 肤色 / 毛发适配性文案（22 语种，见 src/lib/skin-hair-suitability.ts）
 const suit = getSuitability(locale);
+// LED 光疗品类（2026-10-13）不使用「肤色 / 毛发适配性」区块：那段文案讲的是黑色素
+// 吸收光能、毛发颜色决定脱毛效果与 Fitzpatrick 分型限制，属于 IPL 脱毛的适用性判断。
+// LED 光疗面罩/排灯不依赖毛发黑色素，沿用会在页面上给出错误结论（例如"VI 型不适用"），
+// 因此两个品类互斥渲染该区块。路径集合是单一数据源，见 lib/faq-recommendations.ts。
+const isLedProduct = LED_PRODUCT_PATHS.has(`/products/${slug}`);
 // Lumi 2 专属技术区块（IGBT 快速闪光 + 肤色感应五档状态，22 语种，见 src/lib/lumi2-skin-sensing.ts）
 const lumi2Tech = slug === 'lumi-2' ? getLumi2Technology(locale) : undefined;
 // 本地收款方案：按语种给主推区域（展开）+ 其余区域（折叠）。只讲币种/清算网络/到账时效，
@@ -30,6 +36,11 @@ interface ProductData {
   features: { title: string; description: string }[];
   priceTiers?: { quantity: string; unitPrice: string }[];
   priceNote?: string;
+  /** 商用基线的两行（已本地化）：采样 MOQ 与批量 MOQ。缺省取全站共用文案 */
+  commercialSample: string;
+  commercialBulk: string;
+  /** 建议零售价区间（excl. VAT），仅公开 RSP 的品类才有 */
+  rsp?: string;
   badge?: string;
   colors: string[];
   story?: {
@@ -105,6 +116,11 @@ const SPEC_KEYS: Record<string, string[]> = {
   helix: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'coolingTemperature', 'timeToCoolingTemperature', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'lampMaterial', 'lampConfiguration', 'warranty', 'wavelength', 'display'],
   eirene: ['type', 'cooling', 'energy', 'lamp', 'window', 'wavelength', 'uvCutFilter'],
   wooden: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'skinToneSensor', 'lampMaterial', 'lampConfiguration', 'warranty', 'maxOpticalPowerDensity', 'wavelength', 'deviceSize', 'netWeight', 'bulkMoq'],
+  // 非 IPL 品类（LED 光疗）：字段名沿用 messages productDetail.<slug>.specs 的键。
+  // 注意不要使用 netWeight —— 它在 HIDDEN_SPEC_KEYS 里，会被整行隐藏，重量用 weight。
+  'led-therapy-mask-001a': ['lightSource', 'wavelengths', 'modes', 'control', 'sessionTime', 'frequency', 'maxUse', 'autoShutoff', 'battery', 'charging', 'sessionsPerCharge', 'inputPower', 'eyeProtection', 'dimensions', 'weight', 'finish', 'headstrap', 'inTheBox', 'warranty'],
+  'led-therapy-mask-002a': ['productName', 'modelNo', 'material', 'productSize', 'productWeight', 'packagingSize', 'packagingWeight', 'qty', 'cartonSize', 'nwGw', 'color', 'feature', 'ledColours', 'leds', 'battery', 'workingTime', 'chargingTime', 'power', 'inputVoltage', 'packageInclude'],
+  'led-therapy-panel-f618': ['packagingName', 'lightSource', 'ledArray', 'wavelengths', 'infrared', 'modes', 'control', 'application', 'sessionTime', 'maxPerArea', 'maxPerSession', 'eyeProtection', 'powerSource', 'adapter', 'outputPower', 'dimensions', 'weight', 'stand', 'standards', 'inTheBox', 'qty', 'cartonSize', 'grossWeight', 'origin', 'warranty'],
 };
 
 const FEATURE_KEYS: Record<string, string[]> = {
@@ -120,7 +136,22 @@ const FEATURE_KEYS: Record<string, string[]> = {
   helix: ['sapphireIceCooling', 'intensityLevels', 'digitalDisplay', 'longLastingLamp'],
   eirene: ['hypersensitiveSkinFocus', 'enhancedUvProtection', 'gentleEnergyProfile', 'softColorPalette'],
   wooden: ['luxuryAesthetics', 'sapphireIceCooling', 'premiumUnboxing', 'exclusiveColorSelection'],
+  'led-therapy-mask-001a': ['fourWavelengths', 'eightSmartModes', 'sessionsPerChargeFeature', 'eyeCupsAndAutoOff'],
+  'led-therapy-mask-002a': ['sevenColoursPlusNir', 'softSiliconeAbs', 'fastChargeLongRuntime', 'completeKit'],
+  'led-therapy-panel-f618': ['fourWavelengthsEveryMode', 'lensArray', 'eightSelectableModes', 'deskOrFloorStanding'],
 };
+
+// LED 光疗品类的阶梯数量区间（前台按此展示，与工厂报价口径一致）
+const LED_TIER_QUANTITY_KEYS = [
+  'productDetail.ledTierQuantities.tier1',
+  'productDetail.ledTierQuantities.tier2',
+  'productDetail.ledTierQuantities.tier3',
+  'productDetail.ledTierQuantities.tier4',
+];
+
+// LED 品类的商用基线两行：批量 MOQ 统一 500 台，但对外说明可谈 200 台首单。
+// IPL 沿用全站共用键（Sample MOQ: 1 unit / Bulk MOQ: 500 units），LED 需要额外那句"可谈首单"。
+const LED_COMMERCIAL_KEYS = ['productDetail.ledSampleMoq', 'productDetail.ledBulkMoq'];
 
 // 图片、价格等不可翻译数据（按 slug）
 const PRODUCT_ASSETS: Record<
@@ -132,8 +163,19 @@ const PRODUCT_ASSETS: Record<
     badge?: boolean;
     priceTiers?: number[];
     priceNote?: boolean;
+    /** 覆盖阶梯数量区间的 message 键（缺省用 productDetail.priceTierQuantities.tier1-4） */
+    tierQuantityKeys?: string[];
+    /** 覆盖商用基线两行的 message 键：[采样 MOQ, 批量 MOQ]（缺省用全站共用键） */
+    commercialKeys?: string[];
+    /** 建议零售价区间（excl. VAT）。仅公开 RSP 的品类填写，未填则不渲染该行 */
+    rsp?: string;
   }
 > = {
+  // LED 光疗品类（2026-10-13）：前台展示的阶梯数量区间与 IPL 不同
+  //（1-99 / 100-499 / 500-1,999 / 2,000+），因此不能复用 IPL 的
+  // productDetail.priceTierQuantities（那是 1-99 / 100-999 / 1000-4999 / 5000+），
+  // 否则数量区间与价格对不上。这里给 LED 品类单独一套 message 键。
+  // 见下方 LED_TIER_QUANTITY_KEYS。
   'lumi': {
     heroImage: '/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp',
     gallery: [
@@ -296,6 +338,62 @@ const PRODUCT_ASSETS: Record<
     badge: true,
     priceNote: true,
   },
+  // —— LED 光疗品类 ——
+  // TODO(images): 以下三个平台的图片是「现有素材里最好的一张」占位，不是终稿。
+  //   · 001A / 002A 现有原图最大仅 660×440（002A 更小），排灯为 1315–1400px；
+  //   · 产品页图片走 Netlify CDN，srcset 宽度为 400/800/1200/1600，原图长边需 ≥1600px；
+  //   · 拿到工厂原图后替换同名文件即可，无需改这里。
+  'led-therapy-mask-001a': {
+    heroImage: '/images/products/LED-Mask-001A/led-therapy-mask-001a-front.webp',
+    gallery: [
+      '/images/products/LED-Mask-001A/led-therapy-mask-001a-front.webp',
+      '/images/products/LED-Mask-001A/led-therapy-mask-001a-side.webp',
+      '/images/products/LED-Mask-001A/led-therapy-mask-001a-inside-leds.webp',
+      '/images/products/LED-Mask-001A/led-therapy-mask-001a-front-and-inside.webp',
+    ],
+    colorCount: 1,
+    badge: true,
+    // 工厂 B2B 阶梯价（USD/台，2026-10-13 由甲方给定，前台展示）
+    priceTiers: [70.0, 67.5, 64.5, 59.5],
+    tierQuantityKeys: LED_TIER_QUANTITY_KEYS,
+    commercialKeys: LED_COMMERCIAL_KEYS,
+    rsp: 'USD 199–229',
+    priceNote: true,
+  },
+  'led-therapy-mask-002a': {
+    heroImage: '/images/products/LED-Mask-002A/led-therapy-mask-002a-kit.webp',
+    gallery: [
+      '/images/products/LED-Mask-002A/led-therapy-mask-002a-kit.webp',
+      '/images/products/LED-Mask-002A/led-therapy-mask-002a-worn.webp',
+      '/images/products/LED-Mask-002A/led-therapy-mask-002a-lattice.webp',
+      '/images/products/LED-Mask-002A/led-therapy-mask-002a-red-light.webp',
+    ],
+    colorCount: 1,
+    badge: true,
+    priceTiers: [59.2, 56.5, 53.5, 48.5],
+    tierQuantityKeys: LED_TIER_QUANTITY_KEYS,
+    commercialKeys: LED_COMMERCIAL_KEYS,
+    rsp: 'USD 189–219',
+    priceNote: true,
+  },
+  'led-therapy-panel-f618': {
+    heroImage: '/images/products/LED-Panel-F618/led-therapy-panel-f618-front.webp',
+    gallery: [
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-front.webp',
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-lens-array.webp',
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-mode-p1-red.webp',
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-mode-p4.webp',
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-mode-p2-amber.webp',
+      '/images/products/LED-Panel-F618/led-therapy-panel-f618-stand.webp',
+    ],
+    colorCount: 1,
+    badge: true,
+    priceTiers: [45.2, 43.5, 40.5, 36.5],
+    tierQuantityKeys: LED_TIER_QUANTITY_KEYS,
+    commercialKeys: LED_COMMERCIAL_KEYS,
+    rsp: 'USD 169–199',
+    priceNote: true,
+  },
 };
 
 const HIDDEN_SPEC_KEYS = new Set(['maxOpticalPowerDensity', 'deviceSize', 'netWeight', 'bulkMoq']);
@@ -344,11 +442,14 @@ function buildProduct(slug: string): ProductData {
     })),
     priceTiers: assets.priceTiers
       ? assets.priceTiers.map((unitPrice, i) => ({
-          quantity: t(locale, `productDetail.priceTierQuantities.${TIER_KEYS[i]}`),
+          quantity: t(locale, assets.tierQuantityKeys?.[i] ?? `productDetail.priceTierQuantities.${TIER_KEYS[i]}`),
           unitPrice: unitPrice.toFixed(2),
         }))
       : undefined,
     priceNote: assets.priceNote ? t(locale, `${base}.priceNote`) : undefined,
+    commercialSample: t(locale, assets.commercialKeys?.[0] ?? 'productDetail.sampleMoq'),
+    commercialBulk: t(locale, assets.commercialKeys?.[1] ?? 'productDetail.bulkMoqLabel'),
+    rsp: assets.rsp,
     badge: assets.badge ? t(locale, `${base}.badge`) : undefined,
     colors: Array.from({ length: assets.colorCount }, (_, i) => t(locale, `${base}.colors.${i}`)),
     story: getStory(slug),
@@ -356,9 +457,24 @@ function buildProduct(slug: string): ProductData {
 }
 
 export function getStaticPaths() {
-  return ['lumi', 'lumi-2', 'venus', 'hestia', 'alpha', 'emerald', 'euno', 'themis', 'hebe', 'helix', 'eirene', 'wooden'].map(
-    (slug) => ({ params: { slug } }),
-  );
+  return [
+    'lumi',
+    'lumi-2',
+    'venus',
+    'hestia',
+    'alpha',
+    'emerald',
+    'euno',
+    'themis',
+    'hebe',
+    'helix',
+    'eirene',
+    'wooden',
+    // LED light therapy 品类（2026-10-13）
+    'led-therapy-mask-001a',
+    'led-therapy-mask-002a',
+    'led-therapy-panel-f618',
+  ].map((slug) => ({ params: { slug } }));
 }
 
 if (!PRODUCT_ASSETS[slug]) {
@@ -466,7 +582,7 @@ const productSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} blogRecPage={`/products/${slug}`} image={product.heroImage}>
+<BaseLayout title={pageTitle} lang={locale} description={pageDescription} canonical={canonical} blogRecPage={`/products/${slug}`} image={product.heroImage} hideFooterCertClaims={isLedProduct}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
@@ -616,11 +732,14 @@ const productSchema = {
                     <p class="mt-1 text-sm text-neutral-600">{product.priceNote || t(locale, 'productDetail.pricingDepends')}</p>
                   </>
                 )}
+                {product.rsp ? (
+                  <p class="mt-2 text-sm font-semibold text-ink-900">{fill(t(locale, 'productDetail.rspLine'), { value: product.rsp })}</p>
+                ) : null}
               </div>
               <div class="rounded-2xl bg-neutral-50 px-4 py-3 text-sm text-neutral-700">
                 <div class="font-semibold text-ink-900">{t(locale, 'productDetail.commercialBaseline')}</div>
-                <div class="mt-1">{t(locale, 'productDetail.sampleMoq')}</div>
-                <div>{t(locale, 'productDetail.bulkMoqLabel')}</div>
+                <div class="mt-1">{product.commercialSample}</div>
+                <div>{product.commercialBulk}</div>
               </div>
             </div>
 
@@ -735,7 +854,9 @@ const productSchema = {
       </div>
     </section>
 
-    {/* 肤色与毛发适配性：紧接规格/颜色区，先给结论再讲机理（借鉴 Philips 的科普式讲法） */}
+    {/* 肤色与毛发适配性：紧接规格/颜色区，先给结论再讲机理（借鉴 Philips 的科普式讲法）。
+        仅 IPL 机型渲染；LED 光疗品类见上方 LED_SLUGS 的说明。 */}
+    {!isLedProduct && (
     <section class="space-y-8">
       <div class="max-w-3xl">
         <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{suit.heading}</h2>
@@ -764,6 +885,7 @@ const productSchema = {
       </figure>
       <p class="text-sm text-neutral-500">{suit.note}</p>
     </section>
+    )}
 
     <section class="space-y-8">
       <div class="max-w-3xl">

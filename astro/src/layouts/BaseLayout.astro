@@ -36,9 +36,16 @@ type Props = {
   section?: string;
   /** 页面规范路径（en 无前缀形态）。提供后在页尾按固定结构自动渲染「Q&A band + 博客推荐 section」：先 Q&A（复用 /faq 翻译，页面对应类别 4 题），后博客推荐（components/BlogRecommendations）。/faq 页整页即 Q&A，组件内会自动跳过 */
   blogRecPage?: string;
+  /**
+   * 隐藏页脚里的认证宣称（ISO 13485 / FDA 510(k) / CE 那句）。
+   * 默认 false = 现行为不变。LED 光疗品类（2026-10-13 上架）按甲方要求不写任何认证、
+   * 只声明"非医疗产品"，而页脚原文含 "Other models are supplied under CE"，
+   * 会在 LED 页面形成"LED 也有 CE"的错误暗示，故这些页面传 true。
+   */
+  hideFooterCertClaims?: boolean;
 };
 
-const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs, appendBrand = true, blogRecPage, robots, publishedTime, modifiedTime, author, section } = Astro.props as Props;
+const { title, lang = 'en', description, canonical, image, type = 'website', showCornerMarkers = true, stickyNav = true, hreflangs, appendBrand = true, blogRecPage, robots, publishedTime, modifiedTime, author, section, hideFooterCertClaims = false } = Astro.props as Props;
 // 字体策略（2026-08-21 优化 CLS）：
 // 之前用 Google Fonts 外链 + media="print" onload 延迟加载，字体文件在页面 load 后才开始下载，
 // font-display:swap 造成首屏大标题换行重排（CLS）。现改为内联 @font-face（fonts.css，含
@@ -75,7 +82,7 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
     )}
     {showCornerMarkers && <CornerMarker />}
     </main>
-    <SiteFooter lang={lang} />
+    <SiteFooter lang={lang} hideCertClaims={hideFooterCertClaims} />
     <StickyContact />
     <CookieConsent lang={lang} />
     <!-- TODO: iShine AI Chat 尚未构建完成，暂时隐藏，完成后恢复

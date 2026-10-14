@@ -57,6 +57,10 @@
     "hebe": "Hebe",
     "helix": "Helix",
     "eirene": "Eirene",
+    "ledMask001a": "LED Mask 001A",
+    "ledMask002a": "LED Mask 002A",
+    "ledPanelF618": "LED Panel F618",
+    "ledTherapy": "LED Light Therapy",
     "customDesign": "Custom Design",
     "multiFunction": "Multi-Function IPL",
     "dualLamp": "Dual Lamp",
@@ -477,6 +481,18 @@
       "consultDesc": "Medical regulation consultant, dropshipping, global shipping"
     },
     "mega": {
+      "ledMask001a": {
+        "name": "LED Mask 001A",
+        "tagline": "600-LED, 4-Wavelength Mask"
+      },
+      "ledMask002a": {
+        "name": "LED Mask 002A",
+        "tagline": "7 Colours + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED Panel F618",
+        "tagline": "Tabletop 4-Wavelength Panel"
+      },
       "lumi2": {
         "name": "Lumi 2",
         "tagline": "Smart Skin Sensor, cooling to 10°C"
@@ -5327,6 +5343,25 @@
         "launch": "Global launch date",
         "rspNote": "The RSP (excl. VAT) is a reference price derived from historical market trends and our assessment of current market conditions."
       },
+      "led": {
+        "label": "LED Light Therapy",
+        "title": "LED Light Therapy Masks Compared",
+        "description": "Two wearable LED mask platforms, side by side. Both are cosmetic facial-care devices for home use. The F618 tabletop panel is documented on its own product page.",
+        "model": "Model",
+        "compare": {
+          "form": "Form factor",
+          "wavelengths": "Wavelengths",
+          "lightOutput": "Light output",
+          "control": "Control",
+          "sessionTime": "Session time",
+          "coverage": "Application area",
+          "rsp": "Suggested retail price (excl. VAT)",
+          "price": "Factory unit price (USD)",
+          "bestFor": "Best for"
+        },
+        "priceNote": "Unit prices shown are USD per unit for the quantity bands listed; open a product page for the full ladder.",
+        "panelNote": "Looking for the tabletop panel instead? See the F618 LED light therapy panel."
+      },
       "app": "App",
       "seeDetails": "See details →",
       "seeModelDetails": "See {name} details",
@@ -9213,12 +9248,367 @@
         "Champagne"
       ]
     },
+    "led-therapy-mask-001a": {
+      "name": "LED Therapy Mask 001A",
+      "tagline": "4-Wavelength Wearable LED Mask",
+      "description": "A home-use wearable LED skincare mask with 600 SMD LEDs across red, yellow, blue and near-infrared light, eight smart modes, and a handheld remote control that also carries the battery. A cosmetic skincare device for home use - it is not intended to diagnose, treat, cure or prevent any disease or medical condition.",
+      "specs": {
+        "lightSource": {
+          "label": "Light source",
+          "value": "600 SMD LEDs across four wavelengths"
+        },
+        "wavelengths": {
+          "label": "Wavelengths",
+          "value": "630-660 nm red, 590-595 nm yellow, 415 nm blue, 830 nm near-infrared"
+        },
+        "modes": {
+          "label": "Modes",
+          "value": "8 smart modes (M1-M8)"
+        },
+        "control": {
+          "label": "Control",
+          "value": "Handheld remote control (press and hold to power, short press to change mode)"
+        },
+        "sessionTime": {
+          "label": "Session time",
+          "value": "10-15 minutes"
+        },
+        "frequency": {
+          "label": "Recommended frequency",
+          "value": "1-5 sessions per week, depending on the mode"
+        },
+        "maxUse": {
+          "label": "Maximum use per area",
+          "value": "Once per day"
+        },
+        "autoShutoff": {
+          "label": "Auto shut-off",
+          "value": "Yes, at the end of each session"
+        },
+        "battery": {
+          "label": "Battery",
+          "value": "5,000 mAh lithium-ion, built into the remote control"
+        },
+        "charging": {
+          "label": "Charging",
+          "value": "USB-C, approx. 3 hours"
+        },
+        "sessionsPerCharge": {
+          "label": "Sessions per charge",
+          "value": "Approx. 15-20 sessions"
+        },
+        "inputPower": {
+          "label": "Charging input",
+          "value": "DC 5 V 1 A (15 W max)"
+        },
+        "eyeProtection": {
+          "label": "Eye protection",
+          "value": "Built-in eye cups"
+        },
+        "dimensions": {
+          "label": "Dimensions",
+          "value": "243 x 200 x 150 mm (per user manual)"
+        },
+        "weight": {
+          "label": "Net weight",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Finish",
+          "value": "White shell with gold-tone trim"
+        },
+        "headstrap": {
+          "label": "Head fastening",
+          "value": "Adjustable hook-and-loop straps"
+        },
+        "inTheBox": {
+          "label": "In the box",
+          "value": "Mask main unit, remote control, USB-C cable, storage pouch, user manual"
+        },
+        "warranty": {
+          "label": "Warranty",
+          "value": "1 year main device, 6 months accessories"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Four Wavelengths in One Mask",
+          "description": "600 SMD LEDs cover red, yellow, blue and near-infrared light, so a single wearable serves four different cosmetic routines."
+        },
+        "eightSmartModes": {
+          "title": "Eight Smart Modes",
+          "description": "M1 to M8 pair specific wavelength combinations for different cosmetic concerns, switched from the handheld remote control."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 Sessions per Charge",
+          "description": "A 5,000 mAh battery inside the remote control powers roughly 15-20 sessions and recharges over USB-C in about three hours."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Eye Cups and Auto Shut-Off",
+          "description": "Built-in eye cups shield the eyes during use, and the mask switches itself off when the session ends."
+        }
+      },
+      "priceNote": "Unit prices are EXW, in USD per unit, for the quantities shown. Logo printing, custom manuals and retail packaging are quoted separately - contact us for a full quotation.",
+      "badge": "4 Wavelengths",
+      "colors": [
+        "White / Gold"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED Therapy Mask 002A",
+      "tagline": "7 Colours + NIR Silicone LED Mask",
+      "description": "A home-use LED skincare mask in soft silicone and ABS, carrying 264 LEDs across seven visible colours plus 850 nm near-infrared. A 3,000 mAh battery runs for about three hours and recharges in roughly one hour. A cosmetic skincare device for home use - it is not intended to diagnose, treat, cure or prevent any disease or medical condition.",
+      "specs": {
+        "productName": {
+          "label": "Product name",
+          "value": "LED Facial Mask"
+        },
+        "modelNo": {
+          "label": "Model No.",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Material",
+          "value": "Soft silicone + ABS"
+        },
+        "productSize": {
+          "label": "Product size",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Product weight",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Packaging size",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Packaging weight",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "QTY",
+          "value": "20 pcs per carton"
+        },
+        "cartonSize": {
+          "label": "Carton size",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "N.W. / G.W.",
+          "value": "12.8 kg / 13.4 kg per carton"
+        },
+        "color": {
+          "label": "Colour",
+          "value": "Rose golden / customizable"
+        },
+        "feature": {
+          "label": "Feature",
+          "value": "7 colours + NIR (near-infrared) LED light therapy"
+        },
+        "ledColours": {
+          "label": "LED colours",
+          "value": "Red 630 nm, green 525 nm, blue 465 nm, purple 390 nm, yellow 610 nm, cyan 490 nm, white 460-850 nm (mix), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LEDs",
+          "value": "66 x 4 = 264 pcs"
+        },
+        "battery": {
+          "label": "Battery capacity",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Working time",
+          "value": "Approx. 3 hours"
+        },
+        "chargingTime": {
+          "label": "Charging time",
+          "value": "Approx. 1 hour"
+        },
+        "power": {
+          "label": "Power",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Input voltage",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Package includes",
+          "value": "Mask x1, manual x1, remote controller x1, eye shade x1, charging cable x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Seven Colours + Near-Infrared",
+          "description": "264 LEDs cover red 630 nm, green 525 nm, blue 465 nm, purple 390 nm, yellow 610 nm, cyan 490 nm, white 460-850 nm and 850 nm near-infrared."
+        },
+        "softSiliconeAbs": {
+          "title": "Soft Silicone + ABS",
+          "description": "A 148 g flexible mask measuring 290 x 195 x 3.5 mm that bends with the face instead of sitting away from it."
+        },
+        "fastChargeLongRuntime": {
+          "title": "One-Hour Charge, Three-Hour Runtime",
+          "description": "A 3,000 mAh battery charges in roughly one hour and runs for about three hours."
+        },
+        "completeKit": {
+          "title": "Complete Kit",
+          "description": "Supplied with a handheld remote controller, eye shade, charging cable and user manual."
+        }
+      },
+      "priceNote": "Unit prices are EXW, in USD per unit, for the quantities shown. Logo printing, custom manuals and retail packaging are quoted separately - contact us for a full quotation.",
+      "badge": "7 Colours + NIR",
+      "colors": [
+        "Rose golden (customizable)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED Therapy Panel F618",
+      "tagline": "Tabletop 4-Wavelength Light Panel",
+      "description": "A mains-powered tabletop LED light therapy panel for facial and body cosmetic care: 216 LED chips across blue, yellow, red and infrared wavelengths, 54 faceted lenses, and eight selectable modes. A cosmetic skincare device for home use - it is not intended to diagnose, treat, cure or prevent any disease or medical condition.",
+      "specs": {
+        "packagingName": {
+          "label": "Retail packaging name",
+          "value": "LED Light Therapy Panel"
+        },
+        "lightSource": {
+          "label": "Light source",
+          "value": "LED, 216 chips across four wavelengths"
+        },
+        "ledArray": {
+          "label": "LED array",
+          "value": "54 faceted hexagonal lenses in a honeycomb layout, with four LED chips at each lens position"
+        },
+        "wavelengths": {
+          "label": "Wavelengths",
+          "value": "460 nm blue, 590 nm yellow, 662 nm red, 850 nm infrared"
+        },
+        "infrared": {
+          "label": "Infrared",
+          "value": "850 nm, combined into every treatment mode"
+        },
+        "modes": {
+          "label": "Modes",
+          "value": "8 treatment modes (P1-P8) plus standby"
+        },
+        "control": {
+          "label": "Control",
+          "value": "Single touch key; the active mode code shows on the front display"
+        },
+        "application": {
+          "label": "Application area",
+          "value": "Face and body; two modes are documented for scalp and intimate-area use"
+        },
+        "sessionTime": {
+          "label": "Session time",
+          "value": "15-20 minutes per mode, approx. 20 minutes per body part"
+        },
+        "maxPerArea": {
+          "label": "Maximum use per body part",
+          "value": "30 minutes"
+        },
+        "maxPerSession": {
+          "label": "Maximum use per session",
+          "value": "60 minutes"
+        },
+        "eyeProtection": {
+          "label": "Eye protection",
+          "value": "Protective sunglasses supplied; required during use"
+        },
+        "powerSource": {
+          "label": "Power source",
+          "value": "Mains only, through the supplied adapter (no battery)"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "AC 100-240 V, 50/60 Hz to DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Output power",
+          "value": "15 W max"
+        },
+        "dimensions": {
+          "label": "Dimensions",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Net weight",
+          "value": "620 g (main unit 530 g, adapter 90 g)"
+        },
+        "stand": {
+          "label": "Stand",
+          "value": "Folding rear support leg"
+        },
+        "standards": {
+          "label": "Manufacturing standard",
+          "value": "GB 4706.1-2005 and GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "In the box",
+          "value": "Main unit, power adapter, user manual, protective sunglasses"
+        },
+        "qty": {
+          "label": "QTY",
+          "value": "20 pcs per carton"
+        },
+        "cartonSize": {
+          "label": "Carton size",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Gross weight",
+          "value": "18.835 kg per carton (actual weight)"
+        },
+        "origin": {
+          "label": "Country of origin",
+          "value": "Made in China"
+        },
+        "warranty": {
+          "label": "Warranty",
+          "value": "1 year"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Four Wavelengths, Every Mode",
+          "description": "Blue 460 nm, yellow 590 nm, red 662 nm and infrared 850 nm - infrared is combined into all eight treatment modes."
+        },
+        "lensArray": {
+          "title": "216 LEDs Behind 54 Faceted Lenses",
+          "description": "Each of the 54 lens positions carries four LED chips, arranged in a honeycomb across the panel."
+        },
+        "eightSelectableModes": {
+          "title": "Eight Selectable Modes",
+          "description": "One touch key cycles through P1 to P8, with the active code shown on the front display."
+        },
+        "deskOrFloorStanding": {
+          "title": "Desk or Floor Standing",
+          "description": "A folding rear support leg sets the panel at the angle you need, and it runs from the supplied 12 V adapter."
+        }
+      },
+      "priceNote": "Unit prices are EXW, in USD per unit, for the quantities shown. Logo printing, custom manuals and retail packaging are quoted separately - contact us for a full quotation.",
+      "badge": "Tabletop Panel",
+      "colors": [
+        "White / light grey"
+      ]
+    },
     "priceTierQuantities": {
       "tier1": "1-99 units",
       "tier2": "100-999 units",
       "tier3": "1000-4999 units",
       "tier4": "5000+ units"
     },
+    "ledTierQuantities": {
+      "tier1": "1-99 units",
+      "tier2": "100-499 units",
+      "tier3": "500-1,999 units",
+      "tier4": "2,000+ units"
+    },
+    "ledSampleMoq": "Sample MOQ: 1 unit",
+    "ledBulkMoq": "Bulk MOQ: 500 units (a 200-unit initial order is open to discussion)",
+    "rspLine": "Suggested retail price (excl. VAT): {value}",
     "oemOdmReady": "OEM/ODM Ready",
     "sampleSupport": "Sample Support",
     "factoryDirect": "Factory Direct",
@@ -9322,7 +9712,7 @@
         "kicker": "The numbers behind the claim",
         "title": "iShine by the numbers",
         "metrics": [
-          { "value": "12", "label": "OEM/ODM platforms" },
+          { "value": "15", "label": "OEM/ODM platforms" },
           { "value": "999,000", "label": "flashes per lamp" },
           { "value": "9", "label": "energy levels, max" },
           { "value": "3.0–3.3 cm²", "label": "treatment window" },
@@ -9331,7 +9721,7 @@
           { "value": "$99–$299", "label": "suggested retail window (RSP)" },
           { "value": "from $20", "label": "factory-direct unit price" }
         ],
-        "note": "RSP (excl. VAT) is the suggested retail range of our five flagship platforms. Factory unit pricing runs $20–$58 depending on platform, BOM and volume."
+        "note": "RSP (excl. VAT) is the suggested retail range of our five flagship platforms. Factory unit pricing runs $20–$70 depending on platform, BOM and volume."
       },
       "scqa": {
         "kicker": "Why this page reads differently",
@@ -9612,6 +10002,15 @@
         },
         "helix": {
           "tagline": "Ice Cooling + 9 Intensity Levels"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "600-LED, 4-Wavelength Facial Mask"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "7 Colours + NIR Silicone Mask"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "216-LED Tabletop Light Panel"
         }
       },
       "nextStep": {

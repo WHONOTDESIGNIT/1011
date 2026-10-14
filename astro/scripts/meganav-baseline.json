@@ -1,8 +1,8 @@
 {
   "components/SiteHeader.astro": {
-    "md5": "9304525866b83ee8",
-    "bytes": 19732,
-    "lines": 178,
+    "md5": "f7746d262c430854",
+    "bytes": 22231,
+    "lines": 205,
     "keys": [
       "homepage.mega.about.card.cta",
       "homepage.mega.about.card.desc",
@@ -35,6 +35,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -73,7 +79,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -92,6 +99,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -113,9 +123,9 @@
     ]
   },
   "pages/index.astro": {
-    "md5": "4e13e887c8773715",
-    "bytes": 19350,
-    "lines": 176,
+    "md5": "eb2fe937ebc8d878",
+    "bytes": 21849,
+    "lines": 203,
     "keys": [
       "homepage.mega.about.card.cta",
       "homepage.mega.about.card.desc",
@@ -148,6 +158,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -186,7 +202,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -205,6 +222,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -226,10 +246,17 @@
     ]
   },
   "pages/meet-the-team.astro": {
-    "md5": "193e6f3e214754fb",
-    "bytes": 19744,
-    "lines": 179,
+    "md5": "2ad6870bef219fe0",
+    "bytes": 22243,
+    "lines": 206,
     "keys": [
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
+      "nav.ledTherapy",
       "teamPage.about.card.cta",
       "teamPage.about.card.desc",
       "teamPage.about.card.title",
@@ -319,6 +346,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -340,9 +370,9 @@
     ]
   },
   "pages/services/private-label.astro": {
-    "md5": "4f6ce349817016ec",
-    "bytes": 20147,
-    "lines": 179,
+    "md5": "47b898e7a3b4b4c3",
+    "bytes": 22646,
+    "lines": 206,
     "keys": [
       "homepage.mega.about.brandStory.desc",
       "homepage.mega.about.brandStory.title",
@@ -381,6 +411,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -419,7 +455,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -441,6 +478,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -462,9 +502,9 @@
     ]
   },
   "pages/services/build-a-new-ipl.astro": {
-    "md5": "4f6ce349817016ec",
-    "bytes": 20147,
-    "lines": 179,
+    "md5": "47b898e7a3b4b4c3",
+    "bytes": 22646,
+    "lines": 206,
     "keys": [
       "homepage.mega.about.brandStory.desc",
       "homepage.mega.about.brandStory.title",
@@ -503,6 +543,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -541,7 +587,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -563,6 +610,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -584,9 +634,9 @@
     ]
   },
   "pages/services/find-a-technology-partner.astro": {
-    "md5": "4f6ce349817016ec",
-    "bytes": 20147,
-    "lines": 179,
+    "md5": "47b898e7a3b4b4c3",
+    "bytes": 22646,
+    "lines": 206,
     "keys": [
       "homepage.mega.about.brandStory.desc",
       "homepage.mega.about.brandStory.title",
@@ -625,6 +675,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -663,7 +719,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -685,6 +742,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",
@@ -706,9 +766,9 @@
     ]
   },
   "pages/services/maintain-or-fix-ipl-project.astro": {
-    "md5": "4f6ce349817016ec",
-    "bytes": 20147,
-    "lines": 179,
+    "md5": "47b898e7a3b4b4c3",
+    "bytes": 22646,
+    "lines": 206,
     "keys": [
       "homepage.mega.about.brandStory.desc",
       "homepage.mega.about.brandStory.title",
@@ -747,6 +807,12 @@
       "homepage.mega.golden.tagline",
       "homepage.mega.hebe.name",
       "homepage.mega.hebe.tagline",
+      "homepage.mega.ledMask001a.name",
+      "homepage.mega.ledMask001a.tagline",
+      "homepage.mega.ledMask002a.name",
+      "homepage.mega.ledMask002a.tagline",
+      "homepage.mega.ledPanelF618.name",
+      "homepage.mega.ledPanelF618.tagline",
       "homepage.mega.lumi.name",
       "homepage.mega.lumi.tagline",
       "homepage.mega.lumi2.name",
@@ -785,7 +851,8 @@
       "homepage.mega.venus.tagline",
       "homepage.nav.ourWork",
       "homepage.nav.products",
-      "homepage.nav.services"
+      "homepage.nav.services",
+      "nav.ledTherapy"
     ],
     "hrefs": [
       "/about",
@@ -807,6 +874,9 @@
       "/products/eirene",
       "/products/emerald",
       "/products/hebe",
+      "/products/led-therapy-mask-001a",
+      "/products/led-therapy-mask-002a",
+      "/products/led-therapy-panel-f618",
       "/products/lumi",
       "/products/lumi-2",
       "/products/themis",

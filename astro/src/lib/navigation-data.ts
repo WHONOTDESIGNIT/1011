@@ -33,6 +33,10 @@ export function getSubNavigation(locale: string, href: string): NavigationLink[]
       { path: '/products/hebe', label: t(locale, 'nav.hebe') },
       { path: '/products/eirene', label: t(locale, 'nav.eirene') },
       { path: '/products/wooden', label: t(locale, 'nav.wooden') },
+      // LED light therapy 品类（2026-10-13）
+      { path: '/products/led-therapy-mask-001a', label: t(locale, 'nav.ledMask001a') },
+      { path: '/products/led-therapy-mask-002a', label: t(locale, 'nav.ledMask002a') },
+      { path: '/products/led-therapy-panel-f618', label: t(locale, 'nav.ledPanelF618') },
     ];
 
     return items.map((item) => ({

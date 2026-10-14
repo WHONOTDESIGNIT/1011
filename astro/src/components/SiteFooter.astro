@@ -6,9 +6,15 @@ import { t } from '../lib/i18n';
 
 interface Props {
   lang?: string;
+  /**
+   * 隐藏认证宣称那一行（ISO 13485 / FDA 510(k) / "Other models are supplied under CE"）。
+   * 默认 false = 现行为不变。仅 LED 光疗品类（不写任何认证、只声明非医疗产品）传 true，
+   * 避免页脚在 LED 页面形成"LED 也有 CE/FDA"的错误暗示。
+   */
+  hideCertClaims?: boolean;
 }
 
-const { lang: langProp } = Astro.props as Props;
+const { lang: langProp, hideCertClaims = false } = Astro.props as Props;
 // 未显式传 lang 时，从 URL 自动推导当前语言（兼容直接内联组件且不传参的 develo-* 等页面）
 const locale = langProp || Astro.currentLocale || (Astro.url.pathname.startsWith('/tr') ? 'tr' : Astro.url.pathname.startsWith('/ar') ? 'ar' : Astro.url.pathname.startsWith('/es') ? 'es-ES' : Astro.url.pathname.startsWith('/fr') ? 'fr' : Astro.url.pathname.startsWith('/ru') ? 'ru' : Astro.url.pathname.startsWith('/he') ? 'he' : Astro.url.pathname.startsWith('/pt-br') ? 'pt-BR' : Astro.url.pathname.startsWith('/pt-pt') ? 'pt-PT' : Astro.url.pathname.startsWith('/ro') ? 'ro' : Astro.url.pathname.startsWith('/ko') ? 'ko' : Astro.url.pathname.startsWith('/ja') ? 'ja' : Astro.url.pathname.startsWith('/pl') ? 'pl' : Astro.url.pathname.startsWith('/nl') ? 'nl' : Astro.url.pathname.startsWith('/id') ? 'id' : Astro.url.pathname.startsWith('/fa') ? 'fa' : Astro.url.pathname.startsWith('/el') ? 'el' : Astro.url.pathname.startsWith('/th') ? 'th' : Astro.url.pathname.startsWith('/vi') ? 'vi' : Astro.url.pathname.startsWith('/it') ? 'it' : 'en');
 const lang = locale;
@@ -193,7 +199,9 @@ const loc = (p: string) => getLocalizedPath(lang, p);
       </div>
       <div class="footer-col footer-col-info">
         <p class="footer-company-info">{t(locale, 'homepage.footer.companyIntro')}</p>
+        {!hideCertClaims && (
         <p class="footer-company-info">{t(locale, 'home.qualitySection.items.2.title')} · {t(locale, 'home.qualitySection.items.3.title')}<br/>{t(locale, 'homepage.footer.fdaSupport')}</p>
+        )}
         <p class="footer-company-info" style="margin-top:12px">{t(locale, 'footer.copyright')} <a href={loc("/privacy-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'footer.privacyPolicy')}</a>. <a href={loc("/faq")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">{t(locale, 'nav.faq')}</a>. <a href={loc("/return-policy")} style="display:inline;text-decoration:underline;text-decoration-color:#563cfa;text-underline-offset:3px">Return Policy</a>.</p>
       </div>
     </div>

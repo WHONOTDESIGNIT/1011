@@ -51,6 +51,10 @@ const STATIC_PATHS = [
   '/products/euno',
   '/products/wooden',
   '/products/helix',
+  // LED light therapy 品类（2026-10-13）——新页面必须手工登记在这里，否则不会进 site-urls.txt / IndexNow
+  '/products/led-therapy-mask-001a',
+  '/products/led-therapy-mask-002a',
+  '/products/led-therapy-panel-f618',
   '/components',
   '/components/lamp-cartridges',
   '/components/optical-filters',

@@ -53,6 +53,17 @@ export const FAQ_GROUP_ITEMS: Record<FaqGroupKey, string[]> = {
 };
 
 /**
+ * LED 光疗品类（2026-10-13 上架）的产品页规范路径。
+ * 单一数据源：products/[slug].astro 也 import 这个集合，用来决定是否渲染
+ * 「肤色 / 毛发适配性」区块。
+ */
+export const LED_PRODUCT_PATHS = new Set([
+  '/products/led-therapy-mask-001a',
+  '/products/led-therapy-mask-002a',
+  '/products/led-therapy-panel-f618',
+]);
+
+/**
  * 页面规范路径 → FAQ 类别（顺序敏感：先命中先返回）。
  * 未命中的页面（首页 / about* / clients* / meet-the-team 等）回退到品牌概况组。
  */
@@ -70,6 +81,9 @@ export function getFaqGroup(pageKey: string): FaqGroupKey {
   if (k === '/contact') return 'nextStepsSupport';
   // 服务类与 marketplace → OEM/ODM 商务问答
   if (k.startsWith('/services') || k === '/marketplace') return 'oemOdmServices';
+  // LED 光疗产品页：productCustomization 组 3/4 题是 IPL 专属（含 Fitzpatrick 适用性），
+  // 对 LED 面罩/排灯不适用；改挂打样 / 交期 / 包装 / 物流组，该组 4 题无品类专属宣称。
+  if (LED_PRODUCT_PATHS.has(k)) return 'moqLeadTimeLogistics';
   // 产品 / 目录 → 产品定制与 IPL 基础
   if (k.startsWith('/products') || k === '/catalogue') return 'productCustomization';
   return 'generalAboutIshine';
