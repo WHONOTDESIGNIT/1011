@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createLastmodResolver } from './lib/sitemap-lastmod.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '../dist');
@@ -130,12 +131,18 @@ function main() {
   }
   const base = resolveBaseUrl();
   const files = walkHtml(DIST);
+  // lastmod 解析器：一次性扫 git 历史（实测约 0.8 秒），为每个 URL 推导真实内容变更时间
+  const lastmodResolver = createLastmodResolver();
+  const lastmodFor = (lang, urlPath) => {
+    try { return lastmodResolver.lastmodFor(lang, urlPath); } catch { return null; }
+  };
+  const lastmodStat = { set: 0, omitted: 0 };
 
   // 1) 文件 → { 语言组, URL }
   const groups = {}; // lang -> [{ url, alternates, image }]
-  const add = (lang, url, alternates, image = null) => {
+  const add = (lang, url, alternates, image = null, lastmod = null) => {
     if (!groups[lang]) groups[lang] = [];
-    groups[lang].push({ url, alternates, image });
+    groups[lang].push({ url, alternates, image, lastmod });
   };
 
   // 跳过台账：每一次跳过都记下产物路径与原因，收尾统一打印 + 阈值校验（见文件头 MAX_CANONICAL_MISMATCH）。
@@ -194,7 +201,11 @@ function main() {
     }
 
     allUrls.add(url);
-    add(lang, url, alternates, extractArticleImage(html));
+    // 解析器接收的是「去 locale 前缀」的站内路径（它自己按 lang 决定去查哪个语种的源文件）
+    const lmPath = (lang !== 'en' && url.startsWith(`/${lang}/`)) ? url.slice(lang.length + 1) : url;
+    const lm = lastmodFor(lang, lmPath || '/');
+    if (lm) lastmodStat.set++; else lastmodStat.omitted++;
+    add(lang, url, alternates, extractArticleImage(html), lm);
   }
 
   // 1.5) 跳过台账：显式打印 + 阈值校验（不允许静默丢 URL）
@@ -231,6 +242,7 @@ function main() {
   const order = ['en', ...LANG_URL_PATHS];
   let locTotal = 0;
   const xmlEscapeAttrs = escapeXml;
+  const langLastmod = {};   // lang -> 本子 sitemap 内最大 lastmod（供索引使用）
   for (const lang of order) {
     const entries = (groups[lang] || [])
       .sort((a, b) => a.url.localeCompare(b.url))
@@ -244,9 +256,16 @@ function main() {
         const image = e.image
           ? `\n    <image:image>\n      <image:loc>${xmlEscapeAttrs(e.image)}</image:loc>\n    </image:image>`
           : '';
-        return `  <url>\n    <loc>${xmlEscapeAttrs(loc)}</loc>\n${links}${image}\n  </url>`;
+        // lastmod：Bing 用它决定「优先重抓 / 跳过」，是其唯一认可的时效信号
+        // （changefreq / priority 被 Bing 明确忽略）。取值口径见 lib/sitemap-lastmod.mjs。
+        // 分类聚合页无独立内容文件 → 返回 null，此处不输出该标签。
+        const lm = e.lastmod
+          ? `\n    <lastmod>${xmlEscapeAttrs(e.lastmod)}</lastmod>`
+          : '';
+        return `  <url>\n    <loc>${xmlEscapeAttrs(loc)}</loc>${lm}\n${links}${image}\n  </url>`;
       });
     locTotal += entries.length;
+    langLastmod[lang] = (groups[lang] || []).reduce((m, e) => (e.lastmod && e.lastmod > m ? e.lastmod : m), '');
     const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
       entries.join('\n') +
@@ -259,7 +278,10 @@ function main() {
   // 3) sitemap 索引（统一入口，robots.txt / llms.txt / IndexNow 均指向此处）
   const indexXml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    order.map((lang) => `  <sitemap><loc>${xmlEscapeAttrs(`${base}/sitemap-${lang}.xml`)}</loc></sitemap>`).join('\n') +
+    order.map((lang) => {
+      const lm = langLastmod[lang] ? `\n    <lastmod>${xmlEscapeAttrs(langLastmod[lang])}</lastmod>` : '';
+      return `  <sitemap><loc>${xmlEscapeAttrs(`${base}/sitemap-${lang}.xml`)}</loc>${lm}</sitemap>`;
+    }).join('\n') +
     '\n</sitemapindex>\n';
   writeFileSync(path.join(DIST, 'sitemap.xml'), indexXml);
 
@@ -276,6 +298,25 @@ function main() {
   }
   console.log(`✅ sitemap 生成完成：${order.length} 个语言文件 + 索引，共 ${locTotal} 条 URL（HTML 产物 ${htmlCount}，跳过 ${skipped}）`);
   console.log(`   索引入口：${base}/sitemap.xml`);
+
+  // lastmod 覆盖报告：Bing 用它决定重抓优先级，覆盖率不该默默退化
+  const lmPct = ((lastmodStat.set / locTotal) * 100).toFixed(1);
+  if (!lastmodResolver.hasGit) {
+    console.warn(`⚠ lastmod：git 历史不可用。` +
+      (lastmodResolver.mtimeTrusted
+        ? `已退化为「仅文件 mtime」（会造成部分 URL 无 lastmod）。`
+        : `且 mtime 不可信（疑似 CI 全新 checkout，全部文件同一时刻）——` +
+          `为避免输出「全部相同」的假 lastmod，已整体省略。`));
+  }
+  console.log(`   lastmod：${lastmodStat.set}/${locTotal} 条已标注（${lmPct}%），` +
+    `${lastmodStat.omitted} 条省略` +
+    `（分类聚合页无独立内容文件，按 Bing 口径「宁可缺失不可编造」）`);
+  // 守卫：真实变更时间应来自源文件，覆盖率骤降通常意味着映射失效或 git 退化
+  if (lastmodStat.set < locTotal - 600) {
+    console.error(`❌ lastmod 覆盖率异常偏低（已标注 ${lastmodStat.set}，省略 ${lastmodStat.omitted}）；` +
+      `省略量应约等于分类聚合页数量（462）。请检查 lib/sitemap-lastmod.mjs 的映射与 git 可用性。`);
+    process.exit(1);
+  }
 }
 
 try {
