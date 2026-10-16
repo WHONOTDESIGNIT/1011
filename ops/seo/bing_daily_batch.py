@@ -201,7 +201,11 @@ def main():
         print('❌ 未找到 API key：请把 key 写入 %s，或设置环境变量 BING_WEBMASTER_API_KEY' % KEY_FILE)
         sys.exit(1)
     if not key:
-        print('  [dry-run] 未配置 API key —— 干跑不发请求，故不视为错误')
+        # 干跑的意义就是验证配置。缺 key 说明配置不全，此时报成功会给出虚假信心。
+        print('❌ 未找到 API key（环境变量 BING_WEBMASTER_API_KEY / 本目录 bing_api_key.txt /'
+              ' DSH_WORKSPACE/bing_api_key.txt 均无）')
+        print('   干跑用于验证配置是否齐备，配置缺失时不应报告成功。')
+        sys.exit(2)
 
     today = datetime.datetime.now(datetime.UTC).strftime('%Y-%m-%d')
     done = valid_urls()
@@ -213,7 +217,17 @@ def main():
 
     if dry_run_enabled():
         # 干跑不发任何请求（不落盘已在 write_path 处处理；这里是"不打 API"）
-        print('  [dry-run] 已确认 API key、清单 %d 条、剩余待查 %d 条' % (len(load_urls()), len(todo)))
+        all_urls = load_urls()
+        print('  [dry-run] API key  : 已取得')
+        print('  [dry-run] 清单文件 : %s（%d 条）' % (LIST, len(all_urls)))
+        print('  [dry-run] 结果文件 : %s（%s）' % (
+            RESULTS, '存在，已有 %d 条有效结论' % len(done) if os.path.exists(RESULTS) else '不存在 —— 视为全新状态'))
+        print('  [dry-run] 剩余待查 : %d 条' % len(todo))
+        if not all_urls:
+            print('❌ 清单为空，几乎一定是 DSH_REPO_ROOT 配错（期望 site-urls.txt 有内容）')
+            sys.exit(2)
+        if not os.path.exists(RESULTS) and done:
+            print('⚠ 结果文件不存在但已有完成记录，状态不一致，请检查 DSH_DATA_DIR')
         print('  [dry-run] 跳过全部 GetUrlInfo 请求（未发网络调用）')
         stage_note('bing_daily_batch', '本应查询 %d 条（已跳过）' % len(todo))
         return
