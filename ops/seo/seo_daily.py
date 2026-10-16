@@ -11,8 +11,21 @@
 import sys, os, json, datetime, time, hashlib, urllib.request, urllib.parse, re
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
+# ── 统一配置 / 干跑层（模式见同目录 preflight.py；本目录其余脚本照抄此段）──────
+from preflight import (require_env, optional_env, preflight, dry_run_enabled,
+                       write_path, stage_note)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
-PLANS = os.path.join(HERE, 'plans')
+
+# 路径：不写死本机绝对路径。REPO_ROOT 指向站点仓库（含 site-urls.txt、astro/）。
+# 本脚本当前的输入都来自相对 __file__ 的 PLANS/，REPO_ROOT 尚未被读到——
+# 它是为 _bing_verify.py 那类需要直接读仓库 site-urls.txt 的批处理工具预留的，
+# 故现在就设为必需：那批工具即将迁入，提前设好省得再改一次。
+# 失败模式是响亮的 exit 2 + 变量名与用途说明，不是静默错误，故"必需但暂未使用"是安全的。
+REPO_ROOT = require_env('DSH_REPO_ROOT', '站点仓库根目录（含 site-urls.txt、astro/）—— 当前为预留，见上方注释')
+WORKSPACE = optional_env('DSH_WORKSPACE', os.path.dirname(HERE))
+
+PLANS = os.path.join(HERE, 'plans')          # 输入数据：相对本脚本，随目录迁移
 URLS_FILE = os.path.join(PLANS, 'site-urls.txt')
 STATE_FILE = os.path.join(PLANS, 'seo-state.json')
 REPORT_DIR = os.path.join(PLANS, 'daily-reports')
@@ -134,7 +147,7 @@ def calibrate_urls(verbose=True):
     if changed:
         # 重排：优先级排序后写回
         urls = sorted(live, key=lambda u: _prio_key(u))
-        with open(URLS_FILE, 'w', encoding='utf-8') as f:
+        with open(write_path(URLS_FILE), 'w', encoding='utf-8') as f:
             f.write('\n'.join(urls) + '\n')
         # 同步更新 site-urls.md
         _write_urls_md(urls)
@@ -184,7 +197,7 @@ def _write_urls_md(urls):
         for u in urls:
             by.setdefault(lang_of(u), []).append(u)
         md_path = os.path.join(PLANS, 'site-urls.md')
-        with open(md_path, 'w', encoding='utf-8') as f:
+        with open(write_path(md_path), 'w', encoding='utf-8') as f:
             f.write('# iplmanufacturer.com 全站 URL 清单（%d 语言，无尾斜杠）\n\n' % len(by))
             f.write('生成: 校准自动更新 | 总 URL: %d | 来源: 线上 sitemap.xml\n\n' % len(urls))
             for lang in ['en'] + [l for l in sorted(by) if l != 'en']:
@@ -211,8 +224,10 @@ def load_state():
             'naver_submitted': {}, 'seznam_submitted': {}, 'last_run': ''}
 
 def save_state(state):
-    with open(STATE_FILE, 'w', encoding='utf-8') as f:
+    # 干跑下重定向到 .dry-run/，真实状态文件零改动（见 ops/preflight.py 的模式说明）
+    with open(write_path(STATE_FILE), 'w', encoding='utf-8') as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
+    stage_note('save_state', '写了 %d 个引擎的提交记录' % len(state))
 
 def en_ru_pool(urls):
     en, ru = [], []
@@ -298,6 +313,10 @@ def gsc_sitemap_submit():
 
     UIA（无障碍树 = DOM 级）后台驱动优先：不依赖屏幕坐标/OCR/窗口焦点；
     UIA 环境不可用时回退 OCR+坐标流程。返回 (ok, note)。"""
+    if dry_run_enabled():
+        # 干跑不启动浏览器：UIA/OCR 都会真实操作桌面，属于副作用
+        stage_note('gsc_sitemap_submit', '本应驱动浏览器提交 sitemap.xml（已跳过）')
+        return True, 'DRY-RUN 已跳过（未驱动浏览器）'
     try:
         r = _gsc_sitemap_submit_uia()
         if r is not None:
@@ -875,6 +894,10 @@ def indexnow_submit(urls, host='iplmanufacturer.com'):
 
     请求体含 keyLocation（与 1011-main 的 submit-indexnow.mjs 一致），
     便于引擎校验 key 文件（尤其 Yandex）。"""
+    if dry_run_enabled():
+        # 干跑：绝不发请求。返回签名必须与真实路径一致，否则调用方解包会炸。
+        stage_note('indexnow_submit', '本应对 %d 条发 POST（已跳过）' % len(urls))
+        return True, 'DRY-RUN 已跳过（未发请求）'
     if not INDEXNOW_KEY:
         return False, 'IndexNow key 未配置（需在站点根目录部署 {key}.txt）'
     key_location = 'https://%s/%s.txt' % (host, INDEXNOW_KEY)
@@ -895,6 +918,9 @@ def indexnow_submit_batch(urls, host='iplmanufacturer.com',
 
     Returns (ok, msg, submitted_count)。
     msg 汇总每片的 HTTP 结果，如 '2707条→HTTP 200'。"""
+    if dry_run_enabled():
+        stage_note('indexnow_submit_batch', '本应对 %d 条发 POST（已跳过）' % len(urls))
+        return True, 'DRY-RUN 已跳过（%d 条未推送）' % len(urls), 0
     if not urls:
         return True, '无待推送 URL', 0
     if not INDEXNOW_KEY:
@@ -942,6 +968,10 @@ def site_index_check(engine, search_url, site='iplmanufacturer'):
     复用周报的浏览器驱动逻辑（Edge + 截图 + OCR）。
     site 参数为域名主体（不含 .com），如 'iplmanufacturer'。
     Returns (count_or_None, note)."""
+    if dry_run_enabled():
+        # 干跑不启动浏览器（Edge + 截图 + OCR 都会真实操作桌面）
+        stage_note('site_index_check', '%s: 本应浏览器实测（已跳过）' % engine)
+        return None, 'DRY-RUN 已跳过（未驱动浏览器）'
     sys.path.insert(0, HERE)
     import time as _t
     import wx_driver as wd
@@ -1087,6 +1117,7 @@ def bing_batch_progress():
 
 
 def main():
+    preflight()   # 缺必需变量就在这里一次性报出并退出（不回落默认值）
     today = datetime.date.today().isoformat()
 
     # ---- 校准步骤：提交前把 URL 清单与线上 sitemap 对齐 ----
@@ -1135,7 +1166,7 @@ def main():
         state['bing_submitted'][u] = today
 
     # ---- report ----
-    os.makedirs(REPORT_DIR, exist_ok=True)
+    os.makedirs(write_path(os.path.join(REPORT_DIR, '_')), exist_ok=True)  # 干跑下建到暂存区
     rep = []
     rep.append('# SEO 每日工作报告 %s' % today)
     rep.append('')
@@ -1223,12 +1254,12 @@ def main():
 
     rep_text = '\n'.join(rep)
     report_file = os.path.join(REPORT_DIR, 'daily-report-%s.md' % today)
-    with open(report_file, 'w', encoding='utf-8') as f:
+    with open(write_path(report_file), 'w', encoding='utf-8') as f:
         f.write(rep_text)
     state['last_run'] = today
     save_state(state)
     print(rep_text)
-    print('\n[saved]', report_file)
+    print('\n[saved]', write_path(report_file))
     # 注意：此处只「起草」报告（生成文件），不发送邮件。
     # 邮件由计划任务 DSH_SEO_Email 在次日北京时间 08:00 发送。
 

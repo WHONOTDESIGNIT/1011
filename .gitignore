@@ -141,3 +141,7 @@ ops/seo/_bing_buckets.json
 ops/seo/*.log
 # 覆盖率工作簿等本地导出（*.xlsx 已在上面全局忽略，此处再显式兜一层）
 ops/seo/*.xlsx
+# SEO 运维脚本的干跑暂存目录（--dry-run 产物，不入库）
+ops/seo/.dry-run/
+ops/seo/plans/
+ops/seo/*.committed-bak

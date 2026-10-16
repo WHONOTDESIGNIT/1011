@@ -56,6 +56,61 @@ python ops/seo/clean_check.py --staged                # 只查已暂存的文件
 最终结果是大家开始加 `--no-verify`，规则形同虚设。
 
 
+## 配置与干跑的统一模式（新增脚本照抄此节）
+
+**`preflight.py` 是模式定义文件。** 本目录每个脚本都必须按同一套写法接配置与干跑，
+不要各写各的——8 个脚本 8 种风格会让下一次维护无从下手。
+
+```python
+from preflight import (require_env, optional_env, preflight, dry_run_enabled,
+                       write_path, stage_note)
+
+REPO_ROOT = require_env('DSH_REPO_ROOT', '站点仓库根目录（含 site-urls.txt）')
+TIMEOUT   = optional_env('DSH_TIMEOUT', '30')     # 只有确实该有默认值的才用 optional_env
+
+def main():
+    preflight()            # 缺必需变量则一次性报出全部并 exit 2
+    ...
+
+# 写入前把路径交给 write_path()：
+with open(write_path(STATE_FILE), 'w') as f: ...
+# 读取**不要**用 write_path——读取要基于真实输入，只让"写"改道
+
+# 任何会发请求 / 驱动浏览器的函数，开头一行 guard：
+if dry_run_enabled():
+    stage_note('indexnow_submit', '本应对 %d 条发 POST（已跳过）' % len(urls))
+    return True, 'DRY-RUN 已跳过'
+```
+
+四条硬性约定：
+
+1. **必需变量缺失即失败，不回落默认值。** 静默默认值会让脚本在错误路径上跑出
+   "看起来正常"的结果，比直接报错危险得多。`require_env` 只记录，由 `preflight()`
+   汇总后一次性报出（含变量名与用途），退出码 2。
+2. **guard 的返回签名必须与真实路径一致。** 少一个元组元素，调用方解包就炸——
+   而这个错误只在干跑时暴露。
+3. **干跑的写入重定向到 `.dry-run/<时间戳>/`，不是丢弃。** 干跑的价值之一是能检视
+   "本来会写出什么"；同时保证真实文件零改动。检视 `would-do.log` 可见全部被跳过的副作用。
+4. **干跑不得触碰桌面。** 浏览器驱动（UIA/OCR）也算副作用，必须 guard。
+
+### 验证干跑真的无副作用
+
+**不要靠读代码**（那依赖你是否想到了全部副作用点）。跑前后比对文件 mtime：
+
+```bash
+# 跑前留快照
+find ops/seo -type f -printf '%p|%T@|%s\n' | sort > /tmp/before.txt
+python ops/seo/seo_daily.py --dry-run
+find ops/seo -type f -printf '%p|%T@|%s\n' | sort > /tmp/after.txt
+diff /tmp/before.txt /tmp/after.txt   # 差异应只出现在 .dry-run/ 下
+```
+
+任何 `.dry-run/` 之外的改动都说明有漏网的写入。
+
+`seo_daily.py` 的实测结果（2026-10-16）：退出码 0；差异 3 项全部位于
+`.dry-run/20261016-141611/`（日报、重定向后的状态文件、`would-do.log`）；
+真实 `plans/seo-state.json` 的 mtime 未变。
+
 ## 使用前提
 
 1. 按 `CONFIG.example.env` 设置环境变量
