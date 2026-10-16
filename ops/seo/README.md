@@ -33,16 +33,28 @@ sitemap 文件而不是页面，持续多日无人察觉。**有 git 历史时�
 
 ## 另在别处维护的脚本
 
-下列脚本与本目录同属运维逻辑，但**尚含写死的本机路径**（`C:\Users\<user>\...`
-或盘符绝对路径），脱敏改造后再移入；当前留在本地工作区：
+下列脚本与本目录同属运维逻辑，**尚未迁入**（待按 `CONFIG.example.env` 的口径
+统一配置来源后再移入）；当前留在本地工作区：
 
 - `_gsc_run.mjs`、`_gsc_daily.ps1`、`_gsc_daily_merge.py`、`_gsc_supervisor.ps1`
 - `_gsc_single.mjs`、`_gsc_verdict_test.mjs`、`_gsc_inspect_batch.mjs`、`_gsc_login.mjs`
 - `bing_daily_batch.py`、`_bing_verify.py`、`_bing_reclassify.py`
 - `seo_email_smtp.py`（引用 `seo_smtp_config.json`）、`medium_daily.py`
 
-改造要点见 `CONFIG.example.env` 的注释：路径改环境变量，凭据留外部文件，
-并在缺配置时**显式报错**而不是回落到错误默认值。
+迁入时要满足的硬性要求：不写死本机路径、凭据只从外部文件读、
+缺配置显式报错。用 `clean_check.py` 验证后再提交。
+
+## 提交前自检
+
+```bash
+python ops/seo/clean_check.py --changed origin/main   # 只查本次改动涉及的文件
+python ops/seo/clean_check.py --staged                # 只查已暂存的文件
+```
+
+退出码 0 = 通过，1 = 有命中。规则见脚本头部注释（绝对路径、凭据形态、
+凭据赋值、联系信息、内网地址）。**只扫改动文件**是刻意的：全量扫描会拖慢每次提交，
+最终结果是大家开始加 `--no-verify`，规则形同虚设。
+
 
 ## 使用前提
 

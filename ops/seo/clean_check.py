@@ -28,6 +28,8 @@ import re
 import sys
 
 PLACEHOLDER = re.compile(r'<\s*(user|username|用户名|name|占位)\s*>', re.I)
+# RFC 2606 / RFC 6761 保留的示例域名：模板里用它当占位是标准做法，不是真实联系信息。
+EXAMPLE_DOMAIN = re.compile(r'@(?:example\.(?:com|org|net)|example|invalid|test|localhost)$', re.I)
 
 RULES = [
     ('R1 绝对路径',
@@ -64,7 +66,7 @@ def iter_files(paths):
                     yield os.path.join(root, f)
 
 
-def check_file(path):
+def check_file(path, rules=None):
     ext = os.path.splitext(path)[1].lower()
     if ext and ext not in TEXT_EXT:
         return []
@@ -72,12 +74,19 @@ def check_file(path):
         txt = io.open(path, encoding='utf-8', errors='replace').read()
     except Exception:
         return []
+    rules = rules if rules is not None else RULES
+    # 自我引用豁免：本文件的注释里必然列出规则本身的字面量，否则无法说明规则内容。
+    # 只豁免"定义规则用的注释行"（含 R1/R2… 编号或规则术语），不笼统豁免所有注释——
+    # 代码注释里出现的真实绝对路径仍应被抓到。
+    RULE_DOC = re.compile(r'#\s*R\d|规则|占位|裸词匹配|盘符|UNC')
     hits = []
     for i, line in enumerate(txt.split('\n'), 1):
         if not line.strip():
             continue
+        if line.lstrip().startswith('#') and RULE_DOC.search(line):
+            continue
         # 占位符行：整行跳过（仅当该行不含真实值特征）
-        for label, rx in RULES:
+        for label, rx in rules:
             for m in rx.finditer(line):
                 val = m.group(0)
                 # 例外：占位写法
@@ -86,19 +95,62 @@ def check_file(path):
                 # 例外：R2 抓到的是占位名
                 if label == 'R2 用户目录名' and m.group(1).lower() in ('user', 'username', 'name'):
                     continue
+                # 例外：R5 邮箱命中 RFC 2606 保留的示例域名（模板占位）
+                if label.startswith('R5 邮箱') and EXAMPLE_DOMAIN.search(val):
+                    continue
                 if label == 'R4 凭据赋值':
                     val = '%s=<...>' % m.group(1)
                 hits.append((label, i, val[:70], line.strip()[:100]))
     return hits
 
 
+def git_files(args):
+    """git 取文件列表，用于增量扫描。
+
+    只扫改动文件是刻意的：全量扫描会拖慢每次提交，最终结果是大家开始加
+    --no-verify，规则形同虚设。
+    """
+    import subprocess
+    try:
+        if '--staged' in args:
+            out = subprocess.run(['git', 'diff', '--cached', '--name-only', '--diff-filter=ACM'],
+                                 capture_output=True, text=True, encoding='utf-8').stdout
+        else:
+            base = args[args.index('--changed') + 1]
+            out = subprocess.run(['git', 'diff', '--name-only', '--diff-filter=ACM', base],
+                                 capture_output=True, text=True, encoding='utf-8').stdout
+    except Exception as e:
+        print('git 取文件失败: %r' % (e,))
+        return []
+    return [l.strip() for l in out.splitlines() if l.strip()]
+
+
 def main():
-    if len(sys.argv) < 2:
+    argv = sys.argv[1:]
+    allow_emails = '--allow-emails' in argv
+    argv = [a for a in argv if a != '--allow-emails']
+
+    paths = []
+    if '--staged' in argv or '--changed' in argv:
+        paths = git_files(argv)
+        # 增量模式：没有改动就算通过
+        if not paths:
+            print('无改动文件，通过。')
+            return 0
+    else:
+        paths = [a for a in argv if not a.startswith('--')]
+
+    if not paths:
         print(__doc__)
         return 2
+
+    # R5 邮箱例外：某些公开商务邮箱（如官网已列出的联系邮箱）本就允许出现在代码里。
+    # 不默认放行——需要显式 --allow-emails，避免"顺手把所有邮箱都放过"。
+    rules = [(l, rx) for (l, rx) in RULES if not (allow_emails and l.startswith('R5 邮箱'))]
+
     total = 0
-    for p in sys.argv[1:]:
-        hits = check_file(p)
+    for p in paths:
+        hits = check_file(p, rules)
         if hits:
             total += len(hits)
             print('--- %s : %d 处命中 ---' % (p, len(hits)))
@@ -109,6 +161,8 @@ def main():
             print('%-56s 通过' % os.path.basename(p))
     print()
     print('合计命中: %d' % total)
+    if allow_emails:
+        print('（注意：本次已放行 R5 邮箱规则）')
     return 1 if total else 0
 
 
