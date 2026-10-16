@@ -8,8 +8,11 @@ if (!REPO_ROOT) { console.error('[gsc_run] 缺少 DSH_REPO_ROOT（站点仓库�
 const require = createRequire(`${REPO_ROOT}/astro/package.json`);
 const { chromium } = require('playwright');
 
-const DIR = process.env.DSH_WORKSPACE;
-if (!DIR) { console.error('[gsc_run] 缺少 DSH_WORKSPACE（工作区根目录，含 _gsc_todo.json / _gsc_results.jsonl）'); process.exit(2); }
+// Flat data files (_gsc_todo.json, _gsc_results.jsonl) live in DSH_DATA_DIR, which
+// defaults to DSH_WORKSPACE. They are NOT under .wx-bridge, which is what
+// DSH_WORKSPACE means.
+const DIR = process.env.DSH_DATA_DIR || process.env.DSH_WORKSPACE;
+if (!DIR) { console.error('[gsc_run] 缺少 DSH_DATA_DIR / DSH_WORKSPACE（含 _gsc_todo.json / _gsc_results.jsonl）'); process.exit(2); }
 const TODO_FILE = `${DIR}/_gsc_todo.json`;
 const RESULT_FILE = `${DIR}/_gsc_results.jsonl`;
 const SHOT_DIR = process.env.DSH_SHOT_DIR;

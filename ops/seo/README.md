@@ -142,6 +142,37 @@ diff /tmp/before.txt /tmp/after.txt   # 差异应只出现在 .dry-run/ 下
 `.dry-run/20261016-141611/`（日报、重定向后的状态文件、`would-do.log`）；
 真实 `plans/seo-state.json` 的 mtime 未变。
 
+## 计划任务如何调用（launcher 机制）
+
+**所有计划任务都通过 `run-task.ps1 -Name <任务名>` 启动**，参数与说明集中在 `tasks.json`，
+路径与凭据集中在 `.env`（不入库，从 `CONFIG.example.env` 复制）。
+
+```
+程序: powershell.exe
+参数: -NoProfile -ExecutionPolicy Bypass -File "<repo>\ops\seo\run-task.ps1" -Name bing-coverage
+```
+
+```powershell
+.\run-task.ps1 -Name bing-coverage -List          # 看这个任务会跑什么（不执行）
+.\run-task.ps1 -Name bing-coverage -ExtraArgs "--dry-run"   # 手工加开关
+```
+
+**为什么参数放在 `tasks.json` 而不写在任务命令行里**（这是踩过的坑）：
+把 `--dry-run` 经 `powershell.exe -File` 传参**不可靠** —— 外层 PowerShell 先做参数绑定，
+一个以连字符开头、后面没有空白的 token 会被**逐字符展开**，`--dry-run` 变成
+`- - d r y - r u n`；`--limit 10` 只因为空格终止扫描才幸免。用 argv 探针实测确认过。
+把开关放进文件，就从根上消除了这个失败模式，而不是继续绕过它。
+
+**为什么启动器是 `.ps1` 而不是 `.cmd`**：`.cmd` 的 `for /f` 用**系统 ANSI 码页**读取文件，
+而 `.env` 是 UTF-8，中文路径（本机工作区路径就是中文）会被读坏，表现为"变量明明配了却为空"。
+PowerShell 可以显式指定 UTF-8 读取，因此启动器必须是 PowerShell。
+
+**两条硬性约定**：
+1. **`.ps1` 文件保持纯 ASCII。** Windows PowerShell 5.1 对**无 BOM** 的 UTF-8 文件按 ANSI
+   码页解码，非 ASCII 内容会变乱码并可能破坏语法。中文留给 Python 脚本打印。
+2. **启动器设置 `[Console]::OutputEncoding = UTF-8`。** 否则 5.1 用 ANSI 码页解码子进程
+   stdout，Python 打印的中文在日志里会变成乱码。
+
 ## 使用前提
 
 1. 按 `CONFIG.example.env` 设置环境变量
