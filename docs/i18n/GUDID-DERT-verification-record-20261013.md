@@ -1,8 +1,9 @@
 # DERT 一手依据记录 —— GUDID Brand Name 两项结论（已落实）
 
-> 依据文件：`C:\Users\mark\Downloads\GUDID-Data-Elements-Reference-Table_1.xlsx`
+> 依据文件：`GUDID-Data-Elements-Reference-Table_1.xlsx`（FDA 发布的表格，331 KB，下载后本地读取；
+> 不记录本机存放路径，任何人从下列官方地址重新下载即可得到同一份文件）
 > 来源：FDA 官方资源页 → `https://www.fda.gov/media/120974/download?attachment`（XLSX 331 KB）
-> 读取方式：本机直接读 XLSX（DSH 自带 Python + openpyxl），**非二手解读**
+> 读取方式：直接读 XLSX（Python + openpyxl），**非二手解读**
 > 日期：2026-10-13
 
 ---
