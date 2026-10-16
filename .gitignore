@@ -107,7 +107,7 @@ astro/ui-audit-shots/
 # Local Netlify folder
 .netlify
 
-# ���� UI ��Ʋ������⣩
+# 本地 UI 审计产物（不入库）
 astro/.pw-browsers/
 astro/ui-audit-report.json
 astro/ui-audit-shots/
@@ -120,3 +120,24 @@ docs/internal/
 
 # 子代理/脚本的本地备份文件（绝不提交）
 *.bak
+
+# ===== SEO 运维脚本（ops/seo）：只入逻辑，不入状态与凭据 =====
+# 状态文件每日变动，版本化只产生噪音 diff，其价值在"当前值"而非历史
+ops/seo/seo-state.json
+ops/seo/weekly-audit-state.json
+ops/seo/*-state.json
+ops/seo/plans/
+# 凭据：绝不入库（seo_email_smtp.py 读同目录 seo_smtp_config.json）
+ops/seo/seo_smtp_config.json
+ops/seo/bing_api_key.txt
+ops/seo/indexnow_key.txt
+ops/seo/*api*key*.txt
+ops/seo/*secret*
+ops/seo/*credential*
+# 跑出来的结果数据（可重跑，无需入库）
+ops/seo/*.jsonl
+ops/seo/_gsc_*.json
+ops/seo/_bing_buckets.json
+ops/seo/*.log
+# 覆盖率工作簿等本地导出（*.xlsx 已在上面全局忽略，此处再显式兜一层）
+ops/seo/*.xlsx
