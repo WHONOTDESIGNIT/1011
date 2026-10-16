@@ -2,9 +2,14 @@
 """Analyse the GSC not-indexed bucket URLs against the sitemap forms."""
 import json
 import collections
+import os
 
-D = r"D:\001-IPL资料库-说明书-证书\MD-PRODUCTS-INFOS"
-b = json.load(open(D + r"\_gsc_buckets.json", encoding="utf-8"))
+# ── 统一配置 / 干跑层（模式见同目录 preflight.py）──────────────────────
+from preflight import preflight, require_env, optional_env
+
+D = optional_env('DSH_DATA_DIR', require_env('DSH_WORKSPACE', '.wx-bridge 目录（含 plans/）'))
+preflight()   # 缺必需变量即报出并退出
+b = json.load(open(os.path.join(D, '_gsc_buckets.json'), encoding="utf-8"))
 
 for k, v in b.items():
     print("==", k, v["count"])
@@ -31,7 +36,7 @@ print("path depth:", dict(sorted(collections.Counter(u.rstrip('/').count('/') fo
 
 # how many bucket urls, after stripping a trailing slash, exist in the sitemap?
 sm = set()
-for v in json.load(open(D + r"\_sitemap_urls.json", encoding="utf-8")).values():
+for v in json.load(open(os.path.join(D, '_sitemap_urls.json'), encoding='utf-8')).values():
     sm.update(u.rstrip("/") for u in v)
 hit = sum(1 for u in allu if u.rstrip("/") in sm)
 print("bucket urls matching a sitemap url (after slash-normalisation):", hit, "/", len(allu))

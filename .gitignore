@@ -145,3 +145,8 @@ ops/seo/*.xlsx
 ops/seo/.dry-run/
 ops/seo/plans/
 ops/seo/*.committed-bak
+# 冒烟测试夹具（含状态/结果/凭据的本地副本，绝不入库）
+ops/seo/_testdata/
+ops/seo/*.committed-bak
+__pycache__/
+*.pyc

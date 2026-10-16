@@ -23,7 +23,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # 故现在就设为必需：那批工具即将迁入，提前设好省得再改一次。
 # 失败模式是响亮的 exit 2 + 变量名与用途说明，不是静默错误，故"必需但暂未使用"是安全的。
 REPO_ROOT = require_env('DSH_REPO_ROOT', '站点仓库根目录（含 site-urls.txt、astro/）—— 当前为预留，见上方注释')
-WORKSPACE = optional_env('DSH_WORKSPACE', os.path.dirname(HERE))
+WORKSPACE = optional_env('DSH_WORKSPACE', os.path.dirname(HERE))   # .wx-bridge 目录
 
 PLANS = os.path.join(HERE, 'plans')          # 输入数据：相对本脚本，随目录迁移
 URLS_FILE = os.path.join(PLANS, 'site-urls.txt')
@@ -972,6 +972,9 @@ def site_index_check(engine, search_url, site='iplmanufacturer'):
         # 干跑不启动浏览器（Edge + 截图 + OCR 都会真实操作桌面）
         stage_note('site_index_check', '%s: 本应浏览器实测（已跳过）' % engine)
         return None, 'DRY-RUN 已跳过（未驱动浏览器）'
+    # wx_driver / boot311 位于应用目录（.wx-bridge），不在本脚本目录
+    APP_DIR = optional_env('DSH_APP_DIR', WORKSPACE)
+    sys.path.insert(0, APP_DIR)
     sys.path.insert(0, HERE)
     import time as _t
     import wx_driver as wd

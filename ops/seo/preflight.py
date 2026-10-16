@@ -114,6 +114,19 @@ def write_path(path):
     return out
 
 
+def write_dir(path):
+    """确保某文件的父目录存在，返回该文件路径。
+
+    专治一类易漏的 bug：脚本里"先 makedirs(OUT_DIR) 再 open(state)"的隐含顺序，
+    一旦 state 被 write_path 改道到别的目录，父目录就没人建了 —— 干跑时报
+    FileNotFoundError，而真实运行却正常。冒烟测试的价值正在于把它逼出来。
+    任何要写的文件，先过 this 再 open，就不依赖调用顺序。
+    """
+    p = write_path(path)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    return p
+
+
 def stage_note(what, detail=''):
     """记录"本来会发生什么"，供干跑后检视。"""
     if not DRY_RUN:

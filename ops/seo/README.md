@@ -63,7 +63,7 @@ python ops/seo/clean_check.py --staged                # 只查已暂存的文件
 
 ```python
 from preflight import (require_env, optional_env, preflight, dry_run_enabled,
-                       write_path, stage_note)
+                       write_path, write_dir, stage_note)
 
 REPO_ROOT = require_env('DSH_REPO_ROOT', '站点仓库根目录（含 site-urls.txt）')
 TIMEOUT   = optional_env('DSH_TIMEOUT', '30')     # 只有确实该有默认值的才用 optional_env
@@ -72,7 +72,7 @@ def main():
     preflight()            # 缺必需变量则一次性报出全部并 exit 2
     ...
 
-# 写入前把路径交给 write_path()：
+# 写入前把路径交给 write_path()（或 write_dir()，见下）：
 with open(write_path(STATE_FILE), 'w') as f: ...
 # 读取**不要**用 write_path——读取要基于真实输入，只让"写"改道
 
@@ -82,18 +82,49 @@ if dry_run_enabled():
     return True, 'DRY-RUN 已跳过'
 ```
 
-四条硬性约定：
+五条硬性约定：
 
 1. **必需变量缺失即失败，不回落默认值。** 静默默认值会让脚本在错误路径上跑出
    "看起来正常"的结果，比直接报错危险得多。`require_env` 只记录，由 `preflight()`
    汇总后一次性报出（含变量名与用途），退出码 2。
 2. **guard 的返回签名必须与真实路径一致。** 少一个元组元素，调用方解包就炸——
-   而这个错误只在干跑时暴露。
+   而这个错误只在干跑时暴露。**注意本目录存在异形返回值**：`indexnow_submit`
+   返回 2 元组、`indexnow_submit_batch` 返回 3 元组、
+   `real_browser_site_check` 返回 **list**（不是 `None`，调用方会对元素调
+   `.split()`）。照抄别人的 guard 前先看它真实 return 什么。
 3. **干跑的写入重定向到 `.dry-run/<时间戳>/`，不是丢弃。** 干跑的价值之一是能检视
    "本来会写出什么"；同时保证真实文件零改动。检视 `would-do.log` 可见全部被跳过的副作用。
 4. **干跑不得触碰桌面。** 浏览器驱动（UIA/OCR）也算副作用，必须 guard。
+5. **要写的文件一律过 `write_dir()`，不要依赖"别的代码先 makedirs 过"。**
+   脚本里常见 `makedirs(OUT_DIR)` 然后 `open(state)` 的隐含顺序；一旦 `state`
+   被改道到暂存目录，父目录就没人建了——真实运行正常，只有干跑报
+   `FileNotFoundError`。`write_dir()` 自己保证父目录存在，消除这种顺序依赖。
+
+### 路径变量（三个，语义不同，别混用）
+
+| 变量 | 含义 | 典型位置 |
+| --- | --- | --- |
+| `DSH_WORKSPACE` | **应用目录** = `.wx-bridge` 本身（其下有 `plans/`、`spool/`、凭据） | `/path/.wx-bridge` |
+| `DSH_DATA_DIR` | **平铺数据目录**：直接放着 `_bing_*.jsonl`、`_gsc_*.json` 等结果文件 | 默认同 `DSH_WORKSPACE` |
+| `DSH_APP_DIR` | **第三方本地模块目录**：`wx_driver.py`、`boot311.py` 所在 | 默认同 `DSH_WORKSPACE` |
+
+三个分开是有原因的：早期版本把前两者混用同一个变量，导致同一个变量在测试里指向不同
+东西（`medium_daily.py` 曾把报告写进 `ops/seo/.wx-bridge/`）。测试环境用不同取值就能
+验证写入是否真的被改道。
+
+### 为什么有三个脚本没有 `dry_run_enabled()` guard
+
+`bing_reclassify.py`、`gsc_bucket_analysis.py`、`gsc_daily_merge.py` 是纯本地读写，
+不驱动浏览器、不发请求。**它们不是"有意的省略"，而是已用更强的手段覆盖**：
+它们的写入全部经过 `write_path()`，而"真实文件零改动、产物全在 `.dry-run/` 下"
+由冒烟测试的 mtime 快照直接证明——**这比代码里任何 guard 都强**（guard 只能证明
+你想到了的副作用点）。给它们加 guard 反而会阻止产出"干跑本来要看的结果"
+（例如 `gsc_bucket_analysis` 的分桶统计本身就是干跑的输出）。
+
+若将来给这类脚本加了网络或桌面操作，**必须补 guard**，不能再靠 mtime 覆盖。
 
 ### 验证干跑真的无副作用
+
 
 **不要靠读代码**（那依赖你是否想到了全部副作用点）。跑前后比对文件 mtime：
 

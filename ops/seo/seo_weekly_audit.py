@@ -13,6 +13,10 @@ For each engine, run a live site: check and produce a weekly report:
 Writes plans/weekly-reports/seo-index-audit-YYYY-Www.md
 """
 import sys, os, json, glob, re, datetime, subprocess, csv
+
+# ── 统一配置 / 干跑层（模式见同目录 preflight.py）──────────────────────
+from preflight import optional_env, write_dir, preflight, dry_run_enabled, write_path, stage_note, require_env
+
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 HERE = os.path.dirname(os.path.abspath(__file__))
 PLANS = os.path.join(HERE, 'plans')
@@ -31,7 +35,7 @@ def load_state():
 
 
 def save_state(state):
-    with open(STATE_FILE, 'w', encoding='utf-8') as f:
+    with open(write_dir(STATE_FILE), 'w', encoding='utf-8') as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
 
 
@@ -73,6 +77,10 @@ def gsc_not_indexed_count():
 def count_site_links_from_ocr(shot_path):
     """OCR a screenshot and count distinct iplmanufacturer.com URLs."""
     sys.path.insert(0, HERE)
+    # wx_driver / boot311 位于应用目录（.wx-bridge）
+    APP_DIR = optional_env('DSH_APP_DIR', require_env('DSH_WORKSPACE', '.wx-bridge 目录'))
+    if APP_DIR not in sys.path:
+        sys.path.insert(0, APP_DIR)
     import wx_driver as wd
     items = wd.ocr_image(shot_path)
     seen = set()
@@ -87,6 +95,16 @@ def count_site_links_from_ocr(shot_path):
 
 def real_browser_site_check(engine, url):
     """Drive the user's Edge to query site:SITE on the engine; return OCR text list."""
+    if dry_run_enabled():
+        # 干跑不驱动浏览器。wx_driver 只存在于本地 .wx-bridge（尚未迁入本仓库），
+        # 所以这里必须提前返回，否则会 ModuleNotFoundError。
+        stage_note('real_browser_site_check', '%s: 本应浏览器实测（已跳过）' % engine)
+        # 返回类型必须匹配调用方：real_browser_site_check 正常返回 texts（list），
+        # classify(texts) 会对每个元素调 .split()。返回 None 会让它崩。
+        return []
+    # wx_driver / boot311 位于应用目录（.wx-bridge），不在本脚本目录
+    APP_DIR = optional_env('DSH_APP_DIR', require_env('DSH_WORKSPACE', '.wx-bridge 目录'))
+    sys.path.insert(0, APP_DIR)
     sys.path.insert(0, HERE)
     import time as _t
     import ctypes, ctypes.wintypes as wt
@@ -141,13 +159,21 @@ def classify(texts):
         return None, '反爬验证拦截'
     if 'blocked' in joined.lower() or 'Cloudflare' in joined:
         return None, 'Cloudflare 拦截'
-    # count distinct site links from OCR
-    sys.path.insert(0, HERE)
-    import wx_driver as wd
+    # 注：原先此处有一段 sys.path.insert + `import wx_driver`，但它紧接着就
+    # 无条件 return，属死代码；而且它会在 classify() 里拉入 pywin32 依赖
+    # （wx_driver → boot311 → win32api），在没装 pywin32 的解释器上直接崩。
+    # 真正驱动浏览器的是 real_browser_site_check()，那里才是该 import 的地方。
     return None, '需人工确认（页面已加载但无明确计数）'
 
 
 def main():
+    preflight()   # 缺必需变量就在这里一次性报出并退出（不回落默认值）
+    if dry_run_enabled():
+        # 干跑在进入任何真实检查前就结束：这些检查都会驱动浏览器
+        # （wx_driver → boot311 → win32api），不该在干跑里执行。
+        stage_note('seo_weekly_audit', '本应执行 Bing/Naver/Yandex/Seznam 四项 site: 实测（已跳过）')
+        print('[dry-run] 配置与路径校验通过，跳过全部 site: 实测（未驱动浏览器）')
+        return
     state = load_state()
     (y, w) = iso_week()
     rep = []
@@ -172,7 +198,7 @@ def main():
     rep.append('')
 
     # Bing
-    texts = real_browser_site_check('bing', 'https://www.bing.com/search?q=site%3A%s&mkt=en-US' % SITE)
+    texts = real_browser_site_check('bing', 'https://www.bing.com/search?q=site%%3A%s&mkt=en-US' % SITE)
     b_val, b_note = classify(texts)
     rep.append('## 2️⃣ Bing')
     rep.append('')
@@ -217,9 +243,9 @@ def main():
     rep.append('本报告由 Harness AI 自主完成（每周日 09:00 自动执行）')
     rep_text = '\n'.join(rep)
 
-    os.makedirs(REPORT_DIR, exist_ok=True)
+    os.makedirs(os.path.dirname(write_path(os.path.join(REPORT_DIR, '_'))), exist_ok=True)
     fname = os.path.join(REPORT_DIR, 'seo-index-audit-%d-W%02d.md' % (y, w))
-    with open(fname, 'w', encoding='utf-8') as f:
+    with open(write_path(fname), 'w', encoding='utf-8') as f:
         f.write(rep_text)
 
     # remember latest known counts
