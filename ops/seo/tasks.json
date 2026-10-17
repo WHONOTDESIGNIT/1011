@@ -4,10 +4,12 @@
     "script": "bing_daily_batch.py",
     "args": [
       "--limit",
-      "10"
+      "25",
+      "--interval",
+      "45"
     ],
     "log": "bing-coverage",
-    "description": "Bing Webmaster GetUrlInfo per-URL coverage. Quota resets at UTC 00:00 (Beijing 08:00), which is why this runs at 08:30. Throttling is recorded as a measurement failure, never as 'not indexed'."
+    "description": "Bing GetUrlInfo per-URL coverage. GetUrlInfo is rate limited as a TOKEN BUCKET, not by a daily quota: 1 req/s exhausts it at request 19, while 1 req/30s sustained 20 requests with no throttling. The interval therefore matters more than the count; 45s leaves margin. Throttling is recorded as a measurement failure, never as not indexed."
   },
   "seo-daily": {
     "script": "seo_daily.py",

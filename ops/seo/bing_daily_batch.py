@@ -185,12 +185,23 @@ def main():
     ap.add_argument('--limit', type=int, default=DEFAULT_LIMIT,
                     help='本次最大请求数（含被限流的请求，因配额按请求数计）')
     ap.add_argument('--report', action='store_true', help='只打印进度，不发请求')
+    ap.add_argument('--interval', type=float, default=None,
+                    help='两次请求之间等待的秒数（默认取 DSH_BING_INTERVAL 或 45）')
     # --dry-run 由 preflight 层识别（读 sys.argv）；这里必须也声明，
     # 否则 argparse 会以 unrecognized arguments 直接报错退出。
     ap.add_argument('--dry-run', action='store_true',
                     help='只验证路径与配置，不发请求、不写结果')
     args = ap.parse_args()
 
+    # 请求间隔：实测 Bing 的 GetUrlInfo 是**令牌桶**而非硬日额度——
+    # 1 条/秒连发会在第 19 次被限流，而 1 条/30 秒可连续 20 次无限流。
+    # 所以控的是"密度"，不是"每天多少条"。默认 45 秒留出余量。
+    interval = args.interval
+    if interval is None:
+        try:
+            interval = float(os.environ.get('DSH_BING_INTERVAL', '45'))
+        except ValueError:
+            interval = 45.0
     st = load_state()
     if args.report:
         report(st)
@@ -233,7 +244,8 @@ def main():
         return
 
     print('=== Bing 逐 URL 核验（本次额度 %d 次请求）===' % args.limit)
-    print('  UTC 日期 %s | 剩余待查 %d | 上次有效结论 %d' % (today, len(todo), len(done)))
+    print('  UTC 日期 %s | 剩余待查 %d | 上次有效结论 %d | 请求间隔 %.0f 秒' % (
+        today, len(todo), len(done), interval))
 
     out = io.open(write_path(RESULTS), 'a', encoding='utf-8')
     stat = collections.Counter()
@@ -286,7 +298,7 @@ def main():
         mark = '已发现' if verdict == 'indexed_known' else '未收录'
         print('  [%d/%d] %-6s %s' % (requests_made, args.limit, mark,
                                      u.replace('https://iplmanufacturer.com', '')))
-        time.sleep(1.0)   # 温和节流，避免加速触发限流
+        time.sleep(interval)   # 令牌桶补充慢：密度是关键，间隔过短会把桶抽干
 
     out.close()
     st['totals'][today] = dict(stat)
