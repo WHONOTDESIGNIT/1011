@@ -131,7 +131,24 @@ def save_state(st):
         json.dumps(st, ensure_ascii=False, indent=1))
 
 
-def load_urls():
+QUEUE_FILE = os.path.join(DATA_DIR, '_bing_queue.json')
+
+
+def load_urls(use_queue=True):
+    """待查 URL 清单。
+
+    优先用 DSH_DATA_DIR/_bing_queue.json（有序队列，由 bing_make_queue.py 生成）：
+    高价值优先、其余抽样，顺序即优先级。存在该文件时只用它，
+    避免"全量清账"把有限额度摊薄。
+    没有队列文件时回退到仓库 site-urls.txt（全量）。
+    """
+    if use_queue and os.path.exists(QUEUE_FILE):
+        import json as _json
+        try:
+            q = _json.load(io.open(QUEUE_FILE, encoding='utf-8'))
+            return [str(u).strip() for u in q if str(u).strip()]
+        except Exception as e:
+            print('  ⚠ 队列文件无法解析（%r），回退到 site-urls.txt' % (e,))
     return [l.strip() for l in io.open(LIST, encoding='utf-8') if l.strip()]
 
 
@@ -155,10 +172,18 @@ def valid_urls():
 def report(st):
     urls = load_urls()
     done = valid_urls()
+    # 队列范围与全站范围不同：done 里可能有一批不在当前队列内的 URL。
+    # 所以"剩余"必须按"队列里尚未有结论的条数"算，不能用总量相减。
+    in_queue_done = sum(1 for u in urls if u in done)
+    remaining = len(urls) - in_queue_done
+    src = QUEUE_FILE if (QUEUE_FILE and os.path.exists(QUEUE_FILE)) else LIST
     print('=== Bing 逐 URL 核验进度 ===')
-    print('  清单总数        : %d' % len(urls))
-    print('  已有有效结论    : %d (%.1f%%)' % (len(done), 100.0 * len(done) / max(len(urls), 1)))
-    print('  剩余待查        : %d' % (len(urls) - len(done)))
+    print('  队列来源        : %s' % os.path.basename(src))
+    print('  队列条数        : %d' % len(urls))
+    print('  其中已有结论    : %d (%.1f%%)' % (
+        in_queue_done, 100.0 * in_queue_done / max(len(urls), 1)))
+    print('  队列剩余待查    : %d' % remaining)
+    print('  全站累计已核验  : %d 条（含队列外的历史结论）' % len(done))
     idx = 0
     unk = 0
     if os.path.exists(RESULTS):
@@ -187,6 +212,8 @@ def main():
     ap.add_argument('--report', action='store_true', help='只打印进度，不发请求')
     ap.add_argument('--interval', type=float, default=None,
                     help='两次请求之间等待的秒数（默认取 DSH_BING_INTERVAL 或 45）')
+    ap.add_argument('--queue', default=None,
+                    help='all=忽略队列文件走全量清单；也可给自定义队列文件路径')
     # --dry-run 由 preflight 层识别（读 sys.argv）；这里必须也声明，
     # 否则 argparse 会以 unrecognized arguments 直接报错退出。
     ap.add_argument('--dry-run', action='store_true',
@@ -202,6 +229,13 @@ def main():
             interval = float(os.environ.get('DSH_BING_INTERVAL', '45'))
         except ValueError:
             interval = 45.0
+    # 队列来源：默认用 _bing_queue.json（高价值优先 + 抽样）；--queue all 走全量
+    global QUEUE_FILE
+    if args.queue:
+        if args.queue.lower() == 'all':
+            QUEUE_FILE = ''          # 空路径 => 不存在 => 回退 site-urls.txt
+        else:
+            QUEUE_FILE = args.queue
     st = load_state()
     if args.report:
         report(st)
@@ -230,7 +264,8 @@ def main():
         # 干跑不发任何请求（不落盘已在 write_path 处处理；这里是"不打 API"）
         all_urls = load_urls()
         print('  [dry-run] API key  : 已取得')
-        print('  [dry-run] 清单文件 : %s（%d 条）' % (LIST, len(all_urls)))
+        src = QUEUE_FILE if (QUEUE_FILE and os.path.exists(QUEUE_FILE)) else LIST
+        print('  [dry-run] 队列来源 : %s（%d 条）' % (src, len(all_urls)))
         print('  [dry-run] 结果文件 : %s（%s）' % (
             RESULTS, '存在，已有 %d 条有效结论' % len(done) if os.path.exists(RESULTS) else '不存在 —— 视为全新状态'))
         print('  [dry-run] 剩余待查 : %d 条' % len(todo))
