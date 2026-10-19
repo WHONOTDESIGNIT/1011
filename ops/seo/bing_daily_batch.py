@@ -214,20 +214,26 @@ def report(st):
         in_queue_done, 100.0 * in_queue_done / max(len(urls), 1)))
     print('  队列剩余待查    : %d' % remaining)
     print('  全站累计已核验  : %d 条（含队列外的历史结论）' % len(done))
-    idx = 0
+    idx = 0          # indexed_known 且有 LastCrawledDate：真抓取过
+    known_nocrawl = 0  # indexed_known 但无抓取记录：Bing 知道 URL 但没抓过
     unk = 0
     if os.path.exists(RESULTS):
         for line in io.open(RESULTS, encoding='utf-8'):
             try:
-                v = json.loads(line).get('verdict')
+                r = json.loads(line)
+                v = r.get('verdict')
                 if v == 'indexed_known':
-                    idx += 1
+                    if r.get('lastCrawled'):
+                        idx += 1
+                    else:
+                        known_nocrawl += 1
                 elif v == 'unknown_url':
                     unk += 1
             except Exception:
                 pass
-    print('    ├ Bing 已发现并抓取 : %d' % idx)
-    print('    └ Bing 明确未收录   : %d' % unk)
+    print('    ├ 已抓取            : %d' % idx)
+    print('    ├ 已知但无抓取记录  : %d' % known_nocrawl)
+    print('    └ 明确未收录        : %d' % unk)
     print('  配额耗尽日        : %s' % (', '.join(st.get('quota_exhausted_dates', [])) or '（无）'))
     print()
     agg = fetch_inindex()
@@ -236,7 +242,9 @@ def report(st):
               % (agg['inindex'], agg['date']))
     else:
         print('  参照：GetCrawlStats.InIndex 查询失败（不影响本轮逐条结果）')
-    print('  注：GetUrlInfo 返回 200 仅表示 Bing 已发现并抓取过，不等于已在搜索结果展示。')
+    print('  注：GetUrlInfo 返回 200 只表示 Bing 知道该 URL。')
+    print('      「已抓取」= 有 LastCrawledDate；「已知但无抓取记录」= Bing 知道但没抓过。')
+    print('      两者都不等于「已在搜索结果展示」。')
 
 
 def main():
@@ -376,9 +384,13 @@ def main():
         st['done'][u] = verdict
         out.write(json.dumps(rec, ensure_ascii=False) + '\n')
         out.flush()
-        mark = '已发现' if verdict == 'indexed_known' else '未收录'
-        print('  [%d/%d] %-6s %s' % (requests_made, args.limit, mark,
-                                     u.replace('https://iplmanufacturer.com', '')))
+        if verdict == 'indexed_known':
+            # 有 LastCrawledDate 才算真抓取过；否则只是"Bing 知道这个 URL"
+            mark = '已抓取' if rec.get('lastCrawled') else '已知未抓取'
+        else:
+            mark = '未收录'
+        print('  [%d/%d] %-10s %s' % (requests_made, args.limit, mark,
+                                      u.replace('https://iplmanufacturer.com', '')))
         time.sleep(interval)   # 令牌桶补充慢：密度是关键，间隔过短会把桶抽干
 
     out.close()
