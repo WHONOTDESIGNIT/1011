@@ -24,7 +24,8 @@ Bing Webmaster 的 GetUrlInfo 有**host 级每日配额**（实测报文 {"Error
   · 若日均仅 ~10 条/天            → 需约 318 天，**不具可行性**。
 
 后者情况下的既定退路（已与业主确认）：
-  **放弃逐条核验，日报只保留 GetCrawlStats 的聚合值 InIndex（当前 462）作为 Bing 指标。**
+  **放弃逐条核验，日报只保留 GetCrawlStats 的聚合值 InIndex 作为 Bing 指标。**
+  （该值随时间变化，脚本运行时实时查询，不写死。）
   理由：聚合值不受 GetUrlInfo 的日配额限制，随时可查，且它本就是 Bing 后台
   Site Explorer 显示的那个数；逐条核验只是"锦上添花"，不该为此投入一年。
 
@@ -169,6 +170,35 @@ def valid_urls():
     return s
 
 
+def fetch_inindex():
+    """取 GetCrawlStats 的最新 InIndex（Bing 后台显示的收录数）。
+
+    这个接口不受 GetUrlInfo 的令牌桶限制，可以随时查。
+    返回 None 表示查询失败（不应因此让整个报告失败）。
+    """
+    q = urllib.parse.urlencode({'siteUrl': SITE})
+    url = '%s/GetCrawlStats?apikey=%s&%s' % (BASE, load_key(), q)
+    try:
+        with urllib.request.urlopen(url, timeout=30, context=CTX) as r:
+            rows = (json.loads(r.read().decode('utf-8', 'replace')) or {}).get('d') or []
+        if not rows:
+            return None
+        last = rows[-1]
+
+        def _ms(v):
+            try:
+                n = int(str(v).replace('/Date(', '').replace(')/', ''))
+                return datetime.datetime.fromtimestamp(n / 1000, datetime.UTC)
+            except Exception:
+                return None
+
+        dt = _ms(last.get('Date'))
+        return {'inindex': last.get('InIndex'),
+                'date': dt.strftime('%Y-%m-%d') if dt else str(last.get('Date'))}
+    except Exception:
+        return None
+
+
 def report(st):
     urls = load_urls()
     done = valid_urls()
@@ -200,7 +230,12 @@ def report(st):
     print('    └ Bing 明确未收录   : %d' % unk)
     print('  配额耗尽日        : %s' % (', '.join(st.get('quota_exhausted_dates', [])) or '（无）'))
     print()
-    print('  参照：GetCrawlStats.InIndex 聚合权威值 = 462（至 2026-10-13）')
+    agg = fetch_inindex()
+    if agg:
+        print('  参照：GetCrawlStats.InIndex = %s（%s，实时查询，不受逐条额度限制）'
+              % (agg['inindex'], agg['date']))
+    else:
+        print('  参照：GetCrawlStats.InIndex 查询失败（不影响本轮逐条结果）')
     print('  注：GetUrlInfo 返回 200 仅表示 Bing 已发现并抓取过，不等于已在搜索结果展示。')
 
 
