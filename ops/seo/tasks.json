@@ -4,12 +4,12 @@
     "script": "bing_daily_batch.py",
     "args": [
       "--limit",
-      "25",
+      "400",
       "--interval",
       "5"
     ],
     "log": "bing-coverage",
-    "description": "Bing GetUrlInfo per-URL coverage, restricted to a prioritised queue (_bing_queue.json): product pages and locale hub pages first (509 URLs), then a fixed-stride sample of the remainder (522), 1031 total, about 41 days at 25/day. Full-site clearing is not the goal - at roughly 2 requests per minute sustained, all 3117 remaining URLs would take 126 days, which cannot keep up with content growth; the job is monitoring, not accounting. GetUrlInfo is rate limited as a TOKEN BUCKET: 1 req/s exhausts it at request 19, while 1 req/30s sustained 20 requests cleanly, so --interval matters more than --limit. Throttling is recorded as a measurement failure, never as \"not indexed\"."
+    "description": "Bing GetUrlInfo per-URL coverage over a prioritised queue (_bing_queue.json): product pages plus locale hub pages first (509), then a 1-in-5 fixed-stride sample (522). Measured 2026-10-19: 1 req/s exhausts the token bucket at request 19, but 1 req/5s sustained 464 requests before throttling, so pacing rather than the daily count is the lever. --limit 400 at --interval 5 walks the queue down to whatever the bucket allows and stops cleanly. Throttling is recorded as a measurement failure, never as not-indexed."
   },
   "seo-daily": {
     "script": "seo_daily.py",
