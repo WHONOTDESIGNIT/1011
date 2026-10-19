@@ -304,6 +304,17 @@ def main():
             break
 
         throttle_streak = 0
+
+        if verdict == 'other_error':
+            # 网络/传输层失败（DNS 解析失败、连接重置等）不是"收录结论"，
+            # 与限流一样属于**测量失败**：不落盘、不标 done，只计数。
+            # 落盘会让"已核验"统计虚高，也会把失败当成结论带进后续分析。
+            stat['other_error'] += 1
+            print('  ⚠ 测量失败（不是结论）: %s  ← %s'
+                  % (str(body)[:60], u.replace('https://iplmanufacturer.com', '')))
+            time.sleep(min(interval, 2.0))
+            continue
+
         rec = {'url': u, 'checkedAt': datetime.datetime.now(datetime.UTC).isoformat(),
                'http': http, 'verdict': verdict}
         if verdict == 'indexed_known':
@@ -338,12 +349,22 @@ def main():
     out.close()
     st['totals'][today] = dict(stat)
     save_state(st)
+    valid = stat['indexed_known'] + stat['unknown_url']
     print()
-    print('  本轮：有效 %d（已发现 %d / 未收录 %d），限流命中 %d，共发请求 %d'
-          % (stat['indexed_known'] + stat['unknown_url'], stat['indexed_known'],
-             stat['unknown_url'], stat['throttled'], requests_made))
+    print('  本轮：有效 %d（已发现 %d / 未收录 %d），限流 %d，测量失败 %d，共发请求 %d'
+          % (valid, stat['indexed_known'], stat['unknown_url'],
+             stat['throttled'], stat['other_error'], requests_made))
     print()
     report(st)
+
+    # 发出过请求、却一条有效结论都没有、也不是限流 => 网络或配置故障。
+    # 必须以非零退出，否则计划任务的 LastTaskResult 仍是 0，故障无声。
+    # 2026-10-18/19 连续两天 25 次请求全 DNS 失败却报成功，就是缺这道判断。
+    if requests_made > 0 and valid == 0 and stat['throttled'] == 0:
+        print()
+        print('❌ 本轮零有效结论，且非限流所致 —— 判为网络/配置故障，退出码 1')
+        print('   已检查：DSH_REPO_ROOT / DSH_DATA_DIR / API key / 出网 DNS')
+        sys.exit(1)
 
 
 if __name__ == '__main__':
