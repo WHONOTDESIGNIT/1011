@@ -1,3 +1,5 @@
+# 注意：本文件含 [build].ignore —— ops/ 与文档类改动不会触发站点构建。
+# 改 ignore 逻辑时务必确认"退出 0 = 跳过构建"这个语义，写反会导致漏部署。
 [build]
   base = "astro/"
   publish = "dist/"
@@ -9,6 +11,18 @@
   # 【已移除 2026-08-21】临时验证命令（ls/cat dist/_redirects）——线上三端点已确认
   # 生效（/zzz-notexist→404、/en/about→301→/about、/de→200），恢复正常 build 命令。
   command = "npm run build"
+  # ops-only / 文档类改动不重建站点。
+  #
+  # 起因：运维脚本（收录核验、提交、日报）曾放在本仓库 ops/ 下，与站点同分支。
+  # 每次 push 到 main 都会触发一次 Netlify 生产部署，于是"改一行运维脚本注释"
+  # 也要重建整站；部署记录里也分不清某次部署到底改了站点还是只改了工具。
+  #
+  # 语义：**ignore 退出 0 = 跳过构建**，非 0 = 构建。
+  #   git diff --quiet 在"无差异"时返回 0 → 跳过；有差异返回 1 → 构建。
+  #
+  # 安全兜底：$CACHED_COMMIT_REF 为空（首次构建、缓存被清）时直接 exit 1 强制构建。
+  # 少建一次的代价是站点陈旧，多建一次的代价只是几分钟 —— 所以宁可多建。
+  ignore = "bash -c 'if [ -z \"$CACHED_COMMIT_REF\" ] || [ -z \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- astro messages netlify.toml'"
 
 [build.environment]
   NODE_VERSION = "20"
