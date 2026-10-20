@@ -15,6 +15,7 @@
 //
 // 退出码：0 = 全部成功或无需提交；2 = 配额不足；1 = 部分失败
 import fs from 'node:fs';
+import path from 'node:path';
 import { createRequire } from 'node:module';
 
 const REPO_ROOT = process.env.DSH_REPO_ROOT;
@@ -37,8 +38,17 @@ const CHECK_ONLY = argv.includes('--check-only');
 const fi = argv.indexOf('--file');
 let urls = argv.filter((a) => a.startsWith('http'));
 if (fi >= 0 && argv[fi + 1]) {
-  urls = urls.concat(fs.readFileSync(argv[fi + 1], 'utf8')
+  // 相对路径按 DSH_DATA_DIR 解析：tasks.json 入库，不能写本机绝对路径。
+  const DATA_DIR = process.env.DSH_DATA_DIR || process.env.DSH_WORKSPACE || process.cwd();
+  const rawPath = argv[fi + 1];
+  const filePath = /^[A-Za-z]:[\\/]|^\//.test(rawPath) ? rawPath : path.join(DATA_DIR, rawPath);
+  if (!fs.existsSync(filePath)) {
+    console.error(`[gsc-req] 清单文件不存在: ${filePath}`);
+    process.exit(2);
+  }
+  urls = urls.concat(fs.readFileSync(filePath, 'utf8')
     .split('\n').map((s) => s.trim()).filter((s) => s.startsWith('http')));
+  console.log(`[gsc-req] 清单: ${filePath}`);
 }
 urls = [...new Set(urls.map((u) => u.replace(/\/$/, '')))];
 if (!urls.length && !CHECK_ONLY) {
@@ -50,6 +60,8 @@ const log = (...a) => console.log(`[${new Date().toTimeString().slice(0, 8)}] [g
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const QUOTA_RE = /超出.{0,8}配额|已超出资源的网址检查配额|quota exceeded/i;
+// 提交额度耗尽的专属文案（与"网址检查配额"是两套额度）
+const SUBMIT_QUOTA_RE = /您今天已经超出了每日配额|请明天再尝试提交|每日配额/i;
 const VERDICT_RE = /网址已收录到|网址尚未收录到|网址未收录到|URL is (not )?on Google/i;
 
 const ctx = await chromium.launchPersistentContext(USER_DATA, {
@@ -60,6 +72,19 @@ const ctx = await chromium.launchPersistentContext(USER_DATA, {
     '--disable-background-timer-throttling', '--disable-renderer-backgrounding'],
 });
 const page = ctx.pages()[0] || await ctx.newPage();
+
+// 打开页面：网络不可达时给出明确提示并退出，而不是抛堆栈。
+async function gotoHome() {
+  try {
+    await page.goto(HOME, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  } catch (e) {
+    console.error('[gsc-req] 无法打开 GSC —— 网络层面不通（不是脚本问题）。');
+    console.error(`  原因: ${String(e.message).split('\n')[0].slice(0, 120)}`);
+    console.error('  本机到 search.google.com 的连通性是间歇性的，请在网络可用时重试。');
+    await ctx.close().catch(() => {});
+    process.exit(2);
+  }
+}
 
 // 关掉可能存在的配额弹窗 / 任何遮罩对话框
 async function dismissDialogs() {
@@ -88,7 +113,7 @@ async function dismissDialogs() {
 
 // 探测配额：打开网址检查，输入一个 URL，看是否出现判定
 async function checkQuota(url) {
-  await page.goto(HOME, { waitUntil: 'domcontentloaded', timeout: 90000 });
+  await gotoHome();
   await sleep(2500);
   const d = await dismissDialogs();
   if (d) log(`关闭了 ${d} 个对话框`);
@@ -147,12 +172,19 @@ async function requestIndexing(url) {
     if (/已请求编入索引|已添加到优先抓取队列|已将网址添加|Indexing requested|已加入优先/i.test(body)) {
       return { ok: true, reason: '确认已提交' };
     }
+    if (SUBMIT_QUOTA_RE.test(body)) {
+      // GSC 原文：'抱歉！我们无法处理这项请求，因为您今天已经超出了每日配额。'
+      await dismissDialogs();
+      return { ok: false, reason: 'SUBMIT_QUOTA: 提交额度已用尽（GSC 明确要求明天再试）' };
+    }
     if (QUOTA_RE.test(body)) {
       await dismissDialogs();
-      return { ok: false, reason: '提交时提示配额不足' };
+      return { ok: false, reason: 'INSPECT_QUOTA: 网址检查额度不足' };
     }
-    if (/无法提交|提交失败|could not be submitted|Something went wrong/i.test(body)) {
-      return { ok: false, reason: '界面报提交失败' };
+    // GSC 对提交被拒会弹通用错误：「糟糕！出了点问题 / 提交您的索引编制请求时出现了问题」
+    // 这是"请求编入索引"的额度限制（与网址检查额度是两套），继续遍历只会重复被拒。
+    if (/提交您的索引编制请求时出现了问题|出了点问题|could not be submitted|Something went wrong/i.test(body)) {
+      return { ok: false, reason: 'REJECTED: GSC 拒绝提交（提交额度可能已耗尽）' };
     }
   }
   return { ok: false, reason: '未等到提交确认' };
@@ -200,12 +232,39 @@ for (let i = 0; i < urls.length; i++) {
     log('  ❌ ' + r.reason);
     summary.results.push({ url: u, ok: false, reason: r.reason });
     await page.screenshot({ path: `${SHOT_DIR || '.'}/req_fail_${Date.now()}.png` }).catch(() => {});
-    if (/配额/.test(r.reason)) { summary.quotaStopped = true; break; }
+    // 配额耗尽或 GSC 拒绝：停止整轮。继续只会产生同样的失败。
+    if (/配额|REJECTED|SUBMIT_QUOTA|INSPECT_QUOTA/.test(r.reason)) { summary.quotaStopped = true; break; }
   }
   await sleep(4000);   // 条间留白，避免被判定为自动化
 }
 
 log('');
-log(`完成：成功 ${summary.ok}，失败 ${summary.fail}${summary.quotaStopped ? '，配额中断' : ''}`);
+log(`完成：成功 ${summary.ok}，失败 ${summary.fail}${summary.quotaStopped ? '，已中断' : ''}`);
+if (summary.quotaStopped && summary.ok === 0) {
+  log('');
+  log('');
+  log('全部被拒绝。GSC 的原文是：');
+  log('  「抱歉！我们无法处理这项请求，因为您今天已经超出了每日配额。请明天再尝试提交此网址。」');
+  log('');
+  log('这是**「请求编入索引」的每日提交额度**，与网址检查额度是两套，界面上不显示剩余量。');
+  log('它按日重置，但实测"太平洋时间午夜"并不可靠（00:02 PT 仍报今天已超出），');
+  log('所以不要掐点跑，明天用同一条命令重试即可（清单文件不会因失败而改变）。');
+}
 await ctx.close();
-process.exit(summary.fail === 0 ? 0 : (summary.quotaStopped ? 2 : 1));
+log('');
+if (summary.quotaStopped && summary.ok === 0) {
+  log('本轮未能提交：GSC 的每日提交额度已用尽。GSC 原文——');
+  log('  「抱歉！我们无法处理这项请求，因为您今天已经超出了每日配额。请明天再尝试提交此网址。」');
+  log('');
+  log('这是「请求编入索引」的额度，与网址检查额度是两套，界面上不显示剩余量。');
+  log('它按日重置（具体重置时刻实测不稳定，太平洋午夜并不总能恢复）。');
+  log('明天用同一条命令重试即可 —— 清单文件不会因失败而改变。');
+} else if (summary.quotaStopped) {
+  log(`部分提交后额度用尽：成功 ${summary.ok} 条，剩余明天继续。`);
+}
+log(`完成：成功 ${summary.ok}，失败 ${summary.fail}，中断=${summary.quotaStopped}`);
+
+// 退出码语义（见文件头说明）：
+//   配额耗尽属于"今天到此为止"，退出 0，避免计划任务每天报失败把告警训成噪音
+if (summary.quotaStopped) process.exit(0);
+process.exit(summary.fail === 0 ? 0 : 1);

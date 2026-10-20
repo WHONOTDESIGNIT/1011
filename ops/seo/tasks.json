@@ -48,5 +48,14 @@
     ],
     "log": "gsc-dryrun",
     "description": "Validation only: checks that gsc_run.mjs can reach its inputs without launching a browser."
+  },
+  "gsc-index": {
+    "script": "gsc_request_indexing.mjs",
+    "args": [
+      "--file",
+      "_gsc_not_indexed_prioritized.txt"
+    ],
+    "log": "gsc-index",
+    "description": "Request indexing in the GSC UI for URLs Google has not indexed. Uses the signed-in browser profile, so no OAuth and no GCP billing. The inspection quota resets at midnight Pacific (about 15:00-16:00 Beijing); when it is exhausted GSC shows a modal that covers the whole page, so the script dismisses it, probes availability, and exits 2 with the reset time rather than retrying uselessly. Run it again after the reset to continue with whatever is left. '--file' paths resolve against DSH_DATA_DIR."
   }
 }

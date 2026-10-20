@@ -133,12 +133,16 @@ function Say([string]$m) {
 Set-Location $Here
 Say ("=== start {0} {1} (pid {2}) ===" -f (Split-Path $Target -Leaf), ($argList -join " "), $PID)
 
+# Stream each line through Say() as it arrives rather than capturing the whole
+# output and writing it at the end. The capturing version meant a 20-minute task
+# showed nothing in the log until it finished, which is useless when you are
+# trying to tell "still working" from "stuck".
 if ($ext -eq ".ps1") {
-  $out = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $Target @argList 2>&1
+  & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $Target @argList 2>&1 |
+    ForEach-Object { Say "$_" }
 } else {
-  $out = & $exe $Target @argList 2>&1
+  & $exe $Target @argList 2>&1 | ForEach-Object { Say "$_" }
 }
 $code = $LASTEXITCODE
-foreach ($l in $out) { Say "$l" }
 Say ("=== end exit={0} ===" -f $code)
 exit $code
