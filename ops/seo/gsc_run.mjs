@@ -23,6 +23,10 @@ const HOME = 'https://search.google.com/search-console?resource_id=' +
   encodeURIComponent('https://iplmanufacturer.com/');
 const INPUT = 'input[aria-label*="中的任何网址"], input[aria-label*="any URL"], input.Ax4B8';
 const WORKERS = Number(process.env.WORKERS || 3);
+// 连续网络类失败达到此数即判定 Google 不可达并停止。
+// 2026-10-18~20 的三天故障中，脚本在不可达状态下跑了 3 小时、写了 3344 条
+// 无信息记录，任务结果码却仍是 0。快速失败比"跑满三小时"有价值得多。
+const NET_FAIL_LIMIT = Number(process.env.NET_FAIL_LIMIT || 5);
 const WAIT_MS = Number(process.env.WAIT_MS || 90000);
 
 const argv = process.argv.slice(2);
@@ -110,6 +114,7 @@ const out = fs.createWriteStream(RESULT_FILE, { flags: 'a' });
 const stats = { indexed: 0, not_indexed: 0, unknown: 0 };
 const started = Date.now();
 let fatal = null, shotBudget = 15, cursor = 0, completed = 0;
+let netFails = 0;
 const log = (...a) => console.log(`[${new Date().toTimeString().slice(0, 8)}]`, ...a);
 
 async function inspect(page, url) {
@@ -165,6 +170,21 @@ async function worker(id) {
       if (i >= queue.length) break;
       const url = queue[i];
       const res = await inspect(page, url);
+      // 网络类失败：不含任何判定信息，不写入结果文件（否则文件里 96% 是垃圾）
+      const raw = String(res.raw || '');
+      const isNetFail = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_TIMED_OUT|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED|Timeout \d+ms exceeded/.test(raw);
+      if (isNetFail) {
+        netFails++;
+        if (netFails >= NET_FAIL_LIMIT) {
+          fatal = 'NETWORK_UNREACHABLE';
+          log(`w${id} 连续 ${netFails} 次网络失败，判定 Google 不可达，停止。最后一次: ${raw.slice(0, 80)}`);
+          break;
+        }
+        log(`w${id} 网络失败 ${netFails}/${NET_FAIL_LIMIT}（不写入结果）: ${raw.slice(0, 70)}`);
+        await page.waitForTimeout(2000);
+        continue;
+      }
+      netFails = 0;
       out.write(JSON.stringify({ url, ...res, checkedAt: new Date().toISOString() }) + '\n');
       stats[res.status] = (stats[res.status] || 0) + 1;
       completed++;
@@ -187,5 +207,18 @@ try {
   out.end();
   await ctx.close().catch(() => {});
 }
+const valid = (stats.indexed || 0) + (stats.not_indexed || 0);
 log(`DONE completed=${completed} indexed=${stats.indexed} not_indexed=${stats.not_indexed} unknown=${stats.unknown} fatal=${fatal || 'none'}`);
-process.exit(fatal ? 2 : 0);
+
+if (fatal === 'NETWORK_UNREACHABLE') {
+  console.error('[gsc_run] 无法访问 search.google.com —— 本机网络层面阻断，不是脚本问题。');
+  console.error('  请检查代理/VPN，或在可访问 Google 的网络环境运行。');
+  process.exit(2);
+}
+if (fatal) process.exit(2);
+// 跑完却零有效结论 => 配置或网络故障，非零退出让计划任务的结果码如实反映
+if (valid === 0 && completed === 0) {
+  console.error('[gsc_run] 零有效结论 —— 判为网络/配置故障，退出码 1');
+  process.exit(1);
+}
+process.exit(0);
