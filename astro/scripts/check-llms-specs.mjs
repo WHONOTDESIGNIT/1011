@@ -25,6 +25,10 @@ const MSG = join(ASTRO, '..', 'messages', 'en.json');
 
 const PRODUCTS = {
   'Lumi 2 IPL': 'lumi-2',
+  // 2026-10-20 补：目录里有 12 个型号，本映射原先只有 10 个，lumi 与 helix 未被任何守卫覆盖。
+  // lumi 恰好是声明整改中最常改动的型号 —— 最需要守卫的那个反而没守。
+  'Lumi IPL': 'lumi',
+  'Helix IPL': 'helix',
   'Sapphire IPL': 'venus',
   'Hestia IPL': 'hestia',
   'Alpha IPL': 'alpha',
