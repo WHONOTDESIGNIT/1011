@@ -60,7 +60,10 @@ const complianceItems =
         t(locale, `${ns}.compliance.items.iso13485`),
         t(locale, `${ns}.compliance.items.fda`),
         t(locale, `${ns}.compliance.items.iec60601`),
-        t(locale, `${ns}.compliance.items.mdr`),
+        // 「MDR Ready / MDR compliance」已移除（2026-10-20）：质量部确认当前不持有 MDR 证书、
+        // 也尚未提交公告机构申请，仅在与两家具备 MDR 资质的认证机构接洽中。
+        // 在模板层移除而不是删 JSON 键：complianceItems 是硬编码键数组，删键会让 t() 回退成
+        // 键名本身渲染到页面上；且模板层改动一次覆盖 22 个语种，不需要翻译。
       ]
     : [];
 

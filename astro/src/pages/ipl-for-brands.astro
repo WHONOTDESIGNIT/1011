@@ -38,7 +38,13 @@ const pageDescription = gm('pageDescription');
 // 集合型 message 以 "0"…"n" 为键，此处在组件内展开为有序数组
 const R = (n: number) => Array.from({ length: n }, (_, i) => i);
 
-const heroTrust = R(4).map((i) => [gm(`hero.trust.${i}.head`), gm(`hero.trust.${i}.sub`)]);
+// trust.2 原本是「CE (MDR)」徽章，2026-10-20 移除：质量部确认当前不持有 MDR 证书、
+// 尚未提交公告机构申请，仅在与两家 MDR 资质机构接洽中。在模板层过滤而不是改 JSON：
+// 该徽章在 22 个语种里是同一个技术 token（仅 ja/ko 全角括号不同），模板层一次覆盖全部语种，
+// 且不引入任何替代性宣称（不把 MDR 换成别的未核实资质）。
+const heroTrust = R(4)
+  .filter((i) => i !== 2)
+  .map((i) => [gm(`hero.trust.${i}.head`), gm(`hero.trust.${i}.sub`)]);
 
 const scenarios = R(5).map((i) => ({
   num: String(i + 1).padStart(2, '0'),
@@ -98,7 +104,11 @@ const brandShowcase = R(2).map((i) => ({
   alt: gm(`showcase.images.${i}.alt`),
 }));
 
-const complianceDocs = R(6).map((i) => gm(`compliance.docs.${i}`));
+// docs.2 原本是「CE / MDR Certificate」，同一原因移除（2026-10-20）。同样在模板层过滤：
+// 这是 6 项文件清单里的第 2 项，去掉后剩 5 项，不需要改动 22 个语种的 JSON。
+const complianceDocs = R(6)
+  .filter((i) => i !== 2)
+  .map((i) => gm(`compliance.docs.${i}`));
 
 const specVariables = R(5).map((i) => [gm(`spec.vars.${i}.name`), gm(`spec.vars.${i}.body`)]);
 
