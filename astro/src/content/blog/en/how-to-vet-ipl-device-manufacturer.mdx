@@ -1,0 +1,108 @@
+---
+title: "How to Vet an IPL Device Manufacturer: 7 Documents"
+description: "Request seven documents before a deposit, then check that four names match. A factory audit is a paper exercise first."
+citableSummary: "Four names must match across an IPL supplier's paperwork: the business license entity, the applicant named on the safety certificate, the FDA establishment registration, and the name on the invoice. If any of the four diverge, the manufacturing you are buying is not the manufacturing you are being shown. The seven documents that form that loop are the license, the safety certificate, the IEC 62471 photobiological report, the EMC report, the FDA listing, component sourcing evidence, and a written quality agreement."
+pubDate: "2026-10-20"
+author: "Eric"
+category: "Sourcing"
+slug: "how-to-vet-ipl-device-manufacturer"
+translationKey: "how-to-vet-ipl-device-manufacturer"
+faqs:
+  - question: "What documents should I request from an IPL manufacturer?"
+    answer: "Seven: business license with manufacturing in scope, electrical safety certificate, IEC 62471 photobiological report, EMC report with the standard revision, FDA listing, component sourcing evidence, and a written quality agreement. Check that four legal identities match across them."
+  - question: "How do I confirm an IPL supplier is a real factory?"
+    answer: "Read the registered business scope on the license, ask for a photo of the mold with its tooling number, ask for the physical factory address, and look the facility up in the FDA establishment registration database. Trading companies fail at least two of those four."
+  - question: "Can I trust a certificate screenshot from a supplier?"
+    answer: "No. Ask for the report revision and the applicant name, then verify the FDA listing yourself in the public database. Documents get forged, and one brand we worked with was shown a convincing FDA record for what turned out to be a freight forwarder's address."
+---
+
+How to vet an IPL device manufacturer: request seven documents, then check whether four names match. That is a paper exercise before it is a factory visit. The business license entity, the applicant on the safety certificate, the FDA establishment registration and the invoice header have to be the same legal person. When they diverge, you are looking at a supply chain wearing a factory's clothes.
+
+I'm Eric, co-founder of iShine. I've been on the receiving end of this checklist from brand procurement teams, and on the asking side when we vet a new component supplier.
+
+That single test catches more problems than a day of walking a production floor, because a floor can be borrowed for a morning and paperwork can't be.
+
+## The identity chain: four names that must match
+
+Write these four down before you read anything else.
+
+The company on the business license. The applicant named on the electrical safety certificate. The establishment registered with the FDA. The entity issuing your proforma invoice.
+
+In a real factory all four are the same string, or three are and the fourth is a documented affiliated entity with a letter explaining the relationship. In a trading company, the license says trading, the certificate belongs to a partner factory, the FDA registration belongs to whoever they bought from last, and the invoice comes from a Hong Kong shell.
+
+We wrote about why that structure exists in [the FDA clearance guide](/blog/14-fda-cleared-ipl-device-manufacturer-guide). This article is about catching it before the money moves.
+
+## Document 1: The business license, with its registered scope
+
+Ask for the license as a PDF and read the scope line, not the company name.
+
+Chinese business licenses list business scope explicitly. Manufacturing of household appliances is a distinct registered activity from wholesale or import-export. A license that says sales and technical consulting, with no manufacturing scope, is a trading company's license.
+
+**What it should not look like:** a license for a company registered in a different city than the address you were given, or a scope that lists "technology development" and "sales" only. Both are common and both deserve a follow-up question. Sometimes the answer is a legitimate affiliated factory. Sometimes it's the whole business model.
+
+## Document 2: The electrical safety certificate, applicant visible
+
+Home IPL devices fall under [IEC 60335-2-113](https://webstore.iec.ch/en/publication/67733), the particular requirements for cosmetic and beauty care appliances incorporating lasers and intense light sources, on top of the general IEC 60335-1.
+
+The certificate has an applicant field. That field is the party legally responsible for the tested configuration. If it isn't your factory, ask who it is.
+
+**What it should not look like:** a certificate where the model number does not match the model on your quote, or one whose test report is a different revision than the certificate. Both happen when a factory holds a certificate for a related but not identical product and hopes you won't cross-check.
+
+## Document 3: The photobiological safety report, IEC 62471
+
+This is the one brands skip, and it's the one that matters most for a light-emitting product. [IEC 62471](https://webstore.iec.ch/en/publication/7076) assesses photobiological safety of lamps and lamp systems: blue light hazard and actinic UV exposure.
+
+An IPL device that passes electrical safety and fails photobiological assessment is not a product you can sell into the EU, where [Regulation (EU) 2017/745](https://eur-lex.europa.eu/eli/reg/2017/745/oj) governs the conformity route.
+
+**What it should not look like:** a generic LED lamp report with an IPL device's name pasted into the header. The measurement conditions differ, and a careful reviewer can tell from the spectral data.
+
+## Document 4: The EMC report, and the standard revision
+
+For household appliances the relevant family is CISPR 14-1 and 14-2. What matters is the revision year.
+
+A report citing an edition withdrawn five years ago tells you the factory hasn't re-certified since. That's not automatically disqualifying, since older products can remain compliant, but it tells you the compliance program is not alive.
+
+**What it should not look like:** a report for a different appliance class, or one where the tested input voltage doesn't match the adapter you'll ship with.
+
+## Document 5: The FDA listing, checked against the public database
+
+Don't accept a screenshot. Look it up yourself.
+
+The FDA maintains [public databases for establishment registration and device listing](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm). Ask for the establishment registration number and the listing number, then search both. A 510(k) number, if the device needs one, lives in a separate [premarket notification database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm). We walk through that lookup in the [FDA guide](/blog/14-fda-cleared-ipl-device-manufacturer-guide), including what a 510(k) number looks like versus a listing number.
+
+**What it should not look like:** a certificate of registration with no number you can verify. Certificates can be forged. One brand we worked with had been shown a convincing FDA document for a facility that turned out to be a freight forwarder's address.
+
+## Document 6: Component sourcing evidence
+
+Ask where the flash lamp, the capacitor bank and the power adapter come from, then ask for the purchase records or the supplier's part numbers.
+
+This is where cheap products are actually cheap. The capacitor bank determines whether the device delivers the energy it claims after two hundred shots. The adapter determines whether it survives a European winter socket.
+
+We name our own component sources in [this piece on components](/blog/components-that-stand-up-to-scrutiny) because a brand cannot evaluate a factory that won't do the same.
+
+**What it should not look like:** a parts list that says "high quality capacitor" or "brand lamp". Those are marketing words in a technical document.
+
+## Document 7: A written quality agreement, not a brochure
+
+The last document isn't a certificate. It's a contract annex that states who does what when something fails: incoming inspection criteria, first-article approval, aging test duration, sampling level, the definition of a defect, and the remedy.
+
+A factory that can't produce one has never been held to one.
+
+**What it should not look like:** an ISO 9001 certificate offered in place of a quality agreement. ISO 9001 says the factory has a process. It says nothing about your product.
+
+## What this vetting process costs you
+
+Two days of reading PDFs. That's the whole investment.
+
+Compare it to the alternative: a brand that paid a 30% deposit on 2,000 units and discovered in month five that the certificate belonged to a third party, which meant the EU importer of record was somebody they'd never met. The deposit wasn't the expensive part. The relaunch was.
+
+If you want the checklist as a file you can send to a supplier, [contact us](/contact) and we'll send it. If you're earlier in the process and still comparing quotes, the [quote anatomy breakdown](/blog/ipl-device-manufacturer-price) covers what the numbers should look like, and [the compliance ladder](/blog/ipl-validation-services) explains which of these seven documents you actually need at your stage.
+
+
+## Sources
+
+- [IEC 60335-2-113:2016/AMD1:2021](https://webstore.iec.ch/en/publication/67733) — electrical safety for cosmetic appliances with lasers and intense light sources
+- [IEC 62471:2006](https://webstore.iec.ch/en/publication/7076) — photobiological safety of lamps and lamp systems
+- [FDA establishment registration and device listing database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm) — verify the facility and the listing yourself
+- [FDA 510(k) premarket notification database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm) — separate record from a device listing
+- [Regulation (EU) 2017/745 (MDR)](https://eur-lex.europa.eu/eli/reg/2017/745/oj) — governs the EU conformity route
