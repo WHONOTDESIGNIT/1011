@@ -1,7 +1,7 @@
 {
-  "htmlTotal": 3279,
+  "htmlTotal": 3284,
   "htmlPerLocale": {
-    "en": 70,
+    "en": 75,
     "tr": 70,
     "ro": 70,
     "ar": 70,
@@ -36,6 +36,6 @@
   "hreflangIssues": [],
   "hreflangChecked": 22,
   "createdAt": "2026-09-16T08:34:27.444Z",
-  "updatedAt": "2026-10-13T00:00:00.000Z",
-  "updateReason": "Two intended changes. (1) Launched a new LED light therapy category: three new product pages - /products/led-therapy-mask-001a, /products/led-therapy-mask-002a and /products/led-therapy-panel-f618 - each of which emits 22 HTML files (1 English + 21 i18n fallback rewrites), so +66 pages. (2) The working tree already carried one post more than the previous snapshot recorded: every locale has 70 blog .mdx files while the snapshot still said 69, i.e. +22 pages that had never been banked. htmlTotal therefore moves 3191 -> 3279 (+88) and htmlPerLocale 69 -> 70. Both changes are deliberate; this entry restores headroom so the next unintended page-count change still trips the guard."
+  "updatedAt": "2026-10-20T00:00:00.000Z",
+  "updateReason": "Intended change: five new English-only blog posts in the Sourcing cluster (ipl-device-manufacturer-price, ipl-device-moq-explained, how-to-vet-ipl-device-manufacturer, remote-factory-audit-ipl-device, switching-ipl-manufacturers). Only the English tree gains HTML: the 21 non-English locales render meta-refresh shims for missing slugs, and flatten-html.mjs deletes those shims and emits 301 rules instead, which is why htmlTotal moves by +5 rather than +110 (same mechanism recorded in the d7ce992 note). htmlTotal 3279 -> 3284; htmlPerLocale.en 70 -> 75; every other locale stays at 70. Previous entry (LED category + one unbanked post) is preserved in git history."
 }
