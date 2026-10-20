@@ -1,7 +1,7 @@
 {
-  "htmlTotal": 3284,
+  "htmlTotal": 3285,
   "htmlPerLocale": {
-    "en": 75,
+    "en": 76,
     "tr": 70,
     "ro": 70,
     "ar": 70,
@@ -37,5 +37,5 @@
   "hreflangChecked": 22,
   "createdAt": "2026-09-16T08:34:27.444Z",
   "updatedAt": "2026-10-20T00:00:00.000Z",
-  "updateReason": "Intended change: five new English-only blog posts in the Sourcing cluster (ipl-device-manufacturer-price, ipl-device-moq-explained, how-to-vet-ipl-device-manufacturer, remote-factory-audit-ipl-device, switching-ipl-manufacturers). Only the English tree gains HTML: the 21 non-English locales render meta-refresh shims for missing slugs, and flatten-html.mjs deletes those shims and emits 301 rules instead, which is why htmlTotal moves by +5 rather than +110 (same mechanism recorded in the d7ce992 note). htmlTotal 3279 -> 3284; htmlPerLocale.en 70 -> 75; every other locale stays at 70. Previous entry (LED category + one unbanked post) is preserved in git history."
+  "updateReason": "Adds one English-only hub post (ipl-device-sourcing-guide) that ties the five Sourcing spokes together, so en 75 -> 76 and htmlTotal 3284 -> 3285. Same mechanism as the previous entry: only the English tree gains HTML because the 21 non-English locales emit meta-refresh shims for missing slugs and flatten-html.mjs deletes them in favour of 301 rules. The five existing spokes gain one upward internal link each; no page count change from that."
 }
