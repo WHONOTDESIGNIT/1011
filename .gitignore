@@ -123,3 +123,36 @@ docs/internal/
 
 __pycache__/
 *.pyc
+
+# ===== SEO 运维脚本（ops/seo）：只入逻辑，不入状态与凭据 =====
+# 状态文件每日变动，版本化只产生噪音 diff，其价值在"当前值"而非历史
+ops/seo/seo-state.json
+ops/seo/weekly-audit-state.json
+ops/seo/*-state.json
+ops/seo/plans/
+# 凭据：绝不入库（seo_email_smtp.py 读同目录 seo_smtp_config.json）
+ops/seo/seo_smtp_config.json
+ops/seo/bing_api_key.txt
+ops/seo/indexnow_key.txt
+ops/seo/*api*key*.txt
+ops/seo/*secret*
+ops/seo/*credential*
+# 跑出来的结果数据（可重跑，无需入库）
+ops/seo/*.jsonl
+ops/seo/_gsc_*.json
+ops/seo/_bing_buckets.json
+ops/seo/*.log
+# 覆盖率工作簿等本地导出（*.xlsx 已在上面全局忽略，此处再显式兜一层）
+ops/seo/*.xlsx
+# SEO 运维脚本的干跑暂存目录（--dry-run 产物，不入库）
+ops/seo/.dry-run/
+ops/seo/plans/
+ops/seo/*.committed-bak
+# 冒烟测试夹具（含状态/结果/凭据的本地副本，绝不入库）
+ops/seo/_testdata/
+ops/seo/*.committed-bak
+__pycache__/
+*.pyc
+ops/seo/gsc-service-account.json
+ops/seo/*-service-account*.json
+ops/seo/_gsc_api_results.jsonl
