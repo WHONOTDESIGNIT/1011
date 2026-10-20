@@ -1,0 +1,110 @@
+---
+title: "IPL Device Sourcing: From First Quote to Mass Production"
+description: "Five stages, the order they happen in, and where the schedule actually goes. A map of the whole path with links to the detail on each stage."
+citableSummary: "IPL device sourcing runs in five stages: spec and quote, supplier verification, tooling and first article, certification, then mass production. Budget eight to nine months end to end. Certification is usually the long pole at roughly 124 days of a 253-day schedule, and the stage brands most often leave out of their plan is tooling, which is not on the critical path until it slips."
+pubDate: "2026-10-20"
+author: "Eric"
+category: "Sourcing"
+slug: "ipl-device-sourcing-guide"
+translationKey: "ipl-device-sourcing-guide"
+faqs:
+  - question: "How long does it take to source an IPL device from a Chinese factory?"
+    answer: "Plan eight to nine months from signed spec to saleable stock. A full-process development cycle runs 253 days across 14 stages, with about 124 of those days sitting in certification. ODM projects that start from an existing platform can reach market in two to nine months."
+  - question: "What is the first thing to do when sourcing an IPL device?"
+    answer: "Write the spec before you ask for a price. A quote issued against a vague brief is a placeholder, not a number. Once the spec exists, ask for a quote broken into tooling, development, certification, packaging, samples, terms and validity."
+  - question: "Should I visit the factory before ordering?"
+    answer: "Yes, or run a remote audit if travel is impractical. Verify the seven documents first, since paperwork eliminates more candidates than a factory tour does. The visit tells you about pace and discipline; the paperwork tells you whether the entity you are paying is the entity that builds."
+---
+
+IPL device sourcing runs in five stages: spec and quote, supplier verification, tooling and first article, certification, then mass production. Budget eight to nine months end to end. The stages that run long are rarely the ones brands plan for.
+
+I'm Eric, co-founder of iShine. We run ODM and OEM programs for brands including Costco, Cyden and Haier, and we have watched these five stages go wrong in most of the ways they can. What follows is the map. Each stage links to the detail if you want it.
+
+## The five stages of IPL device sourcing
+
+| Stage | What it locks in | What it can still change later |
+| --- | --- | --- |
+| Spec and quote | Form factor, performance envelope, cost band | Almost anything, at a price |
+| Verification | Whether the supplier is who they say | Nothing, if you discover this late |
+| Tooling and first article | Housing geometry, fit and finish | Everything downstream |
+| Certification | Which markets you can legally sell into | Nothing cheaply |
+| Mass production | Delivery dates, working capital | The launch calendar |
+
+Read that middle column again. Verification is the only stage that locks in something you cannot buy your way out of later.
+
+## Stage 1: The spec and the quote
+
+Two things come out of this stage: a document that says what the device does, and a number that says what it costs to build. Getting the second without the first is how projects start in the wrong place.
+
+The cost bands are wide and worth knowing before any conversation. ODM development including tooling lands between $30,000 and $100,000. OEM development starts at $80,000 and climbs past $250,000, with tooling alone at $20,000 to $50,000.
+
+A quote with four lines is not a quote. [What a real quote contains](/blog/ipl-device-manufacturer-price) breaks down the six lines that should be there, and why a $12 unit price quietly becomes $19.
+
+Volume is the other half of this stage. ODM usually starts at 500 units, OEM at 1,000 to 5,000, and the difference in unit price between those tiers is almost entirely fixed cost looking for somewhere to land. [The MOQ arithmetic](/blog/ipl-device-moq-explained) shows the formula and the two legitimate ways to push the number down.
+
+## Stage 2: Verification, before money moves
+
+This is the stage that eliminates candidates. Do it before a deposit, not after.
+
+Start with documents. Seven of them, and one test that matters more than the rest: whether four legal identities match across the paperwork. The business license entity, the applicant on the safety certificate, the FDA establishment registration and the invoice header have to be the same person, or three of them plus a documented affiliate. When they diverge, the manufacturing you are buying is not the manufacturing you are being shown.
+
+[The seven documents to request](/blog/how-to-vet-ipl-device-manufacturer) covers each one and what a fake version looks like. If you only have one afternoon, do this before anything else.
+
+Then look at the building. If you can fly, fly. If you cannot, a single unedited video call on a production day gets most of the value: fixed route, random unit opened on camera, and a look at the reject bin. [The 90-minute remote audit](/blog/remote-factory-audit-ipl-device) has the route and the five things to ask them to show.
+
+What you are checking in both cases is not cleanliness. It is whether the paperwork and the floor describe the same company.
+
+## Stage 3: Tooling and first article
+
+The mold is cut here, and once it exists you have committed. Everything downstream, from fit and finish to how the device feels in the hand, traces back to this decision.
+
+Tooling runs $20,000 to $50,000 for a housing set, depending on part count and finish. A shared mold costs near zero and gives you a product with someone else's silhouette. Neither is wrong; they lead to different products.
+
+First article approval is the gate. One unit comes off the line, gets measured against the drawing, and gets signed off. A factory that wants to skip this step is telling you they expect the first production run to be the experiment.
+
+The components inside the housing matter as much as the housing. The capacitor bank decides whether the device still delivers its rated energy after two hundred shots, and the adapter decides whether it survives a European winter socket. [Which components hold up](/blog/components-that-stand-up-to-scrutiny) names what we specify and why.
+
+If you are still choosing between building your own design and customizing an existing platform, [OEM versus ODM](/blog/02-oem-vs-odm-choosing-the-right-manufacturing-model) compares the money, the timeline and the IP position directly.
+
+## Stage 4: Certification
+
+Nothing ships without this, and nothing else in the project can compress it.
+
+The appliance falls under [IEC 60335-2-113](https://webstore.iec.ch/en/publication/67733), the particular requirements for cosmetic appliances built around lasers and intense light sources, on top of the general IEC 60335-1. Separately, photobiological safety is assessed under [IEC 62471](https://webstore.iec.ch/en/publication/7076). For the US, clearance is checked in the [FDA 510(k) database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm); for Europe, [Regulation (EU) 2017/745](https://eur-lex.europa.eu/eli/reg/2017/745/oj) governs the route.
+
+Which certificates you actually need depends on volume. At 1 to 100 units a month you are selling a consumer appliance. Between 100 and 3,000 the quality system becomes the thing that gets audited. Past 3,000 to 5,000 a month, a 510(k) or MDR posture usually comes into play. [The compliance ladder](/blog/ipl-validation-services) maps that progression, including the difference between consumer-electronics CE and MDR CE.
+
+The window itself is roughly 124 days on a 253-day project. That number is why the launch calendar gets decided in this stage rather than in the next one.
+
+## Stage 5: Mass production and the shipping nobody budgets
+
+Production is the stage where plans made in January get tested in September.
+
+The two things that surprise brands here are packaging and seasonality. A gift box that does not fit the shipper means you buy a mailer and a master carton, and both have minimum print quantities. [Shipping and packaging structure](/blog/ipl-device-shipping-packaging-gift-box-remailer-master-carton) covers the three layers and what each one costs to change.
+
+Seasonality decides when the factory floor is available. Home beauty devices peak into Black Friday and again before summer, and both peaks consume tooling slots and line time well before the shopping begins. [The order calendar](/blog/ipl-order-calendar-black-friday-summer-peak) works backwards from a sale date to the latest safe start.
+
+## Where the 253 days actually go
+
+A full-process development cycle runs 253 days across 14 stages. The distribution is not intuitive: certification takes about 124 of those days, and tooling, which is not on the stage list at all, is what makes the dates slip when it runs late.
+
+[The stage-by-stage timeline](/blog/ipl-hair-removal-device-development-timeline) has the day counts. Read it before you commit to a launch date, not after.
+
+## The decision that costs the most to get wrong
+
+Most of the value sits in Stage 2. Everything after it is engineering and project management, both of which are recoverable with money and attention. A supplier that fails verification is not recoverable, because you find out after the deposit, after the tooling, and often after the packaging is printed.
+
+If you are already in a relationship that is drifting, [switching manufacturers](/blog/switching-ipl-manufacturers) walks through the four costs of a move, and the mold is the cheapest of them.
+
+## Where to start with IPL device sourcing
+
+Write the spec. Ask two factories for a quote with six lines and a validity window. Ask both for the seven documents. Compare the paperwork before you compare the price.
+
+That sequence costs a few days and eliminates most of the risk. If you want the seven-document checklist as a file you can send to suppliers, [contact us](/contact) and we will send it. If you would rather see the hardware first, the [product range](/products) is where the platforms we already run are listed.
+
+## Sources
+
+- [IEC 60335-2-113:2016/AMD1:2021](https://webstore.iec.ch/en/publication/67733) — particular requirements for cosmetic and beauty care appliances incorporating lasers and intense light sources
+- [IEC 62471:2006](https://webstore.iec.ch/en/publication/7076) — photobiological safety of lamps and lamp systems
+- [FDA 510(k) premarket notification database](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm) — public record of cleared devices
+- [Regulation (EU) 2017/745 (MDR)](https://eur-lex.europa.eu/eli/reg/2017/745/oj) — the EU conformity route
