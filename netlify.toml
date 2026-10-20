@@ -144,4 +144,13 @@
     #
     # frame-ancestors 先设 'self'：报告阶段用来**观察**谁在嵌入本站（应用内浏览器预览就是一种嵌入），
     # Report-Only 不会挡住任何嵌入。
-    Content-Security-Policy-Report-Only = "default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com https://analytics.ahrefs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://coresg-normal.trae.ai https://images.pexels.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://queue.simpleanalyticscdn.com https://analytics.ahrefs.com; media-src 'self'; worker-src 'self'; manifest-src 'self'"
+    #
+    # 【2026-10-20 增】Microsoft Clarity（Analytics.astro，项目 yymyby2wbc）。
+    # 官方要求的完整集合：script-src 放行 https://*.clarity.ms（www 是标签脚本，a..z 是生产环境
+    # 负载均衡域名，写死 www 会漏），connect-src 放行上报端点，img-src 放行 https://c.bing.com
+    # （Clarity 与 Bing 共用的采集域名，也是无 JS 时的像素兜底）。
+    # 依据：learn.microsoft.com/clarity/setup-and-installation/clarity-csp ——
+    # "If you need to add all individual Clarity domains to your CSP, you can add
+    #  https://www.clarity.ms, https://c.bing.com, and https://[a-z].clarity.ms"。
+    # 注意这只是 Report-Only：漏加不会阻断，只会持续刷违规报告，等到切强制模式时才变成真故障。
+    Content-Security-Policy-Report-Only = "default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com https://analytics.ahrefs.com https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://flagcdn.com https://coresg-normal.trae.ai https://images.pexels.com https://*.clarity.ms https://c.bing.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://queue.simpleanalyticscdn.com https://analytics.ahrefs.com https://*.clarity.ms https://c.bing.com; media-src 'self'; worker-src 'self'; manifest-src 'self'"

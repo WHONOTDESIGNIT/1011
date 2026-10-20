@@ -33,6 +33,28 @@
  *  · data-key 是公开的项目标识（必然出现在 HTML 源码里），不是密钥。
  *  ⚠ 本文件顶部的注释不出现在产物里；页面上**不要**再加解释性 <!-- --> —— Astro 会把 HTML 注释
  *    原样输出到 3125 个页面（含其中的 URL 字符串），既浪费字节又会让"脚本出现次数"类审计误判。
+ *
+ * ── Microsoft Clarity（2026-10-20 安装，项目 ID yymyby2wbc）─────────────────
+ * 官方片段见本文件末尾的 is:inline 块（含 window.clarity 桩 + 注入
+ * https://www.clarity.ms/tag/yymyby2wbc）。
+ * ⚠ 这段注释里**不要**写出字面量的 script 标签：Astro 会把它当成真实的内联脚本抽出来交给
+ *   esbuild，导致 "Unexpected …" 构建报错（2026-10-20 踩过，冷启动 Vite 依赖扫描时才暴露）。
+ *  · 同样放在本组件：这里是全站统计脚本的唯一出口，一处覆盖 22 语种 + 7 个「自建 <head>」路由。
+ *  · **不做无条件加载**（区别于上面两个 cookieless 工具）：Clarity 会写 _clck/_clsk/MUID 并做
+ *    会话录制，属于需要同意的工具，因此必须接进已有的 consent 桥接，而不是像 Ahrefs/Simple
+ *    Analytics 那样直接挂。否则等于绕过本文件顶部那套 Consent Mode v2 —— 欧盟访客点"拒绝"后
+ *    仍被录制，与其规避的正是同一个问题。
+ *  · 用 **consentv2**（不是 v1 的 clarity('consent', true)）：官方文档明确 v1 计划废弃，且 v1 把
+ *    ad/analytics 状态合并成同一个值，无法表达"只允许分析、不允许广告"。v2 分开传两个字段。
+ *  · 时序：本文件里的桥接只在 consent-updated 事件触发时才调用 clarity，而 CookieConsent 在
+ *    body 末尾执行（BaseLayout L87），那时 head 里的 Clarity 脚本早已注入 window.clarity 桩，
+ *    所以不会出现"调用早于桩定义"。仍加 typeof 守卫，避免被 AdBlock 拦掉时抛错中断后面的逻辑。
+ *  · 默认状态刻意不预设：EEA/UK/CH 由 Clarity 侧强制（2025-10-31 生效，无信号则降级为无 cookie
+ *    的受限模式）；非该区域按 Clarity 默认行为 —— 与本文件 GA4「非欧盟默认 granted」的口径一致。
+ *    若希望全球一律"先同意后录制"，在下方桥接外补一句 clarity('consentv2',{denied,denied}) 即可。
+ *  · CSP 同步：netlify.toml 的 Report-Only 策略 script-src / connect-src / img-src 已加入
+ *    https://*.clarity.ms 与 https://c.bing.com（官方要求的完整集合），否则会持续产生违规报告。
+ *  · id 是公开的项目标识，必然出现在 HTML 源码里，不是密钥。
  */
 ---
 
@@ -82,6 +104,15 @@
           ad_user_data: ads ? 'granted' : 'denied',
           ad_personalization: ads ? 'granted' : 'denied'
         });
+        // Microsoft Clarity：同一份同意状态转成 consentv2 信号。
+        // 必须在 Clarity 收到 granted 之后才会写 cookie、才会跨页拼接会话；
+        // denied 时 Clarity 会删除已有 cookie、结束当前会话并转入无 cookie 的受限模式。
+        if (typeof window.clarity === 'function') {
+          window.clarity('consentv2', {
+            ad_Storage: ads ? 'granted' : 'denied',
+            analytics_Storage: analytics ? 'granted' : 'denied'
+          });
+        }
       }
       return push.apply(dl, arguments);
     };
@@ -91,3 +122,10 @@
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH"></script>
 <script async src="https://analytics.ahrefs.com/analytics.js" data-key="ZmxwmQzl6pN56zZcP5+8Ag"></script>
+<script is:inline>
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "yymyby2wbc");
+</script>
