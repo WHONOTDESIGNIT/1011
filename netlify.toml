@@ -10,7 +10,10 @@
   # （无尾斜杠 URL rewrite 到 .html、尾斜杠 301 到无尾斜杠，全站无结尾斜杠，Panasonic 风格）
   # 【已移除 2026-08-21】临时验证命令（ls/cat dist/_redirects）——线上三端点已确认
   # 生效（/zzz-notexist→404、/en/about→301→/about、/de→200），恢复正常 build 命令。
-  command = "npm run build"
+  # 在 build 前再跑一次 npm install：Netlify 的 install 阶段曾出现"缓存复用旧
+  # node_modules、不装新声明依赖"的情况（js-yaml 因此 ERR_MODULE_NOT_FOUND）。
+  # 已装齐时这次 install 是秒级 no-op，不影响后续 flatten/校验/IndexNow 链路。
+  command = "npm install --no-audit --no-fund && npm run build"
   # ops-only / 文档类改动不重建站点。
   #
   # 起因：运维脚本（收录核验、提交、日报）曾放在本仓库 ops/ 下，与站点同分支。
