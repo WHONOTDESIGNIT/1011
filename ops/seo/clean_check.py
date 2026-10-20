@@ -48,7 +48,11 @@ RULES = [
      re.compile(r'(?i)\b(password|passwd|secret|token|api[_-]?key|apikey|auth[_-]?code)\b\s*[:=]\s*["\']([^"\']{6,})["\']')),
     ('R5 邮箱', re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}')),
     ('R5 手机号', re.compile(r'(?<!\d)1[3-9]\d{9}(?!\d)')),
-    ('R6 私有IP', re.compile(r'\b(?:10|172\.(?:1[6-9]|2\d|3[01])|192\.168)\.\d{1,3}\.\d{1,3}\b')),
+    # 修正（2026-10-20）：原正则的 10 分支只有 3 段（\b10\.\d{1,3}\.\d{1,3}\b 的等效写法），
+    # 于是 package.json 里的版本号 "^10.7.6" 被当成私有 IP 拦截 —— 任何改 package.json 的提交
+    # 都会被自己的规则挡住。真实 10/8 地址是 4 段，改为统一 4 段匹配：10.0.0.1 仍被抓，
+    # 10.7.6 这类语义化版本不再误伤。
+    ('R6 私有IP', re.compile(r'\b(?:10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])|192\.168)\.\d{1,3}\.\d{1,3}\b')),
 ]
 
 TEXT_EXT = {'.py', '.mjs', '.js', '.ps1', '.ts', '.md', '.txt', '.json', '.yml', '.yaml',
@@ -66,6 +70,27 @@ def iter_files(paths):
                     yield os.path.join(root, f)
 
 
+# 路径级例外：收窄到「文件 + 规则 + 具体值」三级，不是给整个文件开通行证。
+#
+# 背景：astro/public/llms.txt 的职责之一就是公开联系方式（维护者、访客预约、正式联系），
+# R5 邮箱规则在这个文件上必然命中，结果是任何触碰该文件的提交都只能 --no-verify ——
+# 而一条总被绕过的规则比没有规则更糟（本仓库 pre-commit 头部的原话）。
+#
+# 为什么不给整个文件放行：那会放过将来往同一文件里夹带的其他邮箱。
+# 为什么不按规则放行：那会让 llms.txt 里的机器路径、凭据等其余规则一起失效。
+# 因此只放行**已声明的这个值**，其余规则与其余邮箱照常检查。
+PATH_VALUE_ALLOW = {
+    'astro/public/llms.txt': {
+        'R5 邮箱': {'service@ishineco.com'},
+    },
+    # 本规则文件自身：白名单必须把要放行的值原样写在代码里，否则无法匹配。
+    # 只放行这一个值，本文件里的其他内容（路径、凭据等）照常受其余规则约束。
+    'ops/seo/clean_check.py': {
+        'R5 邮箱': {'service@ishineco.com'},
+    },
+}
+
+
 def check_file(path, rules=None):
     ext = os.path.splitext(path)[1].lower()
     if ext and ext not in TEXT_EXT:
@@ -75,6 +100,12 @@ def check_file(path, rules=None):
     except Exception:
         return []
     rules = rules if rules is not None else RULES
+    rel_path = path.replace('\\', '/')
+    allow_by_rule = None
+    for allowed_rel, mapping in PATH_VALUE_ALLOW.items():
+        if rel_path == allowed_rel or rel_path.endswith('/' + allowed_rel):
+            allow_by_rule = mapping
+            break
     # 自我引用豁免：本文件的注释里必然列出规则本身的字面量，否则无法说明规则内容。
     # 只豁免"定义规则用的注释行"（含 R1/R2… 编号或规则术语），不笼统豁免所有注释——
     # 代码注释里出现的真实绝对路径仍应被抓到。
@@ -89,6 +120,11 @@ def check_file(path, rules=None):
         for label, rx in rules:
             for m in rx.finditer(line):
                 val = m.group(0)
+                # 例外：路径级放行（文件 + 规则 + 具体值）。只跳过声明的那个值。
+                if allow_by_rule:
+                    allowed_vals = allow_by_rule.get(label)
+                    if allowed_vals and val in allowed_vals:
+                        continue
                 # 例外：占位写法
                 if PLACEHOLDER.search(line):
                     continue
