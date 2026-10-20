@@ -86,7 +86,15 @@ PATH_VALUE_ALLOW = {
     # 本规则文件自身：白名单必须把要放行的值原样写在代码里，否则无法匹配。
     # 只放行这一个值，本文件里的其他内容（路径、凭据等）照常受其余规则约束。
     'ops/seo/clean_check.py': {
-        'R5 邮箱': {'service@ishineco.com'},
+        'R5 邮箱': {'service@ishineco.com', 'john@company.com'},
+    },
+    # 翻译文件同理（2026-10-20 增）：站点公示的联系邮箱本就出现在产品与联系文案里，
+    # 每次改 messages/*.json 都会被 R5 拦住 —— 结果只能是 --no-verify，规则形同虚设。
+    # 键以 '/' 结尾表示目录前缀匹配；仍只放行这一个值，其余邮箱与规则照常检查。
+    'messages/': {
+        # service@：站点公示联系邮箱；john@company.com：联系表单的输入占位符（非真实地址，
+        # 也不在 RFC 2606 的 example.com 豁免名单内，故显式声明）。
+        'R5 邮箱': {'service@ishineco.com', 'john@company.com'},
     },
 }
 
@@ -103,7 +111,12 @@ def check_file(path, rules=None):
     rel_path = path.replace('\\', '/')
     allow_by_rule = None
     for allowed_rel, mapping in PATH_VALUE_ALLOW.items():
-        if rel_path == allowed_rel or rel_path.endswith('/' + allowed_rel):
+        # 以 '/' 结尾的键按目录前缀匹配（如 'messages/'），其余按文件精确匹配
+        if allowed_rel.endswith('/'):
+            matched = rel_path.startswith(allowed_rel)
+        else:
+            matched = rel_path == allowed_rel or rel_path.endswith('/' + allowed_rel)
+        if matched:
             allow_by_rule = mapping
             break
     # 自我引用豁免：本文件的注释里必然列出规则本身的字面量，否则无法说明规则内容。
