@@ -67,7 +67,7 @@
     "smartApp": "Controle Inteligente por Aplicativo",
     "forMen": "Para Homens",
     "forStartups": "Para Startups",
-    "fdaCleared": "Aprovado pela FDA",
+    "fdaCleared": "Autorizado pela FDA 510(k)",
     "globalShipping": "Envio Global",
     "expertise": "15+ Anos de Experiência",
     "brandingPackaging": "Marca & Embalagem",
@@ -3280,8 +3280,8 @@
           "value": "Sim"
         },
         "skinToneSensor": {
-          "label": "Sistema de segurança integrado",
-          "value": "Sim"
+          "label": "Sensor de tom de pele",
+          "value": "Não"
         },
         "lampMaterial": {
           "label": "Material da lâmpada",
@@ -3356,11 +3356,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Tecnologia de Resfriamento da Pele",
-          "description": "O sistema de resfriamento ativo resfria a pele até 10 °C antes de cada flash para uma experiência de tratamento quase indolor."
+          "description": "O resfriamento ativo mantém a pele fresca no momento de cada flash, para um tratamento mais suave."
         },
         "smartSkinSensor": {
           "title": "Sensor de Pele Inteligente",
-          "description": "A detecção em tempo real do tom de pele ajusta automaticamente a energia aplicada para garantir segurança em todos os tipos de pele."
+          "description": "A detecção do tom de pele em tempo real ajusta automaticamente a energia aplicada para uso seguro dentro da faixa de tons adequada."
         },
         "highFlashCapacity": {
           "title": "Alta Capacidade de Flashes",
@@ -3375,7 +3375,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Sensação de Gelo + Lâmpada de Quartzo",
-      "description": "O aparelho Venus IPL possui tecnologia avançada de resfriamento por placa de gelo, proporcionando uma experiência de remoção de pelos confortável e quase indolor.",
+      "description": "O aparelho Venus IPL possui tecnologia avançada de resfriamento por placa de gelo, proporcionando uma experiência de remoção de pelos confortável e suave.",
       "specs": {
         "type": {
           "label": "Tipo",
@@ -3411,7 +3411,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de resfriamento",
-          "value": "8 °C (ambiente 25 °C)"
+          "value": "5 °C (ambiente 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo até a temperatura de resfriamento",
@@ -3591,11 +3591,11 @@
         },
         "deviceSize": {
           "label": "Dimensões do aparelho",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Peso líquido",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "MOQ por atacado (aparelho)",
@@ -3719,7 +3719,7 @@
         },
         "deviceSize": {
           "label": "Dimensões do aparelho",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "132,5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Peso líquido",
@@ -3766,7 +3766,7 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Padrão"
+          "value": "Suportado, refrigeração por TEC com interface de transferência térmica metálica"
         },
         "window": {
           "label": "Janela",
@@ -3838,11 +3838,11 @@
         },
         "deviceSize": {
           "label": "Dimensões do aparelho",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "135,5 × 86 × 52,5 mm"
         },
         "netWeight": {
           "label": "Peso líquido",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "MOQ por atacado (aparelho)",
@@ -3957,11 +3957,11 @@
         },
         "deviceSize": {
           "label": "Dimensões do aparelho",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Peso líquido",
-          "value": "275 g"
+          "value": "194,1 g"
         },
         "power": {
           "label": "Alimentação",
@@ -4022,11 +4022,11 @@
         },
         "cooling": {
           "label": "Resfriamento",
-          "value": "Suportado, refrigeração por TEC com interface de transferência térmica metálica"
+          "value": "Padrão"
         },
         "window": {
           "label": "Janela",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energia",
@@ -4102,11 +4102,11 @@
         },
         "deviceSize": {
           "label": "Dimensões do aparelho",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Peso líquido",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "MOQ em volume (aparelho)",
@@ -4154,7 +4154,7 @@
         },
         "window": {
           "label": "Janela",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energia",
@@ -6056,7 +6056,11 @@
       ],
       "certificationsTitle": "Certificações",
       "certificationsParagraph": "Nosso sistema de gestão da qualidade é respaldado por certificações essenciais:",
-      "qcCerts": ["Certificação CE para os mercados europeus","Aprovação da FDA para acesso ao mercado dos EUA","Certificação MDR em andamento — garantindo a preparação para a expansão no mercado da UE"],
+      "qcCerts": [
+        "Certificação CE para os mercados europeus",
+        "Aprovação da FDA para acesso ao mercado dos EUA",
+        "Sem certificado MDR; sem pedido a organismo notificado"
+      ],
       "inspectionParagraph": "Nosso sistema de inspeção em múltiplas etapas inclui controle de qualidade de entrada, verificações em processo e inspeção final, com teste funcional em 100 % dos aparelhos antes do envio.",
       "customizationTitle": "Capacidades de Personalização",
       "customizationParagraph": "Como parceiro OEM/ODM, oferecemos amplas opções de personalização para tornar seu aparelho IPL único:",
@@ -6105,7 +6109,7 @@
         "Segurança fotobiológica IEC 62471",
         "Normas EMC para compatibilidade eletromagnética"
       ],
-      "mdrNote": "Certificação MDR em andamento — garantindo a preparação para a expansão no mercado da UE sob o novo Regulamento de Dispositivos Médicos.",
+      "mdrNote": "Não possuímos certificado MDR e não há pedido apresentado a um organismo notificado. Nossos documentos UE são CE conforme LVD 2014/35/EU e EMC 2014/30/EU, além de RoHS.",
       "logisticsTitle": "Logística e Entrega",
       "logisticsParagraph": "Nossa experiência em logística global garante que seus produtos cheguem ao destino de forma eficiente e segura:",
       "logisticsBullets": [
@@ -6161,7 +6165,11 @@
         "Testes funcionais em 100 % antes do envio"
       ],
       "certificationsTitle": "Certificações",
-      "certifications": ["Certificação CE para os mercados europeus","Aprovação da FDA para acesso ao mercado dos EUA","Certificação MDR em andamento — garantindo a preparação para a expansão no mercado da UE"],
+      "certifications": [
+        "Certificação CE para os mercados europeus",
+        "Aprovação da FDA para acesso ao mercado dos EUA",
+        "Sem certificado MDR; sem pedido a organismo notificado"
+      ],
       "qcSupportTitle": "Como o controle de qualidade apoia o OEM/ODM",
       "qcSupportParagraph": "O controle de qualidade não serve apenas para passar nas verificações — ele reduz o retrabalho, estabiliza os rendimentos de produção e ajuda a manter seu cronograma de entregas previsível. Para projetos OEM/ODM, alinhamos os pontos de verificação de teste e os critérios de aceitação com o posicionamento do seu produto e seus mercados-alvo.",
       "talkToTeam": "Fale com Nossa Equipe",
@@ -7312,12 +7320,12 @@
         "desc": "Do resfriamento premium de safira aos aparelhos inteligentes controlados por aplicativo, explore nossa linha completa de soluções IPL personalizáveis.",
         "lumi2Tagline": "Sensor de pele inteligente + resfriamento até 10°C",
         "venusTagline": "Resfriamento de gelo premium",
-        "lumiTagline": "Controle inteligente por aplicativo",
+        "lumiTagline": "O Mais Vendido da RoseSkinCo",
         "helixTagline": "Resfriamento de gelo + 9 níveis de intensidade",
-        "themisTagline": "Sistema de lâmpada dupla",
+        "themisTagline": "Tratamento Profissional com Sensação de Gelo",
         "emeraldTagline": "Resfriamento para pele sensível",
         "alphaTagline": "IPL de alta eficiência",
-        "hebeTagline": "Sensor de pele com AI"
+        "hebeTagline": "Conforto com Sensação de Gelo + Bloqueio de Segurança"
       },
       "common": {
         "previous": "Anterior",
@@ -7374,7 +7382,7 @@
         "cta": "Saiba mais sobre o processo de qualidade",
         "certified": "Certificado",
         "compliant": "Conforme",
-        "badgeFdaCleared": "Aprovado pela FDA",
+        "badgeFdaCleared": "Autorizado pela FDA 510(k)",
         "badgeCeMarked": "Com marcação CE",
         "badgeIso": "ISO 13485 (mantida até 03/04/2026)",
         "badgeMdsap": "MDSAP (auditado em dez. 2024)"
@@ -8010,7 +8018,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Controle Inteligente por Aplicativo"
+        "tagline": "Sensor de Pele Inteligente + Resfria a Pele até 10 °C"
       },
       "hebe": {
         "name": "Hebe",
@@ -8220,7 +8228,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Controle Inteligente por Aplicativo"
+        "tagline": "O Mais Vendido da RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -8228,7 +8236,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Sistema de Lâmpada Dupla"
+        "tagline": "Tratamento Profissional com Sensação de Gelo"
       },
       "emerald": {
         "name": "Emerald",
@@ -8244,7 +8252,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Sensor de Pele com IA"
+        "tagline": "Conforto com Sensação de Gelo + Bloqueio de Segurança"
       },
       "components": {
         "heading": "Componentes IPL",
@@ -8708,13 +8716,13 @@
       },
       "taglines": {
         "lumi2": "Sensor de pele inteligente, resfriamento até 10°C",
-        "lumi": "Controle Inteligente por Aplicativo",
+        "lumi": "O Mais Vendido da RoseSkinCo",
         "venus": "Resfriamento de Gelo Premium",
-        "themis": "Sistema de Lâmpada Dupla",
+        "themis": "Tratamento Profissional com Sensação de Gelo",
         "emerald": "Resfriamento para Pele Sensível",
         "eirene": "Grau Profissional",
         "golden": "Edição de Luxo",
-        "hebe": "Sensor de Pele com IA"
+        "hebe": "Conforto com Sensação de Gelo + Bloqueio de Segurança"
       },
       "card": {
         "title": "Conheça os Melhores IPL",
@@ -8859,12 +8867,12 @@
       "taglines": {
         "lumi2": "Sensor de Pele Inteligente + Resfriamento até 10°C",
         "venus": "Resfriamento de Gelo Premium",
-        "lumi": "Controle Inteligente por Aplicativo",
+        "lumi": "O Mais Vendido da RoseSkinCo",
         "helix": "Resfriamento de Gelo + 9 Níveis de Intensidade",
-        "themis": "Sistema de Lâmpada Dupla",
+        "themis": "Tratamento Profissional com Sensação de Gelo",
         "emerald": "Resfriamento para Pele Sensível",
         "alpha": "IPL de Alta Eficiência",
-        "hebe": "Sensor de Pele com IA"
+        "hebe": "Conforto com Sensação de Gelo + Bloqueio de Segurança"
       },
       "prev": "Anterior",
       "next": "Próximo"
@@ -8905,7 +8913,7 @@
       "description": "Todos os aparelhos passam por processos rigorosos de teste e controle de qualidade para cumprir as normas internacionais mais elevadas. Nossas certificações abrem portas para os mercados globais.",
       "items": {
         "fdaCleared": {
-          "title": "Aparelhos Aprovados pela FDA",
+          "title": "Aparelhos autorizados pela FDA 510(k)",
           "desc": "Apoio completo ao processo de aprovação da FDA e à documentação contínua de conformidade."
         },
         "ceMarking": {
@@ -8924,7 +8932,7 @@
       "cta": "Conheça Nosso Processo de Qualidade",
       "badges": {
         "certified": "Certificado",
-        "fdaCleared": "Aprovado pela FDA",
+        "fdaCleared": "Autorizado pela FDA 510(k)",
         "ceMarked": "Marcado CE",
         "iso13485": "ISO 13485 (mantida até 03/04/2026)",
         "compliant": "Conforme",

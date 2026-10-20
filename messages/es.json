@@ -67,7 +67,7 @@
     "smartApp": "Control mediante app inteligente",
     "forMen": "Para hombres",
     "forStartups": "Para empresas emergentes",
-    "fdaCleared": "Autorizado por la FDA",
+    "fdaCleared": "Autorizado FDA 510(k)",
     "globalShipping": "Envío internacional",
     "expertise": "Más de 15 años de experiencia",
     "brandingPackaging": "Marca y embalaje",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Control inteligente por app"
+        "tagline": "Sensor de piel inteligente + enfría la piel a 10 °C"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Control inteligente por app"
+        "tagline": "El más vendido de RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Sistema de doble lámpara"
+        "tagline": "Tratamiento profesional con tecnología Ice Feeling"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Sensor de piel con IA"
+        "tagline": "Sensación de frío confortable + bloqueo de seguridad"
       },
       "components": {
         "heading": "Componentes IPL",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Certificaciones",
       "certificationsParagraph": "Nuestro sistema de gestión de calidad está respaldado por certificaciones clave:",
-      "qcCerts": ["Certificación CE para los mercados europeos","Aprobación de la FDA para el acceso al mercado estadounidense","Certificación MDR en curso — preparación para la expansión en el mercado de la UE"],
+      "qcCerts": [
+        "Certificación CE para los mercados europeos",
+        "Aprobación de la FDA para el acceso al mercado estadounidense",
+        "Sin certificado MDR; sin solicitud ante organismo notificado"
+      ],
       "inspectionParagraph": "Nuestro sistema de inspección por etapas incluye control de calidad de entrada, controles durante el proceso e inspección final, con pruebas funcionales al 100% de cada depiladora antes del envío.",
       "customizationTitle": "Capacidades de Personalización",
       "customizationParagraph": "Como socio OEM/ODM, ofrecemos amplias opciones de personalización para hacer único tu depiladora IPL:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Seguridad fotobiológica",
         "Estándares EMC de compatibilidad electromagnética"
       ],
-      "mdrNote": "Certificación MDR en curso — preparación para la expansión en el mercado de la UE conforme al nuevo Reglamento de Productos Sanitarios.",
+      "mdrNote": "No disponemos de certificado MDR y no hay solicitud presentada ante un organismo notificado. Nuestros documentos UE son CE conforme a LVD 2014/35/EU y EMC 2014/30/EU, además de RoHS.",
       "logisticsTitle": "Logística y Entrega",
       "logisticsParagraph": "Nuestra experiencia en logística global garantiza que tus productos lleguen a su destino de forma eficiente y segura:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "Pruebas funcionales al 100% antes del envío"
       ],
       "certificationsTitle": "Certificaciones",
-      "certifications": ["Certificación CE para los mercados europeos","Aprobación de la FDA para el acceso al mercado estadounidense","Certificación MDR en curso — preparación para la expansión en el mercado de la UE"],
+      "certifications": [
+        "Certificación CE para los mercados europeos",
+        "Aprobación de la FDA para el acceso al mercado estadounidense",
+        "Sin certificado MDR; sin solicitud ante organismo notificado"
+      ],
       "qcSupportTitle": "Cómo el Control de Calidad Apoya a OEM/ODM",
       "qcSupportParagraph": "El control de calidad no consiste solo en superar las comprobaciones: reduce el retrabajo, estabiliza los rendimientos y ayuda a mantener previsible tu calendario de entregas. Para proyectos OEM/ODM, alineamos los puntos de control de pruebas y los criterios de aceptación con el posicionamiento de tu producto y tus mercados objetivo.",
       "talkToTeam": "Habla con nuestro equipo",
@@ -6563,12 +6571,12 @@
         "desc": "Desde el enfriamiento premium de zafiro hasta los dispositivos inteligentes controlados por app, explora nuestra gama completa de soluciones IPL personalizables.",
         "lumi2Tagline": "Sensor de piel inteligente + enfriamiento hasta 10 °C",
         "venusTagline": "Enfriamiento de hielo premium",
-        "lumiTagline": "Control inteligente por app",
+        "lumiTagline": "El más vendido de RoseSkinCo",
         "helixTagline": "Enfriamiento de hielo + 9 niveles de intensidad",
-        "themisTagline": "Sistema de lámpara doble",
+        "themisTagline": "Tratamiento profesional con tecnología Ice Feeling",
         "emeraldTagline": "Enfriamiento para pieles sensibles",
         "alphaTagline": "IPL de alta eficiencia",
-        "hebeTagline": "Sensor de piel con IA"
+        "hebeTagline": "Sensación de frío confortable + bloqueo de seguridad"
       },
       "common": {
         "previous": "Anterior",
@@ -6625,7 +6633,7 @@
         "cta": "Conoce nuestro proceso de calidad",
         "certified": "Certificado",
         "compliant": "Conforme",
-        "badgeFdaCleared": "Autorizado por la FDA",
+        "badgeFdaCleared": "Autorizado FDA 510(k)",
         "badgeCeMarked": "Marcado CE",
         "badgeIso": "ISO 13485 (mantenida hasta el 03/04/2026)",
         "badgeMdsap": "MDSAP (auditado en dic. 2024)"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Sensor de piel inteligente, refrigeración hasta 10°C",
-        "lumi": "Control inteligente desde la app",
+        "lumi": "El más vendido de RoseSkinCo",
         "venus": "Refrigeración Ice Premium",
-        "themis": "Sistema de doble lámpara",
+        "themis": "Tratamiento profesional con tecnología Ice Feeling",
         "emerald": "Refrigeración para pieles sensibles",
         "eirene": "Calidad profesional",
         "golden": "Edición de lujo",
-        "hebe": "Sensor de piel con IA"
+        "hebe": "Sensación de frío confortable + bloqueo de seguridad"
       },
       "card": {
         "title": "Descubre el mejor IPL",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Sensor de piel inteligente + refrigeración hasta 10°C",
         "venus": "Refrigeración Ice Premium",
-        "lumi": "Control inteligente desde la app",
+        "lumi": "El más vendido de RoseSkinCo",
         "helix": "Refrigeración Ice + 9 niveles de intensidad",
-        "themis": "Sistema de doble lámpara",
+        "themis": "Tratamiento profesional con tecnología Ice Feeling",
         "emerald": "Refrigeración para pieles sensibles",
         "alpha": "IPL de alta eficiencia",
-        "hebe": "Sensor de piel con IA"
+        "hebe": "Sensación de frío confortable + bloqueo de seguridad"
       },
       "prev": "Anterior",
       "next": "Siguiente"
@@ -7826,7 +7834,7 @@
       "description": "Cada depiladora se somete a rigurosas pruebas y procesos de control de calidad para cumplir los estándares internacionales más exigentes. Nuestras certificaciones abren las puertas a los mercados globales.",
       "items": {
         "fdaCleared": {
-          "title": "Dispositivos autorizados por la FDA",
+          "title": "Dispositivos autorizados FDA 510(k)",
           "desc": "Soporte completo para el proceso de aprobación de la FDA y la documentación de cumplimiento continua."
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "Conoce nuestro proceso de calidad",
       "badges": {
         "certified": "Certificado",
-        "fdaCleared": "Autorizado por la FDA",
+        "fdaCleared": "Autorizado FDA 510(k)",
         "ceMarked": "Marcado CE",
         "iso13485": "ISO 13485 (mantenida hasta el 03/04/2026)",
         "compliant": "Conforme",
@@ -8001,8 +8009,8 @@
           "value": "Sí"
         },
         "skinToneSensor": {
-          "label": "Sistema de seguridad integrado",
-          "value": "Sí"
+          "label": "Sensor de tono de piel",
+          "value": "No"
         },
         "lampMaterial": {
           "label": "Material de la lámpara",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Tecnología de enfriamiento de la piel",
-          "description": "El sistema de enfriamiento activo enfría la piel a 10 °C antes de cada destello para una experiencia de tratamiento casi sin dolor."
+          "description": "El sistema de enfriamiento activo mantiene la piel fresca en el momento de cada destello, para un tratamiento más suave."
         },
         "smartSkinSensor": {
           "title": "Sensor de piel inteligente",
-          "description": "La detección del tono de piel en tiempo real ajusta automáticamente la salida de energía para garantizar la seguridad en todos los tipos de piel."
+          "description": "La detección del tono de piel en tiempo real ajusta automáticamente la salida de energía para un uso seguro dentro del rango de tonos de piel adecuado."
         },
         "highFlashCapacity": {
           "title": "Alta capacidad de destello",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Sensación de hielo + lámpara de cuarzo",
-      "description": "La depiladora Venus IPL incorpora tecnología avanzada de enfriamiento por placa de hielo, que ofrece una experiencia de depilación cómoda y casi sin dolor.",
+      "description": "La depiladora Venus IPL incorpora tecnología avanzada de enfriamiento por placa de hielo, que ofrece una experiencia de depilación cómoda y suave.",
       "specs": {
         "type": {
           "label": "Tipo",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatura de enfriamiento",
-          "value": "8 °C (ambiente 25 °C)"
+          "value": "5 °C (ambiente 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Tiempo para alcanzar la temperatura de enfriamiento",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Tamaño de la depiladora",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Peso neto",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "MOQ al por mayor (depiladora)",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Tamaño de la depiladora",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Peso neto",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Enfriamiento",
-          "value": "Estándar"
+          "value": "Sí, refrigeración por TEC con interfaz de transferencia térmica metálica"
         },
         "window": {
           "label": "Ventana",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Tamaño de la depiladora",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Peso neto",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "MOQ a granel (depiladora)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Tamaño de la depiladora",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Peso neto",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Alimentación",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Enfriamiento",
-          "value": "Sí, refrigeración por TEC con interfaz de transferencia térmica metálica"
+          "value": "Estándar"
         },
         "window": {
           "label": "Ventana",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energía",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Tamaño de la depiladora",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Peso neto",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "MOQ a granel (depiladora)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Ventana",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energía",

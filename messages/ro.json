@@ -67,7 +67,7 @@
     "smartApp": "Control inteligent prin aplicație",
     "forMen": "Pentru bărbați",
     "forStartups": "Pentru startup-uri",
-    "fdaCleared": "Aprobat FDA",
+    "fdaCleared": "Autorizat FDA 510(k)",
     "globalShipping": "Livrare globală",
     "expertise": "15+ ani de expertiză",
     "brandingPackaging": "Branding și ambalaj",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Control inteligent prin aplicație"
+        "tagline": "Senzor inteligent de piele + răcirea pielii la 10 °C"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Control inteligent prin aplicație"
+        "tagline": "Cel mai vândut produs RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Sistem cu lampă dublă"
+        "tagline": "Tratament profesional cu senzație de gheață"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Senzor de piele cu AI"
+        "tagline": "Senzație de gheață confortabilă + blocare de siguranță"
       },
       "components": {
         "heading": "componente IPL",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Certificări",
       "certificationsParagraph": "Sistemul nostru de management al calității este susținut de certificări-cheie:",
-      "qcCerts": ["Certificare CE pentru piețele europene","Aprobare FDA pentru accesul pe piața din SUA","Certificare MDR în curs — asigurând pregătirea pentru extinderea pe piața UE"],
+      "qcCerts": [
+        "Certificare CE pentru piețele europene",
+        "Aprobare FDA pentru accesul pe piața din SUA",
+        "Fără certificat MDR; fără cerere la un organism notificat"
+      ],
       "inspectionParagraph": "Sistemul nostru de inspecție în mai multe etape include controlul calității la intrare, verificări în timpul procesului și inspecție finală, cu testare funcțională 100 % a fiecărui dispozitiv înainte de livrare.",
       "customizationTitle": "Capabilități de personalizare",
       "customizationParagraph": "Ca partener OEM/ODM, oferim opțiuni extinse de personalizare pentru a face dispozitivul dvs. IPL unic:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Siguranță fotobiologică",
         "Standarde EMC pentru compatibilitate electromagnetică"
       ],
-      "mdrNote": "Certificare MDR în curs — asigurând pregătirea pentru extinderea pe piața UE în conformitate cu noul Regulament privind dispozitivele medicale.",
+      "mdrNote": "Nu deținem certificat MDR și nu a fost depusă nicio cerere la un organism notificat. Documentele noastre UE sunt CE conform LVD 2014/35/EU și EMC 2014/30/EU, plus RoHS.",
       "logisticsTitle": "Logistică și livrare",
       "logisticsParagraph": "Expertiza noastră globală în logistică asigură că produsele dvs. ajung la destinație în mod eficient și sigur:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "Testare funcțională 100 % înainte de livrare"
       ],
       "certificationsTitle": "Certificări",
-      "certifications": ["Certificare CE pentru piețele europene","Aprobare FDA pentru accesul pe piața din SUA","Certificare MDR în curs — asigurând pregătirea pentru extinderea pe piața UE"],
+      "certifications": [
+        "Certificare CE pentru piețele europene",
+        "Aprobare FDA pentru accesul pe piața din SUA",
+        "Fără certificat MDR; fără cerere la un organism notificat"
+      ],
       "qcSupportTitle": "Cum sprijină controlul calității OEM/ODM",
       "qcSupportParagraph": "Controlul calității nu înseamnă doar trecerea verificărilor — reduce reluările, stabilizează randamentul și ajută la menținerea unui program de livrare previzibil. Pentru proiectele OEM/ODM, aliniem punctele de testare și criteriile de acceptare cu poziționarea produsului dvs. și cu piețele-țintă.",
       "talkToTeam": "Vorbiți cu echipa noastră",
@@ -6563,12 +6571,12 @@
         "desc": "De la răcirea premium cu safir până la dispozitive inteligente controlate din aplicație, explorați gama noastră completă de soluții IPL personalizabile.",
         "lumi2Tagline": "Senzor inteligent de piele + răcire până la 10°C",
         "venusTagline": "Răcire premium cu gheață",
-        "lumiTagline": "Control inteligent din aplicație",
+        "lumiTagline": "Cel mai vândut produs RoseSkinCo",
         "helixTagline": "Răcire cu gheață + 9 niveluri de intensitate",
-        "themisTagline": "Sistem cu lampă duală",
+        "themisTagline": "Tratament profesional cu senzație de gheață",
         "emeraldTagline": "Răcire pentru piele sensibilă",
         "alphaTagline": "IPL de înaltă eficiență",
-        "hebeTagline": "Senzor de piele cu AI"
+        "hebeTagline": "Senzație de gheață confortabilă + blocare de siguranță"
       },
       "common": {
         "previous": "Anterior",
@@ -6625,7 +6633,7 @@
         "cta": "Aflați despre procesul de calitate",
         "certified": "Certificat",
         "compliant": "Conform",
-        "badgeFdaCleared": "Avizat FDA",
+        "badgeFdaCleared": "Autorizat FDA 510(k)",
         "badgeCeMarked": "Marcat CE",
         "badgeIso": "ISO 13485 (deținută până la 03.04.2026)",
         "badgeMdsap": "MDSAP (auditat în dec. 2024)"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Senzor inteligent de piele, răcire până la 10 °C",
-        "lumi": "Control inteligent prin aplicație",
+        "lumi": "Cel mai vândut produs RoseSkinCo",
         "venus": "Răcire premium cu gheață",
-        "themis": "Sistem cu lampă dublă",
+        "themis": "Tratament profesional cu senzație de gheață",
         "emerald": "Răcire pentru piele sensibilă",
         "eirene": "Calitate profesională",
         "golden": "Ediție de lux",
-        "hebe": "Senzor de piele cu AI"
+        "hebe": "Senzație de gheață confortabilă + blocare de siguranță"
       },
       "card": {
         "title": "Cunoașteți cel mai bun IPL",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Senzor inteligent de piele + răcire până la 10 °C",
         "venus": "Răcire premium cu gheață",
-        "lumi": "Control inteligent prin aplicație",
+        "lumi": "Cel mai vândut produs RoseSkinCo",
         "helix": "Răcire cu gheață + 9 niveluri de intensitate",
-        "themis": "Sistem cu lampă dublă",
+        "themis": "Tratament profesional cu senzație de gheață",
         "emerald": "Răcire pentru piele sensibilă",
         "alpha": "IPL de înaltă eficiență",
-        "hebe": "Senzor de piele cu AI"
+        "hebe": "Senzație de gheață confortabilă + blocare de siguranță"
       },
       "prev": "Anterior",
       "next": "Următorul"
@@ -7826,7 +7834,7 @@
       "description": "Fiecare dispozitiv trece prin procese riguroase de testare și control al calității pentru a îndeplini cele mai înalte standarde internaționale. Certificările noastre deschid porțile către piețele globale.",
       "items": {
         "fdaCleared": {
-          "title": "Dispozitive aprobate de FDA",
+          "title": "Dispozitive autorizate FDA 510(k)",
           "desc": "Suport complet pentru procesul de aprobare FDA și documentație de conformitate continuă."
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "Aflați mai multe despre procesul de calitate",
       "badges": {
         "certified": "Certificat",
-        "fdaCleared": "Aprobat de FDA",
+        "fdaCleared": "Autorizat FDA 510(k)",
         "ceMarked": "Marcat CE",
         "iso13485": "ISO 13485 (deținută până la 03.04.2026)",
         "compliant": "Conform",
@@ -8001,8 +8009,8 @@
           "value": "Da"
         },
         "skinToneSensor": {
-          "label": "Sistem integrat de siguranță",
-          "value": "Da"
+          "label": "Senzor de nuanță a pielii",
+          "value": "Nu"
         },
         "lampMaterial": {
           "label": "Materialul lămpii",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Tehnologie de răcire a pielii",
-          "description": "Sistemul de răcire activă răcește pielea la 10 °C înainte de fiecare fulger pentru o experiență de tratament aproape nedureroasă."
+          "description": "Sistemul de răcire activă menține pielea răcoroasă în momentul fiecărui fulger, pentru un tratament mai blând."
         },
         "smartSkinSensor": {
           "title": "Senzor inteligent de piele",
-          "description": "Detectarea în timp real a nuanței pielii ajustează automat energia emisă, pentru siguranță pe toate tipurile de piele."
+          "description": "Detectarea în timp real a nuanței pielii ajustează automat energia emisă, pentru utilizare sigură în intervalul de nuanțe adecvat."
         },
         "highFlashCapacity": {
           "title": "Număr mare de fulgere",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Senzație de gheață + lampă de cuarț",
-      "description": "Dispozitivul Venus IPL dispune de tehnologie avansată de răcire cu placă de gheață, oferind o experiență de epilare confortabilă și aproape nedureroasă.",
+      "description": "Dispozitivul Venus IPL dispune de tehnologie avansată de răcire cu placă de gheață, oferind o experiență de epilare confortabilă și blândă.",
       "specs": {
         "type": {
           "label": "Tip",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatură de răcire",
-          "value": "8 °C (temperatură ambiantă 25 °C)"
+          "value": "5 °C (temperatură ambiantă 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Timp până la temperatura de răcire",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Dimensiunea dispozitivului",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Greutate netă",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "MOQ în vrac (dispozitiv)",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Dimensiunea dispozitivului",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Greutate netă",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Răcire",
-          "value": "Standard"
+          "value": "Da, răcire TEC cu suprafață de transfer termic metalică"
         },
         "window": {
           "label": "Fereastră de tratament",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Dimensiunea dispozitivului",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Greutate netă",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "MOQ în vrac (dispozitiv)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Dimensiunea dispozitivului",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Greutate netă",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Alimentare",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Răcire",
-          "value": "Da, răcire TEC cu suprafață de transfer termic metalică"
+          "value": "Standard"
         },
         "window": {
           "label": "Fereastră de tratament",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energie",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Dimensiunea dispozitivului",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Greutate netă",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "MOQ pentru volum (dispozitiv)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Fereastră de tratament",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energie",

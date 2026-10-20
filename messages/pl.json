@@ -67,7 +67,7 @@
     "smartApp": "Sterowanie przez aplikację",
     "forMen": "Dla mężczyzn",
     "forStartups": "Dla startupów",
-    "fdaCleared": "Zatwierdzone przez FDA",
+    "fdaCleared": "Dopuszczone przez FDA 510(k)",
     "globalShipping": "Wysyłka na cały świat",
     "expertise": "Ponad 15 lat doświadczenia",
     "brandingPackaging": "Branding i opakowania",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Inteligentne sterowanie aplikacją"
+        "tagline": "Inteligentny czujnik skóry + chłodzenie skóry do 10 °C"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Inteligentne sterowanie aplikacją"
+        "tagline": "Najlepiej sprzedający się produkt RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "System podwójnej lampy"
+        "tagline": "Profesjonalne zabiegi z efektem lodu"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Czujnik skóry AI"
+        "tagline": "Komfortowy efekt lodu + blokada bezpieczeństwa"
       },
       "components": {
         "heading": "komponenty IPL",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Certyfikaty",
       "certificationsParagraph": "Nasz system zarządzania jakością opiera się na kluczowych certyfikatach:",
-      "qcCerts": ["Certyfikat CE na rynki europejskie","Dopuszczenie FDA do sprzedaży na rynku amerykańskim","Certyfikacja MDR w trakcie — przygotowanie do ekspansji na rynek UE"],
+      "qcCerts": [
+        "Certyfikat CE na rynki europejskie",
+        "Dopuszczenie FDA do sprzedaży na rynku amerykańskim",
+        "Brak certyfikatu MDR; brak wniosku do jednostki notyfikowanej"
+      ],
       "inspectionParagraph": "Nasz wieloetapowy system kontroli obejmuje kontrolę wejściową, kontrole w trakcie produkcji oraz kontrolę końcową, a każde urządzenie przed wysyłką przechodzi 100 % testów funkcjonalnych.",
       "customizationTitle": "Możliwości personalizacji",
       "customizationParagraph": "Jako partner OEM/ODM oferujemy szerokie możliwości personalizacji, dzięki którym Państwa urządzenie IPL będzie wyjątkowe:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Bezpieczeństwo fotobiologiczne",
         "Normy EMC dotyczące kompatybilności elektromagnetycznej"
       ],
-      "mdrNote": "Certyfikacja MDR w trakcie — przygotowanie do ekspansji na rynek UE zgodnie z nowym rozporządzeniem o wyrobach medycznych.",
+      "mdrNote": "Nie posiadamy certyfikatu MDR i nie złożyliśmy wniosku do jednostki notyfikowanej. Nasze dokumenty UE to CE na podstawie LVD 2014/35/EU i EMC 2014/30/EU oraz RoHS.",
       "logisticsTitle": "Logistyka i dostawa",
       "logisticsParagraph": "Nasza wiedza z zakresu logistyki globalnej gwarantuje, że Państwa produkty dotrą do celu sprawnie i bezpiecznie:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "100 % testów funkcjonalnych przed wysyłką"
       ],
       "certificationsTitle": "Certyfikaty",
-      "certifications": ["Certyfikat CE na rynki europejskie","Dopuszczenie FDA do sprzedaży na rynku amerykańskim","Certyfikacja MDR w trakcie — przygotowanie do ekspansji na rynek UE"],
+      "certifications": [
+        "Certyfikat CE na rynki europejskie",
+        "Dopuszczenie FDA do sprzedaży na rynku amerykańskim",
+        "Brak certyfikatu MDR; brak wniosku do jednostki notyfikowanej"
+      ],
       "qcSupportTitle": "Jak kontrola jakości wspiera OEM/ODM",
       "qcSupportParagraph": "Kontrola jakości to nie tylko zaliczanie testów — redukuje poprawki, stabilizuje wydajność produkcji i pomaga utrzymać przewidywalny harmonogram dostaw. W projektach OEM/ODM dostosowujemy punkty kontrolne i kryteria akceptacji do pozycjonowania Państwa produktu i rynków docelowych.",
       "talkToTeam": "Porozmawiaj z naszym zespołem",
@@ -6563,12 +6571,12 @@
         "desc": "Od chłodzenia szafirowego premium po inteligentne urządzenia sterowane aplikacją — poznaj naszą pełną gamę konfigurowalnych rozwiązań IPL.",
         "lumi2Tagline": "Inteligentny czujnik skóry + chłodzenie do 10 °C",
         "venusTagline": "Chłodzenie lodowe premium",
-        "lumiTagline": "Inteligentne sterowanie aplikacją",
+        "lumiTagline": "Najlepiej sprzedający się produkt RoseSkinCo",
         "helixTagline": "Chłodzenie lodowe + 9 poziomów intensywności",
-        "themisTagline": "System podwójnej lampy",
+        "themisTagline": "Profesjonalne zabiegi z efektem lodu",
         "emeraldTagline": "Chłodzenie dla skóry wrażliwej",
         "alphaTagline": "Wysokowydajne IPL",
-        "hebeTagline": "Czujnik skóry AI"
+        "hebeTagline": "Komfortowy efekt lodu + blokada bezpieczeństwa"
       },
       "common": {
         "previous": "Poprzedni",
@@ -6625,7 +6633,7 @@
         "cta": "Poznaj proces jakości",
         "certified": "Certyfikowane",
         "compliant": "Zgodne",
-        "badgeFdaCleared": "Dopuszczone przez FDA",
+        "badgeFdaCleared": "Dopuszczone przez FDA 510(k)",
         "badgeCeMarked": "Oznakowane CE",
         "badgeIso": "ISO 13485 (posiadana do 3.04.2026)",
         "badgeMdsap": "MDSAP (audyt w grudniu 2024)"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Inteligentny czujnik skóry, chłodzenie do 10 °C",
-        "lumi": "Inteligentne sterowanie aplikacją",
+        "lumi": "Najlepiej sprzedający się produkt RoseSkinCo",
         "venus": "Chłodzenie lodem klasy premium",
-        "themis": "System podwójnej lampy",
+        "themis": "Profesjonalne zabiegi z efektem lodu",
         "emerald": "Chłodzenie dla wrażliwej skóry",
         "eirene": "Klasa profesjonalna",
         "golden": "Wersja luksusowa",
-        "hebe": "Czujnik skóry AI"
+        "hebe": "Komfortowy efekt lodu + blokada bezpieczeństwa"
       },
       "card": {
         "title": "Poznaj najlepszy IPL",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Inteligentny czujnik skóry + chłodzenie do 10 °C",
         "venus": "Chłodzenie lodem klasy premium",
-        "lumi": "Inteligentne sterowanie aplikacją",
+        "lumi": "Najlepiej sprzedający się produkt RoseSkinCo",
         "helix": "Chłodzenie lodem + 9 poziomów intensywności",
-        "themis": "System podwójnej lampy",
+        "themis": "Profesjonalne zabiegi z efektem lodu",
         "emerald": "Chłodzenie dla skóry wrażliwej",
         "alpha": "Wysokowydajny IPL",
-        "hebe": "Czujnik skóry AI"
+        "hebe": "Komfortowy efekt lodu + blokada bezpieczeństwa"
       },
       "prev": "Poprzedni",
       "next": "Następny"
@@ -7826,7 +7834,7 @@
       "description": "Każde urządzenie przechodzi rygorystyczne testy i procesy kontroli jakości, aby spełnić najwyższe normy międzynarodowe. Nasze certyfikaty otwierają drzwi na rynki światowe.",
       "items": {
         "fdaCleared": {
-          "title": "Urządzenia dopuszczone przez FDA",
+          "title": "Urządzenia dopuszczone przez FDA 510(k)",
           "desc": "Pełne wsparcie w procesie uzyskania dopuszczenia FDA oraz bieżąca dokumentacja zgodności."
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "Poznaj proces jakości",
       "badges": {
         "certified": "Certyfikowany",
-        "fdaCleared": "Aprobata FDA",
+        "fdaCleared": "Dopuszczone przez FDA 510(k)",
         "ceMarked": "Oznaczone CE",
         "iso13485": "ISO 13485 (posiadana do 3.04.2026)",
         "compliant": "Zgodne z normami",
@@ -8001,8 +8009,8 @@
           "value": "Tak"
         },
         "skinToneSensor": {
-          "label": "Zintegrowany system bezpieczeństwa",
-          "value": "Tak"
+          "label": "Czujnik odcienia skóry",
+          "value": "Nie"
         },
         "lampMaterial": {
           "label": "Materiał lampy",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Technologia chłodzenia skóry",
-          "description": "Aktywny system chłodzenia schładza skórę do 10 °C przed każdym błyskiem, zapewniając niemal bezbolesny zabieg."
+          "description": "Aktywny system chłodzenia utrzymuje skórę w chłodzie w momencie każdego błysku, zapewniając delikatniejszy zabieg."
         },
         "smartSkinSensor": {
           "title": "Inteligentny czujnik skóry",
-          "description": "Wykrywanie odcienia skóry w czasie rzeczywistym automatycznie dostosowuje energię, zapewniając bezpieczeństwo dla wszystkich typów skóry."
+          "description": "Wykrywanie odcienia skóry w czasie rzeczywistym automatycznie dostosowuje energię, zapewniając bezpieczne stosowanie w odpowiednim zakresie odcieni skóry."
         },
         "highFlashCapacity": {
           "title": "Duża liczba błysków",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Ice Feeling + lampa kwarcowa",
-      "description": "Urządzenie Venus IPL wyposażono w zaawansowaną technologię chłodzenia płytką lodową, zapewniającą komfortowe i niemal bezbolesne usuwanie owłosienia.",
+      "description": "Urządzenie Venus IPL wyposażono w zaawansowaną technologię chłodzenia płytką lodową, zapewniającą komfortowe i delikatne usuwanie owłosienia.",
       "specs": {
         "type": {
           "label": "Typ",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatura chłodzenia",
-          "value": "8 °C (temperatura otoczenia 25 °C)"
+          "value": "5 °C (temperatura otoczenia 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Czas do osiągnięcia temperatury chłodzenia",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Wymiary urządzenia",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Waga netto",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "MOQ hurtowe (urządzenie)",
@@ -8364,7 +8372,7 @@
         },
         "window": {
           "label": "Okno zabiegowe",
-          "value": "3.3 cm²"
+          "value": "3,3 cm²"
         },
         "energy": {
           "label": "Energia",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Wymiary urządzenia",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Waga netto",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Chłodzenie",
-          "value": "Standardowe"
+          "value": "Tak, chłodzenie TEC z metalową powierzchnią wymiany ciepła"
         },
         "window": {
           "label": "Okno zabiegowe",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Wymiary urządzenia",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Waga netto",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "MOQ hurtowe (urządzenie)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Wymiary urządzenia",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Waga netto",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Zasilanie",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Chłodzenie",
-          "value": "Tak, chłodzenie TEC z metalową powierzchnią wymiany ciepła"
+          "value": "Standardowe"
         },
         "window": {
           "label": "Okno zabiegowe",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energia",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Wymiary urządzenia",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Masa netto",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "MOQ hurtowe (urządzenie)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Okno zabiegowe",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energia",

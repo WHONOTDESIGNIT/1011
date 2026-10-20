@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Akıllı Uygulama Kontrolü"
+        "tagline": "Akıllı Cilt Sensörü + Cildi 10°C'ye Soğutur"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Akıllı Uygulama Kontrolü"
+        "tagline": "RoseSkinCo'nun En Çok Satanı"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Çift Lamba Sistemi"
+        "tagline": "Profesyonel Buz Hissi Tedavisi"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "AI Cilt Sensörü"
+        "tagline": "Konfor Buz Hissi + Güvenlik Kilidi"
       },
       "components": {
         "heading": "IPL bileşenleri",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Sertifikalar",
       "certificationsParagraph": "Kalite yönetim sistemimiz temel sertifikalarla desteklenmektedir:",
-      "qcCerts": ["Avrupa pazarları için CE Sertifikası","ABD pazarına erişim için FDA Onayı","MDR belgelendirmesi devam ediyor — AB pazarı genişlemesi için hazırlığın sağlanması"],
+      "qcCerts": [
+        "Avrupa pazarları için CE Sertifikası",
+        "ABD pazarına erişim için FDA Onayı",
+        "MDR sertifikası yok; onaylanmış kuruluşa başvuru yok"
+      ],
       "inspectionParagraph": "Çok aşamalı denetim sistemimiz; giriş kalite kontrolü, süreç içi kontroller ve son denetimi içerir ve sevkiyattan önce her cihazın %100 işlevsel testi yapılır.",
       "customizationTitle": "Özelleştirme Yetenekleri",
       "customizationParagraph": "Bir OEM/ODM ortağı olarak, IPL cihazınızı benzersiz kılmak için kapsamlı özelleştirme seçenekleri sunuyoruz:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Fotobiyolojik güvenlik",
         "Elektromanyetik uyumluluk için EMC standartları"
       ],
-      "mdrNote": "MDR belgelendirmesi devam ediyor — yeni Tıbbi Cihaz Yönetmeliği kapsamında AB pazarına giriş için hazırlık sürdürülüyor.",
+      "mdrNote": "MDR sertifikamız bulunmuyor ve onaylanmış kuruluşa (Notified Body) yapılmış bir başvuru yok. AB belgelerimiz LVD 2014/35/EU ve EMC 2014/30/EU kapsamında CE ile RoHS'tir.",
       "logisticsTitle": "Lojistik ve Teslimat",
       "logisticsParagraph": "Küresel lojistik uzmanlığımız, ürünlerinizin verimli ve güvenli şekilde hedeflerine ulaşmasını sağlar:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "Sevkiyattan önce %100 işlevsel test"
       ],
       "certificationsTitle": "Sertifikalar",
-      "certifications": ["Avrupa pazarları için CE Sertifikası","ABD pazarına erişim için FDA Onayı","MDR belgelendirmesi devam ediyor — AB pazarı genişlemesi için hazırlığın sağlanması"],
+      "certifications": [
+        "Avrupa pazarları için CE Sertifikası",
+        "ABD pazarına erişim için FDA Onayı",
+        "MDR sertifikası yok; onaylanmış kuruluşa başvuru yok"
+      ],
       "qcSupportTitle": "Kalite Kontrol OEM/ODM'yi Nasıl Destekler",
       "qcSupportParagraph": "Kalite kontrol yalnızca kontrolleri geçmekle ilgili değildir — yeniden işlemeyi azaltır, verimi istikrara kavuşturur ve teslimat takviminizin öngörülebilir kalmasına yardımcı olur. OEM/ODM projelerinde test kontrol noktalarını ve kabul kriterlerini ürün konumlandırmanız ve hedef pazarlarınızla uyumlu hale getiririz.",
       "talkToTeam": "Ekibimizle Görüşün",
@@ -6563,12 +6571,12 @@
         "desc": "Premium safir soğutma sistemlerinden akıllı uygulama kontrollü cihazlara kadar, özelleştirilebilir IPL çözümlerimizin tamamını keşfedin.",
         "lumi2Tagline": "Akıllı Cilt Sensörü + 10°C'ye Soğutma",
         "venusTagline": "Premium Buz Soğutma",
-        "lumiTagline": "Akıllı Uygulama Kontrolü",
+        "lumiTagline": "RoseSkinCo'nun En Çok Satanı",
         "helixTagline": "Buz Soğutma + 9 Yoğunluk Seviyesi",
-        "themisTagline": "Çift Lamba Sistemi",
+        "themisTagline": "Profesyonel Buz Hissi Tedavisi",
         "emeraldTagline": "Hassas Cilt Soğutması",
         "alphaTagline": "Yüksek Verimli IPL",
-        "hebeTagline": "Yapay Zekâ Cilt Sensörü"
+        "hebeTagline": "Konfor Buz Hissi + Güvenlik Kilidi"
       },
       "common": {
         "previous": "Önceki",
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Akıllı Cilt Sensörü, 10°C'ye kadar soğutma",
-        "lumi": "Akıllı Uygulama Kontrolü",
+        "lumi": "RoseSkinCo'nun En Çok Satanı",
         "venus": "Premium Buz Soğutma",
-        "themis": "Çift Lamba Sistemi",
+        "themis": "Profesyonel Buz Hissi Tedavisi",
         "emerald": "Hassas Cilt Soğutması",
         "eirene": "Profesyonel Sınıf",
         "golden": "Lüks Sürüm",
-        "hebe": "AI Cilt Sensörü"
+        "hebe": "Konfor Buz Hissi + Güvenlik Kilidi"
       },
       "card": {
         "title": "En İyi IPL ile Tanışın",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Akıllı Cilt Sensörü + 10°C'ye Kadar Soğutma",
         "venus": "Premium Buz Soğutma",
-        "lumi": "Akıllı Uygulama Kontrolü",
+        "lumi": "RoseSkinCo'nun En Çok Satanı",
         "helix": "Buz Soğutma + 9 Yoğunluk Seviyesi",
-        "themis": "Çift Lamba Sistemi",
+        "themis": "Profesyonel Buz Hissi Tedavisi",
         "emerald": "Hassas Cilt Soğutması",
         "alpha": "Yüksek Verimli IPL",
-        "hebe": "AI Cilt Sensörü"
+        "hebe": "Konfor Buz Hissi + Güvenlik Kilidi"
       },
       "prev": "Önceki",
       "next": "Sonraki"
@@ -8001,8 +8009,8 @@
           "value": "Evet"
         },
         "skinToneSensor": {
-          "label": "Entegre güvenlik sistemi",
-          "value": "Evet"
+          "label": "Cilt tonu sensörü",
+          "value": "Hayır"
         },
         "lampMaterial": {
           "label": "Lamba malzemesi",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Cilt Soğutma Teknolojisi",
-          "description": "Aktif soğutma sistemi, neredeyse ağrısız bir tedavi deneyimi için her atımdan önce cildi 10°C'ye kadar soğutur."
+          "description": "Aktif soğutma sistemi, her atım anında cildi serin tutarak daha nazik bir tedavi sağlar."
         },
         "smartSkinSensor": {
           "title": "Akıllı Cilt Sensörü",
-          "description": "Gerçek zamanlı cilt tonu algılama, tüm cilt tiplerinde güvenlik için enerji çıkışını otomatik olarak ayarlar."
+          "description": "Gerçek zamanlı cilt tonu algılama, uygun cilt tonu aralığında güvenli kullanım için enerji çıkışını otomatik olarak ayarlar."
         },
         "highFlashCapacity": {
           "title": "Yüksek Atım Kapasitesi",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Buz Hissi + Kuvars Lamba",
-      "description": "Venus IPL cihazı, gelişmiş buz plakası soğutma teknolojisine sahiptir ve konforlu, neredeyse ağrısız bir epilasyon deneyimi sunar.",
+      "description": "Venus IPL cihazı, gelişmiş buz plakası soğutma teknolojisine sahiptir ve konforlu, nazik bir epilasyon deneyimi sunar.",
       "specs": {
         "type": {
           "label": "Tip",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Soğutma sıcaklığı",
-          "value": "8°C (ortam sıcaklığı 25°C)"
+          "value": "5°C (ortam sıcaklığı 25°C)"
         },
         "timeToCoolingTemperature": {
           "label": "Soğutma sıcaklığına ulaşma süresi",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Cihaz boyutu",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Net ağırlık",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "Toptan MOQ (cihaz)",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Cihaz boyutu",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Net ağırlık",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Soğutma",
-          "value": "Standart"
+          "value": "Var, metal ısı transfer yüzeyli TEC soğutma"
         },
         "window": {
           "label": "Pencere",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Cihaz boyutu",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Net ağırlık",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "Toptan MOQ (cihaz)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Cihaz boyutu",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Net ağırlık",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Güç",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Soğutma",
-          "value": "Var, metal ısı transfer yüzeyli TEC soğutma"
+          "value": "Standart"
         },
         "window": {
           "label": "Pencere",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Enerji",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Cihaz boyutu",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Net ağırlık",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "Toptan MOQ (cihaz)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Pencere",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Enerji",

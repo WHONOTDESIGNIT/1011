@@ -105,7 +105,7 @@ function fill(template: string, vars: Record<string, string | number>) {
 // —— 产品结构元数据：键名引用 messages 的 productDetail.<slug> 命名空间 ——
 const SPEC_KEYS: Record<string, string[]> = {
   lumi: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'skinToneSensor', 'lampMaterial', 'lampConfiguration', 'warranty', 'wavelength'],
-  'lumi-2': ['type', 'cooling', 'skinDetection', 'energy', 'lamp', 'window', 'wavelength', 'connectivity'],
+  'lumi-2': ['type', 'cooling', 'skinDetection', 'energy', 'lamp', 'window', 'wavelength'],
   venus: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'coolingTemperature', 'timeToCoolingTemperature', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'skinToneSensor', 'lampMaterial', 'lampConfiguration', 'warranty', 'maxOpticalPowerDensity', 'wavelength', 'deviceSize', 'netWeight', 'bulkMoq'],
   hestia: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'skinToneSensor', 'lampMaterial', 'lampConfiguration', 'warranty', 'maxOpticalPowerDensity', 'wavelength', 'deviceSize', 'netWeight', 'bulkMoq'],
   alpha: ['type', 'cooling', 'window', 'energy', 'energySettings', 'lamp', 'autoFlash', 'pulseDuration', 'totalEnergyRange', 'inputVoltage', 'adapter', 'uvFilter', 'safetySystem', 'skinToneSensor', 'lampMaterial', 'lampConfiguration', 'warranty', 'maxOpticalPowerDensity', 'wavelength', 'deviceSize', 'netWeight', 'bulkMoq'],
@@ -124,8 +124,12 @@ const SPEC_KEYS: Record<string, string[]> = {
 };
 
 const FEATURE_KEYS: Record<string, string[]> = {
-  lumi: ['smartAppControl', 'precisionTargeting', 'rapidTreatment', 'longLastingLamp'],
-  'lumi-2': ['skinCoolingTechnology', 'smartSkinSensor', 'appConnectedPrecision', 'highFlashCapacity'],
+  // LUMI（SKN002）**没有**蓝牙模块（内部布局已占满），也没有任何 App 功能。
+  // 原数组里的 smartAppControl 在 22 个语种里都写着「Connect via Bluetooth 5.0…」，
+  // precisionTargeting 连文案都不存在（t() 取不到键）。2026-10-20 审计后两者一并移除。
+  lumi: ['rapidTreatment', 'longLastingLamp'],
+  // Lumi 2（SKN011）同样无 App；appConnectedPrecision 只是键、没有文案。
+  'lumi-2': ['skinCoolingTechnology', 'smartSkinSensor', 'highFlashCapacity'],
   venus: ['icePlateCooling', 'energyDensityRange', 'multipleColorOptions', 'provenPerformance'],
   hestia: ['appConnectedScheduling', 'progressTracking', 'multiColorDesign', 'dataDrivenResults'],
   alpha: ['efficientOutput', 'sapphireIceFeelingCooling', 'longLastingLamp', 'privateLabelReady'],
@@ -187,7 +191,7 @@ const PRODUCT_ASSETS: Record<
       '/images/products/lumi/ROSESKIN_0436_4.webp',
     ],
     colorCount: 2,
-    priceTiers: [32.29, 31.29, 29.29, 27.49],
+    priceTiers: [28.90, 26.80, 25.50, 23.20],
   },
   'lumi-2': {
     heroImage: '/images/products/lumi-2/lumi-2-images-1.webp',
@@ -199,7 +203,7 @@ const PRODUCT_ASSETS: Record<
       '/images/products/lumi-2/lumi-2-images (1).jpg',
     ],
     colorCount: 1,
-    priceNote: true,
+    priceTiers: [58.00, 49.90, 47.60, 42.60],
   },
   'venus': {
     heroImage: '/images/products/Venus/purple-venus-sapphire-ipl.webp',
@@ -225,7 +229,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 4,
     badge: true,
-    priceTiers: [30.9, 28.99, 27.89, 24.69],
+    priceTiers: [30.90, 28.90, 27.80, 25.80],
   },
   'alpha': {
     heroImage: '/images/products/Alpha/alpha-ipl-device-front-view.jpg',
@@ -239,7 +243,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [32.9, 30.8, 29.65, 27.2],
+    priceTiers: [28.90, 26.80, 25.50, 23.20],
   },
   'emerald': {
     heroImage: '/images/products/Emerald/emerald%20ipl%20white%20color.webp',
@@ -254,7 +258,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [34.9, 32.8, 31.65, 29.2],
+    priceTiers: [30.90, 28.80, 27.50, 25.20],
   },
   'euno': {
     heroImage: '/images/products/Euno/euno%20ipl%20white%20color.webp',
@@ -269,7 +273,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [31.45, 28.9, 27.59, 26.59],
+    priceTiers: [26.29, 26.19, 26.09, 25.99],
     priceNote: true,
   },
   'themis': {
@@ -281,7 +285,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [40.9, 42.9, 41.59, 35.65],
+    priceTiers: [32.90, 30.90, 29.80, 28.50],
     priceNote: true,
   },
   'hebe': {
@@ -295,7 +299,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [55.77, 53.95, 51.87, 47.97],
+    priceTiers: [32.90, 30.90, 29.80, 28.50],
   },
   'helix': {
     heroImage: '/images/products/Helix/helix-ipl-front-view.jpg',
@@ -308,7 +312,7 @@ const PRODUCT_ASSETS: Record<
     ],
     colorCount: 3,
     badge: true,
-    priceTiers: [38.99, 36.39, 34.99, 33.99],
+    priceTiers: [36.50, 32.00, 28.59, 26.59],
   },
   'eirene': {
     heroImage: '/images/products/Eirene/battery-built-in%20ipl%20device%20front%20view.jpg',

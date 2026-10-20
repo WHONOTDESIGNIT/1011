@@ -277,7 +277,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Smart App Control"
+        "tagline": "Smart Skin Sensor + Chills Skin to 10°C"
       },
       "hebe": {
         "name": "Hebe",
@@ -499,7 +499,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Smart App Control"
+        "tagline": "RoseSkinCo's Top Selling"
       },
       "venus": {
         "name": "Venus",
@@ -507,7 +507,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Dual Lamp System"
+        "tagline": "Ice Feeling Professional Treatment"
       },
       "emerald": {
         "name": "Emerald",
@@ -523,7 +523,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "AI Skin Sensor"
+        "tagline": "Comfort Ice Feeling + Safety Lock"
       },
       "components": {
         "heading": "ipl components",
@@ -3861,7 +3861,12 @@
       "excellenceParagraph": "At iShine, we combine advanced facilities, skilled teams, and strict quality systems to deliver IPL devices that meet global standards. From design to delivery, our capabilities ensure your project's success.",
       "facilitiesTitle": "Facilities & Equipment",
       "facilitiesParagraph": "Our state-of-the-art manufacturing facility in Shenzhen combines precision technology with efficient workflows to deliver exceptional IPL devices at scale.",
-      "facilityBullets": ["1,500 m² production facility with two IPL assembly lines","20 production staff, with floor area, line count and staffing verified on site by Intertek auditors","Advanced injection molding and precision assembly equipment","ISO Class 8 clean rooms for optical component assembly"],
+      "facilityBullets": [
+        "1,500 m² production facility with two IPL assembly lines",
+        "20 production staff, with floor area, line count and staffing verified on site by Intertek auditors",
+        "Advanced injection molding and precision assembly equipment",
+        "ISO Class 8 clean rooms for optical component assembly"
+      ],
       "facilityImageAlt": "iShine Manufacturing Facility",
       "rndTitle": "R&D and Prototyping",
       "rndParagraph": "Our dedicated R&D team transforms concepts into market-ready IPL devices with speed and precision, supporting your innovation goals.",
@@ -3917,7 +3922,7 @@
       "qcCerts": [
         "CE Certification for European markets",
         "FDA Clearance for US market access",
-        "MDR certification in progress — ensuring readiness for EU market expansion"
+        "No MDR certificate held; no notified-body application in place"
       ],
       "inspectionParagraph": "Our multi-stage inspection system includes incoming QC, in-process checks, and final inspection, with 100% functional testing of every device before shipment.",
       "customizationTitle": "Customization Capabilities",
@@ -3954,7 +3959,12 @@
       "complianceTitle": "Compliance & Standards",
       "complianceParagraph": "We ensure your IPL devices meet all regulatory requirements for global market access:",
       "globalCertificationsTitle": "Global Certifications",
-      "certifications": ["CE marking for European Economic Area","FDA clearance for US market","Health Canada MDL application support for Canadian market entry","TGA (Australia) registration formerly held — ARTG 440732, cancelled by the sponsor in 2025"],
+      "certifications": [
+        "CE marking for European Economic Area",
+        "FDA clearance for US market",
+        "Health Canada MDL application support for Canadian market entry",
+        "TGA (Australia) registration formerly held — ARTG 440732, cancelled by the sponsor in 2025"
+      ],
       "technicalStandardsTitle": "Technical Standards",
       "standards": [
         "IEC 60601 Medical electrical equipment safety",
@@ -3962,7 +3972,7 @@
         "IEC 62471 Photobiological safety",
         "EMC standards for electromagnetic compatibility"
       ],
-      "mdrNote": "MDR certification in progress — ensuring readiness for EU market expansion under the new Medical Device Regulation.",
+      "mdrNote": "No MDR certificate is held, and no notified-body application is in place. Our EU files are CE under LVD 2014/35/EU and EMC 2014/30/EU, plus RoHS.",
       "logisticsTitle": "Logistics & Delivery",
       "logisticsParagraph": "Our global logistics expertise ensures your products reach their destination efficiently and securely:",
       "logisticsBullets": [
@@ -4021,7 +4031,7 @@
       "certifications": [
         "CE Certification for European markets",
         "FDA Clearance for US market access",
-        "MDR certification in progress — ensuring readiness for EU market expansion"
+        "No MDR certificate held; no notified-body application in place"
       ],
       "qcSupportTitle": "How QC Supports OEM/ODM",
       "qcSupportParagraph": "QC is not only about passing checks — it reduces rework, stabilizes yields, and helps keep your delivery schedule predictable. For OEM/ODM projects, we align test checkpoints and acceptance criteria with your product positioning and target markets.",
@@ -4840,10 +4850,22 @@
         "ctaPrimary": "Request a Quote & Free Samples",
         "ctaSecondary": "See the five buyer scenarios",
         "trust": {
-          "0": { "head": "ISO 13485 (held until 2026-04-03)", "sub": "quality system" },
-          "1": { "head": "FDA 510(k)", "sub": "cleared" },
-          "2": { "head": "CE (MDR)", "sub": "RoHS / REACH" },
-          "3": { "head": "Samples from 1 unit", "sub": "bulk from 500" }
+          "0": {
+            "head": "ISO 13485 (held until 2026-04-03)",
+            "sub": "quality system"
+          },
+          "1": {
+            "head": "FDA 510(k)",
+            "sub": "cleared"
+          },
+          "2": {
+            "head": "CE (MDR)",
+            "sub": "RoHS / REACH"
+          },
+          "3": {
+            "head": "Samples from 1 unit",
+            "sub": "bulk from 500"
+          }
         }
       },
       "problem": {
@@ -5142,13 +5164,48 @@
         "thLaser": "Diode Laser",
         "thShave": "Shaving / Waxing",
         "rows": {
-          "0": { "property": "Hair reduction", "ipl": "up to ~95% over 12 weeks", "laser": "higher per session, fewer sessions", "shave": "none — regrows in days" },
-          "1": { "property": "Skin tone range", "ipl": "light to medium (burns risk on darkest)", "laser": "broader, incl. darker tones", "shave": "all tones" },
-          "2": { "property": "Hair color fit", "ipl": "ineffective on blonde/red/grey", "laser": "works on most", "shave": "all" },
-          "3": { "property": "Pain / comfort", "ipl": "low, sapphire ice-cooling", "laser": "low–moderate", "shave": "razor burn / wax pain" },
-          "4": { "property": "Durability", "ipl": "999,999 flashes, 10+ yr", "laser": "professional-grade device", "shave": "recurring cost" },
-          "5": { "property": "Upfront cost", "ipl": "mid, one-time", "laser": "highest", "shave": "lowest" },
-          "6": { "property": "Convenience", "ipl": "at-home, weekly", "laser": "clinic visit", "shave": "daily–weekly" }
+          "0": {
+            "property": "Hair reduction",
+            "ipl": "up to ~95% over 12 weeks",
+            "laser": "higher per session, fewer sessions",
+            "shave": "none — regrows in days"
+          },
+          "1": {
+            "property": "Skin tone range",
+            "ipl": "light to medium (burns risk on darkest)",
+            "laser": "broader, incl. darker tones",
+            "shave": "all tones"
+          },
+          "2": {
+            "property": "Hair color fit",
+            "ipl": "ineffective on blonde/red/grey",
+            "laser": "works on most",
+            "shave": "all"
+          },
+          "3": {
+            "property": "Pain / comfort",
+            "ipl": "low, sapphire ice-cooling",
+            "laser": "low–moderate",
+            "shave": "razor burn / wax pain"
+          },
+          "4": {
+            "property": "Durability",
+            "ipl": "999,999 flashes, 10+ yr",
+            "laser": "professional-grade device",
+            "shave": "recurring cost"
+          },
+          "5": {
+            "property": "Upfront cost",
+            "ipl": "mid, one-time",
+            "laser": "highest",
+            "shave": "lowest"
+          },
+          "6": {
+            "property": "Convenience",
+            "ipl": "at-home, weekly",
+            "laser": "clinic visit",
+            "shave": "daily–weekly"
+          }
         },
         "regulTitle": "The regulation axis",
         "regulBody": "A marketplace IPL is the budget choice and looks identical in a listing photo, but ships with a thinner UV filter, a downgraded lamp, and no verifiable clearance — whereas a regulated, FDA-cleared device holds its spec and is searchable in the public database, at a higher cost.",
@@ -6549,12 +6606,12 @@
         "desc": "From premium sapphire cooling to smart app-controlled devices, explore our complete range of customizable IPL solutions.",
         "lumi2Tagline": "Smart Skin Sensor + Cooling to 10°C",
         "venusTagline": "Premium Ice Cooling",
-        "lumiTagline": "Smart App Control",
+        "lumiTagline": "RoseSkinCo's Top Selling",
         "helixTagline": "Ice Cooling + 9 Intensity Levels",
-        "themisTagline": "Dual Lamp System",
+        "themisTagline": "Ice Feeling Professional Treatment",
         "emeraldTagline": "Sensitive-Skin Cooling",
         "alphaTagline": "High-Efficiency IPL",
-        "hebeTagline": "AI Skin Sensor"
+        "hebeTagline": "Comfort Ice Feeling + Safety Lock"
       },
       "common": {
         "previous": "Previous",
@@ -7615,13 +7672,13 @@
       },
       "taglines": {
         "lumi2": "Smart Skin Sensor, cooling to 10°C",
-        "lumi": "Smart App Control",
+        "lumi": "RoseSkinCo's Top Selling",
         "venus": "Premium Ice Cooling",
-        "themis": "Dual Lamp System",
+        "themis": "Ice Feeling Professional Treatment",
         "emerald": "Sensitive-Skin Cooling",
         "eirene": "Professional Grade",
         "golden": "Luxury Edition",
-        "hebe": "AI Skin Sensor"
+        "hebe": "Comfort Ice Feeling + Safety Lock"
       },
       "card": {
         "title": "Meet Best IPL",
@@ -7766,12 +7823,12 @@
       "taglines": {
         "lumi2": "Smart Skin Sensor + Cooling to 10°C",
         "venus": "Premium Ice Cooling",
-        "lumi": "Smart App Control",
+        "lumi": "RoseSkinCo's Top Selling",
         "helix": "Ice Cooling + 9 Intensity Levels",
-        "themis": "Dual Lamp System",
+        "themis": "Ice Feeling Professional Treatment",
         "emerald": "Sensitive-Skin Cooling",
         "alpha": "High-Efficiency IPL",
-        "hebe": "AI Skin Sensor"
+        "hebe": "Comfort Ice Feeling + Safety Lock"
       },
       "prev": "Previous",
       "next": "Next"
@@ -7987,8 +8044,8 @@
           "value": "Yes"
         },
         "skinToneSensor": {
-          "label": "Integrated safety system",
-          "value": "Yes"
+          "label": "Skin tone sensor",
+          "value": "No"
         },
         "lampMaterial": {
           "label": "Lamp material",
@@ -8063,11 +8120,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Skin Cooling Technology",
-          "description": "Active cooling system chills skin to 10°C before each flash for a nearly painless treatment experience."
+          "description": "Active cooling keeps the skin cool at the moment of each flash, for a gentler treatment."
         },
         "smartSkinSensor": {
           "title": "Smart Skin Sensor",
-          "description": "Real-time skin tone detection automatically adjusts energy output for safety across all skin types."
+          "description": "Real-time skin tone detection automatically adjusts energy output for safe use within the suitable skin-tone range."
         },
         "highFlashCapacity": {
           "title": "High Flash Capacity",
@@ -8082,7 +8139,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Ice Feeling + Quartz Lamp",
-      "description": "The Venus IPL device features advanced ice plate cooling technology, providing a comfortable, nearly painless hair removal experience.",
+      "description": "The Venus IPL device features advanced ice plate cooling technology, providing a comfortable, gentle hair removal experience.",
       "specs": {
         "type": {
           "label": "Type",
@@ -8118,7 +8175,7 @@
         },
         "coolingTemperature": {
           "label": "Cooling temperature",
-          "value": "8°C (ambient 25°C)"
+          "value": "5°C (ambient 25°C)"
         },
         "timeToCoolingTemperature": {
           "label": "Time to cooling temperature",
@@ -8298,11 +8355,11 @@
         },
         "deviceSize": {
           "label": "Device size",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Net weight",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "Bulk MOQ (device)",
@@ -8426,7 +8483,7 @@
         },
         "deviceSize": {
           "label": "Device size",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Net weight",
@@ -8473,7 +8530,7 @@
         },
         "cooling": {
           "label": "Cooling",
-          "value": "Standard"
+          "value": "TEC-based cooling with metal heat transfer interface"
         },
         "window": {
           "label": "Window",
@@ -8545,11 +8602,11 @@
         },
         "deviceSize": {
           "label": "Device size",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Net weight",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "Bulk MOQ (device)",
@@ -8664,11 +8721,11 @@
         },
         "deviceSize": {
           "label": "Device size",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Net weight",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Power",
@@ -8729,11 +8786,11 @@
         },
         "cooling": {
           "label": "Cooling",
-          "value": "TEC-based cooling with metal heat transfer interface"
+          "value": "Standard"
         },
         "window": {
           "label": "Window",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energy",
@@ -8809,11 +8866,11 @@
         },
         "deviceSize": {
           "label": "Device size",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Net weight",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "Bulk MOQ (device)",
@@ -8861,7 +8918,7 @@
         },
         "window": {
           "label": "Window",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energy",
@@ -9689,12 +9746,30 @@
         "getAQuote": "Get a Quote",
         "quickFacts": {
           "items": [
-            { "title": "300–1580%", "subtitle": "Service life that exceeds the average (energy output stability within ±5%)" },
-            { "title": "8 °C", "subtitle": "Comfort ice feeling" },
-            { "title": "Free Compliance Consult", "subtitle": "FDA · CE · SFDA · Get your own brand certified." },
-            { "title": "5 Grades", "subtitle": "Entry · Value · Mid-range · Premium · Flagship" },
-            { "title": "Custom", "subtitle": "Function · Package · Color" },
-            { "title": "Low MOQ", "subtitle": "Samples + Private Label / OEM" }
+            {
+              "title": "300–1580%",
+              "subtitle": "Service life that exceeds the average (energy output stability within ±5%)"
+            },
+            {
+              "title": "8 °C",
+              "subtitle": "Comfort ice feeling"
+            },
+            {
+              "title": "Free Compliance Consult",
+              "subtitle": "FDA · CE · SFDA · Get your own brand certified."
+            },
+            {
+              "title": "5 Grades",
+              "subtitle": "Entry · Value · Mid-range · Premium · Flagship"
+            },
+            {
+              "title": "Custom",
+              "subtitle": "Function · Package · Color"
+            },
+            {
+              "title": "Low MOQ",
+              "subtitle": "Samples + Private Label / OEM"
+            }
           ]
         },
         "carousel": {
@@ -9712,14 +9787,38 @@
         "kicker": "The numbers behind the claim",
         "title": "iShine by the numbers",
         "metrics": [
-          { "value": "15", "label": "OEM/ODM platforms" },
-          { "value": "999,000", "label": "flashes per lamp" },
-          { "value": "9", "label": "energy levels, max" },
-          { "value": "3.0–3.3 cm²", "label": "treatment window" },
-          { "value": "2 yrs", "label": "warranty, extendable to 5" },
-          { "value": "50", "label": "units min. per private-label run" },
-          { "value": "$99–$299", "label": "suggested retail window (RSP)" },
-          { "value": "from $20", "label": "factory-direct unit price" }
+          {
+            "value": "15",
+            "label": "OEM/ODM platforms"
+          },
+          {
+            "value": "999,000",
+            "label": "flashes per lamp"
+          },
+          {
+            "value": "9",
+            "label": "energy levels, max"
+          },
+          {
+            "value": "3.0–3.3 cm²",
+            "label": "treatment window"
+          },
+          {
+            "value": "2 yrs",
+            "label": "warranty, extendable to 5"
+          },
+          {
+            "value": "50",
+            "label": "units min. per private-label run"
+          },
+          {
+            "value": "$99–$299",
+            "label": "suggested retail window (RSP)"
+          },
+          {
+            "value": "from $20",
+            "label": "factory-direct unit price"
+          }
         ],
         "note": "RSP (excl. VAT) is the suggested retail range of our five flagship platforms. Factory unit pricing runs $20–$70 depending on platform, BOM and volume."
       },
@@ -9869,8 +9968,16 @@
         "kicker": "Do the homework yourself",
         "title": "Two ways to check us before you email",
         "tools": [
-          { "title": "Compare models side by side", "body": "Every flagship platform against 12 spec rows — energy, window, cooling, skin sensor, app support — in one matrix.", "cta": "Open the comparison matrix" },
-          { "title": "Read how we test", "body": "Lamp life, UV filters and energy claims: the published engineering posts behind our specs.", "cta": "Browse engineering posts" }
+          {
+            "title": "Compare models side by side",
+            "body": "Every flagship platform against 12 spec rows — energy, window, cooling, skin sensor, app support — in one matrix.",
+            "cta": "Open the comparison matrix"
+          },
+          {
+            "title": "Read how we test",
+            "body": "Lamp life, UV filters and energy claims: the published engineering posts behind our specs.",
+            "cta": "Browse engineering posts"
+          }
         ]
       },
       "specTools": {

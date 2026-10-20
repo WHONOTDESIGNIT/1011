@@ -67,7 +67,7 @@
     "smartApp": "Ovládání chytrou aplikací",
     "forMen": "Pro muže",
     "forStartups": "Pro startupy",
-    "fdaCleared": "Schváleno FDA",
+    "fdaCleared": "Povoleno FDA 510(k)",
     "globalShipping": "Celosvětová doprava",
     "expertise": "Více než 15 let zkušeností",
     "brandingPackaging": "Branding a balení",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Ovládání chytrou aplikací"
+        "tagline": "Chytrý senzor pleti + ochlazuje pleť na 10 °C"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Ovládání chytrou aplikací"
+        "tagline": "Nejprodávanější u RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Systém dvojité lampy"
+        "tagline": "Profesionální ošetření s technologií Ice Feeling"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Senzor tónu pleti s umělou inteligencí"
+        "tagline": "Komfortní Ice Feeling + bezpečnostní zámek"
       },
       "components": {
         "heading": "Komponenty IPL",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Certifikace",
       "certificationsParagraph": "Náš systém řízení kvality je podložen klíčovými certifikacemi:",
-      "qcCerts": ["Certifikace CE pro evropské trhy","Schválení FDA pro přístup na americký trh","Certifikace MDR v průběhu — zajištění připravenosti pro expanzi na trh EU"],
+      "qcCerts": [
+        "Certifikace CE pro evropské trhy",
+        "Schválení FDA pro přístup na americký trh",
+        "Bez certifikátu MDR; žádná žádost u oznámeného subjektu"
+      ],
       "inspectionParagraph": "Náš vícestupňový kontrolní systém zahrnuje vstupní kontrolu kvality, průběžné kontroly a výstupní kontrolu, přičemž každý přístroj je před expedicí podroben 100 % funkčnímu testování.",
       "customizationTitle": "Možnosti přizpůsobení na míru",
       "customizationParagraph": "Jako partner OEM/ODM nabízíme široké možnosti přizpůsobení, aby byl váš IPL přístroj jedinečný:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Fotobiologická bezpečnost",
         "Normy EMC pro elektromagnetickou kompatibilitu"
       ],
-      "mdrNote": "Certifikace MDR v průběhu — zajištění připravenosti pro expanzi na trh EU v souladu s novým nařízením o zdravotnických prostředcích.",
+      "mdrNote": "Nevlastníme certifikát MDR a nemáme podanou žádost u oznámeného subjektu. Naše EU dokumentace je CE podle LVD 2014/35/EU a EMC 2014/30/EU, plus RoHS.",
       "logisticsTitle": "Logistika a dodání",
       "logisticsParagraph": "Naše odborné znalosti v oblasti globální logistiky zajišťují, že vaše produkty dorazí na místo určení efektivně a bezpečně:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "100 % funkční testování před expedicí"
       ],
       "certificationsTitle": "Certifikace",
-      "certifications": ["Certifikace CE pro evropské trhy","Schválení FDA pro přístup na americký trh","Certifikace MDR v průběhu — zajištění připravenosti pro expanzi na trh EU"],
+      "certifications": [
+        "Certifikace CE pro evropské trhy",
+        "Schválení FDA pro přístup na americký trh",
+        "Bez certifikátu MDR; žádná žádost u oznámeného subjektu"
+      ],
       "qcSupportTitle": "Jak kontrola kvality podporuje OEM/ODM",
       "qcSupportParagraph": "Kontrola kvality není jen o absolvování kontrol — snižuje přepracování, stabilizuje výtěžnost a pomáhá udržet váš harmonogram dodávek předvídatelný. U projektů OEM/ODM sladíme kontrolní body testování a akceptační kritéria s pozicováním vašeho produktu a cílovými trhy.",
       "talkToTeam": "Promluvte si s naším týmem",
@@ -6563,12 +6571,12 @@
         "desc": "Od prémiového safírového chlazení po přístroje ovládané chytrou aplikací – prozkoumejte naši kompletní řadu přizpůsobitelných IPL řešení.",
         "lumi2Tagline": "Chytrý senzor tónu pleti + chlazení až na 10 °C",
         "venusTagline": "Prémiové ledové chlazení",
-        "lumiTagline": "Ovládání chytrou aplikací",
+        "lumiTagline": "Nejprodávanější u RoseSkinCo",
         "helixTagline": "Ledové chlazení + 9 úrovní intenzity",
-        "themisTagline": "Systém s dvojitou lampou",
+        "themisTagline": "Profesionální ošetření s technologií Ice Feeling",
         "emeraldTagline": "Chlazení pro citlivou pleť",
         "alphaTagline": "Vysoce účinný IPL",
-        "hebeTagline": "AI senzor tónu pleti"
+        "hebeTagline": "Komfortní Ice Feeling + bezpečnostní zámek"
       },
       "common": {
         "previous": "Předchozí",
@@ -6625,7 +6633,7 @@
         "cta": "Zjistit více o procesu kvality",
         "certified": "Certifikováno",
         "compliant": "V souladu s předpisy",
-        "badgeFdaCleared": "Schváleno FDA",
+        "badgeFdaCleared": "Povoleno FDA 510(k)",
         "badgeCeMarked": "Označeno CE",
         "badgeIso": "ISO 13485 (dříve platná do 3. 4. 2026)",
         "badgeMdsap": "MDSAP (audit v prosinci 2024)"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Chytrý senzor tónu pleti, chlazení až na 10 °C",
-        "lumi": "Ovládání chytrou aplikací",
+        "lumi": "Nejprodávanější u RoseSkinCo",
         "venus": "Prémiové ledové chlazení",
-        "themis": "Systém se dvěma lampami",
+        "themis": "Profesionální ošetření s technologií Ice Feeling",
         "emerald": "Chlazení pro citlivou pokožku",
         "eirene": "Profesionální úroveň",
         "golden": "Luxusní edice",
-        "hebe": "AI senzor tónu pleti"
+        "hebe": "Komfortní Ice Feeling + bezpečnostní zámek"
       },
       "card": {
         "title": "Seznamte se s nejlepším IPL",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Chytrý senzor tónu pleti + chlazení na 10 °C",
         "venus": "Prémiové ledové chlazení",
-        "lumi": "Ovládání chytrou aplikací",
+        "lumi": "Nejprodávanější u RoseSkinCo",
         "helix": "Ledové chlazení + 9 úrovní intenzity",
-        "themis": "Systém se dvěma lampami",
+        "themis": "Profesionální ošetření s technologií Ice Feeling",
         "emerald": "Chlazení pro citlivou pokožku",
         "alpha": "Vysoce účinné IPL",
-        "hebe": "AI senzor tónu pleti"
+        "hebe": "Komfortní Ice Feeling + bezpečnostní zámek"
       },
       "prev": "Předchozí",
       "next": "Další"
@@ -7826,7 +7834,7 @@
       "description": "Každý přístroj prochází přísnými testy a procesy kontroly kvality, aby splňoval nejvyšší mezinárodní standardy. Naše certifikace nám otevírají dveře na světové trhy.",
       "items": {
         "fdaCleared": {
-          "title": "Přístroje se schválením FDA",
+          "title": "Přístroje povolené FDA 510(k)",
           "desc": "Plná podpora procesu schválení FDA a průběžné dokumentace o shodě s předpisy."
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "Zjistit více o procesu kvality",
       "badges": {
         "certified": "Certifikováno",
-        "fdaCleared": "Schváleno FDA",
+        "fdaCleared": "Povoleno FDA 510(k)",
         "ceMarked": "Označeno CE",
         "iso13485": "ISO 13485 (dříve platná do 3. 4. 2026)",
         "compliant": "V souladu s předpisy",
@@ -8001,8 +8009,8 @@
           "value": "Ano"
         },
         "skinToneSensor": {
-          "label": "Integrovaný bezpečnostní systém",
-          "value": "Ano"
+          "label": "Senzor tónu pleti",
+          "value": "Ne"
         },
         "lampMaterial": {
           "label": "Materiál lampy",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Technologie chlazení pleti",
-          "description": "Aktivní chladicí systém ochladí pleť na 10 °C před každým zábleskem pro téměř bezbolestné ošetření."
+          "description": "Aktivní chladicí systém udržuje pleť v okamžiku každého záblesku v pohodlí pro šetrnější ošetření."
         },
         "smartSkinSensor": {
           "title": "Chytrý senzor pleti",
-          "description": "Detekce tónu pleti v reálném čase automaticky upravuje výstup energie pro bezpečnost u všech typů pleti."
+          "description": "Detekce tónu pleti v reálném čase automaticky upravuje výstup energie pro bezpečné použití v rámci vhodného rozsahu tónů pleti."
         },
         "highFlashCapacity": {
           "title": "Vysoká kapacita záblesků",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Ice Feeling + křemenná lampa",
-      "description": "IPL přístroj Venus disponuje pokročilou technologií chlazení ledovou destičkou, která zajišťuje pohodlné a téměř bezbolestné odstranění chloupků.",
+      "description": "IPL přístroj Venus disponuje pokročilou technologií chlazení ledovou destičkou, která zajišťuje pohodlné a šetrné odstranění chloupků.",
       "specs": {
         "type": {
           "label": "Typ",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Teplota chlazení",
-          "value": "8 °C (okolní teplota 25 °C)"
+          "value": "5 °C (okolní teplota 25 °C)"
         },
         "timeToCoolingTemperature": {
           "label": "Doba dosažení chladicí teploty",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Rozměry přístroje",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Čistá hmotnost",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "Velkoobchodní MOQ (přístroj)",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Rozměry přístroje",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "132,5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Čistá hmotnost",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Chlazení",
-          "value": "Standardní"
+          "value": "Ano, technologie chlazení TEC s kovovou tepelně vodivou plochou"
         },
         "window": {
           "label": "Okno",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Rozměry přístroje",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "135,5 × 86 × 52,5 mm"
         },
         "netWeight": {
           "label": "Čistá hmotnost",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "Velkoobchodní MOQ (přístroj)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Rozměry přístroje",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Čistá hmotnost",
-          "value": "275 g"
+          "value": "194,1 g"
         },
         "power": {
           "label": "Napájení",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Chlazení",
-          "value": "Ano, technologie chlazení TEC s kovovou tepelně vodivou plochou"
+          "value": "Standardní"
         },
         "window": {
           "label": "Okno",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energie",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Rozměry přístroje",
-          "value": "169 × 69,3 × 38,8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Čistá hmotnost",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "Velkoobchodní MOQ (přístroj)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Okno",
-          "value": "3,3 cm²"
+          "value": "3,0 cm²"
         },
         "energy": {
           "label": "Energie",

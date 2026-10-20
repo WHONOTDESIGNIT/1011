@@ -67,7 +67,7 @@
     "smartApp": "スマートアプリ制御",
     "forMen": "男性向け",
     "forStartups": "スタートアップ向け",
-    "fdaCleared": "FDA認可済み",
+    "fdaCleared": "FDA 510(k) 認可",
     "globalShipping": "海外配送",
     "expertise": "15年以上の実績",
     "brandingPackaging": "ブランディング＆パッケージング",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "スマートアプリ制御"
+        "tagline": "スマート肌センサー + 肌を10°Cまで冷却"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "スマートアプリ連携"
+        "tagline": "RoseSkinCoのベストセラー"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "デュアルランプシステム"
+        "tagline": "アイスフィーリング・プロフェッショナルトリートメント"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "AI肌センサー"
+        "tagline": "快適アイスフィーリング＋セーフティロック"
       },
       "components": {
         "heading": "IPLコンポーネント",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "認証",
       "certificationsParagraph": "当社の品質管理体制は、主要な認証によって支えられています：",
-      "qcCerts": ["欧州市場向けCE認証","米国市場参入のためのFDA認可","MDR認証取得中 — EU市場拡大への準備を整えています"],
+      "qcCerts": [
+        "欧州市場向けCE認証",
+        "米国市場参入のためのFDA認可",
+        "MDR認証なし・公告機関への申請もなし"
+      ],
       "inspectionParagraph": "当社の多段階検査体制には、受入QC、工程内チェック、最終検査が含まれ、出荷前にはすべてのデバイスに対して100%機能テストを実施します。",
       "customizationTitle": "カスタマイズ機能",
       "customizationParagraph": "OEM/ODMパートナーとして、光エステ脱毛器を独自のものにするための多彩なカスタマイズオプションを提供します：",
@@ -3952,7 +3956,7 @@
         "IEC 62471 光生物学的安全性",
         "電磁両立性に関するEMC規格"
       ],
-      "mdrNote": "MDR認証取得中 — 新しいMedical Device Regulationに基づくEU市場拡大への準備を整えています。",
+      "mdrNote": "当社はMDR認証を取得しておらず、公告機関（Notified Body）への申請も行っていません。EU向け書類はLVD 2014/35/EUおよびEMC 2014/30/EUに基づくCE、ならびにRoHSです。",
       "logisticsTitle": "物流と納品",
       "logisticsParagraph": "当社のグローバル物流ノウハウにより、製品が効率的かつ安全に目的地へ届きます：",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "出荷前の100%機能テスト"
       ],
       "certificationsTitle": "認証",
-      "certifications": ["欧州市場向けCE認証","米国市場参入のためのFDA認可","MDR認証取得中 — EU市場拡大への準備を整えています"],
+      "certifications": [
+        "欧州市場向けCE認証",
+        "米国市場参入のためのFDA認可",
+        "MDR認証なし・公告機関への申請もなし"
+      ],
       "qcSupportTitle": "QCがOEM/ODMをどのようにサポートするか",
       "qcSupportParagraph": "QCはチェックに合格することだけが目的ではありません。手戻りを減らし、歩留まりを安定させ、納期スケジュールを予測可能に保つのに役立ちます。OEM/ODMプロジェクトでは、テストのチェックポイントと受入基準をお客様の製品位置づけと対象市場に合わせて調整します。",
       "talkToTeam": "当社チームに相談する",
@@ -6563,12 +6571,12 @@
         "desc": "プレミアムサファイアクーリングからスマートアプリ連携の光エステ脱毛器まで、カスタマイズ可能な IPL ソリューションの全ラインナップをご覧ください。",
         "lumi2Tagline": "スマート肌センサー + 10°C 冷却",
         "venusTagline": "プレミアムアイスクーリング",
-        "lumiTagline": "スマートアプリ制御",
+        "lumiTagline": "RoseSkinCoのベストセラー",
         "helixTagline": "アイスクーリング + 9段階の出力レベル",
-        "themisTagline": "デュアルランプシステム",
+        "themisTagline": "アイスフィーリング・プロフェッショナルトリートメント",
         "emeraldTagline": "敏感肌向け冷却",
         "alphaTagline": "高効率 IPL",
-        "hebeTagline": "AI 肌センサー"
+        "hebeTagline": "快適アイスフィーリング＋セーフティロック"
       },
       "common": {
         "previous": "前へ",
@@ -6625,7 +6633,7 @@
         "cta": "品質プロセスについて学ぶ",
         "certified": "認証取得",
         "compliant": "準拠",
-        "badgeFdaCleared": "FDA クリア済み",
+        "badgeFdaCleared": "FDA 510(k) 認可",
         "badgeCeMarked": "CE マーク取得",
         "badgeIso": "ISO 13485（2026年4月3日まで有効）",
         "badgeMdsap": "MDSAP（2024年12月に審査）"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "スマート肌センサー、10°C まで冷却",
-        "lumi": "スマートアプリ操作",
+        "lumi": "RoseSkinCoのベストセラー",
         "venus": "プレミアムアイス冷却",
-        "themis": "デュアルランプシステム",
+        "themis": "アイスフィーリング・プロフェッショナルトリートメント",
         "emerald": "敏感肌向け冷却",
         "eirene": "プロフェッショナルグレード",
         "golden": "高級感エディション",
-        "hebe": "AI 肌センサー"
+        "hebe": "快適アイスフィーリング＋セーフティロック"
       },
       "card": {
         "title": "最高の IPL に出会う",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "スマート肌センサー＋10°Cまでの冷却",
         "venus": "プレミアムアイスクーリング",
-        "lumi": "スマートアプリ連携",
+        "lumi": "RoseSkinCoのベストセラー",
         "helix": "アイスクーリング＋9段階の強度レベル",
-        "themis": "デュアルランプシステム",
+        "themis": "アイスフィーリング・プロフェッショナルトリートメント",
         "emerald": "敏感肌向けクーリング",
         "alpha": "高効率IPL",
-        "hebe": "AI肌センサー"
+        "hebe": "快適アイスフィーリング＋セーフティロック"
       },
       "prev": "前へ",
       "next": "次へ"
@@ -7826,7 +7834,7 @@
       "description": "すべてのデバイスは、最高水準の国際規格を満たすために厳格な試験と品質管理プロセスを経ています。当社の認証は世界市場への扉を開きます。",
       "items": {
         "fdaCleared": {
-          "title": "FDAクリア済みデバイス",
+          "title": "FDA 510(k) 認可デバイス",
           "desc": "FDAクリアランスプロセスと継続的なコンプライアンス文書を全面的にサポートします。"
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "品質プロセスについて学ぶ",
       "badges": {
         "certified": "認証済み",
-        "fdaCleared": "FDAクリア済み",
+        "fdaCleared": "FDA 510(k) 認可",
         "ceMarked": "CEマーク取得",
         "iso13485": "ISO 13485（2026年4月3日まで有効）",
         "compliant": "適合",
@@ -8001,8 +8009,8 @@
           "value": "あり"
         },
         "skinToneSensor": {
-          "label": "統合安全システム",
-          "value": "あり"
+          "label": "肌トーンセンサー",
+          "value": "なし"
         },
         "lampMaterial": {
           "label": "ランプ素材",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "肌冷却テクノロジー",
-          "description": "アクティブ冷却システムが毎回のフラッシュ前に肌を10°Cまで冷却し、ほぼ痛みのない施術体験を実現します。"
+          "description": "アクティブ冷却システムが各フラッシュの瞬間に肌を冷やし、よりやさしい施術を実現します。"
         },
         "smartSkinSensor": {
           "title": "スマート肌センサー",
-          "description": "リアルタイムの肌トーン検知がエネルギー出力を自動調整し、あらゆる肌タイプで安全に使用できます。"
+          "description": "リアルタイムの肌トーン検知がエネルギー出力を自動調整し、対応する肌トーン範囲内で安全に使用できます。"
         },
         "highFlashCapacity": {
           "title": "大容量フラッシュ",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "氷感クール + 石英ランプ",
-      "description": "Venus 光エステ脱毛器は、先進のアイスプレート冷却技術を搭載し、快適でほぼ痛みのない脱毛体験を提供します。",
+      "description": "Venus 光エステ脱毛器は、先進のアイスプレート冷却技術を搭載し、快適でやさしい脱毛体験を提供します。",
       "specs": {
         "type": {
           "label": "タイプ",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "冷却温度",
-          "value": "8°C（室温25°C）"
+          "value": "5°C（室温25°C）"
         },
         "timeToCoolingTemperature": {
           "label": "冷却温度到達時間",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "本体サイズ",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "本体重量",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "一括MOQ（本体）",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "本体サイズ",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "本体重量",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "標準"
+          "value": "対応、TEC冷却と金属熱伝導面"
         },
         "window": {
           "label": "照射窓",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "本体サイズ",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "本体重量",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "バルクMOQ（本体）",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "本体サイズ",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "本体重量",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "電源",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "冷却",
-          "value": "対応、TEC冷却と金属熱伝導面"
+          "value": "標準"
         },
         "window": {
           "label": "照射窓",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "エネルギー",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "本体サイズ",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "本体重量",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "バルクMOQ（本体）",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "照射窓",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "エネルギー",

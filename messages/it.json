@@ -67,7 +67,7 @@
     "smartApp": "Controllo tramite app smart",
     "forMen": "Per uomo",
     "forStartups": "Per startup",
-    "fdaCleared": "Approvato FDA",
+    "fdaCleared": "Autorizzato FDA 510(k)",
     "globalShipping": "Spedizione globale",
     "expertise": "Oltre 15 anni di esperienza",
     "brandingPackaging": "Branding e packaging",
@@ -273,7 +273,7 @@
       },
       "lumi2": {
         "name": "Lumi 2",
-        "tagline": "Controllo tramite app smart"
+        "tagline": "Sensore pelle smart + raffredda la pelle fino a 10°C"
       },
       "hebe": {
         "name": "Hebe",
@@ -483,7 +483,7 @@
       },
       "lumi": {
         "name": "Lumi",
-        "tagline": "Controllo tramite app smart"
+        "tagline": "Il più venduto di RoseSkinCo"
       },
       "venus": {
         "name": "Venus",
@@ -491,7 +491,7 @@
       },
       "themis": {
         "name": "Themis",
-        "tagline": "Sistema a doppia lampada"
+        "tagline": "Trattamento professionale a sensazione di ghiaccio"
       },
       "emerald": {
         "name": "Emerald",
@@ -507,7 +507,7 @@
       },
       "hebe": {
         "name": "Hebe",
-        "tagline": "Sensore pelle AI"
+        "tagline": "Comfort a sensazione di ghiaccio + blocco di sicurezza"
       },
       "components": {
         "heading": "componenti IPL",
@@ -3903,7 +3903,11 @@
       ],
       "certificationsTitle": "Certificazioni",
       "certificationsParagraph": "Il nostro sistema di gestione della qualità è supportato da certificazioni chiave:",
-      "qcCerts": ["Certificazione CE per i mercati europei","Autorizzazione FDA per l'accesso al mercato statunitense","Certificazione MDR in corso — per garantire la pronta espansione nel mercato UE"],
+      "qcCerts": [
+        "Certificazione CE per i mercati europei",
+        "Autorizzazione FDA per l'accesso al mercato statunitense",
+        "Nessun certificato MDR; nessuna domanda a un organismo notificato"
+      ],
       "inspectionParagraph": "Il nostro sistema di ispezione a più fasi comprende il controllo qualità in ingresso, i controlli in corso di lavorazione e l'ispezione finale, con test funzionale al 100% di ogni dispositivo prima della spedizione.",
       "customizationTitle": "Capacità di personalizzazione",
       "customizationParagraph": "In qualità di partner OEM/ODM, offriamo ampie opzioni di personalizzazione per rendere unico il Suo dispositivo IPL:",
@@ -3952,7 +3956,7 @@
         "IEC 62471 Sicurezza fotobiologica",
         "Standard EMC per la compatibilità elettromagnetica"
       ],
-      "mdrNote": "Certificazione MDR in corso — per garantire la pronta espansione nel mercato UE ai sensi del nuovo Regolamento sui dispositivi medici.",
+      "mdrNote": "Non disponiamo di certificato MDR e non è stata presentata alcuna domanda a un organismo notificato. I nostri documenti UE sono CE ai sensi di LVD 2014/35/EU ed EMC 2014/30/EU, oltre a RoHS.",
       "logisticsTitle": "Logistica e consegna",
       "logisticsParagraph": "La nostra esperienza logistica globale garantisce che i Suoi prodotti raggiungano la destinazione in modo efficiente e sicuro:",
       "logisticsBullets": [
@@ -4008,7 +4012,11 @@
         "Test funzionale al 100% prima della spedizione"
       ],
       "certificationsTitle": "Certificazioni",
-      "certifications": ["Certificazione CE per i mercati europei","Autorizzazione FDA per l'accesso al mercato statunitense","Certificazione MDR in corso — per garantire la pronta espansione nel mercato UE"],
+      "certifications": [
+        "Certificazione CE per i mercati europei",
+        "Autorizzazione FDA per l'accesso al mercato statunitense",
+        "Nessun certificato MDR; nessuna domanda a un organismo notificato"
+      ],
       "qcSupportTitle": "Come il controllo qualità supporta OEM/ODM",
       "qcSupportParagraph": "Il controllo qualità non serve solo a superare i controlli: riduce le rilavorazioni, stabilizza le rese e contribuisce a mantenere prevedibile il Suo programma di consegna. Per i progetti OEM/ODM, allineiamo i punti di controllo dei test e i criteri di accettazione al posizionamento del Suo prodotto e ai mercati di destinazione.",
       "talkToTeam": "Parla con il nostro team",
@@ -6563,12 +6571,12 @@
         "desc": "Dal raffreddamento premium allo zaffiro ai dispositivi controllati tramite app smart, esplori la nostra gamma completa di soluzioni IPL personalizzabili.",
         "lumi2Tagline": "Sensore pelle smart + raffreddamento fino a 10°C",
         "venusTagline": "Raffreddamento premium a ghiaccio",
-        "lumiTagline": "Controllo tramite app smart",
+        "lumiTagline": "Il più venduto di RoseSkinCo",
         "helixTagline": "Raffreddamento a ghiaccio + 9 livelli di intensità",
-        "themisTagline": "Sistema a doppia lampada",
+        "themisTagline": "Trattamento professionale a sensazione di ghiaccio",
         "emeraldTagline": "Raffreddamento per pelli sensibili",
         "alphaTagline": "IPL ad alta efficienza",
-        "hebeTagline": "Sensore pelle AI"
+        "hebeTagline": "Comfort a sensazione di ghiaccio + blocco di sicurezza"
       },
       "common": {
         "previous": "Precedente",
@@ -6625,7 +6633,7 @@
         "cta": "Scopri il processo di qualità",
         "certified": "Certificato",
         "compliant": "Conforme",
-        "badgeFdaCleared": "Approvato FDA",
+        "badgeFdaCleared": "Autorizzato FDA 510(k)",
         "badgeCeMarked": "Marcatura CE",
         "badgeIso": "ISO 13485 (detenuta fino al 3 aprile 2026)",
         "badgeMdsap": "MDSAP (audit dic. 2024)"
@@ -7629,13 +7637,13 @@
       },
       "taglines": {
         "lumi2": "Sensore pelle smart, raffreddamento fino a 10°C",
-        "lumi": "Controllo tramite app smart",
+        "lumi": "Il più venduto di RoseSkinCo",
         "venus": "Raffreddamento a ghiaccio premium",
-        "themis": "Sistema a doppia lampada",
+        "themis": "Trattamento professionale a sensazione di ghiaccio",
         "emerald": "Raffreddamento per pelli sensibili",
         "eirene": "Qualità professionale",
         "golden": "Edizione di lusso",
-        "hebe": "Sensore pelle AI"
+        "hebe": "Comfort a sensazione di ghiaccio + blocco di sicurezza"
       },
       "card": {
         "title": "Scopri il miglior IPL",
@@ -7780,12 +7788,12 @@
       "taglines": {
         "lumi2": "Sensore pelle smart + raffreddamento fino a 10°C",
         "venus": "Raffreddamento a ghiaccio premium",
-        "lumi": "Controllo tramite app smart",
+        "lumi": "Il più venduto di RoseSkinCo",
         "helix": "Raffreddamento a ghiaccio + 9 livelli di intensità",
-        "themis": "Sistema a doppia lampada",
+        "themis": "Trattamento professionale a sensazione di ghiaccio",
         "emerald": "Raffreddamento per pelli sensibili",
         "alpha": "IPL ad alta efficienza",
-        "hebe": "Sensore pelle AI"
+        "hebe": "Comfort a sensazione di ghiaccio + blocco di sicurezza"
       },
       "prev": "Precedente",
       "next": "Successivo"
@@ -7826,7 +7834,7 @@
       "description": "Ogni dispositivo è sottoposto a test rigorosi e a processi di controllo qualità per soddisfare i più elevati standard internazionali. Le nostre certificazioni aprono le porte dei mercati globali.",
       "items": {
         "fdaCleared": {
-          "title": "Dispositivi autorizzati FDA",
+          "title": "Dispositivi autorizzati FDA 510(k)",
           "desc": "Supporto completo per il processo di autorizzazione FDA e documentazione di conformità continuativa."
         },
         "ceMarking": {
@@ -7845,7 +7853,7 @@
       "cta": "Scopri il processo di qualità",
       "badges": {
         "certified": "Certificato",
-        "fdaCleared": "Autorizzato FDA",
+        "fdaCleared": "Autorizzato FDA 510(k)",
         "ceMarked": "Marcato CE",
         "iso13485": "ISO 13485 (detenuta fino al 3 aprile 2026)",
         "compliant": "Conforme",
@@ -8001,8 +8009,8 @@
           "value": "Sì"
         },
         "skinToneSensor": {
-          "label": "Sistema di sicurezza integrato",
-          "value": "Sì"
+          "label": "Sensore della tonalità della pelle",
+          "value": "No"
         },
         "lampMaterial": {
           "label": "Materiale della lampada",
@@ -8077,11 +8085,11 @@
       "features": {
         "skinCoolingTechnology": {
           "title": "Tecnologia di raffreddamento della pelle",
-          "description": "Il sistema di raffreddamento attivo raffredda la pelle fino a 10°C prima di ogni lampo per un'esperienza di trattamento quasi indolore."
+          "description": "Il sistema di raffreddamento attivo mantiene la pelle fresca al momento di ogni lampo, per un trattamento più delicato."
         },
         "smartSkinSensor": {
           "title": "Sensore pelle smart",
-          "description": "Il rilevamento in tempo reale della tonalità della pelle regola automaticamente l'energia erogata per garantire la sicurezza su tutti i tipi di pelle."
+          "description": "Il rilevamento in tempo reale della tonalità della pelle regola automaticamente l'energia erogata per un uso sicuro nell'intervallo di tonalità adatto."
         },
         "highFlashCapacity": {
           "title": "Elevata capacità di lampi",
@@ -8096,7 +8104,7 @@
     "venus": {
       "name": "Venus IPL",
       "tagline": "Sensazione di ghiaccio + lampada al quarzo",
-      "description": "Il dispositivo IPL Venus è dotato di un'innovativa tecnologia di raffreddamento a piastra di ghiaccio, per un'esperienza di depilazione confortevole e quasi indolore.",
+      "description": "Il dispositivo IPL Venus è dotato di un'innovativa tecnologia di raffreddamento a piastra di ghiaccio, per un'esperienza di depilazione confortevole e delicata.",
       "specs": {
         "type": {
           "label": "Tipo",
@@ -8132,7 +8140,7 @@
         },
         "coolingTemperature": {
           "label": "Temperatura di raffreddamento",
-          "value": "8°C (temperatura ambiente 25°C)"
+          "value": "5°C (temperatura ambiente 25°C)"
         },
         "timeToCoolingTemperature": {
           "label": "Tempo per raggiungere la temperatura di raffreddamento",
@@ -8312,11 +8320,11 @@
         },
         "deviceSize": {
           "label": "Dimensioni del dispositivo",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "128 × 83 × 47 mm"
         },
         "netWeight": {
           "label": "Peso netto",
-          "value": "275 g"
+          "value": "195 g"
         },
         "bulkMoq": {
           "label": "MOQ all'ingrosso (dispositivo)",
@@ -8440,7 +8448,7 @@
         },
         "deviceSize": {
           "label": "Dimensioni del dispositivo",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "132.5 × 83 × 48 mm"
         },
         "netWeight": {
           "label": "Peso netto",
@@ -8487,7 +8495,7 @@
         },
         "cooling": {
           "label": "Raffreddamento",
-          "value": "Standard"
+          "value": "Supportato, raffreddamento a TEC con interfaccia di trasferimento termico metallica"
         },
         "window": {
           "label": "Finestra",
@@ -8559,11 +8567,11 @@
         },
         "deviceSize": {
           "label": "Dimensioni del dispositivo",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "135.5 × 86 × 52.5 mm"
         },
         "netWeight": {
           "label": "Peso netto",
-          "value": "275 g"
+          "value": "205 g"
         },
         "bulkMoq": {
           "label": "MOQ all'ingrosso (dispositivo)",
@@ -8678,11 +8686,11 @@
         },
         "deviceSize": {
           "label": "Dimensioni del dispositivo",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "130 × 80 × 48 mm"
         },
         "netWeight": {
           "label": "Peso netto",
-          "value": "275 g"
+          "value": "194.1 g"
         },
         "power": {
           "label": "Alimentazione",
@@ -8743,11 +8751,11 @@
         },
         "cooling": {
           "label": "Raffreddamento",
-          "value": "Supportato, raffreddamento a TEC con interfaccia di trasferimento termico metallica"
+          "value": "Standard"
         },
         "window": {
           "label": "Finestra",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energia",
@@ -8823,11 +8831,11 @@
         },
         "deviceSize": {
           "label": "Dimensioni del dispositivo",
-          "value": "169 × 69.3 × 38.8 mm"
+          "value": "212 × 63 × 67 mm"
         },
         "netWeight": {
           "label": "Peso netto",
-          "value": "275 g"
+          "value": "270 g"
         },
         "bulkMoq": {
           "label": "MOQ all'ingrosso (dispositivo)",
@@ -8875,7 +8883,7 @@
         },
         "window": {
           "label": "Finestra",
-          "value": "3.3 cm²"
+          "value": "3.0 cm²"
         },
         "energy": {
           "label": "Energia",
