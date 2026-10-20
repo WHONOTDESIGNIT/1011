@@ -1,0 +1,100 @@
+---
+title: "MOQ Perangkat IPL: Mengapa 500 Unit Lebih Mahal daripada 5,000"
+description: "MOQ IPL adalah aritmetika, bukan aturan pabrik. Biaya tetap dibagi amortisasi yang dapat diterima, pada 500, 1,000 dan 5,000 unit."
+citableSummary: "Proyek ODM IPL umumnya dimulai dari 500 unit, sedangkan OEM dimulai dari 1,000 hingga 5,000. MOQ ada karena tooling, sertifikasi dan plat kemasan adalah biaya tetap, jadi angka minimumnya sederhana: biaya tetap dibagi amortisasi per unit yang dapat diterima. Memakai cetakan yang sudah ada dan menggunakan kemasan standar adalah dua cara sah untuk menurunkan angka itu."
+pubDate: "2026-10-20"
+author: "Eric"
+category: "Sourcing"
+slug: "ipl-device-moq-explained"
+translationKey: "ipl-device-moq-explained"
+faqs:
+  - question: "Berapa jumlah pesanan minimum (MOQ) untuk sebuah perangkat IPL?"
+    answer: "Proyek ODM umumnya dimulai dari 500 unit dan OEM dari 1,000 hingga 5,000. Angka itu bukan aturan internal pabrik: ia adalah biaya tetap dibagi amortisasi per unit yang bersedia ditanggung pabrik pada pesanan pertama."
+  - question: "Bisakah MOQ IPL diturunkan tanpa menaikkan harga per unit?"
+    answer: "Bisa, lewat dua cara yang sah. Membangun di dalam cetakan yang sudah dijalankan pabrik menghilangkan biaya tooling. Menggunakan kemasan standar untuk produksi pertama menghilangkan biaya plat cetak dan jumlah cetak minimumnya."
+  - question: "Mengapa sebagian pabrik menawarkan MOQ yang mencurigakan rendahnya?"
+    answer: "Kekurangannya harus dibayar oleh sesuatu. Jawaban yang umum adalah tooling bekas yang mendekati akhir masa pakai, sel bekas pakai dengan hitungan tembakan yang tinggal sebagian, sertifikasi yang dipinjam dari pihak lain, atau pesanan pertama yang dijual merugi lalu harganya naik belakangan."
+---
+
+MOQ perangkat IPL adalah aritmetika, bukan aturan internal pabrik. Proyek ODM biasanya dimulai dari 500 unit dan OEM dari 1,000 hingga 5,000. Angka-angka itu tidak sembarangan. Itulah titik di mana biaya tetap tersebar cukup tipis sehingga harga per unit berhenti terlihat memalukan.
+
+Saya Eric, salah satu pendiri iShine. Kami menjalankan program ODM dan OEM untuk merek seperti Costco dan Haier, yang berarti aritmetika MOQ di halaman ini adalah aritmetika yang kami perdebatkan sendiri di internal.
+
+Begitu Anda melihat rumusnya, seluruh percakapan berubah. Anda berhenti berdebat soal MOQ dan mulai berdebat soal biaya tetap, karena di situlah uangnya sebenarnya berada.
+
+## Rumus yang tidak pernah dituliskan siapa pun
+
+MOQ = biaya tetap ÷ amortisasi per unit yang bersedia ditanggung pabrik.
+
+Itu saja. Pabrik punya target: pesanan pertama harus menutup belanja tetap, atau setidaknya sebagian besar darinya, karena pesanan kedua mungkin tidak akan pernah datang. Jika tooling dan sertifikasi mencapai $45,000 dan pabrik ingin tidak lebih dari $90 biaya tetap yang tertinggal di setiap unit, MOQ-nya adalah 500.
+
+Ubah salah satu sisinya dan angkanya bergerak. Inilah sebabnya dua pabrik mengutip MOQ berbeda untuk produk yang tampak sama. Mereka tidak sedang bersikap sembarangan. Mereka menanggung biaya tetap yang berbeda, atau selera risiko yang berbeda.
+
+## Empat biaya tetap di balik setiap MOQ
+
+**Tooling.** Set cetakan housing adalah yang terbesar, $20,000 hingga $50,000 tergantung jumlah komponen, finishing dan apakah Anda membutuhkan warna kedua. Ini belanja sekali jalan yang tidak menghasilkan apa pun sampai cetakannya dipotong.
+
+**Sertifikasi.** Uji keselamatan, EMC dan fotobiologis ditagih per standar dan per sampel. Laboratorium tidak peduli apakah Anda membuat 500 unit atau 5,000. Inilah biaya yang paling menyakitkan pada volume rendah, karena ia tidak bisa dipadatkan. Dua standar di balik baris itu adalah [IEC 60335-2-113](https://webstore.iec.ch/en/publication/67733) untuk perangkatnya sendiri dan [IEC 62471](https://webstore.iec.ch/en/publication/7076) untuk keselamatan fotobiologis. Keduanya tidak menjadi lebih murah pada 500 unit, dan peluncuran di AS menambahkan [FDA 510(k)](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm) di atasnya. Peluncuran di Eropa justru menambahkan [Regulation (EU) 2017/745](https://eur-lex.europa.eu/eli/reg/2017/745/oj), dan harganya dihitung dengan cara yang sama: per standar, per sampel.
+
+**Plat kemasan.** Plat cetak dan garis potong (dieline) untuk kotak kado khusus. Nilainya sendiri-sendiri tidak besar, tetapi plat itu dipotong ulang setiap kali desain kemasan berubah, yang pada volume rendah sering terjadi.
+
+**Setup dan persetujuan first-article.** Ganti lini, penyiapan jig, dan inspeksi first-article yang harus terjadi sebelum produksi dilepas.
+
+Hanya satu hal dalam daftar itu yang berskala dengan jumlah unit. Sisanya tidak bergeser sedikit pun.
+
+## Apa yang sebenarnya berubah antara 500, 1,000 dan 5,000
+
+Berikut contoh perhitungan dengan angka bulat, bukan penawaran nyata. Biaya tetap $45,000 ($30,000 tooling dan $15,000 sertifikasi) terhadap biaya variabel $11 per unit untuk komponen dan perakitan.
+
+| Unit | Tetap per unit | Variabel per unit | Total per unit |
+| --- | --- | --- | --- |
+| 500 | $90 | $11 | $101 |
+| 1,000 | $45 | $11 | $56 |
+| 3,000 | $15 | $11 | $26 |
+| 5,000 | $9 | $11 | $20 |
+
+Biaya variabel hampir tidak bergerak. Setiap dolar selisih antar kolom adalah biaya tetap yang mencari tempat untuk mendarat.
+
+Inilah sebabnya merek yang memesan 500 unit dan merek yang memesan 5,000 unit untuk produk yang sama bisa menerima harga yang berbeda lima kali lipat, dan tidak ada pabrik yang berbohong. Mereka sedang menjawab pertanyaan yang berbeda.
+
+## Dua tuas yang benar-benar menurunkan MOQ
+
+**Berbagi cetakan yang sudah ada.** Jika housing Anda bisa berada di dalam platform yang sudah dijalankan pabrik, $30,000 itu hilang dari sisi Anda dan MOQ bisa turun ke beberapa ratus unit. Konsekuensinya nyata: produk Anda berbagi siluet dengan apa pun yang dihasilkan cetakan itu. Untuk sebagian merek itu tidak masalah. Untuk merek yang seluruh nilai jualnya adalah desain industri, itu masalah.
+
+**Pakai kemasan standar untuk produksi pertama.** Karton cetak biasa alih-alih kotak kado hasil cetak menghilangkan biaya plat dan jumlah cetak minimum. Anda bisa meningkatkan kemasan pada pesanan kedua, setelah tahu produknya laku.
+
+Semua saran lain, seperti "tidak bisa hanya 200 unit saja?", pada dasarnya meminta pabrik menelan biaya tetap lalu berharap. Kadang pabrik mau melakukannya, untuk relasi yang ingin dijaga. Mereka akan memasukkan harapan itu ke dalam biaya per unit Anda.
+
+## Ketika MOQ rendah adalah sebuah peringatan
+
+MOQ di bawah lantai aritmetika harus dibayar dengan cara tertentu. Ada empat cara yang biasanya dipakai:
+
+**Tooling bekas.** Cetakan itu ada karena pihak lain sudah membayarnya lalu pergi. Housing-nya mungkin masih baik. Tooling-nya mungkin sudah di ujung masa pakai, yang muncul sebagai sisa bahan berlebih (flash) dan bekas penyusutan (sink mark) pada unit ke-800.
+
+**Sel rekondisi atau sel bekas pakai.** Kepala IPL punya batas jumlah tembakan. Unit murah bisa saja dibangun di sekitar komponen yang sudah pernah dipakai.
+
+**Sertifikasi pinjaman.** Pabrik yang tidak sanggup mengamortisasi sertifikatnya sendiri bisa jadi mengirim barang atas nama sertifikat pihak lain. Itu berjalan sampai petugas bea cukai bertanya nama siapa yang tercantum di laporan itu.
+
+**Harga yang kedaluwarsa.** Pesanan pertama murah karena dijual merugi, dan pesanan kedua datang dengan harga sebenarnya setelah Anda sudah terikat pada kemasan dan aset merek.
+
+Tidak satu pun dari ini terlihat di dalam penawaran. Semuanya terlihat di [tujuh dokumen yang kami sarankan diminta merek](/blog/how-to-vet-ipl-device-manufacturer) sebelum membayar deposit.
+
+## Menyusun pesanan bertahap agar MOQ berhenti menghalangi
+
+MOQ adalah masalah biaya tetap, jadi selesaikan seperti masalah biaya tetap. Tiga pendekatan yang berhasil:
+
+Ambil cetakan bersama dan belanjakan uang yang dihemat untuk finishing housing yang lebih baik nanti, saat volume sudah membenarkan tooling baru. Beli kemasan standar untuk produksi pertama dan rancang kotak ritel untuk produksi kedua. Dan jika Anda benar-benar tidak bisa mencapai lantai itu, tanyakan apakah pabrik bersedia menyimpan tooling dan melepasnya dalam dua tahap — biaya tetap ditutup dari keduanya, dan Anda tidak membawa 5,000 unit inventori di kuartal pertama.
+
+Yang sebaiknya tidak Anda lakukan adalah menerima MOQ yang mencurigakan rendahnya tanpa menanyakan biaya tetap mana dari empat itu yang dipindahkan ke tempat lain. Biaya itu tidak lenyap. Ia ada di harga per unit, atau ia ada di masa depan Anda.
+
+Jika Anda ingin hitungan itu dijalankan terhadap spesifikasi aktual Anda, [kirimkan konsep housing dan target volume Anda kepada kami](/contact). Kami akan memberi tahu lantai mana yang sedang Anda pijak. [Perbandingan OEM versus ODM](/blog/02-oem-vs-odm-choosing-the-right-manufacturing-model) layak dibaca lebih dulu jika Anda belum memilih model, dan jika penawaran sudah ada di tangan, [bedah anatomi penawaran](/blog/ipl-device-manufacturer-price) menunjukkan di mana biaya tetap seharusnya muncul.
+
+
+Bagian dari [sourcing perangkat IPL: dari penawaran pertama hingga produksi massal](/blog/ipl-device-sourcing-guide), yang memetakan lima tahap dan di mana jadwal sebenarnya bergerak.
+
+## Sumber
+
+- [IEC 60335-2-113:2016/AMD1:2021](https://webstore.iec.ch/en/publication/67733) — standar keselamatan di balik baris sertifikasi dalam sebuah penawaran
+- [IEC 62471:2006](https://webstore.iec.ch/en/publication/7076) — keselamatan fotobiologis, diuji per sampel
+- [Basis data notifikasi pra-pemasaran FDA 510(k)](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm) — apa yang ditambahkan peluncuran di AS ke biaya tetap
+- [Regulation (EU) 2017/745 (MDR)](https://eur-lex.europa.eu/eli/reg/2017/745/oj) — padanan Eropa untuk biaya sertifikasi tetap
