@@ -23,7 +23,12 @@ const ASTRO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = resolve(ASTRO, '..');
 
 function git(args, cwd = ROOT) {
-  return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
+  // stderr 收进 error 里，不直接漏到终端：探针无效时只留我们自己那句可操作的提示。
+  return execFileSync('git', args, {
+    cwd,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  }).trim();
 }
 
 /** 从 netlify.toml 取出 ignore 的字符串值（基础字符串，处理 \" 转义） */
@@ -48,6 +53,13 @@ function runIgnored(command, cwd, cached, commit) {
 }
 
 const command = readIgnoreCommand();
+
+/** --probe=<sha> 逃生口：自动挑选失效时手动指定一个只改动 astro/src 的提交 */
+function probeFromArgv() {
+  const arg = process.argv.slice(2).find((a) => a.startsWith('--probe='));
+  return arg ? arg.slice('--probe='.length).trim() : '';
+}
+
 // 探针：最近一次只改动 astro/src、且没有同时动 astro/messages 的提交。
 // 用 astro/ 整体会让"搬家 messages"那类提交命中，反而测不出旧 pathspec 的问题；
 // 也不用 pathspec 魔法（Windows 上 :(exclude) 的表现不稳），直接看 name-only 列表。
@@ -61,10 +73,26 @@ function pickProbe() {
   return '';
 }
 
-const lastAstroCommit = pickProbe();
-if (!lastAstroCommit) {
-  console.log('check-netlify-ignore: 找不到合适的探针提交，跳过');
-  process.exit(0);
+let lastAstroCommit = probeFromArgv();
+if (lastAstroCommit) {
+  console.log(`探针来自 --probe=${lastAstroCommit}`);
+} else {
+  lastAstroCommit = pickProbe();
+  if (!lastAstroCommit) {
+    // 不静默跳过：防回归脚本自己变成哑雷比没有它更糟。
+    console.error('check-netlify-ignore: 自动挑选探针失败（最近 40 个提交里找不到"只动 astro/src、没碰 astro/messages"的提交）。');
+    console.error('  指定一个手动探针后重试，例如：');
+    console.error('    npm run check:netlify-ignore -- --probe=<只改动 astro/src 的提交 SHA>');
+    console.error('  这个检查需要完整历史；CI 里请用 actions/checkout 的 fetch-depth: 0。');
+    process.exit(1);
+  }
+}
+
+try {
+  git(['rev-parse', `${lastAstroCommit}^`]);
+} catch {
+  console.error(`check-netlify-ignore: 探针 ${lastAstroCommit} 不存在或没有父提交，请换一个 --probe=<sha>`);
+  process.exit(1);
 }
 const parent = git(['rev-parse', `${lastAstroCommit}^`]);
 

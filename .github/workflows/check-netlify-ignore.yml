@@ -1,0 +1,28 @@
+name: check-netlify-ignore
+
+# 守 netlify.toml 的 ignore 命令：它是在 base 目录（astro/）里执行的，pathspec 却按
+# 仓库根写。2026-10-21 这个错让所有 astro/src 改动被判定"无内容变化"而静默跳过部署。
+# 检查脚本从 netlify.toml 解析真实命令，在两个工作目录各跑一次，断言两边都说"要构建"。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - netlify.toml
+      - astro/scripts/check-netlify-ignore.mjs
+      - .github/workflows/check-netlify-ignore.yml
+  workflow_dispatch:
+
+jobs:
+  ignore-cwd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 探针要靠历史挑一个只改 astro/src 的提交
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: ignore 命令在仓库根与 astro/ 下必须给出同样的判断
+        run: node astro/scripts/check-netlify-ignore.mjs
