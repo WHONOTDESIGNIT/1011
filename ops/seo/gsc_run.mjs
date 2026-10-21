@@ -172,9 +172,17 @@ async function worker(id) {
       const res = await inspect(page, url);
       // 网络类失败：不含任何判定信息，不写入结果文件（否则文件里 96% 是垃圾）
       const raw = String(res.raw || '');
-      const isNetFail = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_TIMED_OUT|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED|Timeout \d+ms exceeded/.test(raw);
+      // 运行级 fatal：整轮的状态，不是这个 URL 的判定。日志已记录 DONE fatal=...，不再逐条写盘。
+      const isRunLevel = /^(QUOTA_EXCEEDED|BLOCKED|SESSION_EXPIRED|NO_ACCESS)$/.test(raw.trim());
+      const isNetFail = isRunLevel ||
+        /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_TIMED_OUT|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED|Timeout \d+ms exceeded/.test(raw);
       if (isNetFail) {
         netFails++;
+        if (isRunLevel) {
+          if (!fatal) fatal = raw.trim();
+          log(`w${id} 运行级故障 ${raw.trim()}，停止。`);
+          break;
+        }
         if (netFails >= NET_FAIL_LIMIT) {
           fatal = 'NETWORK_UNREACHABLE';
           log(`w${id} 连续 ${netFails} 次网络失败，判定 Google 不可达，停止。最后一次: ${raw.slice(0, 80)}`);
