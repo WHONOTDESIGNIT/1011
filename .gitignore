@@ -160,6 +160,8 @@ ops/seo/_gsc_api_results.jsonl
 # 构建产物：站点 URL 清单由 astro/scripts/generate-site-urls.mjs 每次构建重写，
 # 入库只会让每次构建后工作区变脏（ops/seo 的每日任务从磁盘读它，不需要入库）。
 site-urls.txt
+# 同一份清单的机器可读分解（静态/博客/分类 各多少），供 verify-baseline 打印，不入库
+site-urls.breakdown.json
 
 # 已删除的原型（提交 chore(workspace) 移除源码后残留的本地构建产物）
 i18n-prototype/
