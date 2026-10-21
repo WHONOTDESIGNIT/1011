@@ -1,0 +1,77 @@
+---
+title: "IEC 62133-2 pentru dispozitivele IPL: standardul de celulă din spatele fiecărui raport CB"
+description: "IEC 62133-2 decide dacă celula de litiu din interiorul unui dispozitiv IPL este sigură să stea acolo, în timp ce UN38.3 doar permite celulei să călătorească. Cumpărătorii cer raportul CB fără să știe la ce întrebare răspunde. Iată ce testează standardul și ce impune o înlocuire de celulă."
+citableSummary: "IEC 62133-2 acoperă cerințele de siguranță pentru celulele și bateriile secundare litiu, portabile, sigilate, utilizate în aplicații portabile, în timp ce partea 1 acoperă sistemele cu nichel. Standardul testează celulele și pachetele de baterii în condiții de abuz electric, mecanic și termic care depășesc cerințele de transport. UN38.3 califică o celulă pentru transport conform Manualului UN de teste și criterii; IEC 62133-2 o califică pentru utilizarea în interiorul unui produs, iar cele două nu se substituie reciproc. Un certificat de testare CB emis în cadrul schemei IECEE este modalitatea obișnuită prin care rezultatul circulă între piețe. Schimbarea modelului de celulă necesită testări noi conform ambelor standarde, iar raportul trebuie să numească celula care se află efectiv în lista de materiale."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "iec-62133-2-cell-safety"
+translationKey: "iec-62133-2-cell-safety"
+readTime: "8 min"
+---
+
+**Răspuns scurt:** UN38.3 permite unei celule să călătorească. IEC 62133-2 decide dacă îi este locul în interiorul unui produs. Cumpărătorii cer raportul CB fără să știe la ce întrebare răspunde, și exact așa o înlocuire de celulă ajunge aprobată pe hârtie și respinsă la audit.
+
+## Două standarde, două întrebări
+
+Confuzia este de înțeles, pentru că ambele privesc același obiect mic și ambele produc un raport cu o mulțime de date de temperatură.
+
+| | UN38.3 | IEC 62133-2 |
+|---|---|---|
+| Întrebarea la care răspunde | Poate fi transportată această celulă în siguranță? | Este această celulă sigură în interiorul unui produs portabil? |
+| Cine îl cere | Transportatorii de marfă, companiile aeriene, vama | Cumpărătorii, comercianții cu amănuntul, supravegherea pieței |
+| Condiții de abuz | Accidente de transport: altitudine, ciclare termică, vibrații, șoc, scurtcircuit, impact, supraîncărcare, descărcare forțată | Durata de viață a produsului: abuz electric, mecanic și termic, inclusiv instalare incorectă și încărcare anormală |
+| Circulă ca | Un raport de testare plus un rezumat | Un certificat de testare CB și raportul aferent, sau un echivalent național |
+| Se reemite când | Se schimbă celula sau dosarul expiră | Se schimbă celula sau se schimbă designul pachetului |
+
+Versiunea scurtă: unul este despre călătorie, celălalt despre viața din interiorul dispozitivului. Un furnizor care răspunde la o întrebare 62133 cu un raport UN38.3 a răspuns la altă întrebare.
+
+## Ce testează de fapt standardul
+
+Testele se grupează în trei familii, iar grupa contează mai mult decât clauza individuală atunci când citești un raport pentru prima dată.
+
+| Familie | Ce sollicită | De ce îi pasă cumpărătorului |
+|---|---|---|
+| Electrică | Supraîncărcare, descărcare forțată, scurtcircuit extern, încărcare anormală | Prinde defectul care declanșează incendii în utilizare, nu în tranzit |
+| Mecanică | Strivire, impact, vibrații, șoc | Prinde o celulă care supraviețuiește zborului, dar nu și unei căderi pe gresie |
+| Termică | Ciclare de temperatură, depozitare la temperatură ridicată, instalare incorectă | Prinde un design care se bazează pe faptul că dispozitivul nu se încălzește niciodată |
+
+Există un al doilea nivel pentru pachetele de baterii, spre deosebire de celulele nude, pentru că un pachet adaugă un circuit de protecție, cablaje și o carcasă. Un raport la nivel de pachet care numește o altă celulă decât cea din lista ta de materiale nu este un raport despre produsul tău.
+
+## Cum circulă între piețe
+
+Vehiculul obișnuit este un certificat de testare CB în cadrul schemei IECEE, motiv pentru care cumpărătorii cer „raportul CB” ca și cum ar fi un singur lucru. Este un certificat plus raportul aferent, iar ambele contează: certificatul dovedește că evaluarea a avut loc, raportul îți spune ce celulă și ce construcție au fost evaluate.
+
+Schemele naționale îl acceptă apoi în grade diferite. Statele Unite au propriile standarde pentru celule și pachete. Coreea, Japonia și India adaugă fiecare propriile cerințe peste el. Ce circulă bine sunt dovezile; ce nu circulă este presupunerea că un singur certificat răspunde pentru fiecare piață.
+
+Pentru celulele pe care le folosim în propriile platforme, dosarul include un raport CB, un raport UL, o înregistrare indiană și un raport japonez de baterie, ceea ce face ca aceeași celulă să fie utilizabilă pe mai multe piețe fără retestare de la zero.
+
+## Problema înlocuirii celulei
+
+Aici standardul își merită banii și aici achizițiile creează în tăcere o lacună de conformitate.
+
+Celulele se înlocuiesc din motive obișnuite: o lipsă de stoc, o schimbare de preț, o creștere de capacitate, un alt furnizor pentru aceeași specificație. Din exterior, un 18650 de 2000 mAh la 3.7 V pare interschimbabil cu un alt 18650 de 2000 mAh la 3.7 V.
+
+Nu este, pentru două scopuri. Evaluarea de siguranță privește o construcție specifică de celulă, iar raportul o numește. Calificarea pentru transport privește tot acea celulă, iar raportul UN38.3 o numește la fel.
+
+Deci o înlocuire necesită testări noi conform ambelor standarde, iar până când acele testări există, dosarul descrie un produs care nu mai este livrat. Documentația continuă să funcționeze. Conformitatea, nu.
+
+Două obiceiuri previn acest lucru. Ține modelul de celulă în lista de materiale ca pe un câmp controlat, astfel încât o schimbare să fie vizibilă. Și tratează o schimbare de celulă ca pe o schimbare de document, nu ca pe o decizie de achiziție.
+
+## Ce să întrebi un furnizor și cum ar trebui să arate răspunsul
+
+Dacă evaluezi un dispozitiv, patru întrebări te duc dincolo de materialul de vânzare:
+
+1. Conform cărei ediții a IEC 62133-2 este raportul și numește raportul celula din lista de materiale actuală?
+2. Dovezile sunt la nivel de celulă, la nivel de pachet sau ambele?
+3. În ce piețe au fost acceptate efectiv acele dovezi și în cadrul cărei scheme naționale?
+4. Dacă celula se schimbă, cine plătește retestarea și cât durează?
+
+A patra întrebare este cea care separă un furnizor care a făcut asta de unul care are un certificat pe perete. Pune-o înainte de prima comandă, nu după lipsa de stoc.
+
+## Ce facem și ce nu facem
+
+Deținem dovezile la nivel de celulă pentru celulele pe care le folosim, ținem lista de materiale aliniată cu ele și transmitem rapoartele împreună cu documentele comerciale. Nu emitem rapoarte 62133, nu acceptăm o înlocuire pe baza unei fișe tehnice și nu descriem un pachet ca certificat atunci când dovezile acoperă doar celula.
+
+Dacă dispozitivul folosește o celulă care se livrează și ca pachet separat, documentația de transport este un al doilea dosar care trebuie să numească aceeași celulă, iar [pagina despre procesul OEM/ODM](/services/oem-odm) arată unde se situează aceasta într-o secvență de proiect. Dacă alegi între platforme, [paginile de componente](/components) arată ce piese sunt comune, iar piesele comune sunt cele care fac o a doua piață mai ieftină. Pentru componenta care se schimbă cel mai des între regiuni, [articolul despre adaptorul de alimentare](/blog/ipl-device-power-adapter-travel-plug) este lectura însoțitoare.

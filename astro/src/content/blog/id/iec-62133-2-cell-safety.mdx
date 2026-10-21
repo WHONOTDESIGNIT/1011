@@ -1,0 +1,78 @@
+---
+title: "IEC 62133-2 untuk Perangkat IPL: Standar Sel di Balik Setiap Laporan CB"
+description: "IEC 62133-2 menentukan apakah sel lithium di dalam perangkat IPL aman untuk tetap berada di sana, sementara UN38.3 hanya mengizinkan sel itu melakukan perjalanan. Pembeli meminta laporan CB tanpa tahu pertanyaan mana yang dijawabnya. Berikut apa yang diuji standar ini, dan apa yang dipaksa oleh sebuah substitusi sel."
+citableSummary: "IEC 62133-2 mencakup persyaratan keselamatan untuk sel dan baterai lithium sekunder tersegel portabel yang digunakan dalam aplikasi portabel, sementara bagian 1 mencakup sistem nikel. Standar ini menguji sel dan pak baterai dalam kondisi penyalahgunaan listrik, mekanis, dan termal yang melampaui persyaratan pengangkutan. UN38.3 mengkualifikasi sel untuk pengangkutan berdasarkan UN Manual of Tests and Criteria; IEC 62133-2 mengkualifikasinya untuk digunakan di dalam produk, dan keduanya tidak saling menggantikan. Sertifikat uji CB yang diterbitkan dalam Skema IECEE adalah cara umum hasil itu berpindah antar pasar. Mengganti model sel memerlukan pengujian baru berdasarkan kedua standar, dan laporan itu harus menyebut sel yang benar-benar ada di bill of materials."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "iec-62133-2-cell-safety"
+translationKey: "iec-62133-2-cell-safety"
+readTime: "8 min"
+draft: false
+---
+
+**Jawaban singkat:** UN38.3 mengizinkan sebuah sel melakukan perjalanan. IEC 62133-2 menentukan apakah sel itu pantas berada di dalam sebuah produk. Pembeli meminta laporan CB tanpa tahu pertanyaan mana yang dijawabnya, dan begitulah sebuah substitusi sel disetujui di atas kertas lalu ditolak saat audit.
+
+## Dua standar, dua pertanyaan
+
+Kebingungannya bisa dimaklumi, karena keduanya menyangkut benda kecil yang sama dan keduanya menghasilkan laporan berisi banyak sekali data suhu.
+
+| | UN38.3 | IEC 62133-2 |
+|---|---|---|
+| Pertanyaan yang dijawabnya | Apakah sel ini dapat diangkut dengan aman? | Apakah sel ini aman di dalam produk portabel? |
+| Siapa yang memintanya | Forwarder, maskapai, bea cukai | Pembeli, peritel, pengawasan pasar |
+| Kondisi penyalahgunaan | Kecelakaan pengangkutan: ketinggian, siklus termal, getaran, guncangan, korsleting, benturan, pengisian berlebih, pengosongan paksa | Masa hidup produk: penyalahgunaan listrik, mekanis, dan termal, termasuk pemasangan yang salah dan pengisian abnormal |
+| Berpindah sebagai | Laporan uji plus ringkasan | Sertifikat dan laporan uji CB, atau padanan nasionalnya |
+| Diterbitkan ulang ketika | Selnya berubah, atau berkasnya kedaluwarsa | Selnya berubah, atau desain paknya berubah |
+
+Versi singkatnya: yang satu soal perjalanan, yang lain soal kehidupan di dalam perangkat. Pemasok yang menjawab pertanyaan 62133 dengan laporan UN38.3 telah menjawab pertanyaan yang berbeda.
+
+## Apa yang sebenarnya diuji oleh standar ini
+
+Uji-ujinya terbagi dalam tiga keluarga, dan keluarga itu lebih penting daripada pasal tunggal mana pun ketika Anda pertama kali membaca sebuah laporan.
+
+| Keluarga | Apa yang dibebani | Mengapa pembeli peduli |
+|---|---|---|
+| Listrik | Pengisian berlebih, pengosongan paksa, korsleting eksternal, pengisian abnormal | Menangkap kegagalan yang memicu kebakaran saat pemakaian, bukan saat transit |
+| Mekanis | Penghancuran (crush), benturan, getaran, guncangan | Menangkap sel yang selamat dari penerbangan tetapi tidak selamat dari jatuh ke lantai keramik |
+| Termal | Siklus suhu, penyimpanan suhu tinggi, pemasangan yang salah | Menangkap desain yang mengandalkan perangkatnya tidak pernah panas |
+
+Ada lapisan kedua untuk pak baterai, berbeda dari sel telanjang, karena sebuah pak menambahkan rangkaian proteksi, kabel, dan selungkup. Laporan tingkat pak yang menyebut sel berbeda dari yang ada di bill of materials Anda bukan laporan tentang produk Anda.
+
+## Bagaimana hasilnya berpindah antar pasar
+
+Pembawanya biasanya sertifikat uji CB dalam Skema IECEE, itulah sebabnya pembeli meminta "laporan CB" seolah-olah itu satu benda tunggal. Itu adalah sertifikat plus laporan yang mendasarinya, dan keduanya penting: sertifikat membuktikan penilaiannya benar-benar terjadi, laporan memberi tahu Anda sel mana dan konstruksi mana yang dinilai.
+
+Skema nasional kemudian menerimanya dengan derajat yang berbeda-beda. Amerika Serikat punya standar sel dan paknya sendiri. Korea, Jepang, dan India masing-masing menambahkan persyaratannya sendiri di atasnya. Yang berpindah dengan baik adalah buktinya; yang tidak berpindah adalah asumsi bahwa satu sertifikat menjawab setiap pasar.
+
+Untuk sel yang kami pakai di platform kami sendiri, berkasnya mencakup laporan CB, laporan UL, registrasi India, dan laporan baterai Jepang, dan itulah yang membuat sel yang sama dapat dipakai di beberapa pasar tanpa menguji ulang dari nol.
+
+## Masalah substitusi sel
+
+Di sinilah standar ini membuktikan gunanya, dan di sinilah pengadaan diam-diam menciptakan celah kepatuhan.
+
+Sel diganti karena alasan yang biasa: kelangkaan, perubahan harga, kenaikan kapasitas, pemasok berbeda untuk spesifikasi yang sama. Dari luar, sebuah 18650 berkapasitas 2000 mAh pada 3.7 V tampak dapat dipertukarkan dengan 18650 lain berkapasitas 2000 mAh pada 3.7 V.
+
+Tidak demikian, untuk dua keperluan. Penilaian keselamatan menyangkut konstruksi sel yang spesifik, dan laporan itu menyebutnya. Kualifikasi pengangkutan juga menyangkut sel itu, dan laporan UN38.3 menyebutnya juga.
+
+Jadi sebuah substitusi memerlukan pengujian baru berdasarkan kedua standar, dan sampai pengujian itu ada, berkasnya menggambarkan produk yang tidak lagi dikirim. Dokumennya tetap berjalan. Kepatuhannya tidak.
+
+Dua kebiasaan mencegah hal ini. Jaga model sel di bill of materials sebagai field yang terkendali, sehingga perubahannya terlihat. Dan perlakukan perubahan sel sebagai perubahan dokumen, bukan keputusan pembelian.
+
+## Apa yang harus ditanyakan ke pemasok, dan seperti apa jawabannya
+
+Jika Anda sedang mengevaluasi sebuah perangkat, empat pertanyaan membawa Anda melewati materi penjualan:
+
+1. Edisi IEC 62133-2 mana yang menjadi dasar laporan itu, dan apakah laporan itu menyebut sel yang ada di bill of materials saat ini?
+2. Apakah buktinya tingkat sel, tingkat pak, atau keduanya?
+3. Di pasar mana bukti itu benar-benar diterima, dan di bawah skema nasional yang mana?
+4. Jika selnya berubah, siapa yang membiayai uji ulang, dan berapa lama prosesnya?
+
+Pertanyaan keempat adalah yang memisahkan pemasok yang pernah melakukannya dari pemasok yang punya sertifikat terpajang di dinding. Tanyakan sebelum pesanan pertama, bukan setelah kelangkaan.
+
+## Apa yang kami lakukan, dan apa yang tidak
+
+Kami menyimpan bukti tingkat sel untuk sel yang kami pakai, menjaga bill of materials tetap selaras dengannya, dan meneruskan laporannya bersama dokumen komersial. Kami tidak menerbitkan laporan 62133, kami tidak menerima substitusi berdasarkan datasheet, dan kami tidak menyebut sebuah pak tersertifikasi ketika buktinya hanya mencakup selnya.
+
+Jika perangkat menggunakan sel yang juga dikirim sebagai paket terpisah, dokumen pengangkutannya adalah berkas kedua yang harus menyebut sel yang sama, dan [halaman proses OEM/ODM](/services/oem-odm) menunjukkan di mana itu berada dalam urutan proyek. Jika Anda sedang memilih di antara platform, [halaman komponen](/components) menunjukkan bagian mana yang dipakai bersama, dan bagian yang dipakai bersama itulah yang membuat pasar kedua lebih murah. Untuk komponen yang paling sering berubah antar wilayah, [artikel adaptor daya](/blog/ipl-device-power-adapter-travel-plug) adalah bacaan pendampingnya.

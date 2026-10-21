@@ -1,0 +1,83 @@
+---
+title: "KC da Korea para aparelhos IPL domésticos: três níveis e em qual deles você está"
+description: "Para um aparelho IPL vendido na Korea, o KC tem três níveis: certificação de segurança, confirmação de segurança e confirmação de conformidade do fornecedor. O nível decide quem testa o aparelho. Um aparelho conectado por aplicativo também precisa da aprovação de rádio. Aqui está a sequência, e quem pode solicitar."
+citableSummary: "A Korea regulamenta aparelhos elétricos sob o Electrical Appliances and Consumer Products Safety Control Act, que divide os produtos em três níveis: certificação de segurança, que exige ensaios por um organismo designado; confirmação de segurança, que exige ensaios por um laboratório de ensaios designado; e confirmação de conformidade do fornecedor, em que o fornecedor declara a conformidade e mantém a evidência. Os equipamentos de rádio têm um registro de conformidade separado sob o Radio Waves Act, relevante para aparelhos conectados por aplicativo. O solicitante da certificação é o fabricante ou o importador que atua na Korea, e um fabricante estrangeiro trabalha por meio de um agente coreano. A marca KC e a identificação do solicitante vão no produto, e os registros são mantidos. O nível em que um dado aparelho IPL doméstico se enquadra é confirmado na lista de categorias de produto, não escolhido pelo fornecedor."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Regulatory"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "korea-kc-ipl-devices"
+translationKey: "korea-kc-ipl-devices"
+readTime: "8 min"
+---
+
+**Resposta curta:** a Korea tem três níveis de KC, não um. Um aparelho elétrico é certificado de segurança, tem a segurança confirmada, ou é tratado pela confirmação de conformidade do fornecedor, e o nível decide se um organismo designado testa o aparelho ou se o fornecedor declara a conformidade. Um aparelho conectado por aplicativo também precisa da aprovação de rádio, que é um segundo protocolo, com escopo diferente.
+
+## O nível é toda a conversa
+
+A maioria dos fabricantes chega com uma pergunta sobre "o ensaio de KC". A primeira resposta de que eles precisam é que talvez não haja ensaio no nível deles, ou que os ensaios são feitos por um tipo diferente de organismo.
+
+| Nível | Quem avalia | Evidência arquivada | Formato típico |
+|---|---|---|---|
+| Certificação de segurança | Um organismo de certificação designado | Certificado emitido por esse organismo | Ensaio de tipo completo, inspeção de fábrica em alguns casos |
+| Confirmação de segurança | Um laboratório de ensaios designado | Relatório de ensaio, registrado | Ensaio sem a etapa do organismo de certificação |
+| Confirmação de conformidade do fornecedor | O fornecedor | Conformidade autodeclarada mais evidência de ensaio interno | Declaração, com o dossiê disponível sob solicitação |
+
+Qual nível se aplica é decidido pela lista de categorias de produto, e a lista é específica. Um aparelho IPL doméstico não é uma categoria que um fornecedor possa atribuir a si mesmo, e o nível não acompanha o preço, a potência nem o mercado pretendido. Confirme-o na lista vigente com o laboratório ou com o agente coreano antes de planejar o projeto.
+
+Essa única verificação determina se o projeto leva semanas ou meses, e se uma inspeção de fábrica está no escopo.
+
+## Quem pode solicitar
+
+Esta é a parte que trava projetos, e ela tem o mesmo formato do Japão e da UE.
+
+O solicitante é o operador comercial que atua na Korea: o fabricante estabelecido lá, ou o importador. Um fabricante fora da Korea trabalha por meio de um agente coreano, e os dados do agente aparecem no registro.
+
+Três consequências:
+
+- **A marcação leva a identificação do solicitante**, então um endereço de fábrica chinesa no produto não é o registro.
+- **O solicitante responde à autoridade**, inclusive por questões de pós-comercialização.
+- **A relação com o agente é comercial, não administrativa.** Os agentes precificam a responsabilidade, e devem, porque ela fica com eles.
+
+Uma marca sem entidade na Korea precisa, portanto, de um agente antes de precisar de um rótulo.
+
+## A camada de rádio, para aparelhos conectados por aplicativo
+
+Se o aparelho tem Bluetooth ou Wi-Fi, o protocolo elétrico é só metade disso. Os equipamentos de rádio têm o próprio registro de conformidade sob uma lei separada, com seus próprios ensaios e sua própria marca ao lado do KC.
+
+Duas consequências pegam as pessoas no meio do projeto:
+
+- **A aprovação de rádio testa o módulo, a configuração da antena e a saída**, então trocar o módulo depois da aprovação é um novo protocolo.
+- **A aprovação de rádio é emitida para a configuração final.** Um aparelho que ganha um recurso controlado por aplicativo no fim do ciclo de design volta por ela.
+
+Um aparelho sem fio com um módulo Bluetooth e um aplicativo de celular são três objetos de conformidade numa só caixa: o aparelho em si, o rádio e o software que conversa com ele.
+
+## O que o agente vai pedir à fábrica
+
+| Documento | Detalhe | Lacuna comum |
+|---|---|---|
+| Especificação e valores nominais do produto | Modelo, tensão, frequência, potência e a matriz completa de modelos | Família declarada, mas as variantes diferem na célula ou no adaptador |
+| Relatórios de ensaio | Segurança e EMC, conforme as normas aplicadas | Relatório de uma revisão de hardware anterior |
+| Dados de ensaio de rádio, quando aplicáveis | Aprovação do módulo, dados de antena, potência de saída | Módulo aprovado em outra configuração de produto |
+| Arte do rótulo | Marca KC, identificação do solicitante, valores nominais e a marca de rádio | Arte impressa antes de o agente ser identificado |
+| Lista de componentes | Células, adaptadores, componentes críticos com valores nominais | Apenas nomes comerciais, sem valores nominais nem certificados |
+| Informações da fábrica | Local de produção, evidência do sistema de qualidade | Local alterado entre o protótipo e a produção em massa |
+
+A linha da arte do rótulo é a mesma armadilha de todos os outros mercados. A identidade do solicitante não é conhecida até o agente ser escolhido, e a arte não pode ser finalizada antes disso.
+
+## A ordem de operações que funciona
+
+1. Confirme o nível na lista de categorias vigente, por escrito.
+2. Contrate o agente coreano, que passa a ser o solicitante ou o representante do solicitante.
+3. Faça os ensaios conforme as normas que o nível exige, na configuração final.
+4. Protocole o registro de rádio, se houver rádio.
+5. Atualize a arte do rótulo com o solicitante e as duas marcas, e só então imprima.
+6. Mantenha o dossiê numa forma que o agente consiga apresentar sob solicitação.
+
+As etapas um e quatro são as que costumam ser puladas, e as duas são caras de corrigir depois do ferramental.
+
+## O que fazemos e o que não fazemos
+
+Nós produzimos a especificação e a matriz de modelos, os relatórios de ensaio de segurança e EMC, os dados de ensaio de rádio quando há um módulo envolvido, a lista de componentes com valores nominais e a arte do rótulo pronta para receber os dados do solicitante. Não atuamos como solicitante na Korea, não protocolamos o registro e não colocamos um número KC em nenhuma página deste site que não possamos sustentar com o certificado por trás dele.
+
+A Korea é o mercado onde a questão do nível mais vezes muda o plano depois da cotação, e é por isso que vale ler [como os reguladores classificam os aparelhos IPL domésticos](/blog/how-regulators-classify-home-ipl) junto com este texto, e por isso que [a visão geral regulatória global](/blog/08-global-regulatory-landscape-for-ipl-devices) reúne os mercados baseados em certificado num só lugar. Se o aparelho ainda está em especificação, [a linha de modelos](/products) mostra quais plataformas compartilham componentes, porque uma plataforma compartilhada é o que torna o protocolo de um segundo mercado mais barato.
