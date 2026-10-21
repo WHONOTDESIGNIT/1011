@@ -512,7 +512,7 @@ const siteBaseUrl = (
               {safetyResources.map((item) => (
                 <li>
                   <a class="transition hover:text-violet-700" href={item.href}>
-                    {item.label}
+                    {t(locale, item.labelKey)}
                   </a>
                 </li>
               ))}
