@@ -119,6 +119,37 @@
   })();
   gtag('js', new Date());
   gtag('config', 'G-94BDNGHHJH');
+
+  // 转化事件（2026-10-21）：站内只有三种真实询盘动作 —— WhatsApp 点击、邮件点击、表单提交。
+  // 用一个委托监听覆盖全部 22 语种、全部路由，不必在每个 CTA 里各写一份。
+  // GA4 后台仍需把这三个事件标记为「关键事件」，否则报表里只是普通事件（代码侧无法代劳）。
+  document.addEventListener(
+    'click',
+    function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') > -1) {
+        gtag('event', 'whatsapp_click', { link_url: href });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', { link_url: href.slice(0, 100) });
+      }
+    },
+    { passive: true }
+  );
+  // 表单提交用捕获阶段：Netlify 表单会立刻 POST 跳走，冒泡阶段可能来不及。
+  document.addEventListener(
+    'submit',
+    function (e) {
+      var f = e.target;
+      if (!f || !f.matches || !f.matches('form[data-netlify]')) return;
+      gtag('event', 'generate_lead', {
+        form_name: f.getAttribute('name') || 'contact',
+        page_locale: (document.documentElement && document.documentElement.lang) || ''
+      });
+    },
+    true
+  );
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH"></script>
 <script async src="https://analytics.ahrefs.com/analytics.js" data-key="ZmxwmQzl6pN56zZcP5+8Ag"></script>
