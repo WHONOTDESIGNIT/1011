@@ -7,8 +7,9 @@
 
 ```
 仓库根
-├── astro/            ← 真实构建项目（所有站点代码；博客内容在 astro/src/content/blog/）
-├── messages/         ← i18n 文案（astro 通过 ../../../messages/en.json 引用，构建必需）
+├── astro/            ← 真实构建项目（所有站点代码 + 博客内容 + i18n 文案）
+│   ├── messages/     ← 22 个语言包（src/lib/i18n.ts 以 ../../messages/en.json 引用）
+│   └── src/content/blog/
 ├── ops/              ← 本地/定时运维脚本（不参与构建）
 ├── netlify.toml      ← Netlify 构建配置
 └── site-urls.txt     ← 构建产物（generate-site-urls.mjs 生成），不入库
@@ -49,9 +50,9 @@
 3. **merge 冲突解决时重点检查 netlify.toml**——本类错误正是在 merge 中悄悄丢失字段导致的。
 4. **不要依赖 Netlify UI 配置**：netlify.toml 优先；UI 可能残留无效值（本次就是 UI 的旧 base 导致失败）。
 5. **确认构建分支**：Netlify 生产分支是 `main`（不是 `master`）。推错分支不会触发部署。
-6. **确认构建必需目录已提交**：`astro/`、`messages/`、`src/content/blog/`、`netlify.toml` 缺一不可。
+6. **确认构建必需目录已提交**：`astro/`（含 `astro/messages/`、`astro/src/content/blog/`）、`netlify.toml` 缺一不可。
 7. **push 后在 Netlify 确认**：Deploys 页看到 "Base directory: astro/" 且构建绿色。
-8. **不要加 `ignore` 脚本跳过构建**：除非其路径与当前结构（`astro/`、`src/content/blog/`、`messages/`）完全一致，否则会误跳过部署。
+8. **不要加 `ignore` 脚本跳过构建**：除非其路径与当前结构（`astro/`、`astro/messages/`、`astro/src/content/blog/`）完全一致，否则会误跳过部署。
 
 ## 5. 其他注意点
 

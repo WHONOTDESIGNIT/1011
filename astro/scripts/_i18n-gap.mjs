@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
-const MSG = path.join(ROOT, 'messages');
+const MSG = path.join(ROOT, 'astro', 'messages');
 const BLOG = path.resolve(__dirname, '../src/content/blog');
 
 const EN = 'en';

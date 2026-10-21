@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const MSG_DIR = join(process.cwd(), 'messages');
+const MSG_DIR = join(process.cwd(), 'astro', 'messages');
 
 const T = {
   en: {

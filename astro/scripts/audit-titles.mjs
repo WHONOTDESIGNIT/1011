@@ -83,7 +83,7 @@ const STATIC_ROUTES = [
 ];
 
 function previewMode() {
-  const en = JSON.parse(readFileSync(join(process.cwd(), '..', 'messages', 'en.json'), 'utf8'));
+  const en = JSON.parse(readFileSync(join(process.cwd(), 'messages', 'en.json'), 'utf8'));
 
   const rows = STATIC_ROUTES.map((r) => {
     const raw = r.fixed ?? (r.formula ? `${getValue(en, r.key)} | iShine` : getValue(en, r.key));
