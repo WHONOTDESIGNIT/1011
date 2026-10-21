@@ -25,6 +25,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { countBlogPagesPerLocale } from './lib/url-count.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '../dist');
@@ -58,17 +59,9 @@ function walkFiles(dir, ext) {
   return out;
 }
 
-function blogDirFor(locale) {
-  return locale === 'en' ? path.join(DIST, 'blog') : path.join(DIST, locale.toLowerCase(), 'blog');
-}
-
+// 计数口径与本地测量工具共用同一份实现（scripts/lib/url-count.mjs），不各写一遍。
 function countBlogPerLocale() {
-  const map = {};
-  for (const loc of BUILD_LOCALES) {
-    const dir = blogDirFor(loc);
-    map[loc] = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.html')).length : 0;
-  }
-  return map;
+  return countBlogPagesPerLocale(DIST, BUILD_LOCALES);
 }
 
 function measure() {
