@@ -1,6 +1,7 @@
 // 生成 site-urls.txt —— 全站无结尾斜杠 URL 清单（每日搜索引擎提交用）
 // 用法：在 astro/ 目录执行 `node scripts/generate-site-urls.mjs`
-// 与 sitemap.xml.ts 同一路径来源：52 静态核心路径 × 22 语言 + 各语言博客文章。
+// 与 sitemap.xml.ts 同一路径来源：STATIC_PATHS × 22 语言 + 各语言博客文章 + 博客分类聚合页。
+// 条数由脚本自己打印（第 182 行），不要在这里写死数字——这里曾写"52 条"，实际已是 57 条。
 // 方案B规范：所有 URL 一律无结尾斜杠（如 /ro/about 而非 /ro/about/）。
 import fs from 'node:fs';
 import path from 'node:path';
