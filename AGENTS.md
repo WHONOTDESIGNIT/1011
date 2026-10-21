@@ -40,6 +40,19 @@ Owner: WHONOTDESIGNIT. Remote: https://github.com/WHONOTDESIGNIT/1011
   `chore/drop-strays` was meant to be deletions only, but carried the relocation docs
   (`d8f07676`). Not worth rewriting, but the next relocation-metadata change gets its own
   `chore/repo-relocation` branch instead of riding on an unrelated one.
+- **2026-10-21 — every standard-conformance claim carries its evidence, or it goes.**
+  Any claim of the form "complies with / is certified for / passes X" — MDL, IEC, CE, FDA,
+  RoHS, whatever the next one is — must trace to the specs in
+  `astro/messages/en.json` or to current documentary evidence held on file. A sentence that
+  cannot be traced gets deleted, not softened. This applies to new content as much as to
+  revived posts: the IEC 60335-2-113 and IEC 62471 pieces are covered by this rule without
+  needing to be named.
+- **2026-10-21 — the 22 Canadian MDL guides stay archived, permanently.**
+  `canadian-mdl-ipl-device-guide` exists only in the archived
+  `feature/blog-cooling-ipl-buying-guide` patches, and it never ships as-is. If it is ever
+  revived, it must pass the conformance-claim rule above before it enters the content
+  chain. Publishing is what triggers compliance risk, not sitting in an archive — but the
+  archive is not a to-do list either.
 
 ## Retiring the old tree
 
@@ -81,3 +94,33 @@ tree with real history is exactly the disease this cleanup removed.
 - A push's exit code is not proof the remote moved. Verify with
   `git ls-remote origin <branch>` and compare the SHA; GitHub connectivity here drops
   intermittently and a retry can look like success.
+- After a path moves, prove the imports by **resolving** them, not by counting `../`
+  segments: a grep for three levels also flags the *correct* three-level import once the
+  file sits one directory deeper. Resolve every specifier to a real path and check that it
+  exists; that is the only check that survives a move.
+- In PowerShell, `Select-String -Path` treats `[slug]` as a wildcard. Files with brackets
+  in the name need `-LiteralPath`, or the check silently returns nothing and looks clean.
+- **One writer per checkout.** Do not run git writes or builds in a working tree another
+  agent is using. Concurrent writes put commits on the wrong branch (that happened on
+  2026-10-21: a commit landed on someone else's checked-out branch) and make build results
+  untrustworthy — and this repo's acceptance is "build green is true". If parallelism is
+  genuinely needed: `git worktree add ..\work\<name> -b <branch>`, remove it when done
+  (no dangling registrations), and accept that each worktree needs its own `node_modules`
+  (~10 minutes). Default: take turns. If you see changes you did not make: don't touch
+  them, don't stash, don't commit — report.
+  - `git commit` writes to whatever `HEAD` is, and a bare `git push` pushes whatever branch
+    is checked out — both can move under you in a shared tree. That is why git writes
+    belong in your own worktree, and why the push uses an explicit refspec:
+    `git push origin HEAD:refs/heads/<branch>`, followed by `ls-remote` for **that same
+    branch name**. A `push` that reports success while `ls-remote` disagrees means you
+    verified the wrong branch.
+  - Someone else's branch history is theirs, however messy. Don't tidy, rebase or
+    force-push it unless they ask; record the problem and hand it over.
+
+## Pending decisions (dated, so they cannot live forever)
+
+- **`chore/citable-summary-pages`** (56 commits, 79 files; patches archived): decide by
+  **2026-11-04** whether it ships, ships after rework, or is archived. Put it on the next
+  content-planning agenda; if no decision is taken by that date, archive it.
+- ~~`chore/english-only`~~ — judged dead on 2026-10-21: its CTA-gradient direction was
+  superseded by the hero fixes. Branch deleted, patches kept in the archive.
