@@ -186,7 +186,16 @@ console.log(`   分类聚合页 URL ${categoryUrls}（${enCats.size} 个分类�
 
 // === 可复制的分解式 + 机器可读副本 ===
 // 任何解释性文字都从这里复制，不再手乘：之前两处"52 条""78 篇"就是因为人在注释和聊天里手算。
-const blogPerLocale = posts.length / LOCALES.length; // 22 个语种都有同量文章；不是整数会在下面报错
+// 各语种文章数可以不同：一篇纯英文文章只存在于 en，其余语种没有对应文件。
+// 旧写法用 posts.length / LOCALES.length 求平均并要求是整数，于是 1698 / 22 = 77.18 不通过，
+// 把"存在英语独有文章"误判成"有未登记的 URL 来源"。断言要看总数是否对得上，不是分布是否均匀。
+const blogCounts = new Map();
+for (const p of posts) blogCounts.set(p.locale, (blogCounts.get(p.locale) ?? 0) + 1);
+const blogCountValues = [...blogCounts.values()];
+const blogBase = Math.min(...blogCountValues);
+const blogExtra = posts.length - blogBase * LOCALES.length;
+const blogUniform = blogExtra === 0;
+const blogPerLocale = blogUniform ? posts.length / LOCALES.length : null;
 const catPerLocale = categoryUrls / LOCALES.length;
 const staticTotal = STATIC_PATHS.length * LOCALES.length;
 const decomposition = {
@@ -195,20 +204,26 @@ const decomposition = {
   staticUrls: staticTotal,
   blogPosts: posts.length,
   blogPerLocale,
+  blogPerLocaleIsUniform: blogUniform,
+  blogBasePerLocale: blogBase,
+  blogLocaleOverflow: blogExtra,
+  blogPerLocaleCounts: Object.fromEntries([...blogCounts.entries()].sort()),
   categoryUrls,
   categoryPerLocale: catPerLocale,
   total: unique.length,
 };
 const arithmeticallyExact =
   staticTotal + posts.length + categoryUrls === unique.length &&
-  Number.isInteger(blogPerLocale) &&
   Number.isInteger(catPerLocale);
 fs.writeFileSync(
   path.join(REPO_ROOT, 'site-urls.breakdown.json'),
   JSON.stringify(decomposition, null, 2) + '\n'
 );
+const blogTerm = blogUniform
+  ? `${blogPerLocale}×${LOCALES.length}`
+  : `${blogBase}×${LOCALES.length} + ${blogExtra} 篇英语独有`;
 console.log(
-  `   分解：静态 ${STATIC_PATHS.length}×${LOCALES.length} + 博客 ${blogPerLocale}×${LOCALES.length} + 分类 ${catPerLocale}×${LOCALES.length} = ${unique.length}` +
+  `   分解：静态 ${STATIC_PATHS.length}×${LOCALES.length} + 博客 ${blogTerm} + 分类 ${catPerLocale}×${LOCALES.length} = ${unique.length}` +
     (arithmeticallyExact ? '' : '   ⚠️ 与合计不吻合，请检查是否有第三来源')
 );
 if (!arithmeticallyExact) {
