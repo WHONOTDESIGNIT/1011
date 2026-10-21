@@ -25,7 +25,16 @@
   #
   # 安全兜底：$CACHED_COMMIT_REF 为空（首次构建、缓存被清）时直接 exit 1 强制构建。
   # 少建一次的代价是站点陈旧，多建一次的代价只是几分钟 —— 所以宁可多建。
-  ignore = "bash -c 'if [ -z \"$CACHED_COMMIT_REF\" ] || [ -z \"$COMMIT_REF\" ]; then exit 1; fi; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- astro messages netlify.toml'"
+  #
+  # 【2026-10-21 修复 · 内容改动被静默跳过】ignore 是在 **base 目录（astro/）** 里执行的，
+  # 不是仓库根。原写法 `git diff --quiet … -- astro messages netlify.toml` 从 astro/ 看过去，
+  # `astro` 变成 astro/astro（不存在）、`netlify.toml` 变成 astro/netlify.toml（不存在），
+  # 只有 `messages` 侥幸命中 astro/messages —— 于是**只有改语言包时才会构建**，
+  # 改 astro/src、astro/public 的提交一律被判定"无内容变化"而跳过（部署记录里显示为
+  # error: Canceled build due to no content change）。
+  # 证据：09059d8→ee8f163 改了 astro/scripts，从仓库根退出 1，从 astro/ 退出 0，Netlify 跳过了。
+  # 修法：先定位仓库根，再用 -C 在根上做比较，pathspec 因此与 cwd 无关。
+  ignore = "bash -c 'if [ -z \"$CACHED_COMMIT_REF\" ] || [ -z \"$COMMIT_REF\" ]; then exit 1; fi; root=$(git rev-parse --show-toplevel); git -C \"$root\" diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- astro netlify.toml'"
 
 [build.environment]
   NODE_VERSION = "20"
