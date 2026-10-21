@@ -29,6 +29,30 @@ Owner: WHONOTDESIGNIT. Remote: https://github.com/WHONOTDESIGNIT/1011
   Netlify builds from the git repo and the repo-relative `netlify.toml`; the local path is
   irrelevant. What does break is anything with a hardcoded path: the scheduled tasks and
   `DSH_REPO_ROOT` in `ops/seo/.env`. See `ops/seo/MOVE-CHECKLIST.md`.
+- **2026-10-21 — machine state lives next to the checkout, never in it.**
+  `..\_machine\` (a sibling of the repo root, dated files) holds the scheduled-task XML
+  exports, the machine-path note and build logs. Rejected: putting them in repo docs —
+  `clean_check.py` rule R1 blocks absolute paths, and that is the intended behaviour.
+  This folder is deliberately outside git and outside any archive: it is machine state, not
+  project history.
+- **2026-10-21 — one topic per branch and commit.**
+  `chore/drop-strays` was meant to be deletions only, but carried the relocation docs
+  (`d8f07676`). Not worth rewriting, but the next relocation-metadata change gets its own
+  `chore/repo-relocation` branch instead of riding on an unrelated one.
+
+## Retiring the old tree
+
+No dependency on any deploy: Netlify never sees the local path. The old checkout may be
+retired once it holds nothing unique — both commands must be empty:
+
+```powershell
+git -C <old-tree> log --oneline --not origin/main   # empty = no unpushed work
+git -C <old-tree> status --porcelain                # empty = nothing uncommitted
+```
+
+The freeze markers sit *outside* the repo (one level and two levels above it), so they do
+not dirty that tree. Retire into a bundle + delete, don't leave the copy around: a second
+tree with real history is exactly the disease this cleanup removed.
 
 ## Rules for changes
 
