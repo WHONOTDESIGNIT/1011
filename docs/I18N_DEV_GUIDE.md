@@ -81,9 +81,9 @@ export interface RegionConfig {
 
 ### 4.1 存储位置与命名
 
-- 目录：`messages/`
+- 目录：`astro/messages/`
 - 命名：`<language-code>.json`（小写语言码；带地区的语言使用 BCP-47 大小写，如 `pt-BR.json`）
-- 基准：`messages/en.json` 是唯一权威英文源，所有语言包必须与其 **键结构完全一致**
+- 基准：`astro/messages/en.json` 是唯一权威英文源，所有语言包必须与其 **键结构完全一致**
 
 ### 4.2 结构一致性校验
 
@@ -172,7 +172,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ### 8.1 希伯来语（he）
 
-- **语言包**：`messages/he.json`（3959 叶，结构对齐 en）
+- **语言包**：`astro/messages/he.json`（3959 叶，结构对齐 en）
 - **配置**：6 处联动全部启用；`BaseLayout.astro` 的 `<html dir>` 判断已加入 `he → rtl`
 - **RTL 适配**：根元素 `dir="rtl"` 自动切换；逻辑属性布局
 - **博客**：`src/content/blog/he/` 已建独立文件
@@ -184,7 +184,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ### 8.2 巴西葡萄牙语（pt-BR）
 
-- **语言包**：`messages/pt-BR.json`（3959 叶，结构对齐 en）
+- **语言包**：`astro/messages/pt-BR.json`（3959 叶，结构对齐 en）
 - **配置**：6 处联动全部启用；`REGION_CONFIG['pt-BR']` = `{ locale: 'pt-BR', timeZone: 'America/Sao_Paulo', calendar: 'gregory', numberingSystem: 'latn', currency: 'BRL' }`
 - **书写方向**：LTR（无需 RTL 适配）
 - **博客**：`src/content/blog/pt-BR/custom-gradient-housing-for-a-sourcing-agent.mdx`，slug `involucro-degrade-agente-aprovisionamento`，`canonicalSlug` 指向英文原文
@@ -201,7 +201,7 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ### 8.4 荷兰语（nl）
 
-- **语言包**：`messages/nl.json`（3959 叶 / 122 数组，结构与 en 完全一致；[TODO] 占位符 310 个，与既有语言一致）
+- **语言包**：`astro/messages/nl.json`（3959 叶 / 122 数组，结构与 en 完全一致；[TODO] 占位符 310 个，与既有语言一致）
 - **翻译流水线**：`messages/work/nl/`（split_nl.js 40 块 → 逐块翻译 → merge_nl.js 深合并校验，missing/extra 叶子与数组均为 0）
 - **配置**：6 处联动全部启用；`LANGUAGE_CONFIG` 中 nl 置 `enabled: true`（countryCode nl / nativeName Nederlands / flagcdn nl）
 - **书写方向**：LTR（无需 RTL 适配）
@@ -253,6 +253,6 @@ node messages/work/pt/check_leaves.cjs   # 各语言包均有对应的校验脚�
 
 ## 10. 维护建议
 
-- 新增/修改界面文案时，必须同步更新 `messages/en.json` 及全部已启用语言包。
+- 新增/修改界面文案时，必须同步更新 `astro/messages/en.json` 及全部已启用语言包。
 - 语言包改动后执行校验脚本确认结构一致，再构建验证。
 - 新增 RTL 语言时，务必在 §6 的测试清单上逐项检查。
