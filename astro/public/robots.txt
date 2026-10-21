@@ -13,7 +13,7 @@
 #   Guarded at build time by scripts/check-robots.mjs: the build fails if the
 #   wildcard group stops allowing / (or if any group globally blocks a crawler).
 #
-# Last updated: 2026-09-15
+# Last updated: 2026-10-20
 
 User-agent: *
 Allow: /
@@ -21,7 +21,11 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /upload
-Disallow: /.netlify/
+# 只排除 Netlify 的函数端点，**不能**写成 `Disallow: /.netlify/`：
+# 全站图片走 Image CDN 的 `/.netlify/images?url=…`（首页 131 处引用，含全部 srcset），
+# 前缀一旦被拦，Googlebot / Bingbot / AI 抓取器就取不到任何图片，图片搜索可见度为 0。
+Disallow: /.netlify/functions/
+Disallow: /.netlify/edge-functions/
 Disallow: /index.backup/
 
 Sitemap: https://iplmanufacturer.com/sitemap.xml
