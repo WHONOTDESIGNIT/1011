@@ -22,6 +22,10 @@ const WRITE_ALLOWLIST = process.argv.includes('--write-allowlist');
 // 编号后只允许".数字"或"-数字"，否则荷兰语的 "IEC 60335-1-testrapport" 会整段吞进来。
 const TOKEN = /\b(?:IEC|EN|CISPR|ISO|UN|ANSI|JIS|KS|GB|AS|ASTM|BS|UL)\s?\d+(?:[-.]\d+)*/g;
 
+// 编号兜底：阿拉伯语把 ISO 写成「أيزو」，语法前缀匹配不到，但数字还在。
+// 这几个编号是我们对外声明里真正要紧的标准，按数字找，不看前缀拼法。
+const TRACKED_NUMBERS = /\b(?:13485|60335|62471|55014|60601|62133|14971|10993)\b(?:[-.]\d+)*/g;
+
 const normalise = (s) => s.toUpperCase().replace(/\s+/g, ' ').replace(/[.,;:)]+$/, '').trim();
 
 function tokensOf(file) {
@@ -32,6 +36,7 @@ function tokensOf(file) {
     // 单独一个 "UN 38.3" 之类也要保留；过滤掉编号过短的空壳
     if (/\d/.test(t) && t.length >= 5) out.add(t);
   }
+  for (const m of text.match(TRACKED_NUMBERS) ?? []) out.add(`#${m}`);
   return out;
 }
 
@@ -53,8 +58,14 @@ for (const file of enFiles) {
     if (!existsSync(target)) continue;
     compared++;
     const locTokens = tokensOf(target);
-    for (const token of locTokens) {
-      if (!enTokens.has(token)) findings.push({ locale, file, token });
+    const extras = [...locTokens].filter((t) => !enTokens.has(t));
+    // 同一个漂移只报一次：编号已包含在某条前缀命中里时，不再单独报 "#60335-2-113"。
+    const prefixed = extras.filter((t) => !t.startsWith('#'));
+    for (const token of prefixed) findings.push({ locale, file, token });
+    for (const token of extras.filter((t) => t.startsWith('#'))) {
+      const num = token.slice(1);
+      if (prefixed.some((p) => p.includes(num))) continue;
+      findings.push({ locale, file, token });
     }
   }
 }
