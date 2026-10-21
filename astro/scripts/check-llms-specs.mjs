@@ -21,7 +21,7 @@ import { dirname, join } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ASTRO = join(HERE, '..');
 const LLMS = join(ASTRO, 'public', 'llms.txt');
-const MSG = join(ASTRO, '..', 'messages', 'en.json');
+const MSG = join(ASTRO, 'messages', 'en.json');
 
 const PRODUCTS = {
   'Lumi 2 IPL': 'lumi-2',

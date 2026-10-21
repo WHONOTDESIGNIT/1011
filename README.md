@@ -7,7 +7,7 @@ iShine Technology 官网。Astro 5 + Netlify，22 语言（en 无前缀，其余
 | 路径 | 作用 |
 |---|---|
 | `astro/` | 构建与部署入口；`netlify.toml` 的 `base = "astro/"` |
-| `messages/*.json` | 线上语言包（22 个）。意大利语同样取自静态 `messages/it.json` |
+| `astro/messages/*.json` | 线上语言包（22 个）。意大利语同样取自静态 `astro/messages/it.json` |
 | `ops/seo/` | SEO 定时任务脚本与凭据（Windows 计划任务直接读本目录，勿移动） |
 | `docs/` | 设计与规范文档 |
 

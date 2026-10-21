@@ -4,11 +4,12 @@ Owner: WHONOTDESIGNIT. Remote: https://github.com/WHONOTDESIGNIT/1011
 
 ## Where things are
 
-- **Repo root = this checkout.** Use relative paths (`astro/`, `ops/seo/`, `messages/`).
+- **Repo root = this checkout.** Use relative paths (`astro/`, `ops/seo/`, `docs/`).
   Never hardcode a drive letter: this repo is cloned on more than one machine, and
   `clean_check.py` (the pre-commit hook) rejects commits that do.
 - The site is `astro/` and **only** `astro/` — `netlify.toml` has `base = "astro/"`.
-- Live locale files: `messages/*.json`. Nothing else under `messages/` is live.
+  The 22 live locale files are inside it: `astro/messages/*.json`. Nothing else under
+  `astro/messages/` is live.
 - Ops scripts + credentials: `ops/seo/` (read by the Windows scheduled tasks; don't move).
 
 ## Decisions already made (do not re-litigate)

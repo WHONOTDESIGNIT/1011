@@ -91,7 +91,7 @@ PATH_VALUE_ALLOW = {
     # 翻译文件同理（2026-10-20 增）：站点公示的联系邮箱本就出现在产品与联系文案里，
     # 每次改 messages/*.json 都会被 R5 拦住 —— 结果只能是 --no-verify，规则形同虚设。
     # 键以 '/' 结尾表示目录前缀匹配；仍只放行这一个值，其余邮箱与规则照常检查。
-    'messages/': {
+    'astro/messages/': {
         # service@：站点公示联系邮箱；john@company.com：联系表单的输入占位符（非真实地址，
         # 也不在 RFC 2606 的 example.com 豁免名单内，故显式声明）。
         'R5 邮箱': {'service@ishineco.com', 'john@company.com'},

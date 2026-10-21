@@ -176,7 +176,7 @@ export function createLastmodResolver() {
     // 语言首页：既可能是 '/'（调用方已剥前缀），也可能是 '/de'（未剥）——
     // 该语种首页正文来自 messages/{locale}.json，不是 en 的 index.astro。
     if (lang !== 'en' && (p === '/' || p === `/${lang}`)) {
-      return gitOrMtime(`messages/${dirCase(lang)}.json`);
+      return gitOrMtime(`astro/messages/${dirCase(lang)}.json`);
     }
     if (p === '/') return gitOrMtime('astro/src/pages/index.astro');
 
@@ -190,7 +190,7 @@ export function createLastmodResolver() {
     // 动态页：模板 + 该语种 messages 取较晚
     for (const { re, tpl } of DYNAMIC) {
       if (re.test(p)) {
-        const msg = `messages/${dirCase(lang)}.json`;
+        const msg = `astro/messages/${dirCase(lang)}.json`;
         return later(gitOrMtime(tpl), gitOrMtime(msg));
       }
     }
