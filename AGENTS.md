@@ -40,6 +40,13 @@ Owner: WHONOTDESIGNIT. Remote: https://github.com/WHONOTDESIGNIT/1011
   `chore/drop-strays` was meant to be deletions only, but carried the relocation docs
   (`d8f07676`). Not worth rewriting, but the next relocation-metadata change gets its own
   `chore/repo-relocation` branch instead of riding on an unrelated one.
+- **2026-10-21 — the 22 Canadian MDL guides stay archived, permanently.**
+  `canadian-mdl-ipl-device-guide` exists only in the archived
+  `feature/blog-cooling-ipl-buying-guide` patches, and it never ships as-is. If it is ever
+  revived, every "we comply with / are certified for X" sentence must first be re-verified
+  against `astro/messages/en.json` specs and current documentary evidence, before it enters
+  the content chain. Publishing is what triggers compliance risk, not sitting in an
+  archive — but the archive is not a to-do list either.
 
 ## Retiring the old tree
 
@@ -87,6 +94,14 @@ tree with real history is exactly the disease this cleanup removed.
   exists; that is the only check that survives a move.
 - In PowerShell, `Select-String -Path` treats `[slug]` as a wildcard. Files with brackets
   in the name need `-LiteralPath`, or the check silently returns nothing and looks clean.
+- **One writer per checkout.** Do not run git writes or builds in a working tree another
+  agent is using. Concurrent writes put commits on the wrong branch (that happened on
+  2026-10-21: a commit landed on someone else's checked-out branch) and make build results
+  untrustworthy — and this repo's acceptance is "build green is true". If parallelism is
+  genuinely needed: `git worktree add ..\work\<name> -b <branch>`, remove it when done
+  (no dangling registrations), and accept that each worktree needs its own `node_modules`
+  (~10 minutes). Default: take turns. If you see changes you did not make: don't touch
+  them, don't stash, don't commit — report.
 
 ## Pending decisions (dated, so they cannot live forever)
 
