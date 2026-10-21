@@ -1,0 +1,103 @@
+---
+title: "IEC 62471 for IPL Devices: The Report Most Brands Never Read"
+description: "What IEC 62471 measures on an IPL device, how to read the risk group, and how to tell a real photobiological report from an LED summary with a new header."
+citableSummary: "IEC 62471 assesses the photobiological safety of lamps and lamp systems. For a home IPL device it evaluates actinic UV, blue light hazard, retinal thermal and infrared exposure against published limits, then assigns a risk group from RG0 (exempt) upward. Every IPL platform we build has an IEC 62471 report behind it, issued by a CNAS-accredited laboratory with Shenzhen iShine Technology Company Limited as the applicant. A device can pass electrical safety and still fail this assessment."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "iec-62471-photobiological-safety-ipl"
+translationKey: "iec-62471-photobiological-safety-ipl"
+faqs:
+  - question: "Is IEC 62471 the same as an electrical safety test?"
+    answer: "No, and they are often confused. Our platform reports are issued by a CNAS-accredited laboratory, and they cover the optical output: the spectrum, the radiance and the exposure limits for eye and skin. The electrical-safety file is a separate document answered under its own standard. An IPL device needs both, and passing one says nothing about the other."
+  - question: "What risk group should a home IPL device aim for?"
+    answer: "The goal is the lowest group the design can reach at the treatment aperture, because the risk group drives what warnings the label must carry. A device that lands higher than expected usually has a filter problem rather than a lamp problem, since the spectrum reaching the skin is what is measured."
+  - question: "Can an LED report be reused for an IPL device?"
+    answer: "Not honestly. The spectral range, the pulse characteristics and the measurement geometry all differ. A report written for a continuous LED source cannot describe a pulsed broadband flash, and swapping the product name onto it is visible in the spectral data."
+---
+
+IEC 62471 is the photobiological safety standard for lamps and lamp systems. It is the report that answers a question no electrical test asks: what does the light coming out of this device do to the person in front of it.
+
+It is also the report brands most often accept without reading.
+
+## What the standard measures, and against which limits
+
+The assessment works hazard by hazard. Each one has a weighting function that says how dangerous a given wavelength is, and an exposure limit expressed over a time base.
+
+The four that matter for a home IPL device are actinic ultraviolet, blue light hazard, retinal thermal and infrared exposure. The device emits across roughly 500 to 1200 nm once the filter has done its job, which is exactly the range where blue light and retinal thermal weighting are most active.
+
+Each hazard gets a measured value, a limit, and a ratio. The worst ratio decides the risk group.
+
+## Why an IPL device is not a lamp, and where the assessment gets awkward
+
+The standard was written with lamps in mind: a source radiating into open space, measured at a defined distance.
+
+An IPL device is a lamp inside a handset behind a window and a filter, and it fires in millisecond pulses. So the assessment has to answer questions the standard does not spell out neatly. Where is the measurement plane, at the window or at a nominal distance? Is the relevant exposure a single pulse or a full session? How do you treat a source that is only exposed when a contact sensor decides skin is present?
+
+This is where two reports for the same product can disagree without either being wrong. Ask which geometry was used.
+
+## The pulse question
+
+Continuous sources are assessed over seconds and minutes. An IPL device fires millisecond pulses, which means the assessment has to decide what the relevant exposure actually is.
+
+One pulse at the aperture is one number. A full session of flashes on the same skin site is a different number. A device held against the eye by accident, which the standard has to consider even if the manual forbids it, is a third.
+
+Reports differ in which of those they answer. A report that states exposures per pulse without stating a session model has answered the easier question. That is not fraud, it is scope, and it is why the same product can carry two reports with different conclusions.
+
+When we commission one, we ask the lab to state the assumed exposure scenario on the cover. It costs nothing and it prevents an argument a year later.
+
+## Reading the risk group
+
+The output is a classification: exempt, low risk, moderate risk, high risk.
+
+For a home device the practical target is the lowest group the design can achieve at the aperture. The group is not a marketing score, it is an instruction. It tells the label which warnings to carry and tells the manual what to forbid.
+
+A device that lands one group higher than expected usually has a filter problem, not a lamp problem. The spectrum that reaches the skin is what is being measured.
+
+## Three things a real report contains
+
+**The spectral data.** A plot or table of the emitted spectrum, not just the nominal filter range. If the report only states 510 to 1200 nm and never shows the curve, the weighting could not have been applied.
+
+**The measurement geometry.** Aperture size, distance, and whether the measurement was at the window or away from it. Without this the numbers cannot be reproduced.
+
+**A risk group per hazard, with the limiting value shown.** Not a single overall grade. The report should show which hazard set the classification, because that is what you fix.
+
+If any of the three is missing, you are reading a summary rather than an assessment.
+
+## How to tell an LED report from an IPL report
+
+Three tells.
+
+The spectral range is the first. An LED skin device concentrates energy in narrow bands. An IPL device is broadband. The plotted spectrum looks nothing alike.
+
+The time base is the second. Continuous sources are assessed over seconds and minutes. A pulsed IPL device needs pulse-level treatment, and the report says so somewhere.
+
+The third tell is the product description. A report written for a different device class will describe measurement conditions that cannot apply here, such as a steady-state operating mode.
+
+We published the measured data from seven [long-pass filters](/blog/ipl-long-pass-filter-test-report) in part because the spectrum downstream of the filter is what the photobiological assessment is actually judging. Changing the filter changes the classification.
+
+## What our own reports contain
+
+We do not describe this standard from the outside. The five platforms inside our FDA clearance each have their own IEC 62471 report, issued by a CNAS-accredited laboratory, with Shenzhen iShine Technology Company Limited named as the applicant.
+
+One report per platform, not one report per product family. That distinction costs money and it is the right way round, because the platform is what determines the optical stack: the lamp, the filter, the window and the geometry around them. A report that covers a family by name while testing one member does not describe the rest.
+
+Those five platforms sit inside the FDA 510(k) clearance K222537, which covers SKN001, SKN002, SKN005 and SKN006, and their EMC file is an IEC 60601-1-2 report for medical electrical equipment. The platforms we sell under CE and UKCA are filed differently: their low-voltage safety file is EN 60335-2-23 and their EMC reports are EN IEC 55014-1 and 55014-2. Same company, two different regulatory routes.
+
+If you want to see what one looks like, ask us. We will send the page that matters: the risk group table with the limiting hazard marked, with the reference number and the applicant's commercial details removed.
+
+## What happens when it fails
+
+Failure is rarely dramatic. The device exceeds a limit on one hazard by a modest margin, usually blue light or infrared, and the fix is a design change rather than a rejection.
+
+Four levers, in the order we try them. Improve the filter so less of the energetic short end reaches the window. Reduce the energy delivered per pulse and widen the pulse. Change the window material or its transmission curve. Restrict access so the aperture cannot be held against the eye.
+
+The first two are the ones that also affect perceived performance, which is why this is a design conversation and not a lab conversation.
+
+## Why it gets skipped
+
+An electrical safety failure stops the shipment. A photobiological failure does not. The device can be manufactured, sold and used for months before a market authority asks for the assessment, and by then the filter tooling is committed.
+
+That asymmetry is the whole reason this report is worth reading before the build rather than after.
+
+We list it among the documents we tell brands to collect [before paying a deposit](/blog/how-to-vet-ipl-device-manufacturer), alongside the certificate people do remember. The [validation schedule by volume](/blog/ipl-validation-services) shows where it sits relative to the other filings, and [which components actually change the outcome](/blog/components-that-stand-up-to-scrutiny) covers the hardware side of the same question.
