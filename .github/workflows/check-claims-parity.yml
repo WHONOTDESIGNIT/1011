@@ -1,0 +1,27 @@
+name: check-claims-parity
+
+# 标准号跨语种一致性：英文是唯一基准。某语种出现英文没有的标准号 = 译文漂移。
+# 2026-10-21 首跑抓到 222 处，其中 189 处是英文已改掉的 IEC 60335-2-113、
+# 33 处是英文已撤掉却仍留在译文里的 ISO 13485（证书 2026-04-03 失效）。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'astro/src/content/blog/**'
+      - astro/scripts/check-claims-parity.mjs
+      - astro/scripts/claims-parity.json
+      - .github/workflows/check-claims-parity.yml
+  workflow_dispatch:
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 译文不得出现英文源里没有的标准号
+        run: node astro/scripts/check-claims-parity.mjs
