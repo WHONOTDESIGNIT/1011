@@ -1,0 +1,83 @@
+---
+title: "Pruebas EMC de dispositivos IPL: el fallo está en el diseño, no en la línea"
+description: "CISPR 14-1 y 14-2 aplicados a un dispositivo IPL doméstico: la lámpara de destello es un descargador de chispas, y cuatro decisiones de diseño deciden si la unidad pasa o necesita una repetición de la prueba."
+citableSummary: "Los dispositivos IPL domésticos se prueban para compatibilidad electromagnética bajo la familia CISPR 14: 14-1 para emission y 14-2 para immunity. La fuente de fallo dominante es la descarga de la lámpara de destello, que se comporta como un descargador de chispas y radia energía de banda ancha en el instante en que se dispara. Añadir una ferrita después de una prueba fallida rara vez ayuda, porque el camino de acoplamiento quedó fijado por el trazado del PCB y por el camino de retorno mucho antes de la prueba."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "¿Qué normas EMC se aplican a un dispositivo IPL doméstico?"
+    answer: "La familia CISPR 14 para aparatos domésticos: 14-1 cubre la emission y 14-2 cubre la immunity. El año de revisión importa tanto como el número, porque un informe que cita una edición retirada indica que el programa de cumplimiento dejó de mantenerse."
+  - question: "¿Por qué falla tan a menudo un dispositivo IPL en las pruebas EMC?"
+    answer: "Porque la lámpara de destello es un descargador de chispas. Un banco de condensadores se descarga a través de un tubo de xenón en microsegundos, lo que produce un pulso de banda ancha que se acopla a toda pista cercana. La energía es enorme en relación con los niveles de señal que miden las normas, así que los trazados marginales que funcionan en un calefactor no sobreviven aquí."
+  - question: "¿Se puede arreglar una prueba EMC fallida añadiendo una ferrita?"
+    answer: "Rara vez. Una ferrita cambia la impedancia de un camino. No cambia dónde se acopla la energía, que lo fijan el área del bucle, el camino de retorno y el apantallamiento. Si la corriente de descarga regresa por un camino de masa largo, añadir una ferrita al cable deja ese bucle intacto."
+---
+
+Los fallos de EMC en un dispositivo IPL casi nunca son problemas de producción. Son decisiones tomadas en la etapa de trazado, y la prueba es donde llega la factura.
+
+La parte frustrante es que la solución es barata si se toma antes de la matricería y cara después. Esa asimetría merece entenderse antes de la congelación del diseño y no después del primer escaneo fallido.
+
+## Qué miden realmente CISPR 14-1 y 14-2
+
+La familia CISPR 14 cubre los aparatos domésticos. La parte 1 rige la emission, es decir, lo que el dispositivo envía por su cable de alimentación y por el aire. La parte 2 rige la immunity, es decir, lo que el dispositivo es capaz de soportar cuando la interferencia llega desde fuera.
+
+En un dispositivo IPL, la mitad de emission es la difícil. El dispositivo es una fuente de alimentación conmutada, un microcontrolador y un banco de condensadores que se descarga por orden, todo dentro de una carcasa de plástico con una ventana en la parte frontal.
+
+Las normas miden emissions conducidas en el cable de red y emissions radiadas en una cámara. Ambas son mediciones de banda ancha, y un pulso es de banda ancha por naturaleza.
+
+## La lámpara de destello es un descargador de chispas, y se comporta como tal
+
+Una lámpara de destello de xenón se dispara cuando el banco de condensadores se descarga a través de gas ionizado. La descarga dura microsegundos. En ese intervalo, cientos de amperios circulan por un bucle que incluye la lámpara, el condensador, el transformador de disparo y el camino de retorno.
+
+Ese bucle es una antena. Su radiación no es una emission de banda estrecha que se pueda eliminar con un filtro notch: es una ráfaga de banda ancha que cae a lo largo de todo el rango medido.
+
+De ahí se siguen dos consecuencias. La primera es que la corriente de descarga debe regresar por el camino más corto disponible, lo que significa que el esquema de masa decide el nivel de emission más que cualquier filtro. La segunda es que el circuito de disparo, que genera un pulso rápido de alta tensión, es un radiador separado e igualmente eficaz.
+
+## Cuatro decisiones de diseño que deciden si se pasa o se falla
+
+**Área del bucle entre el banco de condensadores y la lámpara.** Un bucle ajustado radia menos. Es una decisión de disposición mecánica y se fija cuando se diseña la carcasa, no cuando se traza la placa.
+
+**El camino de retorno de la corriente de descarga.** Si comparte una pista con la electrónica de control, inyecta ruido directamente en el microcontrolador. Un punto en estrella en el negativo del condensador es la respuesta habitual, y hay que diseñarlo desde el principio.
+
+**Apantallamiento alrededor del circuito de disparo.** El pulso de disparo es rápido y de alta tensión. Separarlo físicamente del mazo de cables de la lámpara, o apantallarlo, cambia el resultado de forma medible.
+
+**La topología del filtro de red.** Una inductancia de modo común dimensionada para una fuente conmutada no queda automáticamente dimensionada para un dispositivo que además descarga un banco de condensadores. El filtro debe especificarse para la carga que realmente ve.
+
+Ninguna de estas es exótica. Tres de las cuatro son decisiones que se toman en la primera mitad del proyecto.
+
+## Por qué una ferrita añadida a posteriori rara vez te salva
+
+Una ferrita eleva la impedancia de un conductor en un rango de frecuencias. Eso es útil cuando la interferencia viaja a lo largo de ese conductor.
+
+Cuando la interferencia radia desde un bucle, la ferrita no hace casi nada. La energía sale del bucle, no del cable. Puedes añadir tres ferritas y ver cómo la traza del escaneo se mueve un par de dB.
+
+Lo que sí funciona, después de un fallo, es reducir el bucle o cambiar el camino de retorno, y ambas cosas implican tocar el diseño mecánico o el PCB. Por eso el ciclo de repetición de la prueba se mide en semanas.
+
+## Leer un informe EMC: el año de revisión importa
+
+Tres cosas que revisar en la página, en orden.
+
+La norma y su año de revisión. Un informe que cita una edición retirada es el informe de un programa que dejó de mantenerse.
+
+La configuración probada. Qué adaptador, qué longitud de cable, qué proveedor de lámpara. Un cambio en cualquiera de ellos es un cambio en el objeto de la prueba.
+
+El margen, no solo el veredicto. Un resultado que pasa justo en el límite es un dispositivo que fallará con otra muestra. Uno que pasa con 6 dB de margen es un dispositivo que se puede fabricar de forma repetible.
+
+Esa última línea es la que más nos importa, y conecta con un punto más amplio en [cómo funciona realmente el control de calidad](/blog/06-quality-control-in-ipl-manufacturing-best-practices): una especificación sin margen es una especificación que solo se cumple el día en que se escribió.
+
+## Cuánto cuesta en tiempo una repetición de la prueba
+
+Una cámara reservada es un recurso con horario. Fallar significa reservar otro hueco, lo que suele significar semanas, más el tiempo de ingeniería para cambiar el trazado o el mazo de cables y reconstruir una muestra.
+
+Si el fallo llega después de la matricería, el cambio de carcasa reabre la conversación sobre el molde. Hemos visto un fallo de 2 dB convertirse en un retraso de tres meses exactamente por esta razón.
+
+La alternativa es un pre-escaneo antes de la congelación del diseño. Una hora en un laboratorio de EMC con un montaje de banco cuesta una fracción de una prueba formal fallida, y encuentra el problema del bucle cuando la solución todavía es gratuita.
+
+## Dónde encaja esto en el expediente completo
+
+La EMC convive con la norma de seguridad eléctrica y con la evaluación fotobiológica, y cada una de ellas puede fallar de forma independiente en el mismo dispositivo. [La escalera de cumplimiento](/blog/ipl-validation-services) muestra cuál de ellas resulta vinculante en cada volumen.
+
+Si estás evaluando una fábrica y quieres saber si ha hecho esto antes, pide el informe EMC y lee la columna de margen. Lo incluimos entre [los documentos que conviene pedir](/blog/how-to-vet-ipl-device-manufacturer), y [la pieza sobre componentes](/blog/components-that-stand-up-to-scrutiny) cubre las partes que deciden el resultado: la lámpara, el banco de condensadores y el adaptador.

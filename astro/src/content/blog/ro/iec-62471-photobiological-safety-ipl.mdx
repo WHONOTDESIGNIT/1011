@@ -1,0 +1,103 @@
+---
+title: "IEC 62471 pentru dispozitivele IPL: raportul pe care majoritatea brandurilor nu îl citesc"
+description: "Ce măsoară IEC 62471 la un dispozitiv IPL, cum se citește risk group și cum deosebești un raport fotobiologic real de un rezumat pentru LED cu antet nou."
+citableSummary: "IEC 62471 evaluează photobiological safety pentru lămpi și sisteme de lămpi. Pentru un dispozitiv IPL de uz casnic, evaluează UV actinic, pericolul luminii albastre, expunerea retiniană termică și expunerea infraroșie față de limitele publicate, apoi atribuie un risk group de la RG0 (exceptat) în sus. Fiecare platformă IPL pe care o construim are în spate un raport IEC 62471, emis de un laborator acreditat CNAS, cu Shenzhen iShine Technology Company Limited ca solicitant. Un dispozitiv poate trece de securitatea electrică și totuși poate pica această evaluare."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "iec-62471-photobiological-safety-ipl"
+translationKey: "iec-62471-photobiological-safety-ipl"
+faqs:
+  - question: "Is IEC 62471 the same as an electrical safety test?"
+    answer: "No, and they are often confused. Our platform reports are issued by a CNAS-accredited laboratory, and they cover the optical output: the spectrum, the radiance and the exposure limits for eye and skin. Electrical safety is a separate file, and on the platforms we place on the EU and UK markets it is assessed against EN IEC 60335-2-23 in our test files. An IPL device needs both, and passing one says nothing about the other."
+  - question: "What risk group should a home IPL device aim for?"
+    answer: "The goal is the lowest group the design can reach at the treatment aperture, because the risk group drives what warnings the label must carry. A device that lands higher than expected usually has a filter problem rather than a lamp problem, since the spectrum reaching the skin is what is measured."
+  - question: "Can an LED report be reused for an IPL device?"
+    answer: "Not honestly. The spectral range, the pulse characteristics and the measurement geometry all differ. A report written for a continuous LED source cannot describe a pulsed broadband flash, and swapping the product name onto it is visible in the spectral data."
+---
+
+IEC 62471 este standardul de photobiological safety pentru lămpi și sisteme de lămpi. Este raportul care răspunde la o întrebare pe care niciun test electric nu o pune: ce face lumina care iese din acest dispozitiv persoanei din fața lui.
+
+Este și raportul pe care brandurile îl acceptă cel mai des fără să îl citească.
+
+## Ce măsoară standardul și față de ce limite
+
+Evaluarea merge hazard cu hazard. Fiecare are o funcție de ponderare care spune cât de periculoasă este o anumită lungime de undă și o limită de expunere exprimată pe o bază de timp.
+
+Cele patru care contează pentru un dispozitiv IPL de uz casnic sunt ultravioletul actinic, pericolul luminii albastre, expunerea retiniană termică și expunerea infraroșie. Dispozitivul emite aproximativ între 500 și 1200 nm după ce filtrul își face treaba, exact intervalul în care ponderarea pentru lumina albastră și cea retiniană termică sunt cele mai active.
+
+Fiecare hazard primește o valoare măsurată, o limită și un raport. Raportul cel mai defavorabil decide risk group.
+
+## De ce un dispozitiv IPL nu este o lampă și unde devine evaluarea incomodă
+
+Standardul a fost scris gândindu-se la lămpi: o sursă care radiază în spațiu deschis, măsurată la o distanță definită.
+
+Un dispozitiv IPL este o lampă într-un mâner, în spatele unei ferestre și al unui filtru, și emite în impulsuri de milisecunde. Așa că evaluarea trebuie să răspundă la întrebări pe care standardul nu le explică limpede. Unde este planul de măsurare, la fereastră sau la o distanță nominală? Expunerea relevantă este un singur impuls sau o ședință întreagă? Cum tratezi o sursă care este expusă doar când un senzor de contact decide că există piele?
+
+Aici două rapoarte pentru același produs pot să nu fie de acord fără ca vreunul să fie greșit. Întreabă ce geometrie s-a folosit.
+
+## Întrebarea despre impuls
+
+Sursele continue se evaluează pe secunde și pe minute. Un dispozitiv IPL emite impulsuri de milisecunde, ceea ce înseamnă că evaluarea trebuie să decidă care este de fapt expunerea relevantă.
+
+Un impuls la apertură este un număr. O ședință întreagă de impulsuri pe aceeași zonă de piele este un alt număr. Un dispozitiv ținut din greșeală lipit de ochi, pe care standardul trebuie să îl ia în calcul chiar dacă manualul îl interzice, este al treilea.
+
+Rapoartele diferă în privința a ceea ce răspund. Un raport care dă expuneri pe impuls fără să precizeze un model de ședință a răspuns la întrebarea mai ușoară. Nu este fraudă, este domeniu de aplicare, și de aceea același produs poate purta două rapoarte cu concluzii diferite.
+
+Când comandăm unul, cerem laboratorului să declare pe copertă scenariul de expunere presupus. Nu costă nimic și evită o discuție un an mai târziu.
+
+## Cum se citește risk group
+
+Rezultatul este o clasificare: exceptat, risc scăzut, risc moderat, risc ridicat.
+
+Pentru un dispozitiv de uz casnic, ținta practică este cel mai coborât risk group pe care designul îl poate atinge la apertură. Nu este un scor de marketing, este o instrucțiune. Îi spune etichetei ce avertismente trebuie să poarte și manualului ce trebuie să interzică.
+
+Un dispozitiv care ajunge cu un risk group mai sus decât s-a așteptat are de obicei o problemă de filtru, nu o problemă de lampă. Ceea ce se măsoară este spectrul care ajunge la piele.
+
+## Trei lucruri pe care le conține un raport real
+
+**Datele spectrale.** Un grafic sau un tabel al spectrului emis, nu doar intervalul nominal al filtrului. Dacă raportul menționează doar 510 până la 1200 nm și nu arată niciodată curba, ponderarea nu a putut fi aplicată.
+
+**Geometria de măsurare.** Dimensiunea aperturii, distanța și dacă măsurarea s-a făcut la fereastră sau în afara ei. Fără acestea, numerele nu pot fi reproduse.
+
+**Un risk group pentru fiecare hazard, cu valoarea limitatoare indicată.** Nu o singură notă generală. Raportul ar trebui să arate ce hazard a stabilit clasificarea, pentru că acela este lucrul pe care îl repari.
+
+Dacă lipsește oricare dintre cele trei, citești un rezumat, nu o evaluare.
+
+## Cum deosebești un raport pentru LED de un raport pentru IPL
+
+Trei semne.
+
+Intervalul spectral este primul. Un dispozitiv LED pentru piele concentrează energia în benzi înguste. Un dispozitiv IPL este cu bandă largă. Spectrele trasate nu seamănă deloc.
+
+Baza de timp este al doilea. Sursele continue se evaluează pe secunde și pe minute. Un dispozitiv IPL pulsant are nevoie de tratare la nivel de impuls, iar raportul spune asta undeva.
+
+Al treilea semn este descrierea produsului. Un raport scris pentru o altă clasă de dispozitive va descrie condiții de măsurare care nu se pot aplica aici, cum ar fi un mod de funcționare în regim staționar.
+
+Am publicat datele măsurate pentru șapte [filtre long-pass](/blog/ipl-long-pass-filter-test-report) în parte pentru că spectrul din aval de filtru este exact ceea ce judecă evaluarea fotobiologică. Schimbarea filtrului schimbă clasificarea.
+
+## Ce conțin rapoartele noastre
+
+Nu descriem acest standard din exterior. Cele cinci platforme din interiorul autorizării FDA 510(k) a noastre au fiecare propriul raport IEC 62471, emis de un laborator acreditat CNAS, cu Shenzhen iShine Technology Company Limited numită ca solicitant.
+
+Un raport pe platformă, nu un raport pe familie de produse. Distincția costă bani și este varianta corectă, pentru că platforma este cea care determină ansamblul optic: lampa, filtrul, fereastra și geometria din jurul lor. Un raport care acoperă o familie după nume, testând un singur membru, nu le descrie pe celelalte.
+
+Cele cinci platforme se află în autorizarea FDA 510(k) K222537, care acoperă SKN001, SKN002, SKN005 și SKN006, iar dosarul lor EMC este un raport IEC 60601-1-2 pentru echipamente electrice medicale. Platformele pe care le vindem sub CE și UKCA sunt înregistrate diferit: dosarul lor de siguranță de joasă tensiune este EN 60335-2-23, iar rapoartele EMC sunt EN IEC 55014-1 și 55014-2. Aceeași companie, două rute de reglementare diferite.
+
+Dacă vrei să vezi cum arată unul, cere-ni-l. Îți trimitem pagina care contează: tabelul cu risk group, cu hazardul limitator marcat, fără numărul de referință și fără datele comerciale ale solicitantului.
+
+## Ce se întâmplă când pică
+
+Eșecul este rareori dramatic. Dispozitivul depășește o limită la un singur hazard cu o marjă modestă, de obicei lumina albastră sau infraroșul, iar soluția este o schimbare de design, nu o respingere.
+
+Patru pârghii, în ordinea în care le încercăm. Îmbunătățim filtrul astfel încât mai puțin din capătul scurt energetic să ajungă la fereastră. Reducem energia livrată pe impuls și lărgim impulsul. Schimbăm materialul ferestrei sau curba lui de transmisie. Restrângem accesul astfel încât apertura să nu poată fi ținută lipită de ochi.
+
+Primele două sunt cele care afectează și performanța percepută, de aceea este o discuție de design, nu una de laborator.
+
+## De ce este sărit
+
+Un eșec la securitatea electrică oprește livrarea. Un eșec fotobiologic nu. Dispozitivul poate fi fabricat, vândut și folosit luni întregi înainte ca o autoritate de piață să ceară evaluarea, iar până atunci sculele pentru filtru sunt deja angajate.
+
+Această asimetrie este tot motivul pentru care merită citit acest raport înainte de fabricație, nu după.
+
+Îl includem printre documentele pe care le spunem brandurilor să le adune [înainte de a plăti un avans](/blog/how-to-vet-ipl-device-manufacturer), alături de certificatul de care lumea își amintește. [Calendarul de validare pe volume](/blog/ipl-validation-services) arată unde se situează față de celelalte depuneri, iar [care componente schimbă cu adevărat rezultatul](/blog/components-that-stand-up-to-scrutiny) acoperă latura hardware a aceleiași întrebări.

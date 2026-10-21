@@ -1,0 +1,103 @@
+---
+title: "IEC 62471 per i dispositivi IPL: il rapporto che quasi nessun brand legge"
+description: "Che cosa misura IEC 62471 su un dispositivo IPL, come si legge il risk group e come si distingue un vero rapporto fotobiologico da un riassunto su LED con un'intestazione nuova."
+citableSummary: "IEC 62471 valuta la photobiological safety di lampade e sistemi di lampada. Su un dispositivo IPL domestico misura l'esposizione UV attinica, il pericolo della luce blu e l'esposizione termica retinica e infrarossa rispetto ai limiti pubblicati, poi assegna un risk group a partire da RG0 (esente). Ogni piattaforma IPL che costruiamo ha alle spalle un rapporto IEC 62471, rilasciato da un laboratorio accreditato CNAS con Shenzhen iShine Technology Company Limited come richiedente. Un dispositivo può superare la sicurezza elettrica e non superare comunque questa valutazione."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "iec-62471-photobiological-safety-ipl"
+translationKey: "iec-62471-photobiological-safety-ipl"
+faqs:
+  - question: "IEC 62471 è la stessa cosa di un test di sicurezza elettrica?"
+    answer: "No, e i due vengono spesso confusi. I rapporti delle nostre piattaforme sono rilasciati da un laboratorio accreditato CNAS e coprono l'emissione ottica: lo spettro, la radianza e i limiti di esposizione per occhi e pelle. La sicurezza elettrica è un fascicolo separato e, sulle piattaforme che mettiamo sui mercati UE e britannico, viene valutata rispetto alla EN IEC 60335-2-23 nei nostri test. Un dispositivo IPL ha bisogno di entrambi, e superare uno non dice niente sull'altro."
+  - question: "A quale risk group dovrebbe puntare un dispositivo IPL domestico?"
+    answer: "L'obiettivo è il gruppo più basso che il progetto riesce a raggiungere all'apertura di trattamento, perché il risk group determina quali avvertenze deve portare l'etichetta. Un dispositivo che finisce un gruppo più in alto del previsto di solito ha un problema di filtro, non di lampada, perché quello che viene misurato è lo spettro che raggiunge la pelle."
+  - question: "Un rapporto su LED può essere riutilizzato per un dispositivo IPL?"
+    answer: "Non onestamente. L'intervallo spettrale, le caratteristiche dell'impulso e la geometria di misura sono tutti diversi. Un rapporto scritto per una sorgente LED continua non può descrivere un flash pulsato a banda larga, e il cambio del nome di prodotto si vede nei dati spettrali."
+---
+
+IEC 62471 è lo standard di photobiological safety per lampade e sistemi di lampada. È il rapporto che risponde a una domanda che nessun test elettrico pone: che cosa fa alla persona davanti al dispositivo la luce che ne esce.
+
+È anche il rapporto che i brand accettano più spesso senza leggerlo.
+
+## Che cosa misura lo standard, e rispetto a quali limiti
+
+La valutazione procede pericolo per pericolo. Ognuno ha una funzione di ponderazione che dice quanto è pericolosa una data lunghezza d'onda, e un limite di esposizione espresso su una base temporale.
+
+I quattro che contano per un dispositivo IPL domestico sono l'ultravioletto attinico, il pericolo della luce blu, l'esposizione termica retinica e quella infrarossa. Una volta che il filtro ha fatto il suo lavoro, il dispositivo emette all'incirca tra 500 e 1200 nm, che è esattamente l'intervallo in cui la ponderazione della luce blu e quella termica retinica sono più attive.
+
+Ogni pericolo ottiene un valore misurato, un limite e un rapporto. Il rapporto peggiore decide il risk group.
+
+## Perché un dispositivo IPL non è una lampada, e dove la valutazione si fa scomoda
+
+Lo standard è stato scritto pensando alle lampade: una sorgente che irradia nello spazio aperto, misurata a una distanza definita.
+
+Un dispositivo IPL è una lampada dentro un manipolo, dietro una finestra e un filtro, e spara impulsi da millisecondi. La valutazione deve quindi rispondere a domande che lo standard non chiarisce con ordine. Dov'è il piano di misura, alla finestra o a una distanza nominale? L'esposizione rilevante è un singolo impulso o una seduta intera? Come si tratta una sorgente che si accende solo quando un sensore di contatto decide che c'è pelle?
+
+È qui che due rapporti per lo stesso prodotto possono divergere senza che nessuno dei due sia sbagliato. Chiedete quale geometria è stata usata.
+
+## La questione dell'impulso
+
+Le sorgenti continue vengono valutate su secondi e minuti. Un dispositivo IPL spara impulsi da millisecondi, il che significa che la valutazione deve decidere qual è davvero l'esposizione rilevante.
+
+Un impulso all'apertura è un numero. Una seduta intera di flash sulla stessa zona di pelle è un altro numero. Un dispositivo tenuto contro l'occhio per errore, che lo standard deve considerare anche se il manuale lo vieta, è un terzo.
+
+I rapporti differiscono in quale di questi rispondono. Un rapporto che dichiara le esposizioni per impulso senza dichiarare un modello di seduta ha risposto alla domanda più facile. Non è frode, è ambito di applicazione, ed è per questo che lo stesso prodotto può avere due rapporti con conclusioni diverse.
+
+Quando ne commissioniamo uno, chiediamo al laboratorio di dichiarare in copertina lo scenario di esposizione ipotizzato. Non costa nulla e previene una discussione un anno dopo.
+
+## Come si legge il risk group
+
+L'output è una classificazione: esente, rischio basso, rischio moderato, rischio alto.
+
+Per un dispositivo domestico l'obiettivo pratico è il gruppo più basso che il progetto riesce a raggiungere all'apertura. Il gruppo non è un punteggio di marketing, è un'istruzione. Dice all'etichetta quali avvertenze portare e dice al manuale che cosa vietare.
+
+Un dispositivo che finisce un gruppo più in alto del previsto di solito ha un problema di filtro, non di lampada. Quello che viene misurato è lo spettro che raggiunge la pelle.
+
+## Tre cose che un rapporto vero contiene
+
+**I dati spettrali.** Un grafico o una tabella dello spettro emesso, non solo l'intervallo nominale del filtro. Se il rapporto dichiara solo 510–1200 nm e non mostra mai la curva, la ponderazione non può essere stata applicata.
+
+**La geometria di misura.** Dimensione dell'apertura, distanza e se la misura è stata fatta alla finestra o lontano da essa. Senza questo i numeri non sono riproducibili.
+
+**Un risk group per ogni pericolo, con il valore limitante indicato.** Non un unico voto complessivo. Il rapporto dovrebbe mostrare quale pericolo ha fissato la classificazione, perché è quello che si corregge.
+
+Se manca uno dei tre, state leggendo un riassunto e non una valutazione.
+
+## Come distinguere un rapporto LED da un rapporto IPL
+
+Tre indizi.
+
+L'intervallo spettrale è il primo. Un dispositivo LED per la pelle concentra l'energia in bande strette. Un dispositivo IPL è a banda larga. Lo spettro tracciato non si somiglia per niente.
+
+La base temporale è il secondo. Le sorgenti continue vengono valutate su secondi e minuti. Un dispositivo IPL pulsato richiede un trattamento a livello di impulso, e il rapporto lo dice da qualche parte.
+
+Il terzo indizio è la descrizione del prodotto. Un rapporto scritto per una classe di dispositivi diversa descriverà condizioni di misura che qui non possono valere, come una modalità di funzionamento a regime stazionario.
+
+Abbiamo pubblicato i dati misurati di sette [filtri passa-alto](/blog/ipl-long-pass-filter-test-report) in parte perché lo spettro a valle del filtro è ciò che la valutazione fotobiologica sta effettivamente giudicando. Cambiare il filtro cambia la classificazione.
+
+## Che cosa contengono i nostri rapporti
+
+Non descriviamo questo standard dall'esterno. Le cinque piattaforme coperte dalla nostra autorizzazione FDA hanno ciascuna il proprio rapporto IEC 62471, rilasciato da un laboratorio accreditato CNAS, con Shenzhen iShine Technology Company Limited indicata come richiedente.
+
+Un rapporto per piattaforma, non un rapporto per famiglia di prodotti. Quella distinzione costa denaro ed è il verso giusto, perché è la piattaforma a determinare lo stack ottico: la lampada, il filtro, la finestra e la geometria intorno a loro. Un rapporto che copre una famiglia per nome testandone un solo membro non descrive il resto.
+
+Quelle cinque piattaforme rientrano nell'autorizzazione FDA 510(k) K222537, che copre SKN001, SKN002, SKN005 e SKN006, e il loro fascicolo EMC è un rapporto IEC 60601-1-2 per apparecchiature elettromedicali. Le piattaforme che vendiamo con marcatura CE e UKCA sono archiviate diversamente: il loro fascicolo di sicurezza a bassa tensione è la EN 60335-2-23 e i rapporti EMC sono EN IEC 55014-1 e 55014-2. Stessa azienda, due percorsi regolatori diversi.
+
+Se volete vedere com'è fatto, chiedete. Vi mandiamo la pagina che conta: la tabella del risk group con il pericolo limitante segnato, con il numero di riferimento e i dati commerciali del richiedente rimossi.
+
+## Che cosa succede quando non passa
+
+Un fallimento raramente è drammatico. Il dispositivo supera un limite su un pericolo di un margine modesto, di solito la luce blu o l'infrarosso, e la soluzione è una modifica di progetto, non un rifiuto.
+
+Quattro leve, nell'ordine in cui le proviamo. Migliorare il filtro così che meno dell'estremo corto energetico raggiunga la finestra. Ridurre l'energia erogata per impulso e allargare l'impulso. Cambiare il materiale della finestra o la sua curva di trasmissione. Limitare l'accesso così che l'apertura non possa essere tenuta contro l'occhio.
+
+Le prime due sono quelle che influenzano anche la prestazione percepita, ed è per questo che questa è una conversazione di progetto e non di laboratorio.
+
+## Perché viene saltato
+
+Un fallimento della sicurezza elettrica ferma la spedizione. Un fallimento fotobiologico no. Il dispositivo può essere prodotto, venduto e usato per mesi prima che un'autorità di mercato chieda la valutazione, e a quel punto gli stampi del filtro sono già impegnati.
+
+È quell'asimmetria il motivo per cui vale la pena leggere questo rapporto prima di costruire invece che dopo.
+
+Lo elenchiamo tra i documenti che diciamo ai brand di raccogliere [prima di versare un deposito](/blog/how-to-vet-ipl-device-manufacturer), accanto al certificato che le persone ricordano davvero. Il [programma di validazione per volume](/blog/ipl-validation-services) mostra dove si colloca rispetto agli altri fascicoli, e [quali componenti cambiano davvero l'esito](/blog/components-that-stand-up-to-scrutiny) copre il lato hardware della stessa domanda.

@@ -1,0 +1,83 @@
+---
+title: "Teste EMC de dispositivo IPL: a falha está no projeto, não na linha"
+description: "CISPR 14-1 e 14-2 em um dispositivo IPL doméstico: a lâmpada de flash é um spark gap, e quatro decisões de projeto determinam se a unidade passa ou precisa de um reteste."
+citableSummary: "Dispositivos IPL domésticos são testados quanto à compatibilidade eletromagnética pela família CISPR 14: a 14-1 para emissions e a 14-2 para immunity. A principal fonte de falha é a descarga da lâmpada de flash, que se comporta como um spark gap e irradia energia de banda larga no instante em que dispara. Acrescentar um ferrite depois de um teste reprovado raramente ajuda, porque o caminho de acoplamento já foi definido pelo layout da PCB e pelo caminho de retorno muito antes do teste."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Quais normas EMC se aplicam a um dispositivo IPL doméstico?"
+    answer: "A família CISPR 14 para aparelhos domésticos: a 14-1 cobre emission e a 14-2 cobre immunity. O ano da revisão importa tanto quanto o número, porque um relatório que cita uma edição já retirada mostra que o programa de conformidade deixou de ser mantido."
+  - question: "Por que um dispositivo IPL reprova em teste EMC com tanta frequência?"
+    answer: "Porque a lâmpada de flash é um spark gap. Um banco de capacitores descarrega através de um tubo de xenônio em microssegundos, o que produz um pulso de banda larga que se acopla a toda trilha próxima. A energia é enorme em relação aos níveis de sinal que as normas medem, então layouts marginais que funcionam em um aquecedor não sobrevivem aqui."
+  - question: "Dá para corrigir um teste EMC reprovado acrescentando um ferrite?"
+    answer: "Raramente. Um ferrite muda a impedância em um caminho. Ele não muda onde a energia se acopla, o que é definido pela área do laço, pelo caminho de retorno e pela blindagem. Se a corrente de descarga retorna por um caminho de terra longo, colocar um ferrite no cabo deixa esse laço intacto."
+---
+
+Falhas de EMC em um dispositivo IPL quase nunca são problemas de produção. São decisões tomadas na etapa de layout, e o teste é onde a conta chega.
+
+A parte frustrante é que a correção sai barata se for feita antes do ferramental e cara depois. Vale entender essa assimetria antes do congelamento do projeto, e não depois do primeiro scan reprovado.
+
+## O que o CISPR 14-1 e o 14-2 realmente medem
+
+A família CISPR 14 cobre aparelhos domésticos. A Parte 1 governa o emission, ou seja, o que o dispositivo envia pelo cabo de alimentação e pelo ar. A Parte 2 governa o immunity, ou seja, o que o dispositivo suporta quando a interferência chega de fora.
+
+Em um dispositivo IPL, a metade do emission é a difícil. O dispositivo é uma fonte chaveada, um microcontrolador e um banco de capacitores que descarrega sob comando, tudo dentro de uma carcaça plástica com uma janela na frente.
+
+As normas medem emissions conduzidas no cabo de rede e emissions radiadas em câmara. As duas são medições de banda larga, e um pulso é de banda larga por natureza.
+
+## A lâmpada de flash é um spark gap, e se comporta como um
+
+Uma lâmpada de flash de xenônio dispara quando o banco de capacitores descarrega através de gás ionizado. A descarga leva microssegundos. Nessa janela, centenas de ampères circulam por um laço que inclui a lâmpada, o capacitor, o transformador de disparo e o caminho de retorno.
+
+Esse laço é uma antena. A radiação dele não é um emission de banda estreita que se possa cortar com um notch: é uma rajada de banda larga que se espalha por toda a faixa medida.
+
+Duas consequências vêm daí. A primeira é que a corrente de descarga precisa retornar pelo caminho mais curto disponível, o que significa que o esquema de terra decide o nível de emission mais do que qualquer filtro. A segunda é que o circuito de disparo, que gera um pulso rápido de alta tensão, é um radiador separado e igualmente eficaz.
+
+## Quatro decisões de projeto que decidem aprovação ou reprovação
+
+**Área do laço entre o banco de capacitores e a lâmpada.** Um laço apertado irradia menos. Essa é uma decisão de layout mecânico, definida quando a carcaça é projetada, não quando a placa é roteada.
+
+**O caminho de retorno da corrente de descarga.** Se ele compartilha uma trilha com a eletrônica de controle, injeta ruído direto no microcontrolador. Um ponto estrela no terminal negativo do capacitor é a solução usual, e precisa ser previsto em projeto.
+
+**Blindagem em torno do circuito de disparo.** O pulso de disparo é rápido e de alta tensão. Separar fisicamente esse circuito do chicote da lâmpada, ou blindá-lo, muda o resultado de forma mensurável.
+
+**A topologia do filtro de rede.** Um indutor de modo comum dimensionado para uma fonte chaveada não está automaticamente dimensionado para um dispositivo que também descarrega um banco de capacitores. O filtro precisa ser especificado para a carga que ele realmente vê.
+
+Nenhuma delas é exótica. Três das quatro são decisões tomadas na primeira metade do projeto.
+
+## Por que um ferrite colocado depois raramente salva o projeto
+
+Um ferrite eleva a impedância de um condutor em uma faixa de frequência. Isso é útil quando a interferência está percorrendo esse condutor.
+
+Quando a interferência irradia de um laço, o ferrite não faz quase nada. A energia sai do laço, não do fio. Você pode colocar três ferrites e ver o traço do scan se mover alguns dB.
+
+O que funciona, depois de uma falha, é reduzir o laço ou mudar o caminho de retorno, e as duas coisas significam mexer no projeto mecânico ou na PCB. É por isso que o ciclo de reteste se mede em semanas.
+
+## Como ler um relatório EMC: o ano da revisão importa
+
+Três coisas para conferir na página, em ordem.
+
+A norma e o ano da revisão dela. Um relatório que cita uma edição já retirada é o relatório de um programa que deixou de ser mantido.
+
+A configuração testada. Qual adaptador, qual comprimento de cabo, qual fornecedor de lâmpada. Mudar qualquer um deles é mudar o objeto do teste.
+
+A margem, não apenas o veredito. Uma aprovação no limite é um dispositivo que vai reprovar em outra amostra. Uma aprovação com 6 dB de margem é um dispositivo que você consegue fabricar repetidamente.
+
+Essa última linha é a que mais nos interessa, e ela se conecta a um ponto mais amplo em [como o controle de qualidade realmente funciona](/blog/06-quality-control-in-ipl-manufacturing-best-practices): uma especificação sem margem é uma especificação que só vale no dia em que foi escrita.
+
+## Quanto custa um reteste em tempo
+
+Uma câmara reservada é um recurso com data marcada. Reprovar significa reservar outro horário, o que normalmente significa semanas, além do tempo de engenharia para mudar o layout ou o chicote e refazer uma amostra.
+
+Se a falha aparece depois do ferramental, a mudança da carcaça reabre a discussão do molde. Já vimos uma falha de 2 dB virar três meses de atraso exatamente por isso.
+
+A alternativa é um pré-scan antes do congelamento do projeto. Uma hora em um laboratório de EMC com um protótipo de bancada custa uma fração de um teste formal reprovado, e encontra o problema do laço enquanto a correção ainda é gratuita.
+
+## Onde isso se encaixa no dossiê mais amplo
+
+O EMC fica ao lado da norma de segurança elétrica e da avaliação fotobiológica, e cada um deles pode reprovar de forma independente no mesmo dispositivo. [A escada de conformidade](/blog/ipl-validation-services) mostra qual deles é exigido em cada volume.
+
+Se você está avaliando uma fábrica e quer saber se ela já fez isso antes, peça o relatório EMC e leia a coluna da margem. Nós o listamos entre [os documentos que vale a pena solicitar](/blog/how-to-vet-ipl-device-manufacturer), e o [artigo sobre componentes](/blog/components-that-stand-up-to-scrutiny) cobre as peças que decidem o resultado: a lâmpada, o banco de capacitores e o adaptador.

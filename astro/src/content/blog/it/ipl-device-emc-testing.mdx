@@ -1,0 +1,83 @@
+---
+title: "Test EMC di un dispositivo IPL: si fallisce nel progetto, non sulla linea"
+description: "CISPR 14-1 e 14-2 su un dispositivo IPL domestico: la lampada flash è uno spinterometro, e quattro decisioni di progetto stabiliscono se l'unità passa o ha bisogno di un retest."
+citableSummary: "I dispositivi IPL domestici sono testati per la compatibilità elettromagnetica secondo la famiglia CISPR 14: la 14-1 per emission e la 14-2 per immunity. La fonte dominante di bocciatura è la scarica della lampada flash, che si comporta come uno spinterometro e irradia energia a banda larga nell'istante in cui scatta. Aggiungere una ferrite dopo un test fallito raramente aiuta, perché il percorso di accoppiamento era già fissato dal layout del PCB e dal percorso di ritorno molto prima del test."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Quali norme EMC si applicano a un dispositivo IPL domestico?"
+    answer: "La famiglia CISPR 14 per gli elettrodomestici: la 14-1 copre emission e la 14-2 copre immunity. L'anno di revisione conta quanto il numero, perché un rapporto che cita un'edizione ritirata vi dice che il programma di conformità ha smesso di essere mantenuto."
+  - question: "Perché un dispositivo IPL fallisce così spesso i test EMC?"
+    answer: "Perché la lampada flash è uno spinterometro. Un banco di condensatori si scarica attraverso un tubo allo xeno in microsecondi, il che produce un impulso a banda larga che si accoppia a ogni pista vicina. L'energia è enorme rispetto ai livelli di segnale che le norme misurano, quindi layout marginali che funzionano su un termoventilatore qui non sopravvivono."
+  - question: "Un test EMC fallito si può correggere aggiungendo una ferrite?"
+    answer: "Raramente. Una ferrite cambia l'impedenza su un percorso. Non cambia dove l'energia si accoppia, che è determinato dall'area dell'anello, dal percorso di ritorno e dalla schermatura. Se la corrente di scarica torna attraverso un percorso di massa lungo, aggiungere una ferrite al cavo lascia quell'anello intatto."
+---
+
+Le bocciature EMC su un dispositivo IPL non sono quasi mai problemi di produzione. Sono decisioni prese in fase di layout, e il test è il momento in cui arriva il conto.
+
+La parte frustrante è che la correzione costa poco se la fai prima dell'attrezzaggio e molto se la fai dopo. Vale la pena capire questa asimmetria prima del design freeze, non dopo la prima scansione fallita.
+
+## Che cosa misurano davvero CISPR 14-1 e 14-2
+
+La famiglia CISPR 14 copre gli elettrodomestici. La Parte 1 disciplina emission, cioè ciò che il dispositivo invia lungo il cavo di alimentazione e attraverso l'aria. La Parte 2 disciplina immunity, cioè ciò che il dispositivo sopporta quando l'interferenza arriva dall'esterno.
+
+Per un dispositivo IPL, la metà emission è quella difficile. Il dispositivo è un alimentatore switching, un microcontrollore e un banco di condensatori che si scarica su comando, il tutto in un involucro di plastica con una finestra sul frontale.
+
+Le norme misurano emission condotte sul cavo di rete ed emission irradiate in camera. Entrambe sono misure a banda larga, e un impulso è a banda larga per natura.
+
+## La lampada flash è uno spinterometro, e si comporta come tale
+
+Una lampada flash allo xeno si accende quando il banco di condensatori si scarica attraverso gas ionizzato. La scarica dura microsecondi. In quella finestra, centinaia di ampere scorrono in un anello che comprende la lampada, il condensatore, il trasformatore di trigger e il percorso di ritorno.
+
+Quell'anello è un'antenna. La sua radiazione non è un emission a banda stretta che puoi eliminare con un filtro notch, è un burst a banda larga che si distribuisce su tutto l'intervallo misurato.
+
+Ne derivano due conseguenze. La prima è che la corrente di scarica deve tornare lungo il percorso più breve disponibile, il che significa che lo schema di massa decide il livello di emission più di qualsiasi filtro. La seconda è che il circuito di trigger, che genera un impulso rapido ad alta tensione, è un radiatore separato e altrettanto efficace.
+
+## Quattro decisioni di progetto che decidono se passi o no
+
+**L'area dell'anello tra il banco di condensatori e la lampada.** Un anello stretto irradia meno. È una decisione di layout meccanico e si fissa quando si progetta l'involucro, non quando si instrada la scheda.
+
+**Il percorso di ritorno della corrente di scarica.** Se condivide una pista con l'elettronica di controllo, inietta rumore direttamente nel microcontrollore. Un punto stella sul terminale negativo del condensatore è la risposta usuale, e va previsto in progetto.
+
+**La schermatura attorno al circuito di trigger.** L'impulso di trigger è rapido e ad alta tensione. Separarlo fisicamente dal cablaggio della lampada, o schermarlo, cambia il risultato in modo misurabile.
+
+**La topologia del filtro di rete.** Un'induttanza di modo comune dimensionata per un alimentatore switching non è automaticamente dimensionata per un dispositivo che scarica anche un banco di condensatori. Il filtro va specificato per il carico che vede davvero.
+
+Nessuna di queste è esotica. Tre delle quattro sono decisioni prese nella prima metà del progetto.
+
+## Perché una ferrite aggiunta dopo raramente ti salva
+
+Una ferrite alza l'impedenza di un conduttore su un intervallo di frequenza. È utile quando l'interferenza viaggia lungo quel conduttore.
+
+Quando l'interferenza irradia da un anello, la ferrite non fa quasi nulla. L'energia esce dall'anello, non dal filo. Puoi aggiungere tre ferriti e vedere la traccia della scansione spostarsi di un paio di dB.
+
+Quello che funziona, dopo una bocciatura, è ridurre l'anello o cambiare il percorso di ritorno, e entrambe le cose significano mettere mano al progetto meccanico o al PCB. Ecco perché il ciclo di retest si misura in settimane.
+
+## Leggere un rapporto EMC: conta l'anno di revisione
+
+Tre cose da controllare sulla pagina, in ordine.
+
+La norma e il suo anno di revisione. Un rapporto che cita un'edizione ritirata è il rapporto di un programma che ha smesso di essere mantenuto.
+
+La configurazione testata. Quale adattatore, quale lunghezza di cavo, quale fornitore della lampada. Un cambiamento in uno qualsiasi di questi è un cambiamento dell'oggetto del test.
+
+Il margine, non solo il verdetto. Un superamento al limite è un dispositivo che fallirà su un campione diverso. Un superamento con 6 dB di margine è un dispositivo che puoi costruire in modo ripetibile.
+
+Quest'ultima riga è quella che ci interessa di più, e si collega a un punto più ampio in [come funziona davvero il controllo qualità](/blog/06-quality-control-in-ipl-manufacturing-best-practices): una specifica senza margine è una specifica che vale solo il giorno in cui è stata scritta.
+
+## Quanto costa un retest in tempo
+
+Una camera prenotata è una risorsa con una pianificazione. Fallire significa prenotare un altro slot, il che di solito significa settimane, più il tempo di ingegneria per cambiare il layout o il cablaggio e ricostruire un campione.
+
+Se la bocciatura arriva dopo l'attrezzaggio, la modifica dell'involucro riapre la discussione sullo stampo. Abbiamo visto una bocciatura da 2 dB trasformarsi in un ritardo di tre mesi esattamente per questo motivo.
+
+L'alternativa è una pre-scan prima del design freeze. Un'ora in un laboratorio EMC su un prototipo da banco costa una frazione di un test formale fallito, e trova il problema dell'anello mentre la correzione è ancora gratuita.
+
+## Dove si colloca nel fascicolo più ampio
+
+EMC sta accanto alla norma di sicurezza elettrica e alla valutazione fotobiologica, e ciascuna di esse può fallire in modo indipendente sullo stesso dispositivo. [La scala della conformità](/blog/ipl-validation-services) mostra quali di esse vincolano a quale volume.
+
+Se stai valutando una fabbrica e vuoi sapere se ha già fatto questo lavoro, chiedi il rapporto EMC e leggi la colonna del margine. Lo elenchiamo tra [i documenti che vale la pena chiedere](/blog/how-to-vet-ipl-device-manufacturer), e l'[articolo sui componenti](/blog/components-that-stand-up-to-scrutiny) copre le parti che decidono l'esito: la lampada, il banco di condensatori e l'adattatore.

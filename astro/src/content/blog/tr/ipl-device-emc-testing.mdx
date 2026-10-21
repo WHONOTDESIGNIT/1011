@@ -1,0 +1,83 @@
+---
+title: "IPL Cihazlarında EMC Testi: Hata Üretim Hattında Değil, Tasarımda Çıkar"
+description: "Ev tipi bir IPL cihazında CISPR 14-1 ve 14-2: flaş lambası bir kıvılcım aralığıdır ve dört tasarım kararı, cihazın testi geçmesine mi yoksa yeniden teste mi gideceğine karar verir."
+citableSummary: "Ev tipi IPL cihazları, CISPR 14 ailesi kapsamında elektromanyetik uyumluluk açısından test edilir: emission için 14-1, immunity için 14-2. Baskın hata kaynağı, ateşlendiği anda geniş bantlı enerji yayan ve bir kıvılcım aralığı gibi davranan flaş lambası deşarjıdır. Başarısız bir testten sonra ferrit eklemek nadiren işe yarar, çünkü kuplaj yolu testten çok önce PCB yerleşimi ve dönüş yolu tarafından sabitlenmiştir."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Ev tipi bir IPL cihazına hangi EMC standartları uygulanır?"
+    answer: "Ev aletleri için CISPR 14 ailesi: 14-1 emission'ı, 14-2 immunity'yi kapsar. Revizyon yılı da numara kadar önemlidir, çünkü geri çekilmiş bir baskıya atıf yapan rapor, uygunluk programının sürdürülmeyi bıraktığını söyler."
+  - question: "Bir IPL cihazı EMC testinde neden bu kadar sık kalır?"
+    answer: "Çünkü flaş lambası bir kıvılcım aralığıdır. Bir kondansatör bankı ksenon tüp üzerinden mikrosaniyeler içinde deşarj olur ve yakındaki her ize kuplaj yapan geniş bantlı bir darbe üretir. Enerji, standartların ölçtüğü sinyal seviyelerine göre çok büyüktür; bu yüzden bir fanlı ısıtıcıda çalışan sınırda yerleşimler burada ayakta kalmaz."
+  - question: "Kalan bir EMC testi ferrit boncuk eklenerek düzeltilebilir mi?"
+    answer: "Nadiren. Ferrit tek bir yolun empedansını değiştirir. Enerjinin nerede kuplaj yaptığını değiştirmez; bu, döngü alanı, dönüş yolu ve perdeleme ile belirlenir. Deşarj akımı uzun bir toprak yolundan dönüyorsa, kabloya boncuk eklemek o döngüyü olduğu gibi bırakır."
+---
+
+Bir IPL cihazındaki EMC hataları neredeyse hiçbir zaman üretim sorunu değildir. Bunlar yerleşim aşamasında verilen kararlardır ve fatura testte kesilir.
+
+Can sıkıcı olan kısım şu: düzeltmeyi kalıplar hazırlanmadan önce yaparsanız ucuz, sonrasında pahalı. Bu asimetriyi ilk başarısız taramadan sonra değil, tasarım dondurulmadan önce anlamakta fayda var.
+
+## CISPR 14-1 ve 14-2 gerçekte neyi ölçer
+
+CISPR 14 ailesi ev aletlerini kapsar. Bölüm 1 emission'ı, yani cihazın güç kablosu boyunca ve havadan dışarı gönderdiğini düzenler. Bölüm 2 immunity'yi, yani dışarıdan girişim geldiğinde cihazın neyi atlattığını düzenler.
+
+Bir IPL cihazı için zor olan yarı emission tarafıdır. Cihaz, önünde bir pencere bulunan plastik bir gövdenin içinde bir anahtarlamalı güç kaynağı, bir mikrodenetleyici ve komutla deşarj olan bir kondansatör bankıdır.
+
+Standartlar, şebeke kablosu üzerindeki conducted emission'ı ve odadaki radiated emission'ı ölçer. İkisi de geniş bantlı ölçümdür ve bir darbe doğası gereği geniş bantlıdır.
+
+## Flaş lambası bir kıvılcım aralığıdır ve öyle davranır
+
+Bir ksenon flaş lambası, kondansatör bankı iyonlaşmış gaz üzerinden deşarj olduğunda ateşler. Deşarj mikrosaniyeler sürer. O aralıkta, lambayı, kondansatörü, tetikleme transformatörünü ve dönüş yolunu içeren bir döngüden yüzlerce amper akar.
+
+Bu döngü bir antendir. Yaydığı şey, filtreyle ayıklayabileceğiniz dar bantlı bir emission değil, ölçülen aralığın tamamına düşen geniş bantlı bir patlamadır.
+
+Bundan iki sonuç çıkar. Birincisi, deşarj akımı mevcut en kısa yoldan dönmelidir; bu da emission seviyesinin herhangi bir filtreden çok topraklama şeması tarafından belirlendiği anlamına gelir. İkincisi, hızlı ve yüksek gerilimli bir darbe üreten tetikleme devresi, ayrı ve aynı derecede etkili bir ışıyıcıdır.
+
+## Geçme ya da kalma kararını veren dört tasarım kararı
+
+**Kondansatör bankı ile lamba arasındaki döngü alanı.** Dar bir döngü daha az ışır. Bu mekanik bir yerleşim kararıdır ve kartın yolları çizilirken değil, gövde tasarlanırken verilir.
+
+**Deşarj akımının dönüş yolu.** Kontrol elektroniğiyle aynı izi paylaşırsa gürültüyü doğrudan mikrodenetleyiciye enjekte eder. Olağan cevap, kondansatörün eksi ucunda bir yıldız noktasıdır ve bunun tasarıma girmesi gerekir.
+
+**Tetikleme devresinin çevresindeki perdeleme.** Tetikleme darbesi hızlıdır ve yüksek gerilimlidir. Onu lamba kablo demetinden fiziksel olarak ayırmak ya da perdelemek sonucu ölçülebilir biçimde değiştirir.
+
+**Şebeke filtresinin topolojisi.** Anahtarlamalı bir güç kaynağı için boyutlandırılmış bir ortak mod şok, aynı zamanda bir kondansatör bankı boşaltan cihaz için kendiliğinden doğru boyutta değildir. Filtre, gerçekte gördüğü yüke göre belirtilmelidir.
+
+Bunların hiçbiri egzotik değil. Dördünden üçü projenin ilk yarısında verilen kararlardır.
+
+## Sonradan eklenen bir ferrit sizi neden nadiren kurtarır
+
+Bir ferrit boncuk, belirli bir frekans aralığında tek bir iletkenin empedansını yükseltir. Bu, girişim o iletken boyunca ilerlerken işe yarar.
+
+Girişim bir döngüden ışıyorsa boncuk neredeyse hiçbir şey yapmaz. Enerji kablodan değil, döngüden çıkar. Üç ferrit ekleyip tarama izinin birkaç dB oynadığını izleyebilirsiniz.
+
+Bir hatadan sonra gerçekten işe yarayan şey, döngüyü küçültmek ya da dönüş yolunu değiştirmektir; ikisi de mekanik tasarıma veya PCB'ye dokunmak anlamına gelir. Yeniden test döngüsünün haftalarla ölçülmesinin nedeni budur.
+
+## Bir EMC raporu okumak: revizyon yılı önemlidir
+
+Sayfada sırayla kontrol edilecek üç şey var.
+
+Standart ve revizyon yılı. Geri çekilmiş bir baskıya atıf yapan rapor, sürdürülmeyi bırakmış bir programdan kalan rapordur.
+
+Test edilen konfigürasyon. Hangi adaptör, hangi kablo uzunluğu, hangi lamba tedarikçisi. Bunlardan birindeki değişiklik, test nesnesindeki bir değişikliktir.
+
+Sadece sonuç değil, marj. Sınırda geçen bir cihaz, farklı bir numunede kalacak cihazdır. 6 dB marjla geçen bir cihaz ise tekrar tekrar üretebileceğiniz bir cihazdır.
+
+En çok önemsediğimiz şey bu son satır ve [kalite kontrolün gerçekte nasıl yürüdüğü](/blog/06-quality-control-in-ipl-manufacturing-best-practices) yazısındaki daha geniş bir noktaya bağlanıyor: marjı olmayan bir spesifikasyon, yalnızca yazıldığı gün geçerli olan bir spesifikasyondur.
+
+## Yeniden testin zaman olarak maliyeti
+
+Rezerve edilmiş bir oda, planlanmış bir kaynaktır. Kalmak, yeni bir zaman dilimi rezerve etmek anlamına gelir; bu genellikle haftalar, artı yerleşimi ya da kablo demetini değiştirip numuneyi yeniden kurmak için gereken mühendislik zamanı demektir.
+
+Hata kalıplardan sonra ortaya çıkarsa, gövde değişikliği kalıp tartışmasını yeniden açar. Tam bu nedenle 2 dB'lik bir hatanın üç aylık gecikmeye dönüştüğünü gördük.
+
+Alternatif, tasarım dondurulmadan önce yapılan bir ön taramadır. Bir tezgah prototipi üzerinde EMC laboratuvarında geçirilen bir saat, başarısız bir resmi testin maliyetinin küçük bir kısmına mal olur ve döngü sorununu düzeltme hâlâ bedavayken bulur.
+
+## Bunun daha geniş dosyadaki yeri
+
+EMC, elektriksel güvenlik standardı ve fotobiyolojik değerlendirmenin yanında durur ve bunların her biri aynı cihazda bağımsız olarak kalabilir. [Uygunluk merdiveni](/blog/ipl-validation-services) hangisinin hangi hacimde bağlayıcı olduğunu gösterir.
+
+Bir fabrikayı değerlendiriyorsanız ve bunu daha önce yapıp yapmadıklarını bilmek istiyorsanız, EMC raporunu isteyin ve marj sütununu okuyun. Bunu [talep etmeye değer belgeler](/blog/how-to-vet-ipl-device-manufacturer) arasında sayıyoruz; [bileşenler yazısı](/blog/components-that-stand-up-to-scrutiny) ise sonucu belirleyen parçaları ele alıyor: lamba, kondansatör bankı ve adaptör.

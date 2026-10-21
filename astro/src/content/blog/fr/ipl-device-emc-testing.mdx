@@ -1,0 +1,83 @@
+---
+title: "Test EMC d'un appareil IPL : l'échec est dans la conception, pas sur la ligne"
+description: "CISPR 14-1 et 14-2 appliqués à un appareil IPL domestique : la lampe flash est un éclateur, et quatre décisions de conception déterminent si l'unité passe ou doit être retestée."
+citableSummary: "Les appareils IPL domestiques sont testés en compatibilité électromagnétique selon la famille CISPR 14 : 14-1 pour l'emission et 14-2 pour l'immunity. La source d'échec dominante est la décharge de la lampe flash, qui se comporte comme un éclateur et rayonne une énergie large bande à l'instant où elle déclenche. Ajouter une ferrite après un test raté aide rarement, car le chemin de couplage a été fixé par le routage du PCB et le chemin de retour bien avant le test."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Quelles normes EMC s'appliquent à un appareil IPL domestique ?"
+    answer: "La famille CISPR 14 pour les appareils électroménagers : 14-1 couvre l'emission et 14-2 couvre l'immunity. L'année de révision compte autant que le numéro, car un rapport qui cite une édition retirée vous dit que le programme de conformité a cessé d'être maintenu."
+  - question: "Pourquoi un appareil IPL échoue-t-il si souvent au test EMC ?"
+    answer: "Parce que la lampe flash est un éclateur. Un banc de condensateurs se décharge dans un tube au xénon en quelques microsecondes, ce qui produit une impulsion large bande qui se couple dans chaque piste proche. L'énergie est énorme par rapport aux niveaux de signal que les normes mesurent, donc les implantations limites qui fonctionnent sur un radiateur soufflant ne survivent pas ici."
+  - question: "Un test EMC raté peut-il être corrigé en ajoutant une perle de ferrite ?"
+    answer: "Rarement. Une ferrite change l'impédance sur un chemin. Elle ne change pas l'endroit où l'énergie se couple, qui est fixé par la surface de boucle, le chemin de retour et le blindage. Si le courant de décharge revient par un long chemin de masse, ajouter une perle sur le câble laisse cette boucle intacte."
+---
+
+Les échecs EMC sur un appareil IPL ne sont presque jamais des problèmes de production. Ce sont des décisions prises au stade de l'implantation, et le test est l'endroit où la facture arrive.
+
+Le plus frustrant, c'est que le correctif coûte peu si on le fait avant l'outillage et cher après. Cette asymétrie mérite d'être comprise avant le gel de conception plutôt qu'après le premier scan raté.
+
+## Ce que mesurent réellement les CISPR 14-1 et 14-2
+
+La famille CISPR 14 couvre les appareils électroménagers. La partie 1 régit l'emission, c'est-à-dire ce que l'appareil envoie le long de son cordon d'alimentation et par l'air. La partie 2 régit l'immunity, c'est-à-dire ce que l'appareil supporte quand une interférence arrive de l'extérieur.
+
+Pour un appareil IPL, la moitié emission est la plus difficile. L'appareil, c'est une alimentation à découpage, un microcontrôleur et un banc de condensateurs qui se décharge sur commande, le tout dans un boîtier plastique avec une fenêtre à l'avant.
+
+Les normes mesurent les emission conduites sur le cordon secteur et les emission rayonnées en chambre. Les deux sont des mesures large bande, et une impulsion est large bande par nature.
+
+## La lampe flash est un éclateur, et elle se comporte comme tel
+
+Une lampe flash au xénon s'amorce quand le banc de condensateurs se décharge à travers un gaz ionisé. La décharge dure des microsecondes. Dans cette fenêtre, des centaines d'ampères circulent dans une boucle qui comprend la lampe, le condensateur, le transformateur d'amorçage et le chemin de retour.
+
+Cette boucle est une antenne. Son rayonnement n'est pas une emission à bande étroite qu'on peut éliminer par un filtre, c'est une salve large bande qui retombe sur toute la plage mesurée.
+
+Deux conséquences en découlent. La première : le courant de décharge doit revenir par le chemin le plus court disponible, ce qui signifie que le schéma de masse détermine le niveau d'emission plus que n'importe quel filtre. La seconde : le circuit d'amorçage, qui génère une impulsion haute tension rapide, est un rayonneur distinct et tout aussi efficace.
+
+## Quatre décisions de conception qui décident du succès ou de l'échec
+
+**La surface de boucle entre le banc de condensateurs et la lampe.** Une boucle serrée rayonne moins. C'est une décision d'implantation mécanique, prise au moment où le boîtier est conçu, pas au moment où la carte est routée.
+
+**Le chemin de retour du courant de décharge.** S'il partage une piste avec l'électronique de commande, il injecte du bruit directement dans le microcontrôleur. Un point étoile sur la borne négative du condensateur est la réponse habituelle, et il doit être prévu dès la conception.
+
+**Le blindage autour du circuit d'amorçage.** L'impulsion d'amorçage est rapide et à haute tension. Séparer physiquement ce circuit du faisceau de la lampe, ou le blinder, change le résultat de façon mesurable.
+
+**La topologie du filtre secteur.** Une self de mode commun dimensionnée pour une alimentation à découpage ne l'est pas automatiquement pour un appareil qui décharge aussi un banc de condensateurs. Le filtre doit être spécifié pour la charge qu'il voit réellement.
+
+Aucune n'est exotique. Trois des quatre sont des décisions prises dans la première moitié du projet.
+
+## Pourquoi une ferrite ajoutée après coup vous sauve rarement
+
+Une perle de ferrite augmente l'impédance d'un conducteur sur une plage de fréquences. C'est utile quand l'interférence circule le long de ce conducteur.
+
+Quand l'interférence rayonne depuis une boucle, la perle ne fait presque rien. L'énergie quitte la boucle, pas le fil. Vous pouvez ajouter trois ferrites et voir la trace du scan bouger de quelques dB.
+
+Ce qui marche vraiment, après un échec, c'est de réduire la boucle ou de changer le chemin de retour, et les deux impliquent de toucher la conception mécanique ou le PCB. C'est pour cela que le cycle de retest se compte en semaines.
+
+## Lire un rapport EMC : l'année de révision compte
+
+Trois choses à vérifier sur la page, dans l'ordre.
+
+La norme et son année de révision. Un rapport qui cite une édition retirée est le rapport d'un programme qui a cessé d'être maintenu.
+
+La configuration testée. Quel adaptateur, quelle longueur de câble, quel fournisseur de lampe. Un changement dans l'un de ces éléments est un changement de l'objet d'essai.
+
+La marge, pas seulement le verdict. Un succès à la limite est un appareil qui échouera sur un autre échantillon. Un succès avec 6 dB de marge est un appareil que vous pouvez fabriquer de façon répétable.
+
+Cette dernière ligne est celle qui nous importe le plus, et elle rejoint un point plus large dans [le fonctionnement réel du contrôle qualité](/blog/06-quality-control-in-ipl-manufacturing-best-practices) : une spécification sans marge est une spécification qui ne tient que le jour où elle a été écrite.
+
+## Ce qu'un retest coûte en temps
+
+Une chambre réservée est une ressource planifiée. Échouer signifie réserver un autre créneau, ce qui veut typiquement dire des semaines, plus le temps d'ingénierie pour modifier l'implantation ou le faisceau et reconstruire un échantillon.
+
+Si l'échec tombe après l'outillage, la modification du boîtier rouvre la discussion sur le moule. Nous avons vu un échec de 2 dB se transformer en trois mois de retard pour exactement cette raison.
+
+L'alternative, c'est un pré-scan avant le gel de conception. Une heure dans un laboratoire EMC sur une maquette de banc coûte une fraction d'un test formel raté, et elle trouve le problème de boucle pendant que le correctif est encore gratuit.
+
+## Où cela s'insère dans le dossier global
+
+L'EMC se situe à côté de la norme de sécurité électrique et de l'évaluation photobiologique, et chacun d'eux peut échouer indépendamment sur le même appareil. [L'échelle de conformité](/blog/ipl-validation-services) montre lesquels s'appliquent à quel volume.
+
+Si vous évaluez une usine et voulez savoir si elle a déjà fait cela, demandez le rapport EMC et lisez la colonne des marges. Nous le listons parmi [les documents qu'il vaut la peine de demander](/blog/how-to-vet-ipl-device-manufacturer), et [le volet composants](/blog/components-that-stand-up-to-scrutiny) couvre les pièces qui décident du résultat : la lampe, le banc de condensateurs et l'adaptateur.

@@ -1,0 +1,83 @@
+---
+title: "Testování EMC u IPL přístrojů: padá to na návrhu, ne na lince"
+description: "CISPR 14-1 a 14-2 u domácího IPL přístroje: záblesková výbojka je jiskřiště a o tom, zda přístroj projde, nebo půjde na opakovaný test, rozhodují čtyři konstrukční rozhodnutí."
+citableSummary: "Domácí IPL přístroje se na elektromagnetickou kompatibilitu zkoušejí podle řady CISPR 14: 14-1 pro emission a 14-2 pro immunity. Dominantním zdrojem selhání je výboj zábleskové výbojky, který se chová jako jiskřiště a v okamžiku záblesku vyzařuje širokopásmovou energii. Přidání feritu po neúspěšném testu málokdy pomůže, protože cestu vazby určilo rozvržení desky a zpětná cesta dávno před testem."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Které normy EMC se na domácí IPL přístroj vztahují?"
+    answer: "Řada CISPR 14 pro domácí spotřebiče: 14-1 pokrývá emission a 14-2 immunity. Rok revize je stejně důležitý jako číslo normy, protože zpráva, která cituje stažené vydání, vám říká, že program shody se přestal udržovat."
+  - question: "Proč IPL přístroj při testech EMC tak často selhává?"
+    answer: "Protože záblesková výbojka je jiskřiště. Banka kondenzátorů se vybíjí xenonovou trubicí v mikrosekundách, což vytvoří širokopásmový pulz, který se naváže do každé blízké cesty. Energie je obrovská ve srovnání s úrovněmi signálů, které normy měří, takže hraniční rozvržení, která projdou u teplovzdušného ventilátoru, tady neobstojí."
+  - question: "Dá se neúspěšný test EMC zachránit přidáním feritové perly?"
+    answer: "Málokdy. Ferit mění impedanci na jedné cestě. Nemění to, kde se energie naváže, což určuje plocha smyčky, zpětná cesta a stínění. Pokud se vybíjecí proud vrací dlouhou zemní cestou, přidání perly na kabel tu smyčku nechá nedotčenou."
+---
+
+Selhání EMC u IPL přístroje téměř nikdy nejsou výrobní problém. Jsou to rozhodnutí učiněná ve fázi návrhu desky a test je místo, kde přijde účet.
+
+Frustrující je, že oprava je levná, když ji uděláte před výrobou forem, a drahá, když až po ní. Tu asymetrii stojí za to pochopit před zmrazením návrhu, ne až po prvním neúspěšném skenu.
+
+## Co CISPR 14-1 a 14-2 skutečně měří
+
+Řada CISPR 14 pokrývá domácí spotřebiče. Část 1 řeší emission, tedy co přístroj vysílá po napájecím přívodu a vzduchem. Část 2 řeší immunity, tedy co přístroj přežije, když rušení přijde zvenčí.
+
+U IPL přístroje je ta emission část ta obtížná. Přístroj je spínaný zdroj, mikrokontrolér a banka kondenzátorů, která se vybíjí na povel, to všechno v plastovém pouzdře s okénkem vpředu.
+
+Normy měří emission šířený po síťovém přívodu a emission vyzařovaný v bezodrazové komoře. Obě jsou širokopásmová měření a pulz je širokopásmový už ze své podstaty.
+
+## Záblesková výbojka je jiskřiště, a podle toho se chová
+
+Xenonová záblesková výbojka vyšle záblesk, když se banka kondenzátorů vybije přes ionizovaný plyn. Výboj trvá mikrosekundy. V tom okně tečou stovky ampér smyčkou, kterou tvoří výbojka, kondenzátor, zapalovací transformátor a zpětná cesta.
+
+Ta smyčka je anténa. Její vyzařování není úzkopásmový emission, který byste mohli vyfiltrovat zářezovým filtrem, je to širokopásmový záblesk, který zasáhne celý měřený rozsah.
+
+Z toho plynou dva důsledky. První: vybíjecí proud se musí vracet nejkratší dostupnou cestou, což znamená, že o úrovni emission rozhoduje uspořádání zemí víc než jakýkoli filtr. Druhý: zapalovací obvod, který generuje rychlý vysokonapěťový pulz, je samostatný a stejně účinný zářič.
+
+## Čtyři konstrukční rozhodnutí, která rozhodnou o úspěchu nebo selhání
+
+**Plocha smyčky mezi bankou kondenzátorů a výbojkou.** Těsná smyčka vyzařuje méně. To je rozhodnutí o mechanickém uspořádání a padne při návrhu pouzdra, ne při rozvádění desky.
+
+**Zpětná cesta vybíjecího proudu.** Pokud ji sdílí s řídicí elektronikou, vstřikuje šum přímo do mikrokontroléru. Obvyklou odpovědí je hvězdicový bod na záporném pólu kondenzátoru a musí být součástí návrhu.
+
+**Stínění kolem zapalovacího obvodu.** Zapalovací pulz je rychlý a vysokonapěťový. Fyzické oddělení od svazku vodičů k výbojce, nebo jeho stínění, výsledek měřitelně změní.
+
+**Topologie síťového filtru.** Tlumivka pro souosé rušení (common-mode choke) dimenzovaná pro spínaný zdroj není automaticky dimenzovaná pro přístroj, který navíc vybíjí banku kondenzátorů. Filtr je třeba specifikovat pro zátěž, kterou skutečně vidí.
+
+Nic z toho není exotické. Tři ze čtyř jsou rozhodnutí z první poloviny projektu.
+
+## Proč vás ferit přidaný dodatečně málokdy zachrání
+
+Feritová perla zvyšuje impedanci jednoho vodiče v určitém kmitočtovém rozsahu. To je užitečné, když rušení cestuje po tom vodiči.
+
+Když rušení vyzařuje ze smyčky, perla nedělá téměř nic. Energie odchází ze smyčky, ne z drátu. Můžete přidat tři ferity a dívat se, jak se křivka skenu posune o pár dB.
+
+Co po neúspěchu funguje, je zmenšení smyčky nebo změna zpětné cesty, a obojí znamená sáhnout na mechanický návrh nebo na PCB. Proto se cyklus opakovaného testu měří na týdny.
+
+## Jak číst zprávu EMC: rozhoduje rok revize
+
+Tři věci, které zkontrolujte na stránce, v tomto pořadí.
+
+Norma a rok její revize. Zpráva, která cituje stažené vydání, je zpráva z programu, který se přestal udržovat.
+
+Testovaná konfigurace. Který adaptér, jaká délka kabelu, který dodavatel výbojky. Změna v kterémkoli z nich je změna zkušebního vzorku.
+
+Rezerva, ne jen verdikt. Projít na hranici limitu znamená přístroj, který na jiném vzorku neprojde. Projít s rezervou 6 dB znamená přístroj, který umíte vyrobit opakovaně.
+
+Poslední řádek je ten, který nás zajímá nejvíc, a souvisí s širší pointou v textu [jak kontrola kvality skutečně probíhá](/blog/06-quality-control-in-ipl-manufacturing-best-practices): specifikace bez rezervy je specifikace, která platí jen v den, kdy vznikla.
+
+## Co opakovaný test stojí v čase
+
+Objednaná komora je rezervovaný zdroj. Selhání znamená další rezervaci termínu, což obvykle znamená týdny, plus inženýrský čas na změnu rozvržení nebo svazku a na stavbu nového vzorku.
+
+Pokud neúspěch přijde po vyrobení forem, změna pouzdra znovu otevírá diskusi o formě. Přesně z tohoto důvodu jsme viděli selhání o 2 dB proměnit se ve tříměsíční zpoždění.
+
+Alternativou je předsken před zmrazením návrhu. Hodina v laboratoři EMC na stolním vzorku stojí zlomek neúspěšného formálního testu a najde problém smyčky ve chvíli, kdy je oprava ještě zdarma.
+
+## Kam to zapadá do širší dokumentace
+
+EMC stojí vedle normy elektrické bezpečnosti a fotobiologického hodnocení a každé z nich může u stejného přístroje selhat samostatně. [Žebřík shody](/blog/ipl-validation-services) ukazuje, které z nich platí při jakém objemu.
+
+Pokud hodnotíte továrnu a chcete vědět, jestli to už někdy dělala, vyžádejte si zprávu EMC a přečtěte si sloupec s rezervou. Uvádíme ji mezi [dokumenty, které stojí za to vyžádat](/blog/how-to-vet-ipl-device-manufacturer), a [text o komponentech](/blog/components-that-stand-up-to-scrutiny) pokrývá díly, které rozhodují o výsledku: výbojku, banku kondenzátorů a adaptér.

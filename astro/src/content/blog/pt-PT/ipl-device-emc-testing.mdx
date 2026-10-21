@@ -1,0 +1,83 @@
+---
+title: "Testes EMC num aparelho IPL: a falha está no projeto, não na linha"
+description: "CISPR 14-1 e 14-2 num aparelho IPL doméstico: a lâmpada de flash é um centelhador, e quatro decisões de projeto determinam se a unidade passa ou precisa de um reteste."
+citableSummary: "Os aparelhos IPL domésticos são ensaiados em compatibilidade eletromagnética segundo a família CISPR 14: a 14-1 para emission e a 14-2 para immunity. A principal fonte de falha é a descarga da lâmpada de flash, que se comporta como um centelhador e irradia energia de banda larga no instante em que dispara. Acrescentar uma ferrite depois de um ensaio falhado raramente ajuda, porque o caminho de acoplamento já tinha sido fixado pelo layout da PCB e pelo caminho de retorno muito antes do ensaio."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Que normas EMC se aplicam a um aparelho IPL doméstico?"
+    answer: "A família CISPR 14 para eletrodomésticos: a 14-1 cobre emission e a 14-2 cobre immunity. O ano de revisão conta tanto como o número, porque um relatório que cita uma edição retirada diz-nos que o programa de conformidade deixou de ser mantido."
+  - question: "Porque é que um aparelho IPL falha tantas vezes nos testes EMC?"
+    answer: "Porque a lâmpada de flash é um centelhador. Um banco de condensadores descarrega através de um tubo de xénon em microssegundos, o que produz um impulso de banda larga que se acopla a todas as pistas próximas. A energia é enorme em relação aos níveis de sinal que as normas medem, por isso layouts marginais que funcionam num aquecedor não sobrevivem aqui."
+  - question: "É possível corrigir um ensaio EMC falhado acrescentando uma ferrite?"
+    answer: "Raramente. Uma ferrite altera a impedância num caminho. Não altera o local onde a energia se acopla, que é definido pela área do anel, pelo caminho de retorno e pela blindagem. Se a corrente de descarga regressar por um caminho de massa longo, acrescentar uma ferrite ao cabo deixa esse anel intacto."
+---
+
+As falhas de EMC num aparelho IPL quase nunca são problemas de produção. São decisões tomadas na fase de layout, e o ensaio é o momento em que a fatura chega.
+
+A parte frustrante é que a correção é barata se for feita antes do fabrico das ferramentas e cara depois. Vale a pena compreender essa assimetria antes do congelamento do projeto, e não depois do primeiro varrimento falhado.
+
+## O que a CISPR 14-1 e a CISPR 14-2 medem na realidade
+
+A família CISPR 14 abrange os aparelhos eletrodomésticos. A Parte 1 rege a emission, ou seja, aquilo que o aparelho envia pelo cabo de alimentação e pelo ar. A Parte 2 rege a immunity, ou seja, aquilo que o aparelho suporta quando a interferência chega de fora.
+
+Num aparelho IPL, a metade emission é a difícil. O aparelho é uma fonte de alimentação comutada, um microcontrolador e um banco de condensadores que descarrega por comando, tudo numa caixa de plástico com uma janela na frente.
+
+As normas medem a emission conduzida no cabo de rede e a emission radiada numa câmara. Ambas são medições de banda larga, e um impulso é de banda larga por natureza.
+
+## A lâmpada de flash é um centelhador, e comporta-se como tal
+
+Uma lâmpada de flash de xénon dispara quando o banco de condensadores descarrega através de gás ionizado. A descarga dura microssegundos. Nessa janela, centenas de amperes circulam por um anel que inclui a lâmpada, o condensador, o transformador de disparo e o caminho de retorno.
+
+Esse anel é uma antena. A sua radiação não é uma emission de banda estreita que se possa eliminar com um filtro, é uma rajada de banda larga que cai em toda a gama medida.
+
+Daí decorrem duas consequências. A primeira é que a corrente de descarga tem de regressar pelo caminho mais curto disponível, o que significa que o esquema de massa decide o nível de emission mais do que qualquer filtro. A segunda é que o circuito de disparo, que gera um impulso rápido de alta tensão, é um radiador separado e igualmente eficaz.
+
+## Quatro decisões de projeto que decidem se passa ou falha
+
+**Área do anel entre o banco de condensadores e a lâmpada.** Um anel apertado irradia menos. É uma decisão de layout mecânico e fica definida quando a caixa é projetada, não quando se encaminha a placa.
+
+**O caminho de retorno da corrente de descarga.** Se partilha uma pista com a eletrónica de controlo, injeta ruído diretamente no microcontrolador. Um ponto estrela no terminal negativo do condensador é a solução habitual, e tem de ser previsto em projeto.
+
+**Blindagem em torno do circuito de disparo.** O impulso de disparo é rápido e de alta tensão. Separar fisicamente o circuito do feixe de cabos da lâmpada, ou blindá-lo, altera o resultado de forma mensurável.
+
+**A topologia do filtro de rede.** Uma bobina de modo comum dimensionada para uma fonte comutada não fica automaticamente dimensionada para um aparelho que também descarrega um banco de condensadores. O filtro tem de ser especificado para a carga que realmente vê.
+
+Nenhuma destas é exótica. Três das quatro são decisões tomadas na primeira metade do projeto.
+
+## Porque é que uma ferrite acrescentada à posteriori raramente nos salva
+
+Uma ferrite eleva a impedância de um condutor numa gama de frequências. Isso é útil quando a interferência viaja ao longo desse condutor.
+
+Quando a interferência irradia de um anel, a ferrite quase não faz nada. A energia sai do anel, não do fio. Pode acrescentar três ferrites e ver a curva do varrimento mexer-se alguns dB.
+
+O que funciona, depois de uma falha, é reduzir o anel ou alterar o caminho de retorno, e ambas as coisas implicam mexer no projeto mecânico ou na PCB. É por isso que o ciclo de reteste se mede em semanas.
+
+## Ler um relatório EMC: o ano de revisão conta
+
+Três coisas para verificar na página, por ordem.
+
+A norma e o seu ano de revisão. Um relatório que cita uma edição retirada é o relatório de um programa que deixou de ser mantido.
+
+A configuração ensaiada. Que adaptador, que comprimento de cabo, que fornecedor de lâmpada. Uma alteração em qualquer destes pontos é uma alteração do objeto do ensaio.
+
+A margem, não apenas o veredicto. Passar no limite é um aparelho que vai falhar numa amostra diferente. Passar com 6 dB de margem é um aparelho que se consegue fabricar repetidamente.
+
+Essa última linha é a que mais nos interessa, e liga-se a um ponto mais vasto em [como funciona realmente o controlo de qualidade](/blog/06-quality-control-in-ipl-manufacturing-best-practices): uma especificação sem margem é uma especificação que só é válida no dia em que foi escrita.
+
+## Quanto custa um reteste em tempo
+
+Uma câmara reservada é um recurso com agenda. Falhar significa reservar outra janela, o que tipicamente significa semanas, mais o tempo de engenharia para alterar o layout ou o feixe de cabos e reconstruir uma amostra.
+
+Se a falha surgir depois do fabrico das ferramentas, a alteração da caixa reabre a discussão do molde. Já vimos uma falha de 2 dB transformar-se num atraso de três meses exatamente por esta razão.
+
+A alternativa é um pré-varrimento antes do congelamento do projeto. Uma hora num laboratório EMC com um protótipo de bancada custa uma fração de um ensaio formal falhado, e encontra o problema do anel enquanto a correção ainda é gratuita.
+
+## Onde isto se encaixa no dossiê mais vasto
+
+A EMC está ao lado da norma de segurança elétrica e da avaliação fotobiológica, e qualquer delas pode falhar de forma independente no mesmo aparelho. [A escada da conformidade](/blog/ipl-validation-services) mostra quais delas vinculam em que volume.
+
+Se está a avaliar uma fábrica e quer saber se já fez isto antes, peça o relatório EMC e leia a coluna da margem. Incluímo-lo entre [os documentos que vale a pena pedir](/blog/how-to-vet-ipl-device-manufacturer), e o [artigo sobre componentes](/blog/components-that-stand-up-to-scrutiny) cobre as peças que decidem o resultado: a lâmpada, o banco de condensadores e o adaptador.

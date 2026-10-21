@@ -1,0 +1,83 @@
+---
+title: "Kiểm thử EMC cho thiết bị IPL: hỏng ở thiết kế, không phải ở dây chuyền"
+description: "CISPR 14-1 và 14-2 trên một thiết bị IPL tại nhà: đèn flash là một khe đánh lửa, và bốn quyết định thiết kế quyết định thiết bị đạt hay phải kiểm thử lại."
+citableSummary: "Thiết bị IPL tại nhà được kiểm thử tương thích điện từ theo họ CISPR 14: 14-1 cho emission và 14-2 cho immunity. Nguồn hỏng chủ yếu là sự phóng điện của đèn flash, vốn hoạt động như một khe đánh lửa và bức xạ năng lượng băng rộng ngay tại thời điểm đánh lửa. Thêm ferrite sau khi trượt kiểm thử hiếm khi giúp được gì, vì đường ghép đã được quyết định bởi cách bố trí PCB và đường hồi lưu từ rất lâu trước khi kiểm thử."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Tiêu chuẩn EMC nào áp dụng cho một thiết bị IPL tại nhà?"
+    answer: "Họ CISPR 14 dành cho thiết bị gia dụng: 14-1 quy định emission và 14-2 quy định immunity. Năm sửa đổi quan trọng không kém gì con số, vì một báo cáo viện dẫn bản đã bị thu hồi cho bạn biết chương trình tuân thủ đã ngừng được duy trì."
+  - question: "Vì sao thiết bị IPL trượt kiểm thử EMC thường xuyên đến vậy?"
+    answer: "Vì đèn flash là một khe đánh lửa. Một bộ tụ điện phóng qua ống xenon trong vài micro giây, tạo ra một xung băng rộng ghép vào mọi đường mạch gần đó. Năng lượng rất lớn so với mức tín hiệu mà các tiêu chuẩn đo, nên những cách bố trí mạch vừa đủ dùng trên một máy sưởi quạt không sống nổi ở đây."
+  - question: "Có thể sửa một lần trượt kiểm thử EMC bằng cách thêm hạt ferrite không?"
+    answer: "Hiếm khi. Một hạt ferrite thay đổi trở kháng trên một đường dẫn. Nó không thay đổi nơi năng lượng ghép vào, điều được quyết định bởi diện tích vòng mạch, đường hồi lưu và che chắn. Nếu dòng phóng điện hồi lưu qua một đường nối đất dài, thêm một hạt vào cáp vẫn để nguyên vòng mạch đó."
+---
+
+Hỏng EMC trên một thiết bị IPL gần như không bao giờ là vấn đề sản xuất. Đó là những quyết định đưa ra ở giai đoạn bố trí mạch, và kiểm thử là nơi hoá đơn được gửi đến.
+
+Phần gây bực mình là: cách sửa thì rẻ nếu bạn làm trước khi lên khuôn, và đắt sau đó. Sự bất đối xứng ấy đáng được hiểu trước khi chốt thiết kế, chứ không phải sau lần quét hỏng đầu tiên.
+
+## CISPR 14-1 và 14-2 thực sự đo cái gì
+
+Họ CISPR 14 bao gồm các thiết bị gia dụng. Phần 1 quy định về emission, nghĩa là thiết bị phát ra gì qua dây nguồn và qua không gian. Phần 2 quy định về immunity, nghĩa là thiết bị chịu được gì khi nhiễu đến từ bên ngoài.
+
+Với một thiết bị IPL, nửa phần emission là phần khó. Thiết bị là một bộ nguồn switching, một vi điều khiển, và một bộ tụ điện phóng theo lệnh, tất cả trong một vỏ nhựa có cửa sổ ở mặt trước.
+
+Các tiêu chuẩn đo emission dẫn trên dây nguồn và emission bức xạ trong buồng đo. Cả hai đều là phép đo băng rộng, và một xung thì về bản chất là băng rộng.
+
+## Đèn flash là một khe đánh lửa, và nó hoạt động đúng như vậy
+
+Đèn flash xenon đánh lửa khi bộ tụ điện phóng qua khí đã ion hoá. Sự phóng điện diễn ra trong vài micro giây. Trong khoảng đó, hàng trăm ampe chạy qua một vòng mạch gồm đèn, tụ điện, biến áp kích và đường hồi lưu.
+
+Vòng mạch ấy là một ăng-ten. Bức xạ của nó không phải một emission băng hẹp để có thể lọc bỏ, mà là một chùm băng rộng trải khắp dải đo.
+
+Hai hệ quả kéo theo. Thứ nhất, dòng phóng điện phải hồi lưu theo đường ngắn nhất có thể, nghĩa là sơ đồ nối đất quyết định mức emission nhiều hơn bất kỳ bộ lọc nào. Thứ hai, mạch kích, vốn tạo ra một xung cao áp tốc độ nhanh, là một nguồn bức xạ riêng và hiệu quả không kém.
+
+## Bốn quyết định thiết kế quyết định đạt hay trượt
+
+**Diện tích vòng giữa bộ tụ điện và đèn.** Vòng càng khép kín thì bức xạ càng ít. Đây là quyết định bố trí cơ khí và nó được chốt khi thiết kế vỏ, không phải khi đi dây mạch in.
+
+**Đường hồi lưu của dòng phóng điện.** Nếu nó dùng chung một đường mạch với khối điện tử điều khiển, nó bơm nhiễu trực tiếp vào vi điều khiển. Điểm sao tại cực âm của tụ điện là cách giải thường dùng, và nó phải được tính ngay trong thiết kế.
+
+**Che chắn quanh mạch kích.** Xung kích nhanh và cao áp. Tách nó về mặt vật lý khỏi bó dây của đèn, hoặc che chắn nó, làm thay đổi kết quả một cách đo được.
+
+**Cấu hình bộ lọc nguồn.** Một cuộn kháng common-mode chọn cho bộ nguồn switching không tự động phù hợp cho một thiết bị còn xả cả một bộ tụ điện. Bộ lọc phải được chọn theo tải mà nó thực sự thấy.
+
+Không có cái nào trong số này là lạ. Ba trong bốn là những quyết định đưa ra trong nửa đầu dự án.
+
+## Vì sao thêm ferrite sau khi đã trượt hiếm khi cứu được bạn
+
+Một hạt ferrite nâng trở kháng của một dây dẫn trong một dải tần. Điều đó hữu ích khi nhiễu đang lan truyền dọc theo dây dẫn ấy.
+
+Khi nhiễu bức xạ từ một vòng mạch, hạt ferrite gần như không làm gì. Năng lượng rời khỏi vòng mạch, không phải rời khỏi dây. Bạn có thể thêm ba hạt ferrite và thấy vệt quét dịch đi vài dB.
+
+Thứ thực sự hiệu quả, sau khi đã trượt, là thu nhỏ vòng mạch hoặc đổi đường hồi lưu, và cả hai đều nghĩa là động vào thiết kế cơ khí hoặc PCB. Đó là lý do chu kỳ kiểm thử lại được tính bằng tuần.
+
+## Đọc một báo cáo EMC: năm sửa đổi quan trọng
+
+Ba điều cần kiểm tra trên trang báo cáo, theo thứ tự.
+
+Tiêu chuẩn và năm sửa đổi của nó. Một báo cáo viện dẫn một bản đã bị thu hồi là báo cáo của một chương trình đã ngừng được duy trì.
+
+Cấu hình được kiểm thử. Adapter nào, chiều dài cáp nào, nhà cung cấp đèn nào. Thay đổi bất kỳ điều nào trong số đó là thay đổi đối tượng kiểm thử.
+
+Biên dự phòng, không chỉ kết luận đạt. Đạt sát giới hạn là một thiết bị sẽ trượt trên một mẫu khác. Đạt với biên 6 dB là một thiết bị bạn có thể sản xuất lặp lại được.
+
+Dòng cuối đó là điều chúng tôi quan tâm nhất, và nó nối với một điểm rộng hơn trong [cách kiểm soát chất lượng thực sự vận hành](/blog/06-quality-control-in-ipl-manufacturing-best-practices): một đặc tính kỹ thuật không có biên dự phòng là đặc tính chỉ đúng vào ngày nó được viết ra.
+
+## Một lần kiểm thử lại tốn bao nhiêu thời gian
+
+Một buồng đo đã đặt lịch là một nguồn lực có lịch. Trượt nghĩa là phải đặt thêm một suất, thường là hàng tuần, cộng với thời gian kỹ thuật để đổi cách bố trí mạch hoặc bó dây và làm lại một mẫu.
+
+Nếu cái trượt rơi vào sau khi đã lên khuôn, việc đổi vỏ lại mở ra cuộc thảo luận về khuôn. Chúng tôi đã thấy một lần trượt 2 dB biến thành ba tháng chậm trễ đúng vì lý do này.
+
+Phương án thay thế là quét trước khi chốt thiết kế. Một giờ trong phòng lab EMC trên một bản dựng bàn thử tốn một phần nhỏ so với một lần kiểm thử chính thức bị trượt, và nó tìm ra vấn đề vòng mạch khi cách sửa vẫn còn miễn phí.
+
+## Điều này nằm ở đâu trong bộ hồ sơ rộng hơn
+
+EMC nằm bên cạnh tiêu chuẩn an toàn điện và đánh giá quang sinh học, và mỗi thứ trong số đó đều có thể trượt độc lập trên cùng một thiết bị. [Bậc thang tuân thủ](/blog/ipl-validation-services) cho thấy cái nào ràng buộc ở khối lượng nào.
+
+Nếu bạn đang đánh giá một nhà máy và muốn biết họ đã từng làm việc này chưa, hãy yêu cầu báo cáo EMC và đọc cột biên dự phòng. Chúng tôi liệt kê nó trong [những tài liệu đáng yêu cầu](/blog/how-to-vet-ipl-device-manufacturer), và [bài về linh kiện](/blog/components-that-stand-up-to-scrutiny) đề cập những bộ phận quyết định kết quả: đèn, bộ tụ điện và adapter.

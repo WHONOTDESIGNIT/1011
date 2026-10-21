@@ -1,0 +1,103 @@
+---
+title: "IEC 62471 dla urządzeń IPL: raport, którego większość marek nigdy nie czyta"
+description: "Co IEC 62471 mierzy w urządzeniu IPL, jak czytać risk group (grupę ryzyka) i jak odróżnić prawdziwy raport photobiological safety od podsumowania dla LED z nowym nagłówkiem."
+citableSummary: "IEC 62471 ocenia photobiological safety (bezpieczeństwo fotobiologiczne) lamp i systemów lampowych. W domowym urządzeniu IPL ocenia promieniowanie UV aktyniczne, zagrożenie światłem niebieskim, zagrożenie termiczne siatkówki i ekspozycję na podczerwień względem opublikowanych limitów, a następnie przypisuje risk group od RG0 (grupa zwolniona) w górę. Za każdą platformą IPL, którą budujemy, stoi raport IEC 62471 wydany przez laboratorium akredytowane CNAS, w którym wnioskodawcą jest Shenzhen iShine Technology Company Limited. Urządzenie może przejść badanie bezpieczeństwa elektrycznego i nadal nie przejść tej oceny."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "iec-62471-photobiological-safety-ipl"
+translationKey: "iec-62471-photobiological-safety-ipl"
+faqs:
+  - question: "Czy IEC 62471 to to samo co badanie bezpieczeństwa elektrycznego?"
+    answer: "Nie, i często się je myli. Nasze raporty platformowe wydaje laboratorium akredytowane CNAS i obejmują one wyjście optyczne: widmo, luminancję energetyczną i limity ekspozycji dla oka i skóry. Bezpieczeństwo elektryczne to osobna teczka, a w platformach, które wprowadzamy na rynki UE i UK, jest ono oceniane względem EN IEC 60335-2-23 w naszych plikach badań. Urządzenie IPL potrzebuje obu, a zdanie jednego nic nie mówi o drugim."
+  - question: "Do jakiej risk group powinno dążyć domowe urządzenie IPL?"
+    answer: "Celem jest najniższa grupa, jaką konstrukcja może osiągnąć przy aperturze zabiegowej, bo risk group wyznacza, jakie ostrzeżenia musi nieść etykieta. Urządzenie, które wypada wyżej, niż oczekiwano, ma zwykle problem z filtrem, a nie z lampą, bo mierzone jest widmo docierające do skóry."
+  - question: "Czy raport dla LED można wykorzystać ponownie dla urządzenia IPL?"
+    answer: "Uczciwie się nie da. Zakres widmowy, charakterystyka impulsów i geometria pomiaru są inne. Raport napisany dla ciągłego źródła LED nie może opisać pulsacyjnego błysku szerokopasmowego, a podmiana nazwy produktu jest widoczna w danych widmowych."
+---
+
+IEC 62471 to norma photobiological safety dla lamp i systemów lampowych. To raport, który odpowiada na pytanie, o które nie pyta żadne badanie elektryczne: co światło wychodzące z tego urządzenia robi z osobą, która przed nim siedzi.
+
+To także raport, który marki najczęściej przyjmują bez czytania.
+
+## Co norma mierzy i względem jakich limitów
+
+Ocena przebiega zagrożenie po zagrożeniu. Każde ma funkcję ważenia, która mówi, jak groźna jest dana długość fali, oraz limit ekspozycji wyrażony w określonej podstawie czasowej.
+
+Cztery, które mają znaczenie w domowym urządzeniu IPL, to promieniowanie UV aktyniczne, zagrożenie światłem niebieskim, zagrożenie termiczne siatkówki i ekspozycja na podczerwień. Urządzenie emituje w przybliżeniu od 500 do 1200 nm, gdy filtr robi swoje, a to dokładnie ten zakres, w którym ważenie światła niebieskiego i zagrożenia termicznego siatkówki działa najsilniej.
+
+Każde zagrożenie dostaje wartość zmierzoną, limit i stosunek. Najgorszy stosunek decyduje o risk group.
+
+## Dlaczego urządzenie IPL to nie lampa i gdzie ocena się komplikuje
+
+Norma była pisana z myślą o lampach: źródło promieniujące w otwartą przestrzeń, mierzone z określonej odległości.
+
+Urządzenie IPL to lampa w rękojeści, za okienkiem i filtrem, i strzela impulsami milisekundowymi. Ocena musi więc odpowiadać na pytania, których norma nie rozpisuje czysto. Gdzie jest płaszczyzna pomiaru: przy okienku czy w nominalnej odległości? Czy istotna ekspozycja to pojedynczy impuls, czy cała sesja? Jak potraktować źródło, które jest odsłonięte tylko wtedy, gdy czujnik kontaktu uzna, że pod nim jest skóra?
+
+I tu dwa raporty dla tego samego produktu mogą się różnić, choć żaden nie jest błędny. Zapytaj, jakiej geometrii użyto.
+
+## Kwestia impulsu
+
+Źródła ciągłe ocenia się w sekundach i minutach. Urządzenie IPL strzela impulsami milisekundowymi, więc ocena musi zdecydować, czym ta istotna ekspozycja właściwie jest.
+
+Jeden impuls przy aperturze to jedna liczba. Pełna sesja błysków na tym samym miejscu skóry to inna liczba. Urządzenie przypadkiem przyłożone do oka, które norma musi rozważyć, nawet jeśli instrukcja tego zabrania, to trzecia.
+
+Raporty różnią się tym, na które z tych pytań odpowiadają. Raport, który podaje ekspozycje na impuls, nie podając modelu sesji, odpowiedział na łatwiejsze pytanie. To nie oszustwo, to zakres, i dlatego ten sam produkt może mieć dwa raporty z różnymi wnioskami.
+
+Kiedy zlecamy taki raport, prosimy laboratorium, żeby na okładce podało założony scenariusz ekspozycji. To nic nie kosztuje i zapobiega kłótni rok później.
+
+## Jak czytać risk group
+
+Wynikiem jest klasyfikacja: grupa zwolniona, niskie ryzyko, umiarkowane ryzyko, wysokie ryzyko.
+
+W domowym urządzeniu praktycznym celem jest najniższa grupa, jaką konstrukcja może osiągnąć przy aperturze. Grupa nie jest punktacją marketingową, jest poleceniem. Mówi etykiecie, jakie ostrzeżenia musi nieść, a instrukcji, czego musi zabraniać.
+
+Urządzenie, które wypada o grupę wyżej, niż oczekiwano, ma zwykle problem z filtrem, nie z lampą. Mierzone jest widmo, które dociera do skóry.
+
+## Trzy rzeczy, które zawiera prawdziwy raport
+
+**Dane widmowe.** Wykres lub tabela emitowanego widma, nie tylko nominalny zakres filtra. Jeśli raport podaje wyłącznie 510 do 1200 nm i nigdy nie pokazuje krzywej, ważenia nie dało się zastosować.
+
+**Geometria pomiaru.** Rozmiar apertury, odległość i to, czy pomiar wykonano przy okienku, czy dalej od niego. Bez tego liczb nie da się odtworzyć.
+
+**Osobna risk group dla każdego zagrożenia, z pokazaną wartością graniczną.** Nie jedna ocena zbiorcza. Raport powinien pokazać, które zagrożenie ustawiło klasyfikację, bo to właśnie się poprawia.
+
+Jeśli brakuje którejkolwiek z tych trzech rzeczy, czytasz podsumowanie, a nie ocenę.
+
+## Jak odróżnić raport LED od raportu IPL
+
+Trzy znaki rozpoznawcze.
+
+Pierwszy to zakres widmowy. Urządzenie LED do skóry skupia energię w wąskich pasmach. Urządzenie IPL jest szerokopasmowe. Wykreślone widma nie mają ze sobą nic wspólnego.
+
+Drugi to podstawa czasowa. Źródła ciągłe ocenia się w sekundach i minutach. Pulsacyjne urządzenie IPL wymaga ujęcia na poziomie impulsów, i raport gdzieś to mówi.
+
+Trzeci znak to opis produktu. Raport napisany dla innej klasy urządzeń opisze warunki pomiaru, które tu nie mogą wystąpić, na przykład tryb pracy w stanie ustalonym.
+
+Opublikowaliśmy zmierzone dane z siedmiu [filtrów długoprzepustowych](/blog/ipl-long-pass-filter-test-report) częściowo dlatego, że przedmiotem oceny photobiological safety jest właśnie widmo za filtrem. Zmiana filtra zmienia klasyfikację.
+
+## Co zawierają nasze własne raporty
+
+Nie opisujemy tej normy z zewnątrz. Każda z pięciu platform objętych naszym dopuszczeniem FDA ma własny raport IEC 62471, wydany przez laboratorium akredytowane CNAS, w którym jako wnioskodawcę wskazano Shenzhen iShine Technology Company Limited.
+
+Jeden raport na platformę, nie jeden raport na rodzinę produktów. Ta różnica kosztuje i jest właściwym rozwiązaniem, bo to platforma decyduje o układzie optycznym: lampie, filtrze, okienku i geometrii wokół nich. Raport, który nazwą obejmuje całą rodzinę, a bada jednego jej członka, nie opisuje pozostałych.
+
+Te pięć platform mieści się w dopuszczeniu FDA 510(k) K222537, które obejmuje SKN001, SKN002, SKN005 i SKN006, a ich dokumentacja EMC to raport IEC 60601-1-2 dla medycznych urządzeń elektrycznych. Platformy, które sprzedajemy pod CE i UKCA, są udokumentowane inaczej: ich dokumentacja bezpieczeństwa niskonapięciowego to EN 60335-2-23, a raporty EMC to EN IEC 55014-1 i 55014-2. Ta sama firma, dwie różne ścieżki regulacyjne.
+
+Jeśli chcesz zobaczyć, jak taki raport wygląda, zapytaj nas. Wyślemy stronę, która ma znaczenie: tabelę risk group z zaznaczonym zagrożeniem granicznym, po usunięciu numeru referencyjnego i danych handlowych wnioskodawcy.
+
+## Co się dzieje, gdy to nie przejdzie
+
+Oblanie rzadko jest dramatyczne. Urządzenie przekracza limit jednego zagrożenia o niewielki margines, zwykle światła niebieskiego albo podczerwieni, a poprawką jest zmiana konstrukcji, nie odrzucenie.
+
+Cztery dźwignie, w kolejności, w jakiej je próbujemy. Poprawić filtr, żeby mniej energetycznego krótkiego końca dochodziło do okienka. Zmniejszyć energię na impuls i wydłużyć impuls. Zmienić materiał okienka albo jego krzywą transmisji. Ograniczyć dostęp, żeby apertury nie dało się przyłożyć do oka.
+
+Pierwsze dwie wpływają też na odczuwaną skuteczność, i dlatego to rozmowa o konstrukcji, a nie rozmowa z laboratorium.
+
+## Dlaczego to się pomija
+
+Oblanie bezpieczeństwa elektrycznego zatrzymuje wysyłkę. Oblanie photobiological safety nie. Urządzenie można wyprodukować, sprzedać i używać miesiącami, zanim urząd rynkowy poprosi o ocenę, a wtedy oprzyrządowanie do filtra jest już zamówione.
+
+Ta asymetria jest całym powodem, dla którego ten raport warto czytać przed produkcją, a nie po niej.
+
+Wymieniamy go wśród dokumentów, które radzimy markom zebrać [przed wpłatą zaliczki](/blog/how-to-vet-ipl-device-manufacturer), obok certyfikatu, który ludzie pamiętają. [Harmonogram walidacji według wolumenu](/blog/ipl-validation-services) pokazuje, gdzie wypada względem innych zgłoszeń, a [które komponenty naprawdę zmieniają wynik](/blog/components-that-stand-up-to-scrutiny) obejmuje sprzętową stronę tego samego pytania.

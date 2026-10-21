@@ -1,0 +1,103 @@
+---
+title: "IEC 62471 para equipamentos IPL: o relatório que quase nenhuma marca lê"
+description: "O que a IEC 62471 mede em um equipamento IPL, como ler o risk group e como distinguir um relatório real de photobiological safety de um resumo de LED com um cabeçalho novo."
+citableSummary: "A IEC 62471 avalia a photobiological safety de lâmpadas e sistemas de lâmpadas. Em um equipamento IPL doméstico, ela analisa o ultravioleta actínico, o perigo da luz azul, o perigo térmico retiniano e a exposição ao infravermelho frente aos limites publicados, e depois atribui um risk group a partir do RG0 (isento) para cima. Cada plataforma IPL que fabricamos tem por trás um relatório IEC 62471 emitido por um laboratório acreditado pelo CNAS, com a Shenzhen iShine Technology Company Limited como solicitante. Um equipamento pode passar na segurança elétrica e ainda assim falhar nesta avaliação."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "iec-62471-photobiological-safety-ipl"
+translationKey: "iec-62471-photobiological-safety-ipl"
+faqs:
+  - question: "A IEC 62471 é a mesma coisa que um ensaio de segurança elétrica?"
+    answer: "Não, e as duas costumam ser confundidas. Os relatórios das nossas plataformas são emitidos por um laboratório acreditado pelo CNAS e cobrem a saída óptica: o espectro, a radiância e os limites de exposição para olhos e pele. A segurança elétrica é um processo separado e, nas plataformas que colocamos nos mercados da UE e do Reino Unido, é avaliada frente à EN IEC 60335-2-23 nos nossos arquivos de ensaio. Um equipamento IPL precisa das duas coisas, e passar em uma não diz nada sobre a outra."
+  - question: "Qual risk group um equipamento IPL doméstico deve buscar?"
+    answer: "O objetivo é o grupo mais baixo que o projeto consegue alcançar na abertura de tratamento, porque o risk group determina quais advertências o rótulo precisa trazer. Um equipamento que fica um grupo acima do esperado normalmente tem um problema de filtro, e não de lâmpada, já que o que se mede é o espectro que chega à pele."
+  - question: "Um relatório de LED pode ser reaproveitado para um equipamento IPL?"
+    answer: "Não com honestidade. A faixa espectral, as características de pulso e a geometria de medição são todas diferentes. Um relatório escrito para uma fonte de LED contínua não consegue descrever um flash pulsado de banda larga, e trocar o nome do produto nele aparece nos dados espectrais."
+---
+
+A IEC 62471 é a norma de photobiological safety para lâmpadas e sistemas de lâmpadas. É o relatório que responde a uma pergunta que nenhum ensaio elétrico faz: o que a luz que sai deste equipamento faz com a pessoa que está na frente dele.
+
+É também o relatório que a maioria das marcas aceita sem ler.
+
+## O que a norma mede, e contra quais limites
+
+A avaliação funciona perigo por perigo. Cada um tem uma função de ponderação que diz o quão perigoso é um determinado comprimento de onda, e um limite de exposição expresso sobre uma base temporal.
+
+Os quatro que importam para um equipamento IPL doméstico são o ultravioleta actínico, o perigo da luz azul, o térmico retiniano e a exposição ao infravermelho. O equipamento emite aproximadamente de 500 a 1200 nm depois que o filtro faz o seu trabalho, que é exatamente a faixa em que as ponderações da luz azul e do térmico retiniano são mais ativas.
+
+Cada perigo recebe um valor medido, um limite e uma razão. A pior razão decide o risk group.
+
+## Por que um equipamento IPL não é uma lâmpada, e onde a avaliação fica complicada
+
+A norma foi escrita pensando em lâmpadas: uma fonte que irradia para o espaço aberto, medida a uma distância definida.
+
+Um equipamento IPL é uma lâmpada dentro de um aparelho, atrás de uma janela e de um filtro, e dispara em pulsos de milissegundos. Então a avaliação tem de responder perguntas que a norma não detalha com clareza. Onde fica o plano de medição, na janela ou a uma distância nominal? A exposição relevante é um pulso único ou uma sessão inteira? Como tratar uma fonte que só fica exposta quando um sensor de contato decide que há pele?
+
+É aqui que dois relatórios do mesmo produto podem divergir sem que nenhum dos dois esteja errado. Pergunte qual geometria foi usada.
+
+## A questão do pulso
+
+Fontes contínuas são avaliadas em segundos e minutos. Um equipamento IPL dispara pulsos de milissegundos, o que significa que a avaliação tem de decidir qual é, de fato, a exposição relevante.
+
+Um pulso na abertura é um número. Uma sessão inteira de flashes no mesmo ponto da pele é outro número. Um equipamento encostado no olho por acidente, que a norma tem de considerar mesmo que o manual proíba, é um terceiro.
+
+Os relatórios diferem em qual desses eles respondem. Um relatório que declara exposições por pulso sem declarar um modelo de sessão respondeu à pergunta mais fácil. Isso não é fraude, é escopo, e é por isso que o mesmo produto pode carregar dois relatórios com conclusões diferentes.
+
+Quando encomendamos um, pedimos ao laboratório que declare o cenário de exposição assumido na capa. Não custa nada e evita uma discussão um ano depois.
+
+## Como ler o risk group
+
+A saída é uma classificação: isento, risco baixo, risco moderado, risco alto.
+
+Para um equipamento doméstico, o alvo prático é o grupo mais baixo que o projeto consegue alcançar na abertura. O grupo não é uma nota de marketing, é uma instrução. Ele diz ao rótulo quais advertências carregar e diz ao manual o que proibir.
+
+Um equipamento que fica um grupo acima do esperado normalmente tem um problema de filtro, não de lâmpada. O que está sendo medido é o espectro que chega à pele.
+
+## Três coisas que um relatório real contém
+
+**Os dados espectrais.** Um gráfico ou uma tabela do espectro emitido, e não apenas a faixa nominal do filtro. Se o relatório só informa 510 a 1200 nm e nunca mostra a curva, a ponderação não pôde ter sido aplicada.
+
+**A geometria de medição.** Tamanho da abertura, distância, e se a medição foi feita na janela ou afastada dela. Sem isso, os números não podem ser reproduzidos.
+
+**Um risk group por perigo, com o valor limitante indicado.** Não uma nota geral única. O relatório deve mostrar qual perigo determinou a classificação, porque é isso que você corrige.
+
+Se qualquer um dos três faltar, você está lendo um resumo, e não uma avaliação.
+
+## Como diferenciar um relatório de LED de um relatório de IPL
+
+Três sinais.
+
+A faixa espectral é o primeiro. Um equipamento de LED para a pele concentra energia em faixas estreitas. Um equipamento IPL é de banda larga. O espectro traçado não se parece em nada.
+
+A base temporal é o segundo. Fontes contínuas são avaliadas em segundos e minutos. Um equipamento IPL pulsado exige tratamento no nível do pulso, e o relatório diz isso em algum lugar.
+
+O terceiro sinal é a descrição do produto. Um relatório escrito para uma classe diferente de equipamento vai descrever condições de medição que não podem se aplicar aqui, como um modo de operação em regime permanente.
+
+Publicamos os dados medidos de sete [filtros passa-longa](/blog/ipl-long-pass-filter-test-report) em parte porque o espectro a jusante do filtro é o que a avaliação de photobiological safety de fato julga. Mudar o filtro muda a classificação.
+
+## O que os nossos próprios relatórios contêm
+
+Não descrevemos esta norma de fora. As cinco plataformas dentro da nossa liberação FDA têm cada uma o seu próprio relatório IEC 62471, emitido por um laboratório acreditado pelo CNAS, com a Shenzhen iShine Technology Company Limited nomeada como solicitante.
+
+Um relatório por plataforma, e não um relatório por família de produtos. Essa distinção custa dinheiro e é o caminho certo, porque a plataforma é o que determina o conjunto óptico: a lâmpada, o filtro, a janela e a geometria em volta deles. Um relatório que cobre uma família pelo nome enquanto testa um único membro não descreve os demais.
+
+Essas cinco plataformas estão dentro da liberação FDA 510(k) K222537, que cobre SKN001, SKN002, SKN005 e SKN006, e o arquivo de EMC delas é um relatório IEC 60601-1-2 para equipamentos eletromédicos. As plataformas que vendemos sob CE e UKCA são protocoladas de forma diferente: seu processo de segurança de baixa tensão é a EN 60335-2-23, e seus relatórios de EMC são a EN IEC 55014-1 e a 55014-2. A mesma empresa, duas rotas regulatórias diferentes.
+
+Se você quer ver como é um, peça. Enviamos a página que importa: a tabela de risk group com o perigo limitante marcado, com o número de referência e os dados comerciais do solicitante removidos.
+
+## O que acontece quando falha
+
+A falha raramente é dramática. O equipamento ultrapassa um limite em um perigo por uma margem modesta, geralmente luz azul ou infravermelho, e a correção é uma mudança de projeto, e não uma rejeição.
+
+Quatro alavancas, na ordem em que as tentamos. Melhorar o filtro para que menos da extremidade curta energética chegue à janela. Reduzir a energia entregue por pulso e alargar o pulso. Mudar o material da janela ou a sua curva de transmissão. Restringir o acesso para que a abertura não possa ser encostada no olho.
+
+As duas primeiras são as que também afetam o desempenho percebido, e é por isso que esta é uma conversa de projeto, e não uma conversa de laboratório.
+
+## Por que isso é deixado de lado
+
+Uma falha de segurança elétrica trava o embarque. Uma falha em photobiological safety não trava. O equipamento pode ser fabricado, vendido e usado por meses antes de uma autoridade de mercado pedir a avaliação, e a essa altura o ferramental do filtro já está comprometido.
+
+Essa assimetria é o motivo inteiro de valer a pena ler este relatório antes da fabricação, e não depois.
+
+Nós o listamos entre os documentos que orientamos as marcas a reunir [antes de pagar um sinal](/blog/how-to-vet-ipl-device-manufacturer), ao lado do certificado de que as pessoas se lembram. O [cronograma de validação por volume](/blog/ipl-validation-services) mostra onde ele fica em relação aos outros protocolos, e [quais componentes realmente mudam o resultado](/blog/components-that-stand-up-to-scrutiny) cobre o lado de hardware da mesma pergunta.

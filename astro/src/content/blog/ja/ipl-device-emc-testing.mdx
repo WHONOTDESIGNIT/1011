@@ -1,0 +1,83 @@
+---
+title: "IPLデバイスのEMC試験：不合格は設計で決まり、ラインでは決まらない"
+description: "家庭用IPLデバイスにおけるCISPR 14-1と14-2。フラッシュランプはスパークギャップであり、合格するか再試験になるかを決めるのは4つの設計判断です。"
+citableSummary: "家庭用IPLデバイスはCISPR 14ファミリーに基づいて電磁両立性を試験します。14-1がemission、14-2がimmunityです。最大の不合格要因はフラッシュランプの放電で、これはスパークギャップのように振る舞い、点灯した瞬間に広帯域のエネルギーを放射します。試験に落ちた後にフェライトを追加してもほとんど効きません。結合経路は試験のはるか前、PCBレイアウトと帰還経路の時点で決まっているからです。"
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Which EMC standards apply to a home IPL device?"
+    answer: "The CISPR 14 family for household appliances: 14-1 covers emission and 14-2 covers immunity. The revision year matters as much as the number, because a report citing a withdrawn edition tells you the compliance programme stopped being maintained."
+  - question: "Why does an IPL device fail EMC testing so often?"
+    answer: "Because the flash lamp is a spark gap. A capacitor bank discharges through a xenon tube in microseconds, which produces a broadband pulse that couples into every nearby trace. The energy is enormous relative to the signal levels the standards measure, so marginal layouts that work on a fan heater do not survive here."
+  - question: "Can a failed EMC test be fixed by adding a ferrite bead?"
+    answer: "Rarely. A ferrite changes the impedance on one path. It does not change where the energy couples, which is set by loop area, return path and shielding. If the discharge current returns through a long ground path, adding a bead to the cable leaves that loop intact."
+---
+
+IPLデバイスでのEMC不合格は、ほとんどが生産上の問題ではありません。レイアウト段階で下される判断であり、試験はその請求書が届く場所です。
+
+厄介なのは、金型を起こす前に直せば安く済み、その後に直すと高くつくという点です。この非対称性は、最初のスキャンで落ちてからではなく、設計フリーズの前に理解しておく価値があります。
+
+## CISPR 14-1と14-2が実際に測定しているもの
+
+CISPR 14ファミリーは家庭用電気器具を対象としています。パート1はemission、つまりデバイスが電源リードと空間を通じて外部へ送り出すものを規定します。パート2はimmunity、つまり外部から妨害が到来したときにデバイスがどこまで耐えられるかを規定します。
+
+IPLデバイスでは、emission側が難所です。デバイスはスイッチング電源、マイクロコントローラ、そして指令に応じて放電するコンデンサバンクで構成され、それらが前面に窓を持つ樹脂筐体に収まっています。
+
+規格は、電源リード上のconducted emissionと、シールドルーム内でのradiated emissionを測定します。どちらも広帯域の測定であり、パルスは本質的に広帯域です。
+
+## フラッシュランプはスパークギャップであり、そのように振る舞う
+
+キセノンフラッシュランプは、コンデンサバンクが電離したガスを介して放電するときに点灯します。放電はマイクロ秒単位です。その瞬間、数百アンペアの電流が、ランプ、コンデンサ、トリガトランス、そして帰還経路を含むループを流れます。
+
+そのループはアンテナです。その放射はノッチで落とせる狭帯域のemissionではなく、測定範囲の全域にまたがって現れる広帯域のバーストです。
+
+ここから2つの帰結が導かれます。第一に、放電電流は利用可能な最短の経路で戻らなければならず、つまりemissionレベルを決めるのはフィルタよりもグラウンドの設計です。第二に、高速な高電圧パルスを生成するトリガ回路は、それ自体が独立した、同じくらい強力な放射源です。
+
+## 合否を決める4つの設計判断
+
+**コンデンサバンクとランプの間のループ面積。** ループが小さければ放射も小さくなります。これは機構レイアウトの判断であり、基板を配線するときではなく、筐体を設計する時点で決まります。
+
+**放電電流の帰還経路。** 制御回路と配線を共有すると、ノイズがマイクロコントローラへ直接注入されます。定石はコンデンサの負極端子でのスター接続であり、これは設計に織り込まなければなりません。
+
+**トリガ回路まわりのシールド。** トリガパルスは高速かつ高電圧です。ランプハーネスから物理的に離すか、シールドを施すかで、結果は測定できるほど変わります。
+
+**電源フィルタの構成。** スイッチング電源向けに選定されたコモンモードチョークが、コンデンサバンクも放電させるデバイスにそのまま適合するわけではありません。フィルタは、実際にかかる負荷に合わせて仕様を決める必要があります。
+
+どれも特殊な話ではありません。4つのうち3つは、プロジェクトの前半で下される判断です。
+
+## 後から足したフェライトで救われることがほとんどない理由
+
+フェライトビーズは、ある周波数範囲で1本の導体のインピーダンスを上げます。妨害がその導体を伝わってくる場合には有効です。
+
+妨害がループから放射されている場合、ビーズはほとんど効きません。エネルギーは配線からではなくループから出ていくからです。フェライトを3つ足しても、スキャンのトレースが数dB動くのを見るだけです。
+
+不合格の後に効くのは、ループを小さくするか帰還経路を変えることだけで、どちらも機構設計かPCBに手を入れることになります。再試験のサイクルが週単位で数えられるのはそのためです。
+
+## EMCレポートの読み方：改訂年が重要
+
+ページ上で確認すべき3点を、順に挙げます。
+
+規格とその改訂年。廃止された版を引用しているレポートは、維持されなくなったプログラムのレポートです。
+
+試験された構成。どのアダプタ、どのケーブル長、どのランプサプライヤか。これらのいずれかが変われば、試験対象が変わります。
+
+判定だけでなくマージン。限界ぎりぎりの合格は、別のサンプルでは不合格になるデバイスです。6 dBのマージンを伴う合格は、繰り返し造れるデバイスです。
+
+最後の一行が私たちの最も重視する点で、[品質管理が実際にどう回っているか](/blog/06-quality-control-in-ipl-manufacturing-best-practices)というより広い論点につながります。マージンのない仕様は、それが書かれた日にしか成り立たない仕様です。
+
+## 再試験に費やす時間
+
+予約したシールドルームは、スケジュール済みの資源です。不合格になれば別の枠を取り直すことになり、通常は数週間、加えてレイアウトやハーネスを変更してサンプルを組み直す設計工数がかかります。
+
+金型を起こした後で不合格が出れば、筐体の変更は金型の議論をやり直すことになります。まさにこの理由で、2 dBの不合格が3か月の遅延になった例を私たちは見ています。
+
+代替策は、設計フリーズ前のプレ測定です。試作機でのEMCラボ1時間は、正式試験の失敗に比べてわずかな費用で済み、修正がまだ無償でできるうちにループの問題を見つけてくれます。
+
+## より広い文書体系の中での位置づけ
+
+EMCは電気安全規格や光生物学的評価と並ぶ項目で、同じデバイスでもそれぞれが独立に不合格になり得ます。[コンプライアンスのはしご](/blog/ipl-validation-services)は、どの項目がどの数量で効いてくるかを示しています。
+
+工場を評価していて、そこがこれをやったことがあるかを知りたいなら、EMCレポートを求めてマージンの欄を読んでください。私たちはこれを[依頼する価値のある書類](/blog/how-to-vet-ipl-device-manufacturer)の一つに挙げており、[部品の記事](/blog/components-that-stand-up-to-scrutiny)では結果を決める部品、つまりランプ、コンデンサバンク、アダプタについて扱っています。
