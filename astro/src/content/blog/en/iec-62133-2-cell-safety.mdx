@@ -1,0 +1,77 @@
+---
+title: "IEC 62133-2: The Cell Standard Behind Every CB and UL Report"
+description: "UN38.3 lets a cell travel. IEC 62133-2 decides whether it belongs inside a product. Buyers ask for the CB report without knowing what it covers, which is why cell substitutions get approved on paper and rejected on audit. Here is what the standard tests, how it differs from UN38.3, and what has to be re-tested when the cell changes."
+citableSummary: "IEC 62133-2 covers safety requirements for portable sealed secondary lithium cells and batteries used in portable applications, while part 1 covers nickel systems. It tests cells and battery packs under electrical, mechanical and thermal abuse conditions that go beyond transport requirements. UN38.3 qualifies a cell for transport under the UN Manual of Tests and Criteria; IEC 62133-2 qualifies it for use inside a product, and the two do not substitute for each other. A CB test certificate issued under the IECEE scheme is the common way the result travels between markets. Changing the cell model requires new testing under both standards, and the report has to name the cell that is actually in the bill of materials."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "iec-62133-2-cell-safety"
+translationKey: "iec-62133-2-cell-safety"
+readTime: "8 min"
+---
+
+**Short answer:** UN38.3 lets a cell travel. IEC 62133-2 decides whether it belongs inside a product. Buyers ask for the CB report without knowing which question it answers, and that is how a cell substitution gets approved on paper and rejected at audit.
+
+## Two standards, two questions
+
+The confusion is understandable, because both concern the same small object and both produce a report with a lot of temperature data.
+
+| | UN38.3 | IEC 62133-2 |
+|---|---|---|
+| Question it answers | Can this cell be transported safely? | Is this cell safe inside a portable product? |
+| Who asks for it | Forwarders, airlines, customs | Buyers, retailers, market surveillance |
+| Abuse conditions | Transport accidents: altitude, thermal cycling, vibration, shock, short circuit, impact, overcharge, forced discharge | Product life: electrical, mechanical and thermal abuse, including incorrect installation and abnormal charging |
+| Travels as | A test report plus a summary | A CB test certificate and report, or a national equivalent |
+| Reissued when | The cell changes, or the file ages out | The cell changes, or the pack design changes |
+
+The short version: one is about the journey, the other about the life inside the device. A supplier who answers a 62133 question with a UN38.3 report has answered a different question.
+
+## What the standard actually tests
+
+The tests group into three families, and the group matters more than the individual clause when you are reading a report for the first time.
+
+| Family | What it stresses | Why a buyer cares |
+|---|---|---|
+| Electrical | Overcharge, forced discharge, external short circuit, abnormal charging | Catches the failure that starts fires in use, not in transit |
+| Mechanical | Crush, impact, vibration, shock | Catches a cell that survives the flight but not a drop onto tile |
+| Thermal | Temperature cycling, high-temperature storage, incorrect installation | Catches a design that relies on the device never getting hot |
+
+There is a second layer for battery packs, as opposed to bare cells, because a pack adds a protection circuit, wiring and a housing. A pack-level report that names a different cell from the one in your bill of materials is not a report about your product.
+
+## How it travels between markets
+
+The usual carrier is a CB test certificate under the IECEE scheme, which is why buyers ask for "the CB report" as if it were a single thing. It is a certificate plus the underlying report, and both matter: the certificate proves the assessment happened, the report tells you which cell and which construction were assessed.
+
+National schemes then accept it to varying degrees. The United States has its own cell and pack standards. Korea, Japan and India each layer their own requirements on top. What travels well is the evidence; what does not travel is the assumption that one certificate answers every market.
+
+For the cells we use in our own platforms, the file includes a CB report, a UL report, an Indian registration and a Japanese battery report, which is what makes the same cell usable across several markets without re-testing from zero.
+
+## The cell substitution problem
+
+This is where the standard earns its keep, and where procurement quietly creates a compliance gap.
+
+Cells get substituted for ordinary reasons: a shortage, a price change, a capacity bump, a different supplier for the same specification. From the outside, an 18650 rated 2000 mAh at 3.7 V looks interchangeable with another 18650 rated 2000 mAh at 3.7 V.
+
+It is not, for two purposes. The safety assessment is about a specific cell construction, and the report names it. The transport qualification is also about that cell, and the UN38.3 report names it too.
+
+So a substitution requires new testing under both standards, and until that testing exists, the file describes a product that is no longer being shipped. The paperwork keeps working. The compliance does not.
+
+Two habits prevent this. Keep the cell model in the bill of materials as a controlled field, so a change is visible. And treat a cell change as a document change, not a purchasing decision.
+
+## What to ask a supplier, and what the answer should look like
+
+If you are evaluating a device, four questions get you past the sales material:
+
+1. Which edition of IEC 62133-2 is the report against, and does the report name the cell in the current bill of materials?
+2. Is the evidence cell-level, pack-level, or both?
+3. Which markets has that evidence actually been accepted in, and under which national scheme?
+4. If the cell changes, who pays for re-testing, and how long does it take?
+
+The fourth question is the one that separates a supplier who has done this from one who has a certificate on a wall. Ask it before the first order, not after the shortage.
+
+## What we do, and what we do not
+
+We hold the cell-level evidence for the cells we use, keep the bill of materials aligned with it, and pass the reports on with the commercial documents. We do not issue 62133 reports, we do not accept a substitution on the basis of a datasheet, and we do not describe a pack as certified when the evidence covers the cell only.
+
+If the device uses a cell that also ships as a separate package, the transport paperwork is a second file that has to name the same cell, and [the OEM/ODM process page](/services/oem-odm) shows where that sits in a project sequence. If you are choosing between platforms, [the component pages](/components) show which parts are shared, and shared parts are what make a second market cheaper. For the component that changes most often between regions, [the power adapter article](/blog/ipl-device-power-adapter-travel-plug) is the companion read.
