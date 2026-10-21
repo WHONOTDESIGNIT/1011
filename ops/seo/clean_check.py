@@ -86,7 +86,7 @@ PATH_VALUE_ALLOW = {
     # 本规则文件自身：白名单必须把要放行的值原样写在代码里，否则无法匹配。
     # 只放行这一个值，本文件里的其他内容（路径、凭据等）照常受其余规则约束。
     'ops/seo/clean_check.py': {
-        'R5 邮箱': {'service@ishineco.com', 'john@company.com'},
+        'R5 邮箱': {'service@ishineco.com', 'john@company.com', 'mario@azienda.com'},
     },
     # 翻译文件同理（2026-10-20 增）：站点公示的联系邮箱本就出现在产品与联系文案里，
     # 每次改 messages/*.json 都会被 R5 拦住 —— 结果只能是 --no-verify，规则形同虚设。
@@ -94,7 +94,9 @@ PATH_VALUE_ALLOW = {
     'astro/messages/': {
         # service@：站点公示联系邮箱；john@company.com：联系表单的输入占位符（非真实地址，
         # 也不在 RFC 2606 的 example.com 豁免名单内，故显式声明）。
-        'R5 邮箱': {'service@ishineco.com', 'john@company.com'},
+        # mario@azienda.com（2026-10-21 增）：意大利语版联系表单的输入占位符，同一用途，
+        # 此前未声明，导致任何触碰 it.json 的提交都会被拦（改保修期的那次就是这样撞上的）。
+        'R5 邮箱': {'service@ishineco.com', 'john@company.com', 'mario@azienda.com'},
     },
 }
 
