@@ -7,11 +7,11 @@
 
 ```
 仓库根
-├── astro/            ← 真实构建项目（所有站点代码）
+├── astro/            ← 真实构建项目（所有站点代码；博客内容在 astro/src/content/blog/）
 ├── messages/         ← i18n 文案（astro 通过 ../../../messages/en.json 引用，构建必需）
-├── src/content/blog/ ← 博客源文件（astro 通过 ../../../src/content/blog/**/*.mdx 引用，构建必需）
+├── ops/              ← 本地/定时运维脚本（不参与构建）
 ├── netlify.toml      ← Netlify 构建配置
-└── 1011-main/        ← 历史嵌套旧站副本，构建不使用（勿改勿依赖）
+└── site-urls.txt     ← 构建产物（generate-site-urls.mjs 生成），不入库
 ```
 
 **教训**：`astro/` 不是仓库根的项目！Netlify 构建必须指定 `base = "astro/"`，否则会在错误目录运行 `npm run build`。
