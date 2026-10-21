@@ -40,13 +40,19 @@ Owner: WHONOTDESIGNIT. Remote: https://github.com/WHONOTDESIGNIT/1011
   `chore/drop-strays` was meant to be deletions only, but carried the relocation docs
   (`d8f07676`). Not worth rewriting, but the next relocation-metadata change gets its own
   `chore/repo-relocation` branch instead of riding on an unrelated one.
+- **2026-10-21 — every standard-conformance claim carries its evidence, or it goes.**
+  Any claim of the form "complies with / is certified for / passes X" — MDL, IEC, CE, FDA,
+  RoHS, whatever the next one is — must trace to the specs in
+  `astro/messages/en.json` or to current documentary evidence held on file. A sentence that
+  cannot be traced gets deleted, not softened. This applies to new content as much as to
+  revived posts: the IEC 60335-2-113 and IEC 62471 pieces are covered by this rule without
+  needing to be named.
 - **2026-10-21 — the 22 Canadian MDL guides stay archived, permanently.**
   `canadian-mdl-ipl-device-guide` exists only in the archived
   `feature/blog-cooling-ipl-buying-guide` patches, and it never ships as-is. If it is ever
-  revived, every "we comply with / are certified for X" sentence must first be re-verified
-  against `astro/messages/en.json` specs and current documentary evidence, before it enters
-  the content chain. Publishing is what triggers compliance risk, not sitting in an
-  archive — but the archive is not a to-do list either.
+  revived, it must pass the conformance-claim rule above before it enters the content
+  chain. Publishing is what triggers compliance risk, not sitting in an archive — but the
+  archive is not a to-do list either.
 
 ## Retiring the old tree
 
@@ -102,6 +108,14 @@ tree with real history is exactly the disease this cleanup removed.
   (no dangling registrations), and accept that each worktree needs its own `node_modules`
   (~10 minutes). Default: take turns. If you see changes you did not make: don't touch
   them, don't stash, don't commit — report.
+  - `git commit` writes to whatever `HEAD` is, and a bare `git push` pushes whatever branch
+    is checked out — both can move under you in a shared tree. That is why git writes
+    belong in your own worktree, and why the push uses an explicit refspec:
+    `git push origin HEAD:refs/heads/<branch>`, followed by `ls-remote` for **that same
+    branch name**. A `push` that reports success while `ls-remote` disagrees means you
+    verified the wrong branch.
+  - Someone else's branch history is theirs, however messy. Don't tidy, rebase or
+    force-push it unless they ask; record the problem and hand it over.
 
 ## Pending decisions (dated, so they cannot live forever)
 
