@@ -231,6 +231,33 @@ function compare() {
   if (perLocaleFails.length) fail(`htmlPerLocale: ${perLocaleFails.join('; ')}`);
   else ok(`htmlPerLocale: ${BUILD_LOCALES.length} 语言博客页全部在 ±${TOL.htmlPerLocaleDelta} 内`);
 
+  // 清单与页数的对平：htmlTotal 应当正好等于 site-urls.txt 条数 + 已知不可索引页。
+  // 这条把"23 个页面不在清单里"从口头常识变成每次构建都在验的断言：
+  // 差值变大 = 多出了不参与索引的空壳页（例如只写英文、其余语种出 fallback shim）。
+  const URL_FILE = path.resolve(__dirname, '../../site-urls.txt');
+  let urlCount = null;
+  try {
+    urlCount = readFileSync(URL_FILE, 'utf8').split('\n').filter((l) => l.trim()).length;
+  } catch {
+    warn(`urlList: 找不到 ${URL_FILE}，跳过对平检查（generate-site-urls 正常会先生成）`);
+  }
+  if (urlCount !== null) {
+    if (typeof base.nonIndexablePages !== 'number') {
+      fail('urlList: baseline.json 缺 nonIndexablePages，无法对平页面数与清单条数');
+    } else {
+      const delta = cur.htmlTotal - urlCount;
+      if (delta !== base.nonIndexablePages) {
+        fail(`urlList: 页面 ${cur.htmlTotal} - 清单 ${urlCount} = ${delta}，基线已知不可索引 ${base.nonIndexablePages}`);
+        console.error('\n提示：这个差值只应包含"不进清单、也不进 sitemap"的页面——');
+        console.error('  · 当前基线内的集合：22 个 404（根 + 21 语种）+ 1 个 /__forms 占位页');
+        console.error('  · 差值变大通常意味着新增了只写英文的文章：每篇会多出 21 个 fallback shim');
+        console.error('  · 空壳页不是"上线内容"，要么补译文消掉，要么在 baseline.json 里写明为什么留着。\n');
+      } else {
+        ok(`urlList: 清单 ${urlCount} 条 + 已知不可索引 ${delta} = 页面 ${cur.htmlTotal}`);
+      }
+    }
+  }
+
   // 产物体积
   for (const [name, curVal, baseVal, warnPct, failPct] of [
     ['astroAssetSize', cur.astroAssetSize, base.astroAssetSize, TOL.assetWarnPct, TOL.assetFailPct],
