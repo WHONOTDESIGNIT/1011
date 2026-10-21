@@ -242,8 +242,16 @@ function compare() {
   }
   if (urlCount !== null) {
     // 分解式只从 generate-site-urls 写出的文件里取，不在任何文档里手写。
+    // generate-site-urls 已把"每语种篇数"改名为 blogPostsPerLocale（各语种可不等），
+    // 旧字段 blogPerLocale 不再存在，直接读会打印 undefined。
+    const perLocale = breakdown?.blogPostsPerLocale;
+    const uniformPosts = perLocale && new Set(Object.values(perLocale)).size <= 1;
     const breakdownText = breakdown
-      ? `静态 ${breakdown.staticPaths}×${breakdown.locales} + 博客 ${breakdown.blogPerLocale}×${breakdown.locales} + 分类 ${breakdown.categoryPerLocale}×${breakdown.locales}`
+      ? `静态 ${breakdown.staticPaths}×${breakdown.locales} + 博客 ${
+          uniformPosts
+            ? `${Object.values(perLocale)[0]}×${breakdown.locales}`
+            : `${breakdown.blogPosts}（各语种不等）`
+        } + 分类 ${breakdown.categoryPerLocale}×${breakdown.locales}`
       : '（缺分解文件）';
     if (typeof base.nonIndexablePages !== 'number') {
       fail('urlList: baseline.json 缺 nonIndexablePages，无法对平页面数与清单条数');
