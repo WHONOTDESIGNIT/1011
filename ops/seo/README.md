@@ -32,6 +32,17 @@ sitemap 文件而不是页面，持续多日无人察觉。**有 git 历史时�
 cd astro; npm ci; npm run build     # 构建结束即生成 site-urls.txt（约 3,400 条）
 ```
 
+## IndexNow（`astro/scripts/submit-indexnow.mjs`）的两个已知事实
+
+**条数比 `site-urls.txt` 多 23，属正常。** 它优先读 `dist/sitemap*.xml`，那个 glob 也匹配到
+**sitemap index 里的 22 个子 sitemap 地址**，再加 `sitemap.xml` 自身 —— 于是提交的是
+「3,410 个页面 + 22 个子 sitemap + sitemap.xml = 3,433」。sitemap 也是合法 URL，不是 bug；
+要改就改成只读 `site-urls.txt`，但那会绕开"以构建产物为准"的现有设计。
+
+**失败按性质分流，不是全红或全绿。** 4xx（429 除外：key 失效、host 不符、URL 畸形）= 我方配置错误，
+构建以非零码结束；429 限流 / 5xx / 网络异常 = 对方可用性问题，只打 `⚠️` 告警、不拦部署，下次构建整批重推。
+理由：构建 guard 只该守自己的不变量，第三方端点抖动不该扣住内容发布 —— 否则团队会学会无视红灯。
+
 ## 文件
 
 | 文件 | 作用 | 调度 |
