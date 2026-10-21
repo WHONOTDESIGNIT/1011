@@ -28,7 +28,7 @@
 ## Crawl & index
 
 - Sitemap: https://iplmanufacturer.com/sitemap.xml
-- Robots: https://iplmanufacturer.com/robots.txt — all crawler rules live in robots.txt, not in this file. The policy is vendor-neutral: `User-agent: *` with `Allow: /` covers every crawler, including every current and future AI crawler (AI search/citation and AI training alike) — no crawler is named individually, so none can be left out. Only internal/non-content paths are excluded (/api/, /admin/, /private/, /upload, /.netlify/, /index.backup/). Reviewed quarterly.
+- Robots: https://iplmanufacturer.com/robots.txt — all crawler rules live in robots.txt, not in this file. The policy is vendor-neutral: `User-agent: *` with `Allow: /` covers every crawler, including every current and future AI crawler (AI search/citation and AI training alike) — no crawler is named individually, so none can be left out. Only internal/non-content paths are excluded (/api/, /admin/, /private/, /upload, /.netlify/functions/, /index.backup/). Reviewed quarterly.
 - Homepage: https://iplmanufacturer.com
 - [Sitemap](https://iplmanufacturer.com/sitemap.xml): XML sitemap for discovery and indexing.
 - [Robots](https://iplmanufacturer.com/robots.txt): crawl policy for user agents, including AI crawlers.
