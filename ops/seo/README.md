@@ -22,6 +22,16 @@ sitemap 文件而不是页面，持续多日无人察觉。**有 git 历史时�
 状态文件不入库是刻意的：它的价值在于**当前值**，不在于历史；把它版本化只会制造
 误导性的 diff。真正需要"能回滚"的是逻辑。
 
+## 前置条件：`site-urls.txt` 要先构建出来
+
+`site-urls.txt`（仓库根）由 `astro/scripts/generate-site-urls.mjs` 在构建时生成，**不再入库**。
+新 clone、或刚清过构建产物时，先跑一次构建，否则读它的任务（如 `bing_daily_batch.py`）
+会走空清单分支并以 `exit 2` 结束：
+
+```powershell
+cd astro; npm ci; npm run build     # 构建结束即生成 site-urls.txt（约 3,400 条）
+```
+
 ## 文件
 
 | 文件 | 作用 | 调度 |
