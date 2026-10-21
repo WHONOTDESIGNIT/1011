@@ -1,0 +1,83 @@
+---
+title: "IPL Device EMC Testing: It Fails in the Design, Not the Line"
+description: "CISPR 14-1 and 14-2 on a home IPL device: the flash lamp is a spark gap, and four design decisions decide whether the unit passes or needs a retest."
+citableSummary: "Home IPL devices are tested for electromagnetic compatibility under the CISPR 14 family: 14-1 for emissions and 14-2 for immunity. The dominant failure source is the flash lamp discharge, which behaves like a spark gap and radiates broadband energy in the instant it fires. Adding a ferrite after a failed test rarely helps, because the coupling path was fixed by the PCB layout and the return path long before the test."
+pubDate: "2026-10-21"
+author: "Eric"
+category: "Regulatory"
+slug: "ipl-device-emc-testing"
+translationKey: "ipl-device-emc-testing"
+faqs:
+  - question: "Which EMC standards apply to a home IPL device?"
+    answer: "The CISPR 14 family for household appliances: 14-1 covers emission and 14-2 covers immunity. The revision year matters as much as the number, because a report citing a withdrawn edition tells you the compliance programme stopped being maintained."
+  - question: "Why does an IPL device fail EMC testing so often?"
+    answer: "Because the flash lamp is a spark gap. A capacitor bank discharges through a xenon tube in microseconds, which produces a broadband pulse that couples into every nearby trace. The energy is enormous relative to the signal levels the standards measure, so marginal layouts that work on a fan heater do not survive here."
+  - question: "Can a failed EMC test be fixed by adding a ferrite bead?"
+    answer: "Rarely. A ferrite changes the impedance on one path. It does not change where the energy couples, which is set by loop area, return path and shielding. If the discharge current returns through a long ground path, adding a bead to the cable leaves that loop intact."
+---
+
+EMC failures on an IPL device are almost never production problems. They are decisions made at the layout stage, and the test is where the bill arrives.
+
+The frustrating part is that the fix is cheap if you make it before tooling and expensive after. That asymmetry is worth understanding before the design freeze rather than after the first failed scan.
+
+## What CISPR 14-1 and 14-2 actually measure
+
+The CISPR 14 family covers household appliances. Part 1 governs emission, meaning what the device sends out along its power lead and through the air. Part 2 governs immunity, meaning what the device survives when interference arrives from outside.
+
+For an IPL device, the emission half is the hard one. The device is a switching power supply, a microcontroller, and a capacitor bank that discharges on command, all in a plastic housing with a window on the front.
+
+The standards measure conducted emissions on the mains lead and radiated emissions in a chamber. Both are broadband measurements, and a pulse is broadband by nature.
+
+## The flash lamp is a spark gap, and it behaves like one
+
+A xenon flash lamp fires when the capacitor bank discharges through ionised gas. The discharge takes microseconds. In that window, hundreds of amps flow through a loop that includes the lamp, the capacitor, the trigger transformer and the return path.
+
+That loop is an antenna. Its radiation is not a narrowband emission you can notch out, it is a broadband burst that lands across the measured range.
+
+Two consequences follow. The first is that the discharge current must return by the shortest available path, which means the ground scheme decides the emission level more than any filter does. The second is that the trigger circuit, which generates a fast high-voltage pulse, is a separate and equally effective radiator.
+
+## Four design decisions that decide pass or fail
+
+**Loop area between the capacitor bank and the lamp.** A tight loop radiates less. This is a mechanical layout decision and it is set when the housing is designed, not when the board is routed.
+
+**The return path for the discharge current.** If it shares a trace with the control electronics, it injects noise directly into the microcontroller. A star point at the capacitor negative terminal is the usual answer, and it has to be designed in.
+
+**Shielding around the trigger circuit.** The trigger pulse is fast and high voltage. Physically separating it from the lamp harness, or shielding it, changes the result measurably.
+
+**The mains filter topology.** A common-mode choke sized for a switching supply is not automatically sized for a device that also dumps a capacitor bank. The filter has to be specified for the load it actually sees.
+
+None of these are exotic. Three of the four are decisions made in the first half of the project.
+
+## Why a ferrite added after the fact rarely saves you
+
+A ferrite bead raises the impedance of one conductor over a frequency range. That is useful when the interference is travelling along that conductor.
+
+When the interference is radiating from a loop, the bead does almost nothing. The energy leaves the loop, not the wire. You can add three ferrites and watch the scan trace move by a couple of dB.
+
+What does work, after a failure, is reducing the loop or changing the return path, and both mean touching the mechanical design or the PCB. That is why the retest cycle is measured in weeks.
+
+## Reading an EMC report: the revision year matters
+
+Three things to check on the page, in order.
+
+The standard and its revision year. A report citing an edition that has been withdrawn is a report from a programme that stopped being maintained.
+
+The tested configuration. Which adapter, which cable length, which lamp supplier. A change in any of those is a change in the test object.
+
+The margin, not just the verdict. A pass at the limit is a device that will fail on a different sample. A pass with 6 dB of margin is a device you can build repeatedly.
+
+That last line is the one we care about most, and it connects to a broader point in [how quality control actually runs](/blog/06-quality-control-in-ipl-manufacturing-best-practices): a specification without margin is a specification that only holds on the day it was written.
+
+## What a retest costs in time
+
+A booked chamber is a scheduled resource. Failing means booking another slot, which typically means weeks, plus the engineering time to change the layout or the harness and rebuild a sample.
+
+If the failure lands after tooling, the housing change reopens the mould discussion. We have seen a 2 dB failure turn into a three-month delay for exactly this reason.
+
+The alternative is a pre-scan before the design freeze. An hour in an EMC lab on a bench build costs a fraction of a failed formal test, and it finds the loop problem while the fix is still free.
+
+## Where this fits in the wider file
+
+EMC sits alongside the electrical safety standard and the photobiological assessment, and each of them can fail independently on the same device. [The compliance ladder](/blog/ipl-validation-services) shows which of them bind at which volume.
+
+If you are evaluating a factory and want to know whether they have done this before, ask for the EMC report and read the margin column. We list it among [the documents worth requesting](/blog/how-to-vet-ipl-device-manufacturer), and the [components piece](/blog/components-that-stand-up-to-scrutiny) covers the parts that decide the outcome: the lamp, the capacitor bank and the adapter.
