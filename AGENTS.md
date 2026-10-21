@@ -81,3 +81,17 @@ tree with real history is exactly the disease this cleanup removed.
 - A push's exit code is not proof the remote moved. Verify with
   `git ls-remote origin <branch>` and compare the SHA; GitHub connectivity here drops
   intermittently and a retry can look like success.
+- After a path moves, prove the imports by **resolving** them, not by counting `../`
+  segments: a grep for three levels also flags the *correct* three-level import once the
+  file sits one directory deeper. Resolve every specifier to a real path and check that it
+  exists; that is the only check that survives a move.
+- In PowerShell, `Select-String -Path` treats `[slug]` as a wildcard. Files with brackets
+  in the name need `-LiteralPath`, or the check silently returns nothing and looks clean.
+
+## Pending decisions (dated, so they cannot live forever)
+
+- **`chore/citable-summary-pages`** (56 commits, 79 files; patches archived): decide by
+  **2026-11-04** whether it ships, ships after rework, or is archived. Put it on the next
+  content-planning agenda; if no decision is taken by that date, archive it.
+- ~~`chore/english-only`~~ — judged dead on 2026-10-21: its CTA-gradient direction was
+  superseded by the hero fixes. Branch deleted, patches kept in the archive.
