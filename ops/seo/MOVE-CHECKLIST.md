@@ -42,6 +42,14 @@ Export-ScheduledTask -TaskName DSH_Bing_Coverage_Daily |
 - `ops/seo/.env` → `DSH_REPO_ROOT=<新的仓库根>`
 - `DSH_DATA_DIR` 不用改：它指向数据目录，与仓库位置无关
 
+`.env` 是唯一配置来源：`run-task.ps1` 读的是**自己同目录**的 `.env`（第 50 行），
+然后在第 133 行 `Set-Location $Here` —— 所以任务定义里的 `WorkingDirectory` 和任务级
+环境变量都不参与路径解析（实测 7 个任务的 `WorkingDirectory` 全为空）。
+
+那 4 个 Disabled 的任务是**有意停用**，不是坏了：`tasks.json` 的描述写着
+"Currently disabled"（seo-daily / seo-email / seo-weekly / medium-daily）。
+搬仓库不需要动它们的状态，也不该顺手启用。
+
 ## 3. 验收（缺一不可）
 
 ```powershell
@@ -51,7 +59,21 @@ git worktree list                                         # 只剩主仓库
 git config core.hooksPath                                 # ops/seo/git-hooks
 ```
 
-## 4. 搬完别急着一件事
+## 4. 旧树退役判据（与部署无关）
+
+Netlify 从 GitHub 构建，看不到本地路径，所以"部署成功"不是退役条件。
+条件是**旧树里没有独有内容**，两条都为空才放行：
+
+```powershell
+git -C <旧树> log --oneline --not origin/main   # 空 = 没有未推送的提交
+git -C <旧树> status --porcelain                # 空 = 没有未提交改动
+```
+
+冻结标记（`README-FROZEN.txt`）放在**仓库外**的上一层与上两层，不会弄脏这两条判据。
+满足后按 `git bundle create` 留底 → 删树 → 删空壳父目录的顺序退役；
+不要长期留着第二份带 git 历史的副本。
+
+## 5. 搬完别急着一件事
 
 归档目录的改名要**单独一轮**做，并且同一次把所有引用（AGENTS.md、commit body、
 分支恢复清单）一起改到新路径 —— 否则"去那里找回"的指引会集体失效，
