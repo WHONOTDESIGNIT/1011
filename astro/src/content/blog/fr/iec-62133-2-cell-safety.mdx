@@ -1,0 +1,77 @@
+---
+title: "IEC 62133-2 pour les appareils IPL : la norme sur les cellules derrière chaque rapport CB"
+description: "L'IEC 62133-2 détermine si la cellule lithium logée dans un appareil IPL peut y rester en sécurité, tandis que l'UN38.3 autorise seulement son transport. Les acheteurs réclament le rapport CB sans savoir à quelle question il répond. Voici ce que la norme teste, et ce qu'impose une substitution de cellule."
+citableSummary: "L'IEC 62133-2 couvre les exigences de sécurité applicables aux cellules et batteries secondaires au lithium portables scellées utilisées dans des applications portables, tandis que la partie 1 couvre les systèmes au nickel. Elle teste les cellules et les packs de batteries dans des conditions d'abus électrique, mécanique et thermique qui vont au-delà des exigences de transport. L'UN38.3 qualifie une cellule pour le transport au titre du Manuel d'épreuves et de critères des Nations Unies ; l'IEC 62133-2 la qualifie pour un usage à l'intérieur d'un produit, et les deux ne se substituent pas l'une à l'autre. Un certificat d'essai CB délivré dans le cadre du système IECEE est le moyen courant dont ce résultat voyage entre les marchés. Changer le modèle de cellule impose de nouveaux essais au titre des deux normes, et le rapport doit nommer la cellule réellement inscrite dans la nomenclature."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "iec-62133-2-cell-safety"
+translationKey: "iec-62133-2-cell-safety"
+readTime: "8 min"
+---
+
+**Réponse courte :** l'UN38.3 autorise une cellule à voyager. L'IEC 62133-2 décide si elle a sa place à l'intérieur d'un produit. Les acheteurs réclament le rapport CB sans savoir à quelle question il répond, et c'est ainsi qu'une substitution de cellule est validée sur le papier puis rejetée en audit.
+
+## Deux normes, deux questions
+
+La confusion est compréhensible, car les deux portent sur le même petit objet et les deux produisent un rapport chargé de données de température.
+
+| | UN38.3 | IEC 62133-2 |
+|---|---|---|
+| Question à laquelle elle répond | Cette cellule peut-elle être transportée en sécurité ? | Cette cellule est-elle sûre à l'intérieur d'un produit portable ? |
+| Qui la demande | Les transitaires, les compagnies aériennes, les douanes | Les acheteurs, les distributeurs, la surveillance du marché |
+| Conditions d'abus | Accidents de transport : altitude, cycles thermiques, vibrations, chocs, court-circuit, impact, surcharge, décharge forcée | Vie du produit : abus électrique, mécanique et thermique, y compris une installation incorrecte et une charge anormale |
+| Circule sous forme de | Un rapport d'essai plus un résumé | Un certificat d'essai CB et son rapport, ou un équivalent national |
+| Réémis quand | La cellule change, ou le dossier expire | La cellule change, ou la conception du pack change |
+
+En bref : l'une porte sur le trajet, l'autre sur la vie à l'intérieur de l'appareil. Un fournisseur qui répond à une question 62133 par un rapport UN38.3 a répondu à une autre question.
+
+## Ce que la norme teste réellement
+
+Les essais se regroupent en trois familles, et le groupe compte davantage que l'article individuel quand on lit un rapport pour la première fois.
+
+| Famille | Ce qu'elle sollicite | Pourquoi l'acheteur s'en soucie |
+|---|---|---|
+| Électrique | Surcharge, décharge forcée, court-circuit externe, charge anormale | Attrape la défaillance qui déclenche un incendie à l'usage, pas en transit |
+| Mécanique | Écrasement, impact, vibrations, chocs | Attrape une cellule qui survit au vol mais pas à une chute sur du carrelage |
+| Thermique | Cycles de température, stockage à haute température, installation incorrecte | Attrape une conception qui compte sur le fait que l'appareil ne chauffe jamais |
+
+Il existe une seconde couche pour les packs de batteries, par opposition aux cellules nues, car un pack ajoute un circuit de protection, du câblage et un boîtier. Un rapport au niveau du pack qui nomme une cellule différente de celle de votre nomenclature n'est pas un rapport sur votre produit.
+
+## Comment elle circule entre les marchés
+
+Le vecteur habituel est un certificat d'essai CB dans le cadre du système IECEE, ce qui explique que les acheteurs demandent « le rapport CB » comme s'il s'agissait d'une seule chose. C'est un certificat plus le rapport sous-jacent, et les deux comptent : le certificat prouve que l'évaluation a eu lieu, le rapport indique quelle cellule et quelle construction ont été évaluées.
+
+Les schémas nationaux l'acceptent ensuite à des degrés variables. Les États-Unis ont leurs propres normes de cellules et de packs. La Corée, le Japon et l'Inde ajoutent chacun leurs propres exigences par-dessus. Ce qui circule bien, c'est la preuve ; ce qui ne circule pas, c'est l'hypothèse qu'un seul certificat répond à tous les marchés.
+
+Pour les cellules que nous utilisons dans nos propres plateformes, le dossier comprend un rapport CB, un rapport UL, un enregistrement indien et un rapport de batterie japonais, ce qui rend la même cellule utilisable sur plusieurs marchés sans retester depuis zéro.
+
+## Le problème de la substitution de cellule
+
+C'est là que la norme gagne sa place, et où les achats créent discrètement un écart de conformité.
+
+Les cellules sont substituées pour des raisons ordinaires : une pénurie, un changement de prix, un gain de capacité, un fournisseur différent pour la même spécification. De l'extérieur, un 18650 donné pour 2000 mAh à 3.7 V semble interchangeable avec un autre 18650 donné pour 2000 mAh à 3.7 V.
+
+Il ne l'est pas, à deux titres. L'évaluation de sécurité porte sur une construction de cellule précise, et le rapport la nomme. La qualification de transport porte aussi sur cette cellule, et le rapport UN38.3 la nomme également.
+
+Une substitution exige donc de nouveaux essais au titre des deux normes, et tant que ces essais n'existent pas, le dossier décrit un produit qui n'est plus expédié. La paperasse continue de fonctionner. La conformité, non.
+
+Deux habitudes évitent cela. Gardez le modèle de cellule dans la nomenclature comme un champ contrôlé, pour qu'un changement soit visible. Et traitez un changement de cellule comme un changement de document, non comme une décision d'achat.
+
+## Ce qu'il faut demander à un fournisseur, et à quoi la réponse doit ressembler
+
+Si vous évaluez un appareil, quatre questions vous font dépasser le matériel commercial :
+
+1. De quelle édition de l'IEC 62133-2 relève le rapport, et le rapport nomme-t-il la cellule de la nomenclature actuelle ?
+2. La preuve est-elle au niveau de la cellule, au niveau du pack, ou les deux ?
+3. Sur quels marchés cette preuve a-t-elle réellement été acceptée, et dans le cadre de quel schéma national ?
+4. Si la cellule change, qui paie les nouveaux essais, et combien de temps cela prend-il ?
+
+La quatrième question est celle qui sépare un fournisseur qui l'a déjà fait de celui qui a un certificat au mur. Posez-la avant la première commande, pas après la pénurie.
+
+## Ce que nous faisons, et ce que nous ne faisons pas
+
+Nous détenons les preuves au niveau des cellules que nous utilisons, maintenons la nomenclature alignée dessus et transmettons les rapports avec les documents commerciaux. Nous n'émettons pas de rapports 62133, nous n'acceptons pas une substitution sur la base d'une fiche technique, et nous ne décrivons pas un pack comme certifié quand la preuve ne couvre que la cellule.
+
+Si l'appareil utilise une cellule qui est aussi expédiée comme colis séparé, les documents de transport forment un second dossier qui doit nommer la même cellule, et [la page du processus OEM/ODM](/services/oem-odm) montre où cela se situe dans une séquence de projet. Si vous hésitez entre plateformes, [les pages composants](/components) montrent quelles pièces sont partagées, et ce sont les pièces partagées qui rendent un second marché moins cher. Pour le composant qui change le plus souvent selon les régions, [l'article sur le bloc d'alimentation](/blog/ipl-device-power-adapter-travel-plug) est la lecture complémentaire.

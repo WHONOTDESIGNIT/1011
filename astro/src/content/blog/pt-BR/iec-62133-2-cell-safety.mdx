@@ -1,0 +1,77 @@
+---
+title: "IEC 62133-2 para dispositivos IPL: a norma de célula por trás de todo relatório CB"
+description: "A IEC 62133-2 decide se a célula de lítio dentro de um dispositivo IPL é segura para ficar ali, enquanto a UN38.3 apenas permite que essa célula viaje. Os compradores pedem o relatório CB sem saber qual pergunta ele responde. Aqui está o que a norma testa e o que uma substituição de célula obriga."
+citableSummary: "A IEC 62133-2 abrange requisitos de segurança para células e baterias secundárias de lítio portáteis seladas usadas em aplicações portáteis, enquanto a parte 1 abrange sistemas de níquel. Ela testa células e packs de bateria sob condições de abuso elétrico, mecânico e térmico que vão além dos requisitos de transporte. A UN38.3 qualifica uma célula para o transporte segundo o Manual de Testes e Critérios da ONU; a IEC 62133-2 qualifica a célula para uso dentro de um produto, e as duas não se substituem. Um certificado de ensaio CB emitido no esquema IECEE é a forma comum de o resultado circular entre mercados. Mudar o modelo da célula exige novos ensaios sob as duas normas, e o relatório tem de nomear a célula que está de fato na lista de materiais."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "iec-62133-2-cell-safety"
+translationKey: "iec-62133-2-cell-safety"
+readTime: "8 min"
+---
+
+**Resposta curta:** a UN38.3 permite que uma célula viaje. A IEC 62133-2 decide se ela pertence ao interior de um produto. Os compradores pedem o relatório CB sem saber qual pergunta ele responde, e é assim que uma substituição de célula é aprovada no papel e reprovada na auditoria.
+
+## Duas normas, duas perguntas
+
+A confusão é compreensível, porque as duas tratam do mesmo objeto pequeno e as duas geram um relatório com muitos dados de temperatura.
+
+| | UN38.3 | IEC 62133-2 |
+|---|---|---|
+| Pergunta que responde | Esta célula pode ser transportada com segurança? | Esta célula é segura dentro de um produto portátil? |
+| Quem a exige | Transitários, companhias aéreas, alfândega | Compradores, varejistas, fiscalização de mercado |
+| Condições de abuso | Acidentes de transporte: altitude, ciclagem térmica, vibração, choque, curto-circuito, impacto, sobrecarga, descarga forçada | Vida útil do produto: abuso elétrico, mecânico e térmico, incluindo instalação incorreta e carga anormal |
+| Circula como | Um relatório de ensaio mais um resumo | Um certificado de ensaio CB com relatório, ou um equivalente nacional |
+| Reemitido quando | A célula muda, ou o dossiê envelhece | A célula muda, ou o projeto do pack muda |
+
+A versão curta: uma trata da viagem, a outra da vida dentro do dispositivo. Um fornecedor que responde a uma pergunta sobre a 62133 com um relatório UN38.3 respondeu a uma pergunta diferente.
+
+## O que a norma realmente testa
+
+Os ensaios se agrupam em três famílias, e o grupo importa mais do que a cláusula individual quando você lê um relatório pela primeira vez.
+
+| Família | O que ela estressa | Por que o comprador se importa |
+|---|---|---|
+| Elétrica | Sobrecarga, descarga forçada, curto-circuito externo, carga anormal | Pega a falha que provoca incêndio em uso, não em trânsito |
+| Mecânica | Esmagamento, impacto, vibração, choque | Pega uma célula que sobrevive ao voo, mas não a uma queda no piso |
+| Térmica | Ciclagem de temperatura, armazenamento em alta temperatura, instalação incorreta | Pega um projeto que depende de o dispositivo nunca esquentar |
+
+Há uma segunda camada para packs de bateria, e não para células nuas, porque um pack acrescenta um circuito de proteção, fiação e um invólucro. Um relatório em nível de pack que nomeia uma célula diferente daquela na sua lista de materiais não é um relatório sobre o seu produto.
+
+## Como ela circula entre mercados
+
+O veículo usual é um certificado de ensaio CB no esquema IECEE, e é por isso que os compradores pedem "o relatório CB" como se fosse uma coisa só. É um certificado mais o relatório que o sustenta, e os dois importam: o certificado prova que a avaliação aconteceu, o relatório diz qual célula e qual construção foram avaliadas.
+
+Os esquemas nacionais então o aceitam em graus variados. Os Estados Unidos têm suas próprias normas para células e packs. Coreia, Japão e Índia acrescentam cada um seus próprios requisitos por cima. O que circula bem é a evidência; o que não circula é a suposição de que um certificado responde a todos os mercados.
+
+Para as células que usamos em nossas próprias plataformas, o dossiê inclui um relatório CB, um relatório UL, um registro indiano e um relatório japonês de bateria, e é isso que torna a mesma célula utilizável em vários mercados sem retestar do zero.
+
+## O problema da substituição de célula
+
+É aqui que a norma justifica seu custo, e onde o setor de compras cria, sem alarde, uma lacuna de conformidade.
+
+As células são substituídas por motivos comuns: falta de estoque, mudança de preço, aumento de capacidade, um fornecedor diferente para a mesma especificação. Visto de fora, uma 18650 de 2000 mAh a 3.7 V parece intercambiável com outra 18650 de 2000 mAh a 3.7 V.
+
+Não é, para dois propósitos. A avaliação de segurança trata de uma construção específica de célula, e o relatório a nomeia. A qualificação de transporte também trata daquela célula, e o relatório UN38.3 também a nomeia.
+
+Então uma substituição exige novos ensaios sob as duas normas, e enquanto esses ensaios não existem, o dossiê descreve um produto que não está mais sendo embarcado. A papelada continua funcionando. A conformidade não.
+
+Dois hábitos evitam isso. Mantenha o modelo da célula na lista de materiais como um campo controlado, para que uma mudança fique visível. E trate uma mudança de célula como mudança de documento, não como decisão de compras.
+
+## O que perguntar a um fornecedor, e como a resposta deve parecer
+
+Se você está avaliando um dispositivo, quatro perguntas o levam além do material de vendas:
+
+1. Contra qual edição da IEC 62133-2 é o relatório, e o relatório nomeia a célula que está na lista de materiais atual?
+2. A evidência é em nível de célula, em nível de pack, ou as duas coisas?
+3. Em quais mercados essa evidência foi de fato aceita, e sob qual esquema nacional?
+4. Se a célula mudar, quem paga pelo reteste, e quanto tempo isso leva?
+
+A quarta pergunta é a que separa um fornecedor que já fez isso de um que tem um certificado na parede. Faça essa pergunta antes do primeiro pedido, não depois da falta.
+
+## O que fazemos, e o que não fazemos
+
+Temos a evidência em nível de célula para as células que usamos, mantemos a lista de materiais alinhada a ela e repassamos os relatórios junto com os documentos comerciais. Não emitimos relatórios 62133, não aceitamos uma substituição com base em um datasheet e não descrevemos um pack como certificado quando a evidência cobre apenas a célula.
+
+Se o dispositivo usa uma célula que também é vendida como pacote separado, a papelada de transporte é um segundo dossiê que precisa nomear a mesma célula, e [a página do processo OEM/ODM](/services/oem-odm) mostra onde isso se encaixa na sequência de um projeto. Se você está escolhendo entre plataformas, [as páginas de componentes](/components) mostram quais peças são compartilhadas, e são as peças compartilhadas que tornam um segundo mercado mais barato. Para o componente que muda mais vezes entre regiões, [o artigo sobre o adaptador de força](/blog/ipl-device-power-adapter-travel-plug) é a leitura complementar.
