@@ -1052,18 +1052,37 @@ const productSchema = {
         标题保留英文，因为目标文章本身只有英文版；本地化页面链过去同样读得到。 */}
     <section>
       <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">Related reading</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        {[
-          { href: '/blog/how-to-vet-ipl-device-manufacturer', text: 'How to vet an IPL device manufacturer before you pay a deposit' },
-          { href: '/blog/ipl-device-manufacturer-price', text: 'What an IPL device actually costs, and what moves the number' },
-          { href: '/blog/ipl-device-moq-explained', text: 'Why 500 units costs more per unit than 5,000' },
-          { href: '/blog/ipl-device-sourcing-guide', text: 'IPL device sourcing: from first quote to mass production' },
-        ].map((item) => (
-          <a class="rounded-2xl border border-neutral-200 p-6 transition hover:border-sky-500 hover:shadow-md" href={getLocalizedPath(locale, item.href)}>
-            <span class="text-lg font-semibold text-ink-900">{item.text}</span>
-          </a>
-        ))}
-      </div>
+      {[
+        {
+          group: 'Sourcing and pricing',
+          items: [
+            { href: '/blog/ipl-device-sourcing-guide', text: 'IPL device sourcing: from first quote to mass production' },
+            { href: '/blog/how-to-vet-ipl-device-manufacturer', text: 'How to vet an IPL device manufacturer before you pay a deposit' },
+            { href: '/blog/ipl-device-manufacturer-price', text: 'What an IPL device actually costs, and what moves the number' },
+            { href: '/blog/ipl-device-moq-explained', text: 'Why 500 units costs more per unit than 5,000' },
+          ],
+        },
+        {
+          group: 'Compliance and certification',
+          items: [
+            { href: '/blog/iec-62471-photobiological-safety-ipl', text: 'IEC 62471 photobiological safety: the report most brands never read' },
+            { href: '/blog/ipl-device-emc-testing', text: 'IPL device EMC testing: it fails in the design, not the line' },
+            { href: '/blog/ipl-labeling-and-claims', text: 'IPL labeling and claims: where hair removal ends and medical begins' },
+            { href: '/blog/fda-510k-vs-eu-mdr-ipl', text: 'FDA 510(k) vs EU MDR: which route a home IPL device needs' },
+          ],
+        },
+      ].map((block) => (
+        <div class="mt-8">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">{block.group}</h3>
+          <div class="mt-4 grid gap-6 md:grid-cols-2">
+            {block.items.map((item) => (
+              <a class="rounded-2xl border border-neutral-200 p-6 transition hover:border-sky-500 hover:shadow-md" href={getLocalizedPath(locale, item.href)}>
+                <span class="text-lg font-semibold text-ink-900">{item.text}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
 
     <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
