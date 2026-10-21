@@ -651,6 +651,25 @@ const siteBaseUrl = (
         ))}
       </div>
     </section>
+
+    {/* 采购决策类文章入口：本页是站内入链最多的页面之一，但出链只覆盖安全类旧文，
+        没有任何一条通往立项/询盘阶段的文章。目标文章只有英文版，故标题保留英文。 */}
+    <section class="mt-16">
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">Sourcing guides</h2>
+      <p class="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">Before you request a quote: how these devices are priced, how MOQ changes the unit cost, and what to check on a supplier before you pay a deposit.</p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {[
+          { href: '/blog/ipl-device-sourcing-guide', text: 'IPL device sourcing: from first quote to mass production' },
+          { href: '/blog/how-to-vet-ipl-device-manufacturer', text: 'How to vet an IPL device manufacturer before you pay a deposit' },
+          { href: '/blog/ipl-device-manufacturer-price', text: 'What an IPL device actually costs, and what moves the number' },
+          { href: '/blog/ipl-device-moq-explained', text: 'Why 500 units costs more per unit than 5,000' },
+        ].map((item) => (
+          <a class="rounded-[1.75rem] border border-neutral-200 bg-white p-7 transition hover:border-sky-500 hover:shadow-md" href={getLocalizedPath(locale, item.href)}>
+            <span class="text-lg font-semibold text-ink-900">{item.text}</span>
+          </a>
+        ))}
+      </div>
+    </section>
   </div>
   <script>
     // Hero 旗舰产品手动轮播：左右箭头 + 指示点，无自动播放
