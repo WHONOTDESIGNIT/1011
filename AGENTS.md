@@ -62,3 +62,10 @@ tree with real history is exactly the disease this cleanup removed.
 - Guard failures: read `ops/RUNBOOK.md` first, never edit the guard to pass.
 - One-time per clone: `git config core.hooksPath ops/seo/git-hooks`.
 - Machine-specific values (paths, credentials) belong in untracked files, not in commits.
+- Scripts self-locate and configuration has exactly one source: `ops/seo/run-task.ps1`
+  resolves its own directory and reads the `.env` beside it, and the scheduled tasks pass
+  only `-File`. Do not add per-task environment variables or a `WorkingDirectory` — that
+  is exactly where a stale path would hide after a move.
+- Before treating a branch as merged, check its `head.sha`, not just `state=merged`:
+  a branch can be merged and then pushed to again, and the later commits are then
+  stranded outside `main` (this happened on 2026-10-21 with PR #92).
