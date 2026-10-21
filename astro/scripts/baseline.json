@@ -2,7 +2,7 @@
   "htmlTotal": 3433,
   "nonIndexablePages": 23,
   "nonIndexablePagesDetail": "Pages that exist in dist but are deliberately absent from site-urls.txt and the sitemap: 22 x 404 (root + 21 non-English locales) + 1 Netlify forms placeholder (/__forms). Invariant checked in verify-baseline: htmlTotal - site-urls.txt lines === this number. Update it deliberately, with a reason, when the set changes (e.g. English-only posts add 21 fallback shims each, which do stay out of the list).",
-  "htmlPerLocale": {
+  "blogPerLocale": {
     "en": 77,
     "tr": 77,
     "ro": 77,

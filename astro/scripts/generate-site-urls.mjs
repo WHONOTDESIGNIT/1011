@@ -183,4 +183,36 @@ console.log(`✅ site-urls.txt 已生成：${unique.length} 条 URL（${LOCALES.
 console.log(`   静态核心路径 ${STATIC_PATHS.length} × ${LOCALES.length} = ${STATIC_PATHS.length * LOCALES.length}`);
 console.log(`   博客文章 URL ${posts.length}`);
 console.log(`   分类聚合页 URL ${categoryUrls}（${enCats.size} 个分类；去重移除 ${removed} 条）`);
+
+// === 可复制的分解式 + 机器可读副本 ===
+// 任何解释性文字都从这里复制，不再手乘：之前两处"52 条""78 篇"就是因为人在注释和聊天里手算。
+const blogPerLocale = posts.length / LOCALES.length; // 22 个语种都有同量文章；不是整数会在下面报错
+const catPerLocale = categoryUrls / LOCALES.length;
+const staticTotal = STATIC_PATHS.length * LOCALES.length;
+const decomposition = {
+  locales: LOCALES.length,
+  staticPaths: STATIC_PATHS.length,
+  staticUrls: staticTotal,
+  blogPosts: posts.length,
+  blogPerLocale,
+  categoryUrls,
+  categoryPerLocale: catPerLocale,
+  total: unique.length,
+};
+const arithmeticallyExact =
+  staticTotal + posts.length + categoryUrls === unique.length &&
+  Number.isInteger(blogPerLocale) &&
+  Number.isInteger(catPerLocale);
+fs.writeFileSync(
+  path.join(REPO_ROOT, 'site-urls.breakdown.json'),
+  JSON.stringify(decomposition, null, 2) + '\n'
+);
+console.log(
+  `   分解：静态 ${STATIC_PATHS.length}×${LOCALES.length} + 博客 ${blogPerLocale}×${LOCALES.length} + 分类 ${catPerLocale}×${LOCALES.length} = ${unique.length}` +
+    (arithmeticallyExact ? '' : '   ⚠️ 与合计不吻合，请检查是否有第三来源')
+);
+if (!arithmeticallyExact) {
+  console.error('❌ 分解式与清单条数不吻合：存在未登记的 URL 来源，先查清再继续');
+  process.exit(1);
+}
 console.log(`   博客文章总数：${posts.length}（en ${posts.filter((p) => p.locale === 'en').length} 篇，含根目录英文旧文）`);

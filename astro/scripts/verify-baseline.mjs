@@ -220,28 +220,38 @@ function compare() {
     console.error('  · 要么修正基线里的 htmlTotal/htmlPerLocale，要么说明为什么页面数真的变了。\n');
   } else ok(`htmlTotal: ${cur.htmlTotal}（基线 ${base.htmlTotal}，±${TOL.htmlTotalDelta}）`);
 
-  // 每语言博客页
+  // 每语言博客页（字段是"博客页"，不是"全部页面"：静态页与分类页不计入）
+  // 键名从 htmlPerLocale 改为 blogPerLocale：旧名读起来像全页口径，实际只数 dist/<locale>/blog。
+  // 兼容旧基线：两个键都读。
+  const perLocaleBase = base.blogPerLocale ?? base.htmlPerLocale;
   const perLocaleFails = [];
   for (const loc of BUILD_LOCALES) {
-    const b = base.htmlPerLocale?.[loc];
+    const b = perLocaleBase?.[loc];
     if (b === undefined) { perLocaleFails.push(`基线缺语言 ${loc}`); continue; }
     const c = cur.htmlPerLocale[loc] ?? 0;
     if (Math.abs(c - b) > TOL.htmlPerLocaleDelta) perLocaleFails.push(`expected ${b}, got ${c} for ${loc}`);
   }
-  if (perLocaleFails.length) fail(`htmlPerLocale: ${perLocaleFails.join('; ')}`);
-  else ok(`htmlPerLocale: ${BUILD_LOCALES.length} 语言博客页全部在 ±${TOL.htmlPerLocaleDelta} 内`);
+  if (perLocaleFails.length) fail(`blogPerLocale: ${perLocaleFails.join('; ')}`);
+  else ok(`blogPerLocale: ${BUILD_LOCALES.length} 语言的博客页全部在 ±${TOL.htmlPerLocaleDelta} 内（静态页/分类页不计入）`);
 
   // 清单与页数的对平：htmlTotal 应当正好等于 site-urls.txt 条数 + 已知不可索引页。
   // 这条把"23 个页面不在清单里"从口头常识变成每次构建都在验的断言：
   // 差值变大 = 多出了不参与索引的空壳页（例如只写英文、其余语种出 fallback shim）。
   const URL_FILE = path.resolve(__dirname, '../../site-urls.txt');
+  const BREAKDOWN_FILE = path.resolve(__dirname, '../../site-urls.breakdown.json');
   let urlCount = null;
+  let breakdown = null;
   try {
     urlCount = readFileSync(URL_FILE, 'utf8').split('\n').filter((l) => l.trim()).length;
+    breakdown = JSON.parse(readFileSync(BREAKDOWN_FILE, 'utf8'));
   } catch {
-    warn(`urlList: 找不到 ${URL_FILE}，跳过对平检查（generate-site-urls 正常会先生成）`);
+    warn(`urlList: 找不到站点清单或其分解文件，跳过对平检查（generate-site-urls 正常会先生成）`);
   }
   if (urlCount !== null) {
+    // 分解式只从 generate-site-urls 写出的文件里取，不在任何文档里手写。
+    const breakdownText = breakdown
+      ? `静态 ${breakdown.staticPaths}×${breakdown.locales} + 博客 ${breakdown.blogPerLocale}×${breakdown.locales} + 分类 ${breakdown.categoryPerLocale}×${breakdown.locales}`
+      : '（缺分解文件）';
     if (typeof base.nonIndexablePages !== 'number') {
       fail('urlList: baseline.json 缺 nonIndexablePages，无法对平页面数与清单条数');
     } else {
@@ -253,7 +263,7 @@ function compare() {
         console.error('  · 差值变大通常意味着新增了只写英文的文章：每篇会多出 21 个 fallback shim');
         console.error('  · 空壳页不是"上线内容"，要么补译文消掉，要么在 baseline.json 里写明为什么留着。\n');
       } else {
-        ok(`urlList: 清单 ${urlCount} 条 + 已知不可索引 ${delta} = 页面 ${cur.htmlTotal}`);
+        ok(`urlList: 清单 ${urlCount} 条（${breakdownText}）+ 已知不可索引 ${delta} = 页面 ${cur.htmlTotal}`);
       }
     }
   }
