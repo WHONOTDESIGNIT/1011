@@ -186,48 +186,47 @@ console.log(`   分类聚合页 URL ${categoryUrls}（${enCats.size} 个分类�
 
 // === 可复制的分解式 + 机器可读副本 ===
 // 任何解释性文字都从这里复制，不再手乘：之前两处"52 条""78 篇"就是因为人在注释和聊天里手算。
-// 各语种文章数可以不同：一篇纯英文文章只存在于 en，其余语种没有对应文件。
-// 旧写法用 posts.length / LOCALES.length 求平均并要求是整数，于是 1698 / 22 = 77.18 不通过，
-// 把"存在英语独有文章"误判成"有未登记的 URL 来源"。断言要看总数是否对得上，不是分布是否均匀。
-const blogCounts = new Map();
-for (const p of posts) blogCounts.set(p.locale, (blogCounts.get(p.locale) ?? 0) + 1);
-const blogCountValues = [...blogCounts.values()];
-const blogBase = Math.min(...blogCountValues);
-const blogExtra = posts.length - blogBase * LOCALES.length;
-const blogUniform = blogExtra === 0;
-const blogPerLocale = blogUniform ? posts.length / LOCALES.length : null;
-const catPerLocale = categoryUrls / LOCALES.length;
+//
+// 2026-10-21 修正：不再要求"各语种篇数相等"。只写英文的文章本来就会在 21 个语种生成
+// meta-refresh shim（页数 +21/篇，清单只 +1），那种状态下篇数天然不等而清单仍然完整。
+// 原断言 `Number.isInteger(posts.length / LOCALES.length)` 会让任何英文-only 内容在
+// 生成清单这一步失败，且报错写成"存在未登记的 URL 来源"——把人引向不存在的第三来源。
+// 现在只守两条真正的不变量：
+//   ① 静态 + 博客 + 分类 必须精确等于去重后的条数（有未登记来源就报错）
+//   ② 去重不能删掉任何一条（重复 URL 就报错）
+const perLocalePosts = Object.fromEntries(
+  LOCALES.map((l) => [l, posts.filter((p) => p.locale === l).length])
+);
 const staticTotal = STATIC_PATHS.length * LOCALES.length;
 const decomposition = {
   locales: LOCALES.length,
   staticPaths: STATIC_PATHS.length,
   staticUrls: staticTotal,
   blogPosts: posts.length,
-  blogPerLocale,
-  blogPerLocaleIsUniform: blogUniform,
-  blogBasePerLocale: blogBase,
-  blogLocaleOverflow: blogExtra,
-  blogPerLocaleCounts: Object.fromEntries([...blogCounts.entries()].sort()),
+  blogPostsPerLocale: perLocalePosts,
   categoryUrls,
-  categoryPerLocale: catPerLocale,
+  categoryPerLocale: categoryUrls / LOCALES.length,
   total: unique.length,
 };
-const arithmeticallyExact =
-  staticTotal + posts.length + categoryUrls === unique.length &&
-  Number.isInteger(catPerLocale);
+const sumMatches = staticTotal + posts.length + categoryUrls === unique.length;
+const dedupeLost = removed !== 0;
 fs.writeFileSync(
   path.join(REPO_ROOT, 'site-urls.breakdown.json'),
   JSON.stringify(decomposition, null, 2) + '\n'
 );
-const blogTerm = blogUniform
-  ? `${blogPerLocale}×${LOCALES.length}`
-  : `${blogBase}×${LOCALES.length} + ${blogExtra} 篇英语独有`;
 console.log(
-  `   分解：静态 ${STATIC_PATHS.length}×${LOCALES.length} + 博客 ${blogTerm} + 分类 ${catPerLocale}×${LOCALES.length} = ${unique.length}` +
-    (arithmeticallyExact ? '' : '   ⚠️ 与合计不吻合，请检查是否有第三来源')
+  `   分解：静态 ${STATIC_PATHS.length}×${LOCALES.length} + 博客 ${posts.length} + 分类 ${categoryUrls} = ${unique.length}` +
+    (sumMatches ? '' : '   ⚠️ 与合计不吻合')
 );
-if (!arithmeticallyExact) {
+console.log(
+  `   各语种博客篇数：${Object.entries(perLocalePosts).map(([l, n]) => `${l} ${n}`).join(' / ')}`
+);
+if (!sumMatches) {
   console.error('❌ 分解式与清单条数不吻合：存在未登记的 URL 来源，先查清再继续');
+  process.exit(1);
+}
+if (dedupeLost) {
+  console.error(`❌ 去重删掉了 ${removed} 条 URL：说明有重复条目，先查清再继续`);
   process.exit(1);
 }
 console.log(`   博客文章总数：${posts.length}（en ${posts.filter((p) => p.locale === 'en').length} 篇，含根目录英文旧文）`);
