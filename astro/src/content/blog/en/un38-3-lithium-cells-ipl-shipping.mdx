@@ -1,0 +1,82 @@
+---
+title: "Shipping IPL Devices with Lithium Cells: The UN38.3 Document Set Forwarders Ask For"
+description: "A lithium cell qualified to UN38.3 is only the start. Before a forwarder books an air or sea shipment they want the report matching the exact cell in the device, the test summary, an updated safety data sheet, a 1.2 m drop report and a transport condition assessment. Here is the full set, what each document does, and the four mismatches that hold a booking."
+citableSummary: "UN38.3 is the qualification of the lithium cell or battery itself, run against eight tests in the UN Manual of Tests and Criteria. It is not a shipment certificate for the finished device. For an IPL device with an internal cell, forwarders typically ask for the UN38.3 test report, the UN38.3 test summary required since 2020, a valid safety data sheet, a 1.2 m drop test report, and a transport conditions assessment for the mode being used. The report must identify the same cell model used in the device, and a change of cell means a new report. Watt-hours decide the limits: watt-hours equal nominal voltage multiplied by amp-hours, so a 3.7 V 2000 mAh cell is 7.4 Wh."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Regulatory"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "un38-3-lithium-cells-ipl-shipping"
+translationKey: "un38-3-lithium-cells-ipl-shipping"
+readTime: "8 min"
+---
+
+**Short answer:** UN38.3 qualifies the cell, not the shipment. For an IPL device with an internal lithium cell, the forwarder wants a set of five documents, and the first one has to name the exact cell model inside the device you are shipping. Change the cell and the set is reissued.
+
+## Why the same cell can have four UN38.3 reports
+
+Open our battery file for one 18650 cell and you find more than one UN38.3 report. Different labs, different dates, same cell model. That looks like duplication until you know why it happens.
+
+Cell makers reissue reports when a production or material change happens, when a certificate body asks for a re-test, when a market regulator requires a fresh one, or when a report ages out relative to a customer's own supplier approval. Each reissue produces a new report number and, in the fuller files, a change description report that explains what changed and why the previous report is superseded.
+
+That last document is the one buyers never ask about and forwarders are glad to see. It answers the question a customs broker eventually asks: why does this shipment carry a report dated after the one in your file.
+
+The practical consequence is simple. Do not treat the UN38.3 report as a permanent certificate. Ask for the current one, and ask which cell revision it refers to.
+
+## The five documents, and what each one is for
+
+| Document | What it proves | Who issues it | What goes stale |
+|---|---|---|---|
+| UN38.3 test report | The cell model passed the eight tests in the UN Manual of Tests and Criteria | The cell maker, through an accredited lab | Superseded on any cell change |
+| UN38.3 test summary | A short extract of the report, required for transport since 2020 | The cell maker, released with the report | Same as the report |
+| Safety data sheet | Hazard and handling information, in the current GHS format | The cell or pack supplier | Usually reviewed on a multi-year cycle and on regulation change |
+| 1.2 m drop test report | The cell or pack does not leak or rupture after a drop | The cell maker, through a lab | Tied to the package and cell configuration |
+| Transport conditions assessment | States how the goods may travel by air, sea or road, and under which conditions | A transport testing body in the origin country | Tied to the mode, and some lanes ask for a current one |
+
+Then there is a second layer for markets that regulate the cell itself rather than its transport. Cell-level safety marks, and Japan's requirement covering batteries as a separate item from the appliance, sit in that layer. That the appliance and the cell are filed as two separate things in Japan surprises people who assume one mark covers both, and [how regulators classify home IPL devices](/blog/how-regulators-classify-home-ipl) covers the split.
+
+## The four mismatches that hold a booking
+
+Not one of these is a safety problem. All of them stop a shipment.
+
+**The report names a different cell model than the device.** Cell makers change part numbers, and a substitution during a shortage leaves the report pointing at the old model. The forwarder compares the report to the packing list, not to your intent.
+
+**The report's applicant is the cell maker, and the forwarder wants to see the link to the shipper.** The report will always be in the cell maker's name, because they commissioned it. What closes the gap is a declaration from the manufacturer stating which qualified cell is inside which device, with the report it refers to. Two paragraphs, one page, signed.
+
+**The safety data sheet is out of date.** This is the most common single cause of a held booking, because it is the document nobody owns. It has to be the current revision for the cell, not a copy of one that was correct two years ago.
+
+**The watt-hour figure in the paperwork does not match the cell.** Watt-hours are nominal voltage times amp-hours. A 3.7 V, 2000 mAh cell is 7.4 Wh. Get that arithmetic wrong on a form and the goods get classified against a different limit than they should be.
+
+## The numbers that decide the packaging
+
+Watt-hours are the number that matters, and they are small for consumer IPL devices.
+
+| Item | Figure | Where it comes from |
+|---|---|---|
+| Cell in the remote of our LED mask platform | 7.4 Wh | 3.7 V × 2.0 Ah |
+| Typical internal cell in a cordless IPL handset | single digits to low tens of Wh | Voltage × capacity on the cell datasheet |
+| Threshold above which air handling tightens | 100 Wh per battery | Air transport rules for lithium ion |
+
+Because the cells are small, shipments of IPL devices usually travel under the lighter regime, with limits on state of charge and on the number of units per package. Those limits are the forwarder's call and they change between packing instructions. The one thing a manufacturer should never do is assume the regime. Ask which packing instruction the lane uses, in writing, before the cartons are built.
+
+A cordless device and a device with a coin cell in the remote are also not the same shipment category. The remote is still a battery inside equipment, and it still needs the paperwork, even though the cell weighs almost nothing.
+
+## What to hand the forwarder, every time
+
+A pack that answers the booking desk in one message, rather than five:
+
+1. Device model and the exact cell model inside it.
+2. Current UN38.3 report for that cell, plus its test summary.
+3. Current safety data sheet.
+4. 1.2 m drop report for the pack or cell configuration being shipped.
+5. Transport conditions assessment for the mode being booked.
+6. One page of declaration: which qualified cell sits in which device, referencing which report.
+7. Watt-hour figure per unit, and the units per carton.
+
+The declaration is the sheet that saves the day. When a booking desk has the report in one hand and the packing list in the other, the declaration is what connects them without a chain of emails.
+
+## What we do, and what we do not
+
+We hold the full document set for the cells used in our platforms, keep it current, and pass it on with the commercial documents, including the change description when a cell revision lands. We do not issue UN38.3 reports, we do not act as the shipper of record, and we do not tell a customer which packing instruction their lane uses. That answer belongs to the forwarder, in writing.
+
+If the shipment in question is a cordless handset, [the packaging and logistics process](/services/packaging-logistics) covers how the carton and the battery paperwork travel together, [the carton and retail packaging article](/blog/ipl-device-shipping-packaging-gift-box-remailer-master-carton) covers what goes inside it, and [the power adapter article](/blog/ipl-device-power-adapter-travel-plug) covers the other half of the electrical compliance question that comes up in the same shipping conversation.
