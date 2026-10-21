@@ -1047,6 +1047,25 @@ const productSchema = {
       </div>
     </section>
 
+    {/* 相关阅读：把产品详情页的入链权重导向采购决策类文章。
+        产品详情页原本出链 0 条通往博客，而站内权重最高的页面（各 100+ 入链）对内容页贡献为零。
+        标题保留英文，因为目标文章本身只有英文版；本地化页面链过去同样读得到。 */}
+    <section>
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">Related reading</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {[
+          { href: '/blog/how-to-vet-ipl-device-manufacturer', text: 'How to vet an IPL device manufacturer before you pay a deposit' },
+          { href: '/blog/ipl-device-manufacturer-price', text: 'What an IPL device actually costs, and what moves the number' },
+          { href: '/blog/ipl-device-moq-explained', text: 'Why 500 units costs more per unit than 5,000' },
+          { href: '/blog/ipl-device-sourcing-guide', text: 'IPL device sourcing: from first quote to mass production' },
+        ].map((item) => (
+          <a class="rounded-2xl border border-neutral-200 p-6 transition hover:border-sky-500 hover:shadow-md" href={getLocalizedPath(locale, item.href)}>
+            <span class="text-lg font-semibold text-ink-900">{item.text}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
     <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 px-8 py-14 text-center text-white">
       <h2 class="text-3xl font-bold md:text-4xl">{fill(t(locale, 'productDetail.ctaTitle'), { productName: product.name })}</h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">{t(locale, 'productDetail.ctaDescription')}</p>
