@@ -42,9 +42,25 @@ const DEFAULT_OG_IMAGE_PATH = '/images/home/hero-section-sapphire-ipl-device-whi
 // 缺失的原因，且当时构建全绿、无任何提示，只能靠人工对数量才发现。
 //
 // 因此：内容缺口必须在内容层修（补齐翻译），不允许靠 sitemap 兜底。数量超限直接 fail，
-// 让 CI/Netlify 构建当场红掉。确需临时放行时显式声明环境变量，并在提交信息写明原因：
+// 让 CI/Netlify 构建当场红掉。确需临时放行时，把额度声明在 baseline.json 的
+// sitemapCanonicalMismatch 里（含原因与补齐计划），或显式传环境变量覆盖：
 //   SITEMAP_MAX_CANONICAL_MISMATCH=21 npm run build
-const MAX_CANONICAL_MISMATCH = Number(process.env.SITEMAP_MAX_CANONICAL_MISMATCH ?? 0);
+//
+// 2026-10-21：额度改为默认从 baseline.json 读取。原因是环境变量在 Netlify 上不设就不生效，
+// 于是"本地放行、线上红掉"或"线上要另配一份"两种坑都会出现；写进基线则本地与 CI 同一来源。
+// 额度归零后请删掉 baseline.json 里那个键，让守卫回到默认 0。
+const DECLARED_MAX_CANONICAL_MISMATCH = (() => {
+  try {
+    const raw = readFileSync(path.join(__dirname, 'baseline.json'), 'utf8');
+    const v = JSON.parse(raw).sitemapCanonicalMismatch;
+    return Number.isFinite(v) ? v : 0;
+  } catch {
+    return 0;
+  }
+})();
+const MAX_CANONICAL_MISMATCH = Number(
+  process.env.SITEMAP_MAX_CANONICAL_MISMATCH ?? DECLARED_MAX_CANONICAL_MISMATCH
+);
 
 function resolveBaseUrl() {
   return (process.env.URL ?? process.env.DEPLOY_PRIME_URL ?? process.env.SITE_URL ?? 'https://iplmanufacturer.com').replace(/\/$/, '');
