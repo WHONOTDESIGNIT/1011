@@ -641,6 +641,17 @@ a{text-decoration:none;color:inherit}
 @media(max-width:959px){.site-footer{padding:60px 0}.footer-container{padding:0 var(--pad-40)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-col-cta h4{font-size:30px;line-height:38px}}
 @media(max-width:767px){.footer-container{padding:0 var(--pad-24)}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-col-cta h4{font-size:26px;line-height:34px}}
 
+/* Commercial terms */
+.commercial-terms{padding:80px 0;background:var(--color-white)}
+.commercial-terms-container{max-width:920px;margin:0 auto;padding:0 var(--pad-40)}
+.commercial-terms-heading{font-family:Syne,sans-serif;font-size:40px;line-height:46px;font-weight:400;letter-spacing:-.4px;color:var(--color-ink);margin-bottom:28px}
+.commercial-terms-table{width:100%;border-collapse:collapse;text-align:left}
+.commercial-terms-table th,.commercial-terms-table td{padding:18px 16px;border-top:1px solid rgba(2,3,3,.14);vertical-align:top;font-size:16px;line-height:24px}
+.commercial-terms-table th{width:28%;font-weight:600;color:var(--color-ink)}
+.commercial-terms-table td{color:var(--color-ink)}
+.commercial-terms-note{margin-top:18px;font-size:13px;line-height:20px;color:rgba(2,3,3,.6)}
+@media(max-width:767px){.commercial-terms{padding:56px 0}.commercial-terms-container{padding:0 var(--pad-24)}.commercial-terms-heading{font-size:30px;line-height:36px}.commercial-terms-table th{width:40%;font-size:14px}.commercial-terms-table th,.commercial-terms-table td{padding:14px 10px;font-size:14px;line-height:21px}}
+
 </style>
   <Analytics />
 </head>
@@ -1067,6 +1078,30 @@ a{text-decoration:none;color:inherit}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ COMMERCIAL TERMS ═══ -->
+<section class="commercial-terms" id="commercial-terms-section">
+  <div class="commercial-terms-container">
+    <h2 class="commercial-terms-heading">{t(locale, 'servicesPage.privateLabel.terms.title')}</h2>
+    <table class="commercial-terms-table">
+      <tbody>
+        <tr>
+          <th scope="row">{t(locale, 'servicesPage.privateLabel.terms.rows.0.label')}</th>
+          <td>{t(locale, 'servicesPage.privateLabel.terms.rows.0.value')}</td>
+        </tr>
+        <tr>
+          <th scope="row">{t(locale, 'servicesPage.privateLabel.terms.rows.1.label')}</th>
+          <td>{t(locale, 'servicesPage.privateLabel.terms.rows.1.value')}</td>
+        </tr>
+        <tr>
+          <th scope="row">{t(locale, 'servicesPage.privateLabel.terms.rows.2.label')}</th>
+          <td>{t(locale, 'servicesPage.privateLabel.terms.rows.2.value')}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="commercial-terms-note">{t(locale, 'servicesPage.privateLabel.terms.note')}</p>
   </div>
 </section>
 

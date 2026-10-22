@@ -1866,12 +1866,30 @@
           "desc": "Tam bir tasarımla mı gelirsiniz, yoksa ekibimizin geliştirmesini mi istersiniz; adetlerinize, zaman çizelgenize ve bütçenize göre uyum sağlıyoruz.",
           "cta": "Projenizi Başlatın"
         }
+      },
+      "terms": {
+        "title": "Ticari koşullar, rakamlarla",
+        "rows": {
+          "0": {
+            "label": "MOQ",
+            "value": "Numuneler 1 adetten başlar. Toplu alım model başına 500 adetten başlar; 200 adetten itibaren görüşülebilir."
+          },
+          "1": {
+            "label": "Birim fiyat",
+            "value": "Birim başına FOB USD 18 ila 58; platform ve konfigürasyona göre belirlenir. Hacim kademesi, o modelin liste fiyatı üzerinden indirimi belirler ve proforma faturada belirtilir."
+          },
+          "2": {
+            "label": "Özel kalıp",
+            "value": "Ayrıca faturalandırılır, RMB 150,000 tutarına kadar; kümülatif siparişler 30,000 adede ulaştığında iade edilir."
+          }
+        },
+        "note": "Fiyatlar birim başına FOB Shenzhen'dir; navlun, gümrük vergileri ve hedef pazarın gerektirdiği sertifikalar hariçtir."
       }
     },
     "oemOdm": {
       "meta": {
-        "title": "OEM/ODM Çözümleri | iShine",
-        "description": "IPL cihazları için iShine OEM ve ODM üretimi: konsept geliştirme, mühendislik, prototipleme, FDA/CE uyumluluğu, özel etiketleme ve anahtar teslim üretim."
+        "title": "OEM ve ODM Programları için IPL Üreticisi | iShine",
+        "description": "OEM ve ODM programlarını uçtan uca yürüten bir IPL üreticisi: konsept, mühendislik, kalıp, sertifikasyon ve üretim. MOQ 500 adetten, numuneler 1 adetten."
       },
       "hero": {
         "title1": "Sizin Vizyonunuz,",

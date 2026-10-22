@@ -2350,12 +2350,30 @@
           "desc": "Niezależnie od tego, czy mają Państwo gotowy projekt, czy potrzebują, aby nasz zespół go opracował, dostosowujemy się do Państwa ilości, terminów i budżetu.",
           "cta": "Rozpocznij projekt"
         }
+      },
+      "terms": {
+        "title": "Warunki handlowe w liczbach",
+        "rows": {
+          "0": {
+            "label": "MOQ",
+            "value": "Sample od 1 sztuki. Produkcja seryjna od 500 sztuk na model, możliwość negocjacji od 200 sztuk."
+          },
+          "1": {
+            "label": "Cena jednostkowa",
+            "value": "USD 18 do 58 za sztukę FOB, w zależności od platformy i konfiguracji. Próg wolumenowy określa rabat od ceny katalogowej danego modelu, podany na fakturze proforma."
+          },
+          "2": {
+            "label": "Forma własna",
+            "value": "Rozliczana osobno, do RMB 150,000, zwracana po osiągnięciu 30,000 sztuk w zamówieniach łącznie."
+          }
+        },
+        "note": "Ceny podane za sztukę FOB Shenzhen i nie obejmują frachtu, ceł ani certyfikacji wymaganej przez rynek docelowy."
       }
     },
     "oemOdm": {
       "meta": {
-        "title": "Rozwiązania OEM/ODM | iShine",
-        "description": "Produkcja OEM i ODM firmy iShine dla urządzeń IPL: opracowanie koncepcji, inżynieria, prototypowanie, zgodność z FDA/CE, etykietowanie marki własnej i produkcja pod klucz."
+        "title": "Producent IPL dla programów OEM i ODM | iShine",
+        "description": "Producent IPL realizujący programy OEM i ODM kompleksowo: koncepcja, inżynieria, oprzyrządowanie, certyfikacja i produkcja. MOQ od 500 sztuk, sample od 1."
       },
       "hero": {
         "title1": "Państwa wizja,",
