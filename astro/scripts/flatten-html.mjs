@@ -121,6 +121,8 @@ if (removedDirs > 0) {
 // 规则必须排在任何目录通配规则（/blog/:splat → /blog/:splat.html 200）之前，
 // 否则通配规则先命中、重写到已被删除的 .html，最终落入 404 兜底。
 // 使用 `!`（force）确保优先于静态文件解析。
+const deletedShimPaths = []; // 被删掉的垫片 URL，写盘后逐条核对 _redirects 里确有其 301
+
 function convertRefreshShims(dist) {
   const shims = [];
   const walk = (dir) => {
@@ -149,6 +151,7 @@ function convertRefreshShims(dist) {
       const from = '/' + rel.slice(0, -'.html'.length);
       const to = m[1];
       fs.unlinkSync(full);
+      deletedShimPaths.push(from);
       shims.push(`${from} ${to} 301!`);
     }
   };
@@ -275,7 +278,16 @@ if (rules.length > 0) {
     '# 注意：_redirects 先于 netlify.toml 的 [[redirects]] 处理，重叠规则以本文件为准。',
     '',
   ].join('\n');
-  fs.writeFileSync(redirectsFile, header + rules.join('\n') + '\n');
+    const body = header + rules.join('\n') + '\n';
+    fs.writeFileSync(redirectsFile, body);
+    // 断言：本脚本删掉的每个垫片页，_redirects 里必须有对应的 301 行。
+    // 缺一条，那个 URL 就从「200 + meta refresh」变成 404 —— 静默少一个入口。
+    const missing = deletedShimPaths.filter((from) => !body.includes(`${from} `));
+    if (missing.length) {
+      console.error(`❌ ${missing.length} 个垫片页被删除但 _redirects 里没有对应规则：`);
+      for (const m of missing.slice(0, 10)) console.error(`   ${m}`);
+      process.exit(1);
+    }
   console.log(`📄 已生成 _redirects（${rules.length} 条规则，通配符压缩方案）`);
 }
 
