@@ -6,8 +6,8 @@ import { createHmac } from 'node:crypto';
  *
  * 安全排查 R7：此前任何人可以无限刷 likes/dislikes，计数完全不可信。现在加入
  *   1) 去重：同一「IP + 文章」在窗口期内只计一次（窗口 24 小时）；
- *   2) 隐私：不存原始 IP，只存 HMAC 后的哈希前 32 位（密钥取 VOTE_HASH_SECRET，回退 FUNCTION_SECRET，
- *      都没有时用固定盐 —— 仍然不落原始 IP）；
+ *   2) 隐私：不存原始 IP，只存 HMAC 后的哈希前 32 位（密钥取 VOTE_HASH_SECRET，
+ *      未配置时用固定盐 —— 仍然不落原始 IP；本模块不读 FUNCTION_SECRET）；
  *   3) 限流：代码级 rateLimit（Netlify 所有套餐可用），按 IP + 站点聚合。
  *
  * 计数本体仍存在 site-scoped store `article-votes`（跨部署保留）。
@@ -35,8 +35,14 @@ function clientIp(req: Request): string {
 // 24 小时去重窗口内，旧盐算出的标记仍要认：换盐时不能让已经投过的人立刻能再投一次。
 const LEGACY_SALT = 'ishine-vote-dedupe-v1';
 
+// 本模块只认 VOTE_HASH_SECRET。曾经回退到 FUNCTION_SECRET，那是接线混淆：
+// 轮换图片密钥会静默换掉投票的盐，用旧盐写的去重键没人查，24 小时内全员可重投。
+// 生产从未配过 FUNCTION_SECRET，因此不存在用它作密钥写下的旧键，直接删掉即可。
+//
+// 残余边界（设计如此，不靠机制解决）：VOTE_HASH_SECRET 自身轮换也会让旧值失查，
+// 因为环境变量只存当前值。规则是只在两轮投票之间轮换——先确认 24 小时窗口内没有投票。
 function currentSalt(): string {
-  return process.env.VOTE_HASH_SECRET || process.env.FUNCTION_SECRET || LEGACY_SALT;
+  return process.env.VOTE_HASH_SECRET || LEGACY_SALT;
 }
 
 function hashWith(salt: string, ip: string): string {
@@ -49,19 +55,16 @@ function ipHash(ip: string): string {
 }
 
 /**
- * 迁移期要一并认的旧盐：固定盐，以及可能配过（或以后为图片功能配上）的 FUNCTION_SECRET。
+ * 迁移期要一并认的旧盐：只有那个固定盐。
  *
- * 只取"与当前盐不同"的那些，所以 env 什么都没配时这个集合为空，不会多一次查询。
+ * 现在的盐就是固定盐（VOTE_HASH_SECRET 未配）时返回空数组，单盐单查，不多一次读取；
+ * 一旦配上 VOTE_HASH_SECRET，旧键（固定盐写入的）仍会被查，24 小时窗口不会被撕开。
  *
- * 为什么必须是"集合"而不是"FUNCTION_SECRET || 固定盐"：只取一个的话，
- * 以后单独配 FUNCTION_SECRET（例如为 upload-image 补密钥）会让 currentSalt 变成它，
- * 而旧键（固定盐算出来的）恰好不被检查 —— 去重静默失效，全员可重投。
- * 那正是这次迁移要防的事故，不能靠"别忘了同时配 VOTE_HASH_SECRET"来避免。
+ * 这里曾经把 FUNCTION_SECRET 也算作候选旧盐。它删掉了，理由见上面 currentSalt 的注释：
+ * 生产从未用它当投票盐，留着只会让"轮换图片密钥"影响投票——方向是删代码，不是加机制。
  */
 function legacySalts(): string[] {
-  const candidates = [LEGACY_SALT, process.env.FUNCTION_SECRET ?? ''];
-  const current = currentSalt();
-  return [...new Set(candidates.filter((s) => s && s !== current))];
+  return currentSalt() === LEGACY_SALT ? [] : [LEGACY_SALT];
 }
 
 function readCounts(raw: string | null): { likes: number; dislikes: number } {
