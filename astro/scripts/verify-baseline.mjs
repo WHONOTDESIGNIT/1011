@@ -262,7 +262,11 @@ function compare() {
         console.error('\n提示：这个差值只应包含"不进清单、也不进 sitemap"的页面——');
         console.error('  · 当前基线内的集合：22 个 404（根 + 21 语种）+ 1 个 /__forms 占位页');
         console.error('  · 差值变大通常意味着新增了只写英文的文章：每篇会多出 21 个 fallback shim');
-        console.error('  · 空壳页不是"上线内容"，要么补译文消掉，要么在 baseline.json 里写明为什么留着。\n');
+        console.error('  · 空壳页不是"上线内容"，要么补译文消掉，要么在 baseline.json 里写明为什么留着。');
+        console.error('\n如果你刚合并的是【译文】，这个红色是预期的，不是错误：');
+        console.error('  每译完一篇，21 个 shim 从空壳页变成真实页面 → htmlTotal 不变，');
+        console.error('  site-urls.txt 反而 +21，于是这个差值和 sitemapCanonicalMismatch 双双下降。');
+        console.error('  在 astro/ 下跑 `npm run baseline:measure`，把它打印的实测值抄进 baseline.json，再构建一次即为绿。\n');
       } else {
         ok(`urlList: 清单 ${urlCount} 条（${breakdownText}）+ 已知不可索引 ${delta} = 页面 ${cur.htmlTotal}`);
       }

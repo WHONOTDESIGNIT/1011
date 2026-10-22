@@ -18,20 +18,18 @@ const BLOG = path.resolve(__dirname, '../src/content/blog');
 const ALLOWLIST = path.join(__dirname, 'claims-parity.json');
 const WRITE_ALLOWLIST = process.argv.includes('--write-allowlist');
 
-// 标准号：机构前缀 + 编号，例如 IEC 60335-2-113、EN IEC 55014-1、CISPR 11、UN 38.3、ISO 13485
-// 编号后只允许".数字"或"-数字"，否则荷兰语的 "IEC 60335-1-testrapport" 会整段吞进来。
-const TOKEN = /\b(?:IEC|EN|CISPR|ISO|UN|ANSI|JIS|KS|GB|AS|ASTM|BS|UL)\s?\d+(?:[-.]\d+)*/g;
+// 标准号只按【编号】比较，不按前缀比较：英文写 "14-2"、译文写 "a CISPR 14-2" 是同一件事，
+// 按前缀比会把这类正常重复报成漂移（pt-PT 的 CISPR 14-2 就是这么来的）。
+// 编号兜底同时解决阿拉伯语把 ISO 写成「أيزو」的问题——数字不翻译。
+// 这几个编号是我们对外声明里真正要紧的标准。
+const TRACKED_NUMBERS = /\b(?:13485|60335|62471|55014|60601|62133|14971|10993)\b(?:[-.]\d+)*/g;
 
 const normalise = (s) => s.toUpperCase().replace(/\s+/g, ' ').replace(/[.,;:)]+$/, '').trim();
 
 function tokensOf(file) {
   const text = readFileSync(file, 'utf8');
   const out = new Set();
-  for (const m of text.match(TOKEN) ?? []) {
-    const t = normalise(m);
-    // 单独一个 "UN 38.3" 之类也要保留；过滤掉编号过短的空壳
-    if (/\d/.test(t) && t.length >= 5) out.add(t);
-  }
+  for (const m of text.match(TRACKED_NUMBERS) ?? []) out.add(normalise(m));
   return out;
 }
 

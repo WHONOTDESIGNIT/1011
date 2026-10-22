@@ -20,6 +20,7 @@ and is a finding when it does not.
 | C-004 | EN IEC 55014-1 / 55014-2 EMC assessments | CE and UKCA EMC reports for SKN003 Pro and SKN011 only | verified, **scope-limited** | 2026-10-21 |
 | C-005 | EMC for the FDA-cleared platforms (SKN001 / SKN002 batch) | IEC 60601-1-2 (CISPR 11) test report from an accredited laboratory, medical electrical equipment | verified | 2026-10-21 |
 | C-006 | What the CNAS photobiological reports actually cite | All five reports read end to end: they cite IEC 62471:2006 and nothing else. No 60335, no 60601, no 55014 anywhere in any of them | verified — **do not attribute 2-23 to these reports** | 2026-10-21 |
+| C-007 | ISO 13485 and MDSAP company certification | **Held until 2026-04-03; not held now.** The certificates were not renewed. The site therefore states the past tense (`llms.txt`) and carries no current-tense claim: the blog posts, English and all 21 translations, no longer contain the certification sentence or the certification table row | held, not current — one wording everywhere | 2026-10-21 |
 
 ## Two families, not one
 
@@ -47,4 +48,5 @@ as two sentences, or say "the CE and UKCA platforms" explicitly.
 - The IEC 60335-2-113 references in six older posts are procurement advice
   ("ask the factory for the 2-113 report"), not first-party claims. Whether that
   advice is correct for this device class is a content-accuracy question, tracked
-  separately.
+  separately. Until it is decided, 189 occurrences remain in the 21 translations
+  and are listed as known drift in `astro/scripts/claims-parity.json`.

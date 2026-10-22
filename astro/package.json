@@ -19,7 +19,8 @@
     "check:meganav": "node scripts/check-meganav-drift.mjs",
     "smoke:functions": "node scripts/smoke/smoke-delete-image.mjs",
     "check:netlify-ignore": "node scripts/check-netlify-ignore.mjs",
-    "check:claims-parity": "node scripts/check-claims-parity.mjs"
+    "check:claims-parity": "node scripts/check-claims-parity.mjs",
+    "baseline:measure": "node scripts/measure-baseline.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
