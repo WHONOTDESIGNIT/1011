@@ -87,7 +87,11 @@
     "quality": "Kontrol Kualitas",
     "iplComponentsCatalogue": "Komponen IPL",
     "serviceSupport": "Layanan & Dukungan",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "ledMask001a": "Masker LED 001A",
+    "ledMask002a": "Masker LED 002A",
+    "ledPanelF618": "Panel LED F618",
+    "ledTherapy": "Terapi Cahaya LED"
   },
   "footer": {
     "tagline": "Produsen perangkat IPL terkemuka yang mengkhususkan diri dalam layanan OEM/ODM dengan pengalaman lebih dari 15 tahun.",
@@ -613,6 +617,18 @@
           "title": "Keamanan IPL",
           "desc": "Apakah penghilangan bulu dengan IPL aman?"
         }
+      },
+      "ledMask001a": {
+        "name": "Masker LED 001A",
+        "tagline": "Masker 600 LED, 4 Panjang Gelombang"
+      },
+      "ledMask002a": {
+        "name": "Masker LED 002A",
+        "tagline": "7 Warna + NIR"
+      },
+      "ledPanelF618": {
+        "name": "Panel LED F618",
+        "tagline": "Panel 4 Panjang Gelombang di Meja"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Mari diskusikan kebutuhan proyek Anda dan jelajahi bagaimana solusi OEM/ODM kami dapat membantu Anda sukses di pasar IPL.",
         "start": "Mulai Proyek Anda",
         "back": "Kembali ke Layanan"
+      },
+      "vet": {
+        "title": "Cara pembeli memverifikasi produsen IPL, dan cara kami menjawab",
+        "items": {
+          "0": {
+            "title": "Mulai dari sertifikat, bukan brosur",
+            "body": "Klaim CE atau FDA adalah dokumen dengan nomor, lembaga penerbit dan cakupan. Mintalah berkasnya, lalu periksa bahwa model pada sertifikat adalah model yang Anda minta penawarannya. Kami mengirim berkas sebelum penawaran, bukan setelah uang muka."
+          },
+          "1": {
+            "title": "Mintalah laporan uji, bukan lembar spesifikasi",
+            "body": "Lembar data mencantumkan satu angka. Laporan uji mencantumkan metode, instrumen dan sampel. Tanyakan area mana yang dirujuk angka fluence dan apakah laporan itu mencakup standar yang berlaku di pasar Anda."
+          },
+          "2": {
+            "title": "Tanyakan apa yang tidak dikerjakan pabrik",
+            "body": "Pemasok yang mengklaim mengerjakan semuanya adalah pemasok yang mensubkontrakkan bagian yang tidak Anda lihat. Kami tidak membuat sel litium, lampu atau jendela safir; kami membelinya, mengujinya saat diterima, dan dapat menyebutkan spesifikasi yang mengikat masing-masing."
+          },
+          "3": {
+            "title": "Tanyakan siapa pemilik cetakan, dan kapan dananya dikembalikan",
+            "body": "Cetakan khusus dihitung terpisah dan menjadi milik proyek yang membayarnya. Cetakan kami dibatasi RMB 150,000 dan dikembalikan setelah pesanan kumulatif mencapai 30,000 unit, secara tertulis, sebelum faktur pertama."
+          }
+        }
+      },
+      "docs": {
+        "title": "Dokumen yang kami serahkan, dan kapan",
+        "items": {
+          "0": "Saat penawaran: lembar spesifikasi platform, MOQ, rentang harga satuan, biaya cetakan dan waktu tunggu yang dihitung dari penerimaan uang muka.",
+          "1": "Sebelum pembuatan cetakan: set gambar, dieline artwork, dan teks label atau klaim yang disyaratkan pasar Anda.",
+          "2": "Sebelum pengiriman: laporan uji untuk standar yang berlaku di pasar tujuan, deklarasi kesesuaian, dan packing list dengan dimensi karton terukur.",
+          "3": "Bersama pengiriman: faktur, packing list, sertifikat asal, dan bill of lading atau air waybill."
+        }
+      },
+      "boundary": {
+        "title": "Yang tidak kami lakukan",
+        "body": "Kami tidak mensertifikasi perangkat untuk suatu pasar atas nama Anda, kami tidak menempelkan desain Anda pada kemasan merek lain, dan kami tidak menawarkan harga yang tidak dapat kami pertahankan selama masa berlaku yang tercetak pada faktur proforma."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Cocok untuk wajah & tubuh",
         "launch": "Tanggal peluncuran global",
         "rspNote": "Harga eceran yang disarankan (tidak termasuk PPN) adalah harga referensi yang diperoleh dari tren pasar historis dan penilaian kami terhadap kondisi pasar saat ini."
+      },
+      "led": {
+        "label": "Terapi Cahaya LED",
+        "title": "Perbandingan Masker Terapi Cahaya LED",
+        "description": "Dua platform masker LED yang dapat dipakai, disandingkan. Keduanya perangkat perawatan wajah kosmetik untuk penggunaan di rumah. Panel meja F618 didokumentasikan di halaman produknya sendiri.",
+        "model": "Model",
+        "compare": {
+          "form": "Bentuk perangkat",
+          "wavelengths": "Panjang gelombang",
+          "lightOutput": "Keluaran cahaya",
+          "control": "Kontrol",
+          "sessionTime": "Durasi sesi",
+          "coverage": "Area pemakaian",
+          "rsp": "Harga eceran yang disarankan (tidak termasuk PPN)",
+          "price": "Harga satuan pabrik (USD)",
+          "bestFor": "Paling cocok untuk"
+        },
+        "priceNote": "Harga satuan yang ditampilkan adalah USD per unit untuk rentang kuantitas yang tercantum; buka halaman produk untuk daftar lengkapnya.",
+        "panelNote": "Mencari panel meja? Lihat panel terapi cahaya LED F618."
       }
     },
     "backToClients": "Kembali ke klien",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Pendinginan Es + 9 Level Intensitas"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Masker Wajah 600 LED, 4 Panjang Gelombang"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Masker Silikon 7 Warna + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Panel Cahaya Meja 216 LED"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "Masker Terapi LED 001A",
+      "tagline": "Masker LED 4 Panjang Gelombang yang Dapat Dipakai",
+      "description": "Masker perawatan kulit LED yang dapat dipakai untuk penggunaan di rumah, dengan 600 LED SMD pada cahaya merah, kuning, biru dan inframerah dekat, delapan mode pintar, dan remote genggam yang juga memuat baterai. Perangkat perawatan kulit kosmetik untuk penggunaan di rumah - tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan atau mencegah penyakit atau kondisi medis apa pun.",
+      "specs": {
+        "lightSource": {
+          "label": "Sumber cahaya",
+          "value": "600 LED SMD pada empat panjang gelombang"
+        },
+        "wavelengths": {
+          "label": "Panjang gelombang",
+          "value": "merah 630-660 nm, kuning 590-595 nm, biru 415 nm, inframerah dekat 830 nm"
+        },
+        "modes": {
+          "label": "Mode",
+          "value": "8 mode pintar (M1-M8)"
+        },
+        "control": {
+          "label": "Kontrol",
+          "value": "Remote genggam (tekan dan tahan untuk menyalakan, tekan singkat untuk ganti mode)"
+        },
+        "sessionTime": {
+          "label": "Durasi sesi",
+          "value": "10-15 menit"
+        },
+        "frequency": {
+          "label": "Frekuensi yang disarankan",
+          "value": "1-5 sesi per minggu, tergantung mode"
+        },
+        "maxUse": {
+          "label": "Pemakaian maksimum per area",
+          "value": "Sekali per hari"
+        },
+        "autoShutoff": {
+          "label": "Mati otomatis",
+          "value": "Ya, di akhir setiap sesi"
+        },
+        "battery": {
+          "label": "Baterai",
+          "value": "5,000 mAh lithium-ion, terpasang di dalam remote"
+        },
+        "charging": {
+          "label": "Pengisian daya",
+          "value": "USB-C, sekitar 3 jam"
+        },
+        "sessionsPerCharge": {
+          "label": "Sesi per pengisian",
+          "value": "Sekitar 15-20 sesi"
+        },
+        "inputPower": {
+          "label": "Masukan pengisian",
+          "value": "DC 5 V 1 A (maks 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Pelindung mata",
+          "value": "Cangkir mata terpasang"
+        },
+        "dimensions": {
+          "label": "Dimensi",
+          "value": "243 x 200 x 150 mm (sesuai buku manual)"
+        },
+        "weight": {
+          "label": "Berat bersih",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Finishing",
+          "value": "Cangkang putih dengan aksen warna emas"
+        },
+        "headstrap": {
+          "label": "Pengikat kepala",
+          "value": "Tali hook-and-loop yang dapat disetel"
+        },
+        "inTheBox": {
+          "label": "Isi kemasan",
+          "value": "Unit utama masker, remote, kabel USB-C, kantong penyimpanan, buku manual"
+        },
+        "warranty": {
+          "label": "Garansi",
+          "value": "1 tahun perangkat utama, 6 bulan aksesori"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Empat Panjang Gelombang dalam Satu Masker",
+          "description": "600 LED SMD mencakup cahaya merah, kuning, biru dan inframerah dekat, sehingga satu perangkat yang dapat dipakai melayani empat rutinitas kosmetik berbeda."
+        },
+        "eightSmartModes": {
+          "title": "Delapan Mode Pintar",
+          "description": "M1 hingga M8 memasangkan kombinasi panjang gelombang tertentu untuk kebutuhan kosmetik berbeda, diganti dari remote genggam."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 Sesi per Pengisian",
+          "description": "Baterai 5,000 mAh di dalam remote memberi daya sekitar 15-20 sesi dan terisi ulang lewat USB-C dalam sekitar tiga jam."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Cangkir Mata dan Mati Otomatis",
+          "description": "Cangkir mata terpasang melindungi mata selama pemakaian, dan masker mati sendiri saat sesi berakhir."
+        }
+      },
+      "priceNote": "Harga satuan adalah EXW, dalam USD per unit, untuk kuantitas yang tercantum. Cetak logo, buku manual khusus dan kemasan ritel dihitung terpisah - hubungi kami untuk penawaran lengkap.",
+      "badge": "4 Panjang Gelombang",
+      "colors": [
+        "Putih / Emas"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "Masker Terapi LED 002A",
+      "tagline": "Masker LED Silikon 7 Warna + NIR",
+      "description": "Masker perawatan kulit LED untuk penggunaan di rumah berbahan silikon lembut dan ABS, dengan 264 LED pada tujuh warna tampak ditambah inframerah dekat 850 nm. Baterai 3,000 mAh bertahan sekitar tiga jam dan terisi ulang dalam sekitar satu jam. Perangkat perawatan kulit kosmetik untuk penggunaan di rumah - tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan atau mencegah penyakit atau kondisi medis apa pun.",
+      "specs": {
+        "productName": {
+          "label": "Nama produk",
+          "value": "Masker Wajah LED"
+        },
+        "modelNo": {
+          "label": "No. Model",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Material",
+          "value": "Silikon lembut + ABS"
+        },
+        "productSize": {
+          "label": "Ukuran produk",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Berat produk",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Ukuran kemasan",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Berat kemasan",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "QTY",
+          "value": "20 pcs per karton"
+        },
+        "cartonSize": {
+          "label": "Ukuran karton",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "N.W. / G.W.",
+          "value": "12.8 kg / 13.4 kg per karton"
+        },
+        "color": {
+          "label": "Warna",
+          "value": "Rose golden / dapat disesuaikan"
+        },
+        "feature": {
+          "label": "Fitur",
+          "value": "Terapi cahaya LED 7 warna + NIR (inframerah dekat)"
+        },
+        "ledColours": {
+          "label": "Warna LED",
+          "value": "Merah 630 nm, hijau 525 nm, biru 465 nm, ungu 390 nm, kuning 610 nm, sian 490 nm, putih 460-850 nm (campuran), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED",
+          "value": "66 x 4 = 264 pcs"
+        },
+        "battery": {
+          "label": "Kapasitas baterai",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Waktu pakai",
+          "value": "Sekitar 3 jam"
+        },
+        "chargingTime": {
+          "label": "Waktu pengisian",
+          "value": "Sekitar 1 jam"
+        },
+        "power": {
+          "label": "Daya",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Tegangan masukan",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Isi kemasan",
+          "value": "Masker x1, buku manual x1, remote x1, pelindung mata x1, kabel pengisian x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Tujuh Warna + Inframerah Dekat",
+          "description": "264 LED mencakup merah 630 nm, hijau 525 nm, biru 465 nm, ungu 390 nm, kuning 610 nm, sian 490 nm, putih 460-850 nm dan inframerah dekat 850 nm."
+        },
+        "softSiliconeAbs": {
+          "title": "Silikon Lembut + ABS",
+          "description": "Masker lentur 148 g berukuran 290 x 195 x 3.5 mm yang mengikuti lekuk wajah, bukan menjauh darinya."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Isi Satu Jam, Pakai Tiga Jam",
+          "description": "Baterai 3,000 mAh terisi dalam sekitar satu jam dan bertahan sekitar tiga jam."
+        },
+        "completeKit": {
+          "title": "Set Lengkap",
+          "description": "Disertai remote genggam, pelindung mata, kabel pengisian dan buku manual."
+        }
+      },
+      "priceNote": "Harga satuan adalah EXW, dalam USD per unit, untuk kuantitas yang tercantum. Cetak logo, buku manual khusus dan kemasan ritel dihitung terpisah - hubungi kami untuk penawaran lengkap.",
+      "badge": "7 Warna + NIR",
+      "colors": [
+        "Rose golden (dapat disesuaikan)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "Panel Terapi LED F618",
+      "tagline": "Panel Cahaya 4 Panjang Gelombang di Meja",
+      "description": "Panel terapi cahaya LED bertenaga listrik untuk perawatan kosmetik wajah dan tubuh: 216 chip LED pada panjang gelombang biru, kuning, merah dan inframerah, 54 lensa berfaset, dan delapan mode pilihan. Perangkat perawatan kulit kosmetik untuk penggunaan di rumah - tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan atau mencegah penyakit atau kondisi medis apa pun.",
+      "specs": {
+        "packagingName": {
+          "label": "Nama kemasan ritel",
+          "value": "Panel Terapi Cahaya LED"
+        },
+        "lightSource": {
+          "label": "Sumber cahaya",
+          "value": "LED, 216 chip pada empat panjang gelombang"
+        },
+        "ledArray": {
+          "label": "Susunan LED",
+          "value": "54 lensa heksagonal berfaset dalam tata letak sarang lebah, dengan empat chip LED di setiap posisi lensa"
+        },
+        "wavelengths": {
+          "label": "Panjang gelombang",
+          "value": "biru 460 nm, kuning 590 nm, merah 662 nm, inframerah 850 nm"
+        },
+        "infrared": {
+          "label": "Inframerah",
+          "value": "850 nm, digabungkan ke setiap mode perawatan"
+        },
+        "modes": {
+          "label": "Mode",
+          "value": "8 mode perawatan (P1-P8) plus siaga"
+        },
+        "control": {
+          "label": "Kontrol",
+          "value": "Satu tombol sentuh; kode mode aktif tampil di layar depan"
+        },
+        "application": {
+          "label": "Area pemakaian",
+          "value": "Wajah dan tubuh; dua mode didokumentasikan untuk pemakaian di kulit kepala dan area intim"
+        },
+        "sessionTime": {
+          "label": "Durasi sesi",
+          "value": "15-20 menit per mode, sekitar 20 menit per bagian tubuh"
+        },
+        "maxPerArea": {
+          "label": "Pemakaian maksimum per bagian tubuh",
+          "value": "30 menit"
+        },
+        "maxPerSession": {
+          "label": "Pemakaian maksimum per sesi",
+          "value": "60 menit"
+        },
+        "eyeProtection": {
+          "label": "Pelindung mata",
+          "value": "Kacamata pelindung disertakan; wajib dipakai selama pemakaian"
+        },
+        "powerSource": {
+          "label": "Sumber daya",
+          "value": "Hanya listrik, melalui adaptor yang disertakan (tanpa baterai)"
+        },
+        "adapter": {
+          "label": "Adaptor",
+          "value": "AC 100-240 V, 50/60 Hz ke DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Daya keluaran",
+          "value": "maks 15 W"
+        },
+        "dimensions": {
+          "label": "Dimensi",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Berat bersih",
+          "value": "620 g (unit utama 530 g, adaptor 90 g)"
+        },
+        "stand": {
+          "label": "Penyangga",
+          "value": "Kaki penopang belakang yang dapat dilipat"
+        },
+        "standards": {
+          "label": "Standar produksi",
+          "value": "GB 4706.1-2005 dan GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Isi kemasan",
+          "value": "Unit utama, adaptor daya, buku manual, kacamata pelindung"
+        },
+        "qty": {
+          "label": "QTY",
+          "value": "20 pcs per karton"
+        },
+        "cartonSize": {
+          "label": "Ukuran karton",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Berat kotor",
+          "value": "18.835 kg per karton (berat aktual)"
+        },
+        "origin": {
+          "label": "Negara asal",
+          "value": "Dibuat di China"
+        },
+        "warranty": {
+          "label": "Garansi",
+          "value": "1 tahun"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Empat Panjang Gelombang di Setiap Mode",
+          "description": "Biru 460 nm, kuning 590 nm, merah 662 nm dan inframerah 850 nm - inframerah digabungkan ke semua delapan mode perawatan."
+        },
+        "lensArray": {
+          "title": "216 LED di Balik 54 Lensa Berfaset",
+          "description": "Masing-masing dari 54 posisi lensa memuat empat chip LED, tersusun sarang lebah di seluruh panel."
+        },
+        "eightSelectableModes": {
+          "title": "Delapan Mode Pilihan",
+          "description": "Satu tombol sentuh berganti dari P1 ke P8, dengan kode mode aktif tampil di layar depan."
+        },
+        "deskOrFloorStanding": {
+          "title": "Berdiri di Meja atau Lantai",
+          "description": "Kaki penopang belakang yang dapat dilipat mengatur sudut panel sesuai kebutuhan, dan panel berjalan dari adaptor 12 V yang disertakan."
+        }
+      },
+      "priceNote": "Harga satuan adalah EXW, dalam USD per unit, untuk kuantitas yang tercantum. Cetak logo, buku manual khusus dan kemasan ritel dihitung terpisah - hubungi kami untuk penawaran lengkap.",
+      "badge": "Panel Meja",
+      "colors": [
+        "Putih / abu-abu muda"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 unit",
+      "tier2": "100-499 unit",
+      "tier3": "500-1,999 unit",
+      "tier4": "2,000+ unit"
+    },
+    "ledSampleMoq": "MOQ sampel: 1 unit",
+    "ledBulkMoq": "MOQ borongan: 500 unit (pesanan awal 200 unit dapat didiskusikan)",
+    "rspLine": "Harga eceran yang disarankan (tidak termasuk PPN): {value}"
   },
   "stickyContact": {
     "wechatTip": "Chat di WeChat — dapatkan balasan dalam 10 menit",

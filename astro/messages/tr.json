@@ -87,7 +87,11 @@
     "quality": "Kalite Kontrol",
     "iplComponentsCatalogue": "IPL Bileşenleri",
     "serviceSupport": "Hizmet ve Destek",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "ledMask001a": "LED Maske 001A",
+    "ledMask002a": "LED Maske 002A",
+    "ledPanelF618": "LED Panel F618",
+    "ledTherapy": "LED Işık Terapisi"
   },
   "footer": {
     "tagline": "OEM/ODM hizmetlerinde uzmanlaşmış, 15+ yıllık deneyime sahip lider IPL cihaz üreticisi.",
@@ -613,6 +617,18 @@
           "title": "IPL Güvenliği",
           "desc": "IPL epilasyon güvenli midir?"
         }
+      },
+      "ledMask001a": {
+        "name": "LED Maske 001A",
+        "tagline": "600 LED'li, 4 Dalga Boylu Maske"
+      },
+      "ledMask002a": {
+        "name": "LED Maske 002A",
+        "tagline": "7 Renk + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED Panel F618",
+        "tagline": "Masaüstü 4 Dalga Boylu Panel"
       }
     },
     "hero": {
@@ -2070,6 +2086,40 @@
         "description": "Proje gereksinimlerinizi konuşalım ve OEM/ODM çözümlerimizin IPL pazarında başarılı olmanıza nasıl yardımcı olabileceğini birlikte keşfedelim.",
         "start": "Projenizi Başlatın",
         "back": "Hizmetlere Geri Dön"
+      },
+      "vet": {
+        "title": "Alıcılar bir IPL üreticisini nasıl değerlendirir ve biz nasıl yanıt veriyoruz",
+        "items": {
+          "0": {
+            "title": "Broşürle değil, sertifikayla başlayın",
+            "body": "CE veya FDA beyanı; numarası, veren kuruluşu ve kapsamı olan bir belgedir. Dosyayı isteyin, sonra sertifikadaki modelin teklif verdiğiniz model olduğunu doğrulayın. Dosyayı depozitodan sonra değil, tekliften önce gönderiyoruz."
+          },
+          "1": {
+            "title": "Şartname föyünü değil, test raporunu isteyin",
+            "body": "Veri föyü bir sayı belirtir. Test raporu yöntemi, cihazı ve numuneyi belirtir. Enerji yoğunluğu değerinin hangi alana ait olduğunu ve raporun pazarınızın uyguladığı standardı kapsayıp kapsamadığını sorun."
+          },
+          "2": {
+            "title": "Fabrikanın neyi yapmadığını sorun",
+            "body": "Her şeyi yaptığını öne süren tedarikçi, göremediğiniz parçaları taşerona veren tedarikçidir. Lityum hücreyi, lambayı veya safir pencereyi üretmiyoruz; satın alıyor, teslim aldığımızda test ediyor ve her birinin hangi şartnameye göre tutulduğunu söyleyebiliyoruz."
+          },
+          "3": {
+            "title": "Kalıbın kime ait olduğunu ve ne zaman iade edildiğini sorun",
+            "body": "Özel kalıp ayrıca faturalandırılır ve bedelini ödeyen projeye aittir. Bizimki RMB 150,000 ile sınırlıdır ve kümülatif siparişler 30,000 adede ulaştığında, ilk faturadan önce yazılı olarak iade edilir."
+          }
+        }
+      },
+      "docs": {
+        "title": "Teslim ettiğimiz belgeler ve zamanları",
+        "items": {
+          "0": "Teklifte: platform şartname föyü, minimum sipariş adedi, birim fiyat kademesi, kalıp maliyeti ve depozitonun alınmasından itibaren sayılan termin süresi.",
+          "1": "Kalıp öncesinde: teknik resim seti, ambalaj kesim kalıbı ve pazarınızın gerektirdiği etiket veya beyan metni.",
+          "2": "Sevkiyat öncesinde: varış pazarının uyguladığı standartlara ait test raporları, uygunluk beyanı ve ölçülmüş karton ölçülerini içeren çeki listesi.",
+          "3": "Sevkiyatla birlikte: fatura, çeki listesi, menşe şahadetnamesi ve konşimento veya hava yükü senedi."
+        }
+      },
+      "boundary": {
+        "title": "Yapmadıklarımız",
+        "body": "Sizin adınıza bir cihazı bir pazar için sertifikalandırmıyoruz, tasarımınızı başka bir markanın kutusuna koymuyoruz ve proforma faturada yazılı geçerlilik süresi boyunca sabit tutamayacağımız bir fiyat vermiyoruz."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Yüz ve vücut için uygun",
         "launch": "Küresel lansman tarihi",
         "rspNote": "Tavsiye edilen perakende satış fiyatı (KDV hariç), geçmiş pazar eğilimlerinden ve mevcut pazar koşullarına ilişkin değerlendirmemizden türetilen bir referans fiyattır."
+      },
+      "led": {
+        "label": "LED Işık Terapisi",
+        "title": "LED Işık Terapisi Maskeleri Karşılaştırması",
+        "description": "İki giyilebilir LED maske platformu, yan yana. İkisi de evde kullanıma yönelik kozmetik yüz bakım cihazıdır. F618 masaüstü paneli kendi ürün sayfasında belgelenmiştir.",
+        "model": "Model",
+        "compare": {
+          "form": "Yapı tipi",
+          "wavelengths": "Dalga boyları",
+          "lightOutput": "Işık çıkışı",
+          "control": "Kontrol",
+          "sessionTime": "Seans süresi",
+          "coverage": "Uygulama alanı",
+          "rsp": "Önerilen perakende fiyat (KDV hariç)",
+          "price": "Fabrika birim fiyatı (USD)",
+          "bestFor": "En uygun kullanım"
+        },
+        "priceNote": "Gösterilen birim fiyatlar, listelenen miktar aralıkları için birim başına USD'dir; tam kademe listesi için ürün sayfasını açın.",
+        "panelNote": "Bunun yerine masaüstü paneli mi arıyorsunuz? F618 LED ışık terapi panelini inceleyin."
       }
     },
     "backToClients": "Müşterilere Geri Dön",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Buz Soğutma + 9 Yoğunluk Seviyesi"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "600 LED'li, 4 Dalga Boylu Yüz Maskesi"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "7 Renk + NIR Silikon Maske"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "216 LED'li Masaüstü Işık Paneli"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LED Terapi Maskesi 001A",
+      "tagline": "4 Dalga Boylu Giyilebilir LED Maske",
+      "description": "Kırmızı, sarı, mavi ve yakın kızılötesi ışıkta 600 SMD LED, sekiz akıllı mod ve pili de taşıyan bir el tipi kumanda içeren, evde kullanıma yönelik giyilebilir LED cilt bakım maskesi. Evde kullanım için kozmetik cilt bakım cihazıdır - herhangi bir hastalığı veya tıbbi durumu teşhis etme, tedavi etme, iyileştirme veya önleme amacı taşımaz.",
+      "specs": {
+        "lightSource": {
+          "label": "Işık kaynağı",
+          "value": "Dört dalga boyunda 600 SMD LED"
+        },
+        "wavelengths": {
+          "label": "Dalga boyları",
+          "value": "630-660 nm kırmızı, 590-595 nm sarı, 415 nm mavi, 830 nm yakın kızılötesi"
+        },
+        "modes": {
+          "label": "Modlar",
+          "value": "8 akıllı mod (M1-M8)"
+        },
+        "control": {
+          "label": "Kontrol",
+          "value": "El tipi kumanda (açmak için basılı tutun, mod değiştirmek için kısa basın)"
+        },
+        "sessionTime": {
+          "label": "Seans süresi",
+          "value": "10-15 dakika"
+        },
+        "frequency": {
+          "label": "Önerilen sıklık",
+          "value": "Moda bağlı olarak haftada 1-5 seans"
+        },
+        "maxUse": {
+          "label": "Bölge başına maksimum kullanım",
+          "value": "Günde bir kez"
+        },
+        "autoShutoff": {
+          "label": "Otomatik kapanma",
+          "value": "Evet, her seansın sonunda"
+        },
+        "battery": {
+          "label": "Batarya",
+          "value": "5,000 mAh lityum iyon, kumandanın içine yerleşik"
+        },
+        "charging": {
+          "label": "Şarj",
+          "value": "USB-C, yaklaşık 3 saat"
+        },
+        "sessionsPerCharge": {
+          "label": "Şarj başına seans",
+          "value": "Yaklaşık 15-20 seans"
+        },
+        "inputPower": {
+          "label": "Şarj girişi",
+          "value": "DC 5 V 1 A (maks. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Göz koruması",
+          "value": "Dahili göz yastıkları"
+        },
+        "dimensions": {
+          "label": "Boyutlar",
+          "value": "243 x 200 x 150 mm (kullanım kılavuzuna göre)"
+        },
+        "weight": {
+          "label": "Net ağırlık",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Yüzey",
+          "value": "Altın tonlu detaylı beyaz gövde"
+        },
+        "headstrap": {
+          "label": "Baş sabitleme",
+          "value": "Ayarlanabilir cırt cırtlı kayışlar"
+        },
+        "inTheBox": {
+          "label": "Kutu içeriği",
+          "value": "Maske ana ünitesi, kumanda, USB-C kablo, saklama kılıfı, kullanım kılavuzu"
+        },
+        "warranty": {
+          "label": "Garanti",
+          "value": "Ana cihaz 1 yıl, aksesuarlar 6 ay"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Tek Maskede Dört Dalga Boyu",
+          "description": "600 SMD LED kırmızı, sarı, mavi ve yakın kızılötesi ışığı kapsar; böylece tek bir giyilebilir cihaz dört farklı kozmetik rutine hizmet eder."
+        },
+        "eightSmartModes": {
+          "title": "Sekiz Akıllı Mod",
+          "description": "M1'den M8'e kadar modlar, farklı kozmetik ihtiyaçlar için belirli dalga boyu kombinasyonlarını eşleştirir ve el tipi kumandadan değiştirilir."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "Şarj Başına 15-20 Seans",
+          "description": "Kumandanın içindeki 5,000 mAh batarya yaklaşık 15-20 seans çalıştırır ve USB-C üzerinden yaklaşık üç saatte şarj olur."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Göz Yastıkları ve Otomatik Kapanma",
+          "description": "Dahili göz yastıkları kullanım sırasında gözleri korur ve seans bittiğinde maske kendini kapatır."
+        }
+      },
+      "priceNote": "Birim fiyatlar, gösterilen miktarlar için birim başına USD cinsinden EXW'dir. Logo baskısı, özel kılavuzlar ve perakende ambalaj ayrıca fiyatlandırılır - tam teklif için bize ulaşın.",
+      "badge": "4 Dalga Boyu",
+      "colors": [
+        "Beyaz / Altın"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED Terapi Maskesi 002A",
+      "tagline": "7 Renk + NIR Silikon LED Maske",
+      "description": "Yumuşak silikon ve ABS gövdede, yedi görünür renk ve 850 nm yakın kızılötesi dahil 264 LED taşıyan, evde kullanıma yönelik LED cilt bakım maskesi. 3,000 mAh batarya yaklaşık üç saat çalışır ve yaklaşık bir saatte şarj olur. Evde kullanım için kozmetik cilt bakım cihazıdır - herhangi bir hastalığı veya tıbbi durumu teşhis etme, tedavi etme, iyileştirme veya önleme amacı taşımaz.",
+      "specs": {
+        "productName": {
+          "label": "Ürün adı",
+          "value": "LED Yüz Maskesi"
+        },
+        "modelNo": {
+          "label": "Model No.",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Malzeme",
+          "value": "Yumuşak silikon + ABS"
+        },
+        "productSize": {
+          "label": "Ürün boyutu",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Ürün ağırlığı",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Ambalaj boyutu",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Ambalaj ağırlığı",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "ADET",
+          "value": "Karton başına 20 adet"
+        },
+        "cartonSize": {
+          "label": "Karton boyutu",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "N.A. / B.A.",
+          "value": "Karton başına 12.8 kg / 13.4 kg"
+        },
+        "color": {
+          "label": "Renk",
+          "value": "Gül altın / özelleştirilebilir"
+        },
+        "feature": {
+          "label": "Özellik",
+          "value": "7 renk + NIR (yakın kızılötesi) LED ışık terapisi"
+        },
+        "ledColours": {
+          "label": "LED renkleri",
+          "value": "Kırmızı 630 nm, yeşil 525 nm, mavi 465 nm, mor 390 nm, sarı 610 nm, camgöbeği 490 nm, beyaz 460-850 nm (karışım), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED adedi",
+          "value": "66 x 4 = 264 adet"
+        },
+        "battery": {
+          "label": "Batarya kapasitesi",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Çalışma süresi",
+          "value": "Yaklaşık 3 saat"
+        },
+        "chargingTime": {
+          "label": "Şarj süresi",
+          "value": "Yaklaşık 1 saat"
+        },
+        "power": {
+          "label": "Güç",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Giriş voltajı",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Paket içeriği",
+          "value": "Maske x1, kılavuz x1, kumanda x1, göz siperi x1, şarj kablosu x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Yedi Renk + Yakın Kızılötesi",
+          "description": "264 LED; kırmızı 630 nm, yeşil 525 nm, mavi 465 nm, mor 390 nm, sarı 610 nm, camgöbeği 490 nm, beyaz 460-850 nm ve 850 nm yakın kızılötesini kapsar."
+        },
+        "softSiliconeAbs": {
+          "title": "Yumuşak Silikon + ABS",
+          "description": "Yüzden uzak durmak yerine yüzle birlikte bükülen, 148 g ağırlığında ve 290 x 195 x 3.5 mm ölçülerinde esnek maske."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Bir Saatte Şarj, Üç Saat Çalışma",
+          "description": "3,000 mAh batarya yaklaşık bir saatte şarj olur ve yaklaşık üç saat çalışır."
+        },
+        "completeKit": {
+          "title": "Komple Set",
+          "description": "El tipi kumanda, göz siperi, şarj kablosu ve kullanım kılavuzu ile birlikte verilir."
+        }
+      },
+      "priceNote": "Birim fiyatlar, gösterilen miktarlar için birim başına USD cinsinden EXW'dir. Logo baskısı, özel kılavuzlar ve perakende ambalaj ayrıca fiyatlandırılır - tam teklif için bize ulaşın.",
+      "badge": "7 Renk + NIR",
+      "colors": [
+        "Gül altın (özelleştirilebilir)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED Terapi Paneli F618",
+      "tagline": "Masaüstü 4 Dalga Boylu Işık Paneli",
+      "description": "Yüz ve vücut kozmetik bakımı için şebeke elektriğiyle çalışan masaüstü LED ışık terapi paneli: mavi, sarı, kırmızı ve kızılötesi dalga boylarında 216 LED çipi, 54 fasetli lens ve sekiz seçilebilir mod. Evde kullanım için kozmetik cilt bakım cihazıdır - herhangi bir hastalığı veya tıbbi durumu teşhis etme, tedavi etme, iyileştirme veya önleme amacı taşımaz.",
+      "specs": {
+        "packagingName": {
+          "label": "Perakende ambalaj adı",
+          "value": "LED Işık Terapi Paneli"
+        },
+        "lightSource": {
+          "label": "Işık kaynağı",
+          "value": "LED, dört dalga boyunda 216 çip"
+        },
+        "ledArray": {
+          "label": "LED dizisi",
+          "value": "Petek düzeninde 54 fasetli altıgen lens; her lens konumunda dört LED çipi"
+        },
+        "wavelengths": {
+          "label": "Dalga boyları",
+          "value": "460 nm mavi, 590 nm sarı, 662 nm kırmızı, 850 nm kızılötesi"
+        },
+        "infrared": {
+          "label": "Kızılötesi",
+          "value": "850 nm, her tedavi moduna dahil edilmiştir"
+        },
+        "modes": {
+          "label": "Modlar",
+          "value": "8 tedavi modu (P1-P8) ve bekleme modu"
+        },
+        "control": {
+          "label": "Kontrol",
+          "value": "Tek dokunmatik tuş; aktif mod kodu ön ekranda gösterilir"
+        },
+        "application": {
+          "label": "Uygulama alanı",
+          "value": "Yüz ve vücut; iki mod saç derisi ve mahrem bölge kullanımı için belgelenmiştir"
+        },
+        "sessionTime": {
+          "label": "Seans süresi",
+          "value": "Mod başına 15-20 dakika, vücut bölgesi başına yaklaşık 20 dakika"
+        },
+        "maxPerArea": {
+          "label": "Vücut bölgesi başına maksimum kullanım",
+          "value": "30 dakika"
+        },
+        "maxPerSession": {
+          "label": "Seans başına maksimum kullanım",
+          "value": "60 dakika"
+        },
+        "eyeProtection": {
+          "label": "Göz koruması",
+          "value": "Koruyucu güneş gözlüğü birlikte verilir; kullanım sırasında zorunludur"
+        },
+        "powerSource": {
+          "label": "Güç kaynağı",
+          "value": "Yalnızca şebeke elektriği, birlikte verilen adaptör üzerinden (batarya yok)"
+        },
+        "adapter": {
+          "label": "Adaptör",
+          "value": "AC 100-240 V, 50/60 Hz - DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Çıkış gücü",
+          "value": "maks. 15 W"
+        },
+        "dimensions": {
+          "label": "Boyutlar",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Net ağırlık",
+          "value": "620 g (ana ünite 530 g, adaptör 90 g)"
+        },
+        "stand": {
+          "label": "Ayak",
+          "value": "Katlanır arka destek ayağı"
+        },
+        "standards": {
+          "label": "Üretim standardı",
+          "value": "GB 4706.1-2005 ve GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Kutu içeriği",
+          "value": "Ana ünite, güç adaptörü, kullanım kılavuzu, koruyucu güneş gözlüğü"
+        },
+        "qty": {
+          "label": "ADET",
+          "value": "Karton başına 20 adet"
+        },
+        "cartonSize": {
+          "label": "Karton boyutu",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Brüt ağırlık",
+          "value": "Karton başına 18.835 kg (gerçek ağırlık)"
+        },
+        "origin": {
+          "label": "Menşe ülkesi",
+          "value": "Çin'de üretilmiştir"
+        },
+        "warranty": {
+          "label": "Garanti",
+          "value": "1 yıl"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Dört Dalga Boyu, Her Modda",
+          "description": "Mavi 460 nm, sarı 590 nm, kırmızı 662 nm ve kızılötesi 850 nm - kızılötesi sekiz tedavi modunun tümüne dahil edilmiştir."
+        },
+        "lensArray": {
+          "title": "54 Fasetli Lens Arkasında 216 LED",
+          "description": "54 lens konumunun her biri, panel boyunca petek düzeninde yerleştirilmiş dört LED çipi taşır."
+        },
+        "eightSelectableModes": {
+          "title": "Sekiz Seçilebilir Mod",
+          "description": "Tek dokunmatik tuş P1'den P8'e kadar döner; aktif kod ön ekranda gösterilir."
+        },
+        "deskOrFloorStanding": {
+          "title": "Masa veya Zemin Kullanımı",
+          "description": "Katlanır arka destek ayağı paneli istediğiniz açıya ayarlar ve panel birlikte verilen 12 V adaptörden çalışır."
+        }
+      },
+      "priceNote": "Birim fiyatlar, gösterilen miktarlar için birim başına USD cinsinden EXW'dir. Logo baskısı, özel kılavuzlar ve perakende ambalaj ayrıca fiyatlandırılır - tam teklif için bize ulaşın.",
+      "badge": "Masaüstü Panel",
+      "colors": [
+        "Beyaz / açık gri"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 adet",
+      "tier2": "100-499 adet",
+      "tier3": "500-1,999 adet",
+      "tier4": "2,000+ adet"
+    },
+    "ledSampleMoq": "Numune minimum sipariş: 1 adet",
+    "ledBulkMoq": "Toptan minimum sipariş: 500 adet (200 adetlik ilk sipariş görüşülebilir)",
+    "rspLine": "Önerilen perakende fiyat (KDV hariç): {value}"
   },
   "stickyContact": {
     "wechatTip": "WeChat üzerinden yazın — 10 dakika içinde yanıt alın",

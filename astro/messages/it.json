@@ -87,7 +87,11 @@
     "quality": "Controllo qualità",
     "iplComponentsCatalogue": "Componenti IPL",
     "serviceSupport": "Servizio e assistenza",
-    "catalogue": "Catalogo"
+    "catalogue": "Catalogo",
+    "ledMask001a": "Maschera LED 001A",
+    "ledMask002a": "Maschera LED 002A",
+    "ledPanelF618": "Pannello LED F618",
+    "ledTherapy": "Fototerapia LED"
   },
   "footer": {
     "tagline": "Produttore leader di dispositivi IPL specializzato in servizi OEM/ODM con oltre 15 anni di esperienza.",
@@ -613,6 +617,18 @@
           "title": "Sicurezza IPL",
           "desc": "La depilazione IPL è sicura?"
         }
+      },
+      "ledMask001a": {
+        "name": "Maschera LED 001A",
+        "tagline": "Maschera 600 LED, 4 lunghezze d'onda"
+      },
+      "ledMask002a": {
+        "name": "Maschera LED 002A",
+        "tagline": "7 colori + NIR"
+      },
+      "ledPanelF618": {
+        "name": "Pannello LED F618",
+        "tagline": "Pannello da tavolo a 4 lunghezze d'onda"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Parliamo dei requisiti del Suo progetto e scopriamo come le nostre soluzioni OEM/ODM possono aiutarla ad avere successo nel mercato IPL.",
         "start": "Avvia il Suo progetto",
         "back": "Torna ai servizi"
+      },
+      "vet": {
+        "title": "Come i buyer verificano un produttore IPL, e come rispondiamo",
+        "items": {
+          "0": {
+            "title": "Parti dal certificato, non dalla brochure",
+            "body": "Una dichiarazione CE o FDA è un documento con un numero, un ente emittente e un campo di applicazione. Chiedi il file, poi verifica che il modello sul certificato sia quello che stai quotando. Inviamo il file prima del preventivo, non dopo l'acconto."
+          },
+          "1": {
+            "title": "Chiedi il rapporto di prova, non la scheda tecnica",
+            "body": "Una scheda tecnica riporta un numero. Un rapporto di prova riporta il metodo, lo strumento e il campione. Chiedi a quale area si riferisce il dato di fluenza e se il rapporto copre la norma applicata nel tuo mercato."
+          },
+          "2": {
+            "title": "Chiedi cosa la fabbrica non fa",
+            "body": "Un fornitore che dichiara di fare tutto è un fornitore che subappalta le parti che non puoi vedere. Non produciamo la cella al litio, la lampada o la finestra in zaffiro: le acquistiamo, le collaudiamo al ricevimento e possiamo indicarti la specifica a cui ognuna è tenuta."
+          },
+          "3": {
+            "title": "Chiedi a chi appartiene l'attrezzatura e quando viene rimborsata",
+            "body": "Uno stampo dedicato è fatturato a parte e appartiene al progetto che lo ha pagato. Il nostro ha un tetto di RMB 150,000 ed è rimborsato quando gli ordini cumulati raggiungono 30,000 unità, per iscritto, prima della prima fattura."
+          }
+        }
+      },
+      "docs": {
+        "title": "I documenti che consegniamo, e quando",
+        "items": {
+          "0": "Al preventivo: la scheda tecnica della piattaforma, il MOQ, la fascia di prezzo unitario, il costo dell'attrezzatura e il lead time calcolato dal ricevimento dell'acconto.",
+          "1": "Prima dell'attrezzatura: il set di disegni, la fustella grafica e il testo di etichetta o di claims richiesto dal tuo mercato.",
+          "2": "Prima della spedizione: i rapporti di prova per le norme applicate nel mercato di destinazione, la dichiarazione di conformità e la packing list con le dimensioni misurate dei cartoni.",
+          "3": "Con la spedizione: fattura, packing list, certificato di origine e polizza di carico o lettera di trasporto aereo."
+        }
+      },
+      "boundary": {
+        "title": "Cosa non facciamo",
+        "body": "Non certifichiamo un dispositivo per un mercato al tuo posto, non mettiamo il tuo design sulla confezione di un altro marchio e non quotiamo un prezzo che non possiamo mantenere per il periodo di validità stampato sulla fattura proforma."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Adatto a viso e corpo",
         "launch": "Data di lancio globale",
         "rspNote": "Il prezzo al dettaglio consigliato (IVA esclusa) è un prezzo di riferimento ricavato dalle tendenze storiche del mercato e dalla nostra valutazione delle attuali condizioni di mercato."
+      },
+      "led": {
+        "label": "Fototerapia LED",
+        "title": "Maschere per fototerapia LED a confronto",
+        "description": "Due piattaforme di maschere LED indossabili, a confronto. Entrambe sono dispositivi cosmetici per il viso a uso domestico. Il pannello da tavolo F618 è documentato nella sua pagina prodotto.",
+        "model": "Modello",
+        "compare": {
+          "form": "Fattore di forma",
+          "wavelengths": "Lunghezze d'onda",
+          "lightOutput": "Emissione luminosa",
+          "control": "Comando",
+          "sessionTime": "Durata della seduta",
+          "coverage": "Area di applicazione",
+          "rsp": "Prezzo al pubblico consigliato (IVA esclusa)",
+          "price": "Prezzo unitario di fabbrica (USD)",
+          "bestFor": "Ideale per"
+        },
+        "priceNote": "I prezzi unitari indicati sono in USD per unità, per le fasce di quantità elencate; apri una pagina prodotto per la scala completa.",
+        "panelNote": "Cerchi il pannello da tavolo? Vedi il pannello per fototerapia LED F618."
       }
     },
     "backToClients": "Torna ai clienti",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Raffreddamento a ghiaccio + 9 livelli di intensità"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Maschera facciale 600 LED, 4 lunghezze d'onda"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Maschera in silicone 7 colori + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Pannello luminoso da tavolo 216 LED"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "Maschera per fototerapia LED 001A",
+      "tagline": "Maschera LED indossabile a 4 lunghezze d'onda",
+      "description": "Una maschera LED indossabile per la cura della pelle a uso domestico, con 600 LED SMD su luce rossa, gialla, blu e vicino infrarosso, otto modalità intelligenti e un telecomando portatile che integra anche la batteria. Un dispositivo cosmetico per la cura della pelle a uso domestico: non è destinato a diagnosticare, trattare, curare o prevenire malattie o condizioni mediche.",
+      "specs": {
+        "lightSource": {
+          "label": "Sorgente luminosa",
+          "value": "600 LED SMD su quattro lunghezze d'onda"
+        },
+        "wavelengths": {
+          "label": "Lunghezze d'onda",
+          "value": "630-660 nm rosso, 590-595 nm giallo, 415 nm blu, 830 nm vicino infrarosso"
+        },
+        "modes": {
+          "label": "Modalità",
+          "value": "8 modalità intelligenti (M1-M8)"
+        },
+        "control": {
+          "label": "Comando",
+          "value": "Telecomando portatile (pressione prolungata per accendere, pressione breve per cambiare modalità)"
+        },
+        "sessionTime": {
+          "label": "Durata della seduta",
+          "value": "10-15 minuti"
+        },
+        "frequency": {
+          "label": "Frequenza consigliata",
+          "value": "1-5 sedute a settimana, secondo la modalità"
+        },
+        "maxUse": {
+          "label": "Uso massimo per area",
+          "value": "Una volta al giorno"
+        },
+        "autoShutoff": {
+          "label": "Spegnimento automatico",
+          "value": "Sì, al termine di ogni seduta"
+        },
+        "battery": {
+          "label": "Batteria",
+          "value": "5,000 mAh agli ioni di litio, integrata nel telecomando"
+        },
+        "charging": {
+          "label": "Ricarica",
+          "value": "USB-C, circa 3 ore"
+        },
+        "sessionsPerCharge": {
+          "label": "Sedute per carica",
+          "value": "Circa 15-20 sedute"
+        },
+        "inputPower": {
+          "label": "Ingresso di ricarica",
+          "value": "DC 5 V 1 A (15 W max)"
+        },
+        "eyeProtection": {
+          "label": "Protezione degli occhi",
+          "value": "Coppe oculari integrate"
+        },
+        "dimensions": {
+          "label": "Dimensioni",
+          "value": "243 x 200 x 150 mm (da manuale utente)"
+        },
+        "weight": {
+          "label": "Peso netto",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Finitura",
+          "value": "Scocca bianca con finiture dorate"
+        },
+        "headstrap": {
+          "label": "Fissaggio alla testa",
+          "value": "Cinghie regolabili in velcro"
+        },
+        "inTheBox": {
+          "label": "Contenuto della confezione",
+          "value": "Maschera, telecomando, cavo USB-C, custodia, manuale utente"
+        },
+        "warranty": {
+          "label": "Garanzia",
+          "value": "1 anno dispositivo principale, 6 mesi accessori"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Quattro lunghezze d'onda in una maschera",
+          "description": "600 LED SMD coprono luce rossa, gialla, blu e vicino infrarosso, così un solo dispositivo indossabile serve quattro routine cosmetiche diverse."
+        },
+        "eightSmartModes": {
+          "title": "Otto modalità intelligenti",
+          "description": "Da M1 a M8 abbinano combinazioni specifiche di lunghezze d'onda per diverse esigenze cosmetiche, selezionate dal telecomando portatile."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 sedute per carica",
+          "description": "Una batteria da 5,000 mAh nel telecomando alimenta circa 15-20 sedute e si ricarica via USB-C in circa tre ore."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Coppe oculari e spegnimento automatico",
+          "description": "Le coppe oculari integrate proteggono gli occhi durante l'uso e la maschera si spegne al termine della seduta."
+        }
+      },
+      "priceNote": "I prezzi unitari sono EXW, in USD per unità, per le quantità indicate. Stampa del logo, manuali personalizzati e confezioni retail sono quotati a parte: contattaci per un preventivo completo.",
+      "badge": "4 lunghezze d'onda",
+      "colors": [
+        "Bianco / Oro"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "Maschera per fototerapia LED 002A",
+      "tagline": "Maschera LED in silicone 7 colori + NIR",
+      "description": "Una maschera LED per la cura della pelle a uso domestico in silicone morbido e ABS, con 264 LED su sette colori visibili più vicino infrarosso a 850 nm. Una batteria da 3,000 mAh garantisce circa tre ore di funzionamento e si ricarica in circa un'ora. Un dispositivo cosmetico per la cura della pelle a uso domestico: non è destinato a diagnosticare, trattare, curare o prevenire malattie o condizioni mediche.",
+      "specs": {
+        "productName": {
+          "label": "Nome prodotto",
+          "value": "Maschera facciale LED"
+        },
+        "modelNo": {
+          "label": "N. modello",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Materiale",
+          "value": "Silicone morbido + ABS"
+        },
+        "productSize": {
+          "label": "Dimensioni prodotto",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Peso prodotto",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Dimensioni confezione",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Peso confezione",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Q.tà",
+          "value": "20 pz per cartone"
+        },
+        "cartonSize": {
+          "label": "Dimensioni cartone",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "Peso netto / Peso lordo",
+          "value": "12.8 kg / 13.4 kg per cartone"
+        },
+        "color": {
+          "label": "Colore",
+          "value": "Oro rosa / personalizzabile"
+        },
+        "feature": {
+          "label": "Caratteristica",
+          "value": "Fototerapia LED 7 colori + NIR (vicino infrarosso)"
+        },
+        "ledColours": {
+          "label": "Colori LED",
+          "value": "Rosso 630 nm, verde 525 nm, blu 465 nm, viola 390 nm, giallo 610 nm, ciano 490 nm, bianco 460-850 nm (mix), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED",
+          "value": "66 x 4 = 264 pz"
+        },
+        "battery": {
+          "label": "Capacità batteria",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Autonomia",
+          "value": "Circa 3 ore"
+        },
+        "chargingTime": {
+          "label": "Tempo di ricarica",
+          "value": "Circa 1 ora"
+        },
+        "power": {
+          "label": "Potenza",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Tensione di ingresso",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Contenuto della confezione",
+          "value": "Maschera x1, manuale x1, telecomando x1, schermo oculare x1, cavo di ricarica x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Sette colori + vicino infrarosso",
+          "description": "264 LED coprono rosso 630 nm, verde 525 nm, blu 465 nm, viola 390 nm, giallo 610 nm, ciano 490 nm, bianco 460-850 nm e vicino infrarosso 850 nm."
+        },
+        "softSiliconeAbs": {
+          "title": "Silicone morbido + ABS",
+          "description": "Una maschera flessibile da 148 g e 290 x 195 x 3.5 mm che segue il viso invece di restare distante."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Un'ora di ricarica, tre ore di autonomia",
+          "description": "Una batteria da 3,000 mAh si carica in circa un'ora e garantisce circa tre ore di funzionamento."
+        },
+        "completeKit": {
+          "title": "Kit completo",
+          "description": "Fornita con telecomando portatile, schermo oculare, cavo di ricarica e manuale utente."
+        }
+      },
+      "priceNote": "I prezzi unitari sono EXW, in USD per unità, per le quantità indicate. Stampa del logo, manuali personalizzati e confezioni retail sono quotati a parte: contattaci per un preventivo completo.",
+      "badge": "7 colori + NIR",
+      "colors": [
+        "Oro rosa (personalizzabile)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "Pannello per fototerapia LED F618",
+      "tagline": "Pannello luminoso da tavolo a 4 lunghezze d'onda",
+      "description": "Un pannello per fototerapia LED da tavolo alimentato dalla rete per la cura cosmetica di viso e corpo: 216 chip LED su lunghezze d'onda blu, gialla, rossa e infrarossa, 54 lenti sfaccettate e otto modalità selezionabili. Un dispositivo cosmetico per la cura della pelle a uso domestico: non è destinato a diagnosticare, trattare, curare o prevenire malattie o condizioni mediche.",
+      "specs": {
+        "packagingName": {
+          "label": "Nome per la confezione retail",
+          "value": "Pannello per fototerapia LED"
+        },
+        "lightSource": {
+          "label": "Sorgente luminosa",
+          "value": "LED, 216 chip su quattro lunghezze d'onda"
+        },
+        "ledArray": {
+          "label": "Array LED",
+          "value": "54 lenti esagonali sfaccettate in disposizione a nido d'ape, con quattro chip LED in ogni posizione"
+        },
+        "wavelengths": {
+          "label": "Lunghezze d'onda",
+          "value": "460 nm blu, 590 nm giallo, 662 nm rosso, 850 nm infrarosso"
+        },
+        "infrared": {
+          "label": "Infrarosso",
+          "value": "850 nm, combinato in ogni modalità di trattamento"
+        },
+        "modes": {
+          "label": "Modalità",
+          "value": "8 modalità di trattamento (P1-P8) più standby"
+        },
+        "control": {
+          "label": "Comando",
+          "value": "Unico tasto a sfioramento; il codice della modalità attiva è mostrato sul display frontale"
+        },
+        "application": {
+          "label": "Area di applicazione",
+          "value": "Viso e corpo; due modalità sono documentate per l'uso sul cuoio capelluto e sulle zone intime"
+        },
+        "sessionTime": {
+          "label": "Durata della seduta",
+          "value": "15-20 minuti per modalità, circa 20 minuti per parte del corpo"
+        },
+        "maxPerArea": {
+          "label": "Uso massimo per parte del corpo",
+          "value": "30 minuti"
+        },
+        "maxPerSession": {
+          "label": "Uso massimo per seduta",
+          "value": "60 minuti"
+        },
+        "eyeProtection": {
+          "label": "Protezione degli occhi",
+          "value": "Occhiali protettivi forniti; obbligatori durante l'uso"
+        },
+        "powerSource": {
+          "label": "Alimentazione",
+          "value": "Solo rete elettrica, tramite l'adattatore fornito (senza batteria)"
+        },
+        "adapter": {
+          "label": "Adattatore",
+          "value": "AC 100-240 V, 50/60 Hz a DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Potenza in uscita",
+          "value": "15 W max"
+        },
+        "dimensions": {
+          "label": "Dimensioni",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Peso netto",
+          "value": "620 g (unità principale 530 g, adattatore 90 g)"
+        },
+        "stand": {
+          "label": "Supporto",
+          "value": "Gambaletto posteriore pieghevole di appoggio"
+        },
+        "standards": {
+          "label": "Norma di fabbricazione",
+          "value": "GB 4706.1-2005 e GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Contenuto della confezione",
+          "value": "Unità principale, adattatore di alimentazione, manuale utente, occhiali protettivi"
+        },
+        "qty": {
+          "label": "Q.tà",
+          "value": "20 pz per cartone"
+        },
+        "cartonSize": {
+          "label": "Dimensioni cartone",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Peso lordo",
+          "value": "18.835 kg per cartone (peso effettivo)"
+        },
+        "origin": {
+          "label": "Paese di origine",
+          "value": "Made in China"
+        },
+        "warranty": {
+          "label": "Garanzia",
+          "value": "1 anno"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Quattro lunghezze d'onda in ogni modalità",
+          "description": "Blu 460 nm, giallo 590 nm, rosso 662 nm e infrarosso 850 nm: l'infrarosso è combinato in tutte e otto le modalità di trattamento."
+        },
+        "lensArray": {
+          "title": "216 LED dietro 54 lenti sfaccettate",
+          "description": "Ognuna delle 54 posizioni delle lenti porta quattro chip LED, disposti a nido d'ape sul pannello."
+        },
+        "eightSelectableModes": {
+          "title": "Otto modalità selezionabili",
+          "description": "Un unico tasto a sfioramento cicla da P1 a P8, con il codice attivo mostrato sul display frontale."
+        },
+        "deskOrFloorStanding": {
+          "title": "Da tavolo o a terra",
+          "description": "Un gambaletto posteriore pieghevole inclina il pannello all'angolo necessario; l'alimentazione arriva dall'adattatore 12 V fornito."
+        }
+      },
+      "priceNote": "I prezzi unitari sono EXW, in USD per unità, per le quantità indicate. Stampa del logo, manuali personalizzati e confezioni retail sono quotati a parte: contattaci per un preventivo completo.",
+      "badge": "Pannello da tavolo",
+      "colors": [
+        "Bianco / grigio chiaro"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 unità",
+      "tier2": "100-499 unità",
+      "tier3": "500-1,999 unità",
+      "tier4": "2,000+ unità"
+    },
+    "ledSampleMoq": "MOQ campione: 1 unità",
+    "ledBulkMoq": "MOQ all'ingrosso: 500 unità (un primo ordine di 200 unità è negoziabile)",
+    "rspLine": "Prezzo al pubblico consigliato (IVA esclusa): {value}"
   },
   "stickyContact": {
     "wechatTip": "Chatta su WeChat — ricevi una risposta entro 10 minuti",

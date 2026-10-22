@@ -87,7 +87,11 @@
     "quality": "Kontrola jakości",
     "iplComponentsCatalogue": "Komponenty IPL",
     "serviceSupport": "Serwis i wsparcie",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "ledMask001a": "Maska LED 001A",
+    "ledMask002a": "Maska LED 002A",
+    "ledPanelF618": "Panel LED F618",
+    "ledTherapy": "Terapia światłem LED"
   },
   "footer": {
     "tagline": "Wiodący producent urządzeń IPL specjalizujący się w usługach OEM/ODM z ponad 15-letnim doświadczeniem.",
@@ -613,6 +617,18 @@
           "title": "Bezpieczeństwo IPL",
           "desc": "Czy depilacja IPL jest bezpieczna?"
         }
+      },
+      "ledMask001a": {
+        "name": "Maska LED 001A",
+        "tagline": "Maska z 600 LED, 4 długości fal"
+      },
+      "ledMask002a": {
+        "name": "Maska LED 002A",
+        "tagline": "7 kolorów + NIR"
+      },
+      "ledPanelF618": {
+        "name": "Panel LED F618",
+        "tagline": "Stołowy panel z 4 długościami fal"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Porozmawiajmy o wymaganiach Państwa projektu i sprawdźmy, jak nasze rozwiązania OEM/ODM mogą pomóc Państwu odnieść sukces na rynku IPL.",
         "start": "Rozpocznij projekt",
         "back": "Wróć do usług"
+      },
+      "vet": {
+        "title": "Jak kupujący weryfikują producenta IPL i jak my odpowiadamy",
+        "items": {
+          "0": {
+            "title": "Zacznij od certyfikatu, nie od broszury",
+            "body": "Deklaracja CE lub FDA to dokument z numerem, jednostką wydającą i zakresem. Poproś o plik, a następnie sprawdź, czy model na certyfikacie to model, który wyceniasz. My wysyłamy plik przed wyceną, nie po wpłacie zaliczki."
+          },
+          "1": {
+            "title": "Poproś o raport z badań, nie o kartę specyfikacji",
+            "body": "Karta danych podaje liczbę. Raport z badań podaje metodę, przyrząd i próbkę. Zapytaj, do jakiego obszaru odnosi się wartość fluencji i czy raport obejmuje normę obowiązującą na twoim rynku."
+          },
+          "2": {
+            "title": "Zapytaj, czego fabryka nie robi",
+            "body": "Dostawca, który deklaruje wszystko, zleca na zewnątrz te części, których nie widzisz. Nie produkujemy ogniwa litowego, lampy ani okna szafirowego; kupujemy je, badamy przy odbiorze i możemy podać specyfikację, której każde z nich podlega."
+          },
+          "3": {
+            "title": "Zapytaj, kto jest właścicielem oprzyrządowania i kiedy jest zwracane",
+            "body": "Prywatna forma jest rozliczana osobno i należy do projektu, który za nią zapłacił. U nas jej koszt jest ograniczony do RMB 150,000 i zwracany, gdy skumulowane zamówienia osiągną 30,000 szt., na piśmie, przed pierwszą fakturą."
+          }
+        }
+      },
+      "docs": {
+        "title": "Dokumenty, które przekazujemy, i kiedy",
+        "items": {
+          "0": "Przy wycenie: karta specyfikacji platformy, minimalna ilość zamówienia, przedział cen jednostkowych, koszt oprzyrządowania i czas realizacji liczony od otrzymania zaliczki.",
+          "1": "Przed wykonaniem oprzyrządowania: komplet rysunków, wykrój grafiki oraz tekst etykiety lub oświadczeń wymagany na twoim rynku.",
+          "2": "Przed wysyłką: raporty z badań dla norm obowiązujących na rynku docelowym, deklaracja zgodności oraz lista pakowa ze zmierzonymi wymiarami kartonów.",
+          "3": "Z wysyłką: faktura, lista pakowa, świadectwo pochodzenia oraz konosament lub lotniczy list przewozowy."
+        }
+      },
+      "boundary": {
+        "title": "Czego nie robimy",
+        "body": "Nie certyfikujemy urządzenia na rynek w twoim imieniu, nie umieszczamy twojego projektu na opakowaniu innej marki i nie podajemy ceny, której nie możemy utrzymać przez okres ważności wydrukowany na fakturze proforma."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Do twarzy i ciała",
         "launch": "Globalna data premiery",
         "rspNote": "Sugerowana cena detaliczna (bez VAT) jest ceną referencyjną opartą na historycznych trendach rynkowych oraz naszej ocenie bieżącej sytuacji rynkowej."
+      },
+      "led": {
+        "label": "Terapia światłem LED",
+        "title": "Porównanie masek do terapii światłem LED",
+        "description": "Dwie noszone platformy masek LED obok siebie. Obie to kosmetyczne urządzenia do pielęgnacji twarzy do użytku domowego. Panel stołowy F618 opisano na jego własnej stronie produktu.",
+        "model": "Model",
+        "compare": {
+          "form": "Forma urządzenia",
+          "wavelengths": "Długości fal",
+          "lightOutput": "Moc światła",
+          "control": "Sterowanie",
+          "sessionTime": "Czas zabiegu",
+          "coverage": "Obszar zastosowania",
+          "rsp": "Sugerowana cena detaliczna (bez VAT)",
+          "price": "Cena fabryczna za sztukę (USD)",
+          "bestFor": "Najlepsze do"
+        },
+        "priceNote": "Podane ceny jednostkowe to USD za sztukę dla wymienionych przedziałów ilościowych; pełną drabinkę cen znajdziesz na stronie produktu.",
+        "panelNote": "Szukasz panelu stołowego? Zobacz panel do terapii światłem LED F618."
       }
     },
     "backToClients": "Wróć do klientów",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Chłodzenie lodem + 9 poziomów intensywności"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Maska na twarz 600 LED, 4 długości fal"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Silikonowa maska 7 kolorów + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Stołowy panel świetlny z 216 LED"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "Maska do terapii LED 001A",
+      "tagline": "Noszona maska LED z 4 długościami fal",
+      "description": "Noszona maska LED do pielęgnacji skóry do użytku domowego, z 600 diodami SMD LED w świetle czerwonym, żółtym, niebieskim i bliskiej podczerwieni, osiem trybów inteligentnych oraz pilot ręczny, w którym mieści się także akumulator. Urządzenie kosmetyczne do pielęgnacji skóry do użytku domowego - nie służy do diagnozowania, leczenia, wyleczenia ani zapobiegania jakiejkolwiek chorobie lub schorzeniu.",
+      "specs": {
+        "lightSource": {
+          "label": "Źródło światła",
+          "value": "600 diod SMD LED w czterech długościach fal"
+        },
+        "wavelengths": {
+          "label": "Długości fal",
+          "value": "630-660 nm czerwone, 590-595 nm żółte, 415 nm niebieskie, 830 nm bliska podczerwień"
+        },
+        "modes": {
+          "label": "Tryby",
+          "value": "8 trybów inteligentnych (M1-M8)"
+        },
+        "control": {
+          "label": "Sterowanie",
+          "value": "Pilot ręczny (przytrzymaj, aby włączyć, krótkie naciśnięcie zmienia tryb)"
+        },
+        "sessionTime": {
+          "label": "Czas zabiegu",
+          "value": "10-15 minut"
+        },
+        "frequency": {
+          "label": "Zalecana częstotliwość",
+          "value": "1-5 zabiegów tygodniowo, w zależności od trybu"
+        },
+        "maxUse": {
+          "label": "Maksymalne użycie na obszar",
+          "value": "Raz dziennie"
+        },
+        "autoShutoff": {
+          "label": "Automatyczne wyłączanie",
+          "value": "Tak, po zakończeniu każdego zabiegu"
+        },
+        "battery": {
+          "label": "Akumulator",
+          "value": "5,000 mAh litowo-jonowy, wbudowany w pilot"
+        },
+        "charging": {
+          "label": "Ładowanie",
+          "value": "USB-C, ok. 3 godzin"
+        },
+        "sessionsPerCharge": {
+          "label": "Zabiegi na jedno ładowanie",
+          "value": "Ok. 15-20 zabiegów"
+        },
+        "inputPower": {
+          "label": "Wejście ładowania",
+          "value": "DC 5 V 1 A (maks. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Ochrona oczu",
+          "value": "Wbudowane muszle na oczy"
+        },
+        "dimensions": {
+          "label": "Wymiary",
+          "value": "243 x 200 x 150 mm (wg instrukcji obsługi)"
+        },
+        "weight": {
+          "label": "Masa netto",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Wykończenie",
+          "value": "Biała obudowa ze złotym wykończeniem"
+        },
+        "headstrap": {
+          "label": "Mocowanie na głowie",
+          "value": "Regulowane paski na rzep"
+        },
+        "inTheBox": {
+          "label": "W zestawie",
+          "value": "Maska (jednostka główna), pilot, kabel USB-C, etui do przechowywania, instrukcja obsługi"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "1 rok na urządzenie główne, 6 miesięcy na akcesoria"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Cztery długości fal w jednej masce",
+          "description": "600 diod SMD LED obejmuje światło czerwone, żółte, niebieskie i bliską podczerwień, więc jedna noszona maska obsługuje cztery różne zabiegi kosmetyczne."
+        },
+        "eightSmartModes": {
+          "title": "Osiem trybów inteligentnych",
+          "description": "Tryby M1 do M8 łączą określone kombinacje długości fal dla różnych problemów kosmetycznych i przełącza się je pilotem ręcznym."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 zabiegów na jedno ładowanie",
+          "description": "Akumulator 5,000 mAh w pilocie wystarcza na około 15-20 zabiegów i ładuje się przez USB-C w około trzy godziny."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Muszle na oczy i automatyczne wyłączanie",
+          "description": "Wbudowane muszle na oczy osłaniają oczy podczas użycia, a maska wyłącza się po zakończeniu zabiegu."
+        }
+      },
+      "priceNote": "Ceny jednostkowe są podane EXW, w USD za sztukę, dla podanych ilości. Nadruk logo, indywidualne instrukcje i opakowania detaliczne wyceniamy osobno - skontaktuj się z nami po pełną wycenę.",
+      "badge": "4 długości fal",
+      "colors": [
+        "Biały / złoty"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "Maska do terapii LED 002A",
+      "tagline": "Silikonowa maska LED 7 kolorów + NIR",
+      "description": "Maska LED do pielęgnacji skóry do użytku domowego z miękkiego silikonu i ABS, z 264 diodami LED w siedmiu widzialnych kolorach oraz bliskiej podczerwieni 850 nm. Akumulator 3,000 mAh działa około trzech godzin i ładuje się w około godzinę. Urządzenie kosmetyczne do pielęgnacji skóry do użytku domowego - nie służy do diagnozowania, leczenia, wyleczenia ani zapobiegania jakiejkolwiek chorobie lub schorzeniu.",
+      "specs": {
+        "productName": {
+          "label": "Nazwa produktu",
+          "value": "Maska LED na twarz"
+        },
+        "modelNo": {
+          "label": "Nr modelu",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Materiał",
+          "value": "Miękki silikon + ABS"
+        },
+        "productSize": {
+          "label": "Wymiary produktu",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Masa produktu",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Wymiary opakowania",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Masa opakowania",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Ilość",
+          "value": "20 szt. w kartonie"
+        },
+        "cartonSize": {
+          "label": "Wymiary kartonu",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "Masa netto / brutto",
+          "value": "12.8 kg / 13.4 kg na karton"
+        },
+        "color": {
+          "label": "Kolor",
+          "value": "Różowe złoto / do dostosowania"
+        },
+        "feature": {
+          "label": "Cecha",
+          "value": "7 kolorów + NIR (bliska podczerwień), terapia światłem LED"
+        },
+        "ledColours": {
+          "label": "Kolory LED",
+          "value": "Czerwony 630 nm, zielony 525 nm, niebieski 465 nm, fioletowy 390 nm, żółty 610 nm, cyjan 490 nm, biały 460-850 nm (mieszany), NIR 850 nm"
+        },
+        "leds": {
+          "label": "Diody LED",
+          "value": "66 x 4 = 264 szt."
+        },
+        "battery": {
+          "label": "Pojemność akumulatora",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Czas pracy",
+          "value": "Ok. 3 godzin"
+        },
+        "chargingTime": {
+          "label": "Czas ładowania",
+          "value": "Ok. 1 godzina"
+        },
+        "power": {
+          "label": "Moc",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Napięcie wejściowe",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Zawartość opakowania",
+          "value": "Maska x1, instrukcja x1, pilot x1, osłona na oczy x1, kabel do ładowania x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Siedem kolorów + bliska podczerwień",
+          "description": "264 diody LED obejmują czerwień 630 nm, zieleń 525 nm, błękit 465 nm, fiolet 390 nm, żółć 610 nm, cyjan 490 nm, biel 460-850 nm oraz bliską podczerwień 850 nm."
+        },
+        "softSiliconeAbs": {
+          "title": "Miękki silikon + ABS",
+          "description": "Elastyczna maska o masie 148 g i wymiarach 290 x 195 x 3.5 mm, która dopasowuje się do twarzy, zamiast odstawać od niej."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Godzina ładowania, trzy godziny pracy",
+          "description": "Akumulator 3,000 mAh ładuje się w około godzinę i działa około trzech godzin."
+        },
+        "completeKit": {
+          "title": "Kompletny zestaw",
+          "description": "W zestawie pilot ręczny, osłona na oczy, kabel do ładowania i instrukcja obsługi."
+        }
+      },
+      "priceNote": "Ceny jednostkowe są podane EXW, w USD za sztukę, dla podanych ilości. Nadruk logo, indywidualne instrukcje i opakowania detaliczne wyceniamy osobno - skontaktuj się z nami po pełną wycenę.",
+      "badge": "7 kolorów + NIR",
+      "colors": [
+        "Różowe złoto (do dostosowania)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "Panel do terapii LED F618",
+      "tagline": "Stołowy panel świetlny z 4 długościami fal",
+      "description": "Stołowy panel do terapii światłem LED zasilany z sieci, do kosmetycznej pielęgnacji twarzy i ciała: 216 chipów LED w długościach fal niebieskiej, żółtej, czerwonej i podczerwonej, 54 fasetowane soczewki i osiem wybieranych trybów. Urządzenie kosmetyczne do pielęgnacji skóry do użytku domowego - nie służy do diagnozowania, leczenia, wyleczenia ani zapobiegania jakiejkolwiek chorobie lub schorzeniu.",
+      "specs": {
+        "packagingName": {
+          "label": "Nazwa na opakowaniu detalicznym",
+          "value": "Panel do terapii światłem LED"
+        },
+        "lightSource": {
+          "label": "Źródło światła",
+          "value": "LED, 216 chipów w czterech długościach fal"
+        },
+        "ledArray": {
+          "label": "Matryca LED",
+          "value": "54 fasetowane sześciokątne soczewki w układzie plastra miodu, po cztery chipy LED w każdym miejscu soczewki"
+        },
+        "wavelengths": {
+          "label": "Długości fal",
+          "value": "460 nm niebieska, 590 nm żółta, 662 nm czerwona, 850 nm podczerwień"
+        },
+        "infrared": {
+          "label": "Podczerwień",
+          "value": "850 nm, połączona z każdym trybem zabiegowym"
+        },
+        "modes": {
+          "label": "Tryby",
+          "value": "8 trybów zabiegowych (P1-P8) plus tryb czuwania"
+        },
+        "control": {
+          "label": "Sterowanie",
+          "value": "Jeden przycisk dotykowy; kod aktywnego trybu jest widoczny na wyświetlaczu z przodu"
+        },
+        "application": {
+          "label": "Obszar zastosowania",
+          "value": "Twarz i ciało; dwa tryby są opisane do stosowania na skórę głowy i okolice intymne"
+        },
+        "sessionTime": {
+          "label": "Czas zabiegu",
+          "value": "15-20 minut na tryb, ok. 20 minut na część ciała"
+        },
+        "maxPerArea": {
+          "label": "Maksymalne użycie na część ciała",
+          "value": "30 minut"
+        },
+        "maxPerSession": {
+          "label": "Maksymalne użycie na zabieg",
+          "value": "60 minut"
+        },
+        "eyeProtection": {
+          "label": "Ochrona oczu",
+          "value": "W zestawie okulary ochronne; wymagane podczas użycia"
+        },
+        "powerSource": {
+          "label": "Zasilanie",
+          "value": "Tylko z sieci, przez dołączony zasilacz (bez akumulatora)"
+        },
+        "adapter": {
+          "label": "Zasilacz",
+          "value": "AC 100-240 V, 50/60 Hz na DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Moc wyjściowa",
+          "value": "maks. 15 W"
+        },
+        "dimensions": {
+          "label": "Wymiary",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Masa netto",
+          "value": "620 g (jednostka główna 530 g, zasilacz 90 g)"
+        },
+        "stand": {
+          "label": "Podstawa",
+          "value": "Składana tylna nóżka podporowa"
+        },
+        "standards": {
+          "label": "Norma produkcyjna",
+          "value": "GB 4706.1-2005 i GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "W zestawie",
+          "value": "Jednostka główna, zasilacz, instrukcja obsługi, okulary ochronne"
+        },
+        "qty": {
+          "label": "Ilość",
+          "value": "20 szt. w kartonie"
+        },
+        "cartonSize": {
+          "label": "Wymiary kartonu",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Masa brutto",
+          "value": "18.835 kg na karton (masa rzeczywista)"
+        },
+        "origin": {
+          "label": "Kraj pochodzenia",
+          "value": "Wyprodukowano w Chinach"
+        },
+        "warranty": {
+          "label": "Gwarancja",
+          "value": "1 rok"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Cztery długości fal w każdym trybie",
+          "description": "Niebieska 460 nm, żółta 590 nm, czerwona 662 nm i podczerwień 850 nm - podczerwień jest połączona ze wszystkimi ośmioma trybami zabiegowymi."
+        },
+        "lensArray": {
+          "title": "216 diod LED za 54 fasetowanymi soczewkami",
+          "description": "Każde z 54 miejsc soczewek mieści cztery chipy LED, rozmieszczone w plastrze miodu na całym panelu."
+        },
+        "eightSelectableModes": {
+          "title": "Osiem wybieranych trybów",
+          "description": "Jeden przycisk dotykowy przełącza tryby od P1 do P8, a kod aktywnego trybu jest widoczny na wyświetlaczu z przodu."
+        },
+        "deskOrFloorStanding": {
+          "title": "Na biurko lub na podłogę",
+          "description": "Składana tylna nóżka podporowa ustawia panel pod potrzebnym kątem, a panel jest zasilany z dołączonego zasilacza 12 V."
+        }
+      },
+      "priceNote": "Ceny jednostkowe są podane EXW, w USD za sztukę, dla podanych ilości. Nadruk logo, indywidualne instrukcje i opakowania detaliczne wyceniamy osobno - skontaktuj się z nami po pełną wycenę.",
+      "badge": "Panel stołowy",
+      "colors": [
+        "Biały / jasnoszary"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 szt.",
+      "tier2": "100-499 szt.",
+      "tier3": "500-1,999 szt.",
+      "tier4": "2,000+ szt."
+    },
+    "ledSampleMoq": "Minimalna ilość próbki: 1 szt.",
+    "ledBulkMoq": "Minimalna ilość zamówienia hurtowego: 500 szt. (pierwsze zamówienie na 200 szt. jest do omówienia)",
+    "rspLine": "Sugerowana cena detaliczna (bez VAT): {value}"
   },
   "stickyContact": {
     "wechatTip": "Napisz na WeChat — odpowiemy w ciągu 10 minut",

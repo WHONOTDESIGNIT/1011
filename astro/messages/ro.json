@@ -87,7 +87,11 @@
     "quality": "Controlul calității",
     "iplComponentsCatalogue": "Componente IPL",
     "serviceSupport": "Servicii și asistență",
-    "catalogue": "Catalog"
+    "catalogue": "Catalog",
+    "ledMask001a": "Mască LED 001A",
+    "ledMask002a": "Mască LED 002A",
+    "ledPanelF618": "Panou LED F618",
+    "ledTherapy": "Terapie cu lumină LED"
   },
   "footer": {
     "tagline": "Producător lider de dispozitive IPL, specializat în servicii OEM/ODM, cu 15+ ani de experiență.",
@@ -613,6 +617,18 @@
           "title": "Siguranța IPL",
           "desc": "Este sigură epilarea cu IPL?"
         }
+      },
+      "ledMask001a": {
+        "name": "Mască LED 001A",
+        "tagline": "Mască cu 600 LED-uri, 4 lungimi de undă"
+      },
+      "ledMask002a": {
+        "name": "Mască LED 002A",
+        "tagline": "7 culori + NIR"
+      },
+      "ledPanelF618": {
+        "name": "Panou LED F618",
+        "tagline": "Panou de masă cu 4 lungimi de undă"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Să discutăm cerințele proiectului dumneavoastră și să explorăm cum soluțiile noastre OEM/ODM vă pot ajuta să aveți succes pe piața IPL.",
         "start": "Începeți proiectul dumneavoastră",
         "back": "Înapoi la servicii"
+      },
+      "vet": {
+        "title": "Cum verifică cumpărătorii un producător de IPL și cum răspundem noi",
+        "items": {
+          "0": {
+            "title": "Începeți cu certificatul, nu cu broșura",
+            "body": "O declarație CE sau FDA este un document cu un număr, un organism emitent și un domeniu de aplicare. Cereți dosarul, apoi verificați că modelul din certificat este modelul pe care îl cotizați. Trimitem dosarul înainte de ofertă, nu după avans."
+          },
+          "1": {
+            "title": "Cereți raportul de testare, nu fișa de specificații",
+            "body": "O fișă tehnică indică un număr. Un raport de testare indică metoda, instrumentul și eșantionul. Întrebați la ce zonă se referă valoarea fluenței și dacă raportul acoperă standardul impus pe piața dumneavoastră."
+          },
+          "2": {
+            "title": "Întrebați ce nu face fabrica",
+            "body": "Un furnizor care pretinde că face tot este un furnizor care subcontractează piesele pe care nu le vedeți. Noi nu producem celula de litiu, lampa sau fereastra de safir; le cumpărăm, le testăm la recepție și vă putem spune specificația la care este ținut fiecare."
+          },
+          "3": {
+            "title": "Întrebați cine deține matrițele și când se rambursează",
+            "body": "O matriță privată se facturează separat și aparține proiectului care a plătit-o. A noastră este plafonată la RMB 150,000 și se rambursează după ce comenzile cumulate ating 30,000 unități, în scris, înainte de prima factură."
+          }
+        }
+      },
+      "docs": {
+        "title": "Documentele pe care le predăm și când",
+        "items": {
+          "0": "La ofertă: fișa de specificații a platformei, cantitatea minimă de comandă, intervalul de preț unitar, costul matriței și termenul de livrare calculat de la primirea avansului.",
+          "1": "Înainte de matriță: setul de desene, șablonul de ambalaj și textul de etichetă sau mențiuni cerut de piața dumneavoastră.",
+          "2": "Înainte de expediere: rapoartele de testare pentru standardele impuse pe piața de destinație, declarația de conformitate și lista de ambalare cu dimensiunile măsurate ale cartoanelor.",
+          "3": "Odată cu expedierea: factura, lista de ambalare, certificatul de origine și conosamentul sau scrisoarea de transport aerian."
+        }
+      },
+      "boundary": {
+        "title": "Ce nu facem",
+        "body": "Nu certificăm un dispozitiv pentru o piață în numele dumneavoastră, nu punem designul dumneavoastră pe cutia altui brand și nu cotăm un preț pe care nu îl putem menține pe perioada de valabilitate tipărită pe factura proformă."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Potrivit pentru față și corp",
         "launch": "Data lansării globale",
         "rspNote": "PVR-ul (fără TVA) este un preț de referință bazat pe tendințele istorice ale pieței și pe evaluarea noastră a condițiilor actuale de piață."
+      },
+      "led": {
+        "label": "Terapie cu lumină LED",
+        "title": "Măști de fototerapie LED comparate",
+        "description": "Două platforme de măști LED purtabile, alăturate. Ambele sunt dispozitive cosmetice de îngrijire facială pentru uz casnic. Panoul de masă F618 este documentat pe pagina sa de produs.",
+        "model": "Model",
+        "compare": {
+          "form": "Format constructiv",
+          "wavelengths": "Lungimi de undă",
+          "lightOutput": "Putere luminoasă",
+          "control": "Comandă",
+          "sessionTime": "Durata ședinței",
+          "coverage": "Zonă de aplicare",
+          "rsp": "Preț de vânzare cu amănuntul recomandat (fără TVA)",
+          "price": "Preț unitar din fabrică (USD)",
+          "bestFor": "Recomandat pentru"
+        },
+        "priceNote": "Prețurile unitare afișate sunt în USD per unitate, pentru intervalele de cantitate listate; deschideți pagina unui produs pentru grila completă.",
+        "panelNote": "Căutați panoul de masă? Vedeți panoul de fototerapie LED F618."
       }
     },
     "backToClients": "Înapoi la clienți",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Răcire cu gheață + 9 niveluri de intensitate"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Mască facială cu 600 LED-uri, 4 lungimi de undă"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Mască din silicon cu 7 culori + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Panou de lumină de masă cu 216 LED-uri"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "Mască de fototerapie LED 001A",
+      "tagline": "Mască LED purtabilă cu 4 lungimi de undă",
+      "description": "O mască LED purtabilă pentru îngrijirea pielii, de uz casnic, cu 600 LED-uri SMD în lumină roșie, galbenă, albastră și infraroșu apropiat, opt moduri inteligente și o telecomandă de mână care găzduiește și bateria. Dispozitiv cosmetic de îngrijire a pielii pentru uz casnic - nu este destinat diagnosticării, tratării, vindecării sau prevenirii vreunei boli sau afecțiuni medicale.",
+      "specs": {
+        "lightSource": {
+          "label": "Sursă de lumină",
+          "value": "600 LED-uri SMD pe patru lungimi de undă"
+        },
+        "wavelengths": {
+          "label": "Lungimi de undă",
+          "value": "630-660 nm roșu, 590-595 nm galben, 415 nm albastru, 830 nm infraroșu apropiat"
+        },
+        "modes": {
+          "label": "Moduri",
+          "value": "8 moduri inteligente (M1-M8)"
+        },
+        "control": {
+          "label": "Comandă",
+          "value": "Telecomandă de mână (apăsare lungă pentru pornire, apăsare scurtă pentru schimbarea modului)"
+        },
+        "sessionTime": {
+          "label": "Durata ședinței",
+          "value": "10-15 minute"
+        },
+        "frequency": {
+          "label": "Frecvență recomandată",
+          "value": "1-5 ședințe pe săptămână, în funcție de mod"
+        },
+        "maxUse": {
+          "label": "Utilizare maximă per zonă",
+          "value": "O dată pe zi"
+        },
+        "autoShutoff": {
+          "label": "Oprire automată",
+          "value": "Da, la sfârșitul fiecărei ședințe"
+        },
+        "battery": {
+          "label": "Baterie",
+          "value": "5,000 mAh litiu-ion, integrată în telecomandă"
+        },
+        "charging": {
+          "label": "Încărcare",
+          "value": "USB-C, aprox. 3 ore"
+        },
+        "sessionsPerCharge": {
+          "label": "Ședințe per încărcare",
+          "value": "Aprox. 15-20 ședințe"
+        },
+        "inputPower": {
+          "label": "Intrare de încărcare",
+          "value": "DC 5 V 1 A (max. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Protecția ochilor",
+          "value": "Cupe oculare integrate"
+        },
+        "dimensions": {
+          "label": "Dimensiuni",
+          "value": "243 x 200 x 150 mm (conform manualului de utilizare)"
+        },
+        "weight": {
+          "label": "Greutate netă",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Finisaj",
+          "value": "Carcasă albă cu accente de culoarea aurului"
+        },
+        "headstrap": {
+          "label": "Fixare pe cap",
+          "value": "Curele reglabile cu închidere tip velcro"
+        },
+        "inTheBox": {
+          "label": "În cutie",
+          "value": "Unitate principală mască, telecomandă, cablu USB-C, husă de depozitare, manual de utilizare"
+        },
+        "warranty": {
+          "label": "Garanție",
+          "value": "1 an pentru dispozitivul principal, 6 luni pentru accesorii"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Patru lungimi de undă într-o singură mască",
+          "description": "600 LED-uri SMD acoperă lumină roșie, galbenă, albastră și infraroșu apropiat, astfel încât un singur dispozitiv purtabil deservește patru rutine cosmetice diferite."
+        },
+        "eightSmartModes": {
+          "title": "Opt moduri inteligente",
+          "description": "M1 până la M8 îmbină combinații specifice de lungimi de undă pentru diferite probleme cosmetice, comutate de pe telecomanda de mână."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 ședințe per încărcare",
+          "description": "O baterie de 5,000 mAh din telecomandă alimentează aproximativ 15-20 ședințe și se reîncarcă prin USB-C în circa trei ore."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Cupe oculare și oprire automată",
+          "description": "Cupele oculare integrate protejează ochii în timpul utilizării, iar masca se oprește singură la finalul ședinței."
+        }
+      },
+      "priceNote": "Prețurile unitare sunt EXW, în USD per unitate, pentru cantitățile afișate. Imprimarea logo-ului, manualele personalizate și ambalajul de retail se cotizează separat - contactați-ne pentru o ofertă completă.",
+      "badge": "4 lungimi de undă",
+      "colors": [
+        "Alb / Auriu"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "Mască de fototerapie LED 002A",
+      "tagline": "Mască LED din silicon cu 7 culori + NIR",
+      "description": "O mască LED pentru îngrijirea pielii, de uz casnic, din silicon moale și ABS, cu 264 LED-uri în șapte culori vizibile plus infraroșu apropiat de 850 nm. O baterie de 3,000 mAh funcționează aproximativ trei ore și se reîncarcă în circa o oră. Dispozitiv cosmetic de îngrijire a pielii pentru uz casnic - nu este destinat diagnosticării, tratării, vindecării sau prevenirii vreunei boli sau afecțiuni medicale.",
+      "specs": {
+        "productName": {
+          "label": "Denumire produs",
+          "value": "Mască facială LED"
+        },
+        "modelNo": {
+          "label": "Nr. model",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Material",
+          "value": "Silicon moale + ABS"
+        },
+        "productSize": {
+          "label": "Dimensiune produs",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Greutate produs",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Dimensiune ambalaj",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Greutate ambalaj",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "CANT.",
+          "value": "20 buc pe carton"
+        },
+        "cartonSize": {
+          "label": "Dimensiune carton",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "Greutate netă / brută",
+          "value": "12.8 kg / 13.4 kg pe carton"
+        },
+        "color": {
+          "label": "Culoare",
+          "value": "Auriu roz / personalizabil"
+        },
+        "feature": {
+          "label": "Caracteristică",
+          "value": "Terapie cu lumină LED în 7 culori + NIR (infraroșu apropiat)"
+        },
+        "ledColours": {
+          "label": "Culori LED",
+          "value": "Roșu 630 nm, verde 525 nm, albastru 465 nm, violet 390 nm, galben 610 nm, cyan 490 nm, alb 460-850 nm (mix), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED-uri",
+          "value": "66 x 4 = 264 buc"
+        },
+        "battery": {
+          "label": "Capacitate baterie",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Timp de funcționare",
+          "value": "Aprox. 3 ore"
+        },
+        "chargingTime": {
+          "label": "Timp de încărcare",
+          "value": "Aprox. 1 oră"
+        },
+        "power": {
+          "label": "Putere",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Tensiune de intrare",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Pachetul include",
+          "value": "Mască x1, manual x1, telecomandă x1, protecție pentru ochi x1, cablu de încărcare x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Șapte culori + infraroșu apropiat",
+          "description": "264 LED-uri acoperă roșu 630 nm, verde 525 nm, albastru 465 nm, violet 390 nm, galben 610 nm, cyan 490 nm, alb 460-850 nm și infraroșu apropiat 850 nm."
+        },
+        "softSiliconeAbs": {
+          "title": "Silicon moale + ABS",
+          "description": "O mască flexibilă de 148 g, cu dimensiuni de 290 x 195 x 3.5 mm, care se îndoaie după față în loc să stea departe de ea."
+        },
+        "fastChargeLongRuntime": {
+          "title": "O oră de încărcare, trei ore de funcționare",
+          "description": "O baterie de 3,000 mAh se încarcă în circa o oră și funcționează aproximativ trei ore."
+        },
+        "completeKit": {
+          "title": "Set complet",
+          "description": "Livrată cu telecomandă de mână, protecție pentru ochi, cablu de încărcare și manual de utilizare."
+        }
+      },
+      "priceNote": "Prețurile unitare sunt EXW, în USD per unitate, pentru cantitățile afișate. Imprimarea logo-ului, manualele personalizate și ambalajul de retail se cotizează separat - contactați-ne pentru o ofertă completă.",
+      "badge": "7 culori + NIR",
+      "colors": [
+        "Auriu roz (personalizabil)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "Panou de fototerapie LED F618",
+      "tagline": "Panou de lumină de masă cu 4 lungimi de undă",
+      "description": "Un panou de fototerapie LED de masă, alimentat de la rețea, pentru îngrijire cosmetică facială și corporală: 216 cipuri LED în lungimi de undă albastru, galben, roșu și infraroșu, 54 de lentile fațetate și opt moduri selectabile. Dispozitiv cosmetic de îngrijire a pielii pentru uz casnic - nu este destinat diagnosticării, tratării, vindecării sau prevenirii vreunei boli sau afecțiuni medicale.",
+      "specs": {
+        "packagingName": {
+          "label": "Denumire pe ambalajul de retail",
+          "value": "Panou de fototerapie LED"
+        },
+        "lightSource": {
+          "label": "Sursă de lumină",
+          "value": "LED, 216 cipuri pe patru lungimi de undă"
+        },
+        "ledArray": {
+          "label": "Matrice LED",
+          "value": "54 de lentile hexagonale fațetate într-un aranjament fagure, cu patru cipuri LED la fiecare poziție de lentilă"
+        },
+        "wavelengths": {
+          "label": "Lungimi de undă",
+          "value": "460 nm albastru, 590 nm galben, 662 nm roșu, 850 nm infraroșu"
+        },
+        "infrared": {
+          "label": "Infraroșu",
+          "value": "850 nm, combinat în fiecare mod de tratament"
+        },
+        "modes": {
+          "label": "Moduri",
+          "value": "8 moduri de tratament (P1-P8) plus standby"
+        },
+        "control": {
+          "label": "Comandă",
+          "value": "O singură tastă tactilă; codul modului activ apare pe afișajul frontal"
+        },
+        "application": {
+          "label": "Zonă de aplicare",
+          "value": "Față și corp; două moduri sunt documentate pentru scalp și zonele intime"
+        },
+        "sessionTime": {
+          "label": "Durata ședinței",
+          "value": "15-20 minute per mod, aprox. 20 de minute per zonă a corpului"
+        },
+        "maxPerArea": {
+          "label": "Utilizare maximă per zonă a corpului",
+          "value": "30 de minute"
+        },
+        "maxPerSession": {
+          "label": "Utilizare maximă per ședință",
+          "value": "60 de minute"
+        },
+        "eyeProtection": {
+          "label": "Protecția ochilor",
+          "value": "Ochelari de protecție furnizați; obligatorii în timpul utilizării"
+        },
+        "powerSource": {
+          "label": "Sursă de alimentare",
+          "value": "Doar de la rețea, prin adaptorul furnizat (fără baterie)"
+        },
+        "adapter": {
+          "label": "Adaptor",
+          "value": "AC 100-240 V, 50/60 Hz la DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Putere de ieșire",
+          "value": "max. 15 W"
+        },
+        "dimensions": {
+          "label": "Dimensiuni",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Greutate netă",
+          "value": "620 g (unitatea principală 530 g, adaptorul 90 g)"
+        },
+        "stand": {
+          "label": "Suport",
+          "value": "Picior de sprijin posterior pliabil"
+        },
+        "standards": {
+          "label": "Standard de fabricație",
+          "value": "GB 4706.1-2005 și GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "În cutie",
+          "value": "Unitate principală, adaptor de alimentare, manual de utilizare, ochelari de protecție"
+        },
+        "qty": {
+          "label": "CANT.",
+          "value": "20 buc pe carton"
+        },
+        "cartonSize": {
+          "label": "Dimensiune carton",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Greutate brută",
+          "value": "18.835 kg pe carton (greutate reală)"
+        },
+        "origin": {
+          "label": "Țara de origine",
+          "value": "Fabricat în China"
+        },
+        "warranty": {
+          "label": "Garanție",
+          "value": "1 an"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Patru lungimi de undă, în fiecare mod",
+          "description": "Albastru 460 nm, galben 590 nm, roșu 662 nm și infraroșu 850 nm - infraroșul este combinat în toate cele opt moduri de tratament."
+        },
+        "lensArray": {
+          "title": "216 LED-uri în spatele a 54 de lentile fațetate",
+          "description": "Fiecare dintre cele 54 de poziții de lentilă are patru cipuri LED, aranjate în fagure pe panou."
+        },
+        "eightSelectableModes": {
+          "title": "Opt moduri selectabile",
+          "description": "O tastă tactilă parcurge ciclic P1 până la P8, codul activ fiind afișat pe afișajul frontal."
+        },
+        "deskOrFloorStanding": {
+          "title": "Așezare pe birou sau pe podea",
+          "description": "Un picior de sprijin posterior pliabil așază panoul la unghiul dorit, iar alimentarea se face de la adaptorul de 12 V furnizat."
+        }
+      },
+      "priceNote": "Prețurile unitare sunt EXW, în USD per unitate, pentru cantitățile afișate. Imprimarea logo-ului, manualele personalizate și ambalajul de retail se cotizează separat - contactați-ne pentru o ofertă completă.",
+      "badge": "Panou de masă",
+      "colors": [
+        "Alb / gri deschis"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 unități",
+      "tier2": "100-499 unități",
+      "tier3": "500-1,999 unități",
+      "tier4": "2,000+ unități"
+    },
+    "ledSampleMoq": "Cantitate minimă pentru mostră: 1 unitate",
+    "ledBulkMoq": "Cantitate minimă pentru comandă în vrac: 500 unități (o comandă inițială de 200 unități este negociabilă)",
+    "rspLine": "Preț de vânzare cu amănuntul recomandat (fără TVA): {value}"
   },
   "stickyContact": {
     "wechatTip": "Scrieți-ne pe WeChat — veți primi un răspuns în 10 minute",

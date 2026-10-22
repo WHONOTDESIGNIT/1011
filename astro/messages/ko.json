@@ -87,7 +87,11 @@
     "quality": "품질 관리",
     "iplComponentsCatalogue": "IPL 부품",
     "serviceSupport": "서비스 및 지원",
-    "catalogue": "카탈로그"
+    "catalogue": "카탈로그",
+    "ledMask001a": "LED 마스크 001A",
+    "ledMask002a": "LED 마스크 002A",
+    "ledPanelF618": "LED 패널 F618",
+    "ledTherapy": "LED 광선 요법"
   },
   "footer": {
     "tagline": "15년 이상의 경험을 바탕으로 OEM/ODM 서비스를 전문으로 하는 선도적인 IPL 기기 제조업체입니다.",
@@ -613,6 +617,18 @@
           "title": "IPL 안전성",
           "desc": "IPL 제모는 안전한가요?"
         }
+      },
+      "ledMask001a": {
+        "name": "LED 마스크 001A",
+        "tagline": "600-LED, 4파장 마스크"
+      },
+      "ledMask002a": {
+        "name": "LED 마스크 002A",
+        "tagline": "7가지 색상 + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED 패널 F618",
+        "tagline": "탁상형 4파장 패널"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "프로젝트 요구사항을 논의하고 OEM/ODM 솔루션이 IPL 시장에서의 성공을 어떻게 도울 수 있는지 알아보세요.",
         "start": "프로젝트 시작하기",
         "back": "서비스로 돌아가기"
+      },
+      "vet": {
+        "title": "구매자가 IPL 제조사를 검증하는 방법과 당사의 답변",
+        "items": {
+          "0": {
+            "title": "브로슈어가 아니라 인증서부터 확인하세요",
+            "body": "CE나 FDA 주장은 번호, 발급 기관, 적용 범위가 있는 문서입니다. 파일을 요청하고, 인증서에 적힌 모델이 견적 중인 모델과 같은지 확인하세요. 당사는 계약금 수령 후가 아니라 견적 전에 파일을 보냅니다."
+          },
+          "1": {
+            "title": "사양서가 아니라 시험 성적서를 요청하세요",
+            "body": "데이터시트는 수치를 제시합니다. 시험 성적서는 방법, 기기, 시료를 제시합니다. 광량 수치가 어느 면적 기준인지, 해당 성적서가 귀하 시장에서 강제되는 표준을 포함하는지 확인하세요."
+          },
+          "2": {
+            "title": "공장이 하지 않는 일이 무엇인지 물으세요",
+            "body": "모든 것을 다 만든다고 말하는 공급사는 보이지 않는 부품을 외주로 조달하는 공급사입니다. 당사는 리튬 셀, 램프, 사파이어 창을 직접 만들지 않습니다. 구매하고 입고 시 시험하며, 각 부품이 적용받는 사양을 알려드릴 수 있습니다."
+          },
+          "3": {
+            "title": "금형 소유권과 환급 시점을 물으세요",
+            "body": "전용 금형은 별도로 청구되며 비용을 지불한 프로젝트에 귀속됩니다. 당사 금형비는 RMB 150,000을 상한으로 하며, 누적 주문이 30,000개에 도달하면 환급됩니다. 이 내용은 첫 인보이스 발행 전에 서면으로 확정합니다."
+          }
+        }
+      },
+      "docs": {
+        "title": "제공 문서와 제공 시점",
+        "items": {
+          "0": "견적 시: 플랫폼 사양서, 최소 주문 수량, 단가 구간, 금형비, 계약금 수령일부터 계산한 리드타임.",
+          "1": "금형 제작 전: 도면 세트, 인쇄 칼선도, 귀하 시장에서 요구하는 라벨 또는 표시 문구.",
+          "2": "선적 전: 목적지 시장에서 강제되는 표준에 대한 시험 성적서, 적합성 선언서, 실측 카톤 치수가 기재된 포장 명세서.",
+          "3": "선적 시: 인보이스, 포장 명세서, 원산지 증명서, 선하증권 또는 항공 운송장."
+        }
+      },
+      "boundary": {
+        "title": "당사가 하지 않는 일",
+        "body": "당사는 귀하를 대신해 특정 시장용 기기 인증을 취득하지 않고, 귀하의 디자인을 다른 브랜드의 박스에 넣지 않으며, 견적 인보이스(proforma invoice)에 기재된 유효 기간 동안 유지할 수 없는 가격을 제시하지 않습니다."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "얼굴 및 몸 사용 가능",
         "launch": "글로벌 출시일",
         "rspNote": "RSP(VAT 제외)는 과거 시장 동향과 현재 시장 상황에 대한 당사의 평가를 바탕으로 산출된 참고 가격입니다."
+      },
+      "led": {
+        "label": "LED 광선 요법",
+        "title": "LED 광선 요법 마스크 비교",
+        "description": "웨어러블 LED 마스크 플랫폼 두 가지를 나란히 비교한 것입니다. 두 제품 모두 가정용 미용 얼굴 관리 기기입니다. F618 탁상형 패널은 별도 제품 페이지에 설명되어 있습니다.",
+        "model": "모델",
+        "compare": {
+          "form": "형태",
+          "wavelengths": "파장",
+          "lightOutput": "광 출력",
+          "control": "조작 방식",
+          "sessionTime": "사용 시간",
+          "coverage": "적용 부위",
+          "rsp": "권장 소비자 가격 (부가세 별도)",
+          "price": "공장 단가 (USD)",
+          "bestFor": "적합한 용도"
+        },
+        "priceNote": "표시된 단가는 제시된 수량 구간 기준의 1개당 USD 가격입니다. 전체 가격표는 제품 페이지에서 확인하세요.",
+        "panelNote": "탁상형 패널을 찾고 계신가요? F618 LED 광선 요법 패널을 참조하세요."
       }
     },
     "backToClients": "고객사로 돌아가기",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "아이스 쿨링 + 9단계 강도"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "600-LED, 4파장 페이셜 마스크"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "7가지 색상 + NIR 실리콘 마스크"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "216-LED 탁상형 광 패널"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LED 요법 마스크 001A",
+      "tagline": "4파장 웨어러블 LED 마스크",
+      "description": "적색, 황색, 청색 및 근적외선 광에 걸쳐 600개의 SMD LED를 갖춘 가정용 웨어러블 LED 스킨케어 마스크로, 8가지 스마트 모드와 배터리가 내장된 핸드헬드 리모컨을 갖추고 있습니다. 가정용 미용 피부 관리 기기이며, 질병이나 의학적 상태를 진단, 치료, 완치 또는 예방할 목적이 아닙니다.",
+      "specs": {
+        "lightSource": {
+          "label": "광원",
+          "value": "4개 파장에 걸친 600개 SMD LED"
+        },
+        "wavelengths": {
+          "label": "파장",
+          "value": "적색 630-660 nm, 황색 590-595 nm, 청색 415 nm, 근적외선 830 nm"
+        },
+        "modes": {
+          "label": "모드",
+          "value": "스마트 모드 8가지 (M1-M8)"
+        },
+        "control": {
+          "label": "조작 방식",
+          "value": "핸드헬드 리모컨 (길게 눌러 전원, 짧게 눌러 모드 변경)"
+        },
+        "sessionTime": {
+          "label": "사용 시간",
+          "value": "10-15분"
+        },
+        "frequency": {
+          "label": "권장 사용 빈도",
+          "value": "모드에 따라 주 1-5회"
+        },
+        "maxUse": {
+          "label": "부위별 최대 사용",
+          "value": "1일 1회"
+        },
+        "autoShutoff": {
+          "label": "자동 전원 차단",
+          "value": "예, 사용이 끝나면 자동으로 꺼짐"
+        },
+        "battery": {
+          "label": "배터리",
+          "value": "리튬이온 5,000 mAh, 리모컨 내장"
+        },
+        "charging": {
+          "label": "충전",
+          "value": "USB-C, 약 3시간"
+        },
+        "sessionsPerCharge": {
+          "label": "충전당 사용 횟수",
+          "value": "약 15-20회"
+        },
+        "inputPower": {
+          "label": "충전 입력",
+          "value": "DC 5 V 1 A (최대 15 W)"
+        },
+        "eyeProtection": {
+          "label": "눈 보호",
+          "value": "아이컵 내장"
+        },
+        "dimensions": {
+          "label": "크기",
+          "value": "243 x 200 x 150 mm (사용 설명서 기준)"
+        },
+        "weight": {
+          "label": "순중량",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "마감",
+          "value": "화이트 본체에 골드 톤 장식"
+        },
+        "headstrap": {
+          "label": "착용 방식",
+          "value": "길이 조절 벨크로 스트랩"
+        },
+        "inTheBox": {
+          "label": "구성품",
+          "value": "마스크 본체, 리모컨, USB-C 케이블, 보관 파우치, 사용 설명서"
+        },
+        "warranty": {
+          "label": "보증",
+          "value": "본체 1년, 액세서리 6개월"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "하나의 마스크에 4개 파장",
+          "description": "600개의 SMD LED가 적색, 황색, 청색, 근적외선 광을 담당하므로, 웨어러블 기기 하나로 네 가지 미용 관리를 할 수 있습니다."
+        },
+        "eightSmartModes": {
+          "title": "8가지 스마트 모드",
+          "description": "M1부터 M8까지는 서로 다른 미용 고민에 맞춘 파장 조합이며, 핸드헬드 리모컨으로 전환합니다."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "충전 1회로 15-20회 사용",
+          "description": "리모컨에 내장된 5,000 mAh 배터리로 약 15-20회 사용할 수 있으며, USB-C로 약 3시간에 충전됩니다."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "아이컵과 자동 전원 차단",
+          "description": "내장 아이컵이 사용 중 눈을 가려주며, 사용이 끝나면 마스크가 스스로 꺼집니다."
+        }
+      },
+      "priceNote": "단가는 제시된 수량 기준 EXW, 1개당 USD입니다. 로고 인쇄, 맞춤 설명서, 소매 포장은 별도 견적이며, 전체 견적은 문의해 주세요.",
+      "badge": "4파장",
+      "colors": [
+        "화이트 / 골드"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED 요법 마스크 002A",
+      "tagline": "7가지 색상 + NIR 실리콘 LED 마스크",
+      "description": "부드러운 실리콘과 ABS 소재의 가정용 LED 스킨케어 마스크로, 7가지 가시광 색상과 850 nm 근적외선에 걸쳐 264개의 LED를 갖추고 있습니다. 3,000 mAh 배터리로 약 3시간 작동하며 약 1시간에 충전됩니다. 가정용 미용 피부 관리 기기이며, 질병이나 의학적 상태를 진단, 치료, 완치 또는 예방할 목적이 아닙니다.",
+      "specs": {
+        "productName": {
+          "label": "제품명",
+          "value": "LED 페이셜 마스크"
+        },
+        "modelNo": {
+          "label": "모델명",
+          "value": "002A"
+        },
+        "material": {
+          "label": "소재",
+          "value": "부드러운 실리콘 + ABS"
+        },
+        "productSize": {
+          "label": "제품 크기",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "제품 중량",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "포장 크기",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "포장 중량",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "수량",
+          "value": "카톤당 20개"
+        },
+        "cartonSize": {
+          "label": "카톤 크기",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "순중량 / 총중량",
+          "value": "카톤당 12.8 kg / 13.4 kg"
+        },
+        "color": {
+          "label": "색상",
+          "value": "로즈 골드 / 맞춤 가능"
+        },
+        "feature": {
+          "label": "기능",
+          "value": "7가지 색상 + NIR(근적외선) LED 광선 요법"
+        },
+        "ledColours": {
+          "label": "LED 색상",
+          "value": "적색 630 nm, 녹색 525 nm, 청색 465 nm, 보라색 390 nm, 황색 610 nm, 시안 490 nm, 백색 460-850 nm (혼합), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED 수량",
+          "value": "66 x 4 = 264개"
+        },
+        "battery": {
+          "label": "배터리 용량",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "작동 시간",
+          "value": "약 3시간"
+        },
+        "chargingTime": {
+          "label": "충전 시간",
+          "value": "약 1시간"
+        },
+        "power": {
+          "label": "소비전력",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "입력 전압",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "포함 품목",
+          "value": "마스크 x1, 설명서 x1, 리모컨 x1, 눈 가리개 x1, 충전 케이블 x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "7가지 색상 + 근적외선",
+          "description": "264개의 LED가 적색 630 nm, 녹색 525 nm, 청색 465 nm, 보라색 390 nm, 황색 610 nm, 시안 490 nm, 백색 460-850 nm 및 850 nm 근적외선을 담당합니다."
+        },
+        "softSiliconeAbs": {
+          "title": "부드러운 실리콘 + ABS",
+          "description": "148 g의 유연한 마스크로, 290 x 195 x 3.5 mm 크기이며 얼굴에서 떠 있지 않고 얼굴 곡선을 따라 휘어집니다."
+        },
+        "fastChargeLongRuntime": {
+          "title": "1시간 충전, 3시간 작동",
+          "description": "3,000 mAh 배터리는 약 1시간에 충전되며 약 3시간 작동합니다."
+        },
+        "completeKit": {
+          "title": "완전한 구성",
+          "description": "핸드헬드 리모컨, 눈 가리개, 충전 케이블, 사용 설명서가 함께 제공됩니다."
+        }
+      },
+      "priceNote": "단가는 제시된 수량 기준 EXW, 1개당 USD입니다. 로고 인쇄, 맞춤 설명서, 소매 포장은 별도 견적이며, 전체 견적은 문의해 주세요.",
+      "badge": "7가지 색상 + NIR",
+      "colors": [
+        "로즈 골드 (맞춤 가능)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED 요법 패널 F618",
+      "tagline": "탁상형 4파장 광 패널",
+      "description": "얼굴과 신체 미용 관리를 위한 전원 연결식 탁상형 LED 광선 요법 패널로, 청색, 황색, 적색, 적외선 파장에 걸친 216개의 LED 칩, 54개의 면가공 렌즈, 8가지 선택 모드를 갖추고 있습니다. 가정용 미용 피부 관리 기기이며, 질병이나 의학적 상태를 진단, 치료, 완치 또는 예방할 목적이 아닙니다.",
+      "specs": {
+        "packagingName": {
+          "label": "소매 포장 명칭",
+          "value": "LED 광선 요법 패널"
+        },
+        "lightSource": {
+          "label": "광원",
+          "value": "LED, 4개 파장에 걸친 216개 칩"
+        },
+        "ledArray": {
+          "label": "LED 배열",
+          "value": "벌집형으로 배치된 54개의 육각 면가공 렌즈, 렌즈 위치마다 LED 칩 4개"
+        },
+        "wavelengths": {
+          "label": "파장",
+          "value": "청색 460 nm, 황색 590 nm, 적색 662 nm, 적외선 850 nm"
+        },
+        "infrared": {
+          "label": "적외선",
+          "value": "850 nm, 모든 관리 모드에 포함"
+        },
+        "modes": {
+          "label": "모드",
+          "value": "관리 모드 8가지 (P1-P8) 및 대기 모드"
+        },
+        "control": {
+          "label": "조작 방식",
+          "value": "터치 키 1개, 작동 중인 모드 코드는 전면 디스플레이에 표시"
+        },
+        "application": {
+          "label": "적용 부위",
+          "value": "얼굴 및 신체, 두 가지 모드는 두피와 음부 사용이 설명서에 기재되어 있음"
+        },
+        "sessionTime": {
+          "label": "사용 시간",
+          "value": "모드당 15-20분, 신체 부위당 약 20분"
+        },
+        "maxPerArea": {
+          "label": "신체 부위별 최대 사용",
+          "value": "30분"
+        },
+        "maxPerSession": {
+          "label": "1회 최대 사용",
+          "value": "60분"
+        },
+        "eyeProtection": {
+          "label": "눈 보호",
+          "value": "보호용 선글라스 제공, 사용 중 착용 필수"
+        },
+        "powerSource": {
+          "label": "전원",
+          "value": "제공된 어댑터를 통한 전원 연결 전용 (배터리 없음)"
+        },
+        "adapter": {
+          "label": "어댑터",
+          "value": "AC 100-240 V, 50/60 Hz to DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "출력",
+          "value": "최대 15 W"
+        },
+        "dimensions": {
+          "label": "크기",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "순중량",
+          "value": "620 g (본체 530 g, 어댑터 90 g)"
+        },
+        "stand": {
+          "label": "스탠드",
+          "value": "접이식 후면 지지대"
+        },
+        "standards": {
+          "label": "제조 표준",
+          "value": "GB 4706.1-2005 및 GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "구성품",
+          "value": "본체, 전원 어댑터, 사용 설명서, 보호용 선글라스"
+        },
+        "qty": {
+          "label": "수량",
+          "value": "카톤당 20개"
+        },
+        "cartonSize": {
+          "label": "카톤 크기",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "총중량",
+          "value": "카톤당 18.835 kg (실중량)"
+        },
+        "origin": {
+          "label": "원산지",
+          "value": "중국 제조"
+        },
+        "warranty": {
+          "label": "보증",
+          "value": "1년"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "모든 모드에 4개 파장",
+          "description": "청색 460 nm, 황색 590 nm, 적색 662 nm, 적외선 850 nm이며, 적외선은 8가지 관리 모드 모두에 포함됩니다."
+        },
+        "lensArray": {
+          "title": "54개 면가공 렌즈 뒤의 216개 LED",
+          "description": "54개 렌즈 위치마다 LED 칩 4개가 있으며, 패널 전체에 벌집형으로 배치되어 있습니다."
+        },
+        "eightSelectableModes": {
+          "title": "8가지 선택 모드",
+          "description": "터치 키 1개로 P1부터 P8까지 전환하며, 작동 중인 코드는 전면 디스플레이에 표시됩니다."
+        },
+        "deskOrFloorStanding": {
+          "title": "탁상 또는 바닥 거치",
+          "description": "접이식 후면 지지대로 필요한 각도에 패널을 세울 수 있으며, 제공된 12 V 어댑터로 작동합니다."
+        }
+      },
+      "priceNote": "단가는 제시된 수량 기준 EXW, 1개당 USD입니다. 로고 인쇄, 맞춤 설명서, 소매 포장은 별도 견적이며, 전체 견적은 문의해 주세요.",
+      "badge": "탁상형 패널",
+      "colors": [
+        "화이트 / 라이트 그레이"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99개",
+      "tier2": "100-499개",
+      "tier3": "500-1,999개",
+      "tier4": "2,000개 이상"
+    },
+    "ledSampleMoq": "샘플 최소 주문 수량: 1개",
+    "ledBulkMoq": "대량 최소 주문 수량: 500개 (최초 200개 주문은 협의 가능)",
+    "rspLine": "권장 소비자 가격 (부가세 별도): {value}"
   },
   "stickyContact": {
     "wechatTip": "WeChat으로 문의하세요 — 10분 이내에 답변을 드립니다",

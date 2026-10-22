@@ -87,7 +87,11 @@
     "quality": "Kwaliteitscontrole",
     "iplComponentsCatalogue": "IPL-componenten",
     "serviceSupport": "Service & ondersteuning",
-    "catalogue": "Catalogus"
+    "catalogue": "Catalogus",
+    "ledMask001a": "LED-masker 001A",
+    "ledMask002a": "LED-masker 002A",
+    "ledPanelF618": "LED-paneel F618",
+    "ledTherapy": "LED-lichttherapie"
   },
   "footer": {
     "tagline": "Toonaangevende fabrikant van IPL-apparaten, gespecialiseerd in OEM/ODM-diensten met meer dan 15 jaar ervaring.",
@@ -613,6 +617,18 @@
           "title": "IPL-veiligheid",
           "desc": "Is IPL-ontharing veilig?"
         }
+      },
+      "ledMask001a": {
+        "name": "LED-masker 001A",
+        "tagline": "600-LED masker met 4 golflengtes"
+      },
+      "ledMask002a": {
+        "name": "LED-masker 002A",
+        "tagline": "7 kleuren + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED-paneel F618",
+        "tagline": "Tafelmodel paneel met 4 golflengtes"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Laten we uw projectvereisten bespreken en onderzoeken hoe onze OEM/ODM-oplossingen u kunnen helpen slagen op de IPL-markt.",
         "start": "Start uw project",
         "back": "Terug naar diensten"
+      },
+      "vet": {
+        "title": "Hoe inkopers een IPL-fabrikant beoordelen, en hoe wij antwoorden",
+        "items": {
+          "0": {
+            "title": "Begin bij het certificaat, niet bij de brochure",
+            "body": "Een CE- of FDA-claim is een document met een nummer, een uitgevende instantie en een reikwijdte. Vraag het bestand op en controleer of het model op het certificaat het model is dat u offreert. Wij sturen het bestand vóór de offerte, niet na de aanbetaling."
+          },
+          "1": {
+            "title": "Vraag het testrapport, niet het specificatieblad",
+            "body": "Een datasheet noemt een getal. Een testrapport noemt de methode, het instrument en het monster. Vraag op welk gebied de fluence-waarde betrekking heeft en of het rapport de norm dekt die uw markt handhaaft."
+          },
+          "2": {
+            "title": "Vraag wat de fabriek niet doet",
+            "body": "Een leverancier die alles claimt, is een leverancier die de onderdelen die u niet ziet uitbesteedt. Wij maken de lithiumcel, de lamp en het saffierglas niet; we kopen ze in, testen ze bij ontvangst en kunnen u de specificatie geven waaraan elk onderdeel wordt gehouden."
+          },
+          "3": {
+            "title": "Vraag wie het gereedschap bezit, en wanneer het wordt terugbetaald",
+            "body": "Een eigen matrijs wordt apart in rekening gebracht en is eigendom van het project dat ervoor betaalt. De onze is gemaximeerd op RMB 150,000 en wordt terugbetaald zodra de cumulatieve bestellingen 30,000 stuks bereiken, schriftelijk, vóór de eerste factuur."
+          }
+        }
+      },
+      "docs": {
+        "title": "Documenten die wij overdragen, en wanneer",
+        "items": {
+          "0": "Bij offerte: het platformspecificatieblad, de MOQ, de stukprijsband, de gereedschapskosten en de levertijd gerekend vanaf ontvangst van de aanbetaling.",
+          "1": "Vóór gereedschap: de tekeningenset, de dieline voor het artwork en de label- of claimtekst die uw markt vereist.",
+          "2": "Vóór verzending: de testrapporten voor de normen die de bestemmingsmarkt handhaaft, de conformiteitsverklaring en de paklijst met gemeten doosafmetingen.",
+          "3": "Bij de zending: factuur, paklijst, certificaat van oorsprong en de cognossement of luchtvrachtbrief."
+        }
+      },
+      "boundary": {
+        "title": "Wat wij niet doen",
+        "body": "Wij certificeren een apparaat niet namens u voor een markt, wij zetten uw ontwerp niet op de doos van een ander merk, en wij offreren geen prijs die wij niet kunnen handhaven voor de geldigheidsduur die op de proformafactuur staat."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Geschikt voor gezicht en lichaam",
         "launch": "Wereldwijde lanceringsdatum",
         "rspNote": "De adviesprijs (excl. btw) is een referentieprijs op basis van historische markttrends en onze inschatting van de huidige marktomstandigheden."
+      },
+      "led": {
+        "label": "LED-lichttherapie",
+        "title": "LED-lichttherapiemaskers vergeleken",
+        "description": "Twee draagbare LED-maskerplatforms, naast elkaar. Beide zijn cosmetische gezichtsverzorgingsapparaten voor thuisgebruik. Het F618-tafelmodel wordt op zijn eigen productpagina beschreven.",
+        "model": "Model",
+        "compare": {
+          "form": "Uitvoering",
+          "wavelengths": "Golflengtes",
+          "lightOutput": "Lichtopbrengst",
+          "control": "Bediening",
+          "sessionTime": "Sessieduur",
+          "coverage": "Toepassingsgebied",
+          "rsp": "Adviesverkoopprijs (excl. btw)",
+          "price": "Fabrieksprijs per stuk (USD)",
+          "bestFor": "Geschikt voor"
+        },
+        "priceNote": "De getoonde stukprijzen zijn USD per stuk voor de vermelde kwantiteitsbanden; open een productpagina voor de volledige staffel.",
+        "panelNote": "Op zoek naar het tafelmodel in plaats daarvan? Zie het F618 LED-lichttherapiepaneel."
       }
     },
     "backToClients": "Terug naar klanten",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "IJskoeling + 9 intensiteitsniveaus"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "600-LED gezichtsmasker met 4 golflengtes"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "7 kleuren + NIR siliconen masker"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "216-LED tafelpaneel"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LED-therapiemasker 001A",
+      "tagline": "Draagbaar LED-masker met 4 golflengtes",
+      "description": "Een draagbaar LED-huidverzorgingsmasker voor thuisgebruik met 600 SMD-LED's in rood, geel, blauw en nabij-infrarood licht, acht slimme modi en een draadloze afstandsbediening die ook de accu bevat. Een cosmetisch huidverzorgingsapparaat voor thuisgebruik - het is niet bedoeld om een ziekte of medische aandoening te diagnosticeren, te behandelen, te genezen of te voorkomen.",
+      "specs": {
+        "lightSource": {
+          "label": "Lichtbron",
+          "value": "600 SMD-LED's over vier golflengtes"
+        },
+        "wavelengths": {
+          "label": "Golflengtes",
+          "value": "630-660 nm rood, 590-595 nm geel, 415 nm blauw, 830 nm nabij-infrarood"
+        },
+        "modes": {
+          "label": "Modi",
+          "value": "8 slimme modi (M1-M8)"
+        },
+        "control": {
+          "label": "Bediening",
+          "value": "Draadloze afstandsbediening (ingedrukt houden om aan te zetten, kort indrukken om van modus te wisselen)"
+        },
+        "sessionTime": {
+          "label": "Sessieduur",
+          "value": "10-15 minuten"
+        },
+        "frequency": {
+          "label": "Aanbevolen frequentie",
+          "value": "1-5 sessies per week, afhankelijk van de modus"
+        },
+        "maxUse": {
+          "label": "Maximaal gebruik per gebied",
+          "value": "Eén keer per dag"
+        },
+        "autoShutoff": {
+          "label": "Automatische uitschakeling",
+          "value": "Ja, aan het einde van elke sessie"
+        },
+        "battery": {
+          "label": "Accu",
+          "value": "5,000 mAh lithium-ion, ingebouwd in de afstandsbediening"
+        },
+        "charging": {
+          "label": "Opladen",
+          "value": "USB-C, ca. 3 uur"
+        },
+        "sessionsPerCharge": {
+          "label": "Sessies per lading",
+          "value": "Ca. 15-20 sessies"
+        },
+        "inputPower": {
+          "label": "Oplaadingang",
+          "value": "DC 5 V 1 A (max. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Oogbescherming",
+          "value": "Ingebouwde oogkappen"
+        },
+        "dimensions": {
+          "label": "Afmetingen",
+          "value": "243 x 200 x 150 mm (volgens handleiding)"
+        },
+        "weight": {
+          "label": "Netto gewicht",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Afwerking",
+          "value": "Witte behuizing met goudkleurige accenten"
+        },
+        "headstrap": {
+          "label": "Bevestiging op het hoofd",
+          "value": "Verstelbare klittenbandbanden"
+        },
+        "inTheBox": {
+          "label": "In de doos",
+          "value": "Maskerhoofdeenheid, afstandsbediening, USB-C-kabel, opbergzak, handleiding"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "1 jaar op het hoofdapparaat, 6 maanden op accessoires"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Vier golflengtes in één masker",
+          "description": "600 SMD-LED's dekken rood, geel, blauw en nabij-infrarood licht, zodat één draagbaar masker vier verschillende cosmetische routines bedient."
+        },
+        "eightSmartModes": {
+          "title": "Acht slimme modi",
+          "description": "M1 tot en met M8 koppelen specifieke combinaties van golflengtes aan verschillende cosmetische aandachtspunten, te wisselen met de draadloze afstandsbediening."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 sessies per lading",
+          "description": "Een accu van 5,000 mAh in de afstandsbediening levert ongeveer 15-20 sessies en laadt in circa drie uur op via USB-C."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Oogkappen en automatische uitschakeling",
+          "description": "Ingebouwde oogkappen schermen de ogen tijdens gebruik af, en het masker schakelt zichzelf uit aan het einde van de sessie."
+        }
+      },
+      "priceNote": "De stukprijzen zijn EXW, in USD per stuk, voor de getoonde hoeveelheden. Logodruk, handleidingen op maat en retailverpakking worden apart geoffreerd - neem contact op voor een volledige offerte.",
+      "badge": "4 golflengtes",
+      "colors": [
+        "Wit / goud"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED-therapiemasker 002A",
+      "tagline": "7 kleuren + NIR siliconen LED-masker",
+      "description": "Een LED-huidverzorgingsmasker voor thuisgebruik in zacht siliconen en ABS, met 264 LED's in zeven zichtbare kleuren plus 850 nm nabij-infrarood. Een accu van 3,000 mAh gaat ongeveer drie uur mee en laadt in circa één uur op. Een cosmetisch huidverzorgingsapparaat voor thuisgebruik - het is niet bedoeld om een ziekte of medische aandoening te diagnosticeren, te behandelen, te genezen of te voorkomen.",
+      "specs": {
+        "productName": {
+          "label": "Productnaam",
+          "value": "LED-gezichtsmasker"
+        },
+        "modelNo": {
+          "label": "Modelnr.",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Materiaal",
+          "value": "Zacht siliconen + ABS"
+        },
+        "productSize": {
+          "label": "Productafmetingen",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Productgewicht",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Verpakkingsafmetingen",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Verpakkingsgewicht",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Aantal",
+          "value": "20 stuks per doos"
+        },
+        "cartonSize": {
+          "label": "Doosafmetingen",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "N.W. / G.W.",
+          "value": "12.8 kg / 13.4 kg per doos"
+        },
+        "color": {
+          "label": "Kleur",
+          "value": "Roségoud / aanpasbaar"
+        },
+        "feature": {
+          "label": "Kenmerk",
+          "value": "7 kleuren + NIR (nabij-infrarood) LED-lichttherapie"
+        },
+        "ledColours": {
+          "label": "LED-kleuren",
+          "value": "Rood 630 nm, groen 525 nm, blauw 465 nm, paars 390 nm, geel 610 nm, cyaan 490 nm, wit 460-850 nm (mix), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED's",
+          "value": "66 x 4 = 264 st."
+        },
+        "battery": {
+          "label": "Accucapaciteit",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Werktijd",
+          "value": "Ca. 3 uur"
+        },
+        "chargingTime": {
+          "label": "Oplaadtijd",
+          "value": "Ca. 1 uur"
+        },
+        "power": {
+          "label": "Vermogen",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Ingangsspanning",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Verpakking bevat",
+          "value": "Masker x1, handleiding x1, afstandsbediening x1, oogkap x1, oplaadkabel x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Zeven kleuren + nabij-infrarood",
+          "description": "264 LED's dekken rood 630 nm, groen 525 nm, blauw 465 nm, paars 390 nm, geel 610 nm, cyaan 490 nm, wit 460-850 nm en 850 nm nabij-infrarood."
+        },
+        "softSiliconeAbs": {
+          "title": "Zacht siliconen + ABS",
+          "description": "Een flexibel masker van 148 g en 290 x 195 x 3.5 mm dat met het gezicht meebeweegt in plaats van ervan af te staan."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Eén uur opladen, drie uur gebruiken",
+          "description": "Een accu van 3,000 mAh laadt in ongeveer één uur op en gaat ongeveer drie uur mee."
+        },
+        "completeKit": {
+          "title": "Complete set",
+          "description": "Geleverd met een draadloze afstandsbediening, oogkap, oplaadkabel en handleiding."
+        }
+      },
+      "priceNote": "De stukprijzen zijn EXW, in USD per stuk, voor de getoonde hoeveelheden. Logodruk, handleidingen op maat en retailverpakking worden apart geoffreerd - neem contact op voor een volledige offerte.",
+      "badge": "7 kleuren + NIR",
+      "colors": [
+        "Roségoud (aanpasbaar)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED-therapiepaneel F618",
+      "tagline": "Tafelmodel lichtpaneel met 4 golflengtes",
+      "description": "Een netgevoed tafelmodel LED-lichttherapiepaneel voor cosmetische gezichts- en lichaamsverzorging: 216 LED-chips in blauwe, gele, rode en infrarode golflengtes, 54 gefacetteerde lenzen en acht selecteerbare modi. Een cosmetisch huidverzorgingsapparaat voor thuisgebruik - het is niet bedoeld om een ziekte of medische aandoening te diagnosticeren, te behandelen, te genezen of te voorkomen.",
+      "specs": {
+        "packagingName": {
+          "label": "Naam retailverpakking",
+          "value": "LED-lichttherapiepaneel"
+        },
+        "lightSource": {
+          "label": "Lichtbron",
+          "value": "LED, 216 chips over vier golflengtes"
+        },
+        "ledArray": {
+          "label": "LED-array",
+          "value": "54 gefacetteerde zeshoekige lenzen in honingraatopstelling, met vier LED-chips op elke lenspositie"
+        },
+        "wavelengths": {
+          "label": "Golflengtes",
+          "value": "460 nm blauw, 590 nm geel, 662 nm rood, 850 nm infrarood"
+        },
+        "infrared": {
+          "label": "Infrarood",
+          "value": "850 nm, gecombineerd in elke behandelmodus"
+        },
+        "modes": {
+          "label": "Modi",
+          "value": "8 behandelmodi (P1-P8) plus stand-by"
+        },
+        "control": {
+          "label": "Bediening",
+          "value": "Eén aanraaktoets; de actieve moduscode verschijnt op het display aan de voorkant"
+        },
+        "application": {
+          "label": "Toepassingsgebied",
+          "value": "Gezicht en lichaam; twee modi zijn gedocumenteerd voor gebruik op de hoofdhuid en intieme zones"
+        },
+        "sessionTime": {
+          "label": "Sessieduur",
+          "value": "15-20 minuten per modus, ca. 20 minuten per lichaamsdeel"
+        },
+        "maxPerArea": {
+          "label": "Maximaal gebruik per lichaamsdeel",
+          "value": "30 minuten"
+        },
+        "maxPerSession": {
+          "label": "Maximaal gebruik per sessie",
+          "value": "60 minuten"
+        },
+        "eyeProtection": {
+          "label": "Oogbescherming",
+          "value": "Beschermende zonnebril meegeleverd; verplicht tijdens gebruik"
+        },
+        "powerSource": {
+          "label": "Voeding",
+          "value": "Alleen netvoeding, via de meegeleverde adapter (geen accu)"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "AC 100-240 V, 50/60 Hz naar DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Uitgangsvermogen",
+          "value": "Max. 15 W"
+        },
+        "dimensions": {
+          "label": "Afmetingen",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Netto gewicht",
+          "value": "620 g (hoofdeenheid 530 g, adapter 90 g)"
+        },
+        "stand": {
+          "label": "Standaard",
+          "value": "Opvouwbaar steunpootje aan de achterkant"
+        },
+        "standards": {
+          "label": "Productienorm",
+          "value": "GB 4706.1-2005 en GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "In de doos",
+          "value": "Hoofdeenheid, voedingsadapter, handleiding, beschermende zonnebril"
+        },
+        "qty": {
+          "label": "Aantal",
+          "value": "20 stuks per doos"
+        },
+        "cartonSize": {
+          "label": "Doosafmetingen",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Bruto gewicht",
+          "value": "18.835 kg per doos (werkelijk gewicht)"
+        },
+        "origin": {
+          "label": "Land van herkomst",
+          "value": "Gemaakt in China"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "1 jaar"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Vier golflengtes, elke modus",
+          "description": "Blauw 460 nm, geel 590 nm, rood 662 nm en infrarood 850 nm - infrarood is in alle acht behandelmodi opgenomen."
+        },
+        "lensArray": {
+          "title": "216 LED's achter 54 gefacetteerde lenzen",
+          "description": "Elk van de 54 lensposities bevat vier LED-chips, in honingraatpatroon over het paneel verdeeld."
+        },
+        "eightSelectableModes": {
+          "title": "Acht selecteerbare modi",
+          "description": "Eén aanraaktoets schakelt door P1 tot en met P8, waarbij de actieve code op het display aan de voorkant wordt getoond."
+        },
+        "deskOrFloorStanding": {
+          "title": "Op bureau of op de grond",
+          "description": "Een opvouwbaar steunpootje aan de achterkant zet het paneel in de gewenste hoek, en het werkt op de meegeleverde 12 V-adapter."
+        }
+      },
+      "priceNote": "De stukprijzen zijn EXW, in USD per stuk, voor de getoonde hoeveelheden. Logodruk, handleidingen op maat en retailverpakking worden apart geoffreerd - neem contact op voor een volledige offerte.",
+      "badge": "Tafelmodel",
+      "colors": [
+        "Wit / lichtgrijs"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 stuks",
+      "tier2": "100-499 stuks",
+      "tier3": "500-1,999 stuks",
+      "tier4": "2,000+ stuks"
+    },
+    "ledSampleMoq": "Monster-MOQ: 1 stuk",
+    "ledBulkMoq": "Bulk-MOQ: 500 stuks (een eerste bestelling van 200 stuks is bespreekbaar)",
+    "rspLine": "Adviesverkoopprijs (excl. btw): {value}"
   },
   "stickyContact": {
     "wechatTip": "Chat via WeChat — ontvang binnen 10 minuten een antwoord",

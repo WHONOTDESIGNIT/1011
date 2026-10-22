@@ -87,7 +87,11 @@
     "quality": "品質管理",
     "iplComponentsCatalogue": "IPLコンポーネント",
     "serviceSupport": "サービス＆サポート",
-    "catalogue": "カタログ"
+    "catalogue": "カタログ",
+    "ledMask001a": "LEDマスク 001A",
+    "ledMask002a": "LEDマスク 002A",
+    "ledPanelF618": "LEDパネル F618",
+    "ledTherapy": "LED光療法"
   },
   "footer": {
     "tagline": "15年以上の経験を持つ、OEM/ODMサービスを専門とする大手光エステ脱毛器メーカーです。",
@@ -613,6 +617,18 @@
           "title": "IPLの安全性",
           "desc": "IPL脱毛は安全ですか？"
         }
+      },
+      "ledMask001a": {
+        "name": "LEDマスク 001A",
+        "tagline": "600個のLED、4波長マスク"
+      },
+      "ledMask002a": {
+        "name": "LEDマスク 002A",
+        "tagline": "7色 + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LEDパネル F618",
+        "tagline": "卓上型4波長パネル"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "プロジェクトの要件についてご相談いただき、当社の OEM/ODM ソリューションが IPL 市場での成功にどう貢献できるかをご覧ください。",
         "start": "プロジェクトを開始",
         "back": "サービス一覧に戻る"
+      },
+      "vet": {
+        "title": "買い手がIPLメーカーをどう審査するか、当社はどう応えるか",
+        "items": {
+          "0": {
+            "title": "パンフレットではなく証明書から始める",
+            "body": "CEやFDAの表示は、番号・発行機関・適用範囲を持つ文書です。まずその文書を求め、証明書に記載された型番が見積対象の型番と一致するか確認してください。当社は前受金の後ではなく、見積前に文書をお送りします。"
+          },
+          "1": {
+            "title": "仕様書ではなく試験報告書を求める",
+            "body": "データシートは数値を示します。試験報告書は方法・装置・試料を示します。照射量の数値がどの面積を指すのか、また報告書が貴市場で適用される規格を網羅しているかを確認してください。"
+          },
+          "2": {
+            "title": "工場が何をしていないかを尋ねる",
+            "body": "すべてを自社で行うと称する供給元は、目に見えない部品を外注している供給元です。当社はリチウムセル、ランプ、サファイアウィンドウを製造せず、購入して受入検査を行い、それぞれが適合すべき仕様をお伝えできます。"
+          },
+          "3": {
+            "title": "金型の所有権と返金時期を確認する",
+            "body": "専用金型は別途費用計上となり、その費用を負担した案件に帰属します。当社では上限をRMB 150,000とし、累計発注が30,000台に達した時点で返金する旨を、初回請求書の発行前に書面で取り決めます。"
+          }
+        }
+      },
+      "docs": {
+        "title": "当社が交付する書類とその時期",
+        "items": {
+          "0": "見積時:プラットフォーム仕様書、MOQ、単価帯、金型費用、前受金受領日起算のリードタイム。",
+          "1": "金型製作前:図面一式、アートワークのダイライン、貴市場で必要なラベルまたは表示文言。",
+          "2": "出荷前:仕向市場で適用される規格の試験報告書、適合宣言書、実測カートン寸法を記載したパッキングリスト。",
+          "3": "出荷時:請求書、パッキングリスト、原産地証明書、船荷証券または航空貨物運送状。"
+        }
+      },
+      "boundary": {
+        "title": "当社が行わないこと",
+        "body": "お客様に代わって市場向けの認証を取得することはなく、貴社のデザインを他ブランドの箱に載せることもなく、プロフォーマインボイスに記載した有効期限内に維持できない価格をお見積もりすることもありません。"
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "顔・ボディ対応",
         "launch": "世界発売日",
         "rspNote": "希望小売価格（税抜）は、過去の市場動向と当社による現状の市場環境の評価に基づいて算出した参考価格です。"
+      },
+      "led": {
+        "label": "LED光療法",
+        "title": "LED光療法マスク比較",
+        "description": "着用型LEDマスク2機種の比較です。いずれも家庭用の美容フェイシャルケア機器です。卓上型パネルF618は専用の製品ページに記載しています。",
+        "model": "型番",
+        "compare": {
+          "form": "形態",
+          "wavelengths": "波長",
+          "lightOutput": "光出力",
+          "control": "操作",
+          "sessionTime": "1回の使用時間",
+          "coverage": "適用部位",
+          "rsp": "希望小売価格(税別)",
+          "price": "工場単価(USD)",
+          "bestFor": "適した用途"
+        },
+        "priceNote": "表示単価は記載の数量帯における1台あたりのUSD価格です。全数量の価格表は製品ページをご覧ください。",
+        "panelNote": "卓上型パネルをお探しの場合は、F618 LED光療法パネルのページをご覧ください。"
       }
     },
     "backToClients": "クライアント一覧に戻る",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "アイス冷却＋9段階の強度レベル"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "600個のLED、4波長フェイシャルマスク"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "7色 + NIR シリコーンマスク"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "216個のLED 卓上型ライトパネル"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LEDセラピーマスク 001A",
+      "tagline": "4波長 着用型LEDマスク",
+      "description": "赤色・黄色・青色・近赤外の4波長に600個のSMD LEDを備えた、家庭用の着用型LEDスキンケアマスクです。8つのスマートモードと、バッテリーを内蔵したハンドヘルドリモコンを備えます。家庭用の美容スキンケア機器であり、疾病や医学的状態の診断・治療・治癒・予防を目的としたものではありません。",
+      "specs": {
+        "lightSource": {
+          "label": "光源",
+          "value": "4波長に600個のSMD LED"
+        },
+        "wavelengths": {
+          "label": "波長",
+          "value": "赤 630-660 nm、黄 590-595 nm、青 415 nm、近赤外 830 nm"
+        },
+        "modes": {
+          "label": "モード",
+          "value": "8つのスマートモード(M1-M8)"
+        },
+        "control": {
+          "label": "操作",
+          "value": "ハンドヘルドリモコン(長押しで電源、短押しでモード切替)"
+        },
+        "sessionTime": {
+          "label": "1回の使用時間",
+          "value": "10-15分"
+        },
+        "frequency": {
+          "label": "推奨頻度",
+          "value": "モードにより週1-5回"
+        },
+        "maxUse": {
+          "label": "部位あたりの最大使用",
+          "value": "1日1回"
+        },
+        "autoShutoff": {
+          "label": "自動電源オフ",
+          "value": "あり(各回の終了時)"
+        },
+        "battery": {
+          "label": "バッテリー",
+          "value": "5,000 mAh リチウムイオン、リモコン内蔵"
+        },
+        "charging": {
+          "label": "充電",
+          "value": "USB-C、約3時間"
+        },
+        "sessionsPerCharge": {
+          "label": "1充電あたりの回数",
+          "value": "約15-20回"
+        },
+        "inputPower": {
+          "label": "充電入力",
+          "value": "DC 5 V 1 A(最大15 W)"
+        },
+        "eyeProtection": {
+          "label": "目の保護",
+          "value": "アイカップ内蔵"
+        },
+        "dimensions": {
+          "label": "寸法",
+          "value": "243 x 200 x 150 mm(取扱説明書による)"
+        },
+        "weight": {
+          "label": "正味重量",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "仕上げ",
+          "value": "ホワイト外装、ゴールド調の縁取り"
+        },
+        "headstrap": {
+          "label": "装着方法",
+          "value": "調整可能な面ファスナーベルト"
+        },
+        "inTheBox": {
+          "label": "同梱内容",
+          "value": "マスク本体、リモコン、USB-Cケーブル、収納ポーチ、取扱説明書"
+        },
+        "warranty": {
+          "label": "保証",
+          "value": "本体1年、付属品6ヶ月"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "4波長を1台に",
+          "description": "600個のSMD LEDが赤色・黄色・青色・近赤外をカバーし、1台で4つの美容ケアに対応します。"
+        },
+        "eightSmartModes": {
+          "title": "8つのスマートモード",
+          "description": "M1からM8は美容上の悩みに合わせて波長を組み合わせたモードで、ハンドヘルドリモコンで切り替えます。"
+        },
+        "sessionsPerChargeFeature": {
+          "title": "1充電で15-20回",
+          "description": "リモコン内蔵の5,000 mAhバッテリーで約15-20回使用でき、USB-Cで約3時間で充電できます。"
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "アイカップと自動電源オフ",
+          "description": "アイカップ内蔵で使用中は目を保護し、終了時にはマスクが自動で電源オフになります。"
+        }
+      },
+      "priceNote": "単価はEXW、記載数量における1台あたりのUSD価格です。ロゴ印刷、オリジナル説明書、小売パッケージは別途お見積もりとなります。正式なお見積もりはお問い合わせください。",
+      "badge": "4波長",
+      "colors": [
+        "ホワイト / ゴールド"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LEDセラピーマスク 002A",
+      "tagline": "7色 + NIR シリコーンLEDマスク",
+      "description": "軟質シリコーンとABSの家庭用LEDスキンケアマスクで、7色の可視光と850 nmの近赤外に264個のLEDを備えます。3,000 mAhバッテリーで約3時間動作し、約1時間で充電できます。家庭用の美容スキンケア機器であり、疾病や医学的状態の診断・治療・治癒・予防を目的としたものではありません。",
+      "specs": {
+        "productName": {
+          "label": "製品名",
+          "value": "LEDフェイシャルマスク"
+        },
+        "modelNo": {
+          "label": "型番",
+          "value": "002A"
+        },
+        "material": {
+          "label": "材質",
+          "value": "軟質シリコーン + ABS"
+        },
+        "productSize": {
+          "label": "製品サイズ",
+          "value": "290 x 195 x 3.5 mm(29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "製品重量",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "梱包サイズ",
+          "value": "270 x 200 x 80 mm(27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "梱包重量",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "入数",
+          "value": "1カートン20個"
+        },
+        "cartonSize": {
+          "label": "カートンサイズ",
+          "value": "550 x 406 x 410 mm(55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "正味重量 / 総重量",
+          "value": "1カートンあたり12.8 kg / 13.4 kg"
+        },
+        "color": {
+          "label": "カラー",
+          "value": "ローズゴールド / カスタマイズ可"
+        },
+        "feature": {
+          "label": "特長",
+          "value": "7色 + NIR(近赤外)LED光療法"
+        },
+        "ledColours": {
+          "label": "LED色",
+          "value": "赤 630 nm、緑 525 nm、青 465 nm、紫 390 nm、黄 610 nm、シアン 490 nm、白 460-850 nm(混合)、NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED数",
+          "value": "66 x 4 = 264個"
+        },
+        "battery": {
+          "label": "バッテリー容量",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "連続使用時間",
+          "value": "約3時間"
+        },
+        "chargingTime": {
+          "label": "充電時間",
+          "value": "約1時間"
+        },
+        "power": {
+          "label": "消費電力",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "入力電圧",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "同梱内容",
+          "value": "マスク x1、説明書 x1、リモコン x1、アイシェード x1、充電ケーブル x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "7色 + 近赤外",
+          "description": "264個のLEDが赤 630 nm、緑 525 nm、青 465 nm、紫 390 nm、黄 610 nm、シアン 490 nm、白 460-850 nm、近赤外 850 nmをカバーします。"
+        },
+        "softSiliconeAbs": {
+          "title": "軟質シリコーン + ABS",
+          "description": "148 gの柔軟なマスクで、サイズは290 x 195 x 3.5 mm、顔から浮かずに顔の形状に沿って曲がります。"
+        },
+        "fastChargeLongRuntime": {
+          "title": "1時間充電で3時間動作",
+          "description": "3,000 mAhバッテリーは約1時間で充電でき、約3時間動作します。"
+        },
+        "completeKit": {
+          "title": "充実した同梱内容",
+          "description": "ハンドヘルドリモコン、アイシェード、充電ケーブル、取扱説明書が付属します。"
+        }
+      },
+      "priceNote": "単価はEXW、記載数量における1台あたりのUSD価格です。ロゴ印刷、オリジナル説明書、小売パッケージは別途お見積もりとなります。正式なお見積もりはお問い合わせください。",
+      "badge": "7色 + NIR",
+      "colors": [
+        "ローズゴールド(カスタマイズ可)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LEDセラピーパネル F618",
+      "tagline": "卓上型4波長ライトパネル",
+      "description": "フェイスおよびボディの美容ケア向けの、コンセント給電式卓上型LED光療法パネルです。青・黄・赤・赤外の4波長に216個のLEDチップ、54枚のファセットレンズ、8つの選択モードを備えます。家庭用の美容スキンケア機器であり、疾病や医学的状態の診断・治療・治癒・予防を目的としたものではありません。",
+      "specs": {
+        "packagingName": {
+          "label": "小売パッケージ名",
+          "value": "LED光療法パネル"
+        },
+        "lightSource": {
+          "label": "光源",
+          "value": "LED、4波長に216個のチップ"
+        },
+        "ledArray": {
+          "label": "LED配列",
+          "value": "ハニカム配置の六角形ファセットレンズ54枚、各レンズ位置にLEDチップ4個"
+        },
+        "wavelengths": {
+          "label": "波長",
+          "value": "青 460 nm、黄 590 nm、赤 662 nm、赤外 850 nm"
+        },
+        "infrared": {
+          "label": "赤外",
+          "value": "850 nm、全施術モードに組み込み"
+        },
+        "modes": {
+          "label": "モード",
+          "value": "8つの施術モード(P1-P8)とスタンバイ"
+        },
+        "control": {
+          "label": "操作",
+          "value": "タッチキー1個。前面ディスプレイに選択中のモードコードを表示"
+        },
+        "application": {
+          "label": "適用部位",
+          "value": "顔およびボディ。頭皮とデリケートゾーン向けのモードを2つ記載"
+        },
+        "sessionTime": {
+          "label": "1回の使用時間",
+          "value": "モードにより15-20分、部位あたり約20分"
+        },
+        "maxPerArea": {
+          "label": "部位あたりの最大使用時間",
+          "value": "30分"
+        },
+        "maxPerSession": {
+          "label": "1回あたりの最大使用時間",
+          "value": "60分"
+        },
+        "eyeProtection": {
+          "label": "目の保護",
+          "value": "保護サングラス付属、使用中の着用必須"
+        },
+        "powerSource": {
+          "label": "電源",
+          "value": "付属アダプターによるコンセント給電のみ(バッテリーなし)"
+        },
+        "adapter": {
+          "label": "アダプター",
+          "value": "AC 100-240 V、50/60 Hz から DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "出力",
+          "value": "最大15 W"
+        },
+        "dimensions": {
+          "label": "寸法",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "正味重量",
+          "value": "620 g(本体530 g、アダプター90 g)"
+        },
+        "stand": {
+          "label": "スタンド",
+          "value": "折りたたみ式背面支持脚"
+        },
+        "standards": {
+          "label": "製造規格",
+          "value": "GB 4706.1-2005 および GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "同梱内容",
+          "value": "本体、電源アダプター、取扱説明書、保護サングラス"
+        },
+        "qty": {
+          "label": "入数",
+          "value": "1カートン20個"
+        },
+        "cartonSize": {
+          "label": "カートンサイズ",
+          "value": "485 x 480 x 410 mm(48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "総重量",
+          "value": "1カートンあたり18.835 kg(実重量)"
+        },
+        "origin": {
+          "label": "原産国",
+          "value": "中国製"
+        },
+        "warranty": {
+          "label": "保証",
+          "value": "1年"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "全モードで4波長",
+          "description": "青 460 nm、黄 590 nm、赤 662 nm、赤外 850 nm。赤外は8つの施術モードすべてに組み込まれています。"
+        },
+        "lensArray": {
+          "title": "54枚のファセットレンズの背後に216個のLED",
+          "description": "54か所のレンズ位置それぞれにLEDチップ4個が配置され、パネル全体にハニカム状に並びます。"
+        },
+        "eightSelectableModes": {
+          "title": "8つの選択モード",
+          "description": "タッチキー1個でP1からP8まで順に切り替わり、選択中のコードを前面ディスプレイに表示します。"
+        },
+        "deskOrFloorStanding": {
+          "title": "卓上でも床置きでも",
+          "description": "折りたたみ式の背面支持脚で必要な角度に設定でき、付属の12 Vアダプターから給電します。"
+        }
+      },
+      "priceNote": "単価はEXW、記載数量における1台あたりのUSD価格です。ロゴ印刷、オリジナル説明書、小売パッケージは別途お見積もりとなります。正式なお見積もりはお問い合わせください。",
+      "badge": "卓上型パネル",
+      "colors": [
+        "ホワイト / ライトグレー"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99台",
+      "tier2": "100-499台",
+      "tier3": "500-1,999台",
+      "tier4": "2,000台以上"
+    },
+    "ledSampleMoq": "サンプルMOQ: 1台",
+    "ledBulkMoq": "大口MOQ: 500台(初回200台のご注文はご相談可能)",
+    "rspLine": "希望小売価格(税別): {value}"
   },
   "stickyContact": {
     "wechatTip": "WeChatでチャット — 10分以内に返信します",

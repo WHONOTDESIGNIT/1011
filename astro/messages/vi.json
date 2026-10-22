@@ -87,7 +87,11 @@
     "quality": "Kiểm soát chất lượng",
     "iplComponentsCatalogue": "Linh kiện IPL",
     "serviceSupport": "Dịch vụ & Hỗ trợ",
-    "catalogue": "Danh mục"
+    "catalogue": "Danh mục",
+    "ledMask001a": "Mặt nạ LED 001A",
+    "ledMask002a": "Mặt nạ LED 002A",
+    "ledPanelF618": "Bảng đèn LED F618",
+    "ledTherapy": "Liệu pháp ánh sáng LED"
   },
   "footer": {
     "tagline": "Nhà sản xuất thiết bị IPL hàng đầu chuyên về dịch vụ OEM/ODM với hơn 15 năm kinh nghiệm.",
@@ -613,6 +617,18 @@
           "title": "An toàn IPL",
           "desc": "Triệt lông bằng IPL có an toàn không?"
         }
+      },
+      "ledMask001a": {
+        "name": "Mặt nạ LED 001A",
+        "tagline": "Mặt nạ 600 LED, 4 bước sóng"
+      },
+      "ledMask002a": {
+        "name": "Mặt nạ LED 002A",
+        "tagline": "7 màu + NIR"
+      },
+      "ledPanelF618": {
+        "name": "Bảng đèn LED F618",
+        "tagline": "Bảng đèn 4 bước sóng để bàn"
       }
     },
     "hero": {
@@ -2554,6 +2570,40 @@
         "description": "Hãy trao đổi về yêu cầu dự án của bạn và khám phá cách các giải pháp OEM/ODM của chúng tôi có thể giúp bạn thành công trên thị trường IPL.",
         "start": "Bắt đầu dự án của bạn",
         "back": "Quay lại Dịch vụ"
+      },
+      "vet": {
+        "title": "Cách người mua thẩm định nhà sản xuất IPL và cách chúng tôi trả lời",
+        "items": {
+          "0": {
+            "title": "Bắt đầu từ chứng nhận, không phải brochure",
+            "body": "Một tuyên bố CE hay FDA là tài liệu có số, tổ chức cấp và phạm vi. Hãy yêu cầu tệp tài liệu, rồi kiểm tra model trên chứng nhận đúng là model bạn đang báo giá. Chúng tôi gửi tệp trước khi báo giá, không phải sau khi đặt cọc."
+          },
+          "1": {
+            "title": "Yêu cầu báo cáo thử nghiệm, không phải bảng thông số",
+            "body": "Bảng dữ liệu chỉ nêu một con số. Báo cáo thử nghiệm nêu phương pháp, thiết bị đo và mẫu thử. Hãy hỏi con số fluence ứng với diện tích nào và báo cáo có đáp ứng tiêu chuẩn mà thị trường của bạn áp dụng hay không."
+          },
+          "2": {
+            "title": "Hỏi nhà máy không làm gì",
+            "body": "Nhà cung cấp nhận làm mọi thứ là nhà cung cấp đặt gia công ngoài những bộ phận bạn không nhìn thấy. Chúng tôi không sản xuất cell lithium, bóng đèn hay cửa sổ sapphire; chúng tôi mua, kiểm tra khi nhận và có thể cho bạn biết từng linh kiện được giữ theo thông số nào."
+          },
+          "3": {
+            "title": "Hỏi ai sở hữu khuôn và khi nào được hoàn tiền",
+            "body": "Khuôn riêng được tính phí riêng và thuộc về dự án đã trả cho nó. Mức của chúng tôi tối đa RMB 150,000 và được hoàn khi tổng đơn hàng đạt 30,000 chiếc, bằng văn bản, trước hóa đơn đầu tiên."
+          }
+        }
+      },
+      "docs": {
+        "title": "Tài liệu chúng tôi bàn giao và thời điểm",
+        "items": {
+          "0": "Khi báo giá: bảng thông số nền tảng, MOQ, khung giá đơn vị, chi phí khuôn và thời gian giao hàng tính từ khi nhận đặt cọc.",
+          "1": "Trước khi làm khuôn: bộ bản vẽ, khuôn bế artwork và nội dung nhãn hoặc công bố mà thị trường của bạn yêu cầu.",
+          "2": "Trước khi giao hàng: báo cáo thử nghiệm theo các tiêu chuẩn mà thị trường đích áp dụng, bản tuyên bố hợp quy và danh sách đóng gói kèm kích thước thùng đã đo.",
+          "3": "Kèm lô hàng: hóa đơn, danh sách đóng gói, giấy chứng nhận xuất xứ và vận đơn đường biển hoặc vận đơn hàng không."
+        }
+      },
+      "boundary": {
+        "title": "Những gì chúng tôi không làm",
+        "body": "Chúng tôi không chứng nhận thiết bị cho một thị trường thay bạn, không đặt thiết kế của bạn lên hộp của thương hiệu khác, và không báo giá mà chúng tôi không thể giữ trong thời hạn hiệu lực in trên báo giá tạm."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Phù hợp cho mặt & cơ thể",
         "launch": "Ngày ra mắt toàn cầu",
         "rspNote": "RSP (chưa gồm VAT) là mức giá tham khảo được xác định dựa trên xu hướng thị trường lịch sử và đánh giá của chúng tôi về điều kiện thị trường hiện tại."
+      },
+      "led": {
+        "label": "Liệu pháp ánh sáng LED",
+        "title": "So sánh mặt nạ liệu pháp ánh sáng LED",
+        "description": "Hai nền tảng mặt nạ LED đeo được, đặt cạnh nhau. Cả hai đều là thiết bị chăm sóc da mặt dùng tại nhà. Bảng đèn để bàn F618 được trình bày trên trang sản phẩm riêng.",
+        "model": "Mẫu",
+        "compare": {
+          "form": "Kiểu dáng",
+          "wavelengths": "Bước sóng",
+          "lightOutput": "Công suất phát sáng",
+          "control": "Điều khiển",
+          "sessionTime": "Thời gian mỗi buổi",
+          "coverage": "Vùng áp dụng",
+          "rsp": "Giá bán lẻ đề xuất (chưa gồm VAT)",
+          "price": "Giá xuất xưởng đơn vị (USD)",
+          "bestFor": "Phù hợp nhất cho"
+        },
+        "priceNote": "Giá hiển thị là USD/đơn vị cho các ngưỡng số lượng nêu trên; mở trang sản phẩm để xem toàn bộ bảng giá.",
+        "panelNote": "Bạn cần bảng đèn để bàn? Xem bảng đèn liệu pháp ánh sáng LED F618."
       }
     },
     "backToClients": "Quay lại trang khách hàng",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Làm mát bằng đá + 9 mức cường độ"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Mặt nạ chăm sóc da 600 LED, 4 bước sóng"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Mặt nạ silicon 7 màu + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Bảng đèn để bàn 216 LED"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "Mặt nạ liệu pháp LED 001A",
+      "tagline": "Mặt nạ LED đeo được 4 bước sóng",
+      "description": "Mặt nạ chăm sóc da LED đeo được dùng tại nhà với 600 LED SMD gồm ánh sáng đỏ, vàng, xanh dương và hồng ngoại gần, tám chế độ thông minh và điều khiển cầm tay tích hợp pin. Thiết bị chăm sóc da mỹ phẩm dùng tại nhà - không nhằm chẩn đoán, điều trị, chữa khỏi hoặc phòng ngừa bất kỳ bệnh hay tình trạng y tế nào.",
+      "specs": {
+        "lightSource": {
+          "label": "Nguồn sáng",
+          "value": "600 LED SMD trên bốn bước sóng"
+        },
+        "wavelengths": {
+          "label": "Bước sóng",
+          "value": "đỏ 630-660 nm, vàng 590-595 nm, xanh dương 415 nm, hồng ngoại gần 830 nm"
+        },
+        "modes": {
+          "label": "Chế độ",
+          "value": "8 chế độ thông minh (M1-M8)"
+        },
+        "control": {
+          "label": "Điều khiển",
+          "value": "Điều khiển cầm tay (giữ lâu để bật nguồn, nhấn ngắn để đổi chế độ)"
+        },
+        "sessionTime": {
+          "label": "Thời gian mỗi buổi",
+          "value": "10-15 phút"
+        },
+        "frequency": {
+          "label": "Tần suất khuyến nghị",
+          "value": "1-5 buổi mỗi tuần, tùy chế độ"
+        },
+        "maxUse": {
+          "label": "Số lần dùng tối đa mỗi vùng",
+          "value": "Một lần mỗi ngày"
+        },
+        "autoShutoff": {
+          "label": "Tự động tắt",
+          "value": "Có, khi kết thúc mỗi buổi"
+        },
+        "battery": {
+          "label": "Pin",
+          "value": "Lithium-ion 5,000 mAh, tích hợp trong điều khiển"
+        },
+        "charging": {
+          "label": "Sạc",
+          "value": "USB-C, khoảng 3 giờ"
+        },
+        "sessionsPerCharge": {
+          "label": "Số buổi mỗi lần sạc",
+          "value": "Khoảng 15-20 buổi"
+        },
+        "inputPower": {
+          "label": "Đầu vào sạc",
+          "value": "DC 5 V 1 A (tối đa 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Bảo vệ mắt",
+          "value": "Cốc bảo vệ mắt tích hợp"
+        },
+        "dimensions": {
+          "label": "Kích thước",
+          "value": "243 x 200 x 150 mm (theo hướng dẫn sử dụng)"
+        },
+        "weight": {
+          "label": "Trọng lượng tịnh",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Bề mặt hoàn thiện",
+          "value": "Vỏ trắng với viền ánh vàng"
+        },
+        "headstrap": {
+          "label": "Cách cố định trên đầu",
+          "value": "Dây đai khóa dán điều chỉnh được"
+        },
+        "inTheBox": {
+          "label": "Trong hộp",
+          "value": "Thân mặt nạ, điều khiển, cáp USB-C, túi đựng, hướng dẫn sử dụng"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "1 năm cho thiết bị chính, 6 tháng cho phụ kiện"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Bốn bước sóng trong một mặt nạ",
+          "description": "600 LED SMD bao gồm ánh sáng đỏ, vàng, xanh dương và hồng ngoại gần, nên một thiết bị đeo đáp ứng bốn quy trình mỹ phẩm khác nhau."
+        },
+        "eightSmartModes": {
+          "title": "Tám chế độ thông minh",
+          "description": "M1 đến M8 kết hợp các tổ hợp bước sóng riêng cho từng mối quan tâm mỹ phẩm, chuyển bằng điều khiển cầm tay."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 buổi mỗi lần sạc",
+          "description": "Pin 5,000 mAh trong điều khiển cung cấp khoảng 15-20 buổi và sạc lại qua USB-C trong khoảng ba giờ."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Cốc bảo vệ mắt và tự động tắt",
+          "description": "Cốc bảo vệ mắt tích hợp che chắn mắt khi dùng, và mặt nạ tự tắt khi kết thúc buổi."
+        }
+      },
+      "priceNote": "Giá đơn vị là EXW, USD/đơn vị, theo số lượng hiển thị. In logo, hướng dẫn tùy chỉnh và bao bì bán lẻ được báo giá riêng - liên hệ để nhận báo giá đầy đủ.",
+      "badge": "4 bước sóng",
+      "colors": [
+        "Trắng / Vàng"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "Mặt nạ liệu pháp LED 002A",
+      "tagline": "Mặt nạ LED silicon 7 màu + NIR",
+      "description": "Mặt nạ chăm sóc da LED dùng tại nhà bằng silicon mềm và ABS, với 264 LED gồm bảy màu khả kiến và hồng ngoại gần 850 nm. Pin 3,000 mAh hoạt động khoảng ba giờ và sạc lại trong khoảng một giờ. Thiết bị chăm sóc da mỹ phẩm dùng tại nhà - không nhằm chẩn đoán, điều trị, chữa khỏi hoặc phòng ngừa bất kỳ bệnh hay tình trạng y tế nào.",
+      "specs": {
+        "productName": {
+          "label": "Tên sản phẩm",
+          "value": "Mặt nạ chăm sóc da LED"
+        },
+        "modelNo": {
+          "label": "Số model",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Chất liệu",
+          "value": "Silicon mềm + ABS"
+        },
+        "productSize": {
+          "label": "Kích thước sản phẩm",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Trọng lượng sản phẩm",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Kích thước bao bì",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Trọng lượng bao bì",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Số lượng",
+          "value": "20 chiếc mỗi thùng"
+        },
+        "cartonSize": {
+          "label": "Kích thước thùng",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "N.W. / G.W.",
+          "value": "12.8 kg / 13.4 kg mỗi thùng"
+        },
+        "color": {
+          "label": "Màu sắc",
+          "value": "Vàng hồng / tùy chỉnh"
+        },
+        "feature": {
+          "label": "Tính năng",
+          "value": "Liệu pháp ánh sáng LED 7 màu + NIR (hồng ngoại gần)"
+        },
+        "ledColours": {
+          "label": "Màu LED",
+          "value": "Đỏ 630 nm, xanh lá 525 nm, xanh dương 465 nm, tím 390 nm, vàng 610 nm, xanh lơ 490 nm, trắng 460-850 nm (pha trộn), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED",
+          "value": "66 x 4 = 264 chiếc"
+        },
+        "battery": {
+          "label": "Dung lượng pin",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Thời gian hoạt động",
+          "value": "Khoảng 3 giờ"
+        },
+        "chargingTime": {
+          "label": "Thời gian sạc",
+          "value": "Khoảng 1 giờ"
+        },
+        "power": {
+          "label": "Công suất",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Điện áp vào",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Bộ sản phẩm gồm",
+          "value": "Mặt nạ x1, hướng dẫn x1, điều khiển x1, tấm che mắt x1, cáp sạc x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Bảy màu + hồng ngoại gần",
+          "description": "264 LED gồm đỏ 630 nm, xanh lá 525 nm, xanh dương 465 nm, tím 390 nm, vàng 610 nm, xanh lơ 490 nm, trắng 460-850 nm và hồng ngoại gần 850 nm."
+        },
+        "softSiliconeAbs": {
+          "title": "Silicon mềm + ABS",
+          "description": "Mặt nạ mềm 148 g, kích thước 290 x 195 x 3.5 mm, uốn theo khuôn mặt thay vì hở ra ngoài."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Sạc một giờ, dùng ba giờ",
+          "description": "Pin 3,000 mAh sạc trong khoảng một giờ và hoạt động khoảng ba giờ."
+        },
+        "completeKit": {
+          "title": "Bộ đầy đủ",
+          "description": "Kèm điều khiển cầm tay, tấm che mắt, cáp sạc và hướng dẫn sử dụng."
+        }
+      },
+      "priceNote": "Giá đơn vị là EXW, USD/đơn vị, theo số lượng hiển thị. In logo, hướng dẫn tùy chỉnh và bao bì bán lẻ được báo giá riêng - liên hệ để nhận báo giá đầy đủ.",
+      "badge": "7 màu + NIR",
+      "colors": [
+        "Vàng hồng (tùy chỉnh)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "Bảng đèn liệu pháp LED F618",
+      "tagline": "Bảng đèn 4 bước sóng để bàn",
+      "description": "Bảng đèn liệu pháp ánh sáng LED để bàn dùng điện lưới cho chăm sóc da mặt và cơ thể: 216 chip LED gồm các bước sóng xanh dương, vàng, đỏ và hồng ngoại, 54 thấu kính đa giác và tám chế độ chọn được. Thiết bị chăm sóc da mỹ phẩm dùng tại nhà - không nhằm chẩn đoán, điều trị, chữa khỏi hoặc phòng ngừa bất kỳ bệnh hay tình trạng y tế nào.",
+      "specs": {
+        "packagingName": {
+          "label": "Tên trên bao bì bán lẻ",
+          "value": "Bảng đèn liệu pháp ánh sáng LED"
+        },
+        "lightSource": {
+          "label": "Nguồn sáng",
+          "value": "LED, 216 chip trên bốn bước sóng"
+        },
+        "ledArray": {
+          "label": "Mảng LED",
+          "value": "54 thấu kính lục giác đa giác xếp dạng tổ ong, mỗi vị trí thấu kính có bốn chip LED"
+        },
+        "wavelengths": {
+          "label": "Bước sóng",
+          "value": "xanh dương 460 nm, vàng 590 nm, đỏ 662 nm, hồng ngoại 850 nm"
+        },
+        "infrared": {
+          "label": "Hồng ngoại",
+          "value": "850 nm, kết hợp trong mọi chế độ điều trị"
+        },
+        "modes": {
+          "label": "Chế độ",
+          "value": "8 chế độ điều trị (P1-P8) và chế độ chờ"
+        },
+        "control": {
+          "label": "Điều khiển",
+          "value": "Một phím cảm ứng; mã chế độ đang hoạt động hiển thị trên màn hình phía trước"
+        },
+        "application": {
+          "label": "Vùng áp dụng",
+          "value": "Mặt và cơ thể; hai chế độ được ghi nhận cho vùng da đầu và vùng kín"
+        },
+        "sessionTime": {
+          "label": "Thời gian mỗi buổi",
+          "value": "15-20 phút mỗi chế độ, khoảng 20 phút mỗi vùng cơ thể"
+        },
+        "maxPerArea": {
+          "label": "Thời gian dùng tối đa mỗi vùng cơ thể",
+          "value": "30 phút"
+        },
+        "maxPerSession": {
+          "label": "Thời gian dùng tối đa mỗi buổi",
+          "value": "60 phút"
+        },
+        "eyeProtection": {
+          "label": "Bảo vệ mắt",
+          "value": "Kèm kính bảo vệ; bắt buộc dùng khi vận hành"
+        },
+        "powerSource": {
+          "label": "Nguồn điện",
+          "value": "Chỉ dùng điện lưới qua adapter đi kèm (không có pin)"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "AC 100-240 V, 50/60 Hz sang DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Công suất đầu ra",
+          "value": "Tối đa 15 W"
+        },
+        "dimensions": {
+          "label": "Kích thước",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Trọng lượng tịnh",
+          "value": "620 g (thân máy 530 g, adapter 90 g)"
+        },
+        "stand": {
+          "label": "Giá đỡ",
+          "value": "Chân đỡ phía sau gập được"
+        },
+        "standards": {
+          "label": "Tiêu chuẩn sản xuất",
+          "value": "GB 4706.1-2005 và GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Trong hộp",
+          "value": "Thân máy, adapter nguồn, hướng dẫn sử dụng, kính bảo vệ"
+        },
+        "qty": {
+          "label": "Số lượng",
+          "value": "20 chiếc mỗi thùng"
+        },
+        "cartonSize": {
+          "label": "Kích thước thùng",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Trọng lượng cả bì",
+          "value": "18.835 kg mỗi thùng (trọng lượng thực tế)"
+        },
+        "origin": {
+          "label": "Xuất xứ",
+          "value": "Sản xuất tại Trung Quốc"
+        },
+        "warranty": {
+          "label": "Bảo hành",
+          "value": "1 năm"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Bốn bước sóng, mọi chế độ",
+          "description": "Xanh dương 460 nm, vàng 590 nm, đỏ 662 nm và hồng ngoại 850 nm - hồng ngoại được kết hợp trong cả tám chế độ điều trị."
+        },
+        "lensArray": {
+          "title": "216 LED sau 54 thấu kính đa giác",
+          "description": "Mỗi trong 54 vị trí thấu kính có bốn chip LED, xếp dạng tổ ong trên bảng đèn."
+        },
+        "eightSelectableModes": {
+          "title": "Tám chế độ chọn được",
+          "description": "Một phím cảm ứng chuyển vòng qua P1 đến P8, mã đang hoạt động hiển thị trên màn hình phía trước."
+        },
+        "deskOrFloorStanding": {
+          "title": "Đặt bàn hoặc để sàn",
+          "description": "Chân đỡ phía sau gập được giữ bảng đèn ở góc cần thiết, thiết bị chạy bằng adapter 12 V đi kèm."
+        }
+      },
+      "priceNote": "Giá đơn vị là EXW, USD/đơn vị, theo số lượng hiển thị. In logo, hướng dẫn tùy chỉnh và bao bì bán lẻ được báo giá riêng - liên hệ để nhận báo giá đầy đủ.",
+      "badge": "Bảng đèn để bàn",
+      "colors": [
+        "Trắng / xám nhạt"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 chiếc",
+      "tier2": "100-499 chiếc",
+      "tier3": "500-1,999 chiếc",
+      "tier4": "2,000+ chiếc"
+    },
+    "ledSampleMoq": "MOQ mẫu: 1 chiếc",
+    "ledBulkMoq": "MOQ số lượng lớn: 500 chiếc (đơn hàng đầu 200 chiếc có thể thương lượng)",
+    "rspLine": "Giá bán lẻ đề xuất (chưa gồm VAT): {value}"
   },
   "stickyContact": {
     "wechatTip": "Trò chuyện trên WeChat — nhận phản hồi trong vòng 10 phút",

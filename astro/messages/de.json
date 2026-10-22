@@ -87,7 +87,11 @@
     "quality": "Qualitätskontrolle",
     "iplComponentsCatalogue": "IPL-Komponenten",
     "serviceSupport": "Service & Support",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "ledMask001a": "LED-Maske 001A",
+    "ledMask002a": "LED-Maske 002A",
+    "ledPanelF618": "LED-Panel F618",
+    "ledTherapy": "LED-Lichttherapie"
   },
   "footer": {
     "tagline": "Führender Hersteller von IPL-Geräten, spezialisiert auf OEM/ODM-Dienstleistungen mit über 15 Jahren Erfahrung.",
@@ -613,6 +617,18 @@
           "title": "IPL-Sicherheit",
           "desc": "Ist IPL-Haarentfernung sicher?"
         }
+      },
+      "ledMask001a": {
+        "name": "LED-Maske 001A",
+        "tagline": "Maske mit 600 LEDs und 4 Wellenlängen"
+      },
+      "ledMask002a": {
+        "name": "LED-Maske 002A",
+        "tagline": "7 Farben + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED-Panel F618",
+        "tagline": "Tischgerät mit 4 Wellenlängen"
       }
     },
     "hero": {
@@ -2577,6 +2593,40 @@
         "description": "Lassen Sie uns Ihre Projektanforderungen besprechen und erkunden, wie unsere OEM/ODM-Lösungen Ihnen im IPL-Markt zum Erfolg verhelfen.",
         "start": "Projekt starten",
         "back": "Zurück zu den Leistungen"
+      },
+      "vet": {
+        "title": "Wie Einkäufer einen IPL-Hersteller prüfen - und wie wir antworten",
+        "items": {
+          "0": {
+            "title": "Erst das Zertifikat, dann der Prospekt",
+            "body": "Eine CE- oder FDA-Angabe ist ein Dokument mit einer Nummer, einer ausstellenden Stelle und einem Geltungsbereich. Fordern Sie die Datei an und prüfen Sie, ob das Modell auf dem Zertifikat das Modell Ihres Angebots ist. Wir senden die Datei vor dem Angebot, nicht nach der Anzahlung."
+          },
+          "1": {
+            "title": "Verlangen Sie den Prüfbericht, nicht das Datenblatt",
+            "body": "Ein Datenblatt nennt eine Zahl. Ein Prüfbericht nennt Methode, Messgerät und Prüfmuster. Fragen Sie, auf welche Fläche sich die Fluence-Angabe bezieht und ob der Bericht die in Ihrem Markt geltende Norm abdeckt."
+          },
+          "2": {
+            "title": "Fragen Sie, was die Fabrik nicht macht",
+            "body": "Ein Lieferant, der alles selbst macht, vergibt die Teile, die Sie nicht sehen, an Unterlieferanten. Wir fertigen weder die Lithiumzelle noch die Lampe oder das Saphirfenster; wir kaufen sie ein, prüfen sie bei Wareneingang und können Ihnen die Spezifikation nennen, an die jedes Teil gebunden ist."
+          },
+          "3": {
+            "title": "Fragen Sie, wem das Werkzeug gehört und wann es erstattet wird",
+            "body": "Eine eigene Form wird separat berechnet und gehört dem Projekt, das sie bezahlt hat. Bei uns ist sie auf RMB 150,000 begrenzt und wird schriftlich erstattet, sobald die kumulierten Bestellungen 30,000 Stück erreichen - vor der ersten Rechnung."
+          }
+        }
+      },
+      "docs": {
+        "title": "Welche Dokumente wir übergeben - und wann",
+        "items": {
+          "0": "Zum Angebot: das Spezifikationsblatt der Plattform, die MOQ, die Stückpreisstufe, die Werkzeugkosten und die Lieferzeit ab Eingang der Anzahlung.",
+          "1": "Vor der Werkzeugerstellung: der Zeichnungssatz, die Stanzkontur für das Druckbild und der Kennzeichnungs- oder Aussagentext, den Ihr Markt verlangt.",
+          "2": "Vor dem Versand: die Prüfberichte für die im Zielmarkt geltenden Normen, die Konformitätserklärung und die Packliste mit gemessenen Kartonmaßen.",
+          "3": "Mit der Sendung: Rechnung, Packliste, Ursprungszeugnis und Konnossement oder Luftfrachtbrief."
+        }
+      },
+      "boundary": {
+        "title": "Was wir nicht machen",
+        "body": "Wir zertifizieren kein Gerät für einen Markt in Ihrem Namen, wir bringen Ihr Design nicht auf die Verpackung einer anderen Marke, und wir nennen keinen Preis, den wir nicht für die auf der Proforma-Rechnung angegebene Gültigkeitsdauer halten können."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Geeignet für Gesicht & Körper",
         "launch": "Globaler Marktstart",
         "rspNote": "Die UVP (zzgl. MwSt.) ist ein Referenzpreis, der aus historischen Markttrends und unserer Einschätzung der aktuellen Marktlage abgeleitet ist."
+      },
+      "led": {
+        "label": "LED-Lichttherapie",
+        "title": "LED-Lichttherapiemasken im Vergleich",
+        "description": "Zwei tragbare LED-Maskenplattformen im direkten Vergleich. Beide sind kosmetische Gesichtspflegegeräte für den Heimgebrauch. Das Tischgerät F618 ist auf einer eigenen Produktseite dokumentiert.",
+        "model": "Modell",
+        "compare": {
+          "form": "Bauform",
+          "wavelengths": "Wellenlängen",
+          "lightOutput": "Lichtleistung",
+          "control": "Steuerung",
+          "sessionTime": "Anwendungsdauer",
+          "coverage": "Anwendungsbereich",
+          "rsp": "Unverbindliche Preisempfehlung (ohne MwSt.)",
+          "price": "Fabrik-Stückpreis (USD)",
+          "bestFor": "Geeignet für"
+        },
+        "priceNote": "Die angezeigten Stückpreise sind USD pro Stück für die genannten Mengenstufen; die vollständige Staffel steht auf der jeweiligen Produktseite.",
+        "panelNote": "Sie suchen stattdessen das Tischgerät? Siehe LED-Lichttherapie-Panel F618."
       }
     },
     "backToClients": "Zurück zu den Kunden",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Eiskühlung + 9 Intensitätsstufen"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Gesichtsmaske mit 600 LEDs und 4 Wellenlängen"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Silikonmaske mit 7 Farben + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Tisch-Lichtpanel mit 216 LEDs"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LED-Therapiemaske 001A",
+      "tagline": "Tragbare LED-Maske mit 4 Wellenlängen",
+      "description": "Eine tragbare LED-Hautpflegemaske für den Heimgebrauch mit 600 SMD-LEDs in Rot, Gelb, Blau und Nahinfrarot, acht intelligenten Modi und einer Handfernbedienung, die auch den Akku enthält. Ein kosmetisches Hautpflegegerät für den Heimgebrauch - es ist nicht dazu bestimmt, Krankheiten oder medizinische Zustände zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern.",
+      "specs": {
+        "lightSource": {
+          "label": "Lichtquelle",
+          "value": "600 SMD-LEDs über vier Wellenlängen"
+        },
+        "wavelengths": {
+          "label": "Wellenlängen",
+          "value": "630-660 nm Rot, 590-595 nm Gelb, 415 nm Blau, 830 nm Nahinfrarot"
+        },
+        "modes": {
+          "label": "Modi",
+          "value": "8 intelligente Modi (M1-M8)"
+        },
+        "control": {
+          "label": "Steuerung",
+          "value": "Handfernbedienung (gedrückt halten zum Einschalten, kurz drücken zum Moduswechsel)"
+        },
+        "sessionTime": {
+          "label": "Anwendungsdauer",
+          "value": "10-15 Minuten"
+        },
+        "frequency": {
+          "label": "Empfohlene Häufigkeit",
+          "value": "1-5 Anwendungen pro Woche, je nach Modus"
+        },
+        "maxUse": {
+          "label": "Maximale Anwendung pro Hautareal",
+          "value": "Einmal pro Tag"
+        },
+        "autoShutoff": {
+          "label": "Automatische Abschaltung",
+          "value": "Ja, am Ende jeder Anwendung"
+        },
+        "battery": {
+          "label": "Akku",
+          "value": "5,000 mAh Lithium-Ionen, integriert in die Fernbedienung"
+        },
+        "charging": {
+          "label": "Laden",
+          "value": "USB-C, ca. 3 Stunden"
+        },
+        "sessionsPerCharge": {
+          "label": "Anwendungen pro Ladung",
+          "value": "Ca. 15-20 Anwendungen"
+        },
+        "inputPower": {
+          "label": "Ladeeingang",
+          "value": "DC 5 V 1 A (max. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Augenschutz",
+          "value": "Integrierte Augenschalen"
+        },
+        "dimensions": {
+          "label": "Abmessungen",
+          "value": "243 x 200 x 150 mm (gemäß Benutzerhandbuch)"
+        },
+        "weight": {
+          "label": "Nettogewicht",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Oberfläche",
+          "value": "Weißes Gehäuse mit goldfarbener Zierleiste"
+        },
+        "headstrap": {
+          "label": "Kopfbefestigung",
+          "value": "Verstellbare Klettbänder"
+        },
+        "inTheBox": {
+          "label": "Lieferumfang",
+          "value": "Maskenhauptgerät, Fernbedienung, USB-C-Kabel, Aufbewahrungsbeutel, Benutzerhandbuch"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "1 Jahr Hauptgerät, 6 Monate Zubehör"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Vier Wellenlängen in einer Maske",
+          "description": "600 SMD-LEDs decken Rot, Gelb, Blau und Nahinfrarot ab, sodass ein einziges tragbares Gerät vier verschiedene kosmetische Anwendungen bedient."
+        },
+        "eightSmartModes": {
+          "title": "Acht intelligente Modi",
+          "description": "M1 bis M8 kombinieren bestimmte Wellenlängen für verschiedene kosmetische Anliegen; umgeschaltet wird über die Handfernbedienung."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 Anwendungen pro Ladung",
+          "description": "Ein Akku mit 5,000 mAh in der Fernbedienung versorgt etwa 15-20 Anwendungen und lädt über USB-C in rund drei Stunden."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Augenschalen und automatische Abschaltung",
+          "description": "Integrierte Augenschalen schirmen die Augen während der Anwendung ab, und die Maske schaltet sich am Ende der Anwendung selbst ab."
+        }
+      },
+      "priceNote": "Die Stückpreise sind EXW, in USD pro Stück, für die angegebenen Mengen. Logodruck, individuelle Handbücher und Verkaufsverpackung werden separat angeboten - kontaktieren Sie uns für ein vollständiges Angebot.",
+      "badge": "4 Wellenlängen",
+      "colors": [
+        "Weiß / Gold"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED-Therapiemaske 002A",
+      "tagline": "Silikon-LED-Maske mit 7 Farben + NIR",
+      "description": "Eine LED-Hautpflegemaske für den Heimgebrauch aus weichem Silikon und ABS mit 264 LEDs in sieben sichtbaren Farben plus 850 nm Nahinfrarot. Ein Akku mit 3,000 mAh hält etwa drei Stunden und lädt in rund einer Stunde. Ein kosmetisches Hautpflegegerät für den Heimgebrauch - es ist nicht dazu bestimmt, Krankheiten oder medizinische Zustände zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern.",
+      "specs": {
+        "productName": {
+          "label": "Produktname",
+          "value": "LED-Gesichtsmaske"
+        },
+        "modelNo": {
+          "label": "Modell-Nr.",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Material",
+          "value": "Weiches Silikon + ABS"
+        },
+        "productSize": {
+          "label": "Produktgröße",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Produktgewicht",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Verpackungsgröße",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Verpackungsgewicht",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Menge",
+          "value": "20 Stk. pro Karton"
+        },
+        "cartonSize": {
+          "label": "Kartongröße",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "Nettogew. / Bruttogew.",
+          "value": "12.8 kg / 13.4 kg pro Karton"
+        },
+        "color": {
+          "label": "Farbe",
+          "value": "Roségold / anpassbar"
+        },
+        "feature": {
+          "label": "Merkmal",
+          "value": "7 Farben + NIR (Nahinfrarot) LED-Lichttherapie"
+        },
+        "ledColours": {
+          "label": "LED-Farben",
+          "value": "Rot 630 nm, Grün 525 nm, Blau 465 nm, Violett 390 nm, Gelb 610 nm, Cyan 490 nm, Weiß 460-850 nm (Mix), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LEDs",
+          "value": "66 x 4 = 264 Stk."
+        },
+        "battery": {
+          "label": "Akkukapazität",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Betriebszeit",
+          "value": "Ca. 3 Stunden"
+        },
+        "chargingTime": {
+          "label": "Ladezeit",
+          "value": "Ca. 1 Stunde"
+        },
+        "power": {
+          "label": "Leistung",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Eingangsspannung",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Lieferumfang",
+          "value": "Maske x1, Handbuch x1, Fernbedienung x1, Augenschutz x1, Ladekabel x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Sieben Farben + Nahinfrarot",
+          "description": "264 LEDs decken Rot 630 nm, Grün 525 nm, Blau 465 nm, Violett 390 nm, Gelb 610 nm, Cyan 490 nm, Weiß 460-850 nm und 850 nm Nahinfrarot ab."
+        },
+        "softSiliconeAbs": {
+          "title": "Weiches Silikon + ABS",
+          "description": "Eine flexible Maske mit 148 g und 290 x 195 x 3.5 mm, die sich an das Gesicht anschmiegt statt davon abzustehen."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Eine Stunde laden, drei Stunden Laufzeit",
+          "description": "Ein Akku mit 3,000 mAh lädt in rund einer Stunde und hält etwa drei Stunden."
+        },
+        "completeKit": {
+          "title": "Komplettes Set",
+          "description": "Geliefert mit Handfernbedienung, Augenschutz, Ladekabel und Benutzerhandbuch."
+        }
+      },
+      "priceNote": "Die Stückpreise sind EXW, in USD pro Stück, für die angegebenen Mengen. Logodruck, individuelle Handbücher und Verkaufsverpackung werden separat angeboten - kontaktieren Sie uns für ein vollständiges Angebot.",
+      "badge": "7 Farben + NIR",
+      "colors": [
+        "Roségold (anpassbar)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED-Therapiepanel F618",
+      "tagline": "Tisch-Lichtpanel mit 4 Wellenlängen",
+      "description": "Ein netzbetriebenes LED-Lichttherapiepanel als Tischgerät für die kosmetische Pflege von Gesicht und Körper: 216 LED-Chips in Blau, Gelb, Rot und Infrarot, 54 facettierte Linsen und acht wählbare Modi. Ein kosmetisches Hautpflegegerät für den Heimgebrauch - es ist nicht dazu bestimmt, Krankheiten oder medizinische Zustände zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern.",
+      "specs": {
+        "packagingName": {
+          "label": "Name der Verkaufsverpackung",
+          "value": "LED-Lichttherapiepanel"
+        },
+        "lightSource": {
+          "label": "Lichtquelle",
+          "value": "LED, 216 Chips über vier Wellenlängen"
+        },
+        "ledArray": {
+          "label": "LED-Array",
+          "value": "54 facettierte sechseckige Linsen in Wabenanordnung, mit vier LED-Chips an jeder Linse"
+        },
+        "wavelengths": {
+          "label": "Wellenlängen",
+          "value": "460 nm Blau, 590 nm Gelb, 662 nm Rot, 850 nm Infrarot"
+        },
+        "infrared": {
+          "label": "Infrarot",
+          "value": "850 nm, in jedem Behandlungsmodus enthalten"
+        },
+        "modes": {
+          "label": "Modi",
+          "value": "8 Behandlungsmodi (P1-P8) plus Standby"
+        },
+        "control": {
+          "label": "Steuerung",
+          "value": "Einzelne Touch-Taste; der aktive Moduscode erscheint auf dem Frontdisplay"
+        },
+        "application": {
+          "label": "Anwendungsbereich",
+          "value": "Gesicht und Körper; zwei Modi sind für Kopfhaut und Intimbereich dokumentiert"
+        },
+        "sessionTime": {
+          "label": "Anwendungsdauer",
+          "value": "15-20 Minuten pro Modus, ca. 20 Minuten pro Körperpartie"
+        },
+        "maxPerArea": {
+          "label": "Maximale Anwendung pro Körperpartie",
+          "value": "30 Minuten"
+        },
+        "maxPerSession": {
+          "label": "Maximale Anwendung pro Sitzung",
+          "value": "60 Minuten"
+        },
+        "eyeProtection": {
+          "label": "Augenschutz",
+          "value": "Schutzbrille im Lieferumfang; während der Anwendung erforderlich"
+        },
+        "powerSource": {
+          "label": "Stromversorgung",
+          "value": "Nur Netzbetrieb über den mitgelieferten Adapter (kein Akku)"
+        },
+        "adapter": {
+          "label": "Adapter",
+          "value": "AC 100-240 V, 50/60 Hz auf DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Ausgangsleistung",
+          "value": "Max. 15 W"
+        },
+        "dimensions": {
+          "label": "Abmessungen",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Nettogewicht",
+          "value": "620 g (Hauptgerät 530 g, Adapter 90 g)"
+        },
+        "stand": {
+          "label": "Ständer",
+          "value": "Klappbarer hinterer Stützfuß"
+        },
+        "standards": {
+          "label": "Fertigungsstandard",
+          "value": "GB 4706.1-2005 und GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Lieferumfang",
+          "value": "Hauptgerät, Netzadapter, Benutzerhandbuch, Schutzbrille"
+        },
+        "qty": {
+          "label": "Menge",
+          "value": "20 Stk. pro Karton"
+        },
+        "cartonSize": {
+          "label": "Kartongröße",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Bruttogewicht",
+          "value": "18.835 kg pro Karton (tatsächliches Gewicht)"
+        },
+        "origin": {
+          "label": "Herkunftsland",
+          "value": "Hergestellt in China"
+        },
+        "warranty": {
+          "label": "Garantie",
+          "value": "1 Jahr"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Vier Wellenlängen in jedem Modus",
+          "description": "Blau 460 nm, Gelb 590 nm, Rot 662 nm und Infrarot 850 nm - Infrarot ist in allen acht Behandlungsmodi enthalten."
+        },
+        "lensArray": {
+          "title": "216 LEDs hinter 54 facettierten Linsen",
+          "description": "Jede der 54 Linsenpositionen trägt vier LED-Chips, wabenförmig über das Panel verteilt."
+        },
+        "eightSelectableModes": {
+          "title": "Acht wählbare Modi",
+          "description": "Eine Touch-Taste schaltet zyklisch durch P1 bis P8; der aktive Code wird auf dem Frontdisplay angezeigt."
+        },
+        "deskOrFloorStanding": {
+          "title": "Tisch- oder Bodenaufstellung",
+          "description": "Ein klappbarer hinterer Stützfuß stellt das Panel im benötigten Winkel ein; betrieben wird es über den mitgelieferten 12-V-Adapter."
+        }
+      },
+      "priceNote": "Die Stückpreise sind EXW, in USD pro Stück, für die angegebenen Mengen. Logodruck, individuelle Handbücher und Verkaufsverpackung werden separat angeboten - kontaktieren Sie uns für ein vollständiges Angebot.",
+      "badge": "Tischgerät",
+      "colors": [
+        "Weiß / hellgrau"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 Stück",
+      "tier2": "100-499 Stück",
+      "tier3": "500-1,999 Stück",
+      "tier4": "2,000+ Stück"
+    },
+    "ledSampleMoq": "MOQ für Muster: 1 Stück",
+    "ledBulkMoq": "MOQ für Serienbestellung: 500 Stück (eine Erstbestellung von 200 Stück ist verhandelbar)",
+    "rspLine": "Unverbindliche Preisempfehlung (ohne MwSt.): {value}"
   },
   "stickyContact": {
     "wechatTip": "Chatten Sie auf WeChat – Antwort innerhalb von 10 Minuten",

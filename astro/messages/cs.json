@@ -87,7 +87,11 @@
     "quality": "Kontrola kvality",
     "iplComponentsCatalogue": "IPL komponenty",
     "serviceSupport": "Servis a podpora",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "ledMask001a": "LED maska 001A",
+    "ledMask002a": "LED maska 002A",
+    "ledPanelF618": "LED panel F618",
+    "ledTherapy": "LED světelná terapie"
   },
   "footer": {
     "tagline": "Přední výrobce IPL přístrojů specializující se na služby OEM/ODM s více než 15 lety zkušeností.",
@@ -613,6 +617,18 @@
           "title": "Bezpečnost IPL",
           "desc": "Je odstranění chloupků pomocí IPL bezpečné?"
         }
+      },
+      "ledMask001a": {
+        "name": "LED maska 001A",
+        "tagline": "Maska 600 LED, 4 vlnové délky"
+      },
+      "ledMask002a": {
+        "name": "LED maska 002A",
+        "tagline": "7 barev + NIR"
+      },
+      "ledPanelF618": {
+        "name": "LED panel F618",
+        "tagline": "Stolní panel se 4 vlnovými délkami"
       }
     },
     "hero": {
@@ -2577,6 +2593,40 @@
         "description": "Proberme požadavky vašeho projektu a zjistěme, jak vám naše řešení OEM/ODM mohou pomoci uspět na trhu IPL.",
         "start": "Zahájit projekt",
         "back": "Zpět na služby"
+      },
+      "vet": {
+        "title": "Jak kupující prověřují výrobce IPL a jak odpovídáme",
+        "items": {
+          "0": {
+            "title": "Začněte certifikátem, ne brožurou",
+            "body": "Tvrzení o CE nebo FDA je dokument s číslem, vydávajícím orgánem a rozsahem platnosti. Vyžádejte si soubor a potom zkontrolujte, zda model na certifikátu je model, který poptáváte. Soubor posíláme před nabídkou, ne až po složení zálohy."
+          },
+          "1": {
+            "title": "Žádejte protokol o zkoušce, ne technický list",
+            "body": "Technický list uvádí číslo. Protokol o zkoušce uvádí metodu, přístroj a vzorek. Zeptejte se, ke které ploše se údaj fluence vztahuje a zda protokol pokrývá normu, kterou váš trh vyžaduje."
+          },
+          "2": {
+            "title": "Zeptejte se, co továrna nedělá",
+            "body": "Dodavatel, který tvrdí, že zvládne všechno, je dodavatel, který zadává součásti, které nevidíte. Nevyrábíme lithiový článek, lampu ani safírové okénko; kupujeme je, při příjmu je testujeme a umíme říci, jaké specifikaci každý z nich odpovídá."
+          },
+          "3": {
+            "title": "Zeptejte se, komu patří forma a kdy se vrací její cena",
+            "body": "Soukromá forma se účtuje zvlášť a patří projektu, který ji zaplatil. U nás je omezena na RMB 150,000 a vrací se, jakmile kumulované objednávky dosáhnou 30,000 kusů - písemně, ještě před první fakturou."
+          }
+        }
+      },
+      "docs": {
+        "title": "Dokumenty, které předáváme, a kdy",
+        "items": {
+          "0": "Při nabídce: specifikace platformy, minimální odběr, cenové pásmo za kus, náklady na formu a dodací lhůta počítaná od přijetí zálohy.",
+          "1": "Před výrobou formy: výkresová dokumentace, šablona pro potisk a text etikety nebo tvrzení, které váš trh vyžaduje.",
+          "2": "Před odesláním: protokoly o zkouškách podle norem, které cílový trh vyžaduje, prohlášení o shodě a balicí list s naměřenými rozměry kartonu.",
+          "3": "Se zásilkou: faktura, balicí list, osvědčení o původu a náložný list nebo letecký náložný list."
+        }
+      },
+      "boundary": {
+        "title": "Co neděláme",
+        "body": "Necertifikujeme zařízení pro váš trh vaším jménem, nedáváme váš design na krabici jiné značky a necitujeme cenu, kterou nedokážeme udržet po dobu platnosti uvedenou na proforma faktuře."
       }
     },
     "productDesign": {
@@ -5507,6 +5557,25 @@
         "areas": "Vhodné pro obličej i tělo",
         "launch": "Datum globálního uvedení na trh",
         "rspNote": "Doporučená maloobchodní cena (bez DPH) je referenční cena odvozená z historických tržních trendů a našeho posouzení aktuálních tržních podmínek."
+      },
+      "led": {
+        "label": "LED světelná terapie",
+        "title": "Srovnání LED masek pro světelnou terapii",
+        "description": "Dvě nositelné platformy LED masek vedle sebe. Obě jsou kosmetická zařízení pro péči o obličej určená k domácímu použití. Stolní panel F618 je popsán na vlastní produktové stránce.",
+        "model": "Model",
+        "compare": {
+          "form": "Provedení",
+          "wavelengths": "Vlnové délky",
+          "lightOutput": "Světelný výkon",
+          "control": "Ovládání",
+          "sessionTime": "Doba ošetření",
+          "coverage": "Oblast aplikace",
+          "rsp": "Doporučená maloobchodní cena (bez DPH)",
+          "price": "Jednotková cena z výroby (USD)",
+          "bestFor": "Vhodné pro"
+        },
+        "priceNote": "Uvedené jednotkové ceny jsou v USD za kus pro uvedená množstevní pásma; celý odstupňovaný ceník najdete na produktové stránce.",
+        "panelNote": "Hledáte stolní panel? Podívejte se na LED panel pro světelnou terapii F618."
       }
     },
     "backToClients": "Zpět na klienty",
@@ -9481,6 +9550,15 @@
         },
         "helix": {
           "tagline": "Ledové chlazení + 9 úrovní intenzity"
+        },
+        "led-therapy-mask-001a": {
+          "tagline": "Obličejová maska 600 LED se 4 vlnovými délkami"
+        },
+        "led-therapy-mask-002a": {
+          "tagline": "Silikonová maska 7 barev + NIR"
+        },
+        "led-therapy-panel-f618": {
+          "tagline": "Stolní světelný panel 216 LED"
         }
       },
       "nextStep": {
@@ -9826,7 +9904,362 @@
           }
         ]
       }
-    }
+    },
+    "led-therapy-mask-001a": {
+      "name": "LED terapeutická maska 001A",
+      "tagline": "Nositelná LED maska se 4 vlnovými délkami",
+      "description": "Nositelná LED maska pro domácí péči o pleť se 600 SMD LED diodami v červeném, žlutém, modrém a blízkém infračerveném světle, osmi inteligentními režimy a ručním dálkovým ovladačem, ve kterém je i baterie. Kosmetické zařízení pro domácí péči o pleť - není určeno k diagnostice, léčbě, vyléčení ani prevenci jakéhokoli onemocnění nebo zdravotního stavu.",
+      "specs": {
+        "lightSource": {
+          "label": "Zdroj světla",
+          "value": "600 SMD LED diod ve čtyřech vlnových délkách"
+        },
+        "wavelengths": {
+          "label": "Vlnové délky",
+          "value": "630-660 nm červená, 590-595 nm žlutá, 415 nm modrá, 830 nm blízká infračervená"
+        },
+        "modes": {
+          "label": "Režimy",
+          "value": "8 inteligentních režimů (M1-M8)"
+        },
+        "control": {
+          "label": "Ovládání",
+          "value": "Ruční dálkový ovladač (dlouhý stisk zapne, krátký stisk změní režim)"
+        },
+        "sessionTime": {
+          "label": "Doba ošetření",
+          "value": "10-15 minut"
+        },
+        "frequency": {
+          "label": "Doporučená četnost",
+          "value": "1-5 ošetření týdně podle režimu"
+        },
+        "maxUse": {
+          "label": "Maximální použití na oblast",
+          "value": "Jednou denně"
+        },
+        "autoShutoff": {
+          "label": "Automatické vypnutí",
+          "value": "Ano, na konci každého ošetření"
+        },
+        "battery": {
+          "label": "Baterie",
+          "value": "5,000 mAh lithium-iontová, zabudovaná v dálkovém ovladači"
+        },
+        "charging": {
+          "label": "Nabíjení",
+          "value": "USB-C, cca 3 hodiny"
+        },
+        "sessionsPerCharge": {
+          "label": "Ošetření na jedno nabití",
+          "value": "Cca 15-20 ošetření"
+        },
+        "inputPower": {
+          "label": "Napájecí vstup",
+          "value": "DC 5 V 1 A (max. 15 W)"
+        },
+        "eyeProtection": {
+          "label": "Ochrana očí",
+          "value": "Zabudované oční krytky"
+        },
+        "dimensions": {
+          "label": "Rozměry",
+          "value": "243 x 200 x 150 mm (podle návodu k použití)"
+        },
+        "weight": {
+          "label": "Čistá hmotnost",
+          "value": "362.8 g"
+        },
+        "finish": {
+          "label": "Povrchová úprava",
+          "value": "Bílé pouzdro se zlatým lemem"
+        },
+        "headstrap": {
+          "label": "Uchycení na hlavu",
+          "value": "Nastavitelné pásky na suchý zip"
+        },
+        "inTheBox": {
+          "label": "Obsah balení",
+          "value": "Maska, dálkový ovladač, kabel USB-C, úložné pouzdro, návod k použití"
+        },
+        "warranty": {
+          "label": "Záruka",
+          "value": "1 rok na hlavní zařízení, 6 měsíců na příslušenství"
+        }
+      },
+      "features": {
+        "fourWavelengths": {
+          "title": "Čtyři vlnové délky v jedné masce",
+          "description": "600 SMD LED diod pokrývá červené, žluté, modré a blízké infračervené světlo, takže jedna nositelná maska obslouží čtyři různé kosmetické postupy."
+        },
+        "eightSmartModes": {
+          "title": "Osm inteligentních režimů",
+          "description": "M1 až M8 spojují určité kombinace vlnových délek pro různé kosmetické potřeby a přepínají se z ručního dálkového ovladače."
+        },
+        "sessionsPerChargeFeature": {
+          "title": "15-20 ošetření na jedno nabití",
+          "description": "Baterie 5,000 mAh v dálkovém ovladači vydrží zhruba 15-20 ošetření a nabíjí se přes USB-C asi tři hodiny."
+        },
+        "eyeCupsAndAutoOff": {
+          "title": "Oční krytky a automatické vypnutí",
+          "description": "Zabudované oční krytky chrání oči při používání a maska se po skončení ošetření sama vypne."
+        }
+      },
+      "priceNote": "Jednotkové ceny jsou EXW, v USD za kus, pro uvedená množství. Potisk loga, návody na zakázku a maloobchodní balení se kalkulují zvlášť - pro kompletní nabídku nás kontaktujte.",
+      "badge": "4 vlnové délky",
+      "colors": [
+        "Bílá / zlatá"
+      ]
+    },
+    "led-therapy-mask-002a": {
+      "name": "LED terapeutická maska 002A",
+      "tagline": "Silikonová LED maska 7 barev + NIR",
+      "description": "Nositelná LED maska pro domácí péči o pleť z měkkého silikonu a ABS se 264 LED diodami v sedmi viditelných barvách plus 850 nm blízkým infračerveným světlem. Baterie 3,000 mAh vydrží přibližně tři hodiny a nabíjí se zhruba jednu hodinu. Kosmetické zařízení pro domácí použití - není určeno k diagnostice, léčbě, vyléčení ani prevenci jakéhokoli onemocnění nebo zdravotního stavu.",
+      "specs": {
+        "productName": {
+          "label": "Název produktu",
+          "value": "LED obličejová maska"
+        },
+        "modelNo": {
+          "label": "Č. modelu",
+          "value": "002A"
+        },
+        "material": {
+          "label": "Materiál",
+          "value": "Měkký silikon + ABS"
+        },
+        "productSize": {
+          "label": "Rozměry produktu",
+          "value": "290 x 195 x 3.5 mm (29 x 19.5 x 0.35 cm)"
+        },
+        "productWeight": {
+          "label": "Hmotnost produktu",
+          "value": "148 g"
+        },
+        "packagingSize": {
+          "label": "Rozměry balení",
+          "value": "270 x 200 x 80 mm (27 x 20 x 8 cm)"
+        },
+        "packagingWeight": {
+          "label": "Hmotnost balení",
+          "value": "600 g"
+        },
+        "qty": {
+          "label": "Množství",
+          "value": "20 ks na karton"
+        },
+        "cartonSize": {
+          "label": "Rozměry kartonu",
+          "value": "550 x 406 x 410 mm (55 x 40.6 x 41 cm)"
+        },
+        "nwGw": {
+          "label": "Čistá / hrubá hmotnost",
+          "value": "12.8 kg / 13.4 kg na karton"
+        },
+        "color": {
+          "label": "Barva",
+          "value": "Růžovo-zlatá / na zakázku"
+        },
+        "feature": {
+          "label": "Vlastnost",
+          "value": "7 barev + NIR (blízké infračervené) světelná terapie LED"
+        },
+        "ledColours": {
+          "label": "Barvy LED",
+          "value": "Červená 630 nm, zelená 525 nm, modrá 465 nm, fialová 390 nm, žlutá 610 nm, tyrkysová 490 nm, bílá 460-850 nm (směs), NIR 850 nm"
+        },
+        "leds": {
+          "label": "LED diody",
+          "value": "66 x 4 = 264 ks"
+        },
+        "battery": {
+          "label": "Kapacita baterie",
+          "value": "3,000 mAh"
+        },
+        "workingTime": {
+          "label": "Doba provozu",
+          "value": "Cca 3 hodiny"
+        },
+        "chargingTime": {
+          "label": "Doba nabíjení",
+          "value": "Cca 1 hodina"
+        },
+        "power": {
+          "label": "Příkon",
+          "value": "6 W"
+        },
+        "inputVoltage": {
+          "label": "Vstupní napětí",
+          "value": "5 V / 1 A"
+        },
+        "packageInclude": {
+          "label": "Obsah balení",
+          "value": "Maska x1, návod x1, dálkový ovladač x1, oční clona x1, nabíjecí kabel x1"
+        }
+      },
+      "features": {
+        "sevenColoursPlusNir": {
+          "title": "Sedm barev + blízké infračervené světlo",
+          "description": "264 LED diod pokrývá červenou 630 nm, zelenou 525 nm, modrou 465 nm, fialovou 390 nm, žlutou 610 nm, tyrkysovou 490 nm, bílou 460-850 nm a 850 nm blízké infračervené světlo."
+        },
+        "softSiliconeAbs": {
+          "title": "Měkký silikon + ABS",
+          "description": "Ohebná maska o hmotnosti 148 g a rozměrech 290 x 195 x 3.5 mm se přizpůsobí obličeji, místo aby od něj odstávala."
+        },
+        "fastChargeLongRuntime": {
+          "title": "Hodina nabíjení, tři hodiny provozu",
+          "description": "Baterie 3,000 mAh se nabije zhruba za hodinu a vydrží asi tři hodiny."
+        },
+        "completeKit": {
+          "title": "Kompletní sada",
+          "description": "Dodává se s ručním dálkovým ovladačem, oční clonou, nabíjecím kabelem a návodem k použití."
+        }
+      },
+      "priceNote": "Jednotkové ceny jsou EXW, v USD za kus, pro uvedená množství. Potisk loga, návody na zakázku a maloobchodní balení se kalkulují zvlášť - pro kompletní nabídku nás kontaktujte.",
+      "badge": "7 barev + NIR",
+      "colors": [
+        "Růžovo-zlatá (na zakázku)"
+      ]
+    },
+    "led-therapy-panel-f618": {
+      "name": "LED terapeutický panel F618",
+      "tagline": "Stolní světelný panel se 4 vlnovými délkami",
+      "description": "Stolní LED panel pro světelnou terapii napájený ze sítě, pro kosmetickou péči o obličej a tělo: 216 LED čipů v modré, žluté, červené a infračervené vlnové délce, 54 fazetovaných čoček a osm volitelných režimů. Kosmetické zařízení pro domácí použití - není určeno k diagnostice, léčbě, vyléčení ani prevenci jakéhokoli onemocnění nebo zdravotního stavu.",
+      "specs": {
+        "packagingName": {
+          "label": "Název na maloobchodním balení",
+          "value": "LED panel pro světelnou terapii"
+        },
+        "lightSource": {
+          "label": "Zdroj světla",
+          "value": "LED, 216 čipů ve čtyřech vlnových délkách"
+        },
+        "ledArray": {
+          "label": "Pole LED",
+          "value": "54 fazetovaných šestiúhelníkových čoček v plástvovém uspořádání, v každé pozici čočky čtyři LED čipy"
+        },
+        "wavelengths": {
+          "label": "Vlnové délky",
+          "value": "460 nm modrá, 590 nm žlutá, 662 nm červená, 850 nm infračervená"
+        },
+        "infrared": {
+          "label": "Infračervené světlo",
+          "value": "850 nm, součást každého režimu ošetření"
+        },
+        "modes": {
+          "label": "Režimy",
+          "value": "8 režimů ošetření (P1-P8) plus pohotovostní režim"
+        },
+        "control": {
+          "label": "Ovládání",
+          "value": "Jediné dotykové tlačítko; kód aktivního režimu se zobrazuje na předním displeji"
+        },
+        "application": {
+          "label": "Oblast aplikace",
+          "value": "Obličej a tělo; dva režimy jsou určeny pro pokožku hlavy a intimní oblast"
+        },
+        "sessionTime": {
+          "label": "Doba ošetření",
+          "value": "15-20 minut na režim, cca 20 minut na část těla"
+        },
+        "maxPerArea": {
+          "label": "Maximální použití na část těla",
+          "value": "30 minut"
+        },
+        "maxPerSession": {
+          "label": "Maximální použití na jedno sezení",
+          "value": "60 minut"
+        },
+        "eyeProtection": {
+          "label": "Ochrana očí",
+          "value": "Ochranné sluneční brýle součástí balení; při používání nutné"
+        },
+        "powerSource": {
+          "label": "Zdroj napájení",
+          "value": "Pouze ze sítě, přes dodaný adaptér (bez baterie)"
+        },
+        "adapter": {
+          "label": "Adaptér",
+          "value": "AC 100-240 V, 50/60 Hz na DC 12 V 1.5 A"
+        },
+        "outputPower": {
+          "label": "Výstupní výkon",
+          "value": "max. 15 W"
+        },
+        "dimensions": {
+          "label": "Rozměry",
+          "value": "222 x 166 x 27 mm"
+        },
+        "weight": {
+          "label": "Čistá hmotnost",
+          "value": "620 g (hlavní jednotka 530 g, adaptér 90 g)"
+        },
+        "stand": {
+          "label": "Stojánek",
+          "value": "Skládací zadní opěrná nožka"
+        },
+        "standards": {
+          "label": "Výrobní norma",
+          "value": "GB 4706.1-2005 a GB 4706.15-2008"
+        },
+        "inTheBox": {
+          "label": "Obsah balení",
+          "value": "Hlavní jednotka, napájecí adaptér, návod k použití, ochranné sluneční brýle"
+        },
+        "qty": {
+          "label": "Množství",
+          "value": "20 ks na karton"
+        },
+        "cartonSize": {
+          "label": "Rozměry kartonu",
+          "value": "485 x 480 x 410 mm (48.5 x 48 x 41 cm)"
+        },
+        "grossWeight": {
+          "label": "Hrubá hmotnost",
+          "value": "18.835 kg na karton (skutečná hmotnost)"
+        },
+        "origin": {
+          "label": "Země původu",
+          "value": "Vyrobeno v Číně"
+        },
+        "warranty": {
+          "label": "Záruka",
+          "value": "1 rok"
+        }
+      },
+      "features": {
+        "fourWavelengthsEveryMode": {
+          "title": "Čtyři vlnové délky v každém režimu",
+          "description": "Modrá 460 nm, žlutá 590 nm, červená 662 nm a infračervená 850 nm - infračervené světlo je součástí všech osmi režimů ošetření."
+        },
+        "lensArray": {
+          "title": "216 LED diod za 54 fazetovanými čočkami",
+          "description": "Každá z 54 pozic čoček nese čtyři LED čipy uspořádané do plástve po celé ploše panelu."
+        },
+        "eightSelectableModes": {
+          "title": "Osm volitelných režimů",
+          "description": "Jedno dotykové tlačítko prochází režimy P1 až P8, kód aktivního režimu se zobrazuje na předním displeji."
+        },
+        "deskOrFloorStanding": {
+          "title": "Na stůl nebo na podlahu",
+          "description": "Skládací zadní opěrná nožka nastaví panel do potřebného úhlu a panel se napájí z dodaného 12 V adaptéru."
+        }
+      },
+      "priceNote": "Jednotkové ceny jsou EXW, v USD za kus, pro uvedená množství. Potisk loga, návody na zakázku a maloobchodní balení se kalkulují zvlášť - pro kompletní nabídku nás kontaktujte.",
+      "badge": "Stolní panel",
+      "colors": [
+        "Bílá / světle šedá"
+      ]
+    },
+    "ledTierQuantities": {
+      "tier1": "1-99 kusů",
+      "tier2": "100-499 kusů",
+      "tier3": "500-1,999 kusů",
+      "tier4": "2,000+ kusů"
+    },
+    "ledSampleMoq": "Minimální odběr vzorku: 1 kus",
+    "ledBulkMoq": "Minimální odběr: 500 kusů (o počáteční objednávce 200 kusů lze jednat)",
+    "rspLine": "Doporučená maloobchodní cena (bez DPH): {value}"
   },
   "stickyContact": {
     "wechatTip": "Napište nám na WeChat – odpovíme do 10 minut",

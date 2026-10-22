@@ -2570,6 +2570,40 @@
         "description": "Let's discuss your project requirements and explore how our OEM/ODM solutions can help you succeed in the IPL market.",
         "start": "Start Your Project",
         "back": "Back to Services"
+      },
+      "vet": {
+        "title": "How buyers vet an IPL manufacturer, and how we answer",
+        "items": {
+          "0": {
+            "title": "Start with the certificate, not the brochure",
+            "body": "A CE or FDA claim is a document with a number, an issuing body and a scope. Ask for the file, then check that the model on the certificate is the model you are quoting. We send the file before the quotation, not after the deposit."
+          },
+          "1": {
+            "title": "Ask for the test report, not the specification sheet",
+            "body": "A datasheet states a number. A test report states the method, the instrument and the sample. Ask which area the fluence figure refers to and whether the report covers the standard your market enforces."
+          },
+          "2": {
+            "title": "Ask what the factory does not do",
+            "body": "A supplier that claims everything is a supplier that subcontracts the parts you cannot see. We do not make the lithium cell, the lamp or the sapphire window; we buy them, test them on receipt, and can tell you the specification each one is held to."
+          },
+          "3": {
+            "title": "Ask who owns the tooling, and when it is refunded",
+            "body": "A private mould is charged separately and belongs to the project that paid for it. Ours is capped at RMB 150,000 and refunded once cumulative orders reach 30,000 units, in writing, before the first invoice."
+          }
+        }
+      },
+      "docs": {
+        "title": "Documents we hand over, and when",
+        "items": {
+          "0": "At quotation: the platform specification sheet, the MOQ, the unit price band, the tooling cost and the lead time counted from deposit receipt.",
+          "1": "Before tooling: the drawing set, the artwork dieline, and the label or claims text your market requires.",
+          "2": "Before shipment: the test reports for the standards the destination market enforces, the declaration of conformity, and the packing list with measured carton dimensions.",
+          "3": "With the shipment: invoice, packing list, certificate of origin, and the bill of lading or air waybill."
+        }
+      },
+      "boundary": {
+        "title": "What we do not do",
+        "body": "We do not certify a device for a market on your behalf, we do not put your design on another brand's box, and we do not quote a price we cannot hold for the validity period printed on the proforma invoice."
       }
     },
     "productDesign": {
