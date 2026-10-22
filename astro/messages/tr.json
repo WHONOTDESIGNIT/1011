@@ -10292,5 +10292,40 @@
     "received": "Geri bildiriminiz alındı — geliştirmeye devam edeceğiz.",
     "already": "Bu makaleyi zaten oyladınız.",
     "fail": "Gönderim başarısız oldu, lütfen daha sonra tekrar deneyin."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Platformlar arasında nasıl seçim yapılır",
+      "0": "Soğutmayı pazara göre eşleştirin. Daha yüksek enerji yoğunluğunu katlanılabilir kılan şey sapphire temas soğutmasıdır; bu olmayan bir cihaz, veri sayfası ne derse desin daha düşük seviyede çalışmak zorundadır.",
+      "1": "Ölçüm yöntemi aynı olmadıkça fluence değerlerini karşılaştırmayın. Farklı alanlar üzerinde veya optik yolun farklı noktalarında ölçülen iki değer aynı büyüklük değildir.",
+      "2": "Fişi ve voltajı, size gönderilen numuneye göre değil varış pazarına göre kontrol edin. UK, EU, US, Japan, Korea, Australia ve Gulf aynı fişi veya aynı frekansı paylaşmaz.",
+      "3": "Lamba ve hücre özelliklerini, pazarın gerektirdiği sertifikaya göre okuyun. Bir pazar için sertifikalandırılmış bir platform, otomatik olarak bir başkası için sertifikalandırılabilir değildir.",
+      "4": "Ünitenin ağırlığını ve nasıl tutulduğunu sorun. Daha ağır bir el cihazı klinikte satılır, ev kullanımı kanalında ise iade olarak geri döner.",
+      "5": "Ambalajı tasarlamadan önce platformun MOQ ve fiyat aralığını teyit edin. Koli, sipariş büyüklüğünden sonra belirlenir, önce değil."
+    },
+    "config": {
+      "title": "Neyin yapılandırılabildiği ve neyin yapılandırılamadığı",
+      "free": {
+        "title": "Özel etiket siparişinde yapılandırılabilir",
+        "0": "Logo, renk, yüzey kaplaması ve kutu, kılavuz ile cihazın kendisi üzerindeki baskı.",
+        "1": "Ambalaj yapısı: hediye kutusu, yeniden gönderim kutusu ve sevkiyatı taşıyan ana koli.",
+        "2": "Kılavuz dili, menü dili, fiş tipi ve pazarınızın izin verdiği beyan bloğu."
+      },
+      "fixed": {
+        "title": "Yeniden sertifikalandırma olmadan yapılandırılamaz",
+        "0": "Lamba tipi, optik yol ve test raporlarının kapsadığı güvenlik elektroniği.",
+        "1": "Düşme testinin ve kalıbın temel aldığı gövde ölçüleri.",
+        "2": "Cihazı farklı bir standarda veya sınıflandırmaya taşıyan her türlü elektrik tasarımı değişikliği."
+      }
+    },
+    "flow": {
+      "title": "Bir sipariş nasıl ilerler ve neler imzalanır",
+      "0": "Numune: bir adet, böylece cihazı elinize alıp kendi ambalajınızı üzerinde fotoğraflayabilirsiniz.",
+      "1": "Teklif: platform, MOQ, birim fiyat aralığı, kalıp maliyeti, depozitodan itibaren sayılan üretim süresi.",
+      "2": "Proforma fatura: ticari koşullar yazılı olarak, Incoterm ve belirtilen yer ile birlikte.",
+      "3": "Grafik çalışma: kesim şablonu, logo dosyaları, renk değerleri, kılavuz metni ve beyan bloğu, adı belirtilen tek bir kişi tarafından onaylanır.",
+      "4": "Üretim: kalite anlaşmasına uygun olarak muayene aşamaları ve numune alma planı.",
+      "5": "Sevkiyat: ölçülmüş koli ölçüleriyle çeki listesi, ihracat evrak seti ve varış pazarının gerektirdiği sertifika."
+    }
   }
 }

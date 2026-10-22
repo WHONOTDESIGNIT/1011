@@ -10292,5 +10292,40 @@
     "received": "Feedback primit — vom continua să ne îmbunătățim.",
     "already": "Ați evaluat deja acest articol.",
     "fail": "Trimiterea a eșuat, vă rugăm să încercați din nou mai târziu."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Cum alegi între platforme",
+      "0": "Potrivește răcirea la piață. Răcirea prin contact cu sapphire este ce face tolerabilă o densitate de energie mai mare; un aparat fără ea trebuie să funcționeze la un nivel mai jos, orice ar spune fișa tehnică.",
+      "1": "Compară fluence doar când metoda de măsurare este aceeași. Două valori măsurate pe suprafețe diferite sau în puncte diferite ale traseului optic nu sunt aceeași mărime.",
+      "2": "Verifică ștecherul și tensiunea pentru destinație, nu pentru eșantionul pe care l-ai primit. UK, EU, US, Japan, Korea, Australia și Gulf nu folosesc același ștecher sau aceeași frecvență.",
+      "3": "Citește specificațiile lămpii și ale celulei în raport cu certificarea cerută de piață. O platformă certificată pentru o piață nu este automat certificabilă pentru alta.",
+      "4": "Întreabă cât cântărește aparatul și cum se ține în mână. Un aparat de mână mai greu se vinde într-o clinică și se returnează pe canalul de uz casnic.",
+      "5": "Confirmă MOQ și intervalul de preț pentru platformă înainte să proiectezi ambalajul. Cartonul se stabilește după dimensiunea comenzii, nu înainte."
+    },
+    "config": {
+      "title": "Ce este configurabil și ce nu",
+      "free": {
+        "title": "Configurabil la o comandă cu marcă proprie",
+        "0": "Logo, culoare, finisaj de suprafață și imprimarea pe cutie, pe manual și pe aparatul propriu-zis.",
+        "1": "Structura ambalajului: cutie cadou, ambalaj de expediere și cartonul master în care se livrează.",
+        "2": "Limba manualului, limba meniului, tipul de ștecher și blocul de mențiuni permis în piața ta."
+      },
+      "fixed": {
+        "title": "Neconfigurabil fără recertificare",
+        "0": "Tipul lămpii, traseul optic și electronica de siguranță acoperite de rapoartele de test.",
+        "1": "Dimensiunile carcasei pe care au fost construite testul de cădere și matrițele.",
+        "2": "Orice modificare a proiectului electric care mută aparatul într-un alt standard sau o altă clasificare."
+      }
+    },
+    "flow": {
+      "title": "Cum se desfășoară o comandă și ce se semnează",
+      "0": "Eșantion: o unitate, ca să poți ține aparatul în mână și să fotografiezi propriul ambalaj pe el.",
+      "1": "Ofertă: platformă, MOQ, interval de preț unitar, costul matrițelor, termenul de livrare calculat de la avans.",
+      "2": "Factură proformă: termenii comerciali în scris, cu Incoterm și locul numit.",
+      "3": "Grafică: șablonul de tăiere, fișierele logo, valorile de culoare, textul manualului și blocul de mențiuni, aprobate de o singură persoană numită.",
+      "4": "Producție: etapele de inspecție și planul de eșantionare, conform acordului de calitate.",
+      "5": "Livrare: lista de ambalare cu dimensiunile măsurate ale cartoanelor, setul de documente de export și certificatul cerut de piața de destinație."
+    }
   }
 }

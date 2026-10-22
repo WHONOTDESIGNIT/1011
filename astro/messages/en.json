@@ -10292,5 +10292,40 @@
     "received": "Feedback received — we'll keep improving.",
     "already": "You've already rated this article.",
     "fail": "Submission failed, please try again later."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "How to choose between the platforms",
+      "0": "Match the cooling to the market. Sapphire contact cooling is what makes a higher energy density tolerable; a device without it has to run lower, whatever the datasheet says.",
+      "1": "Compare fluence only when the method matches. Two figures measured over different areas or at different points in the optical path are not the same quantity.",
+      "2": "Check the plug and the voltage for the destination, not for the sample you were sent. UK, EU, US, Japan, Korea, Australia and the Gulf do not share a plug or a frequency.",
+      "3": "Read the lamp and cell specifications against the certification the market requires. A platform certified for one market is not automatically certifiable for another.",
+      "4": "Ask what the unit weighs and how it is held. A heavier handset sells in a clinic and returns in a home-use channel.",
+      "5": "Confirm the MOQ and the price band for the platform before you design the packaging. The carton is specified after the order size, not before."
+    },
+    "config": {
+      "title": "What is configurable, and what is not",
+      "free": {
+        "title": "Configurable on a private label order",
+        "0": "Logo, colour, surface finish, and the print on the box, the manual and the device itself.",
+        "1": "Packaging structure: gift box, remailer, and the master carton that ships it.",
+        "2": "Manual language, menu language, plug type, and the claims block your market allows."
+      },
+      "fixed": {
+        "title": "Not configurable without re-certification",
+        "0": "The lamp type, the optical path, and the safety electronics that the test reports cover.",
+        "1": "The chassis dimensions that the drop test and the tooling were built around.",
+        "2": "Any change to the electrical design that moves the device into a different standard or classification."
+      }
+    },
+    "flow": {
+      "title": "How an order runs, and what gets signed",
+      "0": "Sample: one unit, so you can hold the device and photograph your own packaging on it.",
+      "1": "Quotation: platform, MOQ, unit price band, tooling cost, lead time counted from deposit.",
+      "2": "Proforma invoice: the commercial terms in writing, with the Incoterm and its named place.",
+      "3": "Artwork: dieline, logo files, colour values, manual text and the claims block, approved by one named person.",
+      "4": "Production: the inspection stages and the sampling plan, per the quality agreement.",
+      "5": "Shipment: packing list with measured carton dimensions, the export document set, and the certificate the destination market requires."
+    }
   }
 }

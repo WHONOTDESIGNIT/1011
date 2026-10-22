@@ -10292,5 +10292,40 @@
     "received": "Opinia przyjęta — będziemy się stale doskonalić.",
     "already": "Ten artykuł został już oceniony.",
     "fail": "Nie udało się wysłać. Prosimy spróbować ponownie później."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Jak wybrać między platformami",
+      "0": "Dopasuj chłodzenie do rynku. Chłodzenie kontaktowe sapphire sprawia, że wyższa gęstość energii jest do zniesienia; urządzenie bez niego musi pracować niżej, cokolwiek podaje karta danych.",
+      "1": "Porównuj fluence tylko wtedy, gdy metoda jest ta sama. Dwie wartości zmierzone na różnych powierzchniach lub w różnych punktach toru optycznego nie są tą samą wielkością.",
+      "2": "Sprawdź wtyczkę i napięcie dla miejsca docelowego, a nie dla próbki, którą otrzymałeś. UK, EU, US, Japan, Korea, Australia i Gulf nie mają wspólnej wtyczki ani częstotliwości.",
+      "3": "Zestaw specyfikację lampy i ogniwa z certyfikacją wymaganą na rynku. Platforma certyfikowana na jeden rynek nie jest automatycznie certyfikowalna na inny.",
+      "4": "Zapytaj, ile waży urządzenie i jak się je trzyma. Cięższy aplikator sprzedaje się w klinice, a w kanale domowym wraca.",
+      "5": "Potwierdź MOQ i przedział cenowy platformy, zanim zaprojektujesz opakowanie. Karton określa się po ustaleniu wielkości zamówienia, nie przed."
+    },
+    "config": {
+      "title": "Co można konfigurować, a czego nie",
+      "free": {
+        "title": "Konfigurowalne przy zamówieniu pod marką własną",
+        "0": "Logo, kolor, wykończenie powierzchni oraz nadruk na pudełku, w instrukcji i na samym urządzeniu.",
+        "1": "Struktura opakowania: pudełko prezentowe, opakowanie wysyłkowe i karton zbiorczy, w którym jest wysyłane.",
+        "2": "Język instrukcji, język menu, typ wtyczki oraz blok oświadczeń dozwolonych na Twoim rynku."
+      },
+      "fixed": {
+        "title": "Nie do skonfigurowania bez ponownej certyfikacji",
+        "0": "Typ lampy, tor optyczny i elektronika bezpieczeństwa objęte raportami z badań.",
+        "1": "Wymiary obudowy, wokół których zbudowano test upadku i formy.",
+        "2": "Każda zmiana w projekcie elektrycznym, która przenosi urządzenie do innej normy lub klasyfikacji."
+      }
+    },
+    "flow": {
+      "title": "Jak przebiega zamówienie i co się podpisuje",
+      "0": "Próbka: jedna sztuka, żebyś mógł wziąć urządzenie do ręki i sfotografować na nim własne opakowanie.",
+      "1": "Wycena: platforma, MOQ, przedział ceny jednostkowej, koszt form i termin liczony od wpłaty zaliczki.",
+      "2": "Faktura proforma: warunki handlowe na piśmie, z regułą Incoterms i wskazanym miejscem.",
+      "3": "Projekt graficzny: wykrój, pliki logo, wartości kolorów, tekst instrukcji i blok oświadczeń, zatwierdzone przez jedną wskazaną osobę.",
+      "4": "Produkcja: etapy kontroli i plan pobierania próbek, zgodnie z umową jakościową.",
+      "5": "Wysyłka: lista pakowa ze zmierzonymi wymiarami kartonów, komplet dokumentów eksportowych i certyfikat wymagany na rynku docelowym."
+    }
   }
 }

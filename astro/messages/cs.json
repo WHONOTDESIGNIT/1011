@@ -10292,5 +10292,40 @@
     "received": "Zpětná vazba přijata — budeme se nadále zlepšovat.",
     "already": "Tento článek jste již ohodnotili.",
     "fail": "Odeslání se nezdařilo, zkuste to prosím znovu později."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Jak si vybrat mezi platformami",
+      "0": "Slaďte chlazení s trhem. Kontaktní chlazení typu sapphire je to, co umožňuje snést vyšší hustotu energie; zařízení bez něj musí pracovat na nižší úrovni, ať datasheet uvádí cokoli.",
+      "1": "Hodnoty fluence porovnávejte jen tehdy, když je metoda stejná. Dva údaje naměřené na různých plochách nebo v různých bodech optické dráhy nejsou stejná veličina.",
+      "2": "Zkontrolujte zástrčku a napětí pro cílovou zemi, ne pro vzorek, který jste dostali. UK, EU, US, Japan, Korea, Australia a Gulf nemají stejnou zástrčku ani frekvenci.",
+      "3": "Porovnejte specifikace lampy a článku s certifikací, kterou trh vyžaduje. Platforma certifikovaná pro jeden trh není automaticky certifikovatelná pro jiný.",
+      "4": "Zeptejte se, kolik přístroj váží a jak se drží. Těžší ruční aplikátor se prodá do kliniky a vrátí se v kanálu pro domácí použití.",
+      "5": "Před návrhem obalu potvrďte MOQ a cenové rozpětí platformy. Karton se specifikuje podle velikosti objednávky, ne předem."
+    },
+    "config": {
+      "title": "Co lze konfigurovat a co ne",
+      "free": {
+        "title": "Konfigurovatelné při objednávce private label",
+        "0": "Logo, barva, povrchová úprava a potisk na krabici, v manuálu a na samotném zařízení.",
+        "1": "Struktura obalu: dárková krabice, zásilková krabice a sběrný karton pro expedici.",
+        "2": "Jazyk manuálu, jazyk menu, typ zástrčky a blok tvrzení, který váš trh povoluje."
+      },
+      "fixed": {
+        "title": "Nelze konfigurovat bez nové certifikace",
+        "0": "Typ lampy, optická dráha a bezpečnostní elektronika, kterou pokrývají protokoly o zkouškách.",
+        "1": "Rozměry šasi, na které byl navržen test pádu a nástroje.",
+        "2": "Jakákoli změna elektrického designu, která zařízení posune do jiné normy nebo klasifikace."
+      }
+    },
+    "flow": {
+      "title": "Jak probíhá objednávka a co se podepisuje",
+      "0": "Vzorek: jeden kus, abyste mohli zařízení vzít do ruky a vyfotit na něm vlastní obal.",
+      "1": "Nabídka: platforma, MOQ, cenové rozpětí za kus, náklady na nástroje, dodací lhůta počítaná od zálohy.",
+      "2": "Proforma faktura: obchodní podmínky písemně, s Incotermem a uvedeným místem.",
+      "3": "Podklady: obrysová šablona, soubory loga, barevné hodnoty, text manuálu a blok tvrzení, schválené jednou určenou osobou.",
+      "4": "Výroba: fáze kontroly a plán vzorkování podle dohody o kvalitě.",
+      "5": "Expedice: balicí list s naměřenými rozměry kartonu, sada exportních dokumentů a certifikát, který cílový trh vyžaduje."
+    }
   }
 }

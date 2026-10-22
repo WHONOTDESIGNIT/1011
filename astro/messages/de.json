@@ -10292,5 +10292,40 @@
     "received": "Feedback erhalten – wir verbessern uns weiter.",
     "already": "Sie haben diesen Artikel bereits bewertet.",
     "fail": "Übermittlung fehlgeschlagen, bitte versuchen Sie es später erneut."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "So wählen Sie zwischen den Plattformen",
+      "0": "Stimmen Sie die Kühlung auf den Markt ab. Die Kontaktkühlung mit sapphire macht eine höhere Energiedichte erträglich; ein Gerät ohne sie muss niedriger laufen, was auch immer das Datenblatt sagt.",
+      "1": "Vergleichen Sie fluence nur, wenn die Messmethode übereinstimmt. Zwei Werte, die über unterschiedliche Flächen oder an unterschiedlichen Punkten im Strahlengang gemessen wurden, sind nicht dieselbe Größe.",
+      "2": "Prüfen Sie Stecker und Spannung für das Zielland, nicht für das Muster, das Sie erhalten haben. UK, EU, US, Japan, Korea, Australia und Gulf haben weder denselben Stecker noch dieselbe Frequenz.",
+      "3": "Prüfen Sie die Spezifikationen von Lampe und Zelle gegen die Zertifizierung, die der Markt verlangt. Eine für einen Markt zertifizierte Plattform ist nicht automatisch für einen anderen zertifizierbar.",
+      "4": "Fragen Sie, was das Gerät wiegt und wie es gehalten wird. Ein schwereres Handstück verkauft sich in einer Klinik und kommt im Home-Use-Kanal zurück.",
+      "5": "Bestätigen Sie MOQ und Preisspanne für die Plattform, bevor Sie die Verpackung entwerfen. Der Karton wird nach der Bestellmenge festgelegt, nicht davor."
+    },
+    "config": {
+      "title": "Was konfigurierbar ist und was nicht",
+      "free": {
+        "title": "Konfigurierbar bei einer Private-Label-Bestellung",
+        "0": "Logo, Farbe, Oberflächenfinish und der Druck auf der Box, dem Handbuch und dem Gerät selbst.",
+        "1": "Verpackungsaufbau: Geschenkbox, Versandkarton und der Umkarton, in dem beides versandt wird.",
+        "2": "Sprache des Handbuchs, Sprache des Menüs, Steckertyp und der Aussagenblock, den Ihr Markt zulässt."
+      },
+      "fixed": {
+        "title": "Nicht konfigurierbar ohne Neuzertifizierung",
+        "0": "Der Lampentyp, der Strahlengang und die Sicherheitselektronik, die die Prüfberichte abdecken.",
+        "1": "Die Gehäusemaße, auf die der Falltest und die Werkzeuge ausgelegt sind.",
+        "2": "Jede Änderung am elektrischen Design, die das Gerät in eine andere Norm oder Klasse verschiebt."
+      }
+    },
+    "flow": {
+      "title": "Wie eine Bestellung abläuft und was unterschrieben wird",
+      "0": "Muster: ein Gerät, damit Sie es in der Hand halten und Ihre eigene Verpackung darauf fotografieren können.",
+      "1": "Angebot: Plattform, MOQ, Preisspanne pro Stück, Werkzeugkosten, Lieferzeit ab Anzahlung.",
+      "2": "Proformarechnung: die Handelsbedingungen schriftlich, mit dem Incoterm und dem genannten Ort.",
+      "3": "Druckdaten: Stanzvorlage, Logodateien, Farbwerte, Handbuchtext und der Aussagenblock, freigegeben von einer namentlich genannten Person.",
+      "4": "Produktion: die Prüfstufen und der Prüfplan gemäß der Qualitätsvereinbarung.",
+      "5": "Versand: Packliste mit gemessenen Kartonmaßen, der Satz der Exportdokumente und das Zertifikat, das der Zielmarkt verlangt."
+    }
   }
 }

@@ -651,6 +651,57 @@ const siteBaseUrl = (
         ))}
       </div>
     </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productsDeep.choose.title')}</h2>
+      <ul class="mt-8 space-y-4">
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <li class="flex gap-3 text-base leading-relaxed text-neutral-700">
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-ink-900"></span>
+            <span>{t(locale, `productsDeep.choose.${i}`)}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productsDeep.config.title')}</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm">
+          <h3 class="text-xl font-semibold text-ink-900">{t(locale, 'productsDeep.config.free.title')}</h3>
+          <ul class="mt-4 space-y-3">
+            {[0, 1, 2].map((i) => (
+              <li class="text-sm leading-relaxed text-neutral-700">{t(locale, `productsDeep.config.free.${i}`)}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-7 shadow-sm">
+          <h3 class="text-xl font-semibold text-ink-900">{t(locale, 'productsDeep.config.fixed.title')}</h3>
+          <ul class="mt-4 space-y-3">
+            {[0, 1, 2].map((i) => (
+              <li class="text-sm leading-relaxed text-neutral-700">{t(locale, `productsDeep.config.fixed.${i}`)}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6">
+      <h2 class="text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productsDeep.flow.title')}</h2>
+      <ol class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <li class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-100 text-sm font-bold text-sky-700">0{i + 1}</div>
+            <p class="mt-4 text-sm leading-relaxed text-neutral-700">{t(locale, `productsDeep.flow.${i}`)}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-8 text-sm text-neutral-600">
+        <a class="underline decoration-sky-700 decoration-2 underline-offset-4" href={getLocalizedPath(locale, '/services/private-label')}>{t(locale, 'servicesPage.privateLabel.terms.title')}</a>
+        <span class="mx-2">·</span>
+        <a class="underline decoration-sky-700 decoration-2 underline-offset-4" href={getLocalizedPath(locale, '/services/oem-odm')}>{t(locale, 'homepage.nav.services')}</a>
+      </p>
+    </section>
   </div>
   <script>
     // Hero 旗舰产品手动轮播：左右箭头 + 指示点，无自动播放

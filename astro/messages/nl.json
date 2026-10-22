@@ -10292,5 +10292,40 @@
     "received": "Feedback ontvangen — we blijven verbeteren.",
     "already": "U heeft dit artikel al beoordeeld.",
     "fail": "Verzenden mislukt, probeer het later opnieuw."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Hoe u tussen de platformen kiest",
+      "0": "Stem de koeling af op de markt. Sapphire contactkoeling is wat een hogere energiedichtheid draaglijk maakt; een apparaat zonder die koeling moet lager draaien, wat de datasheet ook zegt.",
+      "1": "Vergelijk fluence alleen wanneer de meetmethode overeenkomt. Twee waarden die over verschillende oppervlakken of op verschillende punten in de optische baan zijn gemeten, zijn niet dezelfde grootheid.",
+      "2": "Controleer de stekker en de spanning voor de bestemming, niet voor het monster dat u hebt ontvangen. UK, EU, US, Japan, Korea, Australia en Gulf delen geen stekker of frequentie.",
+      "3": "Lees de specificaties van lamp en cel naast de certificering die de markt vereist. Een platform dat voor de ene markt is gecertificeerd, is niet automatisch certificeerbaar voor een andere.",
+      "4": "Vraag hoeveel het apparaat weegt en hoe u het vasthoudt. Een zwaardere handset verkoopt in een kliniek en komt terug via een kanaal voor thuisgebruik.",
+      "5": "Bevestig de MOQ en de prijsklasse van het platform voordat u de verpakking ontwerpt. De doos wordt na de ordergrootte vastgesteld, niet ervoor."
+    },
+    "config": {
+      "title": "Wat configureerbaar is en wat niet",
+      "free": {
+        "title": "Configureerbaar bij een private label order",
+        "0": "Logo, kleur, afwerking van het oppervlak en de bedrukking op de doos, de handleiding en het apparaat zelf.",
+        "1": "Verpakkingsstructuur: geschenkdoos, verzenddoos en de omdoos waarmee het wordt verscheept.",
+        "2": "Taal van de handleiding, taal van het menu, type stekker en het claimblok dat uw markt toestaat."
+      },
+      "fixed": {
+        "title": "Niet configureerbaar zonder hercertificering",
+        "0": "Het lamptype, de optische baan en de veiligheidselektronica die de testrapporten dekken.",
+        "1": "De afmetingen van het chassis waarop de valtest en het matrijsgereedschap zijn gebaseerd.",
+        "2": "Elke wijziging in het elektrische ontwerp waardoor het apparaat onder een andere norm of classificatie valt."
+      }
+    },
+    "flow": {
+      "title": "Hoe een order verloopt en wat wordt ondertekend",
+      "0": "Monster: een exemplaar, zodat u het apparaat kunt vasthouden en uw eigen verpakking erop kunt fotograferen.",
+      "1": "Offerte: platform, MOQ, prijsklasse per stuk, gereedschapskosten en levertijd gerekend vanaf de aanbetaling.",
+      "2": "Proforma-factuur: de commerciële voorwaarden op papier, met de Incoterm en de daarbij genoemde plaats.",
+      "3": "Drukwerk: stanslijn, logobestanden, kleurwaarden, handleidingstekst en het claimblok, goedgekeurd door één genoemde persoon.",
+      "4": "Productie: de inspectiefases en het steekproefplan, volgens de kwaliteitsovereenkomst.",
+      "5": "Verzending: paklijst met gemeten doosafmetingen, de set exportdocumenten en het certificaat dat de bestemmingsmarkt vereist."
+    }
   }
 }

@@ -10292,5 +10292,40 @@
     "received": "Retour reçu — nous continuerons à nous améliorer.",
     "already": "Vous avez déjà évalué cet article.",
     "fail": "Échec de l'envoi, veuillez réessayer plus tard."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Comment choisir entre les plateformes",
+      "0": "Adaptez le refroidissement au marché. Le refroidissement par contact en sapphire est ce qui rend supportable une densité d'énergie plus élevée ; un appareil qui en est dépourvu doit fonctionner plus bas, quelles que soient les données de la fiche technique.",
+      "1": "Ne comparez la fluence que si la méthode est la même. Deux valeurs mesurées sur des surfaces différentes ou à des points différents du trajet optique ne représentent pas la même grandeur.",
+      "2": "Vérifiez la fiche et la tension pour la destination, pas pour l'échantillon que vous avez reçu. UK, EU, US, Japan, Korea, Australia et Gulf ne partagent ni la même fiche ni la même fréquence.",
+      "3": "Confrontez les spécifications de la lampe et de la cellule à la certification exigée par le marché. Une plateforme certifiée pour un marché n'est pas automatiquement certifiable pour un autre.",
+      "4": "Demandez le poids de l'appareil et la manière dont il se tient. Une pièce à main plus lourde se vend en clinique et revient dans un canal de usage domestique.",
+      "5": "Confirmez le MOQ et la fourchette de prix de la plateforme avant de concevoir l'emballage. Le carton se définit après la taille de la commande, pas avant."
+    },
+    "config": {
+      "title": "Ce qui est configurable et ce qui ne l'est pas",
+      "free": {
+        "title": "Configurable sur une commande en marque propre",
+        "0": "Logo, couleur, finition de surface et impression sur la boîte, le manuel et l'appareil lui-même.",
+        "1": "Structure de l'emballage : boîte cadeau, emballage d'expédition et carton maître qui le transporte.",
+        "2": "Langue du manuel, langue du menu, type de fiche et bloc d'allégations autorisé par votre marché."
+      },
+      "fixed": {
+        "title": "Non configurable sans nouvelle certification",
+        "0": "Le type de lampe, le trajet optique et l'électronique de sécurité que couvrent les rapports d'essai.",
+        "1": "Les dimensions du châssis sur lesquelles le test de chute et l'outillage ont été conçus.",
+        "2": "Toute modification de la conception électrique qui place l'appareil sous une autre norme ou une autre classification."
+      }
+    },
+    "flow": {
+      "title": "Comment se déroule une commande et ce qui se signe",
+      "0": "Échantillon : une unité, pour que vous puissiez tenir l'appareil et y photographier votre propre emballage.",
+      "1": "Devis : plateforme, MOQ, fourchette de prix unitaire, coût d'outillage et délai compté à partir de l'acompte.",
+      "2": "Facture pro forma : les conditions commerciales par écrit, avec l'Incoterm et son lieu désigné.",
+      "3": "Éléments graphiques : tracé de découpe, fichiers de logo, valeurs de couleur, texte du manuel et bloc d'allégations, validés par une personne désignée.",
+      "4": "Production : les étapes de contrôle et le plan d'échantillonnage, selon l'accord qualité.",
+      "5": "Expédition : liste de colisage avec les dimensions mesurées des cartons, le jeu de documents d'export et le certificat exigé par le marché de destination."
+    }
   }
 }

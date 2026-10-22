@@ -10292,5 +10292,40 @@
     "received": "Feedback recebido — continuaremos a melhorar.",
     "already": "Já classificou este artigo.",
     "fail": "Falha ao submeter, tente novamente mais tarde."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Como escolher entre as plataformas",
+      "0": "Adeque o arrefecimento ao mercado. O arrefecimento por contacto de Sapphire é o que torna tolerável uma densidade de energia mais elevada; um aparelho sem ele tem de funcionar a um nível inferior, independentemente do que diz a ficha técnica.",
+      "1": "Compare a fluence apenas quando o método é o mesmo. Dois valores medidos em áreas diferentes, ou em pontos diferentes do percurso ótico, não são a mesma grandeza.",
+      "2": "Verifique a ficha e a tensão para o destino, e não para a amostra que recebeu. UK, EU, US, Japan, Korea, Australia e o Gulf não partilham a mesma ficha nem a mesma frequência.",
+      "3": "Leia as especificações da lâmpada e da célula à luz da certificação exigida pelo mercado. Uma plataforma certificada para um mercado não é automaticamente certificável para outro.",
+      "4": "Pergunte quanto pesa a unidade e como se segura. Um punho mais pesado vende-se numa clínica e volta como devolução num canal de uso doméstico.",
+      "5": "Confirme o MOQ e a faixa de preço da plataforma antes de desenhar a embalagem. A caixa é especificada depois de se conhecer o tamanho da encomenda, não antes."
+    },
+    "config": {
+      "title": "O que é configurável e o que não é",
+      "free": {
+        "title": "Configurável numa encomenda de marca própria",
+        "0": "Logótipo, cor, acabamento da superfície e a impressão na caixa, no manual e no próprio aparelho.",
+        "1": "Estrutura da embalagem: caixa de oferta, embalagem de reenvio e a caixa-mestra que a transporta.",
+        "2": "Idioma do manual, idioma do menu, tipo de ficha e o bloco de alegações que o seu mercado permite."
+      },
+      "fixed": {
+        "title": "Não configurável sem nova certificação",
+        "0": "O tipo de lâmpada, o percurso ótico e a eletrónica de segurança abrangida pelos relatórios de ensaio.",
+        "1": "As dimensões do chassi em torno das quais foram construídos o ensaio de queda e o molde.",
+        "2": "Qualquer alteração ao projeto elétrico que coloque o aparelho noutra norma ou classificação."
+      }
+    },
+    "flow": {
+      "title": "Como decorre uma encomenda e o que se assina",
+      "0": "Amostra: uma unidade, para que possa pegar no aparelho e fotografar a sua própria embalagem sobre ele.",
+      "1": "Orçamento: plataforma, MOQ, faixa de preço unitário, custo do molde e prazo de entrega contado a partir do sinal.",
+      "2": "Fatura proforma: as condições comerciais por escrito, com o Incoterm e o local nele indicado.",
+      "3": "Arte final: linha de corte, ficheiros do logótipo, valores de cor, texto do manual e bloco de alegações, aprovados por uma pessoa designada.",
+      "4": "Produção: as fases de inspeção e o plano de amostragem, conforme o acordo de qualidade.",
+      "5": "Expedição: lista de embalagem com as dimensões medidas das caixas, o conjunto de documentos de exportação e o certificado exigido pelo mercado de destino."
+    }
   }
 }

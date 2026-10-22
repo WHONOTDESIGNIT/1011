@@ -10292,5 +10292,40 @@
     "received": "Opinión recibida: seguiremos mejorando.",
     "already": "Ya has valorado este artículo.",
     "fail": "No se pudo enviar. Inténtalo de nuevo más tarde."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Cómo elegir entre las plataformas",
+      "0": "Ajusta la refrigeración al mercado. La refrigeración por contacto con sapphire es lo que hace tolerable una densidad de energía más alta; un equipo que no la tiene debe trabajar a menor potencia, diga lo que diga la ficha técnica.",
+      "1": "Compara la fluence solo cuando el método coincida. Dos cifras medidas sobre superficies distintas o en puntos distintos del trayecto óptico no son la misma magnitud.",
+      "2": "Comprueba el enchufe y la tensión del destino, no los de la muestra que recibiste. UK, EU, US, Japan, Korea, Australia y Gulf no comparten enchufe ni frecuencia.",
+      "3": "Lee las especificaciones de lámpara y de célula frente a la certificación que exige el mercado. Una plataforma certificada para un mercado no es automáticamente certificable para otro.",
+      "4": "Pregunta cuánto pesa la unidad y cómo se sostiene. Un cabezal más pesado se vende en clínica y se devuelve en un canal de uso doméstico.",
+      "5": "Confirma el MOQ y la banda de precio de la plataforma antes de diseñar el embalaje. El cartón se define después del tamaño del pedido, no antes."
+    },
+    "config": {
+      "title": "Qué es configurable y qué no",
+      "free": {
+        "title": "Configurable en un pedido de marca blanca",
+        "0": "Logotipo, color, acabado superficial y la impresión de la caja, el manual y el propio equipo.",
+        "1": "Estructura del embalaje: caja de regalo, caja de reenvío y el cartón máster que lo transporta.",
+        "2": "Idioma del manual, idioma del menú, tipo de enchufe y el bloque de declaraciones que permite tu mercado."
+      },
+      "fixed": {
+        "title": "No configurable sin una nueva certificación",
+        "0": "El tipo de lámpara, el trayecto óptico y la electrónica de seguridad que cubren los informes de ensayo.",
+        "1": "Las dimensiones del chasis sobre las que se construyeron el ensayo de caída y el utillaje.",
+        "2": "Cualquier cambio en el diseño eléctrico que sitúe el equipo en otra norma u otra clasificación."
+      }
+    },
+    "flow": {
+      "title": "Cómo se desarrolla un pedido y qué se firma",
+      "0": "Muestra: una unidad, para que puedas sostener el equipo y fotografiar en él tu propio embalaje.",
+      "1": "Cotización: plataforma, MOQ, banda de precio unitario, coste de utillaje y plazo de entrega contado desde el depósito.",
+      "2": "Factura proforma: las condiciones comerciales por escrito, con el Incoterm y su lugar designado.",
+      "3": "Material gráfico: troquel, archivos de logotipo, valores de color, texto del manual y bloque de declaraciones, aprobados por una persona designada.",
+      "4": "Producción: las etapas de inspección y el plan de muestreo, según el acuerdo de calidad.",
+      "5": "Envío: lista de empaque con las dimensiones medidas del cartón, el conjunto de documentos de exportación y el certificado que exige el mercado de destino."
+    }
   }
 }

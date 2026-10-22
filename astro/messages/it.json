@@ -10292,5 +10292,40 @@
     "received": "Feedback ricevuto: continueremo a migliorare.",
     "already": "Ha già valutato questo articolo.",
     "fail": "Invio non riuscito, la preghiamo di riprovare più tardi."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Come scegliere tra le piattaforme",
+      "0": "Adegua il raffreddamento al mercato. È il raffreddamento a contatto in sapphire a rendere tollerabile una densità energetica più alta; un dispositivo che ne è privo deve lavorare a livelli inferiori, qualunque cosa dica la scheda tecnica.",
+      "1": "Confronta la fluence solo quando il metodo di misura è lo stesso. Due valori misurati su aree diverse o in punti diversi del percorso ottico non sono la stessa grandezza.",
+      "2": "Verifica la spina e la tensione per la destinazione, non per il campione che hai ricevuto. UK, EU, US, Japan, Korea, Australia e Gulf non condividono la stessa spina né la stessa frequenza.",
+      "3": "Leggi le specifiche della lampada e della cella alla luce della certificazione richiesta dal mercato. Una piattaforma certificata per un mercato non è automaticamente certificabile per un altro.",
+      "4": "Chiedi quanto pesa l'unità e come si impugna. Un manipolo più pesante vende in clinica e torna indietro in un canale per uso domestico.",
+      "5": "Conferma il MOQ e la fascia di prezzo della piattaforma prima di progettare la confezione. Il cartone si definisce dopo la dimensione dell'ordine, non prima."
+    },
+    "config": {
+      "title": "Cosa è configurabile e cosa no",
+      "free": {
+        "title": "Configurabile su un ordine a marchio privato",
+        "0": "Logo, colore, finitura superficiale e stampa su scatola, manuale e dispositivo stesso.",
+        "1": "Struttura della confezione: scatola regalo, imballo per la spedizione e cartone master che lo contiene.",
+        "2": "Lingua del manuale, lingua del menu, tipo di spina e blocco delle dichiarazioni ammesso dal tuo mercato."
+      },
+      "fixed": {
+        "title": "Non configurabile senza nuova certificazione",
+        "0": "Il tipo di lampada, il percorso ottico e l'elettronica di sicurezza coperti dai rapporti di prova.",
+        "1": "Le dimensioni del telaio su cui sono stati costruiti il test di caduta e l'attrezzatura.",
+        "2": "Qualsiasi modifica al progetto elettrico che sposti il dispositivo in una norma o in una classe diversa."
+      }
+    },
+    "flow": {
+      "title": "Come si svolge un ordine e cosa si firma",
+      "0": "Campione: un'unità, così puoi tenere in mano il dispositivo e fotografarci sopra la tua confezione.",
+      "1": "Preventivo: piattaforma, MOQ, fascia di prezzo unitario, costo dell'attrezzatura e tempo di consegna calcolato dal deposito.",
+      "2": "Fattura proforma: i termini commerciali per iscritto, con l'Incoterm e il luogo indicato.",
+      "3": "Grafica: fustella, file del logo, valori colore, testo del manuale e blocco delle dichiarazioni, approvati da una persona nominata.",
+      "4": "Produzione: le fasi di ispezione e il piano di campionamento, secondo l'accordo sulla qualità.",
+      "5": "Spedizione: packing list con le dimensioni misurate dei cartoni, la serie di documenti di esportazione e il certificato richiesto dal mercato di destinazione."
+    }
   }
 }

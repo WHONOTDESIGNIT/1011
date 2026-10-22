@@ -10292,5 +10292,40 @@
     "received": "Feedback recebido — vamos continuar melhorando.",
     "already": "Você já avaliou este artigo.",
     "fail": "Falha ao enviar. Tente novamente mais tarde."
+  },
+  "productsDeep": {
+    "choose": {
+      "title": "Como escolher entre as plataformas",
+      "0": "Combine o resfriamento com o mercado. O resfriamento por contato de Sapphire é o que torna tolerável uma densidade de energia mais alta; um aparelho sem ele precisa operar mais baixo, independentemente do que diga a ficha técnica.",
+      "1": "Compare fluence apenas quando o método for o mesmo. Dois valores medidos em áreas diferentes ou em pontos diferentes do caminho óptico não são a mesma grandeza.",
+      "2": "Verifique o plugue e a tensão para o destino, não para a amostra que você recebeu. UK, EU, US, Japan, Korea, Australia e o Gulf não compartilham um plugue nem uma frequência.",
+      "3": "Leia as especificações da lâmpada e da célula em relação à certificação que o mercado exige. Uma plataforma certificada para um mercado não é automaticamente certificável para outro.",
+      "4": "Pergunte quanto pesa a unidade e como ela é segurada. Um handset mais pesado vende em uma clínica e volta em um canal de uso doméstico.",
+      "5": "Confirme o MOQ e a faixa de preço da plataforma antes de projetar a embalagem. A caixa é especificada depois do tamanho do pedido, não antes."
+    },
+    "config": {
+      "title": "O que é configurável e o que não é",
+      "free": {
+        "title": "Configurável em um pedido de marca própria",
+        "0": "Logotipo, cor, acabamento de superfície e a impressão na caixa, no manual e no próprio aparelho.",
+        "1": "Estrutura da embalagem: caixa de presente, embalagem de reenvio e a caixa master que a transporta.",
+        "2": "Idioma do manual, idioma do menu, tipo de plugue e o bloco de alegações que o seu mercado permite."
+      },
+      "fixed": {
+        "title": "Não configurável sem nova certificação",
+        "0": "O tipo de lâmpada, o caminho óptico e a eletrônica de segurança cobertos pelos relatórios de ensaio.",
+        "1": "As dimensões do chassi em torno das quais o teste de queda e o ferramental foram construídos.",
+        "2": "Qualquer alteração no projeto elétrico que leve o aparelho a outra norma ou classificação."
+      }
+    },
+    "flow": {
+      "title": "Como um pedido funciona e o que é assinado",
+      "0": "Amostra: uma unidade, para que você possa segurar o aparelho e fotografar a sua própria embalagem nele.",
+      "1": "Cotação: plataforma, MOQ, faixa de preço unitário, custo de ferramental e prazo contado a partir do depósito.",
+      "2": "Fatura proforma: os termos comerciais por escrito, com o Incoterm e o local nomeado.",
+      "3": "Arte-final: faca de corte, arquivos de logotipo, valores de cor, texto do manual e bloco de alegações, aprovados por uma pessoa nomeada.",
+      "4": "Produção: as etapas de inspeção e o plano de amostragem, conforme o acordo de qualidade.",
+      "5": "Embarque: lista de embalagem com as dimensões medidas da caixa, o conjunto de documentos de exportação e o certificado que o mercado de destino exige."
+    }
   }
 }
