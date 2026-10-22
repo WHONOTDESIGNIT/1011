@@ -27,6 +27,7 @@
 // index.backup.html、.netlify/（SSR 函数）、资源目录（_astro/fonts/images/videos）。
 // 已校验：Astro 生成 HTML 的 href/src 全部为绝对路径（/xxx），移动文件不影响页面内链接。
 import fs from 'node:fs';
+import { findMissingRedirects } from './lib/redirects-check.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -282,7 +283,7 @@ if (rules.length > 0) {
     fs.writeFileSync(redirectsFile, body);
     // 断言：本脚本删掉的每个垫片页，_redirects 里必须有对应的 301 行。
     // 缺一条，那个 URL 就从「200 + meta refresh」变成 404 —— 静默少一个入口。
-    const missing = deletedShimPaths.filter((from) => !body.includes(`${from} `));
+    const missing = findMissingRedirects(body, deletedShimPaths);
     if (missing.length) {
       console.error(`❌ ${missing.length} 个垫片页被删除但 _redirects 里没有对应规则：`);
       for (const m of missing.slice(0, 10)) console.error(`   ${m}`);

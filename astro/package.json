@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-frontmatter.mjs && node scripts/check-meganav-drift.mjs && node scripts/generate-site-urls.mjs && node scripts/check-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/check-llms-coverage.mjs && node scripts/check-llms-specs.mjs && node scripts/check-jsonld.mjs && node scripts/generate-sitemap.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
+    "build": "node scripts/check-frontmatter.mjs && node scripts/check-meganav-drift.mjs && node scripts/generate-site-urls.mjs && node scripts/check-site-urls.mjs && astro build && node scripts/flatten-html.mjs && node scripts/check-robots.mjs && node scripts/check-llms.mjs && node scripts/check-llms-coverage.mjs && node scripts/check-llms-specs.mjs && node scripts/check-jsonld.mjs && node scripts/generate-sitemap.mjs && node scripts/check-meta-length.mjs && node scripts/verify-baseline.mjs && node scripts/submit-indexnow.mjs",
     "check:site-urls": "node scripts/check-site-urls.mjs",
     "check:jsonld": "node scripts/check-jsonld.mjs",
     "check:all": "npm run check:site-urls && npm run check:jsonld && npm run check:llms-specs && npm run check:meganav",
@@ -20,7 +20,9 @@
     "smoke:functions": "node scripts/smoke/smoke-delete-image.mjs",
     "check:netlify-ignore": "node scripts/check-netlify-ignore.mjs",
     "check:claims-parity": "node scripts/check-claims-parity.mjs",
-    "baseline:measure": "node scripts/measure-baseline.mjs"
+    "baseline:measure": "node scripts/measure-baseline.mjs",
+    "selftest:redirects": "node scripts/selftest-redirects-check.mjs",
+    "check:meta-length": "node scripts/check-meta-length.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
