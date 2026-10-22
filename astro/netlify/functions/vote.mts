@@ -111,7 +111,7 @@ export default async (req: Request) => {
     // 新盐优先；迁移期内旧盐算出的标记也认（env 未配时集合为空，不产生额外查询）
     const keys = [`${ipHash(ip)}:${slug}`, ...legacySalts().map((salt) => `${hashWith(salt, ip)}:${slug}`)];
     const seenAtOf = async (k: string): Promise<number> => {
-      const raw = await store.get(k);
+      const raw = await store.get(k, { type: 'text' });
       if (!raw) return 0;
       const t = Number(JSON.parse(raw).t);
       return Number.isFinite(t) ? t : 0;
@@ -120,11 +120,11 @@ export default async (req: Request) => {
     let lastSeen = 0;
     for (const k of keys) lastSeen = Math.max(lastSeen, await seenAtOf(k));
     if (lastSeen && Date.now() - lastSeen < DEDUPE_WINDOW_MS) {
-      const current = readCounts(await store.get(slug));
+      const current = readCounts(await store.get(slug, { type: 'text' }));
       return json({ ...current, alreadyVoted: true });
     }
 
-    const current = readCounts(await store.get(slug));
+    const current = readCounts(await store.get(slug, { type: 'text' }));
     if (type === 'like') {
       current.likes++;
     } else {
