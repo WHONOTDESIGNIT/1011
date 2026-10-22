@@ -1,4 +1,11 @@
 {
-  "note": "Known translation drift: a standard number present in a locale but absent from the English source. Shrink this list as the posts are retranslated; never add to it to silence the check.",
-  "entries": []
+  "note": "Known translation drift: a standard number present in a locale but absent from the English source. Shrink this list as the posts are retranslated; never add to it to silence the check. Every entry needs a reason.",
+  "entries": [
+    {
+      "locale": "ar",
+      "file": "iec-62133-2-cell-safety.mdx",
+      "token": "62133-1",
+      "reason": "Correct cross-reference, not drift: the Arabic citableSummary adds 'while Part 1 (IEC 62133-1) covers nickel systems', contrasting lithium (62133-2) with nickel. The number is right and the contrast is useful; English simply does not spell it out. Remove this entry if the English summary ever gains the same clause."
+    }
+  ]
 }
