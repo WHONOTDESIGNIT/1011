@@ -1,0 +1,77 @@
+---
+title: "Como verificar a alegação de J/cm² de um fornecedor de IPL"
+description: "Fluence é o número que toda especificação de IPL exibe primeiro, e é o único número que uma folha de dados pode declarar sem um método. Aqui está o que joules por centímetro quadrado realmente mede, as três definições que mudam a resposta e as seis perguntas que dizem se o número de um fornecedor é uma medição ou uma linha de marketing."
+citableSummary: "Fluence em joules por centímetro quadrado é a energia entregue dividida pela área sobre a qual é entregue, então o número depende inteiramente de como ambos são definidos, e a área da janela, o spot, se o número é um pico ou uma média ao longo do pulso e o instrumento de medição todos mudam o valor relatado. Um fornecedor deve conseguir nomear o método de medição, a definição de área, o número de unidades amostradas e a calibração do instrumento usado. Um número de fluence sem um método declarado não é comparável com o de outro fornecedor, e mais alto não é automaticamente melhor, porque conforto, resfriamento e segurança da pele limitam quanta energia um dispositivo pode entregar por pulso."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "verify-ipl-fluence-claim"
+translationKey: "verify-ipl-fluence-claim"
+readTime: "8 min"
+---
+
+**Resposta curta:** fluence é energia dividida por área. Essa definição é simples, e é exatamente por isso que uma folha de dados consegue imprimir um número grande sem dizer nada: a janela, o spot, o formato do pulso e o instrumento mudam a resposta. Seis perguntas separam uma medição de uma linha de marketing.
+
+## A aritmética, e a ambiguidade dentro dela
+
+Joules por centímetro quadrado é a energia total entregue sobre a área total tratada.
+
+Dois termos variáveis, e cada um tem mais de uma definição defensável:
+
+| Termo | A ambiguidade | Efeito sobre o número impresso |
+|---|---|---|
+| Área | Área da janela, spot iluminado ou a área nominal de tratamento | Um denominador maior diminui o número, então os fornecedores preferem o menor defensável |
+| Energia | Energia na lâmpada, na janela ou entregue à pele | Cada interface perde um pouco, então o ponto mais inicial é o que mais favorece |
+| Tempo | Potência de pico durante o pulso ou média ao longo dele | O pico é maior, a média é o que a pele recebe |
+
+Nenhuma dessas escolhas é desonesta por si só. Uma especificação só se torna desonesta quando o leitor não é informado de qual delas foi usada.
+
+## O que uma medição real envolve
+
+Um medidor de energia, uma abertura definida e um suporte que mantém a peça de mão a uma distância fixa. O instrumento é calibrado, o pulso é disparado várias vezes, e os valores viram uma média com a dispersão relatada.
+
+Isso não é equipamento exótico. É a diferença entre um número que alguém mediu e um número que alguém calculou a partir de uma meta de projeto.
+
+Três coisas a observar quando um fornecedor descreve o processo:
+
+- **O instrumento e a data da sua calibração.** Uma medição com um medidor não calibrado é uma opinião.
+- **Quantas unidades foram amostradas.** Uma peça de mão saída de uma linha piloto é uma amostra de uma.
+- **Se a dispersão é relatada.** "4 to 6 J/cm² em dez unidades" é mais crível do que um único número limpo.
+
+## Por que mais alto não é automaticamente melhor
+
+Uma fluence mais alta significa mais energia por pulso, o que normalmente significa mais desconforto, mais calor na superfície da pele e uma necessidade maior de resfriamento. É por isso que dispositivos com resfriamento de contato sapphire podem ser confortáveis em uma fluence que seria desagradável em um dispositivo sem resfriamento algum.
+
+Então o número é apenas metade de uma especificação. A outra metade é a combinação: fluence, duração do pulso, resfriamento e a área do spot, que define quanta área um pulso cobre.
+
+Um dispositivo de 6 J/cm² com resfriamento ruim e uma janela pequena é pior de usar do que um dispositivo de 5 J/cm² com resfriamento de contato e uma janela maior, ainda que o primeiro número seja maior.
+
+## Seis perguntas para o fornecedor
+
+1. **Qual é o método?** Medidor de energia e abertura, ou um número calculado a partir do projeto?
+2. **Qual área é o denominador?** Janela, spot iluminado ou área nominal de tratamento?
+3. **Pico ou média ao longo do pulso?** E qual duração de pulso é assumida?
+4. **Quantas unidades foram medidas, e qual foi a dispersão?**
+5. **Qual é a data de calibração do instrumento?**
+6. **O número está publicado no relatório de teste**, ou apenas no material de marketing?
+
+Um fornecedor com um relatório de teste responde a todas as seis a partir do documento. Um fornecedor com uma folha de dados responde à segunda metade da pergunta seis e a nada mais.
+
+## Onde o número está no nosso próprio arquivo
+
+Nossos números publicados vêm dos relatórios de teste, e os relatórios informam o método. Essa é uma barra mais baixa do que parece: significa que o número é reproduzível por um terceiro com o mesmo instrumento, que é a única definição útil de um número verificado.
+
+Também publicamos o trade-off em vez de publicar apenas o pico, porque um comprador que compara plataformas vai acabar testando as duas e notando. [O que o número de energia realmente significa](/blog/the-truth-about-ipl-energy) percorre esse trade-off em detalhe.
+
+## O erro que os compradores cometem
+
+Comparar duas folhas de dados como se os números fossem a mesma grandeza. O fornecedor A imprime 6 J/cm² medidos na lâmpada, com a menor janela. O fornecedor B imprime 5 J/cm² medidos na janela, com uma área maior. O segundo dispositivo pode entregar mais energia por pulso a mais pele, e a comparação das folhas de dados diz o contrário.
+
+A correção não é desconfiar das alegações de fluence. É pedir o método antes que o número signifique algo, e comparar dispositivos apenas quando os dois números foram produzidos da mesma forma.
+
+## O que fazemos, e o que não fazemos
+
+Relatamos a fluence a partir do relatório de teste, com o método que o relatório usou, e dizemos a qual área o número se refere. Não citamos um número de pico como se fosse uma média, não publicamos um número que não conseguimos reproduzir com um instrumento calibrado, e não reivindicamos vantagem a partir de um número maior sem declarar o resfriamento e a janela que o tornam utilizável.
+
+Para o componente que mais afeta o conforto, [a página do sistema de resfriamento](/components/cooling-system) é o lado técnico, e [o artigo sobre resfriamento sapphire](/blog/13-sapphire-cooling-technology-benefits-and-applications) explica por que o resfriamento de contato muda qual fluence é tolerável. [A linha de modelos](/products) lista as plataformas e suas especificações publicadas lado a lado.

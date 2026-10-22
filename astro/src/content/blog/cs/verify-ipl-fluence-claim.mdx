@@ -1,0 +1,77 @@
+---
+title: "Jak ověřit tvrzení dodavatele IPL o hodnotě J/cm²"
+description: "Fluence je číslo, kterým začíná každá specifikace IPL, a zároveň jediné číslo, které datasheet může uvést bez metody. Tady je, co jouly na čtvereční centimetr skutečně měří, tři definice, které mění odpověď, a šest otázek, podle kterých poznáte, zda je číslo dodavatele měření, nebo marketingová fráze."
+citableSummary: "Fluence v joulech na čtvereční centimetr je dodaná energie dělená plochou, na kterou byla dodána, takže hodnota zcela závisí na tom, jak jsou definovány oba členy. Plocha okna, velikost stopy, to, zda je číslo špičkou, nebo průměrem přes pulz, i měřicí přístroj mění uváděnou hodnotu. Dodavatel by měl umět pojmenovat metodu měření, definici plochy, počet vzorkovaných kusů a kalibraci použitého přístroje. Hodnota fluence bez uvedené metody není srovnatelná s hodnotou jiného dodavatele a vyšší není automaticky lepší, protože pohodlí, chlazení a bezpečnost kůže omezují, kolik energie může přístroj na pulz dodat."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "verify-ipl-fluence-claim"
+translationKey: "verify-ipl-fluence-claim"
+readTime: "8 min"
+---
+
+**Krátká odpověď:** fluence je energie dělená plochou. Ta definice je jednoduchá, a právě proto může datasheet vytisknout velké číslo, aniž by vám řekl cokoli: okno, stopa, tvar pulzu i měřicí přístroj mění odpověď. Šest otázek oddělí měření od marketingové fráze.
+
+## Aritmetika a nejednoznačnost v ní
+
+Jouly na čtvereční centimetr jsou celková dodaná energie dělená celkovou ošetřenou plochou.
+
+Dva proměnné členy a každý z nich má víc než jednu obhajitelnou definici:
+
+| Člen | Nejednoznačnost | Vliv na vytištěné číslo |
+|---|---|---|
+| Plocha | Plocha okna, osvětlená stopa, nebo nominální ošetřovaná plocha | Větší jmenovatel číslo snižuje, takže dodavatelé dávají přednost nejmenší obhajitelné ploše |
+| Energie | Energie na lampě, na okně, nebo dodaná do kůže | Každé rozhraní něco ztratí, takže nejčasnější bod lichotí nejvíc |
+| Čas | Špičkový výkon během pulzu, nebo průměr přes něj | Špička je vyšší, průměr je to, co kůže dostane |
+
+Žádná z těch voleb není sama o sobě nepoctivá. Specifikace se stane nepoctivou teprve tehdy, když se čtenář nedozví, která z nich byla použita.
+
+## Co skutečné měření obnáší
+
+Měřič energie, definovaná clona a přípravek, který drží ruční přístroj v pevné vzdálenosti. Přístroj je kalibrovaný, pulz se spustí několikrát a hodnoty se zprůměrují s uvedeným rozptylem.
+
+To není žádné exotické vybavení. Je to rozdíl mezi číslem, které někdo změřil, a číslem, které někdo spočítal z konstrukčního cíle.
+
+Tři věci, kterých si všímat, když dodavatel měření popisuje:
+
+- **Přístroj a datum jeho kalibrace.** Měření nekalibrovaným měřičem je názor.
+- **Kolik kusů bylo vzorkováno.** Jeden ruční přístroj z pilotní linky je vzorek o jednom kuse.
+- **Zda je uveden rozptyl.** „4 až 6 J/cm² u deseti kusů“ je důvěryhodnější než jediné čisté číslo.
+
+## Proč vyšší není automaticky lepší
+
+Vyšší fluence znamená víc energie na pulz, což obvykle znamená víc nepohodlí, víc tepla na povrchu kůže a větší potřebu chlazení. Proto mohou být přístroje s kontaktním chlazením sapphire pohodlné při fluence, která by byla nepříjemná u přístroje úplně bez chlazení.
+
+Číslo je tedy jen polovinou specifikace. Tou druhou polovinou je kombinace: fluence, délka pulzu, chlazení a velikost stopy, která určuje, jak velkou plochu jeden pulz pokryje.
+
+Přístroj s 6 J/cm², špatným chlazením a malým oknem se používá hůř než přístroj s 5 J/cm² s kontaktním chlazením a větším oknem, i když je první číslo vyšší.
+
+## Šest otázek pro dodavatele
+
+1. **Jaká je metoda?** Měřič energie a clona, nebo číslo spočítané z konstrukce?
+2. **Která plocha je jmenovatelem?** Okno, osvětlená stopa, nebo nominální ošetřovaná plocha?
+3. **Špička, nebo průměr přes pulz?** A jaká délka pulzu se předpokládá?
+4. **Kolik kusů bylo změřeno a jaký byl rozptyl?**
+5. **Jaké je datum kalibrace přístroje?**
+6. **Je číslo uvedeno ve zkušebním protokolu**, nebo jen v marketingovém listu?
+
+Dodavatel se zkušebním protokolem odpoví na všech šest z dokumentu. Dodavatel s datasheetem odpoví na druhou polovinu šesté otázky a nic víc.
+
+## Kde to číslo stojí v naší vlastní dokumentaci
+
+Naše zveřejněné hodnoty pocházejí ze zkušebních protokolů a ty protokoly uvádějí metodu. Je to nižší laťka, než to zní: znamená to, že číslo dokáže reprodukovat třetí strana se stejným přístrojem, což je jediná užitečná definice ověřeného čísla.
+
+Zveřejňujeme také kompromis, ne jen špičku, protože zákazník, který platformy porovnává, nakonec vyzkouší obě a všimne si. [Co energetické číslo skutečně znamená](/blog/the-truth-about-ipl-energy) prochází ten kompromis podrobně.
+
+## Chyba, kterou kupující dělají
+
+Srovnávat dva datasheety, jako by ta čísla byla stejná veličina. Dodavatel A uvádí 6 J/cm² naměřených na lampě s nejmenším oknem. Dodavatel B uvádí 5 J/cm² naměřených na okně s větší plochou. Druhý přístroj může dodávat víc energie na pulz do větší plochy kůže, a srovnání datasheetů říká opak.
+
+Řešením není nedůvěřovat tvrzením o fluence. Je to vyžádat si metodu, bez které číslo nic neznamená, a srovnávat přístroje jen tehdy, když obě čísla vznikla stejným způsobem.
+
+## Co děláme a co ne
+
+Fluenci uvádíme ze zkušebního protokolu, s metodou, kterou protokol použil, a říkáme, na kterou plochu se číslo vztahuje. Necitujeme špičkovou hodnotu, jako by byla průměrem, nezveřejňujeme číslo, které nedokážeme reprodukovat kalibrovaným přístrojem, a netvrdíme výhodu z většího čísla, aniž bychom uvedli chlazení a okno, které ho dělají použitelným.
+
+Pro komponentu, která nejvíc ovlivňuje pohodlí, je [stránka o chladicím systému](/components/cooling-system) technickou stránkou a [článek o chlazení sapphire](/blog/13-sapphire-cooling-technology-benefits-and-applications) vysvětluje, proč kontaktní chlazení mění to, jaká fluence je snesitelná. [Přehled modelů](/products) uvádí platformy a jejich zveřejněné specifikace vedle sebe.

@@ -1,0 +1,77 @@
+---
+title: "Hoe u de J/cm²-claim van een IPL-leverancier verifieert"
+description: "Fluence is het getal waarmee elke IPL-specificatie begint, en het is het ene getal dat een datasheet kan vermelden zonder methode. Dit is wat joule per vierkante centimeter werkelijk meet, de drie definities die het antwoord veranderen, en de zes vragen die u vertellen of het cijfer van een leverancier een meting is of een marketingregel."
+citableSummary: "Fluence in joule per vierkante centimeter is de geleverde energie gedeeld door het oppervlak waarover die wordt geleverd, dus het getal hangt volledig af van hoe beide worden gedefinieerd. Het vensterareaal, de spotgrootte, of het getal een piek of een gemiddelde over de puls is, en het meetinstrument veranderen allemaal de gerapporteerde waarde. Een leverancier moet de meetmethode kunnen benoemen, de oppervlaktedefinitie, het aantal bemeten eenheden en de kalibratie van het gebruikte instrument. Een fluencegetal zonder vermelde methode is niet vergelijkbaar met dat van een andere leverancier, en hoger is niet automatisch beter, omdat comfort, koeling en huidveiligheid beperken hoeveel energie een apparaat per puls kan leveren."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "verify-ipl-fluence-claim"
+translationKey: "verify-ipl-fluence-claim"
+readTime: "8 min"
+---
+
+**Kort antwoord:** fluence is energie gedeeld door oppervlak. Die definitie is eenvoudig, en dat is precies waarom een datasheet een groot getal kan drukken zonder u iets te vertellen: het venster, de spot, de pulsvorm en het instrument veranderen allemaal het antwoord. Zes vragen scheiden een meting van een marketingregel.
+
+## De rekensom, en de dubbelzinnigheid erin
+
+Joule per vierkante centimeter is de totale geleverde energie gedeeld door het totale behandelde oppervlak.
+
+Twee variabele termen, en elk heeft meer dan één verdedigbare definitie:
+
+| Term | De dubbelzinnigheid | Effect op het gedrukte getal |
+|---|---|---|
+| Oppervlak | Vensterareaal, belichte spot, of het nominale behandeloppervlak | Een grotere noemer verlaagt het getal, dus leveranciers kiezen de kleinste verdedigbare |
+| Energie | Energie bij de lamp, bij het venster, of op de huid geleverd | Elke overgang verliest iets, dus het vroegste punt vleit het meest |
+| Tijd | Piekvermogen tijdens de puls, of het gemiddelde erover | Piek is hoger, gemiddelde is wat de huid ontvangt |
+
+Geen van die keuzes is op zichzelf oneerlijk. Een specificatie wordt pas oneerlijk wanneer de lezer niet wordt verteld welke is gebruikt.
+
+## Wat een echte meting inhoudt
+
+Een energiemeter, een gedefinieerd diafragma, en een opstelling die het handstuk op een vaste afstand houdt. Het instrument is gekalibreerd, de puls wordt meerdere keren afgevuurd, en de waarden worden gemiddeld met de spreiding gerapporteerd.
+
+Dat is geen exotische apparatuur. Het is het verschil tussen een getal dat iemand heeft gemeten en een getal dat iemand uit een ontwerpdoel heeft berekend.
+
+Drie dingen om op te letten wanneer een leverancier het beschrijft:
+
+- **Het instrument en de kalibratiedatum.** Een meting met een ongekalibreerde meter is een mening.
+- **Hoeveel eenheden zijn bemeten.** Eén handstuk van een proeflijn is een steekproef van één.
+- **Of de spreiding wordt gerapporteerd.** "4 tot 6 J/cm² over tien eenheden" is geloofwaardiger dan één enkel schoon getal.
+
+## Waarom hoger niet automatisch beter is
+
+Een hogere fluence betekent meer energie per puls, wat meestal meer ongemak, meer warmte aan het huidoppervlak en een grotere koelbehoefte betekent. Daarom kunnen apparaten met contactkoeling met sapphire comfortabel zijn bij een fluence die onaangenaam zou zijn op een apparaat zonder enige koeling.
+
+Dus het getal is maar de helft van een specificatie. De andere helft is de combinatie: fluence, pulsduur, koeling en de spotgrootte die bepaalt hoeveel oppervlak één puls bedekt.
+
+Een apparaat van 6 J/cm² met slechte koeling en een klein venster is slechter in gebruik dan een apparaat van 5 J/cm² met contactkoeling en een groter venster, ook al is het eerste getal groter.
+
+## Zes vragen aan de leverancier
+
+1. **Wat is de methode?** Energiemeter en diafragma, of een berekend getal uit het ontwerp?
+2. **Welk oppervlak is de noemer?** Venster, belichte spot, of nominaal behandeloppervlak?
+3. **Piek of gemiddelde over de puls?** En welke pulsduur wordt aangenomen?
+4. **Hoeveel eenheden zijn gemeten, en wat was de spreiding?**
+5. **Wat is de kalibratiedatum van het instrument?**
+6. **Staat het getal in het testrapport**, of alleen in het marketingblad?
+
+Een leverancier met een testrapport beantwoordt alle zes uit het document. Een leverancier met een datasheet beantwoordt de tweede helft van vraag zes en niets anders.
+
+## Waar het getal staat in ons eigen dossier
+
+Onze gepubliceerde getallen komen uit de testrapporten, en de rapporten vermelden de methode. Dat is een lagere lat om te claimen dan het klinkt: het betekent dat het getal reproduceerbaar is door een derde partij met hetzelfde instrument, en dat is de enige bruikbare definitie van een geverifieerd getal.
+
+Wij publiceren ook de afweging in plaats van alleen de piek, omdat een koper die platforms vergelijkt uiteindelijk beide zal draaien en het merkt. [Wat het energiegetal werkelijk betekent](/blog/the-truth-about-ipl-energy) gaat diep op die afweging in.
+
+## De fout die kopers maken
+
+Twee datasheets vergelijken alsof de getallen dezelfde grootheid waren. Leverancier A drukt 6 J/cm² gemeten bij de lamp met het kleinste venster. Leverancier B drukt 5 J/cm² gemeten bij het venster met een groter oppervlak. Het tweede apparaat levert mogelijk meer energie per puls aan meer huid, en de datasheetvergelijking zegt het omgekeerde.
+
+De oplossing is niet om fluenceclaims te wantrouwen. Het is om naar de methode te vragen voordat het getal iets betekent, en om apparaten pas te vergelijken wanneer beide getallen op dezelfde manier tot stand zijn gekomen.
+
+## Wat wij doen, en wat wij niet doen
+
+Wij rapporteren fluence uit het testrapport, met de methode die het rapport gebruikte, en we zeggen op welk oppervlak het getal betrekking heeft. Wij citeren geen piekgetal alsof het een gemiddelde was, wij publiceren geen getal dat we niet met een gekalibreerd instrument kunnen reproduceren, en wij claimen geen voordeel uit een groter getal zonder de koeling en het venster te vermelden die het bruikbaar maken.
+
+Voor het onderdeel dat comfort het meest beïnvloedt, is [de pagina over het koelsysteem](/components/cooling-system) de technische kant, en [het artikel over sapphire-koeling](/blog/13-sapphire-cooling-technology-benefits-and-applications) legt uit waarom contactkoeling verandert welke fluence verdraagbaar is. [Het modellengamma](/products) zet de platforms en hun gepubliceerde specificaties naast elkaar.
