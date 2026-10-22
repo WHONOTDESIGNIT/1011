@@ -32,9 +32,29 @@ function clientIp(req: Request): string {
   return 'unknown';
 }
 
+// 24 小时去重窗口内，旧盐算出的标记仍要认：换盐时不能让已经投过的人立刻能再投一次。
+const LEGACY_SALT = 'ishine-vote-dedupe-v1';
+
+function currentSalt(): string {
+  return process.env.VOTE_HASH_SECRET || process.env.FUNCTION_SECRET || LEGACY_SALT;
+}
+
+function hashWith(salt: string, ip: string): string {
+  return createHmac('sha256', salt).update(ip).digest('hex').slice(0, 32);
+}
+
+/** 写入用的哈希：优先 VOTE_HASH_SECRET。 */
 function ipHash(ip: string): string {
-  const secret = process.env.VOTE_HASH_SECRET || process.env.FUNCTION_SECRET || 'ishine-vote-dedupe-v1';
-  return createHmac('sha256', secret).update(ip).digest('hex').slice(0, 32);
+  return hashWith(currentSalt(), ip);
+}
+
+/**
+ * 迁移期的第二个哈希：换盐后，历史上用 FUNCTION_SECRET 或固定盐写的去重标记还在窗口内，
+ * 只认新盐会让这些人 24 小时内再投一次。旧盐与新盐相同时返回 null（正常单盐）。
+ */
+function legacyHash(ip: string): string | null {
+  const legacy = process.env.FUNCTION_SECRET || LEGACY_SALT;
+  return legacy === currentSalt() ? null : hashWith(legacy, ip);
 }
 
 function readCounts(raw: string | null): { likes: number; dislikes: number } {
@@ -76,11 +96,21 @@ export default async (req: Request) => {
     // 刚写入的「已投票」标记在下一次请求里可能读不到（实测：连续两次 POST 都读到空标记，
     // 于是都走了自增分支）。强一致可保证写后立刻读到。
     const store = getStore({ name: STORE_NAME, consistency: 'strong' });
-    const key = `${ipHash(clientIp(req))}:${slug}`;
+    const ip = clientIp(req);
+    const key = `${ipHash(ip)}:${slug}`;
 
-    const seenRaw = await store.get(key);
-    const seenAt = seenRaw ? Number(JSON.parse(seenRaw).t) : 0;
-    if (seenAt && Date.now() - seenAt < DEDUPE_WINDOW_MS) {
+    // 新盐优先，其次认迁移期的旧盐标记（两盐相同时 legacyKey 为 null）
+    const legacy = legacyHash(ip);
+    const legacyKey = legacy ? `${legacy}:${slug}` : null;
+    const seenAtOf = async (k: string): Promise<number> => {
+      const raw = await store.get(k);
+      if (!raw) return 0;
+      const t = Number(JSON.parse(raw).t);
+      return Number.isFinite(t) ? t : 0;
+    };
+
+    const lastSeen = Math.max(await seenAtOf(key), legacyKey ? await seenAtOf(legacyKey) : 0);
+    if (lastSeen && Date.now() - lastSeen < DEDUPE_WINDOW_MS) {
       const current = readCounts(await store.get(slug));
       return json({ ...current, alreadyVoted: true });
     }
