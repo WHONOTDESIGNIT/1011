@@ -11,6 +11,7 @@ import BlogRecommendations from '../components/BlogRecommendations.astro';
 import QaAccordion from '../components/QaAccordion.astro';
 import fontsCss from '../styles/fonts.css?raw';
 import Analytics from '../components/Analytics.astro';
+import HeroVideo from '../components/HeroVideo.astro';
 
 // 页面不经过 BaseLayout，内联实现自取当前语言：
 // en 无前缀；/tr/、/ar/ 由 i18n rewrite fallback 渲染本页 → currentLocale = tr/ar
@@ -691,6 +692,8 @@ a{text-decoration:none;color:inherit}
 
 </style>
   <Analytics />
+  {/* 首屏视频改为 poster 优先后，这张 17KB 的图就是 LCP 绘制点，提前按高优先级取 */}
+  <link rel="preload" as="image" href="/images/home/head-video-poster.webp" fetchpriority="high" />
 </head>
 <body>
 <div class="overflow-x-hidden">
@@ -1040,13 +1043,7 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
   <div class="hero-wrapper">
-    <div class="video-section">
-      <div class="video-placeholder">
-        <video autoplay muted loop playsinline width="1280" height="720" poster="/images/home/head-video-poster.webp">
-          <source src="/videos/head-video.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
+    <HeroVideo />
   </div>
 </section>
 
