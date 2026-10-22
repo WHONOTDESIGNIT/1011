@@ -18,19 +18,40 @@ const BLOG = path.resolve(__dirname, '../src/content/blog');
 const ALLOWLIST = path.join(__dirname, 'claims-parity.json');
 const WRITE_ALLOWLIST = process.argv.includes('--write-allowlist');
 
-// 标准号只按【编号】比较，不按前缀比较：英文写 "14-2"、译文写 "a CISPR 14-2" 是同一件事，
-// 按前缀比会把这类正常重复报成漂移（pt-PT 的 CISPR 14-2 就是这么来的）。
-// 编号兜底同时解决阿拉伯语把 ISO 写成「أيزو」的问题——数字不翻译。
-// 这几个编号是我们对外声明里真正要紧的标准。
-const TRACKED_NUMBERS = /\b(?:13485|60335|62471|55014|60601|62133|14971|10993)\b(?:[-.]\d+)*/g;
+// 标准号按【编号】比较，同时比较它的【族】：英文写 "14-2"、译文写 "a CISPR 14-2" 是同一件事，
+// 所以前缀"有/没有"不算差异；但把 ISO 10993 写成 IEC 10993、把 CISPR 14 写成 IEC 14
+// 是不同的标准，必须报出来。族只在前缀两边都存在且不同时才判错。
+const TRACKED_NUMBERS = /(?:\b(ISO|IEC|EN|CISPR|ASTM|ANSI|JIS|KS|GB|UL|BS|أيزو)\s*(?:IEC\s*)?)?\b(13485|60335|62471|55014|60601|62133|14971|10993)\b(?:[-.]\d+)*/g;
+
+// 前缀 → 族：EN 与 أيزو 都是 IEC/ISO 体系的本地写法，归到最近的族
+const FAMILY_OF = {
+  ISO: 'ISO',
+  'أيزو': 'ISO',
+  IEC: 'IEC',
+  EN: 'IEC',
+  CISPR: 'CISPR',
+  ASTM: 'ASTM',
+  ANSI: 'ANSI',
+  JIS: 'JIS',
+  KS: 'KS',
+  GB: 'GB',
+  UL: 'UL',
+  BS: 'BS',
+};
 
 const normalise = (s) => s.toUpperCase().replace(/\s+/g, ' ').replace(/[.,;:)]+$/, '').trim();
 
-function tokensOf(file) {
+/** 返回 Map<编号, Set<族>>；"没写前缀"表示该处不指定族 */
+function standardsOf(file) {
   const text = readFileSync(file, 'utf8');
-  const out = new Set();
-  for (const m of text.match(TRACKED_NUMBERS) ?? []) out.add(normalise(m));
-  return out;
+  const found = new Map();
+  for (const m of text.matchAll(TRACKED_NUMBERS)) {
+    const [, prefix, number] = m;
+    const key = normalise(m[0].slice(prefix ? prefix.length : 0).replace(/^\s*(IEC\s*)?/, ''));
+    if (!found.has(key)) found.set(key, new Set());
+    if (prefix) found.get(key).add(FAMILY_OF[prefix.toUpperCase()] ?? prefix.toUpperCase());
+  }
+  return found;
 }
 
 const locales = readdirSync(BLOG, { withFileTypes: true })
@@ -45,14 +66,24 @@ const findings = []; // { locale, file, token }
 let compared = 0;
 
 for (const file of enFiles) {
-  const enTokens = tokensOf(path.join(enDir, file));
+  const enStandards = standardsOf(path.join(enDir, file));
   for (const locale of locales) {
     const target = path.join(BLOG, locale, file);
     if (!existsSync(target)) continue;
     compared++;
-    const locTokens = tokensOf(target);
-    for (const token of locTokens) {
-      if (!enTokens.has(token)) findings.push({ locale, file, token });
+    const locStandards = standardsOf(target);
+    for (const [number, families] of locStandards) {
+      const enFamilies = enStandards.get(number);
+      if (!enFamilies) {
+        // 整条编号在英文里不存在：沿用原来的判定
+        findings.push({ locale, file, token: number });
+        continue;
+      }
+      // 编号两边都有；只有当两边都写了前缀、且族毫无交集时，才算错标了标准
+      if (enFamilies.size && families.size) {
+        const shared = [...families].some((f) => enFamilies.has(f));
+        if (!shared) findings.push({ locale, file, token: `${[...families].sort().join('/')}:${number}` });
+      }
     }
   }
 }
