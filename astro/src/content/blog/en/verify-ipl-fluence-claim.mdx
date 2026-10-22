@@ -1,0 +1,77 @@
+---
+title: "How to Verify an IPL Supplier's J/cm² Claim"
+description: "Fluence is the number every IPL specification leads with, and it is the one number a datasheet can state without a method. Here is what joules per square centimetre actually measures, the three definitions that change the answer, and the six questions that tell you whether a supplier's figure is a measurement or a marketing line."
+citableSummary: "Fluence in joules per square centimetre is energy delivered divided by the area it is delivered over, so the figure depends entirely on how both are defined. The window area, the spot size, whether the number is a peak or an average across the pulse, and the measurement instrument all change the reported value. A supplier should be able to name the measurement method, the area definition, the number of units sampled, and the calibration of the instrument used. A fluence figure without a stated method is not comparable with another supplier's figure, and higher is not automatically better, because comfort, cooling and skin safety constrain how much energy a device can deliver per pulse."
+pubDate: "2026-10-21"
+author: "iShine Team"
+category: "Components"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "verify-ipl-fluence-claim"
+translationKey: "verify-ipl-fluence-claim"
+readTime: "8 min"
+---
+
+**Short answer:** fluence is energy divided by area. That definition is simple, and it is exactly why a datasheet can print a big number without telling you anything: the window, the spot, the pulse shape and the instrument all change the answer. Six questions separate a measurement from a marketing line.
+
+## The arithmetic, and the ambiguity inside it
+
+Joules per square centimetre is total energy delivered over total area treated.
+
+Two variable terms, and each has more than one defensible definition:
+
+| Term | The ambiguity | Effect on the printed number |
+|---|---|---|
+| Area | Window area, illuminated spot, or the nominal treatment area | A larger denominator lowers the figure, so suppliers prefer the smallest defensible one |
+| Energy | Energy at the lamp, at the window, or delivered to the skin | Each interface loses some, so the earliest point flatters most |
+| Time | Peak power during the pulse, or average across it | Peak is higher, average is what the skin receives |
+
+None of those choices is dishonest on its own. A specification becomes dishonest only when the reader is not told which one was used.
+
+## What a real measurement involves
+
+An energy meter, a defined aperture, and a fixture that holds the handset at a fixed distance. The instrument is calibrated, the pulse is fired several times, and the values are averaged with the spread reported.
+
+That is not exotic equipment. It is the difference between a number somebody measured and a number somebody calculated from a design target.
+
+Three things to listen for when a supplier describes it:
+
+- **The instrument and its calibration date.** A measurement with an uncalibrated meter is an opinion.
+- **How many units were sampled.** One handset off a pilot line is a sample of one.
+- **Whether the spread is reported.** "4 to 6 J/cm² across ten units" is more credible than a single clean figure.
+
+## Why higher is not automatically better
+
+A higher fluence means more energy per pulse, which usually means more discomfort, more heat at the skin surface, and a greater need for cooling. That is why devices with sapphire contact cooling can be comfortable at a fluence that would be unpleasant on a device with no cooling at all.
+
+So the figure is only half of a specification. The other half is the combination: fluence, pulse duration, cooling, and the spot size that sets how much area one pulse covers.
+
+A 6 J/cm² device with poor cooling and a small window is worse to use than a 5 J/cm² device with contact cooling and a larger window, even though the first number is bigger.
+
+## Six questions for the supplier
+
+1. **What is the method?** Energy meter and aperture, or a calculated figure from the design?
+2. **Which area is the denominator?** Window, illuminated spot, or nominal treatment area?
+3. **Peak or average over the pulse?** And what pulse duration is assumed?
+4. **How many units were measured, and what was the spread?**
+5. **What is the instrument's calibration date?**
+6. **Is the figure published in the test report**, or only in the marketing sheet?
+
+A supplier with a test report answers all six from the document. A supplier with a datasheet answers the second half of question six and nothing else.
+
+## Where the number sits in our own file
+
+Our published figures come from the test reports, and the reports state the method. That is a lower bar to claim than it sounds: it means the number is reproducible by a third party with the same instrument, which is the only useful definition of a verified figure.
+
+We also publish the trade-off rather than only the peak, because a buyer comparing platforms will eventually run both and notice. [What the energy figure actually means](/blog/the-truth-about-ipl-energy) goes through that trade-off in detail.
+
+## The mistake buyers make
+
+Comparing two datasheets as if the numbers were the same quantity. Supplier A prints 6 J/cm² measured at the lamp with the smallest window. Supplier B prints 5 J/cm² measured at the window with a larger area. The second device may deliver more energy per pulse to more skin, and the datasheet comparison says the opposite.
+
+The fix is not to distrust fluence claims. It is to ask for the method before the number means anything, and to compare devices only when both figures were produced the same way.
+
+## What we do, and what we do not
+
+We report fluence from the test report, with the method the report used, and we say which area the figure refers to. We do not quote a peak figure as if it were an average, we do not publish a number we cannot reproduce with a calibrated instrument, and we do not claim an advantage from a bigger number without stating the cooling and window that make it usable.
+
+For the component that most affects comfort, [the cooling system page](/components/cooling-system) is the technical side, and [the sapphire cooling article](/blog/13-sapphire-cooling-technology-benefits-and-applications) explains why contact cooling changes what fluence is tolerable. [The model range](/products) lists the platforms and their published specifications side by side.
