@@ -107,6 +107,14 @@
 # 由于不再有 /images/* 重写，CDN 取源图走静态资源，不再回环。
 
 # /en/* 301 跳转到无前缀版本（兼容旧链接）
+#
+# ⚠ 2026-10-22：本条与下面那条 /* → /404.html **当前都不会被触发**。
+#   Netlify 的规则处理顺序是「先 _redirects，后 netlify.toml」，且命中第一条即停止；
+#   astro/scripts/flatten-html.mjs 每次构建都会把等价的两条写进 dist/_redirects
+#   （`/en/* /:splat 301!` 与 `/* /404.html 404`），所以这里只剩兜底作用：
+#   仅当 _redirects 缺失时才生效。要改这两条的行为，改生成器，不要改这里。
+#   已核对：两处字段完全一致（from/to/status/force），两边都不含 query、
+#   conditions、headers、signed，因此不存在隐藏的语义差异。
 [[redirects]]
   from = "/en/*"
   to = "/:splat"
