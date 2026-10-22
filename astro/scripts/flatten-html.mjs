@@ -235,6 +235,19 @@ function buildRedirects(dist) {
   // （2026-09-14 复核），因此按 es-mx 的先例补 301，避免已收录/外链的旧地址掉进 404 兜底。
   rules.push('/es-ES/:splat /es/:splat 301!');
   rules.push('/es-ES /es 301!');
+  // 旧 slug 的精确 301：GSC 里仍在拿曝光、线上却返回 404 的地址（2026-10-22 实测，
+  // 曝光 4–17 次、排名 4.8–14.9）。正文都还在，只是改过 slug，所以 301 到现址。
+  // 只收经 curl 确认 404 且目标存在的映射；不复用任何通配，避免遮蔽后面的目录规则。
+  for (const [from, to] of [
+    ['/blog/ipl-hair-removal-safe-skin-types-fitzpatrick', '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick'],
+    ['/blog/28-two-waxing-sessions-and-my-leg-hair-never-grew-back', '/blog/36-two-waxing-sessions-leg-hair-never-grew-back-real-story'],
+    ['/he/blog/ha-emet-al-energiat-ipl', '/he/blog/the-truth-about-ipl-energy'],
+    ['/es/blog/la-verdad-sobre-la-energia-ipl', '/es/blog/the-truth-about-ipl-energy'],
+    ['/tr/blog/ipl-enerjisinin-gercegi', '/tr/blog/the-truth-about-ipl-energy'],
+    ['/pt-br/blog/a-verdade-sobre-a-energia-ipl', '/pt-br/blog/the-truth-about-ipl-energy'],
+  ]) {
+    rules.push(`${from} ${to} 301!`);
+  }
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
   // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
   // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
