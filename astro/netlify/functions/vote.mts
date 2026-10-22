@@ -6,8 +6,8 @@ import { createHmac } from 'node:crypto';
  *
  * 安全排查 R7：此前任何人可以无限刷 likes/dislikes，计数完全不可信。现在加入
  *   1) 去重：同一「IP + 文章」在窗口期内只计一次（窗口 24 小时）；
- *   2) 隐私：不存原始 IP，只存 HMAC 后的哈希前 32 位（密钥取 VOTE_HASH_SECRET，回退 FUNCTION_SECRET，
- *      都没有时用固定盐 —— 仍然不落原始 IP）；
+ *   2) 隐私：不存原始 IP，只存 HMAC 后的哈希前 32 位（密钥取 VOTE_HASH_SECRET，
+ *      未配置时用固定盐 —— 仍然不落原始 IP；本模块不读 FUNCTION_SECRET）；
  *   3) 限流：代码级 rateLimit（Netlify 所有套餐可用），按 IP + 站点聚合。
  *
  * 计数本体仍存在 site-scoped store `article-votes`（跨部署保留）。
@@ -32,9 +32,39 @@ function clientIp(req: Request): string {
   return 'unknown';
 }
 
+// 24 小时去重窗口内，旧盐算出的标记仍要认：换盐时不能让已经投过的人立刻能再投一次。
+const LEGACY_SALT = 'ishine-vote-dedupe-v1';
+
+// 本模块只认 VOTE_HASH_SECRET。曾经回退到 FUNCTION_SECRET，那是接线混淆：
+// 轮换图片密钥会静默换掉投票的盐，用旧盐写的去重键没人查，24 小时内全员可重投。
+// 生产从未配过 FUNCTION_SECRET，因此不存在用它作密钥写下的旧键，直接删掉即可。
+//
+// 残余边界（设计如此，不靠机制解决）：VOTE_HASH_SECRET 自身轮换也会让旧值失查，
+// 因为环境变量只存当前值。规则是只在两轮投票之间轮换——先确认 24 小时窗口内没有投票。
+function currentSalt(): string {
+  return process.env.VOTE_HASH_SECRET || LEGACY_SALT;
+}
+
+function hashWith(salt: string, ip: string): string {
+  return createHmac('sha256', salt).update(ip).digest('hex').slice(0, 32);
+}
+
+/** 写入用的哈希：优先 VOTE_HASH_SECRET。 */
 function ipHash(ip: string): string {
-  const secret = process.env.VOTE_HASH_SECRET || process.env.FUNCTION_SECRET || 'ishine-vote-dedupe-v1';
-  return createHmac('sha256', secret).update(ip).digest('hex').slice(0, 32);
+  return hashWith(currentSalt(), ip);
+}
+
+/**
+ * 迁移期要一并认的旧盐：只有那个固定盐。
+ *
+ * 现在的盐就是固定盐（VOTE_HASH_SECRET 未配）时返回空数组，单盐单查，不多一次读取；
+ * 一旦配上 VOTE_HASH_SECRET，旧键（固定盐写入的）仍会被查，24 小时窗口不会被撕开。
+ *
+ * 这里曾经把 FUNCTION_SECRET 也算作候选旧盐。它删掉了，理由见上面 currentSalt 的注释：
+ * 生产从未用它当投票盐，留着只会让"轮换图片密钥"影响投票——方向是删代码，不是加机制。
+ */
+function legacySalts(): string[] {
+  return currentSalt() === LEGACY_SALT ? [] : [LEGACY_SALT];
 }
 
 function readCounts(raw: string | null): { likes: number; dislikes: number } {
@@ -76,11 +106,20 @@ export default async (req: Request) => {
     // 刚写入的「已投票」标记在下一次请求里可能读不到（实测：连续两次 POST 都读到空标记，
     // 于是都走了自增分支）。强一致可保证写后立刻读到。
     const store = getStore({ name: STORE_NAME, consistency: 'strong' });
-    const key = `${ipHash(clientIp(req))}:${slug}`;
+    const ip = clientIp(req);
 
-    const seenRaw = await store.get(key);
-    const seenAt = seenRaw ? Number(JSON.parse(seenRaw).t) : 0;
-    if (seenAt && Date.now() - seenAt < DEDUPE_WINDOW_MS) {
+    // 新盐优先；迁移期内旧盐算出的标记也认（env 未配时集合为空，不产生额外查询）
+    const keys = [`${ipHash(ip)}:${slug}`, ...legacySalts().map((salt) => `${hashWith(salt, ip)}:${slug}`)];
+    const seenAtOf = async (k: string): Promise<number> => {
+      const raw = await store.get(k);
+      if (!raw) return 0;
+      const t = Number(JSON.parse(raw).t);
+      return Number.isFinite(t) ? t : 0;
+    };
+
+    let lastSeen = 0;
+    for (const k of keys) lastSeen = Math.max(lastSeen, await seenAtOf(k));
+    if (lastSeen && Date.now() - lastSeen < DEDUPE_WINDOW_MS) {
       const current = readCounts(await store.get(slug));
       return json({ ...current, alreadyVoted: true });
     }
@@ -93,7 +132,8 @@ export default async (req: Request) => {
     }
 
     await store.set(slug, JSON.stringify({ likes: current.likes, dislikes: current.dislikes }));
-    await store.set(key, JSON.stringify({ t: Date.now(), slug, type }));
+    // 只写新盐的键：旧盐的键留给窗口自然过期，不再新增
+    await store.set(keys[0], JSON.stringify({ t: Date.now(), slug, type }));
 
     return json({ ...current, alreadyVoted: false });
   } catch (error) {
