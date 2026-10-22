@@ -49,12 +49,19 @@ function ipHash(ip: string): string {
 }
 
 /**
- * 迁移期的第二个哈希：换盐后，历史上用 FUNCTION_SECRET 或固定盐写的去重标记还在窗口内，
- * 只认新盐会让这些人 24 小时内再投一次。旧盐与新盐相同时返回 null（正常单盐）。
+ * 迁移期要一并认的旧盐：固定盐，以及可能配过（或以后为图片功能配上）的 FUNCTION_SECRET。
+ *
+ * 只取"与当前盐不同"的那些，所以 env 什么都没配时这个集合为空，不会多一次查询。
+ *
+ * 为什么必须是"集合"而不是"FUNCTION_SECRET || 固定盐"：只取一个的话，
+ * 以后单独配 FUNCTION_SECRET（例如为 upload-image 补密钥）会让 currentSalt 变成它，
+ * 而旧键（固定盐算出来的）恰好不被检查 —— 去重静默失效，全员可重投。
+ * 那正是这次迁移要防的事故，不能靠"别忘了同时配 VOTE_HASH_SECRET"来避免。
  */
-function legacyHash(ip: string): string | null {
-  const legacy = process.env.FUNCTION_SECRET || LEGACY_SALT;
-  return legacy === currentSalt() ? null : hashWith(legacy, ip);
+function legacySalts(): string[] {
+  const candidates = [LEGACY_SALT, process.env.FUNCTION_SECRET ?? ''];
+  const current = currentSalt();
+  return [...new Set(candidates.filter((s) => s && s !== current))];
 }
 
 function readCounts(raw: string | null): { likes: number; dislikes: number } {
@@ -97,11 +104,9 @@ export default async (req: Request) => {
     // 于是都走了自增分支）。强一致可保证写后立刻读到。
     const store = getStore({ name: STORE_NAME, consistency: 'strong' });
     const ip = clientIp(req);
-    const key = `${ipHash(ip)}:${slug}`;
 
-    // 新盐优先，其次认迁移期的旧盐标记（两盐相同时 legacyKey 为 null）
-    const legacy = legacyHash(ip);
-    const legacyKey = legacy ? `${legacy}:${slug}` : null;
+    // 新盐优先；迁移期内旧盐算出的标记也认（env 未配时集合为空，不产生额外查询）
+    const keys = [`${ipHash(ip)}:${slug}`, ...legacySalts().map((salt) => `${hashWith(salt, ip)}:${slug}`)];
     const seenAtOf = async (k: string): Promise<number> => {
       const raw = await store.get(k);
       if (!raw) return 0;
@@ -109,7 +114,8 @@ export default async (req: Request) => {
       return Number.isFinite(t) ? t : 0;
     };
 
-    const lastSeen = Math.max(await seenAtOf(key), legacyKey ? await seenAtOf(legacyKey) : 0);
+    let lastSeen = 0;
+    for (const k of keys) lastSeen = Math.max(lastSeen, await seenAtOf(k));
     if (lastSeen && Date.now() - lastSeen < DEDUPE_WINDOW_MS) {
       const current = readCounts(await store.get(slug));
       return json({ ...current, alreadyVoted: true });
@@ -123,7 +129,8 @@ export default async (req: Request) => {
     }
 
     await store.set(slug, JSON.stringify({ likes: current.likes, dislikes: current.dislikes }));
-    await store.set(key, JSON.stringify({ t: Date.now(), slug, type }));
+    // 只写新盐的键：旧盐的键留给窗口自然过期，不再新增
+    await store.set(keys[0], JSON.stringify({ t: Date.now(), slug, type }));
 
     return json({ ...current, alreadyVoted: false });
   } catch (error) {
