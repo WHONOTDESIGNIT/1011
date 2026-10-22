@@ -186,6 +186,19 @@ function buildRedirects(dist) {
   // 原 /blog/ipl-privacy-modesty-saudi-homes 全站已无同主题文章（全语种搜索 0 命中），
   // 因此**刻意不加 301** —— 指向无关页面比 404 更糟。该 URL 继续返回 404。
 
+  // 2026-10-22：GSC 里仍在拿曝光、线上却已 404 的旧地址（曝光 4–17 次、排名 4.8–14.9）。
+  // 每个目标都按现存 frontmatter slug 核对过：28 → 36 是同一篇（改版重编号、标题重写，
+  // 旧文件 commit a5a7028e 的首句与现文逐字相同）；fitzpatrick 只差 `25-` 数字前缀；
+  // 四条本地化 slug 是旧站"翻译过的 slug"（与上文 /blog/40-pravda-ob-energii-ipl 同批）。
+  // ⚠ 与上面几条同理：必须早于 `/blog/:splat` 目录重写，否则 301 永不执行。首版误放在末尾，
+  //    线上实测只有 /es/ 那条生效、两条 /blog/ 的仍 404，就是被通配遮蔽的确证。
+  rules.push('/blog/28-two-waxing-sessions-and-my-leg-hair-never-grew-back /blog/36-two-waxing-sessions-leg-hair-never-grew-back-real-story 301!');
+  rules.push('/blog/ipl-hair-removal-safe-skin-types-fitzpatrick /blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick 301!');
+  rules.push('/he/blog/ha-emet-al-energiat-ipl /he/blog/the-truth-about-ipl-energy 301!');
+  rules.push('/es/blog/la-verdad-sobre-la-energia-ipl /es/blog/the-truth-about-ipl-energy 301!');
+  rules.push('/tr/blog/ipl-enerjisinin-gercegi /tr/blog/the-truth-about-ipl-energy 301!');
+  rules.push('/pt-br/blog/a-verdade-sobre-a-energia-ipl /pt-br/blog/the-truth-about-ipl-energy 301!');
+
   const pageDirs = [];
   const topPages = [];
   for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
@@ -235,19 +248,6 @@ function buildRedirects(dist) {
   // （2026-09-14 复核），因此按 es-mx 的先例补 301，避免已收录/外链的旧地址掉进 404 兜底。
   rules.push('/es-ES/:splat /es/:splat 301!');
   rules.push('/es-ES /es 301!');
-  // 旧 slug 的精确 301：GSC 里仍在拿曝光、线上却返回 404 的地址（2026-10-22 实测，
-  // 曝光 4–17 次、排名 4.8–14.9）。正文都还在，只是改过 slug，所以 301 到现址。
-  // 只收经 curl 确认 404 且目标存在的映射；不复用任何通配，避免遮蔽后面的目录规则。
-  for (const [from, to] of [
-    ['/blog/ipl-hair-removal-safe-skin-types-fitzpatrick', '/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick'],
-    ['/blog/28-two-waxing-sessions-and-my-leg-hair-never-grew-back', '/blog/36-two-waxing-sessions-leg-hair-never-grew-back-real-story'],
-    ['/he/blog/ha-emet-al-energiat-ipl', '/he/blog/the-truth-about-ipl-energy'],
-    ['/es/blog/la-verdad-sobre-la-energia-ipl', '/es/blog/the-truth-about-ipl-energy'],
-    ['/tr/blog/ipl-enerjisinin-gercegi', '/tr/blog/the-truth-about-ipl-energy'],
-    ['/pt-br/blog/a-verdade-sobre-a-energia-ipl', '/pt-br/blog/the-truth-about-ipl-energy'],
-  ]) {
-    rules.push(`${from} ${to} 301!`);
-  }
   // 兜底 404（软 404 修复根本保障）：未命中任何规则/静态文件的路径返回真 404。
   // 【2026-08-21 修复】不再追加 !（force）：force 让 catch-all 无视已存在的静态文件，
   // 连根路径 /（index.html 存在）也返回 404（Lighthouse 报 "Error testing '/': 404"）。
