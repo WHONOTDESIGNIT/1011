@@ -86,6 +86,16 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# 存量图片（public/images/ 下的静态文件）：2026-10-24 线上实测响应头是
+# `Cache-Control: public,max-age=0,must-revalidate` —— 每次进站都要重新验证一遍。
+# 首页一处就有 247KB 走这个路径（logo、客户见证、产品图），回头客每次都得多问一次服务器。
+# 这里补 30 天 + stale-while-revalidate：30 天内直接命中本地缓存，过期后先给旧的、后台再验证。
+# 不写 immutable：这些文件路径不带 hash，原地换图是真实存在的操作，锁一年会长期看到旧图。
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
 [[headers]]
   for = "/*.html"
   [headers.values]

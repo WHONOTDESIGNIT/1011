@@ -1,0 +1,93 @@
+---
+// 首屏视频（首页 + 4 个服务页 + 团队页共用）。
+//
+// 之前是 `<video autoplay>`：这个 505KB 的 mp4 一进 HTML 就按高优先级下载，
+// 在移动端就是 LCP 元素，还占满带宽约 6s（2026-10-24 实测，Fast 3G 模拟：
+// 视频 1572ms 起下、5890ms 下完，整页 load 被拖到 7.2s，下面的字体/图片全排在它后面）。
+//
+// 现在默认只渲染 poster（17KB），等 window.load 之后、且网络不是 2G/3G、用户没开省流量、
+// 没设"减少动效"时才去拉视频。慢网下永远只留 poster，不浪费一次 505KB 的下载。
+//
+// shortcut: 只按"首屏可见"假设做 load 后加载，没有做滚动观察器 —— 视频本来就总在第一屏；
+// 若以后把它挪到折叠线以下，需要换成 IntersectionObserver。
+interface Props {
+  /** 首页带播放/暂停按钮；服务页只有画面。 */
+  withControls?: boolean;
+}
+const { withControls = false } = Astro.props;
+---
+
+<div class="video-section">
+  <div class="video-placeholder">
+    <video
+      class="hero-video"
+      muted
+      loop
+      playsinline
+      preload="none"
+      width="1280"
+      height="720"
+      poster="/images/home/head-video-poster.webp"
+    >
+      <source src="/videos/head-video.mp4" type="video/mp4" />
+    </video>
+    {
+      withControls && (
+        <button class="video-control" type="button" aria-label="Pause" aria-pressed="false">
+          <svg class="icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="2" width="4" height="12" rx="1" />
+            <rect x="9" y="2" width="4" height="12" rx="1" />
+          </svg>
+          <svg class="icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M5 2.5v11a.8.8 0 0 0 1.22.68l8.5-5.5a.8.8 0 0 0 0-1.36l-8.5-5.5A.8.8 0 0 0 5 2.5z" />
+          </svg>
+        </button>
+      )
+    }
+    <script is:inline>
+      (function () {
+        var video = document.querySelector('.video-placeholder video');
+        if (!video) return;
+        var btn = document.querySelector('.video-control');
+        var started = false;
+        function play() {
+          started = true;
+          video.preload = 'auto';
+          video.play().catch(function () {});
+        }
+        // 自动播放仅在网络不差、没省流量、没要求减少动效时发生
+        function auto() {
+          var c = navigator.connection || {};
+          if (c.saveData || /2g|3g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
+            return;
+          }
+          play();
+        }
+        // 排在 load 之后：CSS、字体、首屏图都跑完了才轮到这个 505KB 的视频
+        function later() {
+          if (window.requestIdleCallback) requestIdleCallback(auto, { timeout: 2000 });
+          else setTimeout(auto, 300);
+        }
+        if (document.readyState === 'complete') later();
+        else addEventListener('load', later, { once: true });
+        // 兜底：某个第三方脚本的请求挂住时 load 可能迟迟不来，6s 后照样放（用户已手动操作过就不再管）
+        setTimeout(function () { if (!started) auto(); }, 6000);
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          if (video.paused) {
+            play();
+            btn.classList.remove('is-paused');
+            btn.setAttribute('aria-pressed', 'false');
+            btn.setAttribute('aria-label', 'Pause');
+          } else {
+            video.pause();
+            btn.classList.add('is-paused');
+            btn.setAttribute('aria-pressed', 'true');
+            btn.setAttribute('aria-label', 'Play');
+          }
+        });
+      })();
+    </script>
+  </div>
+</div>
