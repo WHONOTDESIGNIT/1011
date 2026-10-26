@@ -191,6 +191,36 @@ async function requestIndexing(url) {
 }
 
 // ---- 主流程 ----
+// ---- 已提交记录：跳过做过的 URL ----
+// GSC 提交额度实测约 4-5 条/天。不记录的话每轮都从清单开头重来，
+// 额度全花在重复提交上，清单永远推进不了。
+const DATA_DIR = process.env.DSH_DATA_DIR || process.env.DSH_WORKSPACE || process.cwd();
+const SUBMITTED_FILE = path.join(DATA_DIR, '_gsc_submitted.jsonl');
+const normUrl = (u) => String(u).trim().replace(/\/$/, '');
+
+function loadSubmitted() {
+  const set = new Set();
+  if (!fs.existsSync(SUBMITTED_FILE)) return set;
+  for (const line of fs.readFileSync(SUBMITTED_FILE, 'utf8').split('\n')) {
+    const t = line.trim();
+    if (!t) continue;
+    try { const r = JSON.parse(t); if (r && r.url) set.add(normUrl(r.url)); } catch { /* 坏行忽略 */ }
+  }
+  return set;
+}
+
+function recordSubmitted(url) {
+  fs.appendFileSync(SUBMITTED_FILE,
+    JSON.stringify({ url: normUrl(url), submittedAt: new Date().toISOString() }) + '\n');
+}
+
+const alreadySubmitted = loadSubmitted();
+const beforeCount = urls.length;
+urls = urls.filter((u) => !alreadySubmitted.has(normUrl(u)));
+if (urls.length !== beforeCount) {
+  log(`跳过已提交 ${beforeCount - urls.length} 条，本轮待提交 ${urls.length} 条`);
+}
+
 const summary = { ok: 0, fail: 0, quotaStopped: false, results: [] };
 
 log(`目标 ${urls.length} 个 URL` + (CHECK_ONLY ? '（仅探测配额）' : ''));
@@ -226,6 +256,7 @@ for (let i = 0; i < urls.length; i++) {
   const r = await requestIndexing(u);
   if (r.ok) {
     summary.ok++;
+    recordSubmitted(url);
     log('  ✅ ' + r.reason);
   } else {
     summary.fail++;
