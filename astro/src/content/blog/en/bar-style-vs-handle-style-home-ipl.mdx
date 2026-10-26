@@ -1,0 +1,77 @@
+---
+title: "Bar-Style vs Handle-Style Home IPL: Two Design Schools, One Physics"
+description: "Home IPL devices have settled into two shapes: the bar, a flat one-piece body with the window at one end, and the handle, a grip with a treatment head. Both run from mains power with an internal fan. What differs is where the air path fits, how much window the body can carry, and what the user can reach."
+citableSummary: "Bar-style home IPL devices put the lamp, driver, fan and heatsink in a flat body with the window at one end; handle-style devices put the same components in a grip with interchangeable heads. Both are mains powered and both cool the lamp with an internal fan, so the difference is volume rather than principle: a flat body has a shorter air path and a smaller heatsink, which limits window size and duty cycle, while a grip has room for a larger heatsink and a bigger window. The physics is identical, so the two schools trade window area against handset mass, and reach against treatment coverage."
+pubDate: "2026-10-23"
+author: "iShine Team"
+category: "OEM/ODM"
+heroImage: "/images/blog/blog-08-global-regulatory-landscape-for-ipl-devices.webp"
+slug: "bar-style-vs-handle-style-home-ipl"
+translationKey: "bar-style-vs-handle-style-home-ipl"
+readTime: "6 min"
+---
+
+**Short answer:** both schools run the same lamp physics, both plug into the wall, and both use a fan. The bar puts everything in a flat body and lives with a shorter air path and a smaller window. The handle puts the same parts in a grip and buys a bigger heatsink and a larger window with bulk. It is a set of trade-offs, not a generation gap.
+
+## What is identical
+
+Inside, a home IPL device is a lamp, a driver, a capacitor bank, a window, a skin sensor, a fan and a control board. Both schools carry all seven, and both draw mains power through a cord.
+
+The safety requirements are the same file. The treatment logic is the same. The contraindications are the same. A user who should not use one should not use the other. The physics that makes either device work is the same physics described in the clinical literature on light-based hair removal ([Lasers Surg Med, 2019](https://pubmed.ncbi.nlm.nih.gov/30681170/)).
+
+So the comparison is about packaging, and packaging decides three things: how much heat you can move, how much window you can carry, and how the device sits in a hand.
+
+## The four places they differ
+
+| Dimension | Bar style | Handle style |
+|---|---|---|
+| Body | Flat, one piece, window at one end | Grip plus head, often interchangeable |
+| Window | Small, fixed | Larger, sometimes swappable per area |
+| Cooling hardware | Fan plus a short air path, contact-cooled window doing part of the work | Fan plus a longer air path and a larger heatsink |
+| Mass and reach | Lighter, easy on flat areas, awkward at angles | Heavier, better at angles, easier to hold steady on the face |
+
+The two schools, as buyers describe them: the bar shape is what Ulike and RoseSkinCo sell, and Braun sits in the same family with a more rounded body. The handle shape is the one Philips Lumea established, with attachments for body, face and bikini.
+
+## The thermal problem is the real design driver
+
+A home IPL lamp converts a small fraction of its input into light. The rest becomes heat, and that heat has to leave the handset before the user feels it through the window.
+
+Both schools answer this with a fan and a heatsink. The difference is the room available.
+
+A flat body gives you a short air path: intake at one end, exhaust near the window, a thin heatsink between them. That works, and it is why bar-style devices can be light and still run continuously enough for a leg. What it cannot do is carry a big fin stack, so the window stays small and the energy per pulse is limited by how fast the air moves.
+
+A grip gives you somewhere to put a taller heatsink and a longer duct. That is why the handle school can hold a larger window at the same energy density, and why those devices weigh more.
+
+Neither answer is better. One keeps the fan close to the lamp in a tight body; the other gives the same fan more room to work in.
+
+## Window size against session time
+
+Energy density is joules over area. A bigger window spreads the same joules thinner unless you also raise the energy per pulse, which the cooling has to pay for.
+
+In practice, a small window means more passes. A larger window means fewer passes but a heavier handset and more heat per pulse.
+
+Which one a brand should choose depends on the body area it sells against. Legs and arms reward a larger window. Upper lip and bikini line reward a small, precise one, which is why the handle school sells attachments and the bar school sells one window used carefully.
+
+## What the safety file says about duty cycle
+
+Whatever the shape, the device has to stay inside the photobiological exposure limits for its lamp. That is the frame set out in IEC 62471, published as [CIE S 009](https://cie.co.at/publications/photobiological-safety-lamps-and-lamp-systems), and it is why every handset has a duty cycle whether the manual says so plainly or not.
+
+The practical consequence for a bar-style design is that the fan and the heatsink set the limit, not the lamp. A published adverse-event assessment of a home-use IPL device found the events that matter are the ones a duty cycle and a schedule are meant to prevent ([Lasers Surg Med, 2023](https://pubmed.ncbi.nlm.nih.gov/36883997/)), which is the argument for stating the cooling limit on the box rather than burying it in the manual.
+
+## What this changes for a brand choosing a platform
+
+Four questions settle it faster than any specification sheet.
+
+Which body areas will the brand lead with. A large window suits legs; a small one suits the face. Pick the lead area first.
+
+How long a session the brand expects. A short session tolerates a compact air path; a long one needs the fin stack.
+
+What handset mass the retail listing can carry. A heavier device reads as more powerful to some buyers and as clumsy to others.
+
+Which school the packaging can explain. A one-window device explains itself; a set of heads needs a diagram.
+
+## What we do, and what we do not
+
+We build both shapes on our own platforms, we can move a platform between them where the thermal budget allows, and we hand over the test reports and the market-specific documents. We do not claim one school is superior, we do not publish a competitor teardown, and we do not put another brand's name on our packaging.
+
+For how a platform choice lands in a project, [the OEM/ODM page](/services/oem-odm) shows the stages. If the choice comes down to cooling, [the cooling components page](/components/cooling-system) covers what each approach can hold. [The fluence article](/blog/verify-ipl-fluence-claim) explains why the joules figure cannot be read without the window area, and [the product range](/products) lists which platform is built for which area.
