@@ -97,7 +97,7 @@ const byApplicationCards = ['helix', 'lumi-2', 'lumi', 'euno', 'themis', 'venus'
   return {
     slug,
     name: t(locale, product.nameKey),
-    image: product.firstImage,
+    image: responsiveImageSources(product.firstImage, [400, 800], 400),
     href: getLocalizedPath(locale, `/products/${slug}`),
     market: t(locale, `productDetail.index.byApplication.cards.${i}.market`),
     body: t(locale, `productDetail.index.byApplication.cards.${i}.body`),
@@ -116,10 +116,10 @@ const threeAxes = [0, 1, 2].map((i) => ({
 }));
 // 定制规格 / 颜色：展示 4 款实拍多色图
 const colorVariants = [
-  { slug: 'hebe', src: '/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20gold%20and%20black%20color.webp' },
-  { slug: 'venus', src: '/images/products/Venus/different-colors-venus-sapphire-ipl.webp' },
-  { slug: 'euno', src: '/images/products/Euno/euno%20ipl%20pink%20color%20option.webp' },
-  { slug: 'wooden', src: '/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp' },
+  { slug: 'hebe', src: responsiveImageSources('/images/products/Hebe/hebe%20ipl%20hair%20removal%20white%20gold%20and%20black%20color.webp', [400, 800], 400) },
+  { slug: 'venus', src: responsiveImageSources('/images/products/Venus/different-colors-venus-sapphire-ipl.webp', [400, 800], 400) },
+  { slug: 'euno', src: responsiveImageSources('/images/products/Euno/euno%20ipl%20pink%20color%20option.webp', [400, 800], 400) },
+  { slug: 'wooden', src: responsiveImageSources('/images/products/Wooden/wooden%20ipl%20pink%20black%20white%20color.webp', [400, 800], 400) },
 ].map((variant) => ({
   ...variant,
   name: t(locale, `nav.${variant.slug}`),
@@ -417,7 +417,7 @@ const siteBaseUrl = (
         {byApplicationCards.map((card) => (
           <a class="group flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-sm transition-all hover:shadow-md" href={card.href}>
             <div class="relative overflow-hidden bg-neutral-100" style="aspect-ratio:1000/806">
-              <img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" src={card.image} alt={card.name} loading="lazy" decoding="async" />
+              <img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" src={card.image.src} srcset={card.image.webpSrcSet} sizes="(min-width:1024px) 30vw, (min-width:768px) 45vw, 90vw" alt={card.name} loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-1 flex-col p-4">
               <div class="text-xs font-bold uppercase tracking-[0.18em] text-violet-700">{card.market}</div>
@@ -453,7 +453,7 @@ const siteBaseUrl = (
           {colorVariants.map((variant) => (
             <figure class="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50">
               <div class="relative aspect-square overflow-hidden">
-                <img class="h-full w-full object-cover" src={variant.src} alt={`${variant.name} color options`} loading="lazy" decoding="async" />
+                <img class="h-full w-full object-cover" src={variant.src.src} srcset={variant.src.webpSrcSet} sizes="(min-width:1024px) 25vw, 45vw" alt={`${variant.name} color options`} loading="lazy" decoding="async" />
               </div>
               <figcaption class="px-3 py-2.5 text-sm font-semibold text-neutral-700">{variant.name}</figcaption>
             </figure>
