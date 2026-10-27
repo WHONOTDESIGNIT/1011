@@ -151,7 +151,31 @@
     true
   );
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH"></script>
+<script is:inline>
+  // gtag.js 是首屏最大的单个下载（2026-10-26 线上实测约 180KB gzip，5 倍于首页 HTML），
+  // 原先 head 里的 async 会在首屏窗口内抢带宽 —— 而它只影响事后统计，不影响渲染。
+  // 改为 load 之后再插入请求：命令在上面的内联块里已排进 dataLayer，脚本晚到仍按序执行。
+  // 浏览器侧首屏只付 HTML + CSS + 一张 poster（LCP）。
+  (function () {
+    var fired = false;
+    function load() {
+      if (fired) return;
+      fired = true;
+      var t = document.createElement('script');
+      t.async = true;
+      t.src = 'https://www.googletagmanager.com/gtag/js?id=G-94BDNGHHJH';
+      document.head.appendChild(t);
+    }
+    function later() {
+      if (window.requestIdleCallback) requestIdleCallback(load, { timeout: 2000 });
+      else setTimeout(load, 300);
+    }
+    if (document.readyState === 'complete') later();
+    else addEventListener('load', later, { once: true });
+    // 兜底：第三方脚本挂住时 load 可能迟迟不来，6s 后照样上报，避免统计整段静默丢失。
+    setTimeout(load, 6000);
+  })();
+</script>
 <script async src="https://analytics.ahrefs.com/analytics.js" data-key="ZmxwmQzl6pN56zZcP5+8Ag"></script>
 <script is:inline>
   (function (c, l, a, r, i, t, y) {
