@@ -45,6 +45,11 @@ const logoImg = (path: string) => {
 };
 const pageTitle = t(locale, 'home.page.title');
 const pageDescription = t(locale, 'home.page.description');
+// OUR WORK 卡片：原始文件最大 215KB（Themis），走 Image CDN 后 2.9–6.3KB（w=400 webp）。
+const workImg = (path: string) => {
+  const s = responsiveImageSources(path, [400, 800], 400);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 ---
 
 <!doctype html>
@@ -1321,28 +1326,28 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="work-grid" style="grid-template-columns:repeat(4,1fr)">
       <a class="work-card" href={loc("/clients/roseskin-ipl")}>
-        <img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt={t(locale, 'homepage.work.roseskinco')} loading="lazy" />
+        <img src={workImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').src} srcset={workImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt={t(locale, 'homepage.work.roseskinco')} loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(236,72,153,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'homepage.work.card1Tag')}</div>
           <h3>{t(locale, 'homepage.work.roseskinco')}</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/costco-canada-ipl")}>
-        <img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt={t(locale, 'homepage.work.costco')} loading="lazy" />
+        <img src={workImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').src} srcset={workImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt={t(locale, 'homepage.work.costco')} loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(30,64,175,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'homepage.work.card2Tag')}</div>
           <h3>{t(locale, 'homepage.work.costco')}</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/ku2-ipl")}>
-        <img src="/images/products/Themis/golden-luxury-front-view.jpg" alt={t(locale, 'homepage.work.ku2Alt')} loading="lazy" />
+        <img src={workImg('/images/products/Themis/golden-luxury-front-view.jpg').src} srcset={workImg('/images/products/Themis/golden-luxury-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt={t(locale, 'homepage.work.ku2Alt')} loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(124,58,237,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'homepage.mega.themis.tagline')}</div>
           <h3>{t(locale, 'homepage.work.ku2Title')}</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/happyskinco-ipl")}>
-        <img src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt={t(locale, 'homepage.work.happyskinco')} loading="lazy" />
+        <img src={workImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').src} srcset={workImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt={t(locale, 'homepage.work.happyskinco')} loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(180,83,9,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'homepage.work.card4Tag')}</div>
           <h3>{t(locale, 'homepage.work.happyskinco')}</h3>

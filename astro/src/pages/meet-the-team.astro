@@ -37,6 +37,11 @@ const logoImg = (path: string) => {
   const s = responsiveImageSources(path, [256, 512], 256);
   return { src: s.src, srcset: s.webpSrcSet };
 };
+// OUR WORK 卡片：原始文件最大 215KB（Themis），走 Image CDN 后 2.9–6.3KB（w=400 webp）。
+const workImg = (path: string) => {
+  const s = responsiveImageSources(path, [400, 800], 400);
+  return { src: s.src, srcset: s.webpSrcSet };
+};
 ---
 
 <!doctype html>
@@ -1346,28 +1351,28 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="work-grid" style="grid-template-columns:repeat(4,1fr)">
       <a class="work-card" href={loc("/clients/roseskin-ipl")}>
-        <img src="/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp" alt="RoseSkinCo" loading="lazy" />
+        <img src={workImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').src} srcset={workImg('/images/products/lumi/RoseSkinCo-Lumi-IPL-Hair-Removal-Handset-white-Gold_jpg.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt="RoseSkinCo" loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(236,72,153,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'teamPage.work.tags.roseskin')}</div>
           <h3>RoseSkinCo</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/costco-canada-ipl")}>
-        <img src="/images/products/Venus/purple-venus-sapphire-ipl.webp" alt="Costco" loading="lazy" />
+        <img src={workImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').src} srcset={workImg('/images/products/Venus/purple-venus-sapphire-ipl.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt="Costco" loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(30,64,175,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'teamPage.work.tags.costco')}</div>
           <h3>Costco</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/ku2-ipl")}>
-        <img src="/images/products/Themis/golden-luxury-front-view.jpg" alt="KU2" loading="lazy" />
+        <img src={workImg('/images/products/Themis/golden-luxury-front-view.jpg').src} srcset={workImg('/images/products/Themis/golden-luxury-front-view.jpg').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt="KU2" loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(124,58,237,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'teamPage.work.tags.ku2')}</div>
           <h3>KU2 Cosmetics</h3>
         </div>
       </a>
       <a class="work-card" href={loc("/clients/happyskinco-ipl")}>
-        <img src="/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp" alt="HappySkinCo" loading="lazy" />
+        <img src={workImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').src} srcset={workImg('/images/products/Wooden/wooden%20ipl%20white%20color%20front%20view.webp').srcset} sizes="(min-width:1280px) 25vw, (min-width:960px) 33vw, (min-width:768px) 50vw, 100vw" alt="HappySkinCo" loading="lazy" decoding="async" />
         <div class="work-card-overlay" style="background:linear-gradient(0deg,rgba(180,83,9,.85) 0%,transparent 60%)">
           <div class="work-card-tag">{t(locale, 'teamPage.work.tags.happyskinco')}</div>
           <h3>HappySkinCo</h3>
