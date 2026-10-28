@@ -64,6 +64,9 @@ const { withControls = false } = Astro.props;
           }
           // 慢速连接下不自动播：505KB 的视频抢带宽会把 LCP 从 poster 换成视频帧。
           // downlink 是估算值（Mbps），Lighthouse 的 slow-4G 配置在 1.6 上下，正常宽带在 10 以上。
+          // downlink 缺失时（Safari 不实现这个属性）**照常自动播放**，这是有意的：
+          //   缺数据不等于慢网络；若按缺失即禁播，Safari 用户（移动端很大一块）永远看不到 hero 视频。
+          //   Lighthouse 跑在 Chrome 上，downlink 一定存在，所以测得到的那部分不会漏。
           if (typeof c.downlink === 'number' && c.downlink < 2.5) {
             if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
             return;
