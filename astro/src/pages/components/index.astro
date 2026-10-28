@@ -5,73 +5,76 @@ import { getLocalizedPath } from '../../lib/breadcrumbs';
 import { responsiveImageSources } from '../../lib/netlify-images';
 
 const locale = Astro.currentLocale ?? 'en';
-const headerTitle = t(locale, 'componentsPower.header.title');
-const headerDescription = t(locale, 'componentsPower.header.description');
-// EN SEO 富化标题（仅 meta title；页内 H1/文案仍用 componentsPower 共享字段）
+// The index reads its own namespace. It used to borrow componentsPage.* — the
+// power-supply detail page's copy — so /components and /components/power-supply
+// carried the same title, H1 and intro in all 21 non-English locales.
+const headerTitle = t(locale, 'componentsPage.header.title');
+const headerDescription = t(locale, 'componentsPage.header.description');
+// EN SEO 富化标题（仅 meta title）
 const seoTitle = locale === 'en' ? 'IPL Components & Parts | iShine Device Manufacturer' : headerTitle;
-const introTitle = t(locale, 'componentsPower.intro.title');
-const introParagraph = t(locale, 'componentsPower.intro.paragraph');
-const overviewTitle = t(locale, 'componentsPower.overview.title');
+const introTitle = t(locale, 'componentsPage.intro.title');
+const introParagraph = t(locale, 'componentsPage.intro.paragraph');
+const overviewTitle = t(locale, 'componentsPage.overview.title');
 
 const core = [
   {
     slug: 'lamp-cartridges',
-    title: t(locale, 'componentsPower.core.lamp.title'),
-    description: t(locale, 'componentsPower.core.lamp.description'),
-    paragraph: t(locale, 'componentsPower.core.lamp.paragraph'),
+    title: t(locale, 'componentsPage.core.lamp.title'),
+    description: t(locale, 'componentsPage.core.lamp.description'),
+    paragraph: t(locale, 'componentsPage.core.lamp.paragraph'),
     image: 'https://images.pexels.com/photos/876453/pexels-photo-876453.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    imageAlt: t(locale, 'componentsPower.core.lamp.imageAlt'),
-    cta: t(locale, 'componentsPower.core.lamp.cta'),
+    imageAlt: t(locale, 'componentsPage.core.lamp.imageAlt'),
+    cta: t(locale, 'componentsPage.core.lamp.cta'),
     specs: [
-      t(locale, 'componentsPower.core.lamp.specs.0'),
-      t(locale, 'componentsPower.core.lamp.specs.1'),
-      t(locale, 'componentsPower.core.lamp.specs.2'),
-      t(locale, 'componentsPower.core.lamp.specs.3'),
+      t(locale, 'componentsPage.core.lamp.specs.0'),
+      t(locale, 'componentsPage.core.lamp.specs.1'),
+      t(locale, 'componentsPage.core.lamp.specs.2'),
+      t(locale, 'componentsPage.core.lamp.specs.3'),
     ],
   },
   {
     slug: 'optical-filters',
-    title: t(locale, 'componentsPower.core.filter.title'),
-    description: t(locale, 'componentsPower.core.filter.description'),
-    paragraph: t(locale, 'componentsPower.core.filter.paragraph'),
+    title: t(locale, 'componentsPage.core.filter.title'),
+    description: t(locale, 'componentsPage.core.filter.description'),
+    paragraph: t(locale, 'componentsPage.core.filter.paragraph'),
     image: 'https://images.pexels.com/photos/4910460/pexels-photo-4910460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    imageAlt: t(locale, 'componentsPower.core.filter.imageAlt'),
-    cta: t(locale, 'componentsPower.core.filter.cta'),
+    imageAlt: t(locale, 'componentsPage.core.filter.imageAlt'),
+    cta: t(locale, 'componentsPage.core.filter.cta'),
     specs: [
-      t(locale, 'componentsPower.core.filter.specs.0'),
-      t(locale, 'componentsPower.core.filter.specs.1'),
-      t(locale, 'componentsPower.core.filter.specs.2'),
-      t(locale, 'componentsPower.core.filter.specs.3'),
+      t(locale, 'componentsPage.core.filter.specs.0'),
+      t(locale, 'componentsPage.core.filter.specs.1'),
+      t(locale, 'componentsPage.core.filter.specs.2'),
+      t(locale, 'componentsPage.core.filter.specs.3'),
     ],
   },
   {
     slug: 'cooling-system',
-    title: t(locale, 'componentsPower.core.cooling.title'),
-    description: t(locale, 'componentsPower.core.cooling.description'),
-    paragraph: t(locale, 'componentsPower.core.cooling.paragraph'),
+    title: t(locale, 'componentsPage.core.cooling.title'),
+    description: t(locale, 'componentsPage.core.cooling.description'),
+    paragraph: t(locale, 'componentsPage.core.cooling.paragraph'),
     image: '/images/blog/blog-cooling-ipl-hair-remover-buying-guide.webp',
-    imageAlt: t(locale, 'componentsPower.core.cooling.imageAlt'),
-    cta: t(locale, 'componentsPower.core.cooling.cta'),
+    imageAlt: t(locale, 'componentsPage.core.cooling.imageAlt'),
+    cta: t(locale, 'componentsPage.core.cooling.cta'),
     specs: [
-      t(locale, 'componentsPower.core.cooling.specs.0'),
-      t(locale, 'componentsPower.core.cooling.specs.1'),
-      t(locale, 'componentsPower.core.cooling.specs.2'),
-      t(locale, 'componentsPower.core.cooling.specs.3'),
+      t(locale, 'componentsPage.core.cooling.specs.0'),
+      t(locale, 'componentsPage.core.cooling.specs.1'),
+      t(locale, 'componentsPage.core.cooling.specs.2'),
+      t(locale, 'componentsPage.core.cooling.specs.3'),
     ],
   },
   {
     slug: 'power-supply',
-    title: t(locale, 'componentsPower.core.power.title'),
-    description: t(locale, 'componentsPower.core.power.description'),
-    paragraph: t(locale, 'componentsPower.core.power.paragraph'),
+    title: t(locale, 'componentsPage.core.power.title'),
+    description: t(locale, 'componentsPage.core.power.description'),
+    paragraph: t(locale, 'componentsPage.core.power.paragraph'),
     image: 'https://images.pexels.com/photos/7174683/pexels-photo-7174683.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    imageAlt: t(locale, 'componentsPower.core.power.imageAlt'),
-    cta: t(locale, 'componentsPower.core.power.cta'),
+    imageAlt: t(locale, 'componentsPage.core.power.imageAlt'),
+    cta: t(locale, 'componentsPage.core.power.cta'),
     specs: [
-      t(locale, 'componentsPower.core.power.specs.0'),
-      t(locale, 'componentsPower.core.power.specs.1'),
-      t(locale, 'componentsPower.core.power.specs.2'),
-      t(locale, 'componentsPower.core.power.specs.3'),
+      t(locale, 'componentsPage.core.power.specs.0'),
+      t(locale, 'componentsPage.core.power.specs.1'),
+      t(locale, 'componentsPage.core.power.specs.2'),
+      t(locale, 'componentsPage.core.power.specs.3'),
     ],
   },
 ].map((item) => ({
@@ -79,11 +82,11 @@ const core = [
   imageSources: responsiveImageSources(item.image),
 }));
 
-const customizationTitle = t(locale, 'componentsPower.customization.title');
-const customizationDescription = t(locale, 'componentsPower.customization.description');
-const ctaTitle = t(locale, 'componentsPower.cta.title');
-const ctaDescription = t(locale, 'componentsPower.cta.description');
-const ctaButton = t(locale, 'componentsPower.cta.button');
+const customizationTitle = t(locale, 'componentsPage.customization.title');
+const customizationDescription = t(locale, 'componentsPage.customization.description');
+const ctaTitle = t(locale, 'componentsPage.cta.title');
+const ctaDescription = t(locale, 'componentsPage.cta.description');
+const ctaButton = t(locale, 'componentsPage.cta.button');
 const heroBackgroundImageSources = responsiveImageSources(
   'https://images.pexels.com/photos/7285970/pexels-photo-7285970.jpeg?auto=compress&cs=tinysrgb&w=1600',
   [800, 1200, 1600],
@@ -137,7 +140,7 @@ const componentsDiagramImage = responsiveImageSources(
               src={componentsDiagramImage.src}
               srcset={componentsDiagramImage.webpSrcSet}
               sizes="(min-width: 1024px) 72rem, 100vw"
-              alt={t(locale, 'componentsPower.diagram.alt')}
+              alt={t(locale, 'componentsPage.diagram.alt')}
               loading="lazy"
               decoding="async"
               width="1600"
