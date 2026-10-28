@@ -62,6 +62,12 @@ const { withControls = false } = Astro.props;
             if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
             return;
           }
+          // 慢速连接下不自动播：505KB 的视频抢带宽会把 LCP 从 poster 换成视频帧。
+          // downlink 是估算值（Mbps），Lighthouse 的 slow-4G 配置在 1.6 上下，正常宽带在 10 以上。
+          if (typeof c.downlink === 'number' && c.downlink < 2.5) {
+            if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
+            return;
+          }
           play();
         }
         // 排在 load 之后：CSS、字体、首屏图都跑完了才轮到这个 505KB 的视频
