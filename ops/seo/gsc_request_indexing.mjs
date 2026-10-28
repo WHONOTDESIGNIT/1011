@@ -256,7 +256,7 @@ for (let i = 0; i < urls.length; i++) {
   const r = await requestIndexing(u);
   if (r.ok) {
     summary.ok++;
-    recordSubmitted(url);
+    recordSubmitted(u);
     log('  ✅ ' + r.reason);
   } else {
     summary.fail++;
