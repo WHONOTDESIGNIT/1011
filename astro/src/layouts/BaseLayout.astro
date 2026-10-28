@@ -57,7 +57,6 @@ const { title, lang = 'en', description, canonical, image, type = 'website', sho
   <head>
     <SeoHead title={title} lang={lang} description={description} canonical={canonical} image={image} type={type} hreflangs={hreflangs} appendBrand={appendBrand} robots={robots} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} section={section} />
     <Analytics />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <style is:inline set:html={fontsCss} />
     <style is:inline set:html={criticalCss} />
     <link rel="stylesheet" href={globalCssUrl} media="print" onload="this.media='all'" />

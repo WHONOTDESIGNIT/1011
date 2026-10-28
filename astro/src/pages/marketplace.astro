@@ -57,7 +57,6 @@ const locale = Astro.currentLocale ?? 'en';
   })();
 </script>
 <SeoHead title={t(locale, 'auxPages.marketplace.pageTitle')} lang={locale} description={t(locale, 'auxPages.marketplace.pageDescription')} />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 {/* 字体内联（2026-08-21 CLS 优化）：替代 Google Fonts 外链，提前字体下载、避免 render-blocking */}
 <style is:inline set:html={fontsCss} />
 <style>
