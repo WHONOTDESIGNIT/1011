@@ -171,6 +171,38 @@ function readFrontmatter(filePath: string): BlogFrontmatterRecord | null {
   return parsed && typeof parsed === 'object' ? (parsed as BlogFrontmatterRecord) : null;
 }
 
+// A post without frontmatter `description` used to fall back to the blog index copy,
+// which made the post a duplicate of /blog in nine locales. Derive it from the
+// article's own opening paragraph instead: the first block that is not a heading,
+// image, list, table, quote, fence or JSX element.
+function deriveExcerpt(filePath: string): string {
+  const source = fs.readFileSync(filePath, 'utf8');
+  if (!source.startsWith('---')) return '';
+  const end = source.indexOf('\n---', 3);
+  if (end === -1) return '';
+  for (const block of source.slice(end + 4).split(/\r?\n\s*\r?\n/)) {
+    const t = block.trim();
+    if (!t) continue;
+    if (/^(#{1,6}\s|!|\||```|~~~|<|>|[-*+]\s|\d+[.)]\s)/.test(t)) continue;
+    const plain = t
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`~]/g, '')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (plain.length < 40) continue;
+    if (plain.length <= 160) return plain;
+    const cut = plain.slice(0, 160);
+    const stop = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '),
+      cut.lastIndexOf('。'), cut.lastIndexOf('؟'));
+    if (stop >= 80) return cut.slice(0, stop + 1);
+    const space = cut.lastIndexOf(' ');
+    return (space >= 80 ? cut.slice(0, space) : cut) + '…';
+  }
+  return '';
+}
+
 async function loadBlogIndex() {
   if (!blogIndexCache) {
     blogIndexCache = Promise.resolve(
@@ -184,7 +216,7 @@ async function loadBlogIndex() {
           const locale = localePath === 'es' ? 'es-ES' : localePath;
           const slug = frontmatter.slug;
           const translationKey = frontmatter.translationKey;
-          const excerpt = frontmatter.description ?? '';
+          const excerpt = frontmatter.description || deriveExcerpt(filePath);
           const citableSummary = frontmatter.citableSummary ?? '';
           const date = formatDateValue(frontmatter.pubDate);
           const updatedDate = formatDateValue(frontmatter.updatedDate);
