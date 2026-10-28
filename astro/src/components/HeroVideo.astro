@@ -25,8 +25,8 @@ const { withControls = false } = Astro.props;
       loop
       playsinline
       preload="none"
-      width="1280"
-      height="720"
+      width="360"
+      height="641"
       poster="/images/home/head-video-poster.webp"
     >
       <source src="/videos/head-video.mp4" type="video/mp4" />
@@ -91,3 +91,17 @@ const { withControls = false } = Astro.props;
     </script>
   </div>
 </div>
+
+<style is:global>
+  /* 视频源是 360x641 竖版。video 和 img 不同：它不会用 width/height 属性推导宽高比，
+     preload="none" 时元数据到达前高度算不出来，poster/元数据一到就往下推 600 多像素。
+     线上移动端 Lighthouse 的 CLS 0.448 有 99.8% 来自这一个元素。
+     aspect-ratio 在首帧就锁死比例，属性保留作旧浏览器兜底。
+     比例与素材一致，所以 object-fit: cover 不会裁掉任何画面。 */
+  .video-placeholder video {
+    aspect-ratio: 360 / 641;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+</style>
