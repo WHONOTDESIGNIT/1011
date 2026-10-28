@@ -33,6 +33,7 @@ export default defineConfig({
   // 构建内存优化：Netlify 上 9 语言 × 51 核心页 + 博客并发构建易触发 V8 OOM，
   // 限制单线程构建（build.concurrency=1），与 NODE_OPTIONS=--max-old-space-size=8192 配合避免内存竞争
   build: {
+    inlineStylesheets: 'auto',
     concurrency: 1,
   },
   // i18n：默认语言 en（无 URL 前缀），土耳其语与阿拉伯语为第二/第三语言

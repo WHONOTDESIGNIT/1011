@@ -81,8 +81,6 @@ const logoImg = (path: string) => {
 </script>
 <link rel="icon" type="image/png" href="/images/logos/ishine%20favicon.png" />
 <SeoHead title={t(locale, 'servicesPage.buildANewIpl.meta.title')} lang={locale} description={t(locale, 'servicesPage.buildANewIpl.meta.description')} />
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 {/* 字体内联（2026-08-21 CLS 优化）：@font-face 随首帧 HTML 送达，浏览器立即并行下载 woff2，
     替代原 Google Fonts 外链，避免 render-blocking 且提前字体下载窗口 */}
 <style is:inline set:html={fontsCss} />
