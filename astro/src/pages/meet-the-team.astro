@@ -30,7 +30,7 @@ const megaCardImg = (path: string) => {
   return { src: s.src, srcset: s.webpSrcSet };
 };
 const wwdImg = (path: string) => {
-  const s = responsiveImageSources(path, [400, 800], 400);
+  const s = responsiveImageSources(path, [400, 550, 800], 550);
   return { src: s.src, srcset: s.webpSrcSet };
 };
 const logoImg = (path: string) => {

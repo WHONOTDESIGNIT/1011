@@ -26,7 +26,7 @@ const megaCardImg = (path: string) => {
   return { src: s.src, srcset: s.webpSrcSet };
 };
 const wwdImg = (path: string) => {
-  const s = responsiveImageSources(path, [400, 800], 400);
+  const s = responsiveImageSources(path, [400, 550, 800], 550);
   return { src: s.src, srcset: s.webpSrcSet };
 };
 const logoImg = (path: string) => {
@@ -1067,16 +1067,16 @@ a{text-decoration:none;color:inherit}
     <div class="what-we-do-right">
       <div class="wwd-visuals" aria-live="polite">
         <div class="wwd-visual active" data-index="0">
-          <img src={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').src} srcset={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual1Alt')} loading="lazy" decoding="async" width="413" height="168" />
+          <img src={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').src} srcset={wwdImg('/images/client/client-witness-ku2-cosmetics-brand.webp').srcset} sizes="(min-width:1280px) 548px, 55vw" alt={t(locale, 'homepage.whatWeDo.visual1Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="1">
-          <img src={wwdImg('/images/client/client-witness-lux-skin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-lux-skin-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual2Alt')} loading="lazy" decoding="async" width="413" height="168" />
+          <img src={wwdImg('/images/client/client-witness-lux-skin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-lux-skin-brand.webp').srcset} sizes="(min-width:1280px) 548px, 55vw" alt={t(locale, 'homepage.whatWeDo.visual2Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="2">
-          <img src={wwdImg('/images/client/client-witness-mandyskin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-mandyskin-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual3Alt')} loading="lazy" decoding="async" width="413" height="168" />
+          <img src={wwdImg('/images/client/client-witness-mandyskin-brand.webp').src} srcset={wwdImg('/images/client/client-witness-mandyskin-brand.webp').srcset} sizes="(min-width:1280px) 548px, 55vw" alt={t(locale, 'homepage.whatWeDo.visual3Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
         <div class="wwd-visual" data-index="3">
-          <img src={wwdImg('/images/client/client-witness-roseskinco-brand.webp').src} srcset={wwdImg('/images/client/client-witness-roseskinco-brand.webp').srcset} sizes="(min-width:1280px) 30vw, 55vw" alt={t(locale, 'homepage.whatWeDo.visual4Alt')} loading="lazy" decoding="async" width="413" height="168" />
+          <img src={wwdImg('/images/client/client-witness-roseskinco-brand.webp').src} srcset={wwdImg('/images/client/client-witness-roseskinco-brand.webp').srcset} sizes="(min-width:1280px) 548px, 55vw" alt={t(locale, 'homepage.whatWeDo.visual4Alt')} loading="lazy" decoding="async" width="413" height="168" />
         </div>
       </div>
     </div>
