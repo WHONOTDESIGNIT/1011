@@ -104,4 +104,13 @@ const { withControls = false } = Astro.props;
     height: auto;
     object-fit: cover;
   }
+
+  /* Desktop/tablet: the section used to size itself from the video's intrinsic width
+     once the poster arrived, so it jumped 570px -> 360px at ~5s (0.1158 layout shift,
+     desktop CLS 0.1184). Pin the width it settles at, from the first frame.
+     It has to live here: the element renders from this component and carries no
+     data-astro-cid, so the .video-section rules in index.astro never match it. */
+  @media (min-width: 768px) {
+    .video-section { width: 360px; }
+  }
 </style>
