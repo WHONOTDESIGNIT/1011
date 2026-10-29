@@ -286,7 +286,9 @@ a{text-decoration:none;color:inherit}
   .hero{display:flex;flex-direction:row;align-items:flex-start;padding-left:var(--pad-40);padding-right:var(--pad-40);gap:20px}
   .hero-white-container{margin-left:0 !important;flex-shrink:0;width:420px;max-width:420px}
   .hero-wrapper{flex:1 1 0;min-width:0;max-width:none;margin:0}
-  .hero-wrapper .video-section{margin-top:0;max-width:80%;margin-left:auto;margin-right:auto}
+  /* No .video-section rules here: that element renders from HeroVideo.astro and carries
+     no data-astro-cid, so anything scoped to this file can never match it. The column
+     width now lives in HeroVideo.astro's global block. */
 }
 @media(min-width:1280px){
   /* 破框全宽：Hero 区块突破 1843px 容器限制，背景与装饰延伸至屏幕边缘（develo 风格开阔布局）；
@@ -333,7 +335,10 @@ a{text-decoration:none;color:inherit}
 .btn-secondary:hover .btn-book-arrow{width:16px}
 
 /* Video */
-.video-section{position:relative;z-index:2;width:100%;max-width:960px;margin-top:calc(var(--hero-video-overlap) * -1)}
+/* .video-section is not styled here: it renders from HeroVideo.astro, which carries no
+   data-astro-cid, so a selector scoped to this file never matches. Column width lives in
+   HeroVideo.astro's global block. The .video-placeholder rules below have the same scope
+   problem and are kept only until that block is audited as a whole. */
 .video-placeholder{position:relative;width:100%;overflow:hidden;border-radius:20px;background:var(--color-gray-200)}
 .video-placeholder video{display:block;width:100%;height:auto;object-fit:cover;border-radius:20px}
 .video-control{position:absolute;top:12px;right:12px;z-index:3;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(2,3,3,.55);color:var(--color-white);border:none;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .2s,opacity .2s}
