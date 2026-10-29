@@ -77,4 +77,47 @@ run the H2 was not registered at all because it had not painted yet.
 
 Consequence: a single run's "the LCP element is X" does not generalise, and any p75
 target is measured against a moving element until the hero is guaranteed to paint
-early.
+early. **Resolved** by the fade change below: the race is gone and the element is now
+determined per page.
+
+## Hero card fade: opacity -> transform only
+
+`.hero-content-card` faded in with `opacity: 0 -> 1` over 0.8 s. An opacity fade keeps
+an element out of largest-contentful-paint candidacy until it finishes, so the hero
+headline was painted early but only credited as LCP when the animation ended.
+
+Production trace before the change (`--save-assets`):
+
+```
+TTFB 743 ms · CSS all in by ~1290 ms · fonts ready 1833 ms · FCP 1455 · LCP 2660
+element render delay 1108 ms, LCP element h2.hero-title-main
+```
+
+The 827 ms between font readiness and LCP matched the animation duration. After the
+change (transform only, opacity constant 1):
+
+```
+FCP 1790 · LCP 1790 · gap 0
+```
+
+Three further production runs: gaps 0, 0, 0. Locally, three runs per arm under real
+CDP throttling: gap 300/332/232 ms before, 0/0/0 after, and the first candidate is the
+headline instead of the video poster.
+
+**What this fixes beyond the milliseconds:** before, the LCP candidate raced between
+`h2.hero-title-main`, the single `h1`, and the video poster depending on which painted
+inside the window. Afterwards the element is determined, not sampled.
+
+### How to read LCP from now on
+
+1. **gap = LCP - FCP**. Gap 0 means the element side is clean.
+2. **Which element**. Informational: on the homepage it is the hero `h2`; on the five
+   service pages the video poster is larger, so the poster is the LCP and is credited
+   at FCP. Both are gap 0.
+
+A report of "LCP got worse" is an element regression only if gap > 0 or the element
+changed to something that paints late. Otherwise it is FCP/network variance, which is
+expected: absolute LCP follows FCP, and FCP has been observed between 1.8 s and 3.5 s
+on the same build.
+
+**The success criterion for this work is gap = 0, not a fixed second count.**
