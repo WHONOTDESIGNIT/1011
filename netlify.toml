@@ -99,7 +99,10 @@
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
+    # CDN TTL, not browser TTL. With max-age=0 the edge cached nothing, Age stayed 0 on
+    # every request and each visitor paid origin latency (TTFB 740-1100 ms in traces).
+    # Netlify purges on deploy, so an hour is safe; the browser still revalidates.
+    Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
 
 # 全站存量图片（public/images/ 下静态文件）：**直接由静态资源服务**，不再重写进 Image CDN。
 #
