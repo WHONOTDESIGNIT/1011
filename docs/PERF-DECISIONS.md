@@ -121,3 +121,43 @@ expected: absolute LCP follows FCP, and FCP has been observed between 1.8 s and 
 on the same build.
 
 **The success criterion for this work is gap = 0, not a fixed second count.**
+## REJECTED: inlining the homepage critical CSS and deferring the rest
+
+Goal: first paint should not wait for 125 KB of render-blocking CSS when only ~19 KB is
+needed before it. Extracted from the built CSS (media contexts preserved):
+
+```
+Tailwind preflight (*, html)          4.4 KB   must stay inline
+first-screen defaults (header/hero)  14.1 KB
+hover/focus                           0.5 KB
+mega-nav expanded state               6.4 KB   dropped
+                                      ------
+inline set                           19.0 KB
+```
+
+A post-build script inlined the 19.0 KB and rewrote the four stylesheet links to
+`media="print" onload="this.media='all'"` with `<noscript>` fallbacks. Local build,
+real CDP throttling:
+
+```
+              FCP     LCP     CLS
+before       2872    2872    0.0012
+after         680    1632    1.1278
+```
+
+FCP dropped 2.2 s and LCP improved 1.2 s, but CLS went from 0.0012 to 1.128. The cause
+is visible in the shift entries: `div.nav-dropdown-wrapper` resized repeatedly as the
+deferred sheets arrived (226 -> 298 -> 322 -> 366 px), so the header reflowed several
+times after first paint.
+
+Verdict per the criterion fixed before the change (FCP up, but FOUC/shift -> revert):
+reverted. Build restored, no inline style, four blocking links.
+
+Why the inline set was incomplete: the extractor keeps a rule only when every class in
+its selector appears in the homepage DOM. Rules for header states whose child classes
+are added later, or that hang off a state class, were dropped, and the deferred sheets
+then changed geometry the inline set had already painted.
+
+If this is retried: the inline set has to cover the header's *measured* geometry, not
+just the selectors present in the static DOM, and the acceptance criterion should be
+CLS unchanged (0.0012), not FCP.
