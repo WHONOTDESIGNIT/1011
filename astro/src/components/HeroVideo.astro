@@ -58,7 +58,10 @@ const { withControls = false } = Astro.props;
         // 自动播放仅在网络不差、没省流量、没要求减少动效时发生
         function auto() {
           var c = navigator.connection || {};
-          if (c.saveData || /2g|3g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          // Safari and Firefox have no Network Information API, so c is {} and every
+          // check below passes: without this line they autoplay 494KB unconditionally.
+          // Unknown network is treated like a slow one.
+          if (!navigator.connection || c.saveData || /2g|3g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
             if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
             return;
           }
