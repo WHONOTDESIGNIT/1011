@@ -259,6 +259,12 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ 3. HERO ═══ */
 .hero{position:relative;z-index:1;padding:141px 0 24px;overflow:visible;--hero-header-width:1843px;--hero-container-width:700px;--hero-container-left:calc(50vw - var(--hero-container-width));--hero-title-scale-threshold-factor:2.2;--hero-tablet-lock-width:700px;--hero-tablet-progress:0;--hero-video-overlap:0px}
+/* Phones: pre-set the width AND the left offset the measurement script computes, so
+   the first paint is already final and the .32s transition never fires. The left value
+   mirrors the script exactly: (vw - width)/2 minus the hero's own left padding, because
+   flex centering already supplies that half. Without this pair the container starts at
+   700px and reflows once JS runs: one 0.4457 CLS on the hero. */
+@media(max-width:698px){.hero{--hero-container-width:max(calc(100vw - 48px), 280px);--hero-container-left:max(calc((100vw - var(--hero-container-width)) / 2 - var(--pad-24)), 0px)}}
 .hero-wrapper{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto}
 .hero-white-container{position:relative;width:var(--hero-container-width);max-width:var(--hero-container-width);min-width:280px;margin-top:0;margin-left:var(--hero-container-left);z-index:3;overflow:visible;filter:drop-shadow(0 24px 48px rgba(2,3,3,.16));transition:width .32s ease,max-width .32s ease,margin-left .32s ease,filter .32s ease}
 .hero-white-container::before{content:"";position:absolute;inset:0;background:var(--color-white);z-index:0}
