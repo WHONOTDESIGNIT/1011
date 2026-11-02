@@ -249,3 +249,56 @@ The 15% is a trigger for reopening the investigation, not a per-section budget.
 Roughly 70 runs produced no code change. It did produce a short list of directions that
 are now known to be dead ends on this page - ticker, CSS rule count, Simple Analytics,
 web fonts, content-visibility - and a rule for what evidence would justify reopening.
+## Clarity deferral: tested on production, rejected, reverted
+
+Clarity's script was injected while the page was still parsing. It was moved to
+`load` + `requestIdleCallback`, with the stub kept in place so the consent bridge's
+`clarity('consentv2')` still queued.
+
+Baseline before the change, 5 runs, devtools throttling, cache disabled, same 25-minute
+window: Script Evaluation median 723ms (MAD 30), TBT 381ms (MAD 53), LCP 2663ms,
+CLS 0.0028.
+
+After the change, 5 runs the same way:
+
+```
+Script  723 -> 801 ms   (MAD 30 -> 133)
+TBT     381 -> 459 ms
+LCP    2663 -> 2744 ms
+CLS    0.0028 -> 0.0028
+```
+
+Acceptance had been fixed at Script < 673ms. It failed.
+
+### Why it failed, from bootup-time attribution
+
+`clarity.js` itself did not get cheaper: 133ms median before, 134ms after. The extra cost
+landed on GA4, which went from 288ms to 326ms median, and GA4's long tasks grew from
+about 180ms to 250-330ms.
+
+Both scripts now enter the same idle window after `load` and contend for the main thread.
+Deferring Clarity did not remove work; it moved work into a busier window. That is the
+general lesson: an analytics script's cost is not only its own execution time but when it
+runs relative to everything else.
+
+Reverted in `a666c012`, restoring parse-time injection so the 723ms baseline holds.
+
+### Verified while the change was live
+
+Clarity collection works end to end: `clarity.ms/tag/yymyby2wbc` 200, `clarity.js` 200,
+`j.clarity.ms/collect` 204, `window.clarity` replaced the stub, queue drained.
+
+GA4 could not be confirmed from headless: `google-analytics.com/g/collect` reported
+`net::ERR_ABORTED` on every load. This is a known headless artifact when the context
+closes, but it is not proof either way and needs a real-browser check before GA4 data is
+trusted.
+
+### Status
+
+| item | state |
+|---|---|
+| layout, CSS, script ownership investigations | closed |
+| Clarity deferral | rejected by experiment, reverted |
+| Clarity collection | verified |
+| GA4 collection | unverified, needs a real browser |
+| revert deployment and 5-run regression | pending owner |
