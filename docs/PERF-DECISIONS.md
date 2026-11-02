@@ -161,3 +161,91 @@ then changed geometry the inline set had already painted.
 If this is retried: the inline set has to cover the header's *measured* geometry, not
 just the selectors present in the static DOM, and the acceptance criterion should be
 CLS unchanged (0.0012), not FCP.
+## Layout investigation: closed
+
+Five hypotheses were tested against production with the same harness (4x CPU throttle,
+cache disabled, Playwright + CDP `Performance.getMetrics`). All were rejected.
+
+| Hypothesis | Test | Result |
+|---|---|---|
+| trust-bar ticker drives layout | count layouts with/without the display toggle | 24ms of layout per 10s (1.6% of the total) |
+| CSS rule count is the bottleneck | trace `UpdateLayoutTree` | 137 events, 229ms total, max 64ms |
+| `proxy.js` (Simple Analytics) causes the 206ms layout | abort the request, 2+2 runs | layout 537 -> 515ms, script 531 -> 529ms: noise |
+| web font swap causes reflow | abort all `.woff2` | layout got **worse**: 542 -> 669ms |
+| a single section is a hotspot | hide D1 (246 nodes) vs D2 (264) | INVALID — see below |
+
+### The one result that held
+
+Hiding all 13 sections below the hero, 5 interleaved pairs:
+
+```
+baseline          714, 470, 447, 527, 587  median 527ms
+sections hidden   376, 304, 442, 393, 365  median 376ms
+```
+
+**-151ms (-29%), no overlap** (max of the hidden arm 442 < min of the baseline 447). That
+establishes an aggregate contribution of the below-fold sections. It does **not**
+establish the cost of any individual section.
+
+### The D1/D2 experiment is invalid, not negative
+
+The 15-run interleaved bisect produced a baseline that drifted 164ms across five rounds
+(652 -> 488) while the apparent effect was 58ms. Paired deltas flipped sign (A-C went
+from +192 to -251). With 5 rounds and 3 positions the drift cannot be balanced. Recorded
+as INVALID: no evidence for D1, none against D2.
+
+### content-visibility: auto — rejected
+
+All 13 below-fold sections, mobile only, 5 pairs alternating:
+
+```
+baseline            median 745ms  MAD  33ms
+content-visibility  median 720ms  MAD 113ms    -25ms (-3%)
+```
+
+The 3% is inside the noise and the variance tripled (953ms and 846ms in two runs, worse
+than any baseline run). `RecalcStyleDuration` rose from 187-280ms to 222-314ms. CLS
+unchanged at 0.0015 in every run.
+
+### Constraints going forward
+
+- The hero width formula, layout switch and fade behaviour stay frozen. They cost the most
+  rounds to stabilise and CLS is 0.0012.
+- Do not remove content or navigation to shrink the DOM.
+- Do not split or refactor CSS without new profiling evidence.
+- Reopening this line requires a reproducible effect larger than ~15% with a measurement
+  design that controls baseline drift (paired A per round, or randomised order over 8+
+  rounds).
+
+### Where the remaining cost is
+
+Main-thread work on mobile production is roughly `Layout 1045ms`, `Other 1120ms`,
+`Rendering 957ms`, `Script 954ms` in a real-throttling trace. Layout has no identified
+hotspot. The next line of work is JavaScript: `ScriptDuration` 500-550ms and TBT
+swinging between 478 and 846ms across runs, before and after the Clarity deferral.
+## Ongoing performance regression policy
+
+The layout investigation is closed. The hero width formula, the layout switch and the
+fade behaviour stay frozen; CLS is 0.0012 and that took the most rounds to reach.
+
+For future homepage changes:
+
+1. Any new large section, card grid or nested Grid/Flex structure gets a mobile
+   performance regression check before merge.
+2. Use the frozen configuration: Lighthouse 13.6, Chrome headless, `--throttling-method=devtools`,
+   viewport 412x823, cache disabled, 5 runs, median.
+3. Investigate when median `LayoutDuration` rises more than 15% against the recorded
+   baseline (745ms full page, 376ms with the 13 sections hidden).
+4. Require a reproducible effect and a drift-controlled design before approving any
+   structural refactor. Five rounds of three conditions is not enough: the D1/D2 run
+   drifted 164ms against a 58ms effect.
+5. Do not remove content or navigation to improve a score.
+6. Reopen the layout line only when new evidence identifies a measurable opportunity.
+
+The 15% is a trigger for reopening the investigation, not a per-section budget.
+
+### What this closed investigation cost and bought
+
+Roughly 70 runs produced no code change. It did produce a short list of directions that
+are now known to be dead ends on this page - ticker, CSS rule count, Simple Analytics,
+web fonts, content-visibility - and a rule for what evidence would justify reopening.
