@@ -292,7 +292,10 @@ const uiText = {
 
   {posts.length ? (
     <>
-      <script type="application/json" id="blog-posts-data" set:html={JSON.stringify(posts)} />
+      {/* The client script (below) renders from title/excerpt/category/author/date/href/image
+          and searches title+category+excerpt+author. citableSummary is never read here, and at
+          ~594 chars per post it was 40% of a 118KB payload inlined into every /blog response. */}
+      <script type="application/json" id="blog-posts-data" set:html={JSON.stringify(posts.map(({ citableSummary, ...rest }) => rest))} />
       <script is:inline>
         (() => {
           const dataScript = document.getElementById('blog-posts-data');
