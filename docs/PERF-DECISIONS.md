@@ -223,3 +223,29 @@ Main-thread work on mobile production is roughly `Layout 1045ms`, `Other 1120ms`
 `Rendering 957ms`, `Script 954ms` in a real-throttling trace. Layout has no identified
 hotspot. The next line of work is JavaScript: `ScriptDuration` 500-550ms and TBT
 swinging between 478 and 846ms across runs, before and after the Clarity deferral.
+## Ongoing performance regression policy
+
+The layout investigation is closed. The hero width formula, the layout switch and the
+fade behaviour stay frozen; CLS is 0.0012 and that took the most rounds to reach.
+
+For future homepage changes:
+
+1. Any new large section, card grid or nested Grid/Flex structure gets a mobile
+   performance regression check before merge.
+2. Use the frozen configuration: Lighthouse 13.6, Chrome headless, `--throttling-method=devtools`,
+   viewport 412x823, cache disabled, 5 runs, median.
+3. Investigate when median `LayoutDuration` rises more than 15% against the recorded
+   baseline (745ms full page, 376ms with the 13 sections hidden).
+4. Require a reproducible effect and a drift-controlled design before approving any
+   structural refactor. Five rounds of three conditions is not enough: the D1/D2 run
+   drifted 164ms against a 58ms effect.
+5. Do not remove content or navigation to improve a score.
+6. Reopen the layout line only when new evidence identifies a measurable opportunity.
+
+The 15% is a trigger for reopening the investigation, not a per-section budget.
+
+### What this closed investigation cost and bought
+
+Roughly 70 runs produced no code change. It did produce a short list of directions that
+are now known to be dead ends on this page - ticker, CSS rule count, Simple Analytics,
+web fonts, content-visibility - and a rule for what evidence would justify reopening.
