@@ -178,9 +178,31 @@
 </script>
 <script async src="https://analytics.ahrefs.com/analytics.js" data-key="ZmxwmQzl6pN56zZcP5+8Ag"></script>
 <script is:inline>
+  // Clarity used to be injected while the page was still parsing, so its 25KB download and
+  // its 215ms of main-thread work landed on the first-screen path. Nothing above the fold
+  // needs it: the stub queues every call, including the consent bridge's
+  // clarity('consentv2'), and flushes them when the real script arrives.
+  // Now it loads after load + idle, or on first interaction, whichever comes first, once.
   (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    }
+    function later() {
+      if (window.requestIdleCallback) requestIdleCallback(start, { timeout: 2000 });
+      else setTimeout(start, 300);
+    }
+    if (document.readyState === 'complete') later();
+    else addEventListener('load', later, { once: true });
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+      addEventListener(ev, start, { once: true, capture: true, passive: true });
+    });
   })(window, document, "clarity", "script", "yymyby2wbc");
 </script>
