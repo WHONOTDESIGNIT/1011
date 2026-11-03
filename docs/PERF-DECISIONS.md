@@ -445,3 +445,48 @@ template departs from this pattern; or a reproducible, locatable execution hotsp
 
 From lab TBT to real-user data. The next step is an inventory of what user data already
 exists (CrUX, Search Console, GA4, server logs) before adding any new instrumentation.
+## CrUX data inventory: blocked by network, not absent
+
+Status: **not measured**. The execution environment cannot reach Google APIs, so this run
+proves nothing about whether the site has CrUX data.
+
+What was tried, all failing identically:
+
+```
+Test-NetConnection www.googleapis.com:443   -> False
+curl PSI API                                -> timed out after 120s, HTTP 000
+web_fetch PSI API                           -> fetch failed
+node fetch PSI API (4 URLs)                 -> fetch failed
+```
+
+This is the same egress restriction that has made github.com:443 unreachable all project;
+GitHub was worked around with ssh.github.com:443, which has no equivalent for Google APIs.
+
+### Why this is recorded as a fourth state
+
+Four outcomes were possible: URL-level data, origin-level only, explicitly no data, or not
+measured. "The query failed" is the fourth one. Recording it as "no data" would licence a
+decision - commissioning self-hosted RUM - on the strength of a network error rather than a
+measurement. Observability limits must not become architecture decisions.
+
+### Next step
+
+Check the four URLs by hand in the PageSpeed Insights web UI, which needs no key and no
+change to this machine:
+
+```
+https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fiplmanufacturer.com%2F
+https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fiplmanufacturer.com%2Fproducts%2Fvenus
+https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fiplmanufacturer.com%2Fabout
+https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fiplmanufacturer.com%2Fservices%2Foem-odm
+```
+
+Record URL-level and origin-level separately, and phone and desktop separately, with p75 for
+LCP, INP and CLS. Good thresholds are LCP <= 2.5s, INP <= 200ms, CLS <= 0.1.
+
+### Decision constraints until that runs
+
+- Do not record this network failure as "no CrUX data".
+- Do not commission RUM on the strength of a failed query.
+- Do not change code or infrastructure for this.
+- CrUX has no real-user TBT. Lab TBT and field INP stay separate.
