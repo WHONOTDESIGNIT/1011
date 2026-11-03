@@ -302,3 +302,55 @@ trusted.
 | Clarity collection | verified |
 | GA4 collection | unverified, needs a real browser |
 | revert deployment and 5-run regression | pending owner |
+## Product detail: archived as not established
+
+The product template was the next target after the blog listing. Six hypotheses were tested
+and none survived:
+
+| hypothesis | test | result |
+|---|---|---|
+| hidden panels are the cost | DOM audit of every `display:none` / `aria-hidden` / closed `details` | 335 of 1,739 nodes (19%), and 170 of those are the shared mobile menu |
+| redundant wrapper divs | counted single-child same-tag wrapper chains inside `main` | 2 |
+| image strategy | audited `loading`, dimensions, in-viewport | 1 eager hero image, 5 lazy thumbnails, 4 lazy off-screen; already correct |
+| the 129-row rate table | classified the tables | two shipping methods (DDP 33 markets, standard air 94), not "main vs rest"; 21 markets appear in both |
+| JavaScript is heavier | CPU profile, 4x throttle, 9s window, product vs home | product is *lighter*: program 1534 vs 1785ms, clarity 160 vs 164, Simple Analytics 61 vs 66, page scripts 35 vs 15 |
+| layout/parse is heavier | same profile | product's `program` bucket is 251ms smaller than the home page's |
+
+The tables are still 645 of `main`'s 1,115 nodes and 35.7 KB, which is real, but folding
+them was rejected on correctness grounds before it was rejected on performance grounds: the
+94-row table is non-DDP freight, it overlaps the DDP table rather than supplementing it, and
+21 of its destinations are core markets (Brazil, India, Saudi Arabia, UAE, South Korea).
+
+### The desktop measurement that settles it
+
+Same page, same DOM, 5 runs, `--preset=desktop`, devtools throttling:
+
+```
+score 82 (MAD 2)   FCP 1672   LCP 1978   TBT 0 (MAD 0)   Script 127   Layout 282
+```
+
+A page whose mobile TBT reads 843ms produces **zero** blocking time on desktop. Whatever the
+843ms is, it is not a fixed cost of this page's code or DOM; it only appears when the CPU is
+throttled to a mobile profile.
+
+### Status: not established, not fixed
+
+- extra CPU cost on mobile: **not found**
+- DOM delta: **present** (689 nodes), **not reflected** in main-thread time
+- the TBT gap (843 mobile vs 336 home): **unexplained**
+- viable optimisation: **none identified**
+
+**Reopening condition:** an actual Lighthouse trace of the mobile run, or a reproducible
+hotspot from a profiler run aligned to the TBT window.
+
+### Method note: the profile window is not the TBT window
+
+The CPU profile covers a fixed 9 seconds; TBT counts long tasks between FCP and TTI. So the
+correct statement is "the profile does not show additional work", not "the page has no
+additional work". Keeping that distinction is what stopped this line from producing a
+speculative change.
+
+### Principle
+
+Do not infer extra cost from a metric difference. Find the work or the hotspot that explains
+the difference first. Changing code is not progress.
