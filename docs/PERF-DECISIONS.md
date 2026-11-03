@@ -399,3 +399,49 @@ speculative change.
 
 Do not infer extra cost from a metric difference. Find the work or the hotspot that explains
 the difference first. Changing code is not progress.
+
+## Page-type level conclusion: the mobile TBT gap is a throttle effect
+
+Four templates measured with the same protocol (devtools throttling, 4x CPU, cache
+disabled, 5 runs each, medians):
+
+| template | mobile TBT | desktop TBT | mobile Layout | desktop Layout |
+|---|---|---|---|---|
+| home | 336 | - | - | - |
+| product detail | 843 | **0** (MAD 0) | 1296 | 282 |
+| about | 189 | **0** (MAD 0) | 1068 | 216 |
+| service detail | 331 | **0** (MAD 0) | 1158 | 214 |
+
+Desktop TBT is zero in 15 of 15 runs across three templates. Mobile TBT ranges 189-843ms
+and rises with DOM size, but content volume and page complexity rise with it too, so that
+correlation is not a causal claim.
+
+### Conclusion
+
+Under this site's stack and this test configuration, the measured content templates show a
+consistent device difference:
+
+- mobile (4x CPU throttle): TBT 189-843ms
+- desktop: TBT 0ms in 5 of 5 runs on every template
+- mobile Layout is 4-5x desktop Layout
+
+**Decision: stop per-template TBT investigation. Stop optimising for lab TBT.**
+
+No template-specific hotspot has been found that explains the difference. The gap tracks
+the CPU throttling condition; the specific cause - HTML parsing, style calculation, layout,
+task packaging, or something else - has not been verified from a raw trace.
+
+### What this conclusion does not say
+
+- It does not say mobile has no performance problem. If real-user INP p75 is poor, there is
+  a problem regardless of what these lab numbers show.
+- It does not generalise to untested templates or to real devices.
+- It does not claim causality between DOM size and TBT.
+
+**Reopening conditions:** CrUX or RUM shows a real interaction or loading problem; a new
+template departs from this pattern; or a reproducible, locatable execution hotspot appears.
+
+### Where the decision authority moves
+
+From lab TBT to real-user data. The next step is an inventory of what user data already
+exists (CrUX, Search Console, GA4, server logs) before adding any new instrumentation.
