@@ -3547,7 +3547,7 @@
     },
     "ddpShipping": {
       "heading": "Tariffe di spedizione DDP",
-      "intro": "Spedizione DDP (senza dazi) per singola unità verso i mercati indicati di seguito. La tariffa mostrata è il totale per unità e include dazi e imposte, quindi il destinatario non paga nulla alla consegna.",
+      "intro": "Spedizione DDP (dazi e imposte inclusi) per singola unità verso i mercati indicati di seguito. La tariffa mostrata è il totale per unità e include dazi e imposte, quindi il destinatario non paga nulla alla consegna.",
       "colMarket": "Destinazione",
       "colRate": "Tariffa DDP (USD)",
       "colDays": "Tempi di transito",
@@ -3563,7 +3563,7 @@
     },
     "airShipping": {
       "heading": "Costo della spedizione aerea express",
-      "intro": "Tariffa di spedizione aerea express indicativa per dispositivo, spedito singolarmente, per mercato di destinazione. I tempi di transito sono in giorni lavorativi dopo la spedizione.",
+      "intro": "Tariffa di spedizione aerea express indicativa per dispositivo, spedito singolarmente, per mercato di destinazione. I tempi di transito sono in giorni lavorativi dopo la spedizione. Le tariffe escludono dazi e imposte, da pagare all'arrivo; le condizioni DDP sono nella tabella sopra.",
       "colRate": "Tariffa (USD)",
       "bulkNote": "Gli ordini all'ingrosso cambiano questa aritmetica. Consolidi 50 unità in un'unica spedizione e il costo di spedizione per unità di solito scende sotto i 6–8 USD. La spedizione marittima con DDP lo riduce ulteriormente.",
       "notAvailable": "La spedizione aerea express non è disponibile per {market} al momento."

@@ -268,8 +268,14 @@ a{text-decoration:none;color:inherit}
 .hero-wrapper{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0;width:100%;max-width:var(--max-w-page, 1843px);margin:0 auto}
 .hero-white-container{position:relative;width:var(--hero-container-width);max-width:var(--hero-container-width);min-width:280px;margin-top:0;margin-left:var(--hero-container-left);z-index:3;overflow:visible;filter:drop-shadow(0 24px 48px rgba(2,3,3,.16));transition:width .32s ease,max-width .32s ease,margin-left .32s ease,filter .32s ease}
 .hero-white-container::before{content:"";position:absolute;inset:0;background:var(--color-white);z-index:0}
-.hero-content-card{position:relative;z-index:4;padding:40px 40px 34px;display:flex;flex-direction:column;gap:24px;animation:fadeIn .8s ease-out forwards}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-content-card{position:relative;z-index:4;padding:40px 40px 34px;display:flex;flex-direction:column;gap:24px;animation:fadeInUp .8s ease-out forwards}
+/* Opacity starts at 1: the hero heading is the LCP element, and a 0 -> 1 fade keeps it
+   out of largest-contentful-paint candidacy until the animation ends. Production trace:
+   fonts ready 1833ms, LCP 2660ms - 827ms, the animation duration. Judgement fixed before
+   the change: if a real-throttling trace moves LCP to ~1860-2000ms the fade was the gate
+   and this stays; if LCP does not move the fade is innocent and the gate is elsewhere
+   (the hero first entering the render tree). */
+@keyframes fadeInUp{from{transform:translateY(20px)}to{transform:translateY(0)}}
 .hero.hero-layout-desktop .hero-white-container{clip-path:url(#heroClipPc)}
 .hero.hero-layout-tablet .hero-white-container{clip-path:url(#heroClipTablet);filter:drop-shadow(0 18px 36px rgba(2,3,3,.14))}
 .hero.hero-layout-mobile .hero-white-container{clip-path:url(#heroClipMobile);filter:drop-shadow(0 18px 36px rgba(2,3,3,.14))}
@@ -286,7 +292,9 @@ a{text-decoration:none;color:inherit}
   .hero{display:flex;flex-direction:row;align-items:flex-start;padding-left:var(--pad-40);padding-right:var(--pad-40);gap:20px}
   .hero-white-container{margin-left:0 !important;flex-shrink:0;width:420px;max-width:420px}
   .hero-wrapper{flex:1 1 0;min-width:0;max-width:none;margin:0}
-  .hero-wrapper .video-section{margin-top:0;max-width:80%;margin-left:auto;margin-right:auto}
+  /* No .video-section rules here: that element renders from HeroVideo.astro and carries
+     no data-astro-cid, so anything scoped to this file can never match it. The column
+     width now lives in HeroVideo.astro's global block. */
 }
 @media(min-width:1280px){
   /* 破框全宽：Hero 区块突破 1843px 容器限制，背景与装饰延伸至屏幕边缘（develo 风格开阔布局）；
@@ -333,7 +341,10 @@ a{text-decoration:none;color:inherit}
 .btn-secondary:hover .btn-book-arrow{width:16px}
 
 /* Video */
-.video-section{position:relative;z-index:2;width:100%;max-width:960px;margin-top:calc(var(--hero-video-overlap) * -1)}
+/* .video-section is not styled here: it renders from HeroVideo.astro, which carries no
+   data-astro-cid, so a selector scoped to this file never matches. Column width lives in
+   HeroVideo.astro's global block. The .video-placeholder rules below have the same scope
+   problem and are kept only until that block is audited as a whole. */
 .video-placeholder{position:relative;width:100%;overflow:hidden;border-radius:20px;background:var(--color-gray-200)}
 .video-placeholder video{display:block;width:100%;height:auto;object-fit:cover;border-radius:20px}
 .video-control{position:absolute;top:12px;right:12px;z-index:3;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(2,3,3,.55);color:var(--color-white);border:none;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .2s,opacity .2s}
