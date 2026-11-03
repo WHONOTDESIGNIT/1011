@@ -1783,7 +1783,7 @@
     "ddpShipping": {
       "heading": "DDP-Versandtarife",
       "intro": "DDP-Versand (verzollt und versteuert) pro Einzelstück in die unten aufgeführten Märkte. Der angegebene Tarif ist der Gesamtpreis pro Stück und enthält Zölle und Steuern – der Empfänger zahlt bei der Lieferung nichts.",
-      "colMarket": "Zielmarkt",
+      "colMarket": "Zielland",
       "colRate": "DDP-Tarif (USD)",
       "colDays": "Transportzeit",
       "colOnTime": "Pünktlichkeitsrate",
@@ -1798,7 +1798,7 @@
     },
     "airShipping": {
       "heading": "Kosten für Express-Luftversand",
-      "intro": "Richtwerte für Express-Luftfracht pro Gerät, das einzeln versandt wird, nach Zielmarkt. Die Transportzeiten sind Werktage nach dem Versand.",
+      "intro": "Richtwerte für Express-Luftfracht pro Gerät, das einzeln versandt wird, nach Zielmarkt. Die Transportzeiten sind Werktage nach dem Versand. Die Tarife verstehen sich ohne Zölle und Steuern, die bei Ankunft zu zahlen sind; DDP-Konditionen stehen in der Tabelle oben.",
       "colRate": "Tarif (USD)",
       "bulkNote": "Bei Mengenbestellungen ändert sich diese Rechnung. Bündeln Sie 50 Stück in einer Sendung, und die Fracht pro Stück liegt in der Regel unter USD 6 bis 8. Seefracht unter DDP senkt das weiter.",
       "notAvailable": "Express-Luftversand ist derzeit für {market} nicht verfügbar."

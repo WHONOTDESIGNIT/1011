@@ -2064,7 +2064,7 @@
       "intro": "Envio DDP (com impostos inclusos) de unidades avulsas para os mercados abaixo. A tarifa indicada é o total por unidade e já inclui tributos e impostos, então o destinatário não paga nada na entrega.",
       "colMarket": "Destino",
       "colRate": "Tarifa DDP (USD)",
-      "colDays": "Prazo de entrega",
+      "colDays": "Prazo de trânsito",
       "colOnTime": "Taxa de pontualidade",
       "daysUnit": "dias úteis",
       "unsupportedHeading": "Mercados sem serviço DDP",
@@ -2077,7 +2077,7 @@
     },
     "airShipping": {
       "heading": "Custo do Envio Aéreo Expresso",
-      "intro": "Frete aéreo expresso indicativo por aparelho, enviado individualmente, por mercado de destino. Os prazos de trânsito são em dias úteis após o envio.",
+      "intro": "Frete aéreo expresso indicativo por aparelho, enviado individualmente, por mercado de destino. Os prazos de trânsito são em dias úteis após o envio. As tarifas não incluem impostos e taxas de importação, pagos na chegada; as condições DDP estão na tabela acima.",
       "colRate": "Tarifa (USD)",
       "bulkNote": "Os pedidos no atacado mudam essa aritmética. Consolide 50 unidades em um único envio e o frete por unidade costuma ficar abaixo de USD 6 a 8. O transporte marítimo com DDP reduz ainda mais.",
       "notAvailable": "O envio aéreo expresso não está disponível para {market} no momento."
