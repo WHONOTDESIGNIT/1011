@@ -31,24 +31,10 @@ const { withControls = false } = Astro.props;
     >
       <source src="/videos/head-video.mp4" type="video/mp4" />
     </video>
-    {
-      withControls && (
-        <button class="video-control" type="button" aria-label="Pause" aria-pressed="false">
-          <svg class="icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <rect x="3" y="2" width="4" height="12" rx="1" />
-            <rect x="9" y="2" width="4" height="12" rx="1" />
-          </svg>
-          <svg class="icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M5 2.5v11a.8.8 0 0 0 1.22.68l8.5-5.5a.8.8 0 0 0 0-1.36l-8.5-5.5A.8.8 0 0 0 5 2.5z" />
-          </svg>
-        </button>
-      )
-    }
     <script is:inline>
       (function () {
         var video = document.querySelector('.video-placeholder video');
         if (!video) return;
-        var btn = document.querySelector('.video-control');
         var started = false;
         function play() {
           started = true;
@@ -62,7 +48,6 @@ const { withControls = false } = Astro.props;
           // check below passes: without this line they autoplay 494KB unconditionally.
           // Unknown network is treated like a slow one.
           if (!navigator.connection || c.saveData || /2g|3g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            if (btn) { btn.classList.add('is-paused'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Play'); }
             return;
           }
           play();
@@ -76,20 +61,6 @@ const { withControls = false } = Astro.props;
         else addEventListener('load', later, { once: true });
         // 兜底：某个第三方脚本的请求挂住时 load 可能迟迟不来，6s 后照样放（用户已手动操作过就不再管）
         setTimeout(function () { if (!started) auto(); }, 6000);
-        if (!btn) return;
-        btn.addEventListener('click', function () {
-          if (video.paused) {
-            play();
-            btn.classList.remove('is-paused');
-            btn.setAttribute('aria-pressed', 'false');
-            btn.setAttribute('aria-label', 'Pause');
-          } else {
-            video.pause();
-            btn.classList.add('is-paused');
-            btn.setAttribute('aria-pressed', 'true');
-            btn.setAttribute('aria-label', 'Play');
-          }
-        });
       })();
     </script>
   </div>
