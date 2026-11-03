@@ -450,17 +450,20 @@ exists (CrUX, Search Console, GA4, server logs) before adding any new instrument
 Status: **not measured**. The execution environment cannot reach Google APIs, so this run
 proves nothing about whether the site has CrUX data.
 
-What was tried, all failing identically:
+This environment has partial outbound access. Reachable and verified: `iplmanufacturer.com`,
+`ssh.github.com:443`, `www.corewebvitals.com` (200 in 0.85s). Not reachable: `www.googleapis.com`
+and `pagespeed.web.dev` (both time out at the connection level, HTTP 000, with or without
+`--ssl-no-revoke`).
 
-```
-Test-NetConnection www.googleapis.com:443   -> False
-curl PSI API                                -> timed out after 120s, HTTP 000
-web_fetch PSI API                           -> fetch failed
-node fetch PSI API (4 URLs)                 -> fetch failed
-```
+So this is domain-selective filtering, not a dead machine. Two side notes worth recording so
+nobody re-investigates them:
 
-This is the same egress restriction that has made github.com:443 unreachable all project;
-GitHub was worked around with ssh.github.com:443, which has no equivalent for Google APIs.
+- An early control request to `www.corewebvitals.com` failed with
+  `CRYPT_E_REVOCATION_OFFLINE`. That is Windows certificate-revocation checking on this host,
+  not a problem with any site's certificate; `--ssl-no-revoke` returned 200 immediately. Do
+  not file it as a site HTTPS fault.
+- `www.corewebvitals.com` being reachable does **not** mean it can serve this site's CrUX
+  data. Its availability is not a substitute for a PSI or CrUX query.
 
 ### Why this is recorded as a fourth state
 
@@ -490,3 +493,26 @@ LCP, INP and CLS. Good thresholds are LCP <= 2.5s, INP <= 200ms, CLS <= 0.1.
 - Do not commission RUM on the strength of a failed query.
 - Do not change code or infrastructure for this.
 - CrUX has no real-user TBT. Lab TBT and field INP stay separate.
+### Phase close
+
+The laboratory performance work is closed at this point. Everything measured, decided and
+rejected is recorded above; nothing is left half-investigated.
+
+| item | state |
+|---|---|
+| home mobile / desktop | done, archived |
+| blog listing payload | shipped, -40% brotli |
+| blog listing TBT signal | logged, unexplained |
+| product detail | frozen, no hotspot found |
+| page-type level conclusion | recorded; desktop TBT 0 in 15/15 runs |
+| shipping copy corrections | shipped in 3 commits |
+| CrUX field data | **not measured**, domain-blocked |
+| self-hosted RUM | **not commissioned** |
+
+Restart conditions, unchanged: a working data channel for field metrics, a real-user
+performance complaint, a new template departing from the measured pattern, or a reproducible
+and locatable execution hotspot.
+
+The thing worth keeping from this phase is not a number. It is the order of operations: find
+the cost before changing the code, and do not convert an observation limit into an
+architecture decision.
