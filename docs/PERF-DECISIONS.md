@@ -302,3 +302,47 @@ trusted.
 | Clarity collection | verified |
 | GA4 collection | unverified, needs a real browser |
 | revert deployment and 5-run regression | pending owner |
+## Blog listing payload: citableSummary removed
+
+`/blog` inlined every post as JSON (`#blog-posts-data`) for the client-side search and
+render. The client reads title, excerpt, category, author, date, href and image; it
+searches title + category + excerpt + author. `citableSummary` is never read on that page.
+
+At roughly 594 characters per post it was 47.4 KB of a 118 KB blob, i.e. 40% of the blob
+and 20% of the whole page. It is now stripped at serialisation time, in
+`src/pages/blog/index.astro`. The source data is untouched: the field still exists in the
+content collection and is still used by the article pages and by llms.txt.
+
+Measured on the build:
+
+```
+raw HTML    238.0 -> 188.8 KB      (production, after deploy)
+payload     118.0 ->  68.7 KB
+brotli q11   58.0 ->  34.8 KB      (-23.2 KB, -40%)
+```
+
+104 posts, every card link, the category filters and the search behave the same; verified
+on /blog, /de/blog, /ja/blog and /ar/blog after deploy.
+
+### What the numbers do not say
+
+The pre-change baseline was 3 runs, one of them a network outlier (LCP 5279), and the
+post-change set is 5 runs. Do not read the median difference as the effect of this change:
+
+```
+before   LCP 5279, 2813, 3387   median 3387
+after    LCP 3047, 2870, 2498, 2487, 2497   median 2498 (MAD 10)
+```
+
+Against the before median that is 889ms; against the best before run it is 315ms. The
+defensible statement is: the payload is 40% smaller, which is deterministic, and LCP is
+now stable at 2498ms with a MAD of 10ms. A causal estimate would need a 5-run before
+baseline taken in the same window, which this did not have.
+
+### Open signal, not explained
+
+TBT moved from 145ms to 345ms and Script Evaluation from 421ms to 572ms across the same
+comparison. The before side is 3 runs and the after TBT has a MAD of 106ms, so this is not
+attributable either way. It is logged as a signal to investigate rather than a regression,
+and the next work on this template should start with per-script attribution, not with more
+payload trimming.
