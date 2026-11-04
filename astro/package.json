@@ -22,7 +22,9 @@
     "check:claims-parity": "node scripts/check-claims-parity.mjs",
     "baseline:measure": "node scripts/measure-baseline.mjs",
     "selftest:redirects": "node scripts/selftest-redirects-check.mjs",
-    "check:meta-length": "node scripts/check-meta-length.mjs"
+    "check:meta-length": "node scripts/check-meta-length.mjs",
+    "check:claims-messages": "node scripts/check-claims-messages.mjs",
+    "check:claims": "node scripts/check-claims-parity.mjs && node scripts/check-claims-messages.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
