@@ -14,7 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const BLOG = path.resolve(__dirname, '../src/content/blog');
+const BLOG = process.env.CLAIMS_BLOG_DIR || path.resolve(__dirname, '../src/content/blog');
 const ALLOWLIST = path.join(__dirname, 'claims-parity.json');
 const WRITE_ALLOWLIST = process.argv.includes('--write-allowlist');
 

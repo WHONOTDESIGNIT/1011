@@ -17,7 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST = path.resolve(__dirname, '../dist');
+const DIST = process.env.CLAIMS_DIST_DIR || path.resolve(__dirname, '../dist');
 
 const LOCALES = ['ar','cs','de','el','es','fa','fr','he','id','it','ja','ko','nl','pl','pt-BR','pt-PT','ro','ru','th','tr','vi'];
 const TOP = new Set(LOCALES);

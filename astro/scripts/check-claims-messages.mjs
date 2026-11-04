@@ -17,7 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const MESSAGES = path.resolve(__dirname, '../messages');
+const MESSAGES = process.env.CLAIMS_MESSAGES_DIR || path.resolve(__dirname, '../messages');
 const ALLOWLIST = path.join(__dirname, 'claims-parity.json');
 
 const TRACKED_NUMBERS =
