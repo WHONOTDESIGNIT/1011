@@ -28,6 +28,9 @@ const FAMILY_OF = {
   ANSI: 'ANSI', JIS: 'JIS', KS: 'KS', GB: 'GB', UL: 'UL', BS: 'BS',
 };
 
+// Non-global, so .test() has no lastIndex state. Used only as a cheap pre-filter.
+const QUICK_NUMBER = /(13485|60335|62471|55014|60601|62133|14971|10993)/;
+
 const normalise = (s) => s.toUpperCase().replace(/\s+/g, ' ').replace(/[.,;:)]+$/, '').trim();
 
 function standardsOf(text) {
@@ -66,8 +69,10 @@ for (const locale of locales) {
     if (typeof enValue !== 'string') continue;
     const locValue = loc[key];
     if (typeof locValue !== 'string') continue;
-    if (!TRACKED_NUMBERS.test(enValue) && !TRACKED_NUMBERS.test(locValue)) continue;
-    TRACKED_NUMBERS.lastIndex = 0;
+    // TRACKED_NUMBERS carries /g, so .test() advances lastIndex and makes this pre-filter
+    // stateful: the same input gave 756 compared keys on one run and 168 on the next.
+    // Use a fresh non-global copy so the scan is deterministic.
+    if (!QUICK_NUMBER.test(enValue) && !QUICK_NUMBER.test(locValue)) continue;
     compared++;
     const enStd = standardsOf(enValue);
     const locStd = standardsOf(locValue);
