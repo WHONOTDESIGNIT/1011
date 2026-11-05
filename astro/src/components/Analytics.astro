@@ -142,7 +142,10 @@
     'submit',
     function (e) {
       var f = e.target;
-      if (!f || !f.matches || !f.matches('form[data-netlify]')) return;
+      // The contact form posts to Netlify's /__forms/ endpoint and registers by name, so it
+      // carries no data-netlify attribute. Matching only the attribute meant generate_lead
+      // never fired; verified on production 2026-11-04.
+      if (!f || !f.matches || !f.matches('form[data-netlify], form[action*="__forms"]')) return;
       gtag('event', 'generate_lead', {
         form_name: f.getAttribute('name') || 'contact',
         page_locale: (document.documentElement && document.documentElement.lang) || ''
