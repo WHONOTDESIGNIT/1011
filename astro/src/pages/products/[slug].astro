@@ -489,6 +489,20 @@ const productGallery = product.gallery.map((image) => responsiveImageSources(ima
 const heroImageSources = responsiveImageSources(product.heroImage, [400, 800, 1200], 1200);
 const displayPricing = getDisplayPricing(product);
 
+// 气球实验 GIF：每个机型一段实拍（暗气球被击破、透明气球不受影响），均 <500 KB。
+// 文案见 messages/<locale>.json 的 productDetail.balloon.*（22 语种）。
+// width/height 是编码后的真实像素，用于占位避免 CLS。
+const BALLOON_GIF: Record<string, { src: string; width: number; height: number }> = {
+  euno: { src: '/images/products/Euno/euno-balloon-experiment.gif', width: 440, height: 248 },
+  helix: { src: '/images/products/Helix/helix-balloon-experiment.gif', width: 440, height: 248 },
+  alpha: { src: '/images/products/Alpha/alpha-balloon-experiment.gif', width: 380, height: 214 },
+  emerald: { src: '/images/products/Emerald/emerald-balloon-experiment.gif', width: 420, height: 236 },
+  venus: { src: '/images/products/Venus/venus-balloon-experiment.gif', width: 380, height: 214 },
+  hestia: { src: '/images/products/Hestia/hestia-balloon-experiment.gif', width: 420, height: 236 },
+  hebe: { src: '/images/products/Hebe/hebe-balloon-experiment.gif', width: 380, height: 214 },
+};
+const balloonGif = BALLOON_GIF[slug];
+
 const pageTitle = product.name;
 const pageDescription = product.description;
 // 语言化 canonical：早期硬编码英文路径导致 21 个语种的产品页全部 canonical 到 /products/<slug>，
@@ -857,6 +871,34 @@ const productSchema = {
         </div>
       </div>
     </section>
+
+    {/* 气球实验：紧接主产品区，用实拍说明脉冲光被色素吸收（暗气球破、透明气球不破）。
+        仅配了 GIF 的 7 个机型渲染；文案见 messages/<locale>.json 的 productDetail.balloon.*。 */}
+    {balloonGif && (
+      <section class="space-y-8">
+        <div class="max-w-3xl">
+          <div class="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700">{t(locale, 'productDetail.balloon.kicker')}</div>
+          <h2 class="mt-3 text-3xl font-bold text-ink-900 md:text-4xl">{t(locale, 'productDetail.balloon.heading')}</h2>
+          <p class="mt-4 text-lg leading-relaxed text-neutral-700">{t(locale, 'productDetail.balloon.intro')}</p>
+        </div>
+        <figure class="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm md:p-6">
+          <img
+            src={balloonGif.src}
+            alt={t(locale, 'productDetail.balloon.figureAlt')}
+            width={balloonGif.width}
+            height={balloonGif.height}
+            loading="lazy"
+            decoding="async"
+            class="mx-auto h-auto w-full max-w-[560px] rounded-lg"
+          />
+          <figcaption class="mt-4 text-sm text-neutral-500">{t(locale, 'productDetail.balloon.note')}</figcaption>
+        </figure>
+        <div class="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <h3 class="text-xl font-semibold text-ink-900">{t(locale, 'productDetail.balloon.safetyTitle')}</h3>
+          <p class="mt-3 leading-relaxed text-neutral-700">{t(locale, 'productDetail.balloon.safetyBody')}</p>
+        </div>
+      </section>
+    )}
 
     {/* 肤色与毛发适配性：紧接规格/颜色区，先给结论再讲机理（借鉴 Philips 的科普式讲法）。
         仅 IPL 机型渲染；LED 光疗品类见上方 LED_SLUGS 的说明。 */}
