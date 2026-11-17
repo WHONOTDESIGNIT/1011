@@ -131,20 +131,35 @@ export function findChainedTargets(rules) {
 
 /**
  * 410 挡在一条既有通配 301 前面 —— 会让本该被 301 的路径变成 410。
- * 例：/es-ES/blog 410 排在 /es-ES/:splat → /es/:splat 301! 之前，就把语言映射打断了。
+ * 但只有"通配真的能送到一个活页面"时才算冲突：若替换后的目标在产物里不存在，
+ * 通配本身只会把请求送进 404，此时 410 反而是唯一正确的结果。
  */
-export function findBlockedWildcards(rules) {
+export function findBlockedWildcards(rules, distDir) {
   const out = [];
   const head = (p) => p.split(':splat')[0].split('*')[0];
+  const lands = (target) => {
+    if (!distDir) return true; // 没有产物可查时按冲突处理，宁可报警
+    const rel = target.replace(/^\//, '');
+    if (!rel) return true;
+    return (
+      fs.existsSync(path.join(distDir, `${rel}.html`)) ||
+      fs.existsSync(path.join(distDir, rel, 'index.html'))
+    );
+  };
   for (let i = 0; i < rules.length; i++) {
     const w = rules[i];
     if (!w.status.startsWith('301')) continue;
     if (!w.from.includes(':splat') && !w.from.includes('*')) continue;
+    const pre = head(w.from);
     for (let j = 0; j < i; j++) {
       const e = rules[j];
       if (e.from.includes(':splat') || e.from.includes('*')) continue;
       if (!e.status.startsWith('410')) continue;
-      if (e.from.startsWith(head(w.from))) out.push({ from: e.from, blocks: w.from, line: e.line });
+      if (!e.from.startsWith(pre)) continue;
+      const splat = e.from.slice(pre.length);
+      const target = w.to.includes(':splat') ? w.to.replace(':splat', splat) : w.to;
+      if (!lands(target)) continue; // 通配自己也到不了页面，不算被 410 挡
+      out.push({ from: e.from, blocks: w.from, wouldGoTo: target, line: e.line });
     }
   }
   return out;
@@ -162,7 +177,7 @@ export function auditRedirects(body, distDir) {
     loops,
     multiHop: chains,
     chainedTargets: findChainedTargets(rules),
-    blockedWildcards: findBlockedWildcards(rules),
+    blockedWildcards: findBlockedWildcards(rules, distDir),
     missingTargets: findMissingTargets(rules, distDir, (p) => fromSet.has(p)),
   };
 }

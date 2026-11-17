@@ -259,7 +259,10 @@ function buildRedirects(dist) {
       if (d === 'keep_404' || d === 'defer') { held++; continue; }
       if (d !== '301' && d !== '410') continue;
       if (have.has(r.old_url)) { dup++; continue; } // 与手写规则/退役 slug 规则去重
-      rules.push(d === '301' ? `${r.old_url} ${r.new_url} 301!` : `${r.old_url} 410`);
+      // 410 必须写成三字段 `FROM /404.html 410`。两字段的 `FROM 410` 在 Netlify 上被当作
+      // "重写到名为 410 的路径"，目标文件不存在 -> 落入末尾兜底，线上实测全部返回 404 而非 410。
+      // 三字段与站内唯一验证过的 `/* /404.html 404` 同构。
+      rules.push(d === '301' ? `${r.old_url} ${r.new_url} 301!` : `${r.old_url} /404.html 410`);
       have.add(r.old_url);
       added++;
     }
