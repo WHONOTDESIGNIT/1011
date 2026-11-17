@@ -334,6 +334,7 @@ if (rules.length > 0) {
       ['被通配遮蔽', audit.shadowed],
       ['回环', audit.loops],
       ['301 目标不存在', audit.missingTargets],
+      ['301 目标二跳', audit.chainedTargets],
     ].filter(([, arr]) => arr.length);
     if (problems.length) {
       console.error('❌ _redirects 判定未通过：');
@@ -343,7 +344,7 @@ if (rules.length > 0) {
       }
       process.exit(1);
     }
-    console.log(`🔎 _redirects 判定通过：${audit.total} 条，重复/遮蔽/回环/目标缺失均为 0`);
+    console.log(`🔎 _redirects 判定通过：${audit.total} 条，重复/遮蔽/回环/目标缺失/二跳均为 0`);
   console.log(`📄 已生成 _redirects（${rules.length} 条规则，通配符压缩方案）`);
 }
 

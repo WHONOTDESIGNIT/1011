@@ -95,8 +95,7 @@ export function findLoops(rules) {
 }
 
 /** 301/200 的目标必须能落到产物：dist 里有对应 .html，或它本身又被其他规则接管。 */
-export function findMissingTargets(rules, distDir, hasRuleFor) {
-  const out = [];
+export function findMissingTargets(rules, distDir, hasRuleFor) {  const out = [];
   for (const r of rules) {
     if (!r.status.startsWith('301') && !r.status.startsWith('200')) continue;
     if (r.to.includes(':splat') || r.to.includes('*')) continue;
@@ -113,6 +112,23 @@ export function findMissingTargets(rules, distDir, hasRuleFor) {
   return out;
 }
 
+/**
+ * 301 的目标本身又是一条 **301** 的来源 —— 用户会被连跳两次。
+ * 注意：目标被 200 重写规则接管是正常的（/pt-BR → /pt-br → /pt-br.html 200 对客户端
+ * 只算一次 301），只有 301→301 才是真二跳。
+ */
+export function findChainedTargets(rules) {
+  const byFrom = new Map();
+  for (const r of rules) byFrom.set(r.from, r);
+  const out = [];
+  for (const r of rules) {
+    if (!r.status.startsWith('301')) continue;
+    const next = byFrom.get(r.to);
+    if (next && next.status.startsWith('301')) out.push({ from: r.from, to: r.to, line: r.line });
+  }
+  return out;
+}
+
 /** 一次性跑全部判定。 */
 export function auditRedirects(body, distDir) {
   const rules = parseRules(body);
@@ -124,6 +140,7 @@ export function auditRedirects(body, distDir) {
     shadowed: findShadowed(rules),
     loops,
     multiHop: chains,
+    chainedTargets: findChainedTargets(rules),
     missingTargets: findMissingTargets(rules, distDir, (p) => fromSet.has(p)),
   };
 }
@@ -140,8 +157,9 @@ if (process.argv[1] && process.argv[1].endsWith('redirects-check.mjs') && proces
   show('被通配遮蔽', r.shadowed);
   show('回环', r.loops);
   show('301 目标不存在', r.missingTargets);
+  show('301 目标二跳', r.chainedTargets);
   console.log(`ℹ️  多跳链: ${r.multiHop.length}`);
-  for (const [name, arr] of [['重复', r.duplicates], ['遮蔽', r.shadowed], ['回环', r.loops], ['目标缺失', r.missingTargets]]) {
+  for (const [name, arr] of [['重复', r.duplicates], ['遮蔽', r.shadowed], ['回环', r.loops], ['目标缺失', r.missingTargets], ['目标二跳', r.chainedTargets]]) {
     for (const x of arr.slice(0, 10)) console.log(`   [${name}] ${x.line || JSON.stringify(x)}`);
   }
 }
