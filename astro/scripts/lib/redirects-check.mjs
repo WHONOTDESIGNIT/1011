@@ -129,6 +129,27 @@ export function findChainedTargets(rules) {
   return out;
 }
 
+/**
+ * 410 挡在一条既有通配 301 前面 —— 会让本该被 301 的路径变成 410。
+ * 例：/es-ES/blog 410 排在 /es-ES/:splat → /es/:splat 301! 之前，就把语言映射打断了。
+ */
+export function findBlockedWildcards(rules) {
+  const out = [];
+  const head = (p) => p.split(':splat')[0].split('*')[0];
+  for (let i = 0; i < rules.length; i++) {
+    const w = rules[i];
+    if (!w.status.startsWith('301')) continue;
+    if (!w.from.includes(':splat') && !w.from.includes('*')) continue;
+    for (let j = 0; j < i; j++) {
+      const e = rules[j];
+      if (e.from.includes(':splat') || e.from.includes('*')) continue;
+      if (!e.status.startsWith('410')) continue;
+      if (e.from.startsWith(head(w.from))) out.push({ from: e.from, blocks: w.from, line: e.line });
+    }
+  }
+  return out;
+}
+
 /** 一次性跑全部判定。 */
 export function auditRedirects(body, distDir) {
   const rules = parseRules(body);
@@ -141,6 +162,7 @@ export function auditRedirects(body, distDir) {
     loops,
     multiHop: chains,
     chainedTargets: findChainedTargets(rules),
+    blockedWildcards: findBlockedWildcards(rules),
     missingTargets: findMissingTargets(rules, distDir, (p) => fromSet.has(p)),
   };
 }
@@ -158,8 +180,9 @@ if (process.argv[1] && process.argv[1].endsWith('redirects-check.mjs') && proces
   show('回环', r.loops);
   show('301 目标不存在', r.missingTargets);
   show('301 目标二跳', r.chainedTargets);
+  show('410 挡住通配 301', r.blockedWildcards);
   console.log(`ℹ️  多跳链: ${r.multiHop.length}`);
-  for (const [name, arr] of [['重复', r.duplicates], ['遮蔽', r.shadowed], ['回环', r.loops], ['目标缺失', r.missingTargets], ['目标二跳', r.chainedTargets]]) {
+  for (const [name, arr] of [['重复', r.duplicates], ['遮蔽', r.shadowed], ['回环', r.loops], ['目标缺失', r.missingTargets], ['目标二跳', r.chainedTargets], ['挡通配', r.blockedWildcards]]) {
     for (const x of arr.slice(0, 10)) console.log(`   [${name}] ${x.line || JSON.stringify(x)}`);
   }
 }

@@ -28,6 +28,7 @@
 // 已校验：Astro 生成 HTML 的 href/src 全部为绝对路径（/xxx），移动文件不影响页面内链接。
 import fs from 'node:fs';
 import { findMissingRedirects, auditRedirects } from './lib/redirects-check.mjs';
+import { parseCsv, validateLegacyMap } from './lib/legacy-map-check.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -235,9 +236,38 @@ function buildRedirects(dist) {
   rules.push(...retiredRules);
   console.log(`  ↪ 已为 ${retiredRules.length} 个已退役 slug 地址保留 301（${localePrefixes.length} 语言 × ${retiredSlugs.length} 篇）`);
 
+  // 历史 URL 映射表（人工审核结果）。规则同样必须早于目录通配 200 重写。
+  // 未审核、或审核结论与产物矛盾（301 目标不存在 / 410 来源仍返回 200）时构建失败，
+  // 不存在"运行时兜底"——CSV 是唯一输入，审核是唯一出口。
+  const legacyFile = path.join(__dirname, 'legacy-redirects.csv');
+  if (fs.existsSync(legacyFile)) {
+    const legacyRows = parseCsv(fs.readFileSync(legacyFile, 'utf8'));
+    const distHas = (p) =>
+      p === '/' ||
+      fs.existsSync(path.join(dist, p.slice(1) + '.html')) ||
+      fs.existsSync(path.join(dist, p.slice(1), 'index.html'));
+    const bad = validateLegacyMap(legacyRows, distHas);
+    if (bad.length) {
+      console.error(`❌ 历史映射表未通过校验（${bad.length} 条）：`);
+      for (const b of bad.slice(0, 15)) console.error(`   ${b.url} — ${b.why}`);
+      process.exit(1);
+    }
+    const have = new Set(rules.map((r) => r.split(/\s+/)[0]));
+    let added = 0, dup = 0, held = 0;
+    for (const r of legacyRows) {
+      const d = r.review_decision || r.status;
+      if (d === 'keep_404' || d === 'defer') { held++; continue; }
+      if (d !== '301' && d !== '410') continue;
+      if (have.has(r.old_url)) { dup++; continue; } // 与手写规则/退役 slug 规则去重
+      rules.push(d === '301' ? `${r.old_url} ${r.new_url} 301!` : `${r.old_url} 410`);
+      have.add(r.old_url);
+      added++;
+    }
+    console.log(`  ↪ 历史映射表：生成 ${added} 条规则（与既有规则重复跳过 ${dup}，保持原状 ${held}）`);
+  }
+
   const pageDirs = [];
-  const topPages = [];
-  for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
+  const topPages = [];  for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
     if (EXCLUDED_DIRS.has(entry.name)) continue; // 白名单排除静态资源/函数目录
     if (entry.isDirectory()) {
       pageDirs.push(entry.name);
@@ -335,6 +365,7 @@ if (rules.length > 0) {
       ['回环', audit.loops],
       ['301 目标不存在', audit.missingTargets],
       ['301 目标二跳', audit.chainedTargets],
+      ['410 挡住通配 301', audit.blockedWildcards],
     ].filter(([, arr]) => arr.length);
     if (problems.length) {
       console.error('❌ _redirects 判定未通过：');

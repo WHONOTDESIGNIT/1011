@@ -8,7 +8,8 @@
 //   node scripts/lib/legacy-map-check.mjs astro/scripts/legacy-redirects.csv
 import fs from 'node:fs';
 
-export const ALLOWED_DECISION = new Set(['301', '410', 'restore', 'keep_404']);
+// defer = 已审但暂缓：不生成任何规则，保持现状。与 keep_404 的区别只是语义（后者是"决定永久 404"）。
+export const ALLOWED_DECISION = new Set(['301', '410', 'restore', 'keep_404', 'defer']);
 
 /** 最小 CSV 解析（本文件只处理自己生成的、无嵌套换行的表）。 */
 export function parseCsv(text) {
@@ -67,6 +68,13 @@ export function validateLegacyMap(rows, exists) {
       if (!r.new_url) problems.push({ url: tag, why: '最终判 301 但 new_url 为空' });
       else if (exists && !exists(r.new_url)) problems.push({ url: tag, why: `301 目标不存在：${r.new_url}` });
     }
+    if (final === '410') {
+      // 来源当前还能正常返回，就不许打成 410 —— 那会把活页面打死的。
+      // 确需从 200 变 410 的，必须在 override_reason 写下审批原因，不能靠改代码绕过。
+      if (exists && exists(tag) && !r.override_reason) {
+        problems.push({ url: tag, why: '410 来源当前仍返回 200，且未填 override_reason' });
+      }
+    }
   }
   return problems;
 }
@@ -79,8 +87,7 @@ if (process.argv[1] && process.argv[1].endsWith('legacy-map-check.mjs')) {
   const byDecision = decided.reduce((a, r) => ((a[r.review_decision] = (a[r.review_decision] || 0) + 1), a), {});
   console.log(`总行 ${rows.length}｜已人工决定 ${decided.length}（${JSON.stringify(byDecision)}）｜待审核 ${pending.length}`);
   const problems = validateLegacyMap(rows, null);
-  console.log(problems.length ? `❌ 结构性问题 ${problems.length} 条` : '✅ 结构性问题 0');
-  for (const p of problems.slice(0, 15)) console.log(`   ${p.url} — ${p.why}`);
+  console.log(problems.length ? `❌ 结构性问题 ${problems.length} 条` : '✅ 结构性问题 0');  for (const p of problems.slice(0, 15)) console.log(`   ${p.url} — ${p.why}`);
   if (pending.length) {
     console.log('\n待审核（按家族）：');
     const g = pending.reduce((a, r) => ((a[r.shape.split('/')[0]] = (a[r.shape.split('/')[0]] || 0) + 1), a), {});
