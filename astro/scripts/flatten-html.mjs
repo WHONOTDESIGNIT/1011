@@ -27,7 +27,7 @@
 // index.backup.html、.netlify/（SSR 函数）、资源目录（_astro/fonts/images/videos）。
 // 已校验：Astro 生成 HTML 的 href/src 全部为绝对路径（/xxx），移动文件不影响页面内链接。
 import fs from 'node:fs';
-import { findMissingRedirects } from './lib/redirects-check.mjs';
+import { findMissingRedirects, auditRedirects } from './lib/redirects-check.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -321,6 +321,29 @@ if (rules.length > 0) {
       for (const m of missing.slice(0, 10)) console.error(`   ${m}`);
       process.exit(1);
     }
+
+    // 四项判定（2026-11-16 增加，起因是仓库里两次 _redirects 事故记录）：
+    //   重复 FROM        —— 不报错但会掩盖配置错误
+    //   被通配遮蔽        —— 301 排在 :splat 之后，永不执行（2026-08 事故形态）
+    //   回环              —— 两个地址互指
+    //   301 目标不存在    —— 把旧 URL 送进 404，比留着 404 更糟
+    // 任意一项非零即失败：这份文件是"旧地址还有没有入口"的唯一保障，不能只靠肉眼。
+    const audit = auditRedirects(body, DIST);
+    const problems = [
+      ['重复 FROM', audit.duplicates],
+      ['被通配遮蔽', audit.shadowed],
+      ['回环', audit.loops],
+      ['301 目标不存在', audit.missingTargets],
+    ].filter(([, arr]) => arr.length);
+    if (problems.length) {
+      console.error('❌ _redirects 判定未通过：');
+      for (const [name, arr] of problems) {
+        console.error(`   ${name}: ${arr.length}`);
+        for (const x of arr.slice(0, 10)) console.error(`     ${x.line || JSON.stringify(x)}`);
+      }
+      process.exit(1);
+    }
+    console.log(`🔎 _redirects 判定通过：${audit.total} 条，重复/遮蔽/回环/目标缺失均为 0`);
   console.log(`📄 已生成 _redirects（${rules.length} 条规则，通配符压缩方案）`);
 }
 
