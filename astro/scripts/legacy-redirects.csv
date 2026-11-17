@@ -12,7 +12,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /ar/blog/from-0-to-1-beauty-brand,/ar/blog/zero-to-one-beauty-brand,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/from-0-to-1-beauty-brand,
 /ar/blog/ha-emet-al-energiat-ipl,/ar/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/ha-emet-al-energiat-ipl,
 /ar/blog/involucro-degrade-agente-aprovisionamento,/ar/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/involucro-degrade-agente-aprovisionamento,
-/ar/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,ar,blog/ipl-energy-no-shinjitsu,
+/ar/blog/ipl-energy-no-shinjitsu,/ar/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/ipl-energy-no-shinjitsu,
 /ar/blog/ipl-enerjisinin-gercegi,/ar/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/ipl-enerjisinin-gercegi,
 /ar/blog/la-verdad-sobre-la-energia-ipl,/ar/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/la-verdad-sobre-la-energia-ipl,
 /ar/blog/la-verite-sur-lenergie-ipl,/ar/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ar,blog/la-verite-sur-lenergie-ipl,
@@ -52,9 +52,9 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /blog/introducing-howsafe-the-workwear-store,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,en,blog/introducing-howsafe-the-workwear-store,
 /blog/involucro-degrade-agente-aprovisionamento,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/involucro-degrade-agente-aprovisionamento,
 /blog/ipl-compliance-iec-standards,/blog/ipl-validation-services,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/ipl-compliance-iec-standards,
-/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,en,blog/ipl-energy-no-shinjitsu,
+/blog/ipl-energy-no-shinjitsu,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/ipl-energy-no-shinjitsu,
 /blog/ipl-hair-removal-safe-skin-types-fitzpatrick,/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/ipl-hair-removal-safe-skin-types-fitzpatrick,
-/blog/ipl-privacy-modesty-saudi-homes,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,en,blog/ipl-privacy-modesty-saudi-homes,
+/blog/ipl-privacy-modesty-saudi-homes,,410,原有决策是保留 404（无同主题页，指向无关页比 404 更糟）；改 410 需确认,-,en,blog/ipl-privacy-modesty-saudi-homes,yes
 /blog/ipl-side-effects-asian-skin,/blog/ipl-side-effects-by-skin-type,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/ipl-side-effects-asian-skin,
 /blog/la-verdad-sobre-la-energia-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/la-verdad-sobre-la-energia-ipl,
 /blog/la-verite-sur-lenergie-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/la-verite-sur-lenergie-ipl,
@@ -113,7 +113,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /de/blog/custom-gradient-housing-sourcing-agent,/de/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,de,blog/custom-gradient-housing-sourcing-agent,
 /de/blog/de-waarheid-over-ipl-energie,/de/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,de,blog/de-waarheid-over-ipl-energie,
 /de/blog/involucro-degrade-agente-aprovisionamento,/de/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,de,blog/involucro-degrade-agente-aprovisionamento,
-/de/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,de,blog/ipl-energy-no-shinjitsu,
+/de/blog/ipl-energy-no-shinjitsu,/de/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,de,blog/ipl-energy-no-shinjitsu,
 /de/blog/prawda-o-energii-ipl,/de/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,de,blog/prawda-o-energii-ipl,
 /de/develo-blog,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,de,develo-blog,yes
 /de/develo-blog-detail,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,de,develo-blog-detail,yes
@@ -158,9 +158,9 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /el/develo-services,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,el,develo-services,yes
 /el/develo-work,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,el,develo-work,yes
 /el/index.backup,,410,误发布的备份文件，不应恢复,-,el,index.backup,
-/en/blog/ipl-hair-removal-safe-skin-types-fitzpatrick,,410,未归类的历史路径，默认不建议恢复,-,en,en/blog/ipl-hair-removal-safe-skin-types-fitzpatrick,yes
-/en/custom-ipl/multi-function,,410,未归类的历史路径，默认不建议恢复,-,en,en/custom-ipl/multi-function,yes
-/en/home,,410,未归类的历史路径，默认不建议恢复,-,en,en/home,yes
+/en/blog/ipl-hair-removal-safe-skin-types-fitzpatrick,/blog/25-ipl-hair-removal-safe-skin-types-fitzpatrick,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,en,blog/ipl-hair-removal-safe-skin-types-fitzpatrick,
+/en/custom-ipl/multi-function,,410,未归类的历史路径，默认不建议恢复,-,en,custom-ipl/multi-function,yes
+/en/home,/,301,旧 /home 与 /en/home → 首页,yes,en,home,
 /es-ES/blog,,410,未归类的历史路径，默认不建议恢复,-,en,es-ES/blog,yes
 /es-ES/privacy-policy,,410,未归类的历史路径，默认不建议恢复,-,en,es-ES/privacy-policy,yes
 /es/blog/38-custom-gradient-housing-for-a-sourcing-agent,/es/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/38-custom-gradient-housing-for-a-sourcing-agent,
@@ -177,7 +177,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /es/blog/ha-emet-al-energiat-ipl,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/ha-emet-al-energiat-ipl,
 /es/blog/involucro-degrade-agente-aprovisionamento,/es/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/involucro-degrade-agente-aprovisionamento,
 /es/blog/ipl-eneojiui-jinsil,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/ipl-eneojiui-jinsil,
-/es/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,es,blog/ipl-energy-no-shinjitsu,
+/es/blog/ipl-energy-no-shinjitsu,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/ipl-energy-no-shinjitsu,
 /es/blog/ipl-enerjisinin-gercegi,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/ipl-enerjisinin-gercegi,
 /es/blog/la-verdad-sobre-la-energia-ipl,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/la-verdad-sobre-la-energia-ipl,
 /es/blog/la-verite-sur-lenergie-ipl,/es/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,es,blog/la-verite-sur-lenergie-ipl,
@@ -217,7 +217,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /fr/blog/ha-emet-al-energiat-ipl,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/ha-emet-al-energiat-ipl,
 /fr/blog/involucro-degrade-agente-aprovisionamento,/fr/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/involucro-degrade-agente-aprovisionamento,
 /fr/blog/ipl-eneojiui-jinsil,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/ipl-eneojiui-jinsil,
-/fr/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,fr,blog/ipl-energy-no-shinjitsu,
+/fr/blog/ipl-energy-no-shinjitsu,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/ipl-energy-no-shinjitsu,
 /fr/blog/la-verdad-sobre-la-energia-ipl,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/la-verdad-sobre-la-energia-ipl,
 /fr/blog/la-verite-sur-lenergie-ipl,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/la-verite-sur-lenergie-ipl,
 /fr/blog/pravda-ob-energii-ipl,/fr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,fr,blog/pravda-ob-energii-ipl,
@@ -237,7 +237,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /he/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/he/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /he/blog/ha-emet-al-energiat-ipl,/he/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/ha-emet-al-energiat-ipl,
 /he/blog/involucro-degrade-agente-aprovisionamento,/he/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/involucro-degrade-agente-aprovisionamento,
-/he/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,he,blog/ipl-energy-no-shinjitsu,
+/he/blog/ipl-energy-no-shinjitsu,/he/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/ipl-energy-no-shinjitsu,
 /he/blog/la-verite-sur-lenergie-ipl,/he/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/la-verite-sur-lenergie-ipl,
 /he/blog/luke-collymore-elected-to-mage-os-board,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,he,blog/luke-collymore-elected-to-mage-os-board,
 /he/blog/pravda-ob-energii-ipl,/he/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,he,blog/pravda-ob-energii-ipl,
@@ -254,7 +254,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /he/work/daylesford,,410,旧作品集栏目，本机无任何备份（D:\repos\work 是工具目录，非旧站）,-,he,work/daylesford,yes
 /he/work/leonpaul,,410,旧作品集栏目，本机无任何备份（D:\repos\work 是工具目录，非旧站）,-,he,work/leonpaul,yes
 /hi/blog/Industries,,410,未归类的历史路径，默认不建议恢复,-,en,hi/blog/Industries,yes
-/home,,410,未归类的历史路径，默认不建议恢复,-,en,home,yes
+/home,/,301,旧 /home 与 /en/home → 首页,yes,en,home,
 /hr/ipl-hair-removal/dual-lamp,,410,未归类的历史路径，默认不建议恢复,-,en,hr/ipl-hair-removal/dual-lamp,yes
 /iShine,,410,未归类的历史路径，默认不建议恢复,-,en,iShine,yes
 /id/blog/03-you-design-it-we-build-it-box-it,/id/blog/you-design-it-we-build-it-box-it,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,id,blog/03-you-design-it-we-build-it-box-it,
@@ -322,7 +322,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /ja/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/ja/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /ja/blog/ha-emet-al-energiat-ipl,/ja/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/ha-emet-al-energiat-ipl,
 /ja/blog/involucro-degrade-agente-aprovisionamento,/ja/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/involucro-degrade-agente-aprovisionamento,
-/ja/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,ja,blog/ipl-energy-no-shinjitsu,
+/ja/blog/ipl-energy-no-shinjitsu,/ja/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/ipl-energy-no-shinjitsu,
 /ja/blog/la-verdad-sobre-la-energia-ipl,/ja/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/la-verdad-sobre-la-energia-ipl,
 /ja/blog/la-verite-sur-lenergie-ipl,/ja/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/la-verite-sur-lenergie-ipl,
 /ja/blog/pravda-ob-energii-ipl,/ja/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ja,blog/pravda-ob-energii-ipl,
@@ -346,7 +346,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /ko/blog/ha-emet-al-energiat-ipl,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/ha-emet-al-energiat-ipl,
 /ko/blog/involucro-degrade-agente-aprovisionamento,/ko/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/involucro-degrade-agente-aprovisionamento,
 /ko/blog/ipl-eneojiui-jinsil,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/ipl-eneojiui-jinsil,
-/ko/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,ko,blog/ipl-energy-no-shinjitsu,
+/ko/blog/ipl-energy-no-shinjitsu,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/ipl-energy-no-shinjitsu,
 /ko/blog/ipl-enerjisinin-gercegi,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/ipl-enerjisinin-gercegi,
 /ko/blog/la-verite-sur-lenergie-ipl,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/la-verite-sur-lenergie-ipl,
 /ko/blog/pravda-ob-energii-ipl,/ko/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ko,blog/pravda-ob-energii-ipl,
@@ -394,7 +394,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /nl/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/nl/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /nl/blog/ha-emet-al-energiat-ipl,/nl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/ha-emet-al-energiat-ipl,
 /nl/blog/involucro-degrade-agente-aprovisionamento,/nl/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/involucro-degrade-agente-aprovisionamento,
-/nl/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,nl,blog/ipl-energy-no-shinjitsu,
+/nl/blog/ipl-energy-no-shinjitsu,/nl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/ipl-energy-no-shinjitsu,
 /nl/blog/la-verdad-sobre-la-energia-ipl,/nl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/la-verdad-sobre-la-energia-ipl,
 /nl/blog/la-verite-sur-lenergie-ipl,/nl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/la-verite-sur-lenergie-ipl,
 /nl/blog/pravda-ob-energii-ipl,/nl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,nl,blog/pravda-ob-energii-ipl,
@@ -414,7 +414,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /pl/blog/ha-emet-al-energiat-ipl,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/ha-emet-al-energiat-ipl,
 /pl/blog/involucro-degrade-agente-aprovisionamento,/pl/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/involucro-degrade-agente-aprovisionamento,
 /pl/blog/ipl-eneojiui-jinsil,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/ipl-eneojiui-jinsil,
-/pl/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,pl,blog/ipl-energy-no-shinjitsu,
+/pl/blog/ipl-energy-no-shinjitsu,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/ipl-energy-no-shinjitsu,
 /pl/blog/la-verdad-sobre-la-energia-ipl,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/la-verdad-sobre-la-energia-ipl,
 /pl/blog/la-verite-sur-lenergie-ipl,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/la-verite-sur-lenergie-ipl,
 /pl/blog/pravda-ob-energii-ipl,/pl/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pl,blog/pravda-ob-energii-ipl,
@@ -426,27 +426,27 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /pl/index.backup,,410,误发布的备份文件，不应恢复,-,pl,index.backup,
 /products/sapphire,,410,未归类的历史路径，默认不建议恢复,-,en,products/sapphire,yes
 /pt,,410,未归类的历史路径，默认不建议恢复,-,en,pt,yes
-/pt-BR/blog/38-custom-gradient-housing-for-a-sourcing-agent,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/38-custom-gradient-housing-for-a-sourcing-agent,
+/pt-BR/blog/38-custom-gradient-housing-for-a-sourcing-agent,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/38-custom-gradient-housing-for-a-sourcing-agent,
 /pt-BR/blog/8-tips-to-optimise-magento-speed-and-performance,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,pt-BR,blog/8-tips-to-optimise-magento-speed-and-performance,
-/pt-BR/blog/adevarul-despre-energia-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/adevarul-despre-energia-ipl,
-/pt-BR/blog/boitier-gradient-agent-approvisionnement,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/boitier-gradient-agent-approvisionnement,
-/pt-BR/blog/carcasa-gradiente-agente-compras,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/carcasa-gradiente-agente-compras,
-/pt-BR/blog/components-stand-up-to-scrutiny,/blog/components-that-stand-up-to-scrutiny,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/components-stand-up-to-scrutiny,
-/pt-BR/blog/custom-gradient-housing-sourcing-agent,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/custom-gradient-housing-sourcing-agent,
-/pt-BR/blog/de-waarheid-over-ipl-energie,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/de-waarheid-over-ipl-energie,
-/pt-BR/blog/design-it-build-it-box-it,/blog/you-design-it-we-build-it-box-it,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/design-it-build-it-box-it,
-/pt-BR/blog/from-0-to-1-beauty-brand,/blog/zero-to-one-beauty-brand,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/from-0-to-1-beauty-brand,
-/pt-BR/blog/ha-emet-al-energiat-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/ha-emet-al-energiat-ipl,
+/pt-BR/blog/adevarul-despre-energia-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/adevarul-despre-energia-ipl,
+/pt-BR/blog/boitier-gradient-agent-approvisionnement,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/boitier-gradient-agent-approvisionnement,
+/pt-BR/blog/carcasa-gradiente-agente-compras,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/carcasa-gradiente-agente-compras,
+/pt-BR/blog/components-stand-up-to-scrutiny,/pt-br/blog/components-that-stand-up-to-scrutiny,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/components-stand-up-to-scrutiny,
+/pt-BR/blog/custom-gradient-housing-sourcing-agent,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/custom-gradient-housing-sourcing-agent,
+/pt-BR/blog/de-waarheid-over-ipl-energie,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/de-waarheid-over-ipl-energie,
+/pt-BR/blog/design-it-build-it-box-it,/pt-br/blog/you-design-it-we-build-it-box-it,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/design-it-build-it-box-it,
+/pt-BR/blog/from-0-to-1-beauty-brand,/pt-br/blog/zero-to-one-beauty-brand,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/from-0-to-1-beauty-brand,
+/pt-BR/blog/ha-emet-al-energiat-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/ha-emet-al-energiat-ipl,
 /pt-BR/blog/how-to-optimise-a-hyva-website,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,pt-BR,blog/how-to-optimise-a-hyva-website,
-/pt-BR/blog/involucro-degrade-agente-aprovisionamento,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/involucro-degrade-agente-aprovisionamento,
-/pt-BR/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,pt-BR,blog/ipl-energy-no-shinjitsu,
-/pt-BR/blog/ipl-enerjisinin-gercegi,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/ipl-enerjisinin-gercegi,
-/pt-BR/blog/la-verdad-sobre-la-energia-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/la-verdad-sobre-la-energia-ipl,
-/pt-BR/blog/la-verite-sur-lenergie-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/la-verite-sur-lenergie-ipl,
-/pt-BR/blog/pravda-ob-energii-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/pravda-ob-energii-ipl,
-/pt-BR/blog/prawda-o-energii-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/prawda-o-energii-ipl,
+/pt-BR/blog/involucro-degrade-agente-aprovisionamento,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/involucro-degrade-agente-aprovisionamento,
+/pt-BR/blog/ipl-energy-no-shinjitsu,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/ipl-energy-no-shinjitsu,
+/pt-BR/blog/ipl-enerjisinin-gercegi,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/ipl-enerjisinin-gercegi,
+/pt-BR/blog/la-verdad-sobre-la-energia-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/la-verdad-sobre-la-energia-ipl,
+/pt-BR/blog/la-verite-sur-lenergie-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/la-verite-sur-lenergie-ipl,
+/pt-BR/blog/pravda-ob-energii-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/pravda-ob-energii-ipl,
+/pt-BR/blog/prawda-o-energii-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/prawda-o-energii-ipl,
 /pt-BR/blog/shopify-vape-restrictions-uk-merchants,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,pt-BR,blog/shopify-vape-restrictions-uk-merchants,
-/pt-BR/blog/truth-about-ipl-energy,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/truth-about-ipl-energy,
+/pt-BR/blog/truth-about-ipl-energy,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-BR,blog/truth-about-ipl-energy,
 /pt-BR/develo-blog-detail,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,pt-BR,develo-blog-detail,yes
 /pt-BR/develo-testimonials,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,pt-BR,develo-testimonials,yes
 /pt-BR/develo-work,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,pt-BR,develo-work,yes
@@ -458,18 +458,18 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /pt-BR/work/currys,,410,旧作品集栏目，本机无任何备份（D:\repos\work 是工具目录，非旧站）,-,pt-BR,work/currys,yes
 /pt-BR/work/daylesford,,410,旧作品集栏目，本机无任何备份（D:\repos\work 是工具目录，非旧站）,-,pt-BR,work/daylesford,yes
 /pt-BR/work/teague,,410,旧作品集栏目，本机无任何备份（D:\repos\work 是工具目录，非旧站）,-,pt-BR,work/teague,yes
-/pt-PT/blog/carcasa-gradiente-agente-compras,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/carcasa-gradiente-agente-compras,
-/pt-PT/blog/custom-gradient-housing-sourcing-agent,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/custom-gradient-housing-sourcing-agent,
-/pt-PT/blog/de-waarheid-over-ipl-energie,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/de-waarheid-over-ipl-energie,
-/pt-PT/blog/from-0-to-1-beauty-brand,/blog/zero-to-one-beauty-brand,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/from-0-to-1-beauty-brand,
-/pt-PT/blog/la-verdad-sobre-la-energia-ipl,/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/la-verdad-sobre-la-energia-ipl,
-/pt-PT/blog/ozel-gradient-govde-uretimi,/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/ozel-gradient-govde-uretimi,
+/pt-PT/blog/carcasa-gradiente-agente-compras,/pt-pt/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/carcasa-gradiente-agente-compras,
+/pt-PT/blog/custom-gradient-housing-sourcing-agent,/pt-pt/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/custom-gradient-housing-sourcing-agent,
+/pt-PT/blog/de-waarheid-over-ipl-energie,/pt-pt/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/de-waarheid-over-ipl-energie,
+/pt-PT/blog/from-0-to-1-beauty-brand,/pt-pt/blog/zero-to-one-beauty-brand,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/from-0-to-1-beauty-brand,
+/pt-PT/blog/la-verdad-sobre-la-energia-ipl,/pt-pt/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/la-verdad-sobre-la-energia-ipl,
+/pt-PT/blog/ozel-gradient-govde-uretimi,/pt-pt/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-PT,blog/ozel-gradient-govde-uretimi,
 /pt-PT/develo-contact,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,pt-PT,develo-contact,yes
 /pt-PT/develo-sitemap,,410,旧 Develo 模板遗留路径，新站无对应；仓库有「drop the Develo reference code」提交为证,-,pt-PT,develo-sitemap,yes
-/pt-br/blog/a-verdade-sobre-a-energia-ipl,,410,未归类的历史路径，默认不建议恢复,-,en,pt-br/blog/a-verdade-sobre-a-energia-ipl,yes
-/pt-br/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,,410,未归类的历史路径，默认不建议恢复,-,en,pt-br/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,yes
-/pt-br/blog/involucro-degrade-agente-aprovisionamento,,410,未归类的历史路径，默认不建议恢复,-,en,pt-br/blog/involucro-degrade-agente-aprovisionamento,yes
-/pt-pt/careers,,410,未归类的历史路径，默认不建议恢复,-,en,pt-pt/careers,yes
+/pt-br/blog/a-verdade-sobre-a-energia-ipl,/pt-br/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-br,blog/a-verdade-sobre-a-energia-ipl,
+/pt-br/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-br,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
+/pt-br/blog/involucro-degrade-agente-aprovisionamento,/pt-br/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,pt-br,blog/involucro-degrade-agente-aprovisionamento,
+/pt-pt/careers,,410,未归类的历史路径，默认不建议恢复,-,pt-pt,careers,yes
 /pt/ipl-hair-removal/battery-powered,,410,未归类的历史路径，默认不建议恢复,-,en,pt/ipl-hair-removal/battery-powered,yes
 /ro/blog/a-verdade-sobre-a-energia-ipl,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/a-verdade-sobre-a-energia-ipl,
 /ro/blog/adevarul-despre-energia-ipl,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/adevarul-despre-energia-ipl,
@@ -480,7 +480,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /ro/blog/design-it-build-it-box-it,/ro/blog/you-design-it-we-build-it-box-it,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/design-it-build-it-box-it,
 /ro/blog/ha-emet-al-energiat-ipl,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/ha-emet-al-energiat-ipl,
 /ro/blog/involucro-degrade-agente-aprovisionamento,/ro/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/involucro-degrade-agente-aprovisionamento,
-/ro/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,ro,blog/ipl-energy-no-shinjitsu,
+/ro/blog/ipl-energy-no-shinjitsu,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/ipl-energy-no-shinjitsu,
 /ro/blog/ipl-enerjisinin-gercegi,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/ipl-enerjisinin-gercegi,
 /ro/blog/la-verdad-sobre-la-energia-ipl,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/la-verdad-sobre-la-energia-ipl,
 /ro/blog/la-verite-sur-lenergie-ipl,/ro/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ro,blog/la-verite-sur-lenergie-ipl,
@@ -502,7 +502,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /ru/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/ru/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /ru/blog/ha-emet-al-energiat-ipl,/ru/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/ha-emet-al-energiat-ipl,
 /ru/blog/involucro-degrade-agente-aprovisionamento,/ru/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/involucro-degrade-agente-aprovisionamento,
-/ru/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,ru,blog/ipl-energy-no-shinjitsu,
+/ru/blog/ipl-energy-no-shinjitsu,/ru/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/ipl-energy-no-shinjitsu,
 /ru/blog/ipl-enerjisinin-gercegi,/ru/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/ipl-enerjisinin-gercegi,
 /ru/blog/la-verdad-sobre-la-energia-ipl,/ru/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/la-verdad-sobre-la-energia-ipl,
 /ru/blog/la-verite-sur-lenergie-ipl,/ru/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,ru,blog/la-verite-sur-lenergie-ipl,
@@ -544,7 +544,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /tr/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/tr/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /tr/blog/ha-emet-al-energiat-ipl,/tr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/ha-emet-al-energiat-ipl,
 /tr/blog/involucro-degrade-agente-aprovisionamento,/tr/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/involucro-degrade-agente-aprovisionamento,
-/tr/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,tr,blog/ipl-energy-no-shinjitsu,
+/tr/blog/ipl-energy-no-shinjitsu,/tr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/ipl-energy-no-shinjitsu,
 /tr/blog/ipl-enerjisinin-gercegi,/tr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/ipl-enerjisinin-gercegi,
 /tr/blog/la-verdad-sobre-la-energia-ipl,/tr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/la-verdad-sobre-la-energia-ipl,
 /tr/blog/la-verite-sur-lenergie-ipl,/tr/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,tr,blog/la-verite-sur-lenergie-ipl,
@@ -566,7 +566,7 @@ old_url,new_url,status,reason,target_exists,locale,shape,needs_review
 /vi/blog/custom-gradient-housing-sourcing-agent,/vi/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/custom-gradient-housing-sourcing-agent,
 /vi/blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,/vi/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/gradientnyy-korpus-dlya-agenta-po-zakupkam,
 /vi/blog/involucro-degrade-agente-aprovisionamento,/vi/blog/custom-gradient-housing-for-a-sourcing-agent,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/involucro-degrade-agente-aprovisionamento,
-/vi/blog/ipl-energy-no-shinjitsu,,410,旧博客 slug，不在显式映射表，且当前 112 篇里无对应,-,vi,blog/ipl-energy-no-shinjitsu,
+/vi/blog/ipl-energy-no-shinjitsu,/vi/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/ipl-energy-no-shinjitsu,
 /vi/blog/la-verdad-sobre-la-energia-ipl,/vi/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/la-verdad-sobre-la-energia-ipl,
 /vi/blog/prawda-o-energii-ipl,/vi/blog/the-truth-about-ipl-energy,301,旧 slug 家族 → 当前 slug（显式映射表）,yes,vi,blog/prawda-o-energii-ipl,
 /vi/careers,,410,未归类的历史路径，默认不建议恢复,-,vi,careers,yes
