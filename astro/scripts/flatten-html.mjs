@@ -203,6 +203,38 @@ function buildRedirects(dist) {
   rules.push('/tr/blog/ipl-enerjisinin-gercegi /tr/blog/the-truth-about-ipl-energy 301!');
   rules.push('/pt-br/blog/a-verdade-sobre-a-energia-ipl /pt-br/blog/the-truth-about-ipl-energy 301!');
 
+  // 2026-11-16：ru 两篇旧 slug 已修正为与 translationKey 一致
+  // （the-truth-about-ipl-energy.mdx / custom-gradient-housing-for-a-sourcing-agent.mdx 的 frontmatter）。
+  //
+  // 修正后，这两个旧 slug 从「各语言 slug 并集」里彻底消失，blog/[slug].astro 的
+  // getStaticPaths 不再为它们生成任何路由，于是 convertRefreshShims 也产不出垫片 ——
+  // _redirects 里原本由垫片转换而来的 44 条 301 会随之**全部消失**，
+  // 22 个语言 × 2 篇 = 44 个当前仍能 301 的地址会一起变成 404。
+  // 404 比 301 更糟：GSC 侧已有 403 条 noindex 判定落在这批地址上，掉进 404 兜底等于放弃信号。
+  //
+  // 所以必须在这里显式保留。语言列表的推导方式与 dist 实际产物一致（带 blog/ 子目录的语言目录），
+  // 不硬编码，避免将来加语言时漏配。
+  // ⚠ 与上面几条同理：必须早于下方目录通配 200 重写，否则 /blog/:splat 会先命中。
+  const retiredSlugs = [
+    ['40-pravda-ob-energii-ipl', 'the-truth-about-ipl-energy'],
+    ['38-gradientnyy-korpus-dlya-agenta-po-zakupkam', 'custom-gradient-housing-for-a-sourcing-agent'],
+  ];
+  const localePrefixes = [''];
+  for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
+    if (!entry.isDirectory() || EXCLUDED_DIRS.has(entry.name)) continue;
+    if (!/^[a-z]{2}(-[A-Za-z]{2})?$/.test(entry.name)) continue;
+    if (!fs.existsSync(path.join(dist, entry.name, 'blog'))) continue;
+    localePrefixes.push('/' + entry.name);
+  }
+  const retiredRules = [];
+  for (const prefix of localePrefixes) {
+    for (const [from, to] of retiredSlugs) {
+      retiredRules.push(`${prefix}/blog/${from} ${prefix}/blog/${to} 301!`);
+    }
+  }
+  rules.push(...retiredRules);
+  console.log(`  ↪ 已为 ${retiredRules.length} 个已退役 slug 地址保留 301（${localePrefixes.length} 语言 × ${retiredSlugs.length} 篇）`);
+
   const pageDirs = [];
   const topPages = [];
   for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
