@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DdpShippingTable from '../../components/DdpShippingTable.astro';
-import { t } from '../../lib/i18n';
+import { t, tMaybe } from '../../lib/i18n';
 import AirShippingTable from '../../components/AirShippingTable.astro';
 import { getLocalizedPath, buildBreadcrumbs } from '../../lib/breadcrumbs';
 import enMessages from '../../../messages/en.json';
@@ -30,6 +30,11 @@ interface ProductData {
   name: string;
   tagline: string;
   description: string;
+  /**
+   * SEO 专用覆盖：只影响 <title> 与 meta description，不影响 H1 / 面包屑。
+   * 缺省时回退到 name / description（旧数据无需改动）。
+   */
+  meta?: { title?: string | null; description?: string | null };
   heroImage: string;
   gallery: string[];
   specs: { label: string; value: string }[];
@@ -432,6 +437,10 @@ function buildProduct(slug: string): ProductData {
     name: t(locale, `${base}.name`),
     tagline: t(locale, `${base}.tagline`),
     description: t(locale, `${base}.description`),
+    meta: {
+      title: tMaybe(locale, `${base}.meta.title`),
+      description: tMaybe(locale, `${base}.meta.description`),
+    },
     heroImage: assets.heroImage,
     gallery: assets.gallery,
     specs: (SPEC_KEYS[slug] ?? [])
@@ -503,8 +512,10 @@ const BALLOON_GIF: Record<string, { src: string; width: number; height: number }
 };
 const balloonGif = BALLOON_GIF[slug];
 
-const pageTitle = product.name;
-const pageDescription = product.description;
+// SEO 标题/描述：优先 product.meta.*（可选覆盖），缺省回退到 name / description。
+// H1 与面包屑继续使用 product.name —— 搜索结果要关键词，页面读起来要是产品名。
+const pageTitle = product.meta?.title || product.name;
+const pageDescription = product.meta?.description || product.description;
 // 语言化 canonical：早期硬编码英文路径导致 21 个语种的产品页全部 canonical 到 /products/<slug>，
 // 与自身 hreflang（声明这些 URL 是该语言的版本）互相矛盾，Google 会只收录英文版而丢弃 21 个语种页。
 // 产品页正文与 meta description 均已按语言翻译，因此必须自指 canonical（2026-09-10 修复）。
