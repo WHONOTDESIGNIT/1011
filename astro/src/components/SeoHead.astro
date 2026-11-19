@@ -89,6 +89,43 @@ const { title, lang = 'en', description, canonical, image, type = 'website', hre
 // 统一 <title> 规范化：自动补「 | iShine」，超长不补，已含品牌去重（见 lib/seo-title.ts）
 const finalTitle = appendBrand ? buildFinalTitle(title) : (title ?? '');
 
+// Meta description 收敛到 ≤155 显示宽度（SERP 截断线，CJK 字宽记 2，与 check-meta-length.mjs 同口径）。
+// 2026-11-19 实测：构建产物 4,268 页里 2,343 页 description >155 字符（1,457 页 >200，最长 726）。
+// 逐页改写不可维护，且 Google 本就会重写摘要，这里只保证标题/卖点不被整段挤掉。
+const displayWidth = (s: string): number => {
+  let n = 0;
+  for (const ch of s) {
+    const c = ch.codePointAt(0) ?? 0;
+    const wide =
+      (c >= 0x1100 && c <= 0x115f) ||
+      (c >= 0x2e80 && c <= 0xa4cf) ||
+      (c >= 0xac00 && c <= 0xd7a3) ||
+      (c >= 0xf900 && c <= 0xfaff) ||
+      (c >= 0xfe30 && c <= 0xfe6f) ||
+      (c >= 0xff00 && c <= 0xff60) ||
+      (c >= 0xffe0 && c <= 0xffe6) ||
+      (c >= 0x20000 && c <= 0x3fffd);
+    n += wide ? 2 : 1;
+  }
+  return n;
+};
+const clampDescription = (s: string | undefined, max = 155): string => {
+  const v = (s ?? '').replace(/\s+/g, ' ').trim();
+  if (!v || displayWidth(v) <= max) return v;
+  let out = '';
+  let w = 0;
+  for (const ch of v) {
+    const cw = displayWidth(ch);
+    if (w + cw > max - 1) break;
+    out += ch;
+    w += cw;
+  }
+  const at = out.lastIndexOf(' ');
+  const head = at > 60 ? out.slice(0, at) : out;
+  return `${head.replace(/[\s,;:.\-–—]+$/, '')}…`;
+};
+const metaDescription = clampDescription(description || SITE_DESCRIPTION, 155);
+
 const siteBaseUrl = (
   Astro.site?.toString()
   ?? process.env.URL
@@ -258,7 +295,7 @@ const ogImageUrl = buildOgImage(image);
   })();
 </script>
 <title>{finalTitle}</title>
-{description && <meta name="description" content={description} />}
+{metaDescription && <meta name="description" content={metaDescription} />}
 <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 {BING_SITE_VERIFICATION && <meta name="msvalidate.01" content={BING_SITE_VERIFICATION} />}
 <link rel="canonical" href={canonicalUrl} />
@@ -267,7 +304,7 @@ const ogImageUrl = buildOgImage(image);
 ))}
 <link rel="alternate" hreflang="x-default" href={defaultHreflang} />
 <meta property="og:title" content={finalTitle} />
-<meta property="og:description" content={description || SITE_DESCRIPTION} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content={type} />
 {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -278,7 +315,7 @@ const ogImageUrl = buildOgImage(image);
 <meta property="og:site_name" content={SITE_NAME} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={finalTitle} />
-<meta name="twitter:description" content={description || SITE_DESCRIPTION} />
+<meta name="twitter:description" content={metaDescription} />
 <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd(lang))}></script>
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
