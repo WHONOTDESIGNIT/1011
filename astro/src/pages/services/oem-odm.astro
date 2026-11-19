@@ -154,9 +154,27 @@ const partnerBenefits = [
     description: t(locale, 'servicesPage.oemOdm.benefits.items.3.description'),
   },
 ];
+
+// FAQPage：复用页面「How buyers vet an IPL manufacturer」区块的可见问答，
+// 4 组 Q&A 与正文一一对应，不做隐藏内容（Google 要求 FAQ 富媒体必须可见）。
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [0, 1, 2, 3].map((i) => ({
+    '@type': 'Question',
+    name: t(locale, `servicesPage.oemOdm.vet.items.${i}.title`),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: t(locale, `servicesPage.oemOdm.vet.items.${i}.body`),
+    },
+  })),
+};
 ---
 
 <BaseLayout title={t(locale, 'servicesPage.oemOdm.meta.title')} lang={locale} description={t(locale, 'servicesPage.oemOdm.meta.description')} blogRecPage="/services/oem-odm">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
   <div class="space-y-60">
     <section class="rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 px-8 py-16">
       <div class="mx-auto max-w-4xl text-center">
