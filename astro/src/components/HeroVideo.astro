@@ -31,35 +31,56 @@ const { withControls = false } = Astro.props;
     >
       <source src="/videos/head-video.mp4" type="video/mp4" />
     </video>
+    <button class="hero-video-toggle" type="button" aria-label="Play video" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+        <path d="M8 5v14l11-7z" fill="currentColor" />
+      </svg>
+    </button>
     <script is:inline>
       (function () {
-        var video = document.querySelector('.video-placeholder video');
+        var wrap = document.querySelector('.video-placeholder');
+        if (!wrap) return;
+        var video = wrap.querySelector('video');
+        var btn = wrap.querySelector('.hero-video-toggle');
         if (!video) return;
         var started = false;
+
+        function showButton() { if (btn) btn.hidden = false; }
+        function hideButton() { if (btn) btn.hidden = true; }
+
         function play() {
+          if (started) return;
           started = true;
           video.preload = 'auto';
-          video.play().catch(function () {});
+          // iOS/Safari：play() 之前 muted 必须为 true，光有 attribute 有时不生效
+          video.muted = true;
+          var p = video.play();
+          if (p && p.catch) p.catch(function () { started = false; showButton(); });
         }
-        // 自动播放仅在网络不差、没省流量、没要求减少动效时发生
+
+        // 网络差 / 省流量 / 减少动效：不自动拉这 505KB，但必须留下播放入口
         function auto() {
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) { showButton(); return; }
           var c = navigator.connection || {};
-          // Safari and Firefox have no Network Information API, so c is {} and every
-          // check below passes: without this line they autoplay 494KB unconditionally.
-          // Unknown network is treated like a slow one.
-          if (!navigator.connection || c.saveData || /2g|3g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            return;
-          }
+          if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '')) { showButton(); return; }
           play();
         }
-        // 排在 load 之后：CSS、字体、首屏图都跑完了才轮到这个 505KB 的视频
+
+        if (btn) btn.addEventListener('click', function () { hideButton(); play(); });
+        video.addEventListener('playing', hideButton);
+        video.addEventListener('error', showButton);
+        video.addEventListener('click', function () {
+          if (video.paused) { started = false; play(); }
+          else { video.pause(); started = false; showButton(); }
+        });
+
         function later() {
           if (window.requestIdleCallback) requestIdleCallback(auto, { timeout: 2000 });
           else setTimeout(auto, 300);
         }
         if (document.readyState === 'complete') later();
         else addEventListener('load', later, { once: true });
-        // 兜底：某个第三方脚本的请求挂住时 load 可能迟迟不来，6s 后照样放（用户已手动操作过就不再管）
+        // 兜底：第三方脚本挂住导致 load 迟迟不来时，6s 后仍然尝试
         setTimeout(function () { if (!started) auto(); }, 6000);
       })();
     </script>
@@ -87,4 +108,27 @@ const { withControls = false } = Astro.props;
   @media (min-width: 768px) {
     .video-section { width: 360px; }
   }
+</style>
+
+<style is:global>
+  .video-placeholder { position: relative; }
+  .hero-video-toggle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(17, 24, 39, 0.55);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+  }
+  .hero-video-toggle[hidden] { display: none; }
+  .hero-video-toggle:hover { background: rgba(17, 24, 39, 0.75); }
 </style>
