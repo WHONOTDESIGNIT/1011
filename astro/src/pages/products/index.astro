@@ -308,6 +308,21 @@ const siteBaseUrl = (
       </div>
     </section>
 
+    {/* B2B strip：首屏下方一条，把看产品的品牌方/分销商导向 OEM/ODM 页 */}
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="flex flex-col gap-4 rounded-2xl border border-violet-100 bg-violet-50/60 p-6 md:flex-row md:items-center md:justify-between">
+        <p class="text-sm font-medium leading-relaxed text-ink-900 md:text-base">
+          {t(locale, 'productDetail.index.b2bStrip.label')}
+        </p>
+        <a
+          class="inline-flex shrink-0 items-center rounded-2xl bg-ink-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-neutral-800"
+          href={getLocalizedPath(locale, '/services/oem-odm')}
+        >
+          {t(locale, 'productDetail.index.b2bStrip.link')}
+        </a>
+      </div>
+    </section>
+
     {/* ═══ 2. Why Sourcing the Right IPL Is Harder Than It Looks ═══ */}
     <section class="mx-auto max-w-6xl px-6">
       <div class="mx-auto max-w-4xl">
