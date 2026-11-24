@@ -182,6 +182,18 @@ const localeHref = (l: string, p: string) => {
   position: relative;
   flex: 0 0 auto;
 }
+/*
+ * 性能（2026-11-24）：语言切换器固定系统字体。
+ * 触发 19 种语言按钮的原生名称（Русский / Ελληνικά / Čeština / Türkçe / Tiếng Việt…）时，
+ * Manrope 会额外拉取 latin-ext、cyrillic、cyrillic-ext、greek、vietnamese 五个子集
+ * （实测英文页共 5 个子集约 74 KB，与首屏 CSS 争抢带宽）。
+ * 本组件内无图标字体：图标是内联 <svg>，旗标是 ::before + 内联 base64 PNG，因此不需要排除任何子元素。
+ * 只作用于 .ls 子树，不触碰导航栏其他部分。
+ */
+.ls,
+.ls * {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+}
 .ls-trigger {
   display: inline-flex;
   align-items: center;
