@@ -55,7 +55,7 @@ const locale = Astro.currentLocale ?? (Astro.url.pathname.startsWith('/tr') ? 't
 <div id="wechat-overlay" class="overlay hidden">
   <div class="overlay-backdrop"></div>
   <div class="overlay-content">
-    <img src="/images/contacts/wechat_ishine_contact.jpeg" alt={t(locale, 'stickyContact.wechatQrAlt')} width="500" height="500" />
+    <img src="/images/contacts/wechat_ishine_contact.jpeg" alt={t(locale, 'stickyContact.wechatQrAlt')} width="500" height="500" loading="lazy" decoding="async" />
   </div>
 </div>
 
