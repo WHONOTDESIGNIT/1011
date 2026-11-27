@@ -1847,21 +1847,39 @@ a{text-decoration:none;color:inherit}
   var wrappers = document.querySelectorAll('.nav-dropdown-wrapper');
   if (!skyOverlay || !wrappers.length) return;
   var hideTimer = null;
-  function showSky() {
+  function closeAll() {
     clearTimeout(hideTimer);
+    skyOverlay.classList.remove('open');
+    skyOverlay.setAttribute('aria-hidden', 'true');
+    wrappers.forEach(function(wrapper) {
+      var panel = wrapper.querySelector('.mega-dropdown');
+      if (panel) panel.classList.remove('open');
+    });
+  }
+  function openFor(wrapper) {
+    clearTimeout(hideTimer);
+    wrappers.forEach(function(w) {
+      var panel = w.querySelector('.mega-dropdown');
+      if (panel) panel.classList.toggle('open', w === wrapper);
+    });
     skyOverlay.classList.add('open');
     skyOverlay.setAttribute('aria-hidden', 'false');
   }
-  function hideSky() {
+  function hideLater() {
     clearTimeout(hideTimer);
-    hideTimer = setTimeout(function() {
-      skyOverlay.classList.remove('open');
-      skyOverlay.setAttribute('aria-hidden', 'true');
-    }, 400);
+    hideTimer = setTimeout(closeAll, 2000);
   }
   wrappers.forEach(function(wrapper) {
-    wrapper.addEventListener('mouseenter', showSky);
-    wrapper.addEventListener('mouseleave', hideSky);
+    var panel = wrapper.querySelector('.mega-dropdown');
+    wrapper.addEventListener('mouseenter', function() { openFor(wrapper); });
+    wrapper.addEventListener('mouseleave', hideLater);
+    if (panel) {
+      panel.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
+      panel.addEventListener('mouseleave', function(event) {
+        if (wrapper.contains(event.relatedTarget)) return;
+        closeAll();
+      });
+    }
   });
 })();
 </script>
