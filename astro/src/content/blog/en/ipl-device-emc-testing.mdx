@@ -21,7 +21,7 @@ EMC failures on an IPL device are almost never production problems. They are dec
 
 The frustrating part is that the fix is cheap if you make it before tooling and expensive after. That asymmetry is worth understanding before the design freeze rather than after the first failed scan.
 
-## What CISPR 14-1 and 14-2 actually measure
+## The two CISPR 14 parts
 
 The CISPR 14 family covers household appliances. Part 1 governs emission, meaning what the device sends out along its power lead and through the air. Part 2 governs immunity, meaning what the device survives when interference arrives from outside.
 
@@ -69,7 +69,7 @@ The margin, not just the verdict. A pass at the limit is a device that will fail
 
 That last line is the one we care about most, and it connects to a broader point in [how quality control actually runs](/blog/06-quality-control-in-ipl-manufacturing-best-practices): a specification without margin is a specification that only holds on the day it was written.
 
-## What a retest costs in time
+## The cost of a retest
 
 A booked chamber is a scheduled resource. Failing means booking another slot, which typically means weeks, plus the engineering time to change the layout or the harness and rebuild a sample.
 
@@ -77,7 +77,7 @@ If the failure lands after tooling, the housing change reopens the mould discuss
 
 The alternative is a pre-scan before the design freeze. An hour in an EMC lab on a bench build costs a fraction of a failed formal test, and it finds the loop problem while the fix is still free.
 
-## Where this fits in the wider file
+## EMC in the wider file
 
 EMC sits alongside the electrical safety standard and the photobiological assessment, and each of them can fail independently on the same device. [The compliance ladder](/blog/ipl-validation-services) shows which of them bind at which volume.
 
