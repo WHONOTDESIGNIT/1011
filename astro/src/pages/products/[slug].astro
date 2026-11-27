@@ -701,6 +701,20 @@ const productSchema = {
               ))}
             </div>
           )}
+          {slug === 'venus' && (
+            <figure class="overflow-hidden rounded-2xl border border-neutral-200 bg-black shadow-sm">
+              <video
+                class="aspect-square w-full"
+                controls
+                playsinline
+                preload="metadata"
+                poster="/images/products/Venus/venus-packaging.webp"
+                aria-label="Venus packaging customization"
+              >
+                <source src="/videos/products/venus/venus-packaging-customization.mp4" type="video/mp4" />
+              </video>
+            </figure>
+          )}
           <script is:inline>
             (() => {
               const root = document.querySelector('[data-product-gallery]');
