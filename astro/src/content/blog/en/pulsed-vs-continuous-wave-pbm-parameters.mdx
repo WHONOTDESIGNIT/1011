@@ -29,7 +29,7 @@ The pulsing question is not exotic. IPL stands for intense pulsed light, so ever
 
 Nothing in that one-line dose description predicts which way it breaks, because the description was never complete. Fluence says how much energy arrived per unit area. It says nothing about whether that energy arrived as a continuous stream or as a train of bursts, and it says nothing about how those bursts were shaped.
 
-## What actually changes when light is chopped into pulses
+## The parameters pulsing adds
 
 CW means the emitter is on for the whole treatment. PW means it switches on and off on a defined cycle, so four new parameters enter the specification:
 
@@ -83,7 +83,7 @@ Light transport in tissue is governed by absorption and scattering at the wavele
 
 Ando and colleagues compared continuous 810 nm against pulsed 810 nm at 10 Hz and 100 Hz in a mouse traumatic brain injury model, holding average power density, treatment time and energy density matched across arms. The 10 Hz pulsed group performed better on some neurological and histological measures. Notably, the improvement did not require a penetration story to explain it: with average power density matched, the pulsed arms were not delivering more light into the tissue in any simple sense. Something about the temporal structure changed the response.
 
-## Where continuous wave wins
+## The case for continuous wave
 
 This is the part that gets left out of pulsing-focused summaries.
 
@@ -102,7 +102,7 @@ Put together, the dose is at least two things stacked:
 - a spatial and energetic layer: wavelength, spot size, irradiance, fluence
 - a temporal layer: frequency, pulse width, duty cycle, peak power, average power, treatment time
 
-## What a complete PBM parameter set looks like
+## The minimum parameter set
 
 If you are comparing two studies or two devices, this is the minimum that has to match before the comparison means anything.
 
@@ -121,7 +121,7 @@ If you are comparing two studies or two devices, this is the minimum that has to
 
 For pulsed devices, reporting only average power is the most common failure. A reader can compute average power from peak power and duty cycle, but not the reverse. Without peak power, frequency and duty cycle, the protocol is not reproducible and the result cannot be attributed to a mechanism. The tissue side of that equation varies just as much as the device side, which is why the same parameters land differently across Fitzpatrick types and regions: [IPL side effects by skin type](/blog/ipl-side-effects-by-skin-type).
 
-## What to do with this
+## How to read a PBM spec sheet
 
 If you're comparing PBM devices, start by refusing to treat the power figure as a specification. Ask whether it's peak or average. Then ask for the temporal parameters, and treat their absence as a gap rather than a detail. The same discipline applies to consumer hair-removal devices, where the spec sheet tends to advertise a flash count instead of the optical and thermal engineering that decides how the treatment actually feels: [why the coating matters more than the flash count](/blog/why-premium-ipl-devices-feel-different), and what a lab-measured filter stack looks like when seven of them are tested side by side rather than described in a brochure: [the long-pass filter test report](/blog/ipl-long-pass-filter-test-report).
 
